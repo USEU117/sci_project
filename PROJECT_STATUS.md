@@ -1,38 +1,47 @@
-# 项目状态
+# Project Status
 
-更新日期：2026-07-24
+Updated: 2026-07-24
 
-## 已确认
+## Confirmed
 
-- 项目根目录初始为空，未发现既有代码或 Git 历史。
-- Python 3.10.11 可用；未安装 Conda。
-- GPU 为 RTX 3060 Laptop 6 GB；驱动 591.86。
-- 第一阶段范围与老师要求已写入 `PLAN.md`。
-- 已核验 AnomalyCLIP、PatchCore、PromptAD、AnomalyDINO、ReMP-AD、AdaptCLIP 的代码来源。
-- MVTec AD 官方下载需要接受/填写许可信息；VisA 可从 AWS Open Data 匿名获取。
+- The project root was initially empty; no prior code or Git history was present.
+- Python 3.10.11 and Git 2.54.0 are available; Conda is not installed.
+- Hardware: NVIDIA RTX 3060 Laptop, 6 GB VRAM; driver 591.86.
+- The full phase-one plan is in `PLAN.md`.
+- Official sources for AnomalyCLIP, PatchCore, PromptAD, AnomalyDINO, ReMP-AD and AdaptCLIP have been recorded.
+- MVTec AD requires the official download form/license flow; VisA is available from AWS Open Data.
+- `scripts/verify_system.ps1` has run successfully. PowerShell execution requires:
+  `powershell -ExecutionPolicy Bypass -File scripts/verify_system.ps1`.
+- `scripts/prepare_splits.py` and `scripts/validate_dataset.py` pass Python 3.10 syntax checks.
+- A synthetic directory test confirmed deterministic nested 1/2/4-shot manifest generation.
 
-## 进行中
+## In progress
 
-- AnomalyCLIP 官方仓库下载。
+- Obtaining the AnomalyCLIP source code. Git clone and codeload are unusually slow on
+  the current Windows network connection.
 
-## 尚未开始
+## Not started
 
-- 数据集下载与校验；
-- 各方法独立虚拟环境；
-- checkpoint 下载；
-- bottle 冒烟测试；
-- 全类别和统一 1/2/4-shot 实验。
+- Dataset download and validation.
+- Per-method virtual environments.
+- Checkpoint download.
+- The AnomalyCLIP `bottle` smoke test.
+- Full-category and unified 1/2/4-shot experiments.
 
-## 当前阻塞与风险
+## Constraints and risks
 
-- MVTec AD 需要用户在官方网页提交许可表单后取得下载。
-- 6 GB 显存不足以照搬部分官方训练配置；先做预训练 checkpoint 推理。
-- Windows 原生 FAISS GPU 支持不稳定；PatchCore 与 AnomalyDINO 首轮使用 CPU FAISS。
+- The official AnomalyCLIP experiments used an RTX 3090 with 24 GB; this machine will
+  first run pretrained-checkpoint inference with batch size 1.
+- Windows GPU FAISS may be unstable; PatchCore and AnomalyDINO will use CPU FAISS first.
+- The current base Python has no `torch`, `numpy` or `scikit-learn`. Dependencies will
+  be installed only after the upstream entry points are inspected.
+- An incomplete `methods/anomalyclip-main.zip` remains from a timed-out codeload
+  attempt; it is not valid source and is not tracked by Git.
 
-## 下一动作
+## Next action
 
-1. 完成 AnomalyCLIP 源码下载并记录 commit。
-2. 审查其 README、依赖、测试脚本和权重入口。
-3. 建立 `.venv-anomalyclip`。
-4. 获取数据并运行 bottle 冒烟。
+1. Finish a verifiable AnomalyCLIP source download and record its commit/hash.
+2. Inspect README, requirements, test scripts, dataset JSON generation and checkpoint links.
+3. Create `.venv-anomalyclip`.
+4. Obtain MVTec AD/VisA and run the `bottle` smoke test.
 
