@@ -1,0 +1,28 @@
+# Datasets and downloads
+data/downloads/
+data/mvtec_ad/
+data/visa_raw/
+data/visa_1cls/
+
+# Third-party source mirrors
+methods/
+
+# Environments
+.venv*/
+venv/
+
+# Experiment outputs
+outputs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

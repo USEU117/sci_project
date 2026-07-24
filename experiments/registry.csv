@@ -1,0 +1,1 @@
+experiment_id,status,method,dataset,category,protocol,shot,seed,source_domain,target_normal_tuning,image_size,image_auroc,image_ap,image_f1_max,pixel_auroc,pixel_ap,aupro,runtime_ms,peak_gpu_mb,feature_bank_mb,config_path,commit_sha,checkpoint,started_at,finished_at,notes

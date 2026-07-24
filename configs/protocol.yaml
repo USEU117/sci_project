@@ -1,0 +1,33 @@
+project:
+  name: uncertainty_routed_few_shot_industrial_ad
+  phase: baseline_reproduction
+
+datasets:
+  - mvtec_ad
+  - visa
+
+shots: [1, 2, 4]
+seeds: [0, 1, 2]
+nested_shot_splits: true
+target_anomaly_training: false
+target_domain_finetuning_default: false
+
+unified_preprocessing:
+  image_size: 224
+  image_interpolation: bilinear
+  mask_interpolation: nearest
+
+metrics:
+  image: [auroc, average_precision, f1_max]
+  pixel: [auroc, average_precision, aupro]
+  aupro_max_fpr: 0.30
+  aggregation: per_category_macro_mean
+
+outputs:
+  score_direction: higher_is_more_anomalous
+  save_per_image: true
+  save_pixel_maps: true
+  save_visualizations: true
+  save_runtime: true
+  save_peak_gpu_memory: true
+
