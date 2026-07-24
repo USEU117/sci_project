@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: 2026-07-24
+Updated: 2026-07-25
 
 ## Confirmed
 
@@ -15,33 +15,46 @@ Updated: 2026-07-24
 - `scripts/prepare_splits.py` and `scripts/validate_dataset.py` pass Python 3.10 syntax checks.
 - A synthetic directory test confirmed deterministic nested 1/2/4-shot manifest generation.
 
+## Completed
+
+- AnomalyCLIP source archive downloaded and verified:
+  commit `3911738c0867544f545a076ad78f3f11d9ecbfdf`,
+  ZIP SHA256 `533ED87B6658CDB247D063A249CEFEA54AB81623CB11683C6F02345B9A6CEAFE`.
+- VisA official tar downloaded and extracted:
+  1,929,840,640 bytes, SHA256
+  `2EB8690C803AB37DE0324772964100169EC8BA1FA3F7E94291C9CA673F40F362`.
+- AnomalyCLIP environment `.venv-anomalyclip` verified with PyTorch
+  `2.0.0+cu118`, torchvision `0.15.1+cu118`, and CUDA available.
+- OpenAI CLIP ViT-L/14@336px weight downloaded and verified.
+- VisA `meta.json` generated from the official `split_csv/1cls.csv`.
+- First complete single-category batch evaluation succeeded on VisA/candle.
+- Official 518px four-layer VisA/candle evaluation succeeded without OOM.
+- Deterministic nested VisA 1/2/4-shot manifests generated for seeds 0, 1 and 2.
+
 ## In progress
 
-- Obtaining the AnomalyCLIP source code. Git clone and codeload are unusually slow on
-  the current Windows network connection.
+- MVTec AD official download and license flow.
+- Extending AnomalyCLIP from the candle smoke gate to all VisA categories.
 
 ## Not started
 
-- Dataset download and validation.
-- Per-method virtual environments.
-- Checkpoint download.
-- The AnomalyCLIP `bottle` smoke test.
-- Full-category and unified 1/2/4-shot experiments.
+- MVTec AD dataset download and validation.
+- Full-category AnomalyCLIP reproduction.
+- Unified 1/2/4-shot manifests for VisA.
 
 ## Constraints and risks
 
 - The official AnomalyCLIP experiments used an RTX 3090 with 24 GB; this machine will
   first run pretrained-checkpoint inference with batch size 1.
 - Windows GPU FAISS may be unstable; PatchCore and AnomalyDINO will use CPU FAISS first.
-- The current base Python has no `torch`, `numpy` or `scikit-learn`. Dependencies will
-  be installed only after the upstream entry points are inspected.
+- The AnomalyCLIP environment is isolated in `.venv-anomalyclip`; the system Python
+  remains unchanged.
 - An incomplete `methods/anomalyclip-main.zip` remains from a timed-out codeload
   attempt; it is not valid source and is not tracked by Git.
 
 ## Next action
 
-1. Finish a verifiable AnomalyCLIP source download and record its commit/hash.
-2. Inspect README, requirements, test scripts, dataset JSON generation and checkpoint links.
-3. Create `.venv-anomalyclip`.
-4. Obtain MVTec AD/VisA and run the `bottle` smoke test.
-
+1. Obtain MVTec AD through its official page.
+2. Generate VisA 1/2/4-shot manifests from the extracted official data.
+3. Run AnomalyCLIP on all VisA classes at the official 518px setting.
+4. Add PatchCore and WinCLIP baseline environments after the AnomalyCLIP gate.

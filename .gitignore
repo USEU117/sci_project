@@ -3,6 +3,7 @@ data/downloads/
 data/mvtec_ad/
 data/visa_raw/
 data/visa_1cls/
+data/visa_candle_smoke/
 
 # Third-party source mirrors
 methods/

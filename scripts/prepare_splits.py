@@ -21,6 +21,19 @@ def image_files(path: Path) -> list[Path]:
     )
 
 
+def normal_candidates(root: Path, dataset: str, category: str) -> list[str]:
+    """Return normal-reference paths for either MVTec layout or VisA meta.json."""
+    if dataset == "visa" and (root / "meta.json").is_file():
+        meta = json.loads((root / "meta.json").read_text(encoding="utf-8"))
+        return sorted(
+            item["img_path"]
+            for item in meta["train"][category]
+            if int(item.get("anomaly", 0)) == 0
+        )
+    good_dir = root / category / "train" / "good"
+    return [p.relative_to(root).as_posix() for p in image_files(good_dir)]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", required=True, choices=["mvtec", "visa"])
@@ -47,18 +60,24 @@ def main() -> None:
         "categories": {},
     }
 
-    categories = sorted(p.name for p in root.iterdir() if p.is_dir())
+    if args.dataset == "visa" and (root / "meta.json").is_file():
+        visa_meta = json.loads((root / "meta.json").read_text(encoding="utf-8"))
+        categories = sorted(visa_meta["train"])
+    else:
+        categories = sorted(p.name for p in root.iterdir() if p.is_dir())
     if not categories:
         raise SystemExit(f"No category directories found under {root}")
     for category in categories:
-        good_dir = root / category / "train" / "good"
-        candidates = image_files(good_dir)
+        candidates = normal_candidates(root, args.dataset, category)
         if len(candidates) < max(shots):
             raise SystemExit(
                 f"{args.dataset}/{category}: {len(candidates)} normal train images, "
                 f"need at least {max(shots)}"
             )
-        rel_candidates = [p.relative_to(root).as_posix() for p in candidates]
+        rel_candidates = [
+            p if isinstance(p, str) else p.relative_to(root).as_posix()
+            for p in candidates
+        ]
         manifest["categories"][category] = {}
         for seed in sorted(set(args.seeds)):
             shuffled = rel_candidates[:]
@@ -80,4 +99,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,0 +1,581 @@
+{
+  "dataset": "visa",
+  "root": "D:\\STUDY\\My_github\\sci_project\\data\\visa_raw",
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "nested": true,
+  "categories": {
+    "candle": {
+      "0": {
+        "1": [
+          "candle/Data/Images/Normal/0345.JPG"
+        ],
+        "2": [
+          "candle/Data/Images/Normal/0345.JPG",
+          "candle/Data/Images/Normal/0661.JPG"
+        ],
+        "4": [
+          "candle/Data/Images/Normal/0345.JPG",
+          "candle/Data/Images/Normal/0661.JPG",
+          "candle/Data/Images/Normal/0789.JPG",
+          "candle/Data/Images/Normal/0517.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "candle/Data/Images/Normal/0401.JPG"
+        ],
+        "2": [
+          "candle/Data/Images/Normal/0401.JPG",
+          "candle/Data/Images/Normal/0814.JPG"
+        ],
+        "4": [
+          "candle/Data/Images/Normal/0401.JPG",
+          "candle/Data/Images/Normal/0814.JPG",
+          "candle/Data/Images/Normal/0565.JPG",
+          "candle/Data/Images/Normal/0069.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "candle/Data/Images/Normal/0240.JPG"
+        ],
+        "2": [
+          "candle/Data/Images/Normal/0240.JPG",
+          "candle/Data/Images/Normal/0434.JPG"
+        ],
+        "4": [
+          "candle/Data/Images/Normal/0240.JPG",
+          "candle/Data/Images/Normal/0434.JPG",
+          "candle/Data/Images/Normal/0210.JPG",
+          "candle/Data/Images/Normal/0150.JPG"
+        ]
+      }
+    },
+    "capsules": {
+      "0": {
+        "1": [
+          "capsules/Data/Images/Normal/595.JPG"
+        ],
+        "2": [
+          "capsules/Data/Images/Normal/595.JPG",
+          "capsules/Data/Images/Normal/020.JPG"
+        ],
+        "4": [
+          "capsules/Data/Images/Normal/595.JPG",
+          "capsules/Data/Images/Normal/020.JPG",
+          "capsules/Data/Images/Normal/270.JPG",
+          "capsules/Data/Images/Normal/224.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "capsules/Data/Images/Normal/113.JPG"
+        ],
+        "2": [
+          "capsules/Data/Images/Normal/113.JPG",
+          "capsules/Data/Images/Normal/393.JPG"
+        ],
+        "4": [
+          "capsules/Data/Images/Normal/113.JPG",
+          "capsules/Data/Images/Normal/393.JPG",
+          "capsules/Data/Images/Normal/075.JPG",
+          "capsules/Data/Images/Normal/039.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "capsules/Data/Images/Normal/270.JPG"
+        ],
+        "2": [
+          "capsules/Data/Images/Normal/270.JPG",
+          "capsules/Data/Images/Normal/039.JPG"
+        ],
+        "4": [
+          "capsules/Data/Images/Normal/270.JPG",
+          "capsules/Data/Images/Normal/039.JPG",
+          "capsules/Data/Images/Normal/540.JPG",
+          "capsules/Data/Images/Normal/589.JPG"
+        ]
+      }
+    },
+    "cashew": {
+      "0": {
+        "1": [
+          "cashew/Data/Images/Normal/139.JPG"
+        ],
+        "2": [
+          "cashew/Data/Images/Normal/139.JPG",
+          "cashew/Data/Images/Normal/111.JPG"
+        ],
+        "4": [
+          "cashew/Data/Images/Normal/139.JPG",
+          "cashew/Data/Images/Normal/111.JPG",
+          "cashew/Data/Images/Normal/456.JPG",
+          "cashew/Data/Images/Normal/459.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "cashew/Data/Images/Normal/035.JPG"
+        ],
+        "2": [
+          "cashew/Data/Images/Normal/035.JPG",
+          "cashew/Data/Images/Normal/175.JPG"
+        ],
+        "4": [
+          "cashew/Data/Images/Normal/035.JPG",
+          "cashew/Data/Images/Normal/175.JPG",
+          "cashew/Data/Images/Normal/219.JPG",
+          "cashew/Data/Images/Normal/027.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "cashew/Data/Images/Normal/233.JPG"
+        ],
+        "2": [
+          "cashew/Data/Images/Normal/233.JPG",
+          "cashew/Data/Images/Normal/415.JPG"
+        ],
+        "4": [
+          "cashew/Data/Images/Normal/233.JPG",
+          "cashew/Data/Images/Normal/415.JPG",
+          "cashew/Data/Images/Normal/355.JPG",
+          "cashew/Data/Images/Normal/152.JPG"
+        ]
+      }
+    },
+    "chewinggum": {
+      "0": {
+        "1": [
+          "chewinggum/Data/Images/Normal/126.JPG"
+        ],
+        "2": [
+          "chewinggum/Data/Images/Normal/126.JPG",
+          "chewinggum/Data/Images/Normal/140.JPG"
+        ],
+        "4": [
+          "chewinggum/Data/Images/Normal/126.JPG",
+          "chewinggum/Data/Images/Normal/140.JPG",
+          "chewinggum/Data/Images/Normal/208.JPG",
+          "chewinggum/Data/Images/Normal/195.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "chewinggum/Data/Images/Normal/401.JPG"
+        ],
+        "2": [
+          "chewinggum/Data/Images/Normal/401.JPG",
+          "chewinggum/Data/Images/Normal/370.JPG"
+        ],
+        "4": [
+          "chewinggum/Data/Images/Normal/401.JPG",
+          "chewinggum/Data/Images/Normal/370.JPG",
+          "chewinggum/Data/Images/Normal/320.JPG",
+          "chewinggum/Data/Images/Normal/375.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "chewinggum/Data/Images/Normal/208.JPG"
+        ],
+        "2": [
+          "chewinggum/Data/Images/Normal/208.JPG",
+          "chewinggum/Data/Images/Normal/090.JPG"
+        ],
+        "4": [
+          "chewinggum/Data/Images/Normal/208.JPG",
+          "chewinggum/Data/Images/Normal/090.JPG",
+          "chewinggum/Data/Images/Normal/216.JPG",
+          "chewinggum/Data/Images/Normal/124.JPG"
+        ]
+      }
+    },
+    "fryum": {
+      "0": {
+        "1": [
+          "fryum/Data/Images/Normal/139.JPG"
+        ],
+        "2": [
+          "fryum/Data/Images/Normal/139.JPG",
+          "fryum/Data/Images/Normal/111.JPG"
+        ],
+        "4": [
+          "fryum/Data/Images/Normal/139.JPG",
+          "fryum/Data/Images/Normal/111.JPG",
+          "fryum/Data/Images/Normal/456.JPG",
+          "fryum/Data/Images/Normal/459.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "fryum/Data/Images/Normal/035.JPG"
+        ],
+        "2": [
+          "fryum/Data/Images/Normal/035.JPG",
+          "fryum/Data/Images/Normal/175.JPG"
+        ],
+        "4": [
+          "fryum/Data/Images/Normal/035.JPG",
+          "fryum/Data/Images/Normal/175.JPG",
+          "fryum/Data/Images/Normal/219.JPG",
+          "fryum/Data/Images/Normal/027.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "fryum/Data/Images/Normal/233.JPG"
+        ],
+        "2": [
+          "fryum/Data/Images/Normal/233.JPG",
+          "fryum/Data/Images/Normal/415.JPG"
+        ],
+        "4": [
+          "fryum/Data/Images/Normal/233.JPG",
+          "fryum/Data/Images/Normal/415.JPG",
+          "fryum/Data/Images/Normal/355.JPG",
+          "fryum/Data/Images/Normal/152.JPG"
+        ]
+      }
+    },
+    "macaroni1": {
+      "0": {
+        "1": [
+          "macaroni1/Data/Images/Normal/0345.JPG"
+        ],
+        "2": [
+          "macaroni1/Data/Images/Normal/0345.JPG",
+          "macaroni1/Data/Images/Normal/0661.JPG"
+        ],
+        "4": [
+          "macaroni1/Data/Images/Normal/0345.JPG",
+          "macaroni1/Data/Images/Normal/0661.JPG",
+          "macaroni1/Data/Images/Normal/0789.JPG",
+          "macaroni1/Data/Images/Normal/0517.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "macaroni1/Data/Images/Normal/0401.JPG"
+        ],
+        "2": [
+          "macaroni1/Data/Images/Normal/0401.JPG",
+          "macaroni1/Data/Images/Normal/0814.JPG"
+        ],
+        "4": [
+          "macaroni1/Data/Images/Normal/0401.JPG",
+          "macaroni1/Data/Images/Normal/0814.JPG",
+          "macaroni1/Data/Images/Normal/0565.JPG",
+          "macaroni1/Data/Images/Normal/0069.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "macaroni1/Data/Images/Normal/0240.JPG"
+        ],
+        "2": [
+          "macaroni1/Data/Images/Normal/0240.JPG",
+          "macaroni1/Data/Images/Normal/0434.JPG"
+        ],
+        "4": [
+          "macaroni1/Data/Images/Normal/0240.JPG",
+          "macaroni1/Data/Images/Normal/0434.JPG",
+          "macaroni1/Data/Images/Normal/0210.JPG",
+          "macaroni1/Data/Images/Normal/0150.JPG"
+        ]
+      }
+    },
+    "macaroni2": {
+      "0": {
+        "1": [
+          "macaroni2/Data/Images/Normal/0345.JPG"
+        ],
+        "2": [
+          "macaroni2/Data/Images/Normal/0345.JPG",
+          "macaroni2/Data/Images/Normal/0661.JPG"
+        ],
+        "4": [
+          "macaroni2/Data/Images/Normal/0345.JPG",
+          "macaroni2/Data/Images/Normal/0661.JPG",
+          "macaroni2/Data/Images/Normal/0789.JPG",
+          "macaroni2/Data/Images/Normal/0517.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "macaroni2/Data/Images/Normal/0401.JPG"
+        ],
+        "2": [
+          "macaroni2/Data/Images/Normal/0401.JPG",
+          "macaroni2/Data/Images/Normal/0814.JPG"
+        ],
+        "4": [
+          "macaroni2/Data/Images/Normal/0401.JPG",
+          "macaroni2/Data/Images/Normal/0814.JPG",
+          "macaroni2/Data/Images/Normal/0565.JPG",
+          "macaroni2/Data/Images/Normal/0069.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "macaroni2/Data/Images/Normal/0240.JPG"
+        ],
+        "2": [
+          "macaroni2/Data/Images/Normal/0240.JPG",
+          "macaroni2/Data/Images/Normal/0434.JPG"
+        ],
+        "4": [
+          "macaroni2/Data/Images/Normal/0240.JPG",
+          "macaroni2/Data/Images/Normal/0434.JPG",
+          "macaroni2/Data/Images/Normal/0210.JPG",
+          "macaroni2/Data/Images/Normal/0150.JPG"
+        ]
+      }
+    },
+    "pcb1": {
+      "0": {
+        "1": [
+          "pcb1/Data/Images/Normal/0138.JPG"
+        ],
+        "2": [
+          "pcb1/Data/Images/Normal/0138.JPG",
+          "pcb1/Data/Images/Normal/0986.JPG"
+        ],
+        "4": [
+          "pcb1/Data/Images/Normal/0138.JPG",
+          "pcb1/Data/Images/Normal/0986.JPG",
+          "pcb1/Data/Images/Normal/0332.JPG",
+          "pcb1/Data/Images/Normal/0511.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "pcb1/Data/Images/Normal/0508.JPG"
+        ],
+        "2": [
+          "pcb1/Data/Images/Normal/0508.JPG",
+          "pcb1/Data/Images/Normal/0541.JPG"
+        ],
+        "4": [
+          "pcb1/Data/Images/Normal/0508.JPG",
+          "pcb1/Data/Images/Normal/0541.JPG",
+          "pcb1/Data/Images/Normal/0817.JPG",
+          "pcb1/Data/Images/Normal/0312.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "pcb1/Data/Images/Normal/0049.JPG"
+        ],
+        "2": [
+          "pcb1/Data/Images/Normal/0049.JPG",
+          "pcb1/Data/Images/Normal/0487.JPG"
+        ],
+        "4": [
+          "pcb1/Data/Images/Normal/0049.JPG",
+          "pcb1/Data/Images/Normal/0487.JPG",
+          "pcb1/Data/Images/Normal/0413.JPG",
+          "pcb1/Data/Images/Normal/0332.JPG"
+        ]
+      }
+    },
+    "pcb2": {
+      "0": {
+        "1": [
+          "pcb2/Data/Images/Normal/0094.JPG"
+        ],
+        "2": [
+          "pcb2/Data/Images/Normal/0094.JPG",
+          "pcb2/Data/Images/Normal/0265.JPG"
+        ],
+        "4": [
+          "pcb2/Data/Images/Normal/0094.JPG",
+          "pcb2/Data/Images/Normal/0265.JPG",
+          "pcb2/Data/Images/Normal/0383.JPG",
+          "pcb2/Data/Images/Normal/0504.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "pcb2/Data/Images/Normal/0473.JPG"
+        ],
+        "2": [
+          "pcb2/Data/Images/Normal/0473.JPG",
+          "pcb2/Data/Images/Normal/0847.JPG"
+        ],
+        "4": [
+          "pcb2/Data/Images/Normal/0473.JPG",
+          "pcb2/Data/Images/Normal/0847.JPG",
+          "pcb2/Data/Images/Normal/0586.JPG",
+          "pcb2/Data/Images/Normal/0069.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "pcb2/Data/Images/Normal/0240.JPG"
+        ],
+        "2": [
+          "pcb2/Data/Images/Normal/0240.JPG",
+          "pcb2/Data/Images/Normal/0434.JPG"
+        ],
+        "4": [
+          "pcb2/Data/Images/Normal/0240.JPG",
+          "pcb2/Data/Images/Normal/0434.JPG",
+          "pcb2/Data/Images/Normal/0210.JPG",
+          "pcb2/Data/Images/Normal/0150.JPG"
+        ]
+      }
+    },
+    "pcb3": {
+      "0": {
+        "1": [
+          "pcb3/Data/Images/Normal/0138.JPG"
+        ],
+        "2": [
+          "pcb3/Data/Images/Normal/0138.JPG",
+          "pcb3/Data/Images/Normal/0988.JPG"
+        ],
+        "4": [
+          "pcb3/Data/Images/Normal/0138.JPG",
+          "pcb3/Data/Images/Normal/0988.JPG",
+          "pcb3/Data/Images/Normal/0332.JPG",
+          "pcb3/Data/Images/Normal/0511.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "pcb3/Data/Images/Normal/0508.JPG"
+        ],
+        "2": [
+          "pcb3/Data/Images/Normal/0508.JPG",
+          "pcb3/Data/Images/Normal/0541.JPG"
+        ],
+        "4": [
+          "pcb3/Data/Images/Normal/0508.JPG",
+          "pcb3/Data/Images/Normal/0541.JPG",
+          "pcb3/Data/Images/Normal/0817.JPG",
+          "pcb3/Data/Images/Normal/0312.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "pcb3/Data/Images/Normal/0252.JPG"
+        ],
+        "2": [
+          "pcb3/Data/Images/Normal/0252.JPG",
+          "pcb3/Data/Images/Normal/0249.JPG"
+        ],
+        "4": [
+          "pcb3/Data/Images/Normal/0252.JPG",
+          "pcb3/Data/Images/Normal/0249.JPG",
+          "pcb3/Data/Images/Normal/0379.JPG",
+          "pcb3/Data/Images/Normal/0708.JPG"
+        ]
+      }
+    },
+    "pcb4": {
+      "0": {
+        "1": [
+          "pcb4/Data/Images/Normal/0138.JPG"
+        ],
+        "2": [
+          "pcb4/Data/Images/Normal/0138.JPG",
+          "pcb4/Data/Images/Normal/0987.JPG"
+        ],
+        "4": [
+          "pcb4/Data/Images/Normal/0138.JPG",
+          "pcb4/Data/Images/Normal/0987.JPG",
+          "pcb4/Data/Images/Normal/0332.JPG",
+          "pcb4/Data/Images/Normal/0511.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "pcb4/Data/Images/Normal/0508.JPG"
+        ],
+        "2": [
+          "pcb4/Data/Images/Normal/0508.JPG",
+          "pcb4/Data/Images/Normal/0541.JPG"
+        ],
+        "4": [
+          "pcb4/Data/Images/Normal/0508.JPG",
+          "pcb4/Data/Images/Normal/0541.JPG",
+          "pcb4/Data/Images/Normal/0817.JPG",
+          "pcb4/Data/Images/Normal/0312.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "pcb4/Data/Images/Normal/0049.JPG"
+        ],
+        "2": [
+          "pcb4/Data/Images/Normal/0049.JPG",
+          "pcb4/Data/Images/Normal/0487.JPG"
+        ],
+        "4": [
+          "pcb4/Data/Images/Normal/0049.JPG",
+          "pcb4/Data/Images/Normal/0487.JPG",
+          "pcb4/Data/Images/Normal/0413.JPG",
+          "pcb4/Data/Images/Normal/0332.JPG"
+        ]
+      }
+    },
+    "pipe_fryum": {
+      "0": {
+        "1": [
+          "pipe_fryum/Data/Images/Normal/139.JPG"
+        ],
+        "2": [
+          "pipe_fryum/Data/Images/Normal/139.JPG",
+          "pipe_fryum/Data/Images/Normal/111.JPG"
+        ],
+        "4": [
+          "pipe_fryum/Data/Images/Normal/139.JPG",
+          "pipe_fryum/Data/Images/Normal/111.JPG",
+          "pipe_fryum/Data/Images/Normal/456.JPG",
+          "pipe_fryum/Data/Images/Normal/459.JPG"
+        ]
+      },
+      "1": {
+        "1": [
+          "pipe_fryum/Data/Images/Normal/035.JPG"
+        ],
+        "2": [
+          "pipe_fryum/Data/Images/Normal/035.JPG",
+          "pipe_fryum/Data/Images/Normal/175.JPG"
+        ],
+        "4": [
+          "pipe_fryum/Data/Images/Normal/035.JPG",
+          "pipe_fryum/Data/Images/Normal/175.JPG",
+          "pipe_fryum/Data/Images/Normal/219.JPG",
+          "pipe_fryum/Data/Images/Normal/027.JPG"
+        ]
+      },
+      "2": {
+        "1": [
+          "pipe_fryum/Data/Images/Normal/233.JPG"
+        ],
+        "2": [
+          "pipe_fryum/Data/Images/Normal/233.JPG",
+          "pipe_fryum/Data/Images/Normal/415.JPG"
+        ],
+        "4": [
+          "pipe_fryum/Data/Images/Normal/233.JPG",
+          "pipe_fryum/Data/Images/Normal/415.JPG",
+          "pipe_fryum/Data/Images/Normal/355.JPG",
+          "pipe_fryum/Data/Images/Normal/152.JPG"
+        ]
+      }
+    }
+  }
+}

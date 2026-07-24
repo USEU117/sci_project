@@ -1,9 +1,35 @@
-# 复现问题记录
+# Reproduction Notes
 
 ## 2026-07-24
 
-- 仓库初始为空，不存在可继承的代码或实验。
-- `rg.exe` 在当前沙箱中无法执行，文件盘点改用 PowerShell。
-- AnomalyCLIP 官方论文实验硬件为 RTX 3090 24 GB，本机为 RTX 3060 Laptop 6 GB；先验证官方 checkpoint 推理，训练复现另行评估。
-- WinCLIP 没有公开的论文作者官方实现；优先使用 AnomalyCLIP 仓库提供的复现，再以 `caoyunkang/WinClip` 交叉核对。
+- The repository was initially empty.
+- `rg.exe` was unavailable in the sandbox, so the inventory used PowerShell.
+- Official AnomalyCLIP experiments used an RTX 3090 24 GB; this machine has an
+  RTX 3060 Laptop 6 GB. The first milestone is pretrained-checkpoint inference.
+- The original WinCLIP implementation is not publicly available from the paper
+  authors; use AnomalyCLIP's embedded reproduction first and cross-check with
+  `caoyunkang/WinClip`.
+
+## 2026-07-25
+
+- AnomalyCLIP source archive (main, commit
+  `3911738c0867544f545a076ad78f3f11d9ecbfdf`) was downloaded and verified.
+  ZIP SHA256:
+  `533ED87B6658CDB247D063A249CEFEA54AB81623CB11683C6F02345B9A6CEAFE`.
+- AnomalyCLIP checkpoints are included in the source archive. VisA evaluation
+  uses `checkpoints/9_12_4_multiscale_visa/epoch_15.pth`.
+- OpenAI CLIP ViT-L/14@336px weights were downloaded to the code's hardcoded
+  cache path and verified with SHA256
+  `3035C92B350959924F9F00213499208652FC7EA050643E8B385C2DAC08641F02`.
+- The official VisA tar was downloaded and extracted. Size:
+  `1929840640` bytes. SHA256:
+  `2EB8690C803AB37DE0324772964100169EC8BA1FA3F7E94291C9CA673F40F362`.
+- The official VisA `split_csv/1cls.csv` generated `meta.json`: 12 classes,
+  962 normal training samples and 1,200 anomalous samples.
+- The upstream `test.py` assumes all classes are present in metadata and calls
+  `torch.cat([])` for a one-class subset. A minimal local compatibility patch
+  skips classes with no predictions; full-class logic is unchanged.
+- First complete GPU smoke evaluation: VisA/candle, 336px, feature 24,
+  200 test images. Pixel AUROC 98.9, AUPRO 94.2, image AUROC 90.1,
+  image AP 91.1.
 
