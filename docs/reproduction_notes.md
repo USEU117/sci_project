@@ -48,3 +48,11 @@
 - The local AnomalyCLIP compatibility changes are preserved in
   `patches/anomalyclip-test-cache.patch`; third-party source under `methods/`
   remains intentionally untracked.
+- Cache-enabled full VisA evaluation completed for all 12 categories and
+  2,162 test images. Macro results at the official 518px/four-layer setting:
+  image AUROC 81.97%, image AP 85.34%, pixel AUROC 93.93%, pixel AP 18.98%,
+  and AUPRO 83.60% (200 thresholds, max FPR 0.30). Per-category values are in
+  `outputs/anomalyclip/visa_all_cached_metrics.csv` (the output directory is
+  ignored by Git).
+- The 12 compressed prediction caches total 2,050,752,485 bytes. The evaluator
+  resumes by skipping categories already present in its output CSV.

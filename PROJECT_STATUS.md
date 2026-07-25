@@ -37,17 +37,23 @@ Updated: 2026-07-25
   VisA/candle. The optimized 200-threshold evaluator exactly matches the
   upstream AUPRO algorithm on a synthetic cross-check and reproduced the
   official candle metrics: pixel AUROC 97.58% and AUPRO 94.50%.
+- Cache-enabled full VisA evaluation completed for all 12 categories and
+  2,162 test images. Macro metrics are image AUROC 81.97%, image AP 85.34%,
+  pixel AUROC 93.93%, pixel AP 18.98%, and AUPRO 83.60% (official 200
+  thresholds).
+- The full run produced 12 per-category NPZ caches totaling 2,050,752,485
+  bytes; `outputs/anomalyclip/visa_all_cached_metrics.csv` is resumable.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Extending AnomalyCLIP from the candle smoke gate to all VisA categories.
-- Running the cache-enabled full VisA evaluation.
+- MVTec AD official download and license flow.
 
 ## Not started
 
 - MVTec AD dataset download and validation.
-- Full-category AnomalyCLIP reproduction.
+- MVTec AD dataset download and validation.
+- Full-category AnomalyCLIP reproduction on MVTec.
 - Unified 1/2/4-shot experiments for VisA.
 
 ## Constraints and risks
@@ -63,6 +69,6 @@ Updated: 2026-07-25
 ## Next action
 
 1. Obtain MVTec AD through its official page.
-2. Finish the cache-enabled AnomalyCLIP run and calculate all-class VisA metrics.
-3. Add PatchCore and WinCLIP baseline environments after the AnomalyCLIP gate.
-4. Execute unified VisA 1/2/4-shot baselines for seeds 0, 1 and 2.
+2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
+3. Add PatchCore and WinCLIP baseline environments after the two-dataset AnomalyCLIP gate.
+4. Execute unified VisA and MVTec 1/2/4-shot baselines for seeds 0, 1 and 2.
