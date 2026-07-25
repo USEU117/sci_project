@@ -32,4 +32,9 @@
 - First complete GPU smoke evaluation: VisA/candle, 336px, feature 24,
   200 test images. Pixel AUROC 98.9, AUPRO 94.2, image AUROC 90.1,
   image AP 91.1.
-
+- Official 518px four-layer VisA/candle evaluation: pixel AUROC 97.6,
+  AUPRO 94.5, image AUROC 80.9, image AP 82.6.
+- Full VisA official 518px inference completed for all 2,162 test images in
+  about 24 minutes without OOM. The upstream all-class AUPRO aggregation was
+  stopped after about 51 minutes without writing a log; future runs must pass
+  `--dump_predictions` and use `scripts/evaluate_cached.py`.

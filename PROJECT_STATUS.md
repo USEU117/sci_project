@@ -30,11 +30,15 @@ Updated: 2026-07-25
 - First complete single-category batch evaluation succeeded on VisA/candle.
 - Official 518px four-layer VisA/candle evaluation succeeded without OOM.
 - Deterministic nested VisA 1/2/4-shot manifests generated for seeds 0, 1 and 2.
+- Full VisA 518px four-layer inference completed for all 2,162 test images;
+  upstream AUPRO aggregation timed out after approximately 51 minutes before
+  writing a final log.
 
 ## In progress
 
 - MVTec AD official download and license flow.
 - Extending AnomalyCLIP from the candle smoke gate to all VisA categories.
+- Adding prediction caching and optimized evaluation for the full VisA run.
 
 ## Not started
 
