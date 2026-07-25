@@ -46,11 +46,14 @@ Updated: 2026-07-25
 - PatchCore official source and isolated environment are verified. A
   VisA/candle 128px engineering smoke completed with instance AUROC 97.98%,
   full-pixel AUROC 98.42%, and anomaly-pixel AUROC 96.96% using CPU FAISS.
+- PatchCore VisA engineering evaluation completed for all 12 categories.
+  Macro instance AUROC is 90.87%, full-pixel AUROC 97.02%, and
+  anomaly-pixel AUROC 95.89% under the 128px/256-dim local protocol.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Extending PatchCore from the VisA/candle smoke gate to all VisA categories.
+- Preparing the WinCLIP/WinCLIP+ baseline in the existing CLIP environment.
 
 ## Not started
 
@@ -72,5 +75,5 @@ Updated: 2026-07-25
 
 1. Obtain MVTec AD through its official page.
 2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
-3. Finish PatchCore on all VisA categories, then add the WinCLIP baseline.
+3. Complete WinCLIP/WinCLIP+ smoke and record zero-shot versus few-shot protocol.
 4. Execute unified VisA and MVTec 1/2/4-shot baselines for seeds 0, 1 and 2.

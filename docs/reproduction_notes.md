@@ -66,3 +66,9 @@
   smoke completed with `num_workers=0`, CPU FAISS and metrics: instance AUROC
   97.98%, full-pixel AUROC 98.42%, anomaly-pixel AUROC 96.96%. These are
   engineering smoke results, not the official 224px paper setting.
+- The same conservative PatchCore configuration was run independently for all
+  12 VisA categories. Per-category `results.csv` files are under
+  `outputs/patchcore/visa_all_128/`; macro results are instance AUROC 90.87%,
+  full-pixel AUROC 97.02%, and anomaly-pixel AUROC 95.89%. This table is an
+  engineering comparison only because it uses 128px inputs and 256-dimensional
+  target embeddings.
