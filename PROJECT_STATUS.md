@@ -43,15 +43,17 @@ Updated: 2026-07-25
   thresholds).
 - The full run produced 12 per-category NPZ caches totaling 2,050,752,485
   bytes; `outputs/anomalyclip/visa_all_cached_metrics.csv` is resumable.
+- PatchCore official source and isolated environment are verified. A
+  VisA/candle 128px engineering smoke completed with instance AUROC 97.98%,
+  full-pixel AUROC 98.42%, and anomaly-pixel AUROC 96.96% using CPU FAISS.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- MVTec AD official download and license flow.
+- Extending PatchCore from the VisA/candle smoke gate to all VisA categories.
 
 ## Not started
 
-- MVTec AD dataset download and validation.
 - MVTec AD dataset download and validation.
 - Full-category AnomalyCLIP reproduction on MVTec.
 - Unified 1/2/4-shot experiments for VisA.
@@ -70,5 +72,5 @@ Updated: 2026-07-25
 
 1. Obtain MVTec AD through its official page.
 2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
-3. Add PatchCore and WinCLIP baseline environments after the two-dataset AnomalyCLIP gate.
+3. Finish PatchCore on all VisA categories, then add the WinCLIP baseline.
 4. Execute unified VisA and MVTec 1/2/4-shot baselines for seeds 0, 1 and 2.

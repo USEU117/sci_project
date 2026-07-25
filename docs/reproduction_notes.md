@@ -56,3 +56,13 @@
   ignored by Git).
 - The 12 compressed prediction caches total 2,050,752,485 bytes. The evaluator
   resumes by skipping categories already present in its output CSV.
+- PatchCore source HEAD `fcaa92f124fb1ad74a7acf56726decd4b27cbcad` and its ZIP
+  SHA256 `17994A589AA979D2981153D57A8B1A7C354A57C803A2607239BF7C79A18B17F4`
+  were downloaded. Its isolated environment was verified with CUDA torch
+  2.0.0+cu118, torchvision 0.15.1+cu118 and CPU FAISS 1.7.4.
+- A VisA/candle adapter was added at `scripts/prepare_patchcore_visa.py`.
+  PatchCore's official 224px configuration exceeded local contiguous memory
+  (2.69 GiB allocation) after feature extraction. A reduced 128px/256-dim
+  smoke completed with `num_workers=0`, CPU FAISS and metrics: instance AUROC
+  97.98%, full-pixel AUROC 98.42%, anomaly-pixel AUROC 96.96%. These are
+  engineering smoke results, not the official 224px paper setting.
