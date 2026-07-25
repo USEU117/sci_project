@@ -6,7 +6,7 @@ been verified on the local RTX 3060 Laptop.
 | Method | Environment | Python | Upstream requirements | Local status |
 |---|---|---:|---|---|
 | AnomalyCLIP | `.venv-anomalyclip` | 3.10 | PyTorch 2.0.0+cu118, torchvision 0.15.1+cu118 | CUDA verified |
-| WinCLIP | reuse AnomalyCLIP environment first | 3.10 | AnomalyCLIP embedded reproduction | Not started |
+| WinCLIP | `.venv-winclip` | 3.10 | PyTorch 2.0.0+cu118, OpenCLIP 2.20.0, LAION ViT-B/16-plus-240 | candle zero-/one-shot smoke verified |
 | PatchCore | `.venv-patchcore` | 3.10 | PyTorch 2.0.0+cu118, torchvision 0.15.1+cu118, FAISS CPU 1.7.4, timm 0.6.13 | CUDA/CPU-FAISS smoke verified |
 | PromptAD | `.venv-promptad` | 3.10 | official `install.sh` | Not started |
 | AnomalyDINO | `.venv-anomalydino` | 3.10 | official `requirements.txt` | Not started |

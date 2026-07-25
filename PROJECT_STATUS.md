@@ -49,11 +49,17 @@ Updated: 2026-07-25
 - PatchCore VisA engineering evaluation completed for all 12 categories.
   Macro instance AUROC is 90.87%, full-pixel AUROC 97.02%, and
   anomaly-pixel AUROC 95.89% under the 128px/256-dim local protocol.
+- WinCLIP public reproduction source and isolated environment are verified.
+  VisA/candle zero-shot and repository-native one-shot smokes completed.
+- WinCLIP native zero-shot evaluation completed for all 12 VisA categories at
+  240px with LAION ViT-B-16-plus-240. Macro image AUROC is 66.09% and
+  pixel AUROC is 73.81% (native `cal_pro=false`; p_pro is not reported).
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Preparing the WinCLIP/WinCLIP+ baseline in the existing CLIP environment.
+- Extending WinCLIP/WinCLIP+ from native zero-shot to native few-shot and
+  the project's unified 1/2/4-shot protocol.
 
 ## Not started
 
@@ -75,5 +81,6 @@ Updated: 2026-07-25
 
 1. Obtain MVTec AD through its official page.
 2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
-3. Complete WinCLIP/WinCLIP+ smoke and record zero-shot versus few-shot protocol.
+3. Finish WinCLIP/WinCLIP+ on VisA, recording its native 0/1/5/10-shot
+   protocol separately from the project's unified 1/2/4-shot protocol.
 4. Execute unified VisA and MVTec 1/2/4-shot baselines for seeds 0, 1 and 2.

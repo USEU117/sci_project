@@ -5,6 +5,8 @@
 - AnomalyCLIP (ICLR 2024): <https://github.com/zqhang/AnomalyCLIP>
 - WinCLIP (CVPR 2023) 论文: <https://arxiv.org/abs/2303.14814>
 - WinCLIP 第三方复现: <https://github.com/caoyunkang/WinClip>
+  - Tested HEAD commit: `a2ee822d77d01fb7beaed54314e61fe34d5027a4`
+  - Source ZIP SHA256: `2FD7FA5426A9D2C66AADF805EA1DBBB04B3C041DBEC9644048FC6156BDE04D0C`
 - PatchCore: <https://github.com/amazon-science/patchcore-inspection>
   - Tested HEAD commit: `fcaa92f124fb1ad74a7acf56726decd4b27cbcad`
   - Source ZIP SHA256: `17994A589AA979D2981153D57A8B1A7C354A57C803A2607239BF7C79A18B17F4`

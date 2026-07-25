@@ -72,3 +72,18 @@
   full-pixel AUROC 97.02%, and anomaly-pixel AUROC 95.89%. This table is an
   engineering comparison only because it uses 128px inputs and 256-dimensional
   target embeddings.
+- WinCLIP public reproduction HEAD `a2ee822d77d01fb7beaed54314e61fe34d5027a4`
+  was downloaded (ZIP SHA256
+  `2FD7FA5426A9D2C66AADF805EA1DBBB04B3C041DBEC9644048FC6156BDE04D0C`).
+  Native VisA/candle zero-shot results were Image AUROC 84.97%, Pixel AUROC
+  89.86%, Image F1 78.15%, Pixel F1 6.48%; native one-shot results were
+  Image AUROC 83.95%, Pixel AUROC 90.74%, Image F1 78.54%, Pixel F1 8.21%.
+  The repository runs with `cal_pro=false`, so `p_pro=0` is not a valid
+  segmentation metric. Its native k-shot values are 0/1/5/10, not the
+  project's unified 1/2/4-shot protocol.
+- WinCLIP native zero-shot was then run for all 12 VisA categories using the
+  same 240px/LAION ViT-B-16-plus-240 configuration. The per-category logs are
+  under `methods/winclip/WinClip-master/outputs/winclip/visa_all_zs/`.
+  Macro image AUROC is 66.0883%, pixel AUROC 73.8125%, image F1 74.8358%,
+  and pixel F1 8.9192%. These F1 values are repository-native thresholded
+  outputs and should not replace AUROC in the main comparison table.
