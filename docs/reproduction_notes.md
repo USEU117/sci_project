@@ -38,3 +38,13 @@
   about 24 minutes without OOM. The upstream all-class AUPRO aggregation was
   stopped after about 51 minutes without writing a log; future runs must pass
   `--dump_predictions` and use `scripts/evaluate_cached.py`.
+- Cache validation on VisA/candle succeeded. The 189,930,496-byte NPZ cache
+  reproduced image AUROC 80.94%, image AP 82.60%, pixel AUROC 97.58%, pixel AP
+  22.47%, and official 200-threshold AUPRO 94.50%.
+- The optimized AUPRO implementation extracts connected components once and
+  uses sorted pixel scores for every threshold. A deterministic synthetic
+  cross-check matched the upstream implementation exactly (absolute
+  difference 0.0); the candle result also matches the upstream rounded AUPRO.
+- The local AnomalyCLIP compatibility changes are preserved in
+  `patches/anomalyclip-test-cache.patch`; third-party source under `methods/`
+  remains intentionally untracked.

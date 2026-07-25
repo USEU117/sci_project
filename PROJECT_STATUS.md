@@ -33,18 +33,22 @@ Updated: 2026-07-25
 - Full VisA 518px four-layer inference completed for all 2,162 test images;
   upstream AUPRO aggregation timed out after approximately 51 minutes before
   writing a final log.
+- Prediction caching and independent cached evaluation were validated on
+  VisA/candle. The optimized 200-threshold evaluator exactly matches the
+  upstream AUPRO algorithm on a synthetic cross-check and reproduced the
+  official candle metrics: pixel AUROC 97.58% and AUPRO 94.50%.
 
 ## In progress
 
 - MVTec AD official download and license flow.
 - Extending AnomalyCLIP from the candle smoke gate to all VisA categories.
-- Adding prediction caching and optimized evaluation for the full VisA run.
+- Running the cache-enabled full VisA evaluation.
 
 ## Not started
 
 - MVTec AD dataset download and validation.
 - Full-category AnomalyCLIP reproduction.
-- Unified 1/2/4-shot manifests for VisA.
+- Unified 1/2/4-shot experiments for VisA.
 
 ## Constraints and risks
 
@@ -59,6 +63,6 @@ Updated: 2026-07-25
 ## Next action
 
 1. Obtain MVTec AD through its official page.
-2. Generate VisA 1/2/4-shot manifests from the extracted official data.
-3. Run AnomalyCLIP on all VisA classes at the official 518px setting.
-4. Add PatchCore and WinCLIP baseline environments after the AnomalyCLIP gate.
+2. Finish the cache-enabled AnomalyCLIP run and calculate all-class VisA metrics.
+3. Add PatchCore and WinCLIP baseline environments after the AnomalyCLIP gate.
+4. Execute unified VisA 1/2/4-shot baselines for seeds 0, 1 and 2.
