@@ -54,12 +54,15 @@ Updated: 2026-07-25
 - WinCLIP native zero-shot evaluation completed for all 12 VisA categories at
   240px with LAION ViT-B-16-plus-240. Macro image AUROC is 66.09% and
   pixel AUROC is 73.81% (native `cal_pro=false`; p_pro is not reported).
+- WinCLIP native one-shot evaluation completed for all 12 VisA categories.
+  Macro image AUROC is 69.40% and pixel AUROC is 89.91%; the native
+  thresholded image/pixel F1 means are 76.30% and 14.62%.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Extending WinCLIP/WinCLIP+ from native zero-shot to native few-shot and
-  the project's unified 1/2/4-shot protocol.
+- Extending WinCLIP/WinCLIP+ from native 1-shot to native 5/10-shot and the
+  project's unified 1/2/4-shot protocol.
 
 ## Not started
 

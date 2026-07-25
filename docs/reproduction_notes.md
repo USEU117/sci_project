@@ -87,3 +87,7 @@
   Macro image AUROC is 66.0883%, pixel AUROC 73.8125%, image F1 74.8358%,
   and pixel F1 8.9192%. These F1 values are repository-native thresholded
   outputs and should not replace AUROC in the main comparison table.
+- Native one-shot was run for all 12 VisA categories with one normal support
+  image per category. Macro image AUROC is 69.4025%, pixel AUROC 89.9075%,
+  image F1 76.2983%, and pixel F1 14.62%. The run is stored under
+  `methods/winclip/WinClip-master/outputs/winclip/visa_all_k1/`.
