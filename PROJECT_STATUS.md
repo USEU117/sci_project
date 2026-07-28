@@ -71,12 +71,18 @@ Updated: 2026-07-28
   image AUROC mean±std is 68.03±1.19%, 72.91±0.47%, and 78.68±1.11%;
   pixel AUROC is 85.96±0.66%, 90.04±0.21%, and 91.95±0.27%; AUPRO is
   50.60±0.29%, 57.96±0.37%, and 62.21±1.32% for 1/2/4-shot respectively.
+- WinCLIP+ now reads the frozen unified manifest, supports 1/2/4-shot, honors
+  `--vis false`, and exports the common prediction NPZ schema. VisA/candle
+  seed-0 Gate A passed at all three shots. Unified image AUROC is
+  84.48%/84.90%/85.09%, pixel AUROC is 90.69%/90.87%/90.90%, and AUPRO is
+  85.40%/85.52%/85.36%.
 
 ## In progress
 
 - MVTec AD official download and license flow.
 - Extending WinCLIP/WinCLIP+ from native 1-shot to the project's unified
-  1/2/4-shot protocol.
+  1/2/4-shot protocol; candle Gate A is complete and the full VisA matrix is
+  next.
 
 ## Not started
 

@@ -1,0 +1,102 @@
+diff --git a/datasets/dataset.py b/datasets/dataset.py
+--- a/datasets/dataset.py
++++ b/datasets/dataset.py
+@@
+-        assert k_shot in [0, 1, 5, 10]
++        assert k_shot in [0, 1, 2, 4, 5, 10]
+diff --git a/datasets/visa.py b/datasets/visa.py
+--- a/datasets/visa.py
++++ b/datasets/visa.py
+@@
+ import glob
++import json
+ import os
+@@
+-    assert k_shot in [0, 1, 5, 10]
++    assert k_shot in [0, 1, 2, 4, 5, 10]
+@@
+-    if k_shot > 0:
+-        full_index = range(len(train_img_tot_paths))
+-
+-        selected_index = random.sample(full_index, k_shot)
+-        selected_train_img_tot_paths = [train_img_tot_paths[k] for k in selected_index]
+-        selected_train_gt_tot_paths = [train_gt_tot_paths[k] for k in selected_index]
+-        selected_train_tot_labels = [train_tot_labels[k] for k in selected_index]
+-        selected_train_tot_types = [train_tot_types[k] for k in selected_index]
++    if k_shot > 0:
++        manifest_path = os.environ.get("WINCLIP_UNIFIED_MANIFEST")
++        if manifest_path:
++            with open(manifest_path, "r", encoding="utf-8") as stream:
++                manifest = json.load(stream)
++            relative_paths = manifest["categories"][category][str(experiment_indx)][str(k_shot)]
++            selected_train_img_tot_paths = [
++                os.path.join(train_img_path, "good", os.path.basename(path))
++                for path in relative_paths
++            ]
++            missing = [path for path in selected_train_img_tot_paths if not os.path.isfile(path)]
++            if missing:
++                raise FileNotFoundError(
++                    "Unified manifest images are missing from WinCLIP data: "
++                    + ", ".join(missing)
++                )
++            selected_train_gt_tot_paths = [0] * len(selected_train_img_tot_paths)
++            selected_train_tot_labels = [0] * len(selected_train_img_tot_paths)
++            selected_train_tot_types = ["good"] * len(selected_train_img_tot_paths)
++        else:
++            full_index = range(len(train_img_tot_paths))
++            selected_index = random.sample(full_index, k_shot)
++            selected_train_img_tot_paths = [train_img_tot_paths[k] for k in selected_index]
++            selected_train_gt_tot_paths = [train_gt_tot_paths[k] for k in selected_index]
++            selected_train_tot_labels = [train_tot_labels[k] for k in selected_index]
++            selected_train_tot_types = [train_tot_types[k] for k in selected_index]
+diff --git a/eval_WinCLIP.py b/eval_WinCLIP.py
+--- a/eval_WinCLIP.py
++++ b/eval_WinCLIP.py
+@@
+ import argparse
++import json
++import os
+@@
+-    return result_dict
++    return (
++        result_dict,
++        np.asarray(scores, dtype=np.float32),
++        np.asarray(gt_list, dtype=np.uint8),
++        np.asarray(gt_mask_list, dtype=np.float32),
++        names,
++    )
+@@
+-    metrics = test(model, test_dataloader, device, is_vis=True, img_dir=img_dir,
+-                   class_name=kwargs['class_name'], cal_pro=kwargs['cal_pro'], train_data=train_dataloader,
+-                   resolution=kwargs['resolution'])
++    metrics, score_maps, image_labels, gt_masks, sample_ids = test(
++        model, test_dataloader, device, is_vis=kwargs['vis'], img_dir=img_dir,
++        class_name=kwargs['class_name'], cal_pro=kwargs['cal_pro'],
++        train_data=train_dataloader, resolution=kwargs['resolution'])
++    if kwargs['dump_predictions']:
++        prediction_dir = os.path.join(
++            kwargs['root_dir'], f"{kwargs['dataset']}-k-{kwargs['k_shot']}",
++            f"seed-{kwargs['experiment_indx']}", "predictions")
++        os.makedirs(prediction_dir, exist_ok=True)
++        np.savez_compressed(
++            os.path.join(prediction_dir, kwargs['class_name'] + ".npz"),
++            gt_sp=image_labels,
++            pr_sp=score_maps.reshape(len(score_maps), -1).max(axis=1),
++            imgs_masks=gt_masks,
++            anomaly_maps=score_maps,
++            sample_ids=np.asarray(sample_ids))
++        selection_path = os.path.join(
++            prediction_dir, kwargs['class_name'] + "_selection.json")
++        with open(selection_path, "w", encoding="utf-8") as stream:
++            json.dump({
++                "category": kwargs["class_name"],
++                "shot": kwargs["k_shot"],
++                "seed_index": kwargs["experiment_indx"],
++                "manifest": os.environ.get("WINCLIP_UNIFIED_MANIFEST"),
++                "selected_reference_images": (
++                    list(train_dataset_inst.img_paths)
++                    if train_dataset_inst is not None else []),
++            }, stream, ensure_ascii=False, indent=2)
+@@
+     parser.add_argument("--use-cpu", type=int, default=0)
++    parser.add_argument("--dump-predictions", type=str2bool, default=False)

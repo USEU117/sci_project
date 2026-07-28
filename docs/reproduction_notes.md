@@ -118,3 +118,13 @@
   90.04±0.21%, 91.95±0.27%; and AUPRO is 50.60±0.29%, 57.96±0.37%,
   62.21±1.32% at 1/2/4-shot. Full per-run and by-shot tables are tracked under
   `experiments/summaries/patchcore_visa_unified/`.
+- WinCLIP's public reproduction selected VisA references with
+  `random.sample`, rejected 2/4-shot, forced visualization even when
+  `--vis false`, and did not expose raw predictions. The tracked
+  `patches/winclip-unified.patch` adds frozen-manifest selection, 1/2/4-shot
+  support, correct visualization control, selected-reference metadata and the
+  common NPZ cache.
+- WinCLIP+ VisA/candle seed-0 unified Gate A passed. Image AUROC at 1/2/4-shot
+  is 84.48%/84.90%/85.09%; pixel AUROC 90.69%/90.87%/90.90%; AUPRO
+  85.40%/85.52%/85.36%. The selected 1-shot reference is the manifest's
+  `candle/Data/Images/Normal/0345.JPG`.
