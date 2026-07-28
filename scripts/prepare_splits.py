@@ -88,10 +88,15 @@ def main() -> None:
             manifest["categories"][category][str(seed)] = selected
 
     payload = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
+    payload_bytes = payload.encode("utf-8")
     destination = out_dir / "manifest.json"
-    destination.write_text(payload, encoding="utf-8")
-    digest = hashlib.sha256(payload.encode("utf-8")).hexdigest()
-    (out_dir / "manifest.sha256").write_text(f"{digest}  manifest.json\n", encoding="utf-8")
+    # Write the exact bytes that are hashed. Text-mode writes on Windows may
+    # translate LF to CRLF and make the recorded digest disagree with the file.
+    destination.write_bytes(payload_bytes)
+    digest = hashlib.sha256(destination.read_bytes()).hexdigest()
+    (out_dir / "manifest.sha256").write_bytes(
+        f"{digest}  manifest.json\n".encode("ascii")
+    )
     print(f"Wrote {destination}")
     print(f"SHA256 {digest}")
     print(f"Categories: {len(categories)}; shots: {shots}; seeds: {sorted(set(args.seeds))}")

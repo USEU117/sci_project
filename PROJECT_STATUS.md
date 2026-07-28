@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: 2026-07-25
+Updated: 2026-07-28
 
 ## Confirmed
 
@@ -57,12 +57,23 @@ Updated: 2026-07-25
 - WinCLIP native one-shot evaluation completed for all 12 VisA categories.
   Macro image AUROC is 69.40% and pixel AUROC is 89.91%; the native
   thresholded image/pixel F1 means are 76.30% and 14.62%.
+- The unified VisA 1/2/4-shot manifest is deterministic and now has a verified
+  on-disk SHA256. All 252 selected path entries passed existence, category,
+  uniqueness, count and nested-set validation.
+- A method-independent NPZ evaluation layer is implemented and its five unit
+  tests pass. On the AnomalyCLIP VisA/candle cache it exactly reproduces the
+  previously verified image AUROC/AP and pixel AUROC/AP/AUPRO values.
+- PatchCore unified VisA/candle Gate A completed for seed 0 at 1/2/4 shots.
+  Unified image AUROC is 83.74%/71.57%/94.97%, pixel AUROC is
+  85.17%/89.63%/94.16%, and AUPRO is 65.79%/74.14%/83.18%.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Extending WinCLIP/WinCLIP+ from native 1-shot to native 5/10-shot and the
-  project's unified 1/2/4-shot protocol.
+- Extending PatchCore from the unified candle Gate A to the complete VisA
+  1/2/4-shot, three-seed matrix.
+- Extending WinCLIP/WinCLIP+ from native 1-shot to the project's unified
+  1/2/4-shot protocol.
 
 ## Not started
 
@@ -75,6 +86,9 @@ Updated: 2026-07-25
 - The official AnomalyCLIP experiments used an RTX 3090 with 24 GB; this machine will
   first run pretrained-checkpoint inference with batch size 1.
 - Windows GPU FAISS may be unstable; PatchCore and AnomalyDINO will use CPU FAISS first.
+- PatchCore's upstream mask transform used default bilinear interpolation and
+  then cast float masks to integers. Unified runs patch the mask resize to
+  nearest-neighbor, matching `configs/protocol.yaml`.
 - The AnomalyCLIP environment is isolated in `.venv-anomalyclip`; the system Python
   remains unchanged.
 - An incomplete `methods/anomalyclip-main.zip` remains from a timed-out codeload

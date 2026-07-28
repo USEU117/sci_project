@@ -1,0 +1,43 @@
+diff --git a/bin/run_patchcore.py b/bin/run_patchcore.py
+--- a/bin/run_patchcore.py
++++ b/bin/run_patchcore.py
+@@
+ @click.option("--save_segmentation_images", is_flag=True)
+ @click.option("--save_patchcore_model", is_flag=True)
++@click.option("--dump_predictions", is_flag=True)
+ def main(**kwargs):
+@@
+     save_segmentation_images,
+     save_patchcore_model,
++    dump_predictions,
+ ):
+@@
+             anomaly_labels = [
+                 x[1] != "good" for x in dataloaders["testing"].dataset.data_to_iterate
+             ]
++            if dump_predictions:
++                prediction_path = os.path.join(run_save_path, "predictions")
++                os.makedirs(prediction_path, exist_ok=True)
++                sample_ids = [
++                    str(x[2]) for x in dataloaders["testing"].dataset.data_to_iterate
++                ]
++                np.savez_compressed(
++                    os.path.join(prediction_path, dataset_name + ".npz"),
++                    gt_sp=np.asarray(anomaly_labels, dtype=np.uint8),
++                    pr_sp=np.asarray(scores, dtype=np.float32),
++                    imgs_masks=np.asarray(masks_gt, dtype=np.float32),
++                    anomaly_maps=np.asarray(segmentations, dtype=np.float32),
++                    sample_ids=np.asarray(sample_ids),
++                )
+diff --git a/src/patchcore/datasets/mvtec.py b/src/patchcore/datasets/mvtec.py
+--- a/src/patchcore/datasets/mvtec.py
++++ b/src/patchcore/datasets/mvtec.py
+@@
+         self.transform_mask = [
+-            transforms.Resize(resize),
++            transforms.Resize(
++                resize, interpolation=transforms.InterpolationMode.NEAREST
++            ),
+             transforms.CenterCrop(imagesize),
+             transforms.ToTensor(),
+         ]

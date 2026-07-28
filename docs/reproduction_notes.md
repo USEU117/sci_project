@@ -91,3 +91,24 @@
   image per category. Macro image AUROC is 69.4025%, pixel AUROC 89.9075%,
   image F1 76.2983%, and pixel F1 14.62%. The run is stored under
   `methods/winclip/WinClip-master/outputs/winclip/visa_all_k1/`.
+- The original split generator hashed LF text before a Windows text-mode write,
+  so the saved digest did not match the bytes on disk. It now writes and hashes
+  identical UTF-8 bytes. The regenerated VisA manifest SHA256 is
+  `35ecdd88bd3df2c7168a6c234b575ab425180946a80a93ce837d7e350b75e0f2`;
+  `scripts/validate_splits.py` checked 252 selected path entries with zero
+  errors, and two independent regenerations produced the same hash.
+- `scripts/evaluate_unified.py` defines the common NPZ prediction interface.
+  Five metric/schema unit tests pass. Its VisA/candle AnomalyCLIP output exactly
+  matches the validated cached evaluator: image AUROC 80.94%, image AP 82.60%,
+  pixel AUROC 97.58%, pixel AP 22.47%, and AUPRO 94.50%; unified image F1-max
+  is 75.63%.
+- PatchCore needed two compatibility changes recorded in
+  `patches/patchcore-unified-cache.patch`: raw prediction NPZ export and nearest
+  neighbor GT-mask resize. The upstream bilinear mask transform produced
+  fractional edge labels and then cast them to integers, which disagreed with
+  the unified binary-mask rule. After the fix, the upstream rounded pixel AUROC
+  and unified result agree.
+- PatchCore VisA/candle unified seed-0 results at 128px/256 dimensions are:
+  1-shot image/pixel AUROC 83.74%/85.17%, AUPRO 65.79%; 2-shot
+  71.57%/89.63%, AUPRO 74.14%; 4-shot 94.97%/94.16%, AUPRO 83.18%.
+  The selected normal references are taken only from the common manifest.
