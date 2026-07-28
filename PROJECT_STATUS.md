@@ -66,12 +66,15 @@ Updated: 2026-07-28
 - PatchCore unified VisA/candle Gate A completed for seed 0 at 1/2/4 shots.
   Unified image AUROC is 83.74%/71.57%/94.97%, pixel AUROC is
   85.17%/89.63%/94.16%, and AUPRO is 65.79%/74.14%/83.18%.
+- PatchCore unified VisA matrix completed for all 12 categories, shots 1/2/4
+  and seeds 0/1/2 (nine full runs, 2,162 test images per run). Across seeds,
+  image AUROC mean±std is 68.03±1.19%, 72.91±0.47%, and 78.68±1.11%;
+  pixel AUROC is 85.96±0.66%, 90.04±0.21%, and 91.95±0.27%; AUPRO is
+  50.60±0.29%, 57.96±0.37%, and 62.21±1.32% for 1/2/4-shot respectively.
 
 ## In progress
 
 - MVTec AD official download and license flow.
-- Extending PatchCore from the unified candle Gate A to the complete VisA
-  1/2/4-shot, three-seed matrix.
 - Extending WinCLIP/WinCLIP+ from native 1-shot to the project's unified
   1/2/4-shot protocol.
 
@@ -98,6 +101,6 @@ Updated: 2026-07-28
 
 1. Obtain MVTec AD through its official page.
 2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
-3. Finish WinCLIP/WinCLIP+ on VisA, recording its native 0/1/5/10-shot
-   protocol separately from the project's unified 1/2/4-shot protocol.
-4. Execute unified VisA and MVTec 1/2/4-shot baselines for seeds 0, 1 and 2.
+3. Adapt WinCLIP+ to the frozen VisA 1/2/4-shot manifest and unified evaluator.
+4. Reproduce AnomalyDINO and PromptAD on VisA before expanding all completed
+   methods to MVTec.

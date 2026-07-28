@@ -112,3 +112,9 @@
   1-shot image/pixel AUROC 83.74%/85.17%, AUPRO 65.79%; 2-shot
   71.57%/89.63%, AUPRO 74.14%; 4-shot 94.97%/94.16%, AUPRO 83.18%.
   The selected normal references are taken only from the common manifest.
+- The complete PatchCore VisA unified matrix finished successfully: 12
+  categories × 3 shots × 3 seeds. Mean±sample-std over seeds for image AUROC
+  is 68.03±1.19%, 72.91±0.47%, 78.68±1.11%; pixel AUROC is 85.96±0.66%,
+  90.04±0.21%, 91.95±0.27%; and AUPRO is 50.60±0.29%, 57.96±0.37%,
+  62.21±1.32% at 1/2/4-shot. Full per-run and by-shot tables are tracked under
+  `experiments/summaries/patchcore_visa_unified/`.
