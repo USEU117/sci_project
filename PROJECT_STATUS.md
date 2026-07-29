@@ -96,7 +96,8 @@ Updated: 2026-07-29
   `patches/anomalydino-unified.patch`.
 - PromptAD official source is fixed at commit
   `0f86ce0dc1ed59007d51348d8d566aed31360cf9`. Its VisA/candle 1-shot
-  classification Gate A completed with image AUROC 92.92%.
+  classification Gate A completed with image AUROC 92.92%; the corresponding
+  segmentation Gate A completed with pixel AUROC 96.07%.
 - PromptAD's VisA loader now accepts the project dataset path, frozen manifest
   and seed through environment variables. A direct loader check selected the
   exact seed-0 4-shot candle references from the manifest. The reusable gate
@@ -120,7 +121,7 @@ Updated: 2026-07-29
 
 ## Not started
 
-- PromptAD Gate A/B/C and its full unified VisA matrix.
+- PromptAD raw prediction export and its full unified VisA matrix.
 - ReMP-AD and AdaptCLIP source/checkpoint audit and Gate A.
 - Full-category AnomalyCLIP reproduction on MVTec.
 
