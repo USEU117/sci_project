@@ -2,6 +2,7 @@
 data/downloads/
 data/mvtec_ad/
 data/mvtec/
+data/mvtec_patchcore_fewshot*/
 data/visa_raw/
 data/visa_1cls/
 data/visa_patchcore*/

@@ -200,3 +200,8 @@
   `0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f`.
 - The manifest validator checked 315 reference entries for 15 categories,
   3 shots and 3 seeds; error count is zero.
+- AnomalyCLIP MVTec full inference used the VisA-trained
+  `9_12_4_multiscale_visa/epoch_15.pth` checkpoint at 518px. The run produced
+  15 NPZ caches for 1,725 test images. Common macro metrics are image AUROC
+  93.89%, image AP 97.05%, pixel AUROC 94.23%, pixel AP 44.54% and AUPRO
+  88.33%.
