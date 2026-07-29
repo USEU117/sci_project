@@ -1,5 +1,7 @@
 param(
     [int]$ImageSize = 518,
+    [ValidateSet("image-level", "pixel-level", "image-pixel-level")]
+    [string]$Metrics = "image-level",
     [string]$Python = "",
     [switch]$Background
 )
@@ -36,6 +38,7 @@ $arguments = @(
     "--depth", "9",
     "--n_ctx", "12",
     "--t_n_ctx", "4",
+    "--metrics", $Metrics,
     "--dump_predictions", $dumpRoot
 )
 
