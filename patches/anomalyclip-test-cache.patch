@@ -1,20 +1,17 @@
 --- a/test.py
 +++ b/test.py
-@@ -118,6 +118,11 @@ def test(args):
+@@ -118,6 +118,36 @@ def test(args):
      pixel_auroc_list = []
      pixel_aupro_list = []
-     for obj in obj_list:
-+        # The official script assumes every class is present in the metadata.
-+        # A class-filtered smoke test intentionally leaves most classes empty.
++    # Normalize and persist predictions before the expensive official
++    # pixel-level aggregation. This makes long runs resumable.
++    for obj in obj_list:
 +        if len(results[obj]['imgs_masks']) == 0:
 +            continue
-         table = []
-         table.append(obj)
-         results[obj]['imgs_masks'] = torch.cat(results[obj]['imgs_masks'])
-@@ -149,6 +154,19 @@ def test(args):
-             pixel_aupro_list.append(pixel_aupro)
-         table_ls.append(table)
- 
++        if isinstance(results[obj]['imgs_masks'], list):
++            results[obj]['imgs_masks'] = torch.cat(results[obj]['imgs_masks'])
++        if isinstance(results[obj]['anomaly_maps'], list):
++            results[obj]['anomaly_maps'] = torch.cat(results[obj]['anomaly_maps']).detach().cpu().numpy()
 +    if args.dump_predictions:
 +        os.makedirs(args.dump_predictions, exist_ok=True)
 +        for obj in obj_list:
@@ -27,14 +24,40 @@
 +                imgs_masks=results[obj]['imgs_masks'].numpy(),
 +                anomaly_maps=results[obj]['anomaly_maps'],
 +            )
+     for obj in obj_list:
+         # The official script assumes every class is present in the metadata.
+         # A class-filtered smoke test intentionally leaves most classes empty.
+         if len(results[obj]['imgs_masks']) == 0:
+             continue
+@@ -125,8 +155,10 @@ def test(args):
+         table = []
+         table.append(obj)
+-        results[obj]['imgs_masks'] = torch.cat(results[obj]['imgs_masks'])
+-        results[obj]['anomaly_maps'] = torch.cat(results[obj]['anomaly_maps']).detach().cpu().numpy()
++        if isinstance(results[obj]['imgs_masks'], list):
++            results[obj]['imgs_masks'] = torch.cat(results[obj]['imgs_masks'])
++        if isinstance(results[obj]['anomaly_maps'], list):
++            results[obj]['anomaly_maps'] = torch.cat(results[obj]['anomaly_maps']).detach().cpu().numpy()
+@@ -149,6 +181,19 @@ def test(args):
+             pixel_auroc_list.append(pixel_auroc)
+             pixel_aupro_list.append(pixel_aupro)
+         table_ls.append(table)
+ 
+     if args.dump_predictions:
+         os.makedirs(args.dump_predictions, exist_ok=True)
+         for obj in obj_list:
+             if len(results[obj]['imgs_masks']) == 0:
+                 continue
+             np.savez_compressed(
+                 os.path.join(args.dump_predictions, f"{obj}.npz"),
+                 gt_sp=np.asarray(results[obj]['gt_sp']),
+                 pr_sp=np.asarray(results[obj]['pr_sp']),
+                 imgs_masks=results[obj]['imgs_masks'].numpy(),
+                 anomaly_maps=results[obj]['anomaly_maps'],
+             )
 +
-     if args.metrics == 'image-level':
-         # logger
-         table_ls.append(['mean',
-@@ -193,6 +211,7 @@ if __name__ == '__main__':
+@@ -193,6 +238,7 @@ if __name__ == '__main__':
      parser.add_argument("--metrics", type=str, default='image-pixel-level')
      parser.add_argument("--seed", type=int, default=111, help="random seed")
      parser.add_argument("--sigma", type=int, default=4, help="zero shot")
 +    parser.add_argument("--dump_predictions", type=str, default="", help="optional per-class NPZ cache")
- 
-     args = parser.parse_args()
