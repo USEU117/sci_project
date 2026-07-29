@@ -182,3 +182,21 @@
 - `scripts/run_promptad_gate.ps1` provides a reproducible classification or
   segmentation invocation. Raw prediction export is still required before
   PromptAD results can enter the common NPZ comparison table.
+
+## MVTec AD acquisition and validation (2026-07-29)
+
+- The official MVTec AD archive was placed in `data/downloads` and retained
+  unchanged.
+- Archive size: `5,264,982,680` bytes.
+- Archive SHA256:
+  `CF4313B13603BEC67ABB49CA959488F7EEDCE2A9F7795EC54446C649AC98CD3D`.
+- Extracted root: `data/mvtec`.
+- All 15 official categories, training images, test images and anomaly masks
+  passed validation with zero errors. Exact counts are in
+  `outputs/logs/mvtec_validation.json`.
+- Generated metadata: `data/mvtec/meta.json`.
+- Generated unified manifest: `data/splits/mvtec/manifest.json`.
+- Manifest SHA256:
+  `0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f`.
+- The manifest validator checked 315 reference entries for 15 categories,
+  3 shots and 3 seeds; error count is zero.
