@@ -112,18 +112,21 @@ Updated: 2026-07-29
   generated. The manifest SHA256 is
   `0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f`;
   315 selected path entries pass with zero errors.
+- AnomalyCLIP MVTec full inference and common evaluation completed for all
+  15 categories and 1,725 test images. Macro image AUROC is 93.89%, image AP
+  is 97.05%, pixel AUROC is 94.23%, pixel AP is 44.54%, and AUPRO is 88.33%.
 
 ## In progress
 
-- AnomalyCLIP MVTec inference is running with the VisA-trained checkpoint,
-  518px input and prediction caching. It is currently processing 1,725
-  MVTec test images.
+- PatchCore MVTec Gate A completed for bottle, 1-shot, seed 0. Unified image
+  AUROC is 92.54%, pixel AUROC 92.71%, and AUPRO 69.59% under the same
+  conservative 128px/256-dim engineering protocol used for the VisA matrix.
 
 ## Not started
 
 - PromptAD raw prediction export and its full unified VisA matrix.
 - ReMP-AD and AdaptCLIP source/checkpoint audit and Gate A.
-- Full-category AnomalyCLIP reproduction on MVTec.
+- Full-category AnomalyCLIP few-shot reproduction on MVTec.
 
 ## Constraints and risks
 
@@ -140,9 +143,9 @@ Updated: 2026-07-29
 
 ## Next action
 
-1. Finish AnomalyCLIP MVTec prediction caching and unified evaluation.
-2. Extend PatchCore, WinCLIP+, AnomalyDINO and PromptAD to MVTec Gate A.
-3. Finish PromptAD raw prediction export and its VisA unified matrix.
+1. Run WinCLIP+ and AnomalyDINO MVTec Gate A.
+2. Finish PromptAD raw prediction export and its VisA unified matrix.
+3. Run PromptAD MVTec Gate A.
 4. Audit and smoke-test ReMP-AD and AdaptCLIP.
 5. Extend the validated methods to the complete MVTec matrix.
 6. Only after the baseline matrix is complete, perform the second-stage
