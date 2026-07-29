@@ -119,8 +119,14 @@ Updated: 2026-07-29
 ## In progress
 
 - PatchCore MVTec Gate A completed for bottle, 1-shot, seed 0. Unified image
-  AUROC is 92.54%, pixel AUROC 92.71%, and AUPRO 69.59% under the same
-  conservative 128px/256-dim engineering protocol used for the VisA matrix.
+    AUROC is 92.54%, pixel AUROC 92.71%, and AUPRO 69.59% under the same
+    conservative 128px/256-dim engineering protocol used for the VisA matrix.
+- WinCLIP+ MVTec Gate B completed for all 15 categories, 1-shot, seed 0.
+    Common image AUROC is 76.79%, image AP 87.58%, pixel AUROC 86.51%,
+    pixel AP 27.88%, and AUPRO 70.64%.
+- AnomalyDINO MVTec Gate A completed for bottle, 1-shot, seed 0. Common
+    image AUROC is 99.92%, pixel AUROC 98.96%, pixel AP 83.04%, and AUPRO
+    96.46%.
 
 ## Not started
 
@@ -143,8 +149,7 @@ Updated: 2026-07-29
 
 ## Next action
 
-1. Run WinCLIP+ and AnomalyDINO MVTec Gate A.
-2. Finish PromptAD raw prediction export and its VisA unified matrix.
+1. Finish PromptAD raw prediction export and its VisA unified matrix.
 3. Run PromptAD MVTec Gate A.
 4. Audit and smoke-test ReMP-AD and AdaptCLIP.
 5. Extend the validated methods to the complete MVTec matrix.

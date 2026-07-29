@@ -205,3 +205,12 @@
   15 NPZ caches for 1,725 test images. Common macro metrics are image AUROC
   93.89%, image AP 97.05%, pixel AUROC 94.23%, pixel AP 44.54% and AUPRO
   88.33%.
+- WinCLIP+ MVTec Gate B completed with the official 15-category matrix entry,
+  using the unified 1-shot seed-0 manifest. Common macro metrics are image
+  AUROC 76.79%, image AP 87.58%, pixel AUROC 86.51%, pixel AP 27.88% and
+  AUPRO 70.64%. Prediction caches are under
+  `outputs/winclip/mvtec_gate/seed_0_shot_1/mvtec-k-1/seed-0/predictions`.
+- AnomalyDINO MVTec Gate A completed for bottle, 1-shot, seed 0. The
+  DINOv2 ViT-S/14 run used agnostic preprocessing, CPU FAISS and 448px maps.
+  Common metrics are image AUROC 99.92%, image AP 99.98%, pixel AUROC 98.96%,
+  pixel AP 83.04% and AUPRO 96.46%.

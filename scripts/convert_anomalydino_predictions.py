@@ -69,11 +69,10 @@ def main() -> None:
             anomaly_map = np.asarray(tifffile.imread(map_path), dtype=np.float32)
             if anomaly_map.ndim != 2:
                 raise ValueError(f"Expected 2D anomaly map, got {anomaly_map.shape}")
-            mask_path = (
-                None
-                if defect == "good"
-                else category_root / "ground_truth" / defect / f"{stem}.png"
-            )
+            mask_path = None if defect == "good" else category_root / "ground_truth" / defect / f"{stem}.png"
+            if mask_path is not None and not mask_path.is_file():
+                # MVTec AD names masks as <image_stem>_mask.png.
+                mask_path = category_root / "ground_truth" / defect / f"{stem}_mask.png"
             if mask_path is not None and not mask_path.is_file():
                 raise FileNotFoundError(mask_path)
             patch_distances = np.load(patch_path)

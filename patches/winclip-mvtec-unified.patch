@@ -1,0 +1,19 @@
+diff --git a/datasets/mvtec.py b/datasets/mvtec.py
+--- a/datasets/mvtec.py
++++ b/datasets/mvtec.py
+@@
++import json
+@@
+-MVTEC2D_DIR = '../datasets/mvtec_anomaly_detection'
++MVTEC2D_DIR = os.environ.get('WINCLIP_MVTEC_DIR', '../datasets/mvtec_anomaly_detection')
+@@
+-    assert k_shot in [0, 1, 5, 10]
++    assert k_shot in [0, 1, 2, 4, 5, 10]
+@@
+-    else:
++    elif os.environ.get("WINCLIP_UNIFIED_MANIFEST"):
++        with open(os.environ["WINCLIP_UNIFIED_MANIFEST"], "r", encoding="utf-8") as stream:
++            manifest = json.load(stream)
++        selected = manifest["categories"][category][str(experiment_indx)][str(k_shot)]
++        training_indx = [os.path.basename(path).rsplit(".", 1)[0] for path in selected]
++    else:
