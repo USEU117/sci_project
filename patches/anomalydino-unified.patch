@@ -1,0 +1,258 @@
+diff --git a/run_anomalydino.py b/run_anomalydino.py
+index 20a8b33..fe51856 100644
+--- a/run_anomalydino.py
++++ b/run_anomalydino.py
+@@ -1,4 +1,5 @@
+ import argparse
++import json
+ import os
+ from argparse import ArgumentParser, Action 
+ import yaml
+@@ -41,6 +42,16 @@ def parse_args():
+     parser.add_argument("--num_seeds", type=int, default=1)
+     parser.add_argument("--mask_ref_images", type=bool, default=False)
+     parser.add_argument("--just_seed", type=int, default=None)
++    parser.add_argument("--objects", nargs="+", default=None,
++                        help="Optional subset of dataset objects to evaluate.")
++    parser.add_argument("--split_manifest", type=str, default=None,
++                        help="Optional unified few-shot manifest JSON.")
++    parser.add_argument("--feature_cache_dir", type=str, default=None,
++                        help="Optional directory for invariant test feature caches.")
++    parser.add_argument("--map_max_edge", type=int, default=None,
++                        help="Optional maximum edge for saved TIFF anomaly maps.")
++    parser.add_argument("--save_tiffs", default=False, action=argparse.BooleanOptionalAction,
++                        help="Save TIFF maps independently of official segmentation evaluation.")
+     parser.add_argument('--save_examples', default=True, action=argparse.BooleanOptionalAction, help="Save example plots.")
+     parser.add_argument("--eval_clf", default=True, action=argparse.BooleanOptionalAction, help="Evaluate anomaly detection performance.")
+     parser.add_argument("--eval_segm", default=False, action=argparse.BooleanOptionalAction, help="Evaluate anomaly segmentation performance.")
+@@ -61,6 +72,18 @@ if __name__=="__main__":
+     print(f"Requested to repeat the experiments {args.num_seeds} time(s).")
+ 
+     objects, object_anomalies, masking_default, rotation_default = get_dataset_info(args.dataset, args.preprocess, data_path=args.data_root)
++    if args.objects is not None:
++        unknown = sorted(set(args.objects).difference(objects))
++        if unknown:
++            raise ValueError(f"Unknown objects for {args.dataset}: {unknown}")
++        objects = list(args.objects)
++        object_anomalies = {key: object_anomalies[key] for key in objects}
++        masking_default = {key: masking_default[key] for key in objects}
++        rotation_default = {key: rotation_default[key] for key in objects}
++    split_manifest = None
++    if args.split_manifest is not None:
++        with open(args.split_manifest, "r", encoding="utf-8") as stream:
++            split_manifest = json.load(stream)
+ 
+     # set CUDA device
+     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.device[-1])
+@@ -111,6 +134,29 @@ if __name__=="__main__":
+                     writer.writerow(["Object", "Sample", "Anomaly_Score", "MemoryBank_Time", "Inference_Time"])
+ 
+                     for object_name in objects:
++                        reference_samples = None
++                        if split_manifest is not None and shot > 0:
++                            reference_paths = split_manifest["categories"][object_name][str(seed)][str(shot)]
++                            reference_samples = [os.path.basename(path) for path in reference_paths]
++                            selection_dir = os.path.join(results_dir, "selected_references")
++                            os.makedirs(selection_dir, exist_ok=True)
++                            with open(
++                                os.path.join(selection_dir, f"{object_name}_seed={seed}.json"),
++                                "w",
++                                encoding="utf-8",
++                            ) as stream:
++                                json.dump(
++                                    {
++                                        "object": object_name,
++                                        "shot": shot,
++                                        "seed": seed,
++                                        "manifest": os.path.abspath(args.split_manifest),
++                                        "selected_reference_images": reference_samples,
++                                    },
++                                    stream,
++                                    ensure_ascii=False,
++                                    indent=2,
++                                )
+                         
+                         if save_examples:
+                             os.makedirs(f"{plots_dir}/{object_name}", exist_ok=True)
+@@ -137,8 +183,11 @@ if __name__=="__main__":
+                                                                                 mask_ref_images = args.mask_ref_images,
+                                                                                 rotation = rotation_default[object_name],
+                                                                                 seed = seed,
++                                                                                reference_samples = reference_samples,
++                                                                                feature_cache_dir = args.feature_cache_dir,
++                                                                                map_max_edge = args.map_max_edge,
+                                                                                 save_patch_dists = args.eval_clf, # save patch distances for detection evaluation
+-                                                                                save_tiffs = args.eval_segm)      # save anomaly maps as tiffs for segmentation evaluation
++                                                                                save_tiffs = (args.eval_segm or args.save_tiffs))      # save anomaly maps as tiffs for segmentation evaluation
+                         
+                         # write anomaly scores and inference times to file
+                         for counter, sample in enumerate(anomaly_scores.keys()):
+@@ -171,15 +220,18 @@ if __name__=="__main__":
+                                     seed = seed,
+                                     pro_integration_limit = 0.3,
+                                     eval_clf = args.eval_clf,
+-                                    eval_segm = args.eval_segm)
++                                    eval_segm = args.eval_segm,
++                                    delete_tiff_files = False,
++                                    objects = objects)
+                     
+-                    create_sample_plots(results_dir, 
+-                                        anomaly_maps_dir = results_dir + f"/anomaly_maps/seed={seed}", 
+-                                        seed = seed,
+-                                        dataset = args.dataset, 
+-                                        data_root = args.data_root)
++                    if save_examples:
++                        create_sample_plots(results_dir, 
++                                            anomaly_maps_dir = results_dir + f"/anomaly_maps/seed={seed}", 
++                                            seed = seed, 
++                                            dataset = args.dataset, 
++                                            data_root = args.data_root)
+                 
+                     # deactivate creation of examples for the next seeds...
+                     save_examples = False 
+ 
+-    print("Finished and evaluated all runs!")
+\ No newline at end of file
++    print("Finished and evaluated all runs!")
+diff --git a/src/detection.py b/src/detection.py
+index 4989a10..cf00099 100644
+--- a/src/detection.py
++++ b/src/detection.py
+@@ -26,6 +26,9 @@ def run_anomaly_detection(
+         knn_neighbors = 1,
+         faiss_on_cpu = False,
+         seed = 0,
++        reference_samples = None,
++        feature_cache_dir = None,
++        map_max_edge = None,
+         save_patch_dists = True,
+         save_tiffs = False):
+     """
+@@ -68,7 +71,22 @@ def run_anomaly_detection(
+     vis_backgroud = []
+ 
+     img_ref_folder = f"{data_root}/{object_name}/train/good/"
+-    if n_ref_samples == -1:
++    if reference_samples is not None:
++        img_ref_samples = list(reference_samples)
++        if len(img_ref_samples) != n_ref_samples:
++            raise ValueError(
++                f"Expected {n_ref_samples} manifest references for {object_name}, "
++                f"got {len(img_ref_samples)}"
++            )
++        missing = [
++            name for name in img_ref_samples
++            if not os.path.isfile(os.path.join(img_ref_folder, name))
++        ]
++        if missing:
++            raise FileNotFoundError(
++                f"Manifest references missing for {object_name}: {missing}"
++            )
++    elif n_ref_samples == -1:
+         # full-shot setting
+         img_ref_samples = sorted(os.listdir(img_ref_folder))
+     else:
+@@ -149,8 +167,30 @@ def run_anomaly_detection(
+ 
+                 # Extract test features
+                 image_test = cv2.cvtColor(cv2.imread(image_test_path, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB)
+-                image_tensor2, grid_size2 = model.prepare_image(image_test)
+-                features2 = model.extract_features(image_tensor2)
++                feature_cache_path = None
++                if feature_cache_dir is not None:
++                    feature_cache_path = os.path.join(
++                        feature_cache_dir,
++                        object_name,
++                        type_anomaly,
++                        os.path.splitext(img_test_nr)[0] + ".npz",
++                    )
++                if feature_cache_path is not None and os.path.isfile(feature_cache_path):
++                    with np.load(feature_cache_path) as cached:
++                        features2 = cached["features"]
++                        grid_size2 = tuple(int(value) for value in cached["grid_size"])
++                else:
++                    image_tensor2, grid_size2 = model.prepare_image(image_test)
++                    features2 = model.extract_features(image_tensor2)
++                    if feature_cache_path is not None:
++                        os.makedirs(os.path.dirname(feature_cache_path), exist_ok=True)
++                        temporary_path = feature_cache_path + ".tmp.npz"
++                        np.savez(
++                            temporary_path,
++                            features=features2.astype(np.float32),
++                            grid_size=np.asarray(grid_size2, dtype=np.int32),
++                        )
++                        os.replace(temporary_path, feature_cache_path)
+ 
+                 # Compute background mask
+                 if masking:
+@@ -190,7 +230,14 @@ def run_anomaly_detection(
+                 # Save the anomaly maps (raw as .npy or full resolution .tiff files)
+                 img_test_nr = img_test_nr.split(".")[0]
+                 if save_tiffs:
+-                    anomaly_map = dists2map(d_masked, image_test.shape)
++                    output_shape = image_test.shape
++                    if map_max_edge is not None and max(output_shape[:2]) > map_max_edge:
++                        scale = map_max_edge / max(output_shape[:2])
++                        output_shape = (
++                            max(1, round(output_shape[0] * scale)),
++                            max(1, round(output_shape[1] * scale)),
++                        )
++                    anomaly_map = dists2map(d_masked, output_shape)
+                     tiff.imwrite(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{type_anomaly}/{img_test_nr}.tiff", anomaly_map)
+                 if save_patch_dists:
+                     np.save(f"{plots_dir}/anomaly_maps/seed={seed}/{object_name}/test/{type_anomaly}/{img_test_nr}.npy", d_masked)
+@@ -229,4 +276,4 @@ def run_anomaly_detection(
+                     plt.savefig(f"{plots_dir}/{object_name}/examples/example_{type_anomaly}_{idx}.png")
+                     plt.close()
+ 
+-    return anomaly_scores, time_memorybank, inference_times
+\ No newline at end of file
++    return anomaly_scores, time_memorybank, inference_times
+diff --git a/src/post_eval.py b/src/post_eval.py
+index 78ddb08..ec528c1 100644
+--- a/src/post_eval.py
++++ b/src/post_eval.py
+@@ -146,13 +146,16 @@ def read_tiff(file_path_no_ext, exts=('.tif', '.tiff', '.TIF', '.TIFF')):
+     """
+     # Get all file paths that exist
+     file_paths = []
++    normalized_paths = set()
+ 
+     for ext in exts:
+         # Make sure the file path does not already end with a tiff extension.
+         assert not file_path_no_ext.endswith(ext)
+         file_path = file_path_no_ext + ext
+-        if os.path.exists(file_path):
++        normalized = os.path.normcase(os.path.abspath(file_path))
++        if os.path.exists(file_path) and normalized not in normalized_paths:
+             file_paths.append(file_path)
++            normalized_paths.add(normalized)
+ 
+     if len(file_paths) == 0:
+         raise FileNotFoundError('Could not find a file with a TIFF extension'
+@@ -415,7 +418,7 @@ def get_objects_from_dataset(dataset):
+     return objects
+     
+ 
+-def eval_finished_run(dataset, dataset_base_dir, anomaly_maps_dir, output_dir, seed = None, pro_integration_limit = 0.3, eval_clf = True, eval_segm = False, delete_tiff_files = True, aggregation_statistics = "meantop1p"):
++def eval_finished_run(dataset, dataset_base_dir, anomaly_maps_dir, output_dir, seed = None, pro_integration_limit = 0.3, eval_clf = True, eval_segm = False, delete_tiff_files = True, aggregation_statistics = "meantop1p", objects = None):
+     """
+     Evaluate the results of a finished run on the MVTec AD dataset.
+     Arguments:
+@@ -431,7 +434,8 @@ def eval_finished_run(dataset, dataset_base_dir, anomaly_maps_dir, output_dir, s
+     """
+ 
+     # Parse the filenames of all ground truth and corresponding anomaly
+-    objects = get_objects_from_dataset(dataset)
++    if objects is None:
++        objects = get_objects_from_dataset(dataset)
+     # Store evaluation results in this dictionary.
+     evaluation_dict = dict()
+ 
+@@ -517,4 +521,4 @@ def eval_finished_run(dataset, dataset_base_dir, anomaly_maps_dir, output_dir, s
+         with open(path.join(output_dir, metric_file), 'w') as file:
+             json.dump(evaluation_dict, file, indent=4)
+ 
+-        print(f"Wrote metrics to {path.join(output_dir, metric_file)}")
+\ No newline at end of file
++        print(f"Wrote metrics to {path.join(output_dir, metric_file)}")

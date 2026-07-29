@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: 2026-07-28
+Updated: 2026-07-29
 
 ## Confirmed
 
@@ -76,19 +76,41 @@ Updated: 2026-07-28
   seed-0 Gate A passed at all three shots. Unified image AUROC is
   84.48%/84.90%/85.09%, pixel AUROC is 90.69%/90.87%/90.90%, and AUPRO is
   85.40%/85.52%/85.36%.
+- WinCLIP+ unified VisA matrix completed for all 12 categories, shots 1/2/4
+  and seeds 0/1/2 (nine full runs, 2,162 test images per run). Across seeds,
+  image AUROC mean±std is 69.96±0.19%, 71.57±0.34%, and 72.58±0.11%;
+  pixel AUROC is 89.98±0.24%, 90.50±0.25%, and 90.88±0.08%; AUPRO is
+  67.34±0.73%, 68.32±0.75%, and 69.05±0.51% for 1/2/4-shot.
+- WinCLIP test features are cached once per VisA category and reused across
+  shot/seed configurations. A same-configuration candle rerun matched all
+  five NPZ arrays exactly (maximum numeric difference 0).
+- The unified evaluator supports two-worker category evaluation; all five
+  metric/schema unit tests still pass.
+- AnomalyDINO unified VisA matrix completed for all 12 categories, shots
+  1/2/4 and seeds 0/1/2. Across seeds, image AUROC mean±std is
+  89.40±0.98%, 91.40±0.69% and 92.58±0.24%; pixel AUROC is
+  97.97±0.12%, 98.28±0.04% and 98.45±0.04%; AUPRO is
+  92.21±0.64%, 93.10±0.36% and 93.69±0.14% for 1/2/4-shot.
+- Every AnomalyDINO run contains all 12 categories, 2,162 test samples and
+  zero schema validation errors. The reproducible source patch is saved as
+  `patches/anomalydino-unified.patch`.
+- PromptAD official source is fixed at commit
+  `0f86ce0dc1ed59007d51348d8d566aed31360cf9`. Its VisA/candle 1-shot
+  classification Gate A completed with image AUROC 92.92%.
 
 ## In progress
 
+- PromptAD VisA/candle 1-shot segmentation Gate A is running. The next code
+  task is replacing the upstream fixed seed files with the frozen manifest
+  and exporting the common NPZ schema.
 - MVTec AD official download and license flow.
-- Extending WinCLIP/WinCLIP+ from native 1-shot to the project's unified
-  1/2/4-shot protocol; candle Gate A is complete and the full VisA matrix is
-  next.
 
 ## Not started
 
+- PromptAD Gate A/B/C and its full unified VisA matrix.
+- ReMP-AD and AdaptCLIP source/checkpoint audit and Gate A.
 - MVTec AD dataset download and validation.
 - Full-category AnomalyCLIP reproduction on MVTec.
-- Unified 1/2/4-shot experiments for VisA.
 
 ## Constraints and risks
 
@@ -105,8 +127,11 @@ Updated: 2026-07-28
 
 ## Next action
 
-1. Obtain MVTec AD through its official page.
-2. Generate MVTec metadata and run the same AnomalyCLIP official 518px gate.
-3. Adapt WinCLIP+ to the frozen VisA 1/2/4-shot manifest and unified evaluator.
-4. Reproduce AnomalyDINO and PromptAD on VisA before expanding all completed
-   methods to MVTec.
+1. Finish PromptAD segmentation Gate A and record its pixel metrics.
+2. Connect PromptAD to the frozen manifest and common NPZ evaluator.
+3. Run the PromptAD Gate B/C sequence on VisA.
+4. Audit and smoke-test ReMP-AD and AdaptCLIP.
+5. When MVTec AD is obtained through the official license flow, generate its
+   manifest and extend the validated baselines.
+6. Only after the baseline matrix is complete, perform the second-stage
+   text/vision complementarity analysis and design dynamic fusion.

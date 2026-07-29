@@ -1,21 +1,39 @@
 diff --git a/datasets/dataset.py b/datasets/dataset.py
+index 6a229a8..6298b7c 100644
 --- a/datasets/dataset.py
 +++ b/datasets/dataset.py
-@@
+@@ -12,7 +12,7 @@ class CLIPDataset(Dataset):
+         self.load_function = load_function
+         self.phase = phase
+ 
 -        assert k_shot in [0, 1, 5, 10]
 +        assert k_shot in [0, 1, 2, 4, 5, 10]
+         assert experiment_indx in [0, 1, 2]
+ 
+         self.category = category
 diff --git a/datasets/visa.py b/datasets/visa.py
+index e691412..9cd4a78 100644
 --- a/datasets/visa.py
 +++ b/datasets/visa.py
-@@
+@@ -1,4 +1,5 @@
  import glob
 +import json
  import os
-@@
+ import random
+ 
+@@ -41,7 +42,7 @@ def load_visa(category, k_shot, experiment_indx):
+         return img_tot_paths, gt_tot_paths, tot_labels, tot_types
+ 
+     assert category in visa_classes
 -    assert k_shot in [0, 1, 5, 10]
 +    assert k_shot in [0, 1, 2, 4, 5, 10]
-@@
--    if k_shot > 0:
+     assert experiment_indx in [0, 1, 2]
+ 
+     test_img_path = os.path.join(VISA_DIR, category, 'test')
+@@ -62,13 +63,31 @@ def load_visa(category, k_shot, experiment_indx):
+ 
+ 
+     if k_shot > 0:
 -        full_index = range(len(train_img_tot_paths))
 -
 -        selected_index = random.sample(full_index, k_shot)
@@ -23,7 +41,6 @@ diff --git a/datasets/visa.py b/datasets/visa.py
 -        selected_train_gt_tot_paths = [train_gt_tot_paths[k] for k in selected_index]
 -        selected_train_tot_labels = [train_tot_labels[k] for k in selected_index]
 -        selected_train_tot_types = [train_tot_types[k] for k in selected_index]
-+    if k_shot > 0:
 +        manifest_path = os.environ.get("WINCLIP_UNIFIED_MANIFEST")
 +        if manifest_path:
 +            with open(manifest_path, "r", encoding="utf-8") as stream:
@@ -49,14 +66,98 @@ diff --git a/datasets/visa.py b/datasets/visa.py
 +            selected_train_gt_tot_paths = [train_gt_tot_paths[k] for k in selected_index]
 +            selected_train_tot_labels = [train_tot_labels[k] for k in selected_index]
 +            selected_train_tot_types = [train_tot_types[k] for k in selected_index]
+ 
+     return (selected_train_img_tot_paths, selected_train_gt_tot_paths, selected_train_tot_labels, selected_train_tot_types), \
+            (test_img_tot_paths, test_gt_tot_paths, test_tot_labels, test_tot_types)
 diff --git a/eval_WinCLIP.py b/eval_WinCLIP.py
+index 6944f98..3173afe 100644
 --- a/eval_WinCLIP.py
 +++ b/eval_WinCLIP.py
-@@
+@@ -1,4 +1,6 @@
  import argparse
 +import json
 +import os
-@@
+ from datasets import *
+ from datasets import dataset_classes
+ from utils.csv_utils import *
+@@ -16,7 +18,8 @@ def test(model,
+          class_name: str,
+          cal_pro: bool,
+          train_data: DataLoader,
+-         resolution: int):
++         resolution: int,
++         feature_cache_path: str = None):
+ 
+     # change the model into eval mode
+     model.eval_mode()
+@@ -40,8 +43,17 @@ def test(model,
+     gt_list = []
+     gt_mask_list = []
+     names = []
+-
+-    for (data, mask, label, name, img_type) in dataloader:
++    cached_batches = None
++    cached_names = None
++    feature_batches = []
++    feature_batch_names = []
++    if feature_cache_path and os.path.isfile(feature_cache_path):
++        feature_cache = torch.load(feature_cache_path, map_location="cpu")
++        cached_batches = feature_cache["feature_batches"]
++        cached_names = feature_cache["batch_names"]
++        logger.info(f"loaded test feature cache: {feature_cache_path}")
++
++    for batch_index, (data, mask, label, name, img_type) in enumerate(dataloader):
+ 
+         data = [model.transform(Image.fromarray(f.numpy())) for f in data]
+         data = torch.stack(data, dim=0)
+@@ -56,17 +68,55 @@ def test(model,
+             gt_list += [l]
+             gt_mask_list += [m]
+ 
+-        data = data.to(device)
+-        score = model(data)
++        if cached_batches is not None:
++            if batch_index >= len(cached_batches):
++                raise RuntimeError("Test feature cache has fewer batches than the dataloader")
++            if list(name) != list(cached_names[batch_index]):
++                raise RuntimeError(
++                    f"Test feature cache sample mismatch in batch {batch_index}"
++                )
++            visual_features = [
++                feature.to(device) for feature in cached_batches[batch_index]
++            ]
++        else:
++            data = data.to(device)
++            visual_features = model.encode_image(data)
++            if feature_cache_path:
++                feature_batches.append(
++                    [feature.detach().cpu() for feature in visual_features]
++                )
++                feature_batch_names.append(list(name))
++        score = model.score_visual_features(visual_features)
+         scores += score
+ 
++    if cached_batches is not None and len(cached_batches) != len(dataloader):
++        raise RuntimeError("Test feature cache has more batches than the dataloader")
++    if feature_cache_path and cached_batches is None:
++        os.makedirs(os.path.dirname(feature_cache_path), exist_ok=True)
++        temporary_path = feature_cache_path + ".tmp"
++        torch.save(
++            {
++                "feature_batches": feature_batches,
++                "batch_names": feature_batch_names,
++            },
++            temporary_path,
++        )
++        os.replace(temporary_path, feature_cache_path)
++        logger.info(f"saved test feature cache: {feature_cache_path}")
++
+     test_imgs, scores, gt_mask_list = specify_resolution(test_imgs, scores, gt_mask_list, resolution=(resolution, resolution))
+     result_dict = metric_cal(np.array(scores), gt_list, gt_mask_list, cal_pro=cal_pro)
+ 
+     if is_vis:
+         plot_sample_cv2(names, test_imgs, {'WinClip': scores}, gt_mask_list, save_folder=img_dir)
+ 
 -    return result_dict
 +    return (
 +        result_dict,
@@ -65,18 +166,40 @@ diff --git a/eval_WinCLIP.py b/eval_WinCLIP.py
 +        np.asarray(gt_mask_list, dtype=np.float32),
 +        names,
 +    )
-@@
+ 
+ 
+ def main(args):
+@@ -107,9 +157,59 @@ def main(args):
+     model = model.to(device)
+ 
+     # as the pro metric calculation is costly, we only calculate it in the last evaluation
 -    metrics = test(model, test_dataloader, device, is_vis=True, img_dir=img_dir,
 -                   class_name=kwargs['class_name'], cal_pro=kwargs['cal_pro'], train_data=train_dataloader,
 -                   resolution=kwargs['resolution'])
 +    metrics, score_maps, image_labels, gt_masks, sample_ids = test(
-+        model, test_dataloader, device, is_vis=kwargs['vis'], img_dir=img_dir,
-+        class_name=kwargs['class_name'], cal_pro=kwargs['cal_pro'],
-+        train_data=train_dataloader, resolution=kwargs['resolution'])
++        model,
++        test_dataloader,
++        device,
++        is_vis=kwargs['vis'],
++        img_dir=img_dir,
++        class_name=kwargs['class_name'],
++        cal_pro=kwargs['cal_pro'],
++        train_data=train_dataloader,
++        resolution=kwargs['resolution'],
++        feature_cache_path=(
++            os.path.join(kwargs["feature_cache_dir"], kwargs["class_name"] + ".pt")
++            if kwargs["feature_cache_dir"]
++            else None
++        ),
++    )
++
 +    if kwargs['dump_predictions']:
 +        prediction_dir = os.path.join(
-+            kwargs['root_dir'], f"{kwargs['dataset']}-k-{kwargs['k_shot']}",
-+            f"seed-{kwargs['experiment_indx']}", "predictions")
++            kwargs['root_dir'],
++            f"{kwargs['dataset']}-k-{kwargs['k_shot']}",
++            f"seed-{kwargs['experiment_indx']}",
++            "predictions",
++        )
 +        os.makedirs(prediction_dir, exist_ok=True)
 +        np.savez_compressed(
 +            os.path.join(prediction_dir, kwargs['class_name'] + ".npz"),
@@ -84,19 +207,215 @@ diff --git a/eval_WinCLIP.py b/eval_WinCLIP.py
 +            pr_sp=score_maps.reshape(len(score_maps), -1).max(axis=1),
 +            imgs_masks=gt_masks,
 +            anomaly_maps=score_maps,
-+            sample_ids=np.asarray(sample_ids))
++            sample_ids=np.asarray(sample_ids),
++        )
 +        selection_path = os.path.join(
-+            prediction_dir, kwargs['class_name'] + "_selection.json")
++            prediction_dir, kwargs['class_name'] + "_selection.json"
++        )
 +        with open(selection_path, "w", encoding="utf-8") as stream:
-+            json.dump({
-+                "category": kwargs["class_name"],
++            json.dump(
++                {
++                    "category": kwargs["class_name"],
++                    "shot": kwargs["k_shot"],
++                    "seed_index": kwargs["experiment_indx"],
++                    "manifest": os.environ.get("WINCLIP_UNIFIED_MANIFEST"),
++                    "selected_reference_images": (
++                        list(train_dataset_inst.img_paths)
++                        if train_dataset_inst is not None
++                        else []
++                    ),
++                },
++                stream,
++                ensure_ascii=False,
++                indent=2,
++            )
+ 
+     logger.info(f"\n")
+ 
+@@ -152,6 +252,8 @@ def get_args():
+     parser.add_argument("--pretrained_dataset", type=str, default="laion400m_e32")
+ 
+     parser.add_argument("--use-cpu", type=int, default=0)
++    parser.add_argument("--dump-predictions", type=str2bool, default=False)
++    parser.add_argument("--feature-cache-dir", type=str, default=None)
+ 
+     args = parser.parse_args()
+ 
+@@ -159,8 +261,6 @@ def get_args():
+ 
+ 
+ if __name__ == '__main__':
+-    import os
+-
+     args = get_args()
+     os.environ['CURL_CA_BUNDLE'] = ''
+     os.environ['CUDA_VISIBLE_DEVICES'] = f"{args.gpu_id}"
+diff --git a/WinCLIP/model.py b/WinCLIP/model.py
+index e3322f9..534b9e6 100644
+--- a/WinCLIP/model.py
++++ b/WinCLIP/model.py
+@@ -243,9 +243,7 @@ class WinClipAD(torch.nn.Module):
+         anomaly_map = scale_anomaly_scores.reshape((N, self.grid_size[0], self.grid_size[1])).unsqueeze(1)
+         return anomaly_map
+ 
+-    def forward(self, images):
+-
+-        visual_features = self.encode_image(images)
++    def score_visual_features(self, visual_features):
+         textual_anomaly_map = self.calculate_textual_anomaly_score(visual_features)
+         if self.visual_gallery is not None:
+             visual_anomaly_map = self.calculate_visual_anomaly_score(visual_features)
+@@ -270,6 +268,10 @@ class WinClipAD(torch.nn.Module):
+ 
+         return am_np_list
+ 
++    def forward(self, images):
++        visual_features = self.encode_image(images)
++        return self.score_visual_features(visual_features)
++
+     def train_mode(self):
+         self.model.train()
+ 
+diff --git a/eval_WinCLIP_matrix.py b/eval_WinCLIP_matrix.py
+new file mode 100644
+--- /dev/null
++++ b/eval_WinCLIP_matrix.py
+@@ -0,0 +1,138 @@
++import json
++import os
++
++import numpy as np
++import torch
++
++from eval_WinCLIP import get_args, test
++from datasets import dataset_classes, get_dataloader_from_args
++from utils.csv_utils import save_metric
++from utils.training_utils import get_dir_from_args, logger, setup_seed
++from WinCLIP import WinClipAD
++
++
++def prediction_dir(kwargs):
++    return os.path.join(
++        kwargs["root_dir"],
++        f"{kwargs['dataset']}-k-{kwargs['k_shot']}",
++        f"seed-{kwargs['experiment_indx']}",
++        "predictions",
++    )
++
++
++def output_complete(kwargs, category):
++    output_dir = prediction_dir(kwargs)
++    return (
++        os.path.isfile(os.path.join(output_dir, category + ".npz"))
++        and os.path.isfile(os.path.join(output_dir, category + "_selection.json"))
++    )
++
++
++def evaluate_category(model, device, kwargs, category):
++    kwargs["class_name"] = category
++    setup_seed(kwargs["seed"])
++
++    _, img_dir, _, _, csv_path = get_dir_from_args(**kwargs)
++    if kwargs["k_shot"] > 0:
++        train_dataloader, train_dataset_inst = get_dataloader_from_args(
++            phase="train", perturbed=False, **kwargs
++        )
++    else:
++        train_dataloader, train_dataset_inst = None, None
++    test_dataloader, _ = get_dataloader_from_args(
++        phase="test", perturbed=False, **kwargs
++    )
++
++    feature_cache_path = (
++        os.path.join(kwargs["feature_cache_dir"], category + ".pt")
++        if kwargs["feature_cache_dir"]
++        else None
++    )
++    metrics, score_maps, image_labels, gt_masks, sample_ids = test(
++        model,
++        test_dataloader,
++        device,
++        is_vis=kwargs["vis"],
++        img_dir=img_dir,
++        class_name=category,
++        cal_pro=kwargs["cal_pro"],
++        train_data=train_dataloader,
++        resolution=kwargs["resolution"],
++        feature_cache_path=feature_cache_path,
++    )
++
++    output_dir = prediction_dir(kwargs)
++    os.makedirs(output_dir, exist_ok=True)
++    np.savez_compressed(
++        os.path.join(output_dir, category + ".npz"),
++        gt_sp=image_labels,
++        pr_sp=score_maps.reshape(len(score_maps), -1).max(axis=1),
++        imgs_masks=gt_masks,
++        anomaly_maps=score_maps,
++        sample_ids=np.asarray(sample_ids),
++    )
++    with open(
++        os.path.join(output_dir, category + "_selection.json"),
++        "w",
++        encoding="utf-8",
++    ) as stream:
++        json.dump(
++            {
++                "category": category,
 +                "shot": kwargs["k_shot"],
 +                "seed_index": kwargs["experiment_indx"],
 +                "manifest": os.environ.get("WINCLIP_UNIFIED_MANIFEST"),
 +                "selected_reference_images": (
 +                    list(train_dataset_inst.img_paths)
-+                    if train_dataset_inst is not None else []),
-+            }, stream, ensure_ascii=False, indent=2)
-@@
-     parser.add_argument("--use-cpu", type=int, default=0)
-+    parser.add_argument("--dump-predictions", type=str2bool, default=False)
++                    if train_dataset_inst is not None
++                    else []
++                ),
++            },
++            stream,
++            ensure_ascii=False,
++            indent=2,
++        )
++
++    for key, value in metrics.items():
++        logger.info(f"{category}======={key}: {value:.2f}")
++    save_metric(
++        metrics,
++        list(dataset_classes[kwargs["dataset"]]),
++        category,
++        kwargs["dataset"],
++        csv_path,
++    )
++
++
++def main(args):
++    kwargs = vars(args)
++    seed_values = [111, 333, 999]
++    kwargs["seed"] = seed_values[kwargs["experiment_indx"]]
++    kwargs["device"] = "cpu" if kwargs["use_cpu"] else "cuda:0"
++    kwargs["out_size_h"] = kwargs["resolution"]
++    kwargs["out_size_w"] = kwargs["resolution"]
++
++    categories = list(dataset_classes[kwargs["dataset"]])
++    missing = [
++        category
++        for category in categories
++        if not output_complete(kwargs, category)
++    ]
++    if not missing:
++        print("All category prediction files already exist.")
++        return
++
++    setup_seed(kwargs["seed"])
++    model = WinClipAD(**kwargs).to(kwargs["device"])
++    for category in missing:
++        print(f"MATRIX_CATEGORY_START {category}", flush=True)
++        evaluate_category(model, kwargs["device"], kwargs, category)
++        print(f"MATRIX_CATEGORY_DONE {category}", flush=True)
++
++
++if __name__ == "__main__":
++    parsed_args = get_args()
++    os.environ["CURL_CA_BUNDLE"] = ""
++    os.environ["CUDA_VISIBLE_DEVICES"] = str(parsed_args.gpu_id)
++    main(parsed_args)
++

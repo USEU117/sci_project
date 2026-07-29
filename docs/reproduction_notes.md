@@ -128,3 +128,52 @@
   is 84.48%/84.90%/85.09%; pixel AUROC 90.69%/90.87%/90.90%; AUPRO
   85.40%/85.52%/85.36%. The selected 1-shot reference is the manifest's
   `candle/Data/Images/Normal/0345.JPG`.
+- The complete WinCLIP+ VisA unified matrix finished successfully: 12
+  categories × 3 shots × 3 seeds. Mean±sample-std over seeds for image AUROC
+  is 69.96±0.19%, 71.57±0.34%, 72.58±0.11%; pixel AUROC is 89.98±0.24%,
+  90.50±0.25%, 90.88±0.08%; and AUPRO is 67.34±0.73%, 68.32±0.75%,
+  69.05±0.51% at 1/2/4-shot. Tables are tracked under
+  `experiments/summaries/winclip_visa_unified/`.
+- To reduce repeated inference, the adapter separates invariant test-image
+  encoding from shot-dependent visual-gallery scoring. It saves normalized
+  FP16 test features per category, validates batch sample IDs on every load,
+  keeps the model resident while processing categories, and evaluates
+  categories with two CPU workers. A cached rerun of VisA/candle seed 2
+  4-shot matched the original `gt_sp`, `pr_sp`, masks, anomaly maps and sample
+  IDs exactly; maximum numeric difference was zero.
+- The first single-model matrix attempt stopped after candle because upstream
+  `save_metric` modifies the supplied class list in place. Passing a copied
+  list fixed the issue. The resume check retained the successful candle files
+  and continued at capsules, confirming failure-safe category resume.
+## AnomalyDINO unified VisA completion (2026-07-29)
+
+- Official source commit:
+  `b9d1c2648e3a5247437d4d953d907a8f3d994457`.
+- DINOv2 checkpoint: `dinov2_vits14_pretrain.pth`, SHA256
+  `B938BF1BC15CD2EC0FEACFE3A1BB553FE8EA9CA46A7E1D8D00217F29AEF60CD9`.
+- Protocol: frozen unified VisA manifest, 1/2/4-shot, seeds 0/1/2,
+  agnostic preprocessing, max edge 448, CPU FAISS.
+- Test features are cached once per category and reused across shot/seed runs.
+- All nine runs contain 12 categories, 2,162 test samples and zero common
+  evaluator validation errors.
+- Mean±std results for 1/2/4-shot:
+  - image AUROC: 89.40±0.98%, 91.40±0.69%, 92.58±0.24%;
+  - pixel AUROC: 97.97±0.12%, 98.28±0.04%, 98.45±0.04%;
+  - AUPRO: 92.21±0.64%, 93.10±0.36%, 93.69±0.14%.
+- Windows-specific fixes include case-insensitive TIFF deduplication,
+  object-subset evaluation, optional TIFF retention and bounded-resolution
+  map export. The complete patch is `patches/anomalydino-unified.patch`.
+
+## PromptAD Gate A (2026-07-29)
+
+- Official source commit:
+  `0f86ce0dc1ed59007d51348d8d566aed31360cf9`.
+- The official repository has separate classification and segmentation
+  training entry points.
+- The isolated environment was supplemented with the packages required by
+  the upstream installation instructions.
+- The official VisA/candle 1-shot classification entry completed with image
+  AUROC 92.92%.
+- Upstream uses category seed text files and a fixed relative dataset path;
+  these must be replaced by the frozen project manifest before results are
+  admitted to the unified comparison table.

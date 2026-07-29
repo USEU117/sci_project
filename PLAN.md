@@ -431,3 +431,95 @@ python run_anomalydino.py --dataset VisA --shots 1 2 4 --num_seeds 3 --preproces
 6. 执行 bottle 冒烟测试；
 7. 冒烟通过后再下载其余方法并扩展实验。
 
+## 11. 2026-07-28 执行检查点与后续顺序
+
+已完成：
+
+1. VisA 数据、统一 1/2/4-shot 清单、清单哈希和完整性检查；
+2. 方法无关的 NPZ 评价层、六项统一指标和单元测试；
+3. PatchCore 的 VisA 12 类 × 3 shots × 3 seeds 完整矩阵；
+4. WinCLIP+ 的 VisA 12 类 × 3 shots × 3 seeds 完整矩阵；
+5. 两种方法的逐运行结果、mean±std 汇总、实验登记和第三方补丁留档。
+
+下一步严格按以下顺序执行：
+
+1. AnomalyDINO：固定官方代码与环境，先做 VisA/candle 1-shot seed 0
+   冒烟，再接统一清单和 NPZ 导出，最后跑完整 VisA 矩阵；
+2. PromptAD：分别检查分类与分割入口，完成同样的 Gate A/B/C；
+3. ReMP-AD：完成官方 checkpoint 推理，确认源域训练与目标域适配边界，
+   至少形成可核验的官方协议结果；
+4. AdaptCLIP：下载官方 checkpoint，以 batch size 1 做 6 GB 显存门控，
+   再判断完整矩阵是否需要额外算力；
+5. MVTec AD：等待用户通过官方许可页面取得数据后，立即执行数据校验、
+   统一清单生成，并把已完成方法扩展到 MVTec；
+6. 当至少 WinCLIP+、PatchCore、PromptAD、AnomalyDINO 的两个数据集矩阵
+   齐全后，统计文本分支与视觉分支的样本级、区域级误差互补性，再进入
+   动态路由模块。
+
+当前外部阻塞：MVTec AD 不能绕过官方许可表单自动下载。在该数据到位前，
+优先完成不受许可阻塞的 VisA 方法复现，不空等。
+
+## 12. 2026-07-29 项目进度复盘与后续完整计划
+
+### 12.1 当前已完成
+
+1. 项目骨架、Git 记录、实验登记表、统一协议和数据清单已经建立。
+2. VisA 数据已下载、校验并生成统一的 1/2/4-shot、3-seed 清单；清单哈希已固定。
+3. 统一 NPZ 预测格式和评价脚本已完成，AUROC、AP、F1-max、pixel AUROC、pixel AP、AUPRO 五项测试通过。
+4. PatchCore 已完成 VisA 全部 12 类 × 3 shots × 3 seeds。
+5. WinCLIP+ 已完成 VisA 全部 12 类 × 3 shots × 3 seeds，并启用特征缓存。
+6. AnomalyDINO 已完成官方代码固定、DINOv2 权重校验、Windows/子集/缓存适配，以及全部 9 组统一矩阵运行。
+7. PromptAD 官方源码已固定，VisA/candle 1-shot 分类 Gate A 已成功，image AUROC 为 92.92%。
+8. MVTec AD 仍受官方许可下载流程限制，尚未进入本地实验。
+
+### 12.2 当前正在执行
+
+1. 完成 PromptAD 的 VisA/candle 1-shot 分割 Gate A。
+2. 将 PromptAD 数据抽样替换为冻结的统一 manifest，并导出共同 NPZ 格式。
+3. 完成 PromptAD VisA 全矩阵，再进入 ReMP-AD 和 AdaptCLIP。
+
+### 12.3 下一阶段的执行顺序
+
+#### 阶段 A：收尾 AnomalyDINO
+
+1. 检查 9 个运行目录是否都有 `evaluation_report.json`、12 类结果和 2162 张测试样本。
+2. 重新运行统一评价单元测试和注册表校验。
+3. 生成 `experiments/summaries/anomalydino_visa_unified/`。
+4. 更新 `PROJECT_STATUS.md`、`docs/reproduction_notes.md` 和本计划。
+5. 将 AnomalyDINO 与 WinCLIP+/PatchCore 的结果加入同一张对比表。
+
+#### 阶段 B：PromptAD Gate A/B/C
+
+1. 固定官方仓库 commit，记录依赖版本和 checkpoint 来源。
+2. 先只跑 VisA/candle、1-shot、seed 0，确认分类和分割入口都能运行。
+3. 将官方数据读取改为统一 manifest，导出共同 NPZ 格式。
+4. 通过 Gate A 后跑 VisA 全 12 类 seed 0，再跑 3 seeds × 3 shots。
+5. 如果官方方法需要目标域 Prompt 学习，单独记录训练样本是否来自统一正常样本，不能与零样本结果混列。
+
+#### 阶段 C：ReMP-AD 与 AdaptCLIP
+
+1. 对每个方法先做来源、commit、权重和许可证审计。
+2. 分别完成单类 Gate A；若官方 checkpoint 或数据入口不可用，保留可复核的阻塞记录。
+3. 只对能稳定输出共同 NPZ 的方法运行完整 VisA 矩阵。
+4. 记录显存、运行时间、图像分辨率、是否目标域调参和异常图后处理。
+
+#### 阶段 D：MVTec AD
+
+1. 用户通过官方许可流程取得数据后，计算压缩包哈希并解压。
+2. 生成并校验 MVTec metadata 和统一 1/2/4-shot manifest。
+3. 按 Gate A → 全类别 seed 0 → 3 seeds × 3 shots 扩展已有方法。
+4. 先完成 WinCLIP+、PatchCore、AnomalyDINO、PromptAD，再补 ReMP-AD/AdaptCLIP。
+
+#### 阶段 E：统计、比较与第二阶段入口
+
+1. 统一生成按方法/数据集/shot 的 mean±std 表、逐类别表和失败案例表。
+2. 分开报告零样本、少样本和目标域 Prompt/Adapter 学习结果。
+3. 分析文本分支与视觉分支的互补性，检查不同类别和缺陷区域的误差。
+4. 满足第二阶段门槛后，再设计动态融合模块；在此之前不修改基线评价协议。
+
+### 12.4 每个阶段的验收条件
+
+- 所有成功运行均有固定配置、日志、输入清单哈希和可重算的预测文件。
+- 汇总表只能由脚本从逐 run 文件生成，不能手工填数。
+- 任何失败运行保留日志，不覆盖之前的成功结果。
+- 结果比较必须注明数据集、shot、seed、目标域调参和分辨率。

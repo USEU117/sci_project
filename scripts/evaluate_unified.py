@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -168,19 +169,32 @@ def main() -> None:
     ap.add_argument("--cache-dir", type=Path, required=True)
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--apro-steps", type=int, default=200)
+    ap.add_argument("--workers", type=int, default=1)
     args = ap.parse_args()
     paths = sorted(args.cache_dir.glob("*.npz"))
     if not paths:
         raise SystemExit(f"No NPZ prediction files found in {args.cache_dir}")
     if args.apro_steps <= 1:
         raise SystemExit("--apro-steps must be greater than 1")
+    if args.workers <= 0:
+        raise SystemExit("--workers must be greater than 0")
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     category_rows: list[dict] = []
     image_rows: list[dict] = []
-    for path in paths:
-        print(f"evaluate {path.name}", flush=True)
-        category, images = evaluate_category(path, args.apro_steps)
+    if args.workers == 1:
+        results = []
+        for path in paths:
+            print(f"evaluate {path.name}", flush=True)
+            results.append(evaluate_category(path, args.apro_steps))
+    else:
+        with ProcessPoolExecutor(max_workers=args.workers) as executor:
+            futures = []
+            for path in paths:
+                print(f"evaluate {path.name}", flush=True)
+                futures.append(executor.submit(evaluate_category, path, args.apro_steps))
+            results = [future.result() for future in futures]
+    for category, images in results:
         category_rows.append(category)
         image_rows.extend(images)
 
