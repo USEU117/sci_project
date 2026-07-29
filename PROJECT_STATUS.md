@@ -127,6 +127,10 @@ Updated: 2026-07-29
 - AnomalyDINO MVTec Gate A completed for bottle, 1-shot, seed 0. Common
     image AUROC is 99.92%, pixel AUROC 98.96%, pixel AP 83.04%, and AUPRO
     96.46%.
+- PromptAD candle 1-shot raw NPZ export completed. The common evaluator reports
+    image AUROC 91.59%, pixel AUROC 95.75% and AUPRO 90.66%; this export is
+    separate from PromptAD's native CSV (92.92%/96.07%) because the project
+    evaluator uses per-image prediction maps.
 
 ## Not started
 

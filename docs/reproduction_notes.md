@@ -214,3 +214,7 @@
   DINOv2 ViT-S/14 run used agnostic preprocessing, CPU FAISS and 448px maps.
   Common metrics are image AUROC 99.92%, image AP 99.98%, pixel AUROC 98.96%,
   pixel AP 83.04% and AUPRO 96.46%.
+- PromptAD's existing candle checkpoint (1-shot, native seed 111) was exported
+  to `outputs/promptad_visa_candle_cls.npz` through an opt-in test hook. This
+  makes the result directly consumable by the common evaluator; it reports
+  image AUROC 91.59%, pixel AUROC 95.75% and AUPRO 90.66%.

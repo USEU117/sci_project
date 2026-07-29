@@ -1,0 +1,31 @@
+diff --git a/test_cls.py b/test_cls.py
+--- a/test_cls.py
++++ b/test_cls.py
+@@
++import os
++import numpy as np
+@@
++    export_path = os.environ.get("PROMPTAD_EXPORT_NPZ")
++    if export_path:
++        maps = np.asarray([x.detach().cpu().numpy() if hasattr(x, "detach") else np.asarray(x)
++                           for x in score_maps], dtype=np.float32)
++        np.savez_compressed(export_path, gt_sp=np.asarray(gt_list, dtype=np.uint8),
++                            pr_sp=np.asarray(scores_img, dtype=np.float32),
++                            imgs_masks=np.asarray(gt_mask_list, dtype=np.uint8),
++                            anomaly_maps=maps, sample_ids=np.asarray(names))
+diff --git a/test_seg.py b/test_seg.py
+--- a/test_seg.py
++++ b/test_seg.py
+@@
++import os
++import numpy as np
+@@
++    export_path = os.environ.get("PROMPTAD_EXPORT_NPZ")
++    if export_path:
++        maps = np.asarray([x.detach().cpu().numpy() if hasattr(x, "detach") else np.asarray(x)
++                           for x in score_maps], dtype=np.float32)
++        np.savez_compressed(export_path, gt_sp=np.asarray(
++            [0 if np.asarray(m).max() == 0 else 1 for m in gt_mask_list], dtype=np.uint8),
++            pr_sp=np.asarray([float(np.asarray(x).reshape(-1).max()) for x in maps], dtype=np.float32),
++            imgs_masks=np.asarray(gt_mask_list, dtype=np.uint8), anomaly_maps=maps,
++            sample_ids=np.asarray(names))
