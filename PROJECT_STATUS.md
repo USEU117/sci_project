@@ -135,6 +135,9 @@ Updated: 2026-07-29
     merged prediction contains 160 test images; common image AUROC is 72.92%,
     pixel AUROC 94.23% and AUPRO 51.86%. The remaining 11 categories are
     running through a resumable queue.
+- ReMP-AD and AdaptCLIP source repositories have been cloned at fixed commits
+    and audited. Both still require Gate A work; AdaptCLIP additionally needs
+    a published checkpoint and a local fix for a duplicated dataset block.
 
 ## Not started
 

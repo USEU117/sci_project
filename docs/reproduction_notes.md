@@ -221,3 +221,9 @@
 - PromptAD capsules Gate B (1-shot, seed 0) completed through the merged
   classification/segmentation NPZ path. For 160 test images, common image
   AUROC is 72.92%, pixel AUROC 94.23% and AUPRO 51.86%.
+- ReMP-AD commit `d3fbc46adfd91406859b90dece65c221343096c7` and AdaptCLIP
+  commit `354d9e3332ec5348b3d8e4439111d34f8e94c0a9` were cloned for audit.
+  ReMP-AD documents train-then-test scripts but no pretrained checkpoint;
+  AdaptCLIP requires a Hugging Face checkpoint and its official test shell
+  script contains a duplicated dataset block. Details are in
+  `docs/remp_ad_adaptclip_audit.md`.
