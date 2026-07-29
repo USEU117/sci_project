@@ -1,11 +1,15 @@
 param(
     [int]$Interval = 5,
-    [int]$Tail = 8
+    [int]$Tail = 8,
+    [ValidateSet(0, 1, 2)]
+    [int]$Seed = 0,
+    [ValidateSet(1, 2, 4)]
+    [int]$Shot = 1
 )
 
 $ErrorActionPreference = "SilentlyContinue"
 $root = Split-Path -Parent $PSScriptRoot
-$logDir = Join-Path $root "outputs\logs\promptad\visa\seed_0_shot_1"
+$logDir = Join-Path $root "outputs\logs\promptad\visa\seed_${Seed}_shot_${Shot}"
 
 while ($true) {
     Clear-Host
@@ -29,7 +33,7 @@ while ($true) {
     if ($markers) { $markers | Select-Object -ExpandProperty Name } else { Write-Host "none" }
     Write-Host ""
     Write-Host "Prediction NPZ files" -ForegroundColor Yellow
-    $predDir = Join-Path $root "outputs\promptad\visa\seed_0_shot_1\predictions"
+    $predDir = Join-Path $root "outputs\promptad\visa\seed_${Seed}_shot_${Shot}\predictions"
     @(Get-ChildItem $predDir -Filter "*.npz" | Sort-Object Name) |
         Select-Object Name, Length, LastWriteTime | Format-Table -AutoSize
     Write-Host ""
