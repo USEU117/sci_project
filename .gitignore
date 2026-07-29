@@ -1,6 +1,7 @@
 # Datasets and downloads
 data/downloads/
 data/mvtec_ad/
+data/mvtec/
 data/visa_raw/
 data/visa_1cls/
 data/visa_patchcore*/

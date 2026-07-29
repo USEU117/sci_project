@@ -102,19 +102,26 @@ Updated: 2026-07-29
   exact seed-0 4-shot candle references from the manifest. The reusable gate
   runner is `scripts/run_promptad_gate.ps1`, and the third-party change is
   preserved in `patches/promptad-unified-manifest.patch`.
+- MVTec AD has now been obtained through the official download flow. The
+  archive is 5,264,982,680 bytes with SHA256
+  `CF4313B13603BEC67ABB49CA959488F7EEDCE2A9F7795EC54446C649AC98CD3D`.
+- MVTec AD is extracted under `data/mvtec`. All 15 categories, training
+  images, test images and anomaly masks pass validation.
+- MVTec metadata and the unified nested 1/2/4-shot, seed 0/1/2 manifest are
+  generated. The manifest SHA256 is
+  `0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f`;
+  315 selected path entries pass with zero errors.
 
 ## In progress
 
-- PromptAD VisA/candle 1-shot segmentation Gate A is running. The next code
-  task is replacing the upstream fixed seed files with the frozen manifest
-  and exporting the common NPZ schema.
-- MVTec AD official download and license flow.
+- AnomalyCLIP MVTec inference is running with the VisA-trained checkpoint,
+  518px input and prediction caching. It is currently processing 1,725
+  MVTec test images.
 
 ## Not started
 
 - PromptAD Gate A/B/C and its full unified VisA matrix.
 - ReMP-AD and AdaptCLIP source/checkpoint audit and Gate A.
-- MVTec AD dataset download and validation.
 - Full-category AnomalyCLIP reproduction on MVTec.
 
 ## Constraints and risks
@@ -132,11 +139,10 @@ Updated: 2026-07-29
 
 ## Next action
 
-1. Finish PromptAD segmentation Gate A and record its pixel metrics.
-2. Connect PromptAD to the frozen manifest and common NPZ evaluator.
-3. Run the PromptAD Gate B/C sequence on VisA.
+1. Finish AnomalyCLIP MVTec prediction caching and unified evaluation.
+2. Extend PatchCore, WinCLIP+, AnomalyDINO and PromptAD to MVTec Gate A.
+3. Finish PromptAD raw prediction export and its VisA unified matrix.
 4. Audit and smoke-test ReMP-AD and AdaptCLIP.
-5. When MVTec AD is obtained through the official license flow, generate its
-   manifest and extend the validated baselines.
+5. Extend the validated methods to the complete MVTec matrix.
 6. Only after the baseline matrix is complete, perform the second-stage
    text/vision complementarity analysis and design dynamic fusion.
