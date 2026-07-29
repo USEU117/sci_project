@@ -218,3 +218,6 @@
   to `outputs/promptad_visa_candle_cls.npz` through an opt-in test hook. This
   makes the result directly consumable by the common evaluator; it reports
   image AUROC 91.59%, pixel AUROC 95.75% and AUPRO 90.66%.
+- PromptAD capsules Gate B (1-shot, seed 0) completed through the merged
+  classification/segmentation NPZ path. For 160 test images, common image
+  AUROC is 72.92%, pixel AUROC 94.23% and AUPRO 51.86%.

@@ -131,10 +131,14 @@ Updated: 2026-07-29
     image AUROC 91.59%, pixel AUROC 95.75% and AUPRO 90.66%; this export is
     separate from PromptAD's native CSV (92.92%/96.07%) because the project
     evaluator uses per-image prediction maps.
+- PromptAD VisA Gate B has started with capsules, 1-shot, seed 0. The complete
+    merged prediction contains 160 test images; common image AUROC is 72.92%,
+    pixel AUROC 94.23% and AUPRO 51.86%. The remaining 11 categories are
+    running through a resumable queue.
 
 ## Not started
 
-- PromptAD raw prediction export and its full unified VisA matrix.
+- PromptAD raw prediction export and its full unified VisA matrix (queue active).
 - ReMP-AD and AdaptCLIP source/checkpoint audit and Gate A.
 - Full-category AnomalyCLIP few-shot reproduction on MVTec.
 
