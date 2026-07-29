@@ -131,10 +131,10 @@ Updated: 2026-07-29
     image AUROC 91.59%, pixel AUROC 95.75% and AUPRO 90.66%; this export is
     separate from PromptAD's native CSV (92.92%/96.07%) because the project
     evaluator uses per-image prediction maps.
-- PromptAD VisA Gate B has started with capsules, 1-shot, seed 0. The complete
-    merged prediction contains 160 test images; common image AUROC is 72.92%,
-    pixel AUROC 94.23% and AUPRO 51.86%. The remaining 11 categories are
-    running through a resumable queue.
+- PromptAD VisA Gate B, 1-shot, seed 0, is complete for all 12 categories and
+    2,162 test images with zero schema errors. Macro image AUROC is 80.25%,
+    pixel AUROC 96.20%, pixel AP 28.54% and AUPRO 81.73%. PromptAD is marked
+    as `target_normal_tuning=true` because it learns from target normal shots.
 - ReMP-AD and AdaptCLIP source repositories have been cloned at fixed commits
     and audited. Both still require Gate A work; AdaptCLIP additionally needs
     a published checkpoint and a local fix for a duplicated dataset block.
@@ -160,9 +160,10 @@ Updated: 2026-07-29
 
 ## Next action
 
-1. Finish PromptAD raw prediction export and its VisA unified matrix.
-3. Run PromptAD MVTec Gate A.
-4. Audit and smoke-test ReMP-AD and AdaptCLIP.
-5. Extend the validated methods to the complete MVTec matrix.
-6. Only after the baseline matrix is complete, perform the second-stage
+1. Finish PromptAD raw prediction export and its VisA unified matrix; the
+   detailed checkpointed execution order is in `NEXT_ACTIONS.md`.
+2. Run PromptAD MVTec Gate A.
+3. Audit and smoke-test ReMP-AD and AdaptCLIP.
+4. Extend the validated methods to the complete MVTec matrix.
+5. Only after the baseline matrix is complete, perform the second-stage
    text/vision complementarity analysis and design dynamic fusion.
