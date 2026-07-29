@@ -175,5 +175,10 @@
 - The official VisA/candle 1-shot classification entry completed with image
   AUROC 92.92%.
 - Upstream uses category seed text files and a fixed relative dataset path;
-  these must be replaced by the frozen project manifest before results are
-  admitted to the unified comparison table.
+  the local patch replaces these with `PROMPTAD_VISA_DIR`,
+  `PROMPTAD_SPLIT_MANIFEST` and `PROMPTAD_SPLIT_SEED`.
+- A loader check for candle seed 0, 4-shot selected exactly
+  `0345.JPG`, `0661.JPG`, `0789.JPG` and `0517.JPG`.
+- `scripts/run_promptad_gate.ps1` provides a reproducible classification or
+  segmentation invocation. Raw prediction export is still required before
+  PromptAD results can enter the common NPZ comparison table.

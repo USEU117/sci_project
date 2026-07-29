@@ -97,6 +97,11 @@ Updated: 2026-07-29
 - PromptAD official source is fixed at commit
   `0f86ce0dc1ed59007d51348d8d566aed31360cf9`. Its VisA/candle 1-shot
   classification Gate A completed with image AUROC 92.92%.
+- PromptAD's VisA loader now accepts the project dataset path, frozen manifest
+  and seed through environment variables. A direct loader check selected the
+  exact seed-0 4-shot candle references from the manifest. The reusable gate
+  runner is `scripts/run_promptad_gate.ps1`, and the third-party change is
+  preserved in `patches/promptad-unified-manifest.patch`.
 
 ## In progress
 
