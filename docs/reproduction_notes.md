@@ -232,6 +232,9 @@
 - PromptAD VisA 2-shot seed-0 completed for all 12 categories and 2,162 test
   images with zero schema errors. Common macro metrics are image AUROC 81.15%,
   image AP 83.57%, pixel AUROC 96.79%, pixel AP 29.63% and AUPRO 82.25%.
+- PromptAD VisA 4-shot seed-0 completed for all 12 categories and 2,162 test
+  images with zero schema errors. Common macro metrics are image AUROC 80.46%,
+  image AP 82.82%, pixel AUROC 97.01%, pixel AP 31.87% and AUPRO 83.71%.
 - ReMP-AD commit `d3fbc46adfd91406859b90dece65c221343096c7` and AdaptCLIP
   commit `354d9e3332ec5348b3d8e4439111d34f8e94c0a9` were cloned for audit.
   ReMP-AD documents train-then-test scripts but no pretrained checkpoint;
