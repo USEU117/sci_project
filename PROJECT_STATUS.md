@@ -135,6 +135,10 @@ Updated: 2026-07-29
     2,162 test images with zero schema errors. Macro image AUROC is 80.25%,
     pixel AUROC 96.20%, pixel AP 28.54% and AUPRO 81.73%. PromptAD is marked
     as `target_normal_tuning=true` because it learns from target normal shots.
+- PromptAD VisA 2-shot, seed 0, is complete for all 12 categories and 2,162
+    test images with zero schema errors. Macro image AUROC is 81.15%, pixel
+    AUROC 96.79%, pixel AP 29.63% and AUPRO 82.25%. The next active run is
+    4-shot, seed 0.
 - ReMP-AD and AdaptCLIP source repositories have been cloned at fixed commits
     and audited. Both still require Gate A work; AdaptCLIP additionally needs
     a published checkpoint and a local fix for a duplicated dataset block.

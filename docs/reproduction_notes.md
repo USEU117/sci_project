@@ -229,6 +229,9 @@
   AUROC 80.25%, image AP 82.93%, pixel AUROC 96.20%, pixel AP 28.54% and
   AUPRO 81.73%. These results use target-domain normal prompt tuning and are
   reported separately from training-free few-shot reference methods.
+- PromptAD VisA 2-shot seed-0 completed for all 12 categories and 2,162 test
+  images with zero schema errors. Common macro metrics are image AUROC 81.15%,
+  image AP 83.57%, pixel AUROC 96.79%, pixel AP 29.63% and AUPRO 82.25%.
 - ReMP-AD commit `d3fbc46adfd91406859b90dece65c221343096c7` and AdaptCLIP
   commit `354d9e3332ec5348b3d8e4439111d34f8e94c0a9` were cloned for audit.
   ReMP-AD documents train-then-test scripts but no pretrained checkpoint;
