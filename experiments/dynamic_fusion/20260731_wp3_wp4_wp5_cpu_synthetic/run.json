@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "20260731_wp3_wp4_wp5_cpu_synthetic",
+  "purpose": "CPU-only validation of single-branch controls, fixed fusion and reliability features",
+  "status": "passed",
+  "work_packages": ["WP3", "WP4", "WP5"],
+  "synthetic_data_only": true,
+  "gpu_used": false,
+  "ground_truth_used": false,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "checks_passed": 8,
+  "tests_passed": 28,
+  "report_sha256": "8eddca6c227d9beb5fb82b1639b32753d2c760ffec3c38d9f964396dc520438f",
+  "git_commit": "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+  "working_tree_dirty": true,
+  "exit_code": 0
+}

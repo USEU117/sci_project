@@ -1,0 +1,17 @@
+﻿{
+    "schema_version":  1,
+    "run_id":  "20260731_reference_novalidate_probe",
+    "purpose":  "Real VisA seed-0 1-shot normal-reference export, audit and calibration",
+    "status":  "failed",
+    "dataset":  "visa",
+    "seed":  0,
+    "shot":  1,
+    "gpu_used":  true,
+    "test_predictions_used":  false,
+    "test_labels_used":  false,
+    "started_at_utc":  "2026-07-31T00:58:14.9852570Z",
+    "ended_at_utc":  "2026-07-31T00:58:14.9994361Z",
+    "exit_code":  1,
+    "failure":  "Parameter set cannot be resolved using the specified named parameters.",
+    "output_root":  "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260731_reference_novalidate_probe"
+}

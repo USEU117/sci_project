@@ -1,0 +1,1 @@
+.venv-anomalyclip/Scripts/python.exe scripts/prepare_normal_reference_views.py --manifest data/splits/visa/manifest.json --data-root data/visa_raw --dataset visa --seed 0 --shot 1 --output-dir outputs/dynamic_fusion/reference_views/20260730_visa_s0_k1_v1

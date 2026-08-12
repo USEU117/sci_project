@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset": "VisA",
+  "expected_methods": [
+    "PatchCore",
+    "WinCLIP+",
+    "AnomalyDINO",
+    "PromptAD"
+  ],
+  "expected_shots": [
+    1,
+    2,
+    4
+  ],
+  "expected_seeds": [
+    0,
+    1,
+    2
+  ],
+  "expected_runs": 36,
+  "audited_runs": 36,
+  "errors": [],
+  "status": "passed",
+  "score_direction": "higher_is_more_anomalous",
+  "promptad_target_normal_tuning": true,
+  "audit_csv": "experiments\\summaries\\visa_result_audit_20260804.csv",
+  "audit_csv_sha256": "47acb6315cc4a712333630dbb47a31dadd85a8d958aa80252ce96d3c7ebebf5d"
+}

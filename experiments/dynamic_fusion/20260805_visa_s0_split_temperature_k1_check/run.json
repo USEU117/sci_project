@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "run_id": "20260805_visa_s0_split_temperature_k1_check",
+  "purpose": "VisA seed-0 split-temperature ablation and K=1 pixel consistency check",
+  "dataset": "visa",
+  "seed": 0,
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "gpu_used": false,
+  "test_predictions_used_by_router": false,
+  "test_labels_used_by_router": false,
+  "evaluation_uses_ground_truth_only_after_fusion": true,
+  "image_temperature": 0.5,
+  "pixel_temperature": 0.2,
+  "decision_margin": 0.15,
+  "min_weight": 0.05,
+  "calibrations": {
+    "1": {
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260731_visa_s0_k1_real_reference_v6_q99\\calibration.json",
+      "sha256": "76cd95bc21089b5dd08fb4162d845adb607b36540f86a4ce052a4068ac8eb3af"
+    },
+    "2": {
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260804_visa_s0_k2_real_reference_v1_q99\\calibration.json",
+      "sha256": "2477df7f68bd570b4a587717c7d712495da19f8049406efacad43f959b308ea4"
+    },
+    "4": {
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260804_visa_s0_k4_real_reference_v1_q99\\calibration.json",
+      "sha256": "143931d0846cd00d4acfb33585908f2941a8830e900e6d632f3b9a8d556d1a1e"
+    }
+  },
+  "started_at_utc": "2026-08-04T15:21:56.428357+00:00"
+}

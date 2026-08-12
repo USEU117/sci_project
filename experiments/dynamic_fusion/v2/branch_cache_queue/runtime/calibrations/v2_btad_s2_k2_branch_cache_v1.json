@@ -1,0 +1,210 @@
+{
+  "schema_version": 2,
+  "run_id": "v2_btad_s2_k2_branch_cache_v1",
+  "created_at_utc": "2026-08-11T01:53:26.152577+00:00",
+  "dataset": "btad",
+  "dataset_role": "holdout",
+  "seed": 2,
+  "shot": 2,
+  "visual_branch": "anomalydino_visual",
+  "text_branch": "anomalyclip_text",
+  "method": "rank_preserving_arctan_with_normal_support",
+  "fit_data": "target_normal_reference_shots_with_deterministic_views",
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "test_masks_used": false,
+  "test_set_statistics_used": false,
+  "status": "passed",
+  "failures": [],
+  "categories": {
+    "01": {
+      "visual": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.03169336821883917,
+          "scale": 0.0173268828894943,
+          "lower_support": 3.6466121258627024e-07,
+          "upper_support": 0.044861203208565716,
+          "scale_floor": 0.002255896367132948,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.014625511392951013,
+          "scale": 0.015856307214315985,
+          "lower_support": 1.9638453382100354e-07,
+          "upper_support": 0.030175605818443002,
+          "scale_floor": 0.0015223846957035222,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "text": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.7812527716159821,
+          "scale": 0.011749361248878836,
+          "lower_support": 0.7550912255048752,
+          "upper_support": 0.7954325276613236,
+          "scale_floor": 0.002118349075317383,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.3285263532400131,
+          "scale": 0.007164665929824163,
+          "lower_support": 0.3154638864576818,
+          "upper_support": 0.34385275347530847,
+          "scale_floor": 0.001472275987267488,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "visual_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalydino_visual\\01.npz",
+      "text_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "visual_cache_sha256": "46e440e4b71cc4d2c0fca331a126a489618530ece8d27854fa7ab9aa7d9da9e5",
+      "text_cache_sha256": "5de23c2bd81e93cd3f67e0c8d29a0b7525332efc993254c5858a9965f371cad8",
+      "normal_source_count": 2,
+      "visual_view_count": 10,
+      "text_view_count": 10
+    },
+    "02": {
+      "visual": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.018817597068846226,
+          "scale": 0.011356811450701207,
+          "lower_support": 3.9064884134631937e-07,
+          "upper_support": 0.036433181017637255,
+          "scale_floor": 0.0018788615241646768,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.007470851365942515,
+          "scale": 0.005551073468771764,
+          "lower_support": 1.8690951103934595e-07,
+          "upper_support": 0.02062966997241602,
+          "scale_floor": 0.0010775079795341683,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "text": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.8216709196567535,
+          "scale": 0.013357941788434982,
+          "lower_support": 0.8088959932327271,
+          "upper_support": 0.8307388854026795,
+          "scale_floor": 0.0011025816202163696,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.3188545918464661,
+          "scale": 0.012080794479042591,
+          "lower_support": 0.2966698697835208,
+          "upper_support": 0.3523049739450221,
+          "scale_floor": 0.002936437442898768,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "visual_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalydino_visual\\02.npz",
+      "text_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "visual_cache_sha256": "d51c0835aeecd966705cde1d5ba7bb62c2bd2f565cfbb40fc70d3dc17ed71418",
+      "text_cache_sha256": "ead0d5b74a2b11069cc331b4814d3f82720abc4ad1a0ac43b7513600eea6c130",
+      "normal_source_count": 2,
+      "visual_view_count": 10,
+      "text_view_count": 10
+    },
+    "03": {
+      "visual": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.0052557060262188315,
+          "scale": 0.022895427750736982,
+          "lower_support": 3.8637563818610945e-07,
+          "upper_support": 0.08816065531224013,
+          "scale_floor": 0.0046305091335227646,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.002054868837585675,
+          "scale": 0.008968773211107122,
+          "lower_support": 1.814728149568624e-07,
+          "upper_support": 0.03476802567187724,
+          "scale_floor": 0.0018008058463001228,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "text": {
+        "image": {
+          "type": "rank_preserving_arctan",
+          "center": 0.8577913641929626,
+          "scale": 0.021218748915195464,
+          "lower_support": 0.8360870176553726,
+          "upper_support": 0.8861721336841584,
+          "scale_floor": 0.002544459700584412,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel": {
+          "type": "rank_preserving_arctan",
+          "center": 0.4608076095581055,
+          "scale": 0.0760291225716661,
+          "lower_support": 0.34535666928589354,
+          "upper_support": 0.5248653943419457,
+          "scale_floor": 0.009124577149748797,
+          "reference_count": 10,
+          "degenerate_reference": false,
+          "lower_quantile": 0.01,
+          "upper_quantile": 0.99
+        },
+        "pixel_tail_quantile": 0.99
+      },
+      "visual_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalydino_visual\\03.npz",
+      "text_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "visual_cache_sha256": "fb8a06e23d2a64b7fc92087d12dc00709c958719cee7dc544f53bc2939f4f6a4",
+      "text_cache_sha256": "4adb3a63f36ddbc000ce7e59b4a81ceed64f38a6055a59a2793b868c045085f2",
+      "normal_source_count": 2,
+      "visual_view_count": 10,
+      "text_view_count": 10
+    }
+  }
+}

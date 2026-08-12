@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "scope": "visa_seed_0_development_only",
+  "test_labels_used_for_router": false,
+  "shots": [
+    {
+      "shot": 2,
+      "base": "outputs\\dynamic_fusion\\development_matrix\\20260804_visa_s0_k2_calibrated_development_matrix_v3",
+      "route": {
+        "samples": 2162,
+        "image_weight_mean": 0.8227547732191324,
+        "image_weight_std": 0.16946114620625216,
+        "image_weight_q10": 0.5307111382484436,
+        "image_weight_q50": 0.949999988079071,
+        "image_weight_q90": 0.949999988079071,
+        "pixel_weight_mean": 0.3563349567325853,
+        "pixel_weight_std": 0.1542163194926301,
+        "pixel_image_weight_gap_mean": 0.4832439417397479,
+        "routes": {
+          "visual": 1631,
+          "weighted_fusion": 531
+        }
+      },
+      "category_count": 12,
+      "dynamic_below_best_fixed_count": {
+        "image_auroc": 7,
+        "pixel_auroc": 11,
+        "pixel_ap": 9,
+        "aupro": 1
+      },
+      "dynamic_above_best_fixed_count": {
+        "image_auroc": 3,
+        "pixel_auroc": 1,
+        "pixel_ap": 3,
+        "aupro": 11
+      },
+      "mean_dynamic_minus_best_fixed": {
+        "image_auroc": -0.0050465071507150945,
+        "pixel_auroc": -0.00015963964324861948,
+        "pixel_ap": -0.0010934398784536732,
+        "aupro": 0.026899387309986155
+      },
+      "mean_image_pixel_weight_gap": 0.4842933199018156
+    },
+    {
+      "shot": 4,
+      "base": "outputs\\dynamic_fusion\\development_matrix\\20260804_visa_s0_k4_calibrated_development_matrix_v1",
+      "route": {
+        "samples": 2162,
+        "image_weight_mean": 0.8778731551824291,
+        "image_weight_std": 0.1276880702852801,
+        "image_weight_q10": 0.6372803449630737,
+        "image_weight_q50": 0.949999988079071,
+        "image_weight_q90": 0.949999988079071,
+        "pixel_weight_mean": 0.30175000991876955,
+        "pixel_weight_std": 0.0892649052483737,
+        "pixel_image_weight_gap_mean": 0.576125251449189,
+        "routes": {
+          "visual": 1932,
+          "weighted_fusion": 230
+        }
+      },
+      "category_count": 12,
+      "dynamic_below_best_fixed_count": {
+        "image_auroc": 4,
+        "pixel_auroc": 11,
+        "pixel_ap": 10,
+        "aupro": 3
+      },
+      "dynamic_above_best_fixed_count": {
+        "image_auroc": 4,
+        "pixel_auroc": 1,
+        "pixel_ap": 2,
+        "aupro": 9
+      },
+      "mean_dynamic_minus_best_fixed": {
+        "image_auroc": -0.006297882288228862,
+        "pixel_auroc": -0.00023089621559723347,
+        "pixel_ap": -0.0007177584453507175,
+        "aupro": 0.05283993032288281
+      },
+      "mean_image_pixel_weight_gap": 0.5795858879747019
+    }
+  ],
+  "high_priority_categories": [
+    {
+      "shot": 2,
+      "category": "fryum",
+      "dynamic_minus_best_image_auroc": -0.022600000000000064,
+      "dynamic_minus_best_aupro": 0.0143862082311077,
+      "image_weight_mean": 0.7297583166758219,
+      "pixel_weight_mean": 0.22711022714518606
+    },
+    {
+      "shot": 2,
+      "category": "pcb1",
+      "dynamic_minus_best_image_auroc": -0.020299999999999985,
+      "dynamic_minus_best_aupro": 0.009969604986640124,
+      "image_weight_mean": 0.9251636758446693,
+      "pixel_weight_mean": 0.3192840022382387
+    },
+    {
+      "shot": 2,
+      "category": "pcb4",
+      "dynamic_minus_best_image_auroc": -0.03752475247524756,
+      "dynamic_minus_best_aupro": 0.05563339545493495,
+      "image_weight_mean": 0.8386903422981945,
+      "pixel_weight_mean": 0.2768457504083148
+    },
+    {
+      "shot": 4,
+      "category": "cashew",
+      "dynamic_minus_best_image_auroc": -0.02080000000000004,
+      "dynamic_minus_best_aupro": 0.01604986303672229,
+      "image_weight_mean": 0.8693977459271749,
+      "pixel_weight_mean": 0.1923939190931778
+    },
+    {
+      "shot": 4,
+      "category": "pcb4",
+      "dynamic_minus_best_image_auroc": -0.029207920792079345,
+      "dynamic_minus_best_aupro": 0.09534838543554991,
+      "image_weight_mean": 0.7815477077047623,
+      "pixel_weight_mean": 0.2709370807653597
+    },
+    {
+      "shot": 4,
+      "category": "pipe_fryum",
+      "dynamic_minus_best_image_auroc": -0.042199999999999904,
+      "dynamic_minus_best_aupro": 0.026047734138202827,
+      "image_weight_mean": 0.8023130679130555,
+      "pixel_weight_mean": 0.24482210586520387
+    }
+  ]
+}

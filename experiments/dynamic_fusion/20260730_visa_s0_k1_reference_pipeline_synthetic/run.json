@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_visa_s0_k1_reference_pipeline_synthetic",
+  "purpose": "WP2 normal-reference cache contract, audit and calibration fit integration",
+  "status": "passed",
+  "dataset": "visa",
+  "seed": 0,
+  "shot": 1,
+  "categories": 12,
+  "visual_branch": "synthetic_visual",
+  "text_branch": "synthetic_text",
+  "gpu_used": false,
+  "real_prediction_cache_used": false,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "manifest_sha256": "35ecdd88bd3df2c7168a6c234b575ab425180946a80a93ce837d7e350b75e0f2",
+  "calibration_sha256": "b931fa046fce643135df9beb0a80dacc27cc46cf2861ab4a6e48029d5a0a5e4",
+  "git_commit": "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+  "working_tree_dirty": true,
+  "exit_code": 0
+}

@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-08T06:11:26.360556+00:00",
+  "status": "passed",
+  "runs": [
+    {
+      "run": "20260805_mvtec_final_validation_s0_k1",
+      "dataset": "mvtec",
+      "seed": 0,
+      "shot": 1,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s0_k1_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s0_k2",
+      "dataset": "mvtec",
+      "seed": 0,
+      "shot": 2,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s0_k2_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s0_k4",
+      "dataset": "mvtec",
+      "seed": 0,
+      "shot": 4,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s0_k4_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k1",
+      "dataset": "mvtec",
+      "seed": 1,
+      "shot": 1,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s1_k1_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k2",
+      "dataset": "mvtec",
+      "seed": 1,
+      "shot": 2,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s1_k2_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k4",
+      "dataset": "mvtec",
+      "seed": 1,
+      "shot": 4,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s1_k4_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k1",
+      "dataset": "mvtec",
+      "seed": 2,
+      "shot": 1,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s2_k1_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k2",
+      "dataset": "mvtec",
+      "seed": 2,
+      "shot": 2,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s2_k2_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k4",
+      "dataset": "mvtec",
+      "seed": 2,
+      "shot": 4,
+      "scope": "independent_final_validation",
+      "expected_categories": 15,
+      "npz_count": 15,
+      "evaluation_category_count": 15,
+      "evaluation_sample_count": 1725,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 15,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_mvtec_s2_k4_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s1_k1",
+      "dataset": "visa",
+      "seed": 1,
+      "shot": 1,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s1_k1_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s1_k2",
+      "dataset": "visa",
+      "seed": 1,
+      "shot": 2,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s1_k2_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s1_k4",
+      "dataset": "visa",
+      "seed": 1,
+      "shot": 4,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s1_k4_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s2_k1",
+      "dataset": "visa",
+      "seed": 2,
+      "shot": 1,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s2_k1_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s2_k2",
+      "dataset": "visa",
+      "seed": 2,
+      "shot": 2,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s2_k2_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260805_visa_final_validation_s2_k4",
+      "dataset": "visa",
+      "seed": 2,
+      "shot": 4,
+      "scope": "independent_final_validation",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260805_visa_s2_k4_real_reference_v1\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260806_visa_final_validation_s0_k2",
+      "dataset": "visa",
+      "seed": 0,
+      "shot": 2,
+      "scope": "seed0_supplementary_recheck",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260804_visa_s0_k2_real_reference_v1_q99\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    },
+    {
+      "run": "20260806_visa_final_validation_s0_k4",
+      "dataset": "visa",
+      "seed": 0,
+      "shot": 4,
+      "scope": "seed0_supplementary_recheck",
+      "expected_categories": 12,
+      "npz_count": 12,
+      "evaluation_category_count": 12,
+      "evaluation_sample_count": 2162,
+      "evaluation_validation_errors": 0,
+      "calibration_file_count": 1,
+      "calibration_category_count": 12,
+      "calibration_ok": true,
+      "image_temperatures": [
+        0.5
+      ],
+      "pixel_temperatures": [
+        0.20000000298023224
+      ],
+      "status": "passed",
+      "errors": "",
+      "calibrations": [
+        {
+          "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260804_visa_s0_k4_real_reference_v1_q99\\calibration.json",
+          "status": "passed",
+          "test_predictions_used": false,
+          "test_labels_used": false,
+          "sha256_matches_embedded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "temperature": 0.5,
+  "decision_margin": 0.15,
+  "min_weight": 0.05,
+  "shots": [
+    2,
+    4
+  ],
+  "test_predictions_used_by_router": false,
+  "test_labels_used_by_router": false
+}

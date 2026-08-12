@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:49:30.591954+00:00",
+  "dataset": "btad",
+  "branch": "anomalydino_visual",
+  "seed": 0,
+  "shot": 2,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalydino_visual\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 448,
+      "width": 448,
+      "image_score_min": 3.755092734536447e-07,
+      "image_score_max": 0.06068617105484009,
+      "cache_sha256": "f708e8433bb328526b1040706f7a121f5cd64679458a27828b9321d777006421"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalydino_visual\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 448,
+      "width": 448,
+      "image_score_min": 3.8743019104003906e-07,
+      "image_score_max": 0.055700719356536865,
+      "cache_sha256": "4d0dcc56f3c08cd908f920972cdf84d42e2dd6c17e1ad6eabb7e0f1c8da65120"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalydino_visual\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 336,
+      "width": 448,
+      "image_score_min": 3.713827823048632e-07,
+      "image_score_max": 0.05968703329563141,
+      "cache_sha256": "07f6fb78edff7acd030a29cc25e56b4efa3aa356d115289f20fd22700da55987"
+    }
+  ]
+}

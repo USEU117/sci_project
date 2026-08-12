@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_visa_s0_k1_smoke_anomalydino_winclip",
+  "purpose": "WP1 interface regression and pre-calibration smoke",
+  "status": "passed_with_diagnosis",
+  "dataset": "visa",
+  "seed": 0,
+  "shot": 1,
+  "category": "candle",
+  "samples": 200,
+  "visual_branch": "anomalydino",
+  "text_branch": "winclip_plus",
+  "gpu_used": false,
+  "router_inputs_include_ground_truth": false,
+  "routes": {"text": 200},
+  "metrics_are_final_claim": false,
+  "exit_code": 0
+}

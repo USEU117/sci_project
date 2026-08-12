@@ -1,0 +1,51 @@
+# PromptAD VisA unified-protocol configuration
+# Purpose: human-readable record for later integration into the model configuration module.
+# Provenance: verified against methods/promptad/train_cls.py, train_seg.py,
+#             scripts/run_promptad_visa_matrix.ps1, and completed seed-0 runs.
+
+[experiment]
+dataset = VisA
+shots = 1, 2, 4
+completed_seed = 0
+planned_seeds = 0, 1, 2
+target_normal_tuning = true
+selected_reference_images = data/splits/visa/manifest.json
+
+[training]
+epochs = 100
+optimizer = SGD
+learning_rate = 0.002
+momentum = 0.9
+weight_decay = 0.0005
+lr_scheduler = CosineAnnealingLR
+lr_scheduler_t_max = 100
+minimum_learning_rate = 0.00001
+loss_weight_lambda1 = 0.001
+triplet_loss_margin = 0.0
+
+[runtime]
+gpu = CUDA:0
+precision = FP16
+visualization = false
+
+[shared_model]
+backbone = ViT-B-16-plus-240
+pretrained_dataset = laion400m_e32
+image_resize = 240
+image_crop_size = 240
+anomaly_map_resolution = 400
+normal_context_tokens = 4
+abnormal_context_tokens = 1
+abnormal_prompt_tokens = 4
+
+[classification_only]
+normal_prompt_tokens = 3
+
+[segmentation_only]
+normal_prompt_tokens = 1
+
+[notes]
+precision_source = model.precision; PromptAD uses FP16 code paths when this is fp16.
+seed_scope = Only seed 0 has completed the full VisA 1/2/4-shot matrix at this time.
+training_scope = PromptAD learns prompts from the selected target-domain normal samples.
+integration_rule = Future configuration-module values must be passed explicitly to both train_cls.py and train_seg.py; do not rely on hidden script defaults.

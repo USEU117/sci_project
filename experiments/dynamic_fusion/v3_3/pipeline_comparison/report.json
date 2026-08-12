@@ -1,0 +1,1837 @@
+{
+  "pipeline": "v3_3",
+  "dataset": "mpdd",
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "stride": 8,
+  "baselines": {
+    "anomalydino_visual": {
+      "pixel_auroc": 0.957774,
+      "pixel_ap": 0.280239,
+      "pixel_aupro": 0.862216
+    },
+    "anomalyclip_text": {
+      "pixel_auroc": 0.87762,
+      "pixel_ap": 0.244432,
+      "pixel_aupro": 0.723358
+    }
+  },
+  "leave_one_out_selections": {
+    "bracket_black": {
+      "strategy": "two_stage_calibrated",
+      "variant": "alpha=0.70",
+      "mean_train_delta_ap": 0.067569
+    },
+    "bracket_brown": {
+      "strategy": "weighted_ensemble",
+      "variant": "dino=0.60_anomalyclip=0.40",
+      "mean_train_delta_ap": 0.089623
+    },
+    "bracket_white": {
+      "strategy": "weighted_ensemble",
+      "variant": "dino=0.60_anomalyclip=0.40",
+      "mean_train_delta_ap": 0.076158
+    },
+    "connector": {
+      "strategy": "weighted_ensemble",
+      "variant": "dino=0.70_anomalyclip=0.30",
+      "mean_train_delta_ap": 0.071966
+    },
+    "metal_plate": {
+      "strategy": "weighted_ensemble",
+      "variant": "dino=0.60_anomalyclip=0.40",
+      "mean_train_delta_ap": 0.097176
+    },
+    "tubes": {
+      "strategy": "weighted_ensemble",
+      "variant": "dino=0.60_anomalyclip=0.40",
+      "mean_train_delta_ap": 0.063083
+    }
+  },
+  "heldout_summary": {
+    "mean_delta_ap": 0.04625,
+    "positive_categories": 5,
+    "per_category_delta_ap": {
+      "bracket_black": 0.006768,
+      "bracket_brown": 0.004058,
+      "bracket_white": 0.071385,
+      "connector": 0.092234,
+      "metal_plate": -0.033706,
+      "tubes": 0.13676
+    }
+  },
+  "strategy_summary": {
+    "weighted_ensemble": {
+      "mean_delta_ap": 0.089769,
+      "positive_categories": 6,
+      "per_category": {
+        "bracket_black": 0.214434,
+        "bracket_brown": 0.00418,
+        "bracket_white": 0.075713,
+        "connector": 0.096002,
+        "metal_plate": 0.010079,
+        "tubes": 0.138206
+      }
+    },
+    "max_z_selection": {
+      "mean_delta_ap": -0.068142,
+      "positive_categories": 0,
+      "per_category": {
+        "bracket_black": -0.015419,
+        "bracket_brown": -0.024741,
+        "bracket_white": -0.061027,
+        "connector": -0.067215,
+        "metal_plate": -0.145929,
+        "tubes": -0.094519
+      }
+    },
+    "two_stage_calibrated": {
+      "mean_delta_ap": 0.060192,
+      "positive_categories": 6,
+      "per_category": {
+        "bracket_black": 0.011557,
+        "bracket_brown": 0.005379,
+        "bracket_white": 0.049591,
+        "connector": 0.029991,
+        "metal_plate": 0.088183,
+        "tubes": 0.176451
+      }
+    }
+  },
+  "all_results": {
+    "bracket_black": [
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.9522406111604663,
+        "pixel_ap": 0.20510276340600425,
+        "pixel_aupro": 0.838617317119988,
+        "delta_auroc": 0.019812,
+        "delta_ap": 0.180708,
+        "delta_aupro": 0.030027
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9546502802716199,
+        "pixel_ap": 0.2020687330513069,
+        "pixel_aupro": 0.8529737569455661,
+        "delta_auroc": 0.022222,
+        "delta_ap": 0.177674,
+        "delta_aupro": 0.044384
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.9543085009330391,
+        "pixel_ap": 0.17469158640399737,
+        "pixel_aupro": 0.8568669252096832,
+        "delta_auroc": 0.02188,
+        "delta_ap": 0.150297,
+        "delta_aupro": 0.048277
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.953254456372741,
+        "pixel_ap": 0.1487310582127428,
+        "pixel_aupro": 0.8523721141359569,
+        "delta_auroc": 0.020826,
+        "delta_ap": 0.124337,
+        "delta_aupro": 0.043782
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9513590944607946,
+        "pixel_ap": 0.1139536974416428,
+        "pixel_aupro": 0.8548912457220574,
+        "delta_auroc": 0.018931,
+        "delta_ap": 0.089559,
+        "delta_aupro": 0.046301
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.9483366059812691,
+        "pixel_ap": 0.08106286206821724,
+        "pixel_aupro": 0.847798735594979,
+        "delta_auroc": 0.015908,
+        "delta_ap": 0.056668,
+        "delta_aupro": 0.039209
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9440458688141811,
+        "pixel_ap": 0.05337191601162392,
+        "pixel_aupro": 0.8396638753577361,
+        "delta_auroc": 0.011618,
+        "delta_ap": 0.028977,
+        "delta_aupro": 0.031074
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.9386678479299408,
+        "pixel_ap": 0.036225083181866,
+        "pixel_aupro": 0.8248251429445108,
+        "delta_auroc": 0.00624,
+        "delta_ap": 0.011831,
+        "delta_aupro": 0.016235
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9558440209615156,
+        "pixel_ap": 0.2388282326467406,
+        "pixel_aupro": 0.8608122653069075,
+        "delta_auroc": 0.023416,
+        "delta_ap": 0.214434,
+        "delta_aupro": 0.052222
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9531115178126232,
+        "pixel_ap": 0.22293698643250479,
+        "pixel_aupro": 0.8438100696564772,
+        "delta_auroc": 0.020683,
+        "delta_ap": 0.198542,
+        "delta_aupro": 0.03522
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9494222260429711,
+        "pixel_ap": 0.18224687367263792,
+        "pixel_aupro": 0.8327884201978496,
+        "delta_auroc": 0.016994,
+        "delta_ap": 0.157852,
+        "delta_aupro": 0.024198
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9549190285311477,
+        "pixel_ap": 0.229557411766947,
+        "pixel_aupro": 0.8602867056959843,
+        "delta_auroc": 0.022491,
+        "delta_ap": 0.205163,
+        "delta_aupro": 0.051697
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9517772321893291,
+        "pixel_ap": 0.1925448059792601,
+        "pixel_aupro": 0.8491341336838442,
+        "delta_auroc": 0.019349,
+        "delta_ap": 0.16815,
+        "delta_aupro": 0.040544
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9474764282091592,
+        "pixel_ap": 0.13752513076210207,
+        "pixel_aupro": 0.8296240413807701,
+        "delta_auroc": 0.015048,
+        "delta_ap": 0.113131,
+        "delta_aupro": 0.021034
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9520386807361669,
+        "pixel_ap": 0.17864492844020424,
+        "pixel_aupro": 0.8577050936273264,
+        "delta_auroc": 0.01961,
+        "delta_ap": 0.15425,
+        "delta_aupro": 0.049115
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.948408092237404,
+        "pixel_ap": 0.13037312417702315,
+        "pixel_aupro": 0.8384393503002413,
+        "delta_auroc": 0.01598,
+        "delta_ap": 0.105979,
+        "delta_aupro": 0.029849
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9437842674826592,
+        "pixel_ap": 0.09539285316273836,
+        "pixel_aupro": 0.8267965225402437,
+        "delta_auroc": 0.011356,
+        "delta_ap": 0.070998,
+        "delta_aupro": 0.018206
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.875827651610449,
+        "pixel_ap": 0.008975219716286172,
+        "pixel_aupro": 0.6402224725261684,
+        "delta_auroc": -0.056601,
+        "delta_ap": -0.015419,
+        "delta_aupro": -0.168368
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9383445046099212,
+        "pixel_ap": 0.03595162183885539,
+        "pixel_aupro": 0.824318467879037,
+        "delta_auroc": 0.005916,
+        "delta_ap": 0.011557,
+        "delta_aupro": 0.015728
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.9378949271885914,
+        "pixel_ap": 0.03443790133440615,
+        "pixel_aupro": 0.8252049656894554,
+        "delta_auroc": 0.005467,
+        "delta_ap": 0.010043,
+        "delta_aupro": 0.016615
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9369697989496155,
+        "pixel_ap": 0.031162544741606298,
+        "pixel_aupro": 0.8249963216362488,
+        "delta_auroc": 0.004542,
+        "delta_ap": 0.006768,
+        "delta_aupro": 0.016406
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.9363560968252904,
+        "pixel_ap": 0.030195106740697114,
+        "pixel_aupro": 0.8188195295849001,
+        "delta_auroc": 0.003928,
+        "delta_ap": 0.005801,
+        "delta_aupro": 0.010229
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9356710612295146,
+        "pixel_ap": 0.02860760807889081,
+        "pixel_aupro": 0.8185532828869235,
+        "delta_auroc": 0.003243,
+        "delta_ap": 0.004213,
+        "delta_aupro": 0.009963
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.934926066133224,
+        "pixel_ap": 0.027479409715811774,
+        "pixel_aupro": 0.8180155671906704,
+        "delta_auroc": 0.002498,
+        "delta_ap": 0.003085,
+        "delta_aupro": 0.009425
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.9341313141581086,
+        "pixel_ap": 0.026120820863974197,
+        "pixel_aupro": 0.817167991255822,
+        "delta_auroc": 0.001703,
+        "delta_ap": 0.001726,
+        "delta_aupro": 0.008578
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9332986885573846,
+        "pixel_ap": 0.025373509646685142,
+        "pixel_aupro": 0.809228513037264,
+        "delta_auroc": 0.00087,
+        "delta_ap": 0.000979,
+        "delta_aupro": 0.000638
+      }
+    ],
+    "bracket_brown": [
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.9291240150151033,
+        "pixel_ap": 0.048575315779861274,
+        "pixel_aupro": 0.7931009152848948,
+        "delta_auroc": -0.0017,
+        "delta_ap": 0.002887,
+        "delta_aupro": 0.032
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9337415853249557,
+        "pixel_ap": 0.049745748733978856,
+        "pixel_aupro": 0.7946670753939731,
+        "delta_auroc": 0.002918,
+        "delta_ap": 0.004058,
+        "delta_aupro": 0.033566
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.935326607293842,
+        "pixel_ap": 0.04986797482336667,
+        "pixel_aupro": 0.7924184349938763,
+        "delta_auroc": 0.004503,
+        "delta_ap": 0.00418,
+        "delta_aupro": 0.031317
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.9353448757262527,
+        "pixel_ap": 0.049439134701968625,
+        "pixel_aupro": 0.7972811969833905,
+        "delta_auroc": 0.004521,
+        "delta_ap": 0.003751,
+        "delta_aupro": 0.03618
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9349752135579176,
+        "pixel_ap": 0.048869324282415506,
+        "pixel_aupro": 0.7903711385456738,
+        "delta_auroc": 0.004152,
+        "delta_ap": 0.003181,
+        "delta_aupro": 0.02927
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.934285527804659,
+        "pixel_ap": 0.04819180197168047,
+        "pixel_aupro": 0.7855160154968941,
+        "delta_auroc": 0.003462,
+        "delta_ap": 0.002504,
+        "delta_aupro": 0.024415
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9333391650470735,
+        "pixel_ap": 0.04686528812402098,
+        "pixel_aupro": 0.7814029283736984,
+        "delta_auroc": 0.002515,
+        "delta_ap": 0.001177,
+        "delta_aupro": 0.020302
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.9321752054696275,
+        "pixel_ap": 0.04624780051072207,
+        "pixel_aupro": 0.7708526371431206,
+        "delta_auroc": 0.001352,
+        "delta_ap": 0.00056,
+        "delta_aupro": 0.009752
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9393226848467273,
+        "pixel_ap": 0.04479980261316147,
+        "pixel_aupro": 0.7898929472189749,
+        "delta_auroc": 0.008499,
+        "delta_ap": -0.000888,
+        "delta_aupro": 0.028792
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9384010269886595,
+        "pixel_ap": 0.04133763107247933,
+        "pixel_aupro": 0.7677995620432465,
+        "delta_auroc": 0.007577,
+        "delta_ap": -0.00435,
+        "delta_aupro": 0.006699
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9371319714950986,
+        "pixel_ap": 0.03957501956752562,
+        "pixel_aupro": 0.7264244944825974,
+        "delta_auroc": 0.006308,
+        "delta_ap": -0.006113,
+        "delta_aupro": -0.034677
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9398175721431778,
+        "pixel_ap": 0.04524589835987927,
+        "pixel_aupro": 0.7775667494534111,
+        "delta_auroc": 0.008994,
+        "delta_ap": -0.000442,
+        "delta_aupro": 0.016466
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9385315789796591,
+        "pixel_ap": 0.04173986241543587,
+        "pixel_aupro": 0.7632814417073274,
+        "delta_auroc": 0.007708,
+        "delta_ap": -0.003948,
+        "delta_aupro": 0.00218
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9370144220827926,
+        "pixel_ap": 0.03987247984598482,
+        "pixel_aupro": 0.7304040415303754,
+        "delta_auroc": 0.006191,
+        "delta_ap": -0.005816,
+        "delta_aupro": -0.030697
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9392559370050761,
+        "pixel_ap": 0.04534718011574372,
+        "pixel_aupro": 0.7840661032880882,
+        "delta_auroc": 0.008432,
+        "delta_ap": -0.000341,
+        "delta_aupro": 0.022965
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9378815796894626,
+        "pixel_ap": 0.04192509263023064,
+        "pixel_aupro": 0.7655731004760737,
+        "delta_auroc": 0.007058,
+        "delta_ap": -0.003763,
+        "delta_aupro": 0.004472
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.936261000815498,
+        "pixel_ap": 0.04002004902000273,
+        "pixel_aupro": 0.7510139526730053,
+        "delta_auroc": 0.005437,
+        "delta_ap": -0.005668,
+        "delta_aupro": -0.010087
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.7775276783242564,
+        "pixel_ap": 0.020947173854138024,
+        "pixel_aupro": 0.6459561901878577,
+        "delta_auroc": -0.153296,
+        "delta_ap": -0.024741,
+        "delta_aupro": -0.115145
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9515901335838035,
+        "pixel_ap": 0.05037803564882555,
+        "pixel_aupro": 0.8605364932637897,
+        "delta_auroc": 0.020766,
+        "delta_ap": 0.00469,
+        "delta_aupro": 0.099435
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.9513551338990874,
+        "pixel_ap": 0.05098719418045703,
+        "pixel_aupro": 0.8587234160633244,
+        "delta_auroc": 0.020531,
+        "delta_ap": 0.005299,
+        "delta_aupro": 0.097622
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9499083892069582,
+        "pixel_ap": 0.051067152795385796,
+        "pixel_aupro": 0.848711416238735,
+        "delta_auroc": 0.019085,
+        "delta_ap": 0.005379,
+        "delta_aupro": 0.08761
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.9486242720753215,
+        "pixel_ap": 0.05083350429155719,
+        "pixel_aupro": 0.8420487933025312,
+        "delta_auroc": 0.017801,
+        "delta_ap": 0.005145,
+        "delta_aupro": 0.080948
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9468350409856341,
+        "pixel_ap": 0.05037883674229651,
+        "pixel_aupro": 0.8373821468759066,
+        "delta_auroc": 0.016011,
+        "delta_ap": 0.004691,
+        "delta_aupro": 0.076281
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.9444135909648261,
+        "pixel_ap": 0.049640435858399196,
+        "pixel_aupro": 0.831427168627453,
+        "delta_auroc": 0.01359,
+        "delta_ap": 0.003952,
+        "delta_aupro": 0.070326
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.941122066336556,
+        "pixel_ap": 0.04860786630874872,
+        "pixel_aupro": 0.8073342110009278,
+        "delta_auroc": 0.010298,
+        "delta_ap": 0.00292,
+        "delta_aupro": 0.046233
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9366851174783556,
+        "pixel_ap": 0.047274854892244915,
+        "pixel_aupro": 0.7873578870699048,
+        "delta_auroc": 0.005861,
+        "delta_ap": 0.001587,
+        "delta_aupro": 0.026257
+      }
+    ],
+    "bracket_white": [
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.9978967814562709,
+        "pixel_ap": 0.15876357772706204,
+        "pixel_aupro": 0.991883941889655,
+        "delta_auroc": 0.006684,
+        "delta_ap": 0.064428,
+        "delta_aupro": 0.023704
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9977013315933638,
+        "pixel_ap": 0.16571966108364175,
+        "pixel_aupro": 0.990834492930666,
+        "delta_auroc": 0.006489,
+        "delta_ap": 0.071385,
+        "delta_aupro": 0.022654
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.9974357868080862,
+        "pixel_ap": 0.1687204704165458,
+        "pixel_aupro": 0.9893828895918508,
+        "delta_auroc": 0.006223,
+        "delta_ap": 0.074385,
+        "delta_aupro": 0.021203
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.9972117797545837,
+        "pixel_ap": 0.1700483477085768,
+        "pixel_aupro": 0.9889929485992425,
+        "delta_auroc": 0.005999,
+        "delta_ap": 0.075713,
+        "delta_aupro": 0.020813
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9967921992139727,
+        "pixel_ap": 0.1659514427972623,
+        "pixel_aupro": 0.9871440105469207,
+        "delta_auroc": 0.00558,
+        "delta_ap": 0.071616,
+        "delta_aupro": 0.018964
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.9961075683848907,
+        "pixel_ap": 0.16468991847890596,
+        "pixel_aupro": 0.9845098768674134,
+        "delta_auroc": 0.004895,
+        "delta_ap": 0.070355,
+        "delta_aupro": 0.01633
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9951200582616138,
+        "pixel_ap": 0.16730223629228963,
+        "pixel_aupro": 0.9812169759893051,
+        "delta_auroc": 0.003907,
+        "delta_ap": 0.072967,
+        "delta_aupro": 0.013037
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.9937250827694937,
+        "pixel_ap": 0.14329852971781026,
+        "pixel_aupro": 0.976762304370646,
+        "delta_auroc": 0.002512,
+        "delta_ap": 0.048963,
+        "delta_aupro": 0.008582
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9916463418177035,
+        "pixel_ap": 0.08752113087775197,
+        "pixel_aupro": 0.9646642385806076,
+        "delta_auroc": 0.000434,
+        "delta_ap": -0.006814,
+        "delta_aupro": -0.003516
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9848167227941146,
+        "pixel_ap": 0.04082441916135221,
+        "pixel_aupro": 0.9361649475276783,
+        "delta_auroc": -0.006396,
+        "delta_ap": -0.053511,
+        "delta_aupro": -0.032015
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9802631489482485,
+        "pixel_ap": 0.01952983593587406,
+        "pixel_aupro": 0.9181798866292307,
+        "delta_auroc": -0.01095,
+        "delta_ap": -0.074805,
+        "delta_aupro": -0.05
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9907221272857033,
+        "pixel_ap": 0.09494383315950142,
+        "pixel_aupro": 0.9633075946693355,
+        "delta_auroc": -0.000491,
+        "delta_ap": 0.000609,
+        "delta_aupro": -0.004873
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9837092971951771,
+        "pixel_ap": 0.031117873664443945,
+        "pixel_aupro": 0.9300176338327169,
+        "delta_auroc": -0.007503,
+        "delta_ap": -0.063217,
+        "delta_aupro": -0.038163
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9791114658850979,
+        "pixel_ap": 0.017143174637591393,
+        "pixel_aupro": 0.924065712767471,
+        "delta_auroc": -0.012101,
+        "delta_ap": -0.077192,
+        "delta_aupro": -0.044115
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9894222188046998,
+        "pixel_ap": 0.07386933222136297,
+        "pixel_aupro": 0.957023968137207,
+        "delta_auroc": -0.00179,
+        "delta_ap": -0.020466,
+        "delta_aupro": -0.011156
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9822735257164918,
+        "pixel_ap": 0.02332331896797634,
+        "pixel_aupro": 0.9343485863564314,
+        "delta_auroc": -0.008939,
+        "delta_ap": -0.071012,
+        "delta_aupro": -0.033832
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9776502278208601,
+        "pixel_ap": 0.015229157686333063,
+        "pixel_aupro": 0.9111282205431877,
+        "delta_auroc": -0.013562,
+        "delta_ap": -0.079106,
+        "delta_aupro": -0.057052
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.9125110288240952,
+        "pixel_ap": 0.033308109870650825,
+        "pixel_aupro": 0.8161478198162541,
+        "delta_auroc": -0.078702,
+        "delta_ap": -0.061027,
+        "delta_aupro": -0.152032
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9930758084621014,
+        "pixel_ap": 0.14079683036266286,
+        "pixel_aupro": 0.9763393873321845,
+        "delta_auroc": 0.001863,
+        "delta_ap": 0.046462,
+        "delta_aupro": 0.008159
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.9936661140252769,
+        "pixel_ap": 0.1412533121802658,
+        "pixel_aupro": 0.9782739649267616,
+        "delta_auroc": 0.002453,
+        "delta_ap": 0.046918,
+        "delta_aupro": 0.010094
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9937365798202529,
+        "pixel_ap": 0.1426106714805611,
+        "pixel_aupro": 0.9779428897837298,
+        "delta_auroc": 0.002524,
+        "delta_ap": 0.048276,
+        "delta_aupro": 0.009763
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.9936244526693,
+        "pixel_ap": 0.14365765818517598,
+        "pixel_aupro": 0.9777742761172312,
+        "delta_auroc": 0.002412,
+        "delta_ap": 0.049323,
+        "delta_aupro": 0.009594
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9933848689663818,
+        "pixel_ap": 0.14392655171460178,
+        "pixel_aupro": 0.9767872384996398,
+        "delta_auroc": 0.002172,
+        "delta_ap": 0.049591,
+        "delta_aupro": 0.008607
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.9930390920741928,
+        "pixel_ap": 0.14189852179153417,
+        "pixel_aupro": 0.9741392080183618,
+        "delta_auroc": 0.001826,
+        "delta_ap": 0.047563,
+        "delta_aupro": 0.005959
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.992567836617266,
+        "pixel_ap": 0.1346430783944627,
+        "pixel_aupro": 0.9724200522319155,
+        "delta_auroc": 0.001355,
+        "delta_ap": 0.040308,
+        "delta_aupro": 0.00424
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9919741932006442,
+        "pixel_ap": 0.12072146046376521,
+        "pixel_aupro": 0.9707469942716439,
+        "delta_auroc": 0.000762,
+        "delta_ap": 0.026386,
+        "delta_aupro": 0.002567
+      }
+    ],
+    "connector": [
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.9623402172229256,
+        "pixel_ap": 0.18728661254722778,
+        "pixel_aupro": 0.8715999766915208,
+        "delta_auroc": 0.015558,
+        "delta_ap": 0.088964,
+        "delta_aupro": 0.055213
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9629084471681888,
+        "pixel_ap": 0.19432394404830922,
+        "pixel_aupro": 0.866604796510445,
+        "delta_auroc": 0.016126,
+        "delta_ap": 0.096002,
+        "delta_aupro": 0.050217
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.9611305859585745,
+        "pixel_ap": 0.1905564032268376,
+        "pixel_aupro": 0.8633962910192231,
+        "delta_auroc": 0.014348,
+        "delta_ap": 0.092234,
+        "delta_aupro": 0.047009
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.9596390860856302,
+        "pixel_ap": 0.17150558679305838,
+        "pixel_aupro": 0.8577458548074977,
+        "delta_auroc": 0.012857,
+        "delta_ap": 0.073183,
+        "delta_aupro": 0.041359
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9577877196476631,
+        "pixel_ap": 0.15057851244718,
+        "pixel_aupro": 0.8540410128164281,
+        "delta_auroc": 0.011005,
+        "delta_ap": 0.052256,
+        "delta_aupro": 0.037654
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.9555737681149468,
+        "pixel_ap": 0.131741196950552,
+        "pixel_aupro": 0.8434165888719856,
+        "delta_auroc": 0.008792,
+        "delta_ap": 0.033419,
+        "delta_aupro": 0.027029
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9530314754233467,
+        "pixel_ap": 0.11739760183617678,
+        "pixel_aupro": 0.8331378927284339,
+        "delta_auroc": 0.006249,
+        "delta_ap": 0.019075,
+        "delta_aupro": 0.016751
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.9501149508833218,
+        "pixel_ap": 0.10676471031579188,
+        "pixel_aupro": 0.8225056363610563,
+        "delta_auroc": 0.003333,
+        "delta_ap": 0.008442,
+        "delta_aupro": 0.006118
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9529124705921855,
+        "pixel_ap": 0.181722320952374,
+        "pixel_aupro": 0.8370597941756915,
+        "delta_auroc": 0.00613,
+        "delta_ap": 0.0834,
+        "delta_aupro": 0.020672
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9430825627970827,
+        "pixel_ap": 0.11994689714355024,
+        "pixel_aupro": 0.7928641648451084,
+        "delta_auroc": -0.0037,
+        "delta_ap": 0.021625,
+        "delta_aupro": -0.023523
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9360483814350936,
+        "pixel_ap": 0.08355095924265635,
+        "pixel_aupro": 0.7728399642118888,
+        "delta_auroc": -0.010734,
+        "delta_ap": -0.014771,
+        "delta_aupro": -0.043547
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9518086235196891,
+        "pixel_ap": 0.1538027605935393,
+        "pixel_aupro": 0.8262340840029336,
+        "delta_auroc": 0.005026,
+        "delta_ap": 0.05548,
+        "delta_aupro": 0.009847
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9421158727033669,
+        "pixel_ap": 0.10519947795496368,
+        "pixel_aupro": 0.7956729181843033,
+        "delta_auroc": -0.004666,
+        "delta_ap": 0.006877,
+        "delta_aupro": -0.020714
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9349661395199057,
+        "pixel_ap": 0.07218625693609466,
+        "pixel_aupro": 0.7619315254652215,
+        "delta_auroc": -0.011816,
+        "delta_ap": -0.026136,
+        "delta_aupro": -0.054456
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9494037453517912,
+        "pixel_ap": 0.1277882643444004,
+        "pixel_aupro": 0.8169713864472153,
+        "delta_auroc": 0.002622,
+        "delta_ap": 0.029466,
+        "delta_aupro": 0.000584
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9400380670471464,
+        "pixel_ap": 0.08842038117281076,
+        "pixel_aupro": 0.7907737404154699,
+        "delta_auroc": -0.006744,
+        "delta_ap": -0.009902,
+        "delta_aupro": -0.025614
+      },
+      {
+        "category": "connector",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9328172610040361,
+        "pixel_ap": 0.06619214303971901,
+        "pixel_aupro": 0.7549918080690646,
+        "delta_auroc": -0.013965,
+        "delta_ap": -0.03213,
+        "delta_aupro": -0.061396
+      },
+      {
+        "category": "connector",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.8643680162402104,
+        "pixel_ap": 0.031106922458755477,
+        "pixel_aupro": 0.6457963835801123,
+        "delta_auroc": -0.082414,
+        "delta_ap": -0.067215,
+        "delta_aupro": -0.170591
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9569376878647122,
+        "pixel_ap": 0.1270199945789103,
+        "pixel_aupro": 0.8490123255954689,
+        "delta_auroc": 0.010155,
+        "delta_ap": 0.028698,
+        "delta_aupro": 0.032625
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.9572320807874541,
+        "pixel_ap": 0.1283136683328947,
+        "pixel_aupro": 0.8487658486732816,
+        "delta_auroc": 0.01045,
+        "delta_ap": 0.029991,
+        "delta_aupro": 0.032379
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9565307287338481,
+        "pixel_ap": 0.12329523456786654,
+        "pixel_aupro": 0.8476024483197848,
+        "delta_auroc": 0.009748,
+        "delta_ap": 0.024973,
+        "delta_aupro": 0.031215
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.9557594675420905,
+        "pixel_ap": 0.12026430273405388,
+        "pixel_aupro": 0.8450072686231921,
+        "delta_auroc": 0.008977,
+        "delta_ap": 0.021942,
+        "delta_aupro": 0.02862
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9546736104592998,
+        "pixel_ap": 0.11648854421918065,
+        "pixel_aupro": 0.8407102126153914,
+        "delta_auroc": 0.007891,
+        "delta_ap": 0.018166,
+        "delta_aupro": 0.024323
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.9532564456816776,
+        "pixel_ap": 0.11248965628729032,
+        "pixel_aupro": 0.8363505578017055,
+        "delta_auroc": 0.006474,
+        "delta_ap": 0.014167,
+        "delta_aupro": 0.019963
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.9514888481141226,
+        "pixel_ap": 0.10792376295724049,
+        "pixel_aupro": 0.8303864625799006,
+        "delta_auroc": 0.004707,
+        "delta_ap": 0.009601,
+        "delta_aupro": 0.013999
+      },
+      {
+        "category": "connector",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9493332734302923,
+        "pixel_ap": 0.1030982402026757,
+        "pixel_aupro": 0.8232189016655624,
+        "delta_auroc": 0.002551,
+        "delta_ap": 0.004776,
+        "delta_aupro": 0.006832
+      }
+    ],
+    "metal_plate": [
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.963304207978569,
+        "pixel_ap": 0.7787466268680763,
+        "pixel_aupro": 0.9193626040079235,
+        "delta_auroc": -0.007073,
+        "delta_ap": -0.068427,
+        "delta_aupro": -0.002264
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9684916981164705,
+        "pixel_ap": 0.8134677281287697,
+        "pixel_aupro": 0.9313018959795462,
+        "delta_auroc": -0.001886,
+        "delta_ap": -0.033706,
+        "delta_aupro": 0.009675
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.9718067481505539,
+        "pixel_ap": 0.8399345372236869,
+        "pixel_aupro": 0.9351158824761268,
+        "delta_auroc": 0.001429,
+        "delta_ap": -0.007239,
+        "delta_aupro": 0.013489
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.9727886140793998,
+        "pixel_ap": 0.8488685432858352,
+        "pixel_aupro": 0.9410880745489422,
+        "delta_auroc": 0.002411,
+        "delta_ap": 0.001695,
+        "delta_aupro": 0.019461
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9733238368944654,
+        "pixel_ap": 0.8546652910269285,
+        "pixel_aupro": 0.9404055046298416,
+        "delta_auroc": 0.002946,
+        "delta_ap": 0.007492,
+        "delta_aupro": 0.018779
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.9733998701988021,
+        "pixel_ap": 0.8572520505956478,
+        "pixel_aupro": 0.9377121303265129,
+        "delta_auroc": 0.003022,
+        "delta_ap": 0.010079,
+        "delta_aupro": 0.016085
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9729875903414389,
+        "pixel_ap": 0.8567415363508082,
+        "pixel_aupro": 0.9379323008154997,
+        "delta_auroc": 0.00261,
+        "delta_ap": 0.009568,
+        "delta_aupro": 0.016305
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.972022618856641,
+        "pixel_ap": 0.8533108238127796,
+        "pixel_aupro": 0.9308552535650325,
+        "delta_auroc": 0.001645,
+        "delta_ap": 0.006138,
+        "delta_aupro": 0.009228
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9539100333551662,
+        "pixel_ap": 0.7312551218611995,
+        "pixel_aupro": 0.9010921491542938,
+        "delta_auroc": -0.016468,
+        "delta_ap": -0.115918,
+        "delta_aupro": -0.020535
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9481916440500652,
+        "pixel_ap": 0.7080104419540594,
+        "pixel_aupro": 0.8652637077248978,
+        "delta_auroc": -0.022186,
+        "delta_ap": -0.139163,
+        "delta_aupro": -0.056363
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9450375876290383,
+        "pixel_ap": 0.69732948353288,
+        "pixel_aupro": 0.8442268292686868,
+        "delta_auroc": -0.02534,
+        "delta_ap": -0.149844,
+        "delta_aupro": -0.0774
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9558744856650955,
+        "pixel_ap": 0.7379332748639956,
+        "pixel_aupro": 0.8938029195922136,
+        "delta_auroc": -0.014503,
+        "delta_ap": -0.10924,
+        "delta_aupro": -0.027824
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.949745098760181,
+        "pixel_ap": 0.7122017292419613,
+        "pixel_aupro": 0.8770248105291758,
+        "delta_auroc": -0.020632,
+        "delta_ap": -0.134972,
+        "delta_aupro": -0.044602
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9463857679602752,
+        "pixel_ap": 0.7005603156477698,
+        "pixel_aupro": 0.8555579439072207,
+        "delta_auroc": -0.023992,
+        "delta_ap": -0.146613,
+        "delta_aupro": -0.066069
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9573244001026812,
+        "pixel_ap": 0.7435467562557114,
+        "pixel_aupro": 0.904807439625019,
+        "delta_auroc": -0.013053,
+        "delta_ap": -0.103626,
+        "delta_aupro": -0.01682
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9509002326735438,
+        "pixel_ap": 0.7157136981772665,
+        "pixel_aupro": 0.8873274329302031,
+        "delta_auroc": -0.019477,
+        "delta_ap": -0.13146,
+        "delta_aupro": -0.0343
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9473923674432517,
+        "pixel_ap": 0.7032673528026074,
+        "pixel_aupro": 0.8656869213357965,
+        "delta_auroc": -0.022985,
+        "delta_ap": -0.143906,
+        "delta_aupro": -0.05594
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.8993832585385392,
+        "pixel_ap": 0.7012444358387517,
+        "pixel_aupro": 0.6702351158695536,
+        "delta_auroc": -0.070994,
+        "delta_ap": -0.145929,
+        "delta_aupro": -0.251392
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9896617079679264,
+        "pixel_ap": 0.9330918945366031,
+        "pixel_aupro": 0.9711348105366262,
+        "delta_auroc": 0.019284,
+        "delta_ap": 0.085919,
+        "delta_aupro": 0.049508
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.9899975108702235,
+        "pixel_ap": 0.9353558613024809,
+        "pixel_aupro": 0.9717731078551906,
+        "delta_auroc": 0.01962,
+        "delta_ap": 0.088183,
+        "delta_aupro": 0.050146
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9897772413458682,
+        "pixel_ap": 0.9343241333264833,
+        "pixel_aupro": 0.9727903544167864,
+        "delta_auroc": 0.0194,
+        "delta_ap": 0.087151,
+        "delta_aupro": 0.051163
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.9892592035852862,
+        "pixel_ap": 0.9315005199625882,
+        "pixel_aupro": 0.9711758382836259,
+        "delta_auroc": 0.018882,
+        "delta_ap": 0.084327,
+        "delta_aupro": 0.049549
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9882609747003601,
+        "pixel_ap": 0.9260221255795069,
+        "pixel_aupro": 0.9682182837326148,
+        "delta_auroc": 0.017883,
+        "delta_ap": 0.078849,
+        "delta_aupro": 0.046591
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.9865027588258649,
+        "pixel_ap": 0.9165058841923024,
+        "pixel_aupro": 0.9628347542751283,
+        "delta_auroc": 0.016125,
+        "delta_ap": 0.069333,
+        "delta_aupro": 0.041208
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.9835564844018825,
+        "pixel_ap": 0.9013538661798097,
+        "pixel_aupro": 0.9573591245850626,
+        "delta_auroc": 0.013179,
+        "delta_ap": 0.054181,
+        "delta_aupro": 0.035732
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9786794878940813,
+        "pixel_ap": 0.878915704233304,
+        "pixel_aupro": 0.94368144403297,
+        "delta_auroc": 0.008302,
+        "delta_ap": 0.031742,
+        "delta_aupro": 0.022055
+      }
+    ],
+    "tubes": [
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.50_anomalyclip=0.50",
+        "pixel_auroc": 0.9906942051490509,
+        "pixel_ap": 0.6903512921505798,
+        "pixel_aupro": 0.9614838621876467,
+        "delta_auroc": 0.015673,
+        "delta_ap": 0.118833,
+        "delta_aupro": 0.064073
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.40",
+        "pixel_auroc": 0.9914731354749526,
+        "pixel_ap": 0.7082780838937107,
+        "pixel_aupro": 0.9657684553809739,
+        "delta_auroc": 0.016452,
+        "delta_ap": 0.13676,
+        "delta_aupro": 0.068358
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.30",
+        "pixel_auroc": 0.9911700065979311,
+        "pixel_ap": 0.7097240534814409,
+        "pixel_aupro": 0.9640844005387894,
+        "delta_auroc": 0.016149,
+        "delta_ap": 0.138206,
+        "delta_aupro": 0.066674
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.75_anomalyclip=0.25",
+        "pixel_auroc": 0.9904322975632701,
+        "pixel_ap": 0.7019095195491357,
+        "pixel_aupro": 0.9591161929773288,
+        "delta_auroc": 0.015411,
+        "delta_ap": 0.130391,
+        "delta_aupro": 0.061705
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.20",
+        "pixel_auroc": 0.9891660496864513,
+        "pixel_ap": 0.6874277535386856,
+        "pixel_aupro": 0.9526141737628465,
+        "delta_auroc": 0.014145,
+        "delta_ap": 0.115909,
+        "delta_aupro": 0.055203
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.85_anomalyclip=0.15",
+        "pixel_auroc": 0.9872382502649815,
+        "pixel_ap": 0.6665346550937321,
+        "pixel_aupro": 0.9471820547198088,
+        "delta_auroc": 0.012217,
+        "delta_ap": 0.095016,
+        "delta_aupro": 0.049771
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.90_anomalyclip=0.10",
+        "pixel_auroc": 0.9844568173172178,
+        "pixel_ap": 0.6396502769387,
+        "pixel_aupro": 0.9344840698805663,
+        "delta_auroc": 0.009435,
+        "delta_ap": 0.068132,
+        "delta_aupro": 0.037073
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.95_anomalyclip=0.05",
+        "pixel_auroc": 0.9805292169770371,
+        "pixel_ap": 0.6077201884167301,
+        "pixel_aupro": 0.917453248793955,
+        "delta_auroc": 0.005508,
+        "delta_ap": 0.036202,
+        "delta_aupro": 0.020043
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9897764695902901,
+        "pixel_ap": 0.6326517666164623,
+        "pixel_aupro": 0.9360858346022858,
+        "delta_auroc": 0.014755,
+        "delta_ap": 0.061133,
+        "delta_aupro": 0.038675
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.30_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9886941025360503,
+        "pixel_ap": 0.6110472473668818,
+        "pixel_aupro": 0.9288304965101299,
+        "delta_auroc": 0.013673,
+        "delta_ap": 0.039529,
+        "delta_aupro": 0.03142
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.60_anomalyclip=0.25_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9881143532431431,
+        "pixel_ap": 0.6029727507604519,
+        "pixel_aupro": 0.8612367346289728,
+        "delta_auroc": 0.013093,
+        "delta_ap": 0.031454,
+        "delta_aupro": -0.036174
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.25_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9894588766270273,
+        "pixel_ap": 0.6311046876936723,
+        "pixel_aupro": 0.9343865330647612,
+        "delta_auroc": 0.014438,
+        "delta_ap": 0.059586,
+        "delta_aupro": 0.036976
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.20_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9883410426383493,
+        "pixel_ap": 0.6099487385369441,
+        "pixel_aupro": 0.9279556875418025,
+        "delta_auroc": 0.01332,
+        "delta_ap": 0.03843,
+        "delta_aupro": 0.030545
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.70_anomalyclip=0.15_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9877025897936563,
+        "pixel_ap": 0.6021478712990957,
+        "pixel_aupro": 0.8582582634638225,
+        "delta_auroc": 0.012681,
+        "delta_ap": 0.03063,
+        "delta_aupro": -0.039152
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.15_adaptclip_vis=0.05",
+        "pixel_auroc": 0.9887336035541361,
+        "pixel_ap": 0.6292012430742947,
+        "pixel_aupro": 0.9314174292788746,
+        "delta_auroc": 0.013712,
+        "delta_ap": 0.057683,
+        "delta_aupro": 0.034007
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.10_adaptclip_vis=0.10",
+        "pixel_auroc": 0.9875721642736244,
+        "pixel_ap": 0.6087040340819336,
+        "pixel_aupro": 0.9279636165681728,
+        "delta_auroc": 0.012551,
+        "delta_ap": 0.037186,
+        "delta_aupro": 0.030553
+      },
+      {
+        "category": "tubes",
+        "strategy": "weighted_ensemble",
+        "variant": "dino=0.80_anomalyclip=0.05_adaptclip_vis=0.15",
+        "pixel_auroc": 0.9868380497109317,
+        "pixel_ap": 0.601247808505612,
+        "pixel_aupro": 0.8607920578465686,
+        "delta_auroc": 0.011817,
+        "delta_ap": 0.02973,
+        "delta_aupro": -0.036619
+      },
+      {
+        "category": "tubes",
+        "strategy": "max_z_selection",
+        "variant": "mode=max",
+        "pixel_auroc": 0.974192472595707,
+        "pixel_ap": 0.47699877453750555,
+        "pixel_aupro": 0.8976586336344605,
+        "delta_auroc": -0.000829,
+        "delta_ap": -0.094519,
+        "delta_aupro": 0.000248
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.50",
+        "pixel_auroc": 0.9912016537132379,
+        "pixel_ap": 0.718851725966067,
+        "pixel_aupro": 0.9601823718598932,
+        "delta_auroc": 0.01618,
+        "delta_ap": 0.147333,
+        "delta_aupro": 0.062772
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.60",
+        "pixel_auroc": 0.991620245304918,
+        "pixel_ap": 0.731757295807437,
+        "pixel_aupro": 0.962375729397593,
+        "delta_auroc": 0.016599,
+        "delta_ap": 0.160239,
+        "delta_aupro": 0.064965
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.70",
+        "pixel_auroc": 0.9920758492446441,
+        "pixel_ap": 0.7435839016557604,
+        "pixel_aupro": 0.9652497136457977,
+        "delta_auroc": 0.017054,
+        "delta_ap": 0.172066,
+        "delta_aupro": 0.067839
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.75",
+        "pixel_auroc": 0.99230128260648,
+        "pixel_ap": 0.7473338339543727,
+        "pixel_aupro": 0.9672618980647073,
+        "delta_auroc": 0.01728,
+        "delta_ap": 0.175816,
+        "delta_aupro": 0.069851
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.80",
+        "pixel_auroc": 0.9924980956471505,
+        "pixel_ap": 0.7479696846592655,
+        "pixel_aupro": 0.9668908130642975,
+        "delta_auroc": 0.017477,
+        "delta_ap": 0.176451,
+        "delta_aupro": 0.06948
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.85",
+        "pixel_auroc": 0.992590198603935,
+        "pixel_ap": 0.7433146996887495,
+        "pixel_aupro": 0.9667505321838286,
+        "delta_auroc": 0.017569,
+        "delta_ap": 0.171796,
+        "delta_aupro": 0.06934
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.90",
+        "pixel_auroc": 0.992300111540073,
+        "pixel_ap": 0.7279980213035322,
+        "pixel_aupro": 0.9661916861851724,
+        "delta_auroc": 0.017279,
+        "delta_ap": 0.15648,
+        "delta_aupro": 0.068781
+      },
+      {
+        "category": "tubes",
+        "strategy": "two_stage_calibrated",
+        "variant": "alpha=0.95",
+        "pixel_auroc": 0.9902180527496705,
+        "pixel_ap": 0.6878346941338616,
+        "pixel_aupro": 0.958734436310285,
+        "delta_auroc": 0.015197,
+        "delta_ap": 0.116316,
+        "delta_aupro": 0.061324
+      }
+    ]
+  }
+}

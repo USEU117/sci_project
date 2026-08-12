@@ -1,0 +1,64 @@
+26-08-12 11:26:27.810 - INFO: 
+loading model from: D:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:29:57.960 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:33:02.468 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:46:45.119 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:51:08.031 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:51:24.615 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:53:41.545 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:54:54.719 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:57:25.481 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 11:58:43.674 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_black.npz
+26-08-12 11:58:47.204 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_brown.npz
+26-08-12 11:58:49.935 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_white.npz
+26-08-12 11:58:51.919 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\connector.npz
+26-08-12 11:58:56.037 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\metal_plate.npz
+26-08-12 11:59:00.339 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\tubes.npz
+26-08-12 11:59:27.877 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_visual_adapter (458 samples)
+26-08-12 11:59:49.937 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_textual_adapter (458 samples)
+26-08-12 12:00:05.366 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_pq_adapter (458 samples)
+26-08-12 12:00:05.366 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.
+26-08-12 12:01:30.178 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 12:02:13.634 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 12:02:14.736 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_black.npz
+26-08-12 12:02:15.360 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_brown.npz
+26-08-12 12:02:15.841 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_white.npz
+26-08-12 12:02:16.192 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\connector.npz
+26-08-12 12:02:17.003 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\metal_plate.npz
+26-08-12 12:02:17.868 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\tubes.npz
+26-08-12 12:02:22.535 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_visual_adapter (458 samples)
+26-08-12 12:02:26.629 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_textual_adapter (458 samples)
+26-08-12 12:02:29.765 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_pq_adapter (458 samples)
+26-08-12 12:02:29.765 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.
+26-08-12 12:02:58.215 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_black.npz
+26-08-12 12:02:58.849 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_brown.npz
+26-08-12 12:02:59.322 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_white.npz
+26-08-12 12:02:59.657 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\connector.npz
+26-08-12 12:03:00.401 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\metal_plate.npz
+26-08-12 12:03:01.221 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\tubes.npz
+26-08-12 12:03:05.618 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_visual_adapter (458 samples)
+26-08-12 12:03:09.648 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_textual_adapter (458 samples)
+26-08-12 12:03:12.652 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_pq_adapter (458 samples)
+26-08-12 12:03:12.652 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.
+26-08-12 12:03:44.771 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 12:04:30.791 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_black.npz
+26-08-12 12:04:31.429 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_brown.npz
+26-08-12 12:04:31.903 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\bracket_white.npz
+26-08-12 12:04:32.263 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\connector.npz
+26-08-12 12:04:33.075 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\metal_plate.npz
+26-08-12 12:04:33.910 - INFO: V3 prediction cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\tubes.npz
+26-08-12 12:04:38.394 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_visual_adapter (458 samples)
+26-08-12 12:04:42.274 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_textual_adapter (458 samples)
+26-08-12 12:04:45.226 - INFO: V3.2 branch cache: d:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_2_branches\v3_2_mpdd_s0_k1\adaptclip_pq_adapter (458 samples)
+26-08-12 12:04:45.226 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.

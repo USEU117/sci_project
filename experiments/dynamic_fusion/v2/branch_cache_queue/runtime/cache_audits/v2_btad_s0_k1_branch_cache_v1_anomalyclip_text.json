@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:49:19.651217+00:00",
+  "dataset": "btad",
+  "branch": "anomalyclip_text",
+  "seed": 0,
+  "shot": 1,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k1_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 1,
+      "views": 5,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.7388421297073364,
+      "image_score_max": 0.7604501843452454,
+      "cache_sha256": "fb24da13e18e2604cb52553b590546cd4c4f552f2f6d47e5bb94657a7d83251a"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k1_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 1,
+      "views": 5,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8045989871025085,
+      "image_score_max": 0.8209671378135681,
+      "cache_sha256": "6838ca69ab7a4ba14b7234d59f1e69333e9dc034788b75266ae88a3ede49deb5"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k1_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 1,
+      "views": 5,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8708093762397766,
+      "image_score_max": 0.8969075679779053,
+      "cache_sha256": "356693eee8764b1d9d95d397cf46598281e0af03adc7201042a09cfffd6d5114"
+    }
+  ]
+}

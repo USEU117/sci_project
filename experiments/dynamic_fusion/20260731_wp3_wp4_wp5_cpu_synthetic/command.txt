@@ -1,0 +1,2 @@
+.venv-anomalyclip/Scripts/python.exe scripts/run_dynamic_fusion_cpu_smoke.py --output outputs/dynamic_fusion/cpu_contract/20260731_wp3_wp4_wp5_synthetic/report.json
+.venv-anomalyclip/Scripts/python.exe -m pytest tests/test_dynamic_fusion.py tests/test_evaluate_unified.py -q

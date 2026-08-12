@@ -1,0 +1,67 @@
+﻿{
+    "schema_version":  1,
+    "run_id":  "20260804_visa_s0_k2_calibrated_development_matrix_v3",
+    "status":  "passed",
+    "resumed":  true,
+    "scope":  "development_only_seed_0",
+    "calibration_status":  "passed",
+    "modes":  [
+                  {
+                      "mode":  "visual",
+                      "image_auroc":  "0.6048",
+                      "pixel_auroc":  "0.8429789655743684",
+                      "pixel_ap":  "0.05725751619175246",
+                      "aupro":  "0.3299692608854646"
+                  },
+                  {
+                      "mode":  "text",
+                      "image_auroc":  "0.8197132700770077",
+                      "pixel_auroc":  "0.9374493048951211",
+                      "pixel_ap":  "0.17766884076354786",
+                      "aupro":  "0.7551939897545911"
+                  },
+                  {
+                      "mode":  "fixed_w0",
+                      "image_auroc":  "0.8197132700770077",
+                      "pixel_auroc":  "0.9374493048951211",
+                      "pixel_ap":  "0.17766884076354786",
+                      "aupro":  "0.7551939897545911"
+                  },
+                  {
+                      "mode":  "fixed_w025",
+                      "image_auroc":  "0.8198716034103412",
+                      "pixel_auroc":  "0.9481073889020717",
+                      "pixel_ap":  "0.1806465608325761",
+                      "aupro":  "0.7707886227618909"
+                  },
+                  {
+                      "mode":  "fixed_w05",
+                      "image_auroc":  "0.8201632700770077",
+                      "pixel_auroc":  "0.9486054936180904",
+                      "pixel_ap":  "0.1809374276812222",
+                      "aupro":  "0.7732271528794931"
+                  },
+                  {
+                      "mode":  "fixed_w075",
+                      "image_auroc":  "0.8206882700770078",
+                      "pixel_auroc":  "0.9488431257718917",
+                      "pixel_ap":  "0.18132215146591815",
+                      "aupro":  "0.7740627217264842"
+                  },
+                  {
+                      "mode":  "fixed_w1",
+                      "image_auroc":  "0.6048",
+                      "pixel_auroc":  "0.8429789655743684",
+                      "pixel_ap":  "0.05725751619175246",
+                      "aupro":  "0.3299692608854646"
+                  },
+                  {
+                      "mode":  "dynamic",
+                      "image_auroc":  "0.8156417629262926",
+                      "pixel_auroc":  "0.9487401050919408",
+                      "pixel_ap":  "0.18028736406017357",
+                      "aupro":  "0.8154636914656682"
+                  }
+              ],
+    "finished_at_utc":  "2026-08-04T13:17:46.4491948Z"
+}

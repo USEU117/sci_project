@@ -1,0 +1,7 @@
+phase: design
+calibration:
+  implementation: RobustNormalCalibrator
+  fit_source: normal_reference_only
+  target_test_aggregates_used: false
+  image_and_pixel_separate: true
+  status: interface_ready_real_reference_not_fitted

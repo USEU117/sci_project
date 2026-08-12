@@ -1,0 +1,58 @@
+{
+  "dataset": "mpdd",
+  "root": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD",
+  "category_count": 6,
+  "categories": {
+    "bracket_black": {
+      "train_good": 289,
+      "test_images": 79,
+      "abnormal_test_images": 47,
+      "mask_files": 47,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "bracket_brown": {
+      "train_good": 185,
+      "test_images": 77,
+      "abnormal_test_images": 51,
+      "mask_files": 51,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "bracket_white": {
+      "train_good": 110,
+      "test_images": 60,
+      "abnormal_test_images": 30,
+      "mask_files": 30,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "connector": {
+      "train_good": 128,
+      "test_images": 44,
+      "abnormal_test_images": 14,
+      "mask_files": 14,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "metal_plate": {
+      "train_good": 54,
+      "test_images": 97,
+      "abnormal_test_images": 71,
+      "mask_files": 71,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "tubes": {
+      "train_good": 122,
+      "test_images": 101,
+      "abnormal_test_images": 69,
+      "mask_files": 69,
+      "errors": [],
+      "missing_masks_examples": []
+    }
+  },
+  "expected_category_count": 6,
+  "category_count_matches": true,
+  "error_count": 0
+}

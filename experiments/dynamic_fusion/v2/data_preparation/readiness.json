@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-10T17:33:49.202335+00:00",
+  "status": "ready",
+  "datasets": {
+    "mpdd": {
+      "status": "ready",
+      "archive": "D:\\STUDY\\My_github\\sci_project\\data\\downloads\\MPDD.zip",
+      "archive_size_bytes": 1825041283,
+      "expected_size_bytes": 1825041283,
+      "download_fraction": 1.0,
+      "expected_sha256": "69f8da73eea4a31451a50251e5c261e83e0c53f2d1a39a7d4dfc78b5c434ddd6",
+      "extract_report": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\data_preparation\\mpdd_archive.json",
+      "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\mpdd\\manifest.json",
+      "split_validation_report": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\data_preparation\\mpdd_split_validation.json"
+    },
+    "btad": {
+      "status": "ready",
+      "archive": "D:\\STUDY\\My_github\\sci_project\\data\\downloads\\btad.zip",
+      "archive_size_bytes": 1229193337,
+      "expected_size_bytes": 1229193337,
+      "download_fraction": 1.0,
+      "expected_sha256": null,
+      "extract_report": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\data_preparation\\btad_archive.json",
+      "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+      "split_validation_report": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\data_preparation\\btad_split_validation.json"
+    }
+  }
+}

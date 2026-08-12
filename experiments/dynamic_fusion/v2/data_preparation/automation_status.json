@@ -1,0 +1,8 @@
+﻿{
+    "schema_version":  1,
+    "updated_at":  "2026-08-11T00:01:20.0711907+08:00",
+    "status":  "complete",
+    "step":  "complete",
+    "message":  "MPDD and BTAD data preparation and data-protocol freeze passed.",
+    "gpu_used":  false
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:49:52.388873+00:00",
+  "dataset": "btad",
+  "branch": "anomalyclip_text",
+  "seed": 0,
+  "shot": 2,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.7338588237762451,
+      "image_score_max": 0.7604501843452454,
+      "cache_sha256": "dd62a3a220a743c81b25e1866e002cee37f5abaf0bc512c1beebb06b230dd3d4"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.804598867893219,
+      "image_score_max": 0.8538762331008911,
+      "cache_sha256": "2749cd00ab7d1b134f3cdfe64f39aeef7ec015f55ef6a1033ea178361570cb0e"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s0_k2_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.821213960647583,
+      "image_score_max": 0.8969076871871948,
+      "cache_sha256": "d4f736346f1f7cddedef0c40c68c2a782b85b8753964e24332d208e32e724811"
+    }
+  ]
+}

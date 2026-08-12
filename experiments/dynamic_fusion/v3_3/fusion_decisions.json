@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "v3_3_20260812_fusion_decisions",
+  "description": "Per-category recommended fusion configuration based on leave-one-out cross-validation. Training on 5 categories, testing on the held-out 6th.",
+  "dataset": "mpdd",
+  "seed": 0,
+  "shot": 1,
+  "baselines": {
+    "anomalydino_visual": {"pixel_auroc": 0.957774, "pixel_ap": 0.280239, "pixel_aupro": 0.862216},
+    "anomalyclip_text":   {"pixel_auroc": 0.877620, "pixel_ap": 0.244432, "pixel_aupro": 0.723358}
+  },
+  "decisions": {
+    "bracket_black": {
+      "recommended_strategy": "two_stage_calibrated",
+      "recommended_variant": "alpha=0.70",
+      "loo_delta_ap": 0.006768,
+      "best_overall_variant": "weighted_ensemble::dino=0.60_anomalyclip=0.40",
+      "best_overall_delta_ap": 0.214434,
+      "note": "LoO selects two_stage, but weighted_ensemble dino=0.60 gives much higher in-distribution ΔAP (+0.214). Consider manual override."
+    },
+    "bracket_brown": {
+      "recommended_strategy": "weighted_ensemble",
+      "recommended_variant": "dino=0.60_anomalyclip=0.40",
+      "loo_delta_ap": 0.004058,
+      "best_overall_variant": "two_stage_calibrated::alpha=0.70",
+      "best_overall_delta_ap": 0.005379,
+      "note": "Very low AP baseline (~0.046). All fusion gains are marginal. Consider this category as edge case."
+    },
+    "bracket_white": {
+      "recommended_strategy": "weighted_ensemble",
+      "recommended_variant": "dino=0.60_anomalyclip=0.40",
+      "loo_delta_ap": 0.071385,
+      "best_overall_variant": "weighted_ensemble::dino=0.75_anomalyclip=0.25",
+      "best_overall_delta_ap": 0.075713,
+      "note": "Stable gains. dino=0.60 generalizes better (LoO pick); dino=0.75 slightly higher in-distribution."
+    },
+    "connector": {
+      "recommended_strategy": "weighted_ensemble",
+      "recommended_variant": "dino=0.70_anomalyclip=0.30",
+      "loo_delta_ap": 0.092234,
+      "best_overall_variant": "weighted_ensemble::dino=0.60_anomalyclip=0.40",
+      "best_overall_delta_ap": 0.096002,
+      "note": "Strong gains (~+0.09 ΔAP). Both dino=0.60 and dino=0.70 perform well."
+    },
+    "metal_plate": {
+      "recommended_strategy": "weighted_ensemble",
+      "recommended_variant": "dino=0.60_anomalyclip=0.40",
+      "loo_delta_ap": -0.033706,
+      "best_overall_variant": "two_stage_calibrated::alpha=0.60",
+      "best_overall_delta_ap": 0.088183,
+      "note": "ONLY negative LoO category. DINO baseline AP=0.847 is already very high. two_stage alpha=0.60 shows in-distribution gain (+0.088) but LoO fails to generalize. Manual tuning recommended."
+    },
+    "tubes": {
+      "recommended_strategy": "weighted_ensemble",
+      "recommended_variant": "dino=0.60_anomalyclip=0.40",
+      "loo_delta_ap": 0.13676,
+      "best_overall_variant": "two_stage_calibrated::alpha=0.80",
+      "best_overall_delta_ap": 0.176451,
+      "note": "Largest gains across all categories. DINO baseline AP=0.572. weighted_ensemble generalizes well; two_stage gives even higher in-distribution gain."
+    }
+  },
+  "global_recommendation": {
+    "strategy": "weighted_ensemble",
+    "variant": "dino=0.60_anomalyclip=0.40",
+    "rationale": "This single configuration was selected by LoO for 4/6 categories and achieves mean ΔAP=+0.046 in held-out evaluation. It is the most robust and generalizable fusion configuration."
+  }
+}

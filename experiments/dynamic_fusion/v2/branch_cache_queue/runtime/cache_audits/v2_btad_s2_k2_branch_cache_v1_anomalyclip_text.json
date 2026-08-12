@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:53:25.292305+00:00",
+  "dataset": "btad",
+  "branch": "anomalyclip_text",
+  "seed": 2,
+  "shot": 2,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.7540652751922607,
+      "image_score_max": 0.7964322566986084,
+      "cache_sha256": "5de23c2bd81e93cd3f67e0c8d29a0b7525332efc993254c5858a9965f371cad8"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8086904287338257,
+      "image_score_max": 0.8307420611381531,
+      "cache_sha256": "ead0d5b74a2b11069cc331b4814d3f82720abc4ad1a0ac43b7513600eea6c130"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s2_k2_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8356130123138428,
+      "image_score_max": 0.886502206325531,
+      "cache_sha256": "4adb3a63f36ddbc000ce7e59b4a81ceed64f38a6055a59a2793b868c045085f2"
+    }
+  ]
+}

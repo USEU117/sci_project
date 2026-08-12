@@ -1,0 +1,10 @@
+﻿dataset: visa
+seed: 0
+shot: 4
+visual_branch: anomalydino_visual
+text_branch: anomalyclip_text
+normal_views_per_source: 5
+temperature: 1.0
+gpu_used: true
+test_predictions_used: false
+test_labels_used: false

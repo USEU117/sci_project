@@ -1,0 +1,2 @@
+status,samples,text_routes,weighted_fusion_routes,finite_outputs,calibration_metadata_written,performance_claim_allowed
+passed,200,166,34,true,true,false

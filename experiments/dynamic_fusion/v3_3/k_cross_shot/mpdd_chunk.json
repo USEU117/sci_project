@@ -1,0 +1,488 @@
+[
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "bracket_black",
+    "dino_ap": 0.024395,
+    "fused_ap": 0.202069,
+    "delta_ap": 0.177674
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "bracket_brown",
+    "dino_ap": 0.045688,
+    "fused_ap": 0.049746,
+    "delta_ap": 0.004058
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "bracket_white",
+    "dino_ap": 0.094335,
+    "fused_ap": 0.16572,
+    "delta_ap": 0.071385
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "connector",
+    "dino_ap": 0.098322,
+    "fused_ap": 0.194324,
+    "delta_ap": 0.096002
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "metal_plate",
+    "dino_ap": 0.847173,
+    "fused_ap": 0.856744,
+    "delta_ap": 0.009571
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 0,
+    "cat": "tubes",
+    "dino_ap": 0.571518,
+    "fused_ap": 0.708278,
+    "delta_ap": 0.13676
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "bracket_black",
+    "dino_ap": 0.104454,
+    "fused_ap": 0.223999,
+    "delta_ap": 0.119545
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "bracket_brown",
+    "dino_ap": 0.054962,
+    "fused_ap": 0.057636,
+    "delta_ap": 0.002674
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "bracket_white",
+    "dino_ap": 0.056278,
+    "fused_ap": 0.170618,
+    "delta_ap": 0.11434
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "connector",
+    "dino_ap": 0.223239,
+    "fused_ap": 0.294778,
+    "delta_ap": 0.071539
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "metal_plate",
+    "dino_ap": 0.860184,
+    "fused_ap": 0.862264,
+    "delta_ap": 0.00208
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 1,
+    "cat": "tubes",
+    "dino_ap": 0.518647,
+    "fused_ap": 0.690427,
+    "delta_ap": 0.17178
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "bracket_black",
+    "dino_ap": 0.004763,
+    "fused_ap": 0.164606,
+    "delta_ap": 0.159843
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "bracket_brown",
+    "dino_ap": 0.050163,
+    "fused_ap": 0.052905,
+    "delta_ap": 0.002741
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "bracket_white",
+    "dino_ap": 0.07736,
+    "fused_ap": 0.212624,
+    "delta_ap": 0.135264
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "connector",
+    "dino_ap": 0.151671,
+    "fused_ap": 0.245409,
+    "delta_ap": 0.093738
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "metal_plate",
+    "dino_ap": 0.79253,
+    "fused_ap": 0.797196,
+    "delta_ap": 0.004667
+  },
+  {
+    "dataset": "mpdd",
+    "k": 1,
+    "seed": 2,
+    "cat": "tubes",
+    "dino_ap": 0.558445,
+    "fused_ap": 0.701526,
+    "delta_ap": 0.143081
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "bracket_black",
+    "dino_ap": 0.047821,
+    "fused_ap": 0.202284,
+    "delta_ap": 0.154463
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "bracket_brown",
+    "dino_ap": 0.043309,
+    "fused_ap": 0.047281,
+    "delta_ap": 0.003972
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "bracket_white",
+    "dino_ap": 0.145771,
+    "fused_ap": 0.187114,
+    "delta_ap": 0.041344
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "connector",
+    "dino_ap": 0.167614,
+    "fused_ap": 0.260637,
+    "delta_ap": 0.093023
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "metal_plate",
+    "dino_ap": 0.845482,
+    "fused_ap": 0.858656,
+    "delta_ap": 0.013174
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 0,
+    "cat": "tubes",
+    "dino_ap": 0.566374,
+    "fused_ap": 0.705304,
+    "delta_ap": 0.13893
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "bracket_black",
+    "dino_ap": 0.079049,
+    "fused_ap": 0.189872,
+    "delta_ap": 0.110823
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "bracket_brown",
+    "dino_ap": 0.03994,
+    "fused_ap": 0.044598,
+    "delta_ap": 0.004658
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "bracket_white",
+    "dino_ap": 0.033019,
+    "fused_ap": 0.163219,
+    "delta_ap": 0.1302
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "connector",
+    "dino_ap": 0.274491,
+    "fused_ap": 0.333807,
+    "delta_ap": 0.059316
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "metal_plate",
+    "dino_ap": 0.858726,
+    "fused_ap": 0.862105,
+    "delta_ap": 0.003379
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 1,
+    "cat": "tubes",
+    "dino_ap": 0.56706,
+    "fused_ap": 0.705116,
+    "delta_ap": 0.138057
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "bracket_black",
+    "dino_ap": 0.032522,
+    "fused_ap": 0.189917,
+    "delta_ap": 0.157395
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "bracket_brown",
+    "dino_ap": 0.053896,
+    "fused_ap": 0.058875,
+    "delta_ap": 0.00498
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "bracket_white",
+    "dino_ap": 0.06002,
+    "fused_ap": 0.189484,
+    "delta_ap": 0.129463
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "connector",
+    "dino_ap": 0.175294,
+    "fused_ap": 0.266318,
+    "delta_ap": 0.091025
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "metal_plate",
+    "dino_ap": 0.835184,
+    "fused_ap": 0.850617,
+    "delta_ap": 0.015433
+  },
+  {
+    "dataset": "mpdd",
+    "k": 2,
+    "seed": 2,
+    "cat": "tubes",
+    "dino_ap": 0.565336,
+    "fused_ap": 0.704288,
+    "delta_ap": 0.138952
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "bracket_black",
+    "dino_ap": 0.131701,
+    "fused_ap": 0.242854,
+    "delta_ap": 0.111154
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "bracket_brown",
+    "dino_ap": 0.046819,
+    "fused_ap": 0.050037,
+    "delta_ap": 0.003218
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "bracket_white",
+    "dino_ap": 0.104165,
+    "fused_ap": 0.204664,
+    "delta_ap": 0.100499
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "connector",
+    "dino_ap": 0.206996,
+    "fused_ap": 0.303227,
+    "delta_ap": 0.096231
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "metal_plate",
+    "dino_ap": 0.875097,
+    "fused_ap": 0.88152,
+    "delta_ap": 0.006422
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 0,
+    "cat": "tubes",
+    "dino_ap": 0.607457,
+    "fused_ap": 0.719268,
+    "delta_ap": 0.111811
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "bracket_black",
+    "dino_ap": 0.08848,
+    "fused_ap": 0.206085,
+    "delta_ap": 0.117605
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "bracket_brown",
+    "dino_ap": 0.06413,
+    "fused_ap": 0.063096,
+    "delta_ap": -0.001033
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "bracket_white",
+    "dino_ap": 0.070073,
+    "fused_ap": 0.19786,
+    "delta_ap": 0.127787
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "connector",
+    "dino_ap": 0.357658,
+    "fused_ap": 0.372691,
+    "delta_ap": 0.015033
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "metal_plate",
+    "dino_ap": 0.878882,
+    "fused_ap": 0.882013,
+    "delta_ap": 0.00313
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 1,
+    "cat": "tubes",
+    "dino_ap": 0.598625,
+    "fused_ap": 0.715954,
+    "delta_ap": 0.11733
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "bracket_black",
+    "dino_ap": 0.172701,
+    "fused_ap": 0.244104,
+    "delta_ap": 0.071404
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "bracket_brown",
+    "dino_ap": 0.061905,
+    "fused_ap": 0.066392,
+    "delta_ap": 0.004488
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "bracket_white",
+    "dino_ap": 0.089211,
+    "fused_ap": 0.190291,
+    "delta_ap": 0.101081
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "connector",
+    "dino_ap": 0.258148,
+    "fused_ap": 0.318295,
+    "delta_ap": 0.060147
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "metal_plate",
+    "dino_ap": 0.88012,
+    "fused_ap": 0.886296,
+    "delta_ap": 0.006176
+  },
+  {
+    "dataset": "mpdd",
+    "k": 4,
+    "seed": 2,
+    "cat": "tubes",
+    "dino_ap": 0.59747,
+    "fused_ap": 0.715385,
+    "delta_ap": 0.117915
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T02:46:47.132216+00:00",
+  "status": "passed",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 1,
+  "shot": 4,
+  "categories": 6,
+  "samples": 458,
+  "branches": 2,
+  "metrics_computed": false,
+  "btad_accessed": false,
+  "failures": [],
+  "rows": [
+    {
+      "category": "bracket_black",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 79,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\bracket_black.npz",
+      "sha256": "330ece85cce095c8cd7133d744dbb9fa32721a2027bcab86e368c80b708ad385"
+    },
+    {
+      "category": "bracket_black",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 79,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\bracket_black.npz",
+      "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+    },
+    {
+      "category": "bracket_brown",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 77,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\bracket_brown.npz",
+      "sha256": "b2599df4aba12f593ab9a670040aea3eeb793a5d86d6a64376813fb66f37d464"
+    },
+    {
+      "category": "bracket_brown",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 77,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\bracket_brown.npz",
+      "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+    },
+    {
+      "category": "bracket_white",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 60,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\bracket_white.npz",
+      "sha256": "b1316f3c1a1a61d51c8c3323969f630dfe722b8237f43db69392f0e8c298f573"
+    },
+    {
+      "category": "bracket_white",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 60,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\bracket_white.npz",
+      "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+    },
+    {
+      "category": "connector",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 44,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\connector.npz",
+      "sha256": "b53d7b6d7432cc9277cf3e6e91c3e5c2937efde3634ace864331a0df6f5c89f5"
+    },
+    {
+      "category": "connector",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 44,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\connector.npz",
+      "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+    },
+    {
+      "category": "metal_plate",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 97,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\metal_plate.npz",
+      "sha256": "2f7a0501d03b02246dca98fe1ade0fb0514a6e66c3161c88c296585b84f0f4a8"
+    },
+    {
+      "category": "metal_plate",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 97,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\metal_plate.npz",
+      "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+    },
+    {
+      "category": "tubes",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 101,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalydino_visual\\tubes.npz",
+      "sha256": "db5c99f18920789d4cdb4c5f29b20234daf4c858c1e94632d3991c6da1a7b995"
+    },
+    {
+      "category": "tubes",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 101,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s1_k4_full_v1\\anomalyclip_text\\tubes.npz",
+      "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+    }
+  ]
+}

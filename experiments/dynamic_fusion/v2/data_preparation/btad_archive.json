@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-08-10T16:01:14.036879+00:00",
+  "dataset": "btad",
+  "archive": "D:\\STUDY\\My_github\\sci_project\\data\\downloads\\btad.zip",
+  "archive_size_bytes": 1229193337,
+  "archive_sha256": "461c9387e515bfed41ecaae07c50cf6b10def647b36c9e31d239ab2736b10d2a",
+  "expected_sha256": null,
+  "source_url": "https://avires.dimi.uniud.it/papers/btad/btad.zip",
+  "source_kind": "official",
+  "zip_member_count": 2856,
+  "destination": "D:\\STUDY\\My_github\\sci_project\\data\\btad_raw",
+  "dataset_root": "D:\\STUDY\\My_github\\sci_project\\data\\btad_raw\\BTech_Dataset_transformed",
+  "category_count": 3,
+  "categories": [
+    "01",
+    "02",
+    "03"
+  ],
+  "image_file_count": 2830
+}

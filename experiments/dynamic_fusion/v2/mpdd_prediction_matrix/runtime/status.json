@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "started_at": "2026-08-11T10:40:26.088950+08:00",
+  "pid": 31236,
+  "cutoff": "2026-08-11T14:45:00+08:00",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "btad_accessed": false,
+  "current": null,
+  "completed_pairs": [
+    "v2_mpdd_s0_k1_full_v1",
+    "v2_mpdd_s0_k2_full_v1",
+    "v2_mpdd_s0_k4_full_v1",
+    "v2_mpdd_s1_k1_full_v1",
+    "v2_mpdd_s1_k2_full_v1",
+    "v2_mpdd_s1_k4_full_v1",
+    "v2_mpdd_s2_k1_full_v1",
+    "v2_mpdd_s2_k2_full_v1",
+    "v2_mpdd_s2_k4_full_v1"
+  ],
+  "failed": [],
+  "updated_at": "2026-08-11T10:50:30.087673+08:00",
+  "completed_at": "2026-08-11T10:50:30.089692+08:00"
+}

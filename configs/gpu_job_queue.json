@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "queue_id": "20260731_full_gpu_queue_v2",
+  "poll_seconds": 30,
+  "max_attempts_per_job": 2,
+  "jobs": [
+    {
+      "id": "promptad_visa_seed_1_shot_1",
+      "type": "promptad_visa",
+      "seed": 1,
+      "shot": 1,
+      "epoch": 100
+    },
+    {
+      "id": "dynamic_reference_visa_seed_0_shot_1",
+      "type": "dynamic_reference",
+      "run_id_prefix": "20260731_visa_s0_k1_real_reference_v6_q99"
+    },
+    {
+      "id": "promptad_visa_seed_1_shot_2",
+      "type": "promptad_visa",
+      "seed": 1,
+      "shot": 2,
+      "epoch": 100
+    },
+    {
+      "id": "promptad_visa_seed_1_shot_4",
+      "type": "promptad_visa",
+      "seed": 1,
+      "shot": 4,
+      "epoch": 100
+    },
+    {
+      "id": "promptad_visa_seed_2_shot_1",
+      "type": "promptad_visa",
+      "seed": 2,
+      "shot": 1,
+      "epoch": 100
+    },
+    {
+      "id": "promptad_visa_seed_2_shot_2",
+      "type": "promptad_visa",
+      "seed": 2,
+      "shot": 2,
+      "epoch": 100
+    },
+    {
+      "id": "promptad_visa_seed_2_shot_4",
+      "type": "promptad_visa",
+      "seed": 2,
+      "shot": 4,
+      "epoch": 100
+    }
+  ]
+}

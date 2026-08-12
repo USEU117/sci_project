@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "score_direction": "higher_is_more_anomalous",
+  "cache_dir": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_mpdd_predictions\\v2_mpdd_s0_k1_gate_a\\anomalyclip_text",
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "apro_steps": 100,
+  "aupro_max_fpr": 0.3,
+  "category_count": 6,
+  "sample_count": 458,
+  "validation_errors": 0
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "categories": 12,
+  "normal_sources": 12,
+  "views": 60,
+  "failures": 0,
+  "test_images_used": false,
+  "test_labels_used": false,
+  "output": "outputs/dynamic_fusion/reference_views/20260730_visa_s0_k1_v1/reference_views.json"
+}

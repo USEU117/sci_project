@@ -1,0 +1,8 @@
+dataset: visa
+seed: 0
+shot: 1
+mode: validation_only
+expected_steps: 5
+require_baseline_gpu_idle: true
+allow_output_overwrite: false
+gpu_used: false

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_visa_s0_k1_reference_views",
+  "purpose": "Prepare deterministic normal-reference views from the frozen VisA seed-0 1-shot manifest",
+  "status": "passed",
+  "dataset": "visa",
+  "seed": 0,
+  "shot": 1,
+  "categories": 12,
+  "normal_sources": 12,
+  "views": 60,
+  "gpu_used": false,
+  "test_images_used": false,
+  "test_labels_used": false,
+  "manifest_sha256": "35ecdd88bd3df2c7168a6c234b575ab425180946a80a93ce837d7e350b75e0f2",
+  "report_sha256": "173b45477ac3163d6fbd1d43cd0f1588167dec3bddc21c09a1897681c2b4a1e0",
+  "git_commit": "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+  "working_tree_dirty": true,
+  "exit_code": 0
+}

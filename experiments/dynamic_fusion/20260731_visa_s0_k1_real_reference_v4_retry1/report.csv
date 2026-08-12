@@ -1,0 +1,2 @@
+﻿status,exit_code,failure
+failed,1,Using cache found in C:\Users\lynle/.cache\torch\hub\facebookresearch_dinov2_main

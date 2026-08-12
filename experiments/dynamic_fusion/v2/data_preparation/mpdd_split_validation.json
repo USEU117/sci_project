@@ -1,0 +1,21 @@
+{
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\mpdd\\manifest.json",
+  "dataset": "mpdd",
+  "root": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD",
+  "sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+  "checksum_match": true,
+  "category_count": 6,
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "checked_path_entries": 126,
+  "error_count": 0,
+  "errors": []
+}

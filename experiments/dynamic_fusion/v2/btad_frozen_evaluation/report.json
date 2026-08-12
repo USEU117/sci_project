@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T10:52:00.687516+00:00",
+  "status": "passed",
+  "dataset": "btad",
+  "dataset_role": "holdout",
+  "selected_candidate": "visual_only_safe_fallback",
+  "router_parameters": {
+    "support_tolerance": 3.0,
+    "minimum_disagreement": 0.05,
+    "uncertainty_margin": 0.05,
+    "concentration_tolerance": 0.1,
+    "max_image_text_weight": 0.0,
+    "max_pixel_text_weight": 0.0,
+    "smooth_pixel_weights": true
+  },
+  "parameter_freeze": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\parameter_freeze\\manifest.json",
+  "parameter_freeze_sha256": "70c2eaedf99c6d7cffc530f782ddb32319f1c5f98795ebc9cd4766303f179d76",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "categories": [
+    "01",
+    "02",
+    "03"
+  ],
+  "apro_steps": 200,
+  "rows": 27,
+  "summary": {
+    "image_auroc": {
+      "macro_mean": 0.9422708872683155,
+      "macro_std": 0.03176873676633498
+    },
+    "image_ap": {
+      "macro_mean": 0.9465661341350698,
+      "macro_std": 0.060705695154317084
+    },
+    "pixel_auroc": {
+      "macro_mean": 0.964714648796584,
+      "macro_std": 0.02549673248420948
+    },
+    "pixel_ap": {
+      "macro_mean": 0.5701789987732807,
+      "macro_std": 0.1280586208055484
+    },
+    "aupro": {
+      "macro_mean": 0.7218177180336086,
+      "macro_std": 0.1863769009527464
+    }
+  },
+  "holdout_labels_used_for_final_metrics_only": true,
+  "holdout_labels_used_by_router": false,
+  "holdout_results_used_for_parameter_selection": false,
+  "parameters_modified_after_holdout_access": false,
+  "candidate_comparison_performed_on_holdout": false,
+  "provenance": [
+    {
+      "pair_id": "v2_btad_s0_k1_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s0_k1_full_v1.json",
+      "audit_sha256": "df246e44bfeb4a1bff2139d6224230d85b740d770c0465fab95abe5b3edfa9ba",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s0_k1_branch_cache_v1.json",
+      "calibration_sha256": "c1dd3179b4b8aa7e06659fc48d2aab2b91eb219ba88543af80094a020cde3d18"
+    },
+    {
+      "pair_id": "v2_btad_s0_k2_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s0_k2_full_v1.json",
+      "audit_sha256": "6f25576bae3f0ae80c8b8bf08f780328a1e77b3ad86d16e334adf5205579618b",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s0_k2_branch_cache_v1.json",
+      "calibration_sha256": "7fefc11d28a39b58d87f56628ac5a78f84a0b64b555a920ea28c90fa28544ea8"
+    },
+    {
+      "pair_id": "v2_btad_s0_k4_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s0_k4_full_v1.json",
+      "audit_sha256": "71fee5eed3fd41c28e0dd13ac7e4389bae807e4e506628aa37a0319238c9a14a",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s0_k4_branch_cache_v1.json",
+      "calibration_sha256": "41adf5008bdae27d9a349e7c42feb3d342a4ec3dde56a08ba4c7d66234ddb85e"
+    },
+    {
+      "pair_id": "v2_btad_s1_k1_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s1_k1_full_v1.json",
+      "audit_sha256": "645075e80619e95e65fda54a0b3434fdb434ae033bdcc9fcbbfcfc85029643be",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s1_k1_branch_cache_v1.json",
+      "calibration_sha256": "39c3992b75c041bb9dadd6fde53adf60bec8c8a8c0187710ec033a4005a7cf3d"
+    },
+    {
+      "pair_id": "v2_btad_s1_k2_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s1_k2_full_v1.json",
+      "audit_sha256": "556293a9001c9932cdc6576aa88abd19b5c55dad1140df69f393b1e1b6598e09",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s1_k2_branch_cache_v1.json",
+      "calibration_sha256": "e12cd38dbfa6e17389e4fe8e4a93627358ef0727cc5736e0558051172fceadc9"
+    },
+    {
+      "pair_id": "v2_btad_s1_k4_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s1_k4_full_v1.json",
+      "audit_sha256": "07751d4f85fbe02689e908e2199c8bcae5faa26fa558aba716542dbf10302abe",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s1_k4_branch_cache_v1.json",
+      "calibration_sha256": "8ca1d7ade965f411fe37c0459ca82bc80ac677addbc0daa507fff2de70630a4e"
+    },
+    {
+      "pair_id": "v2_btad_s2_k1_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s2_k1_full_v1.json",
+      "audit_sha256": "3ed73a8a48c36399faf25f726c75a256d8ed2969a63e5d14c9c1653e02826b51",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s2_k1_branch_cache_v1.json",
+      "calibration_sha256": "39bc0215e125b78d20d7fd3709e72705796fe05c7e25d71667fb6640a31e3e46"
+    },
+    {
+      "pair_id": "v2_btad_s2_k2_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s2_k2_full_v1.json",
+      "audit_sha256": "6e9451e6de85c27b5d8aaea117bc603ba6a8c6e4d989289f52ec3f4cbaa53fbd",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s2_k2_branch_cache_v1.json",
+      "calibration_sha256": "096dca34d2c623c3ce8fee724bafc34ca5c74e4170e47e62b99bcfb4928189ef"
+    },
+    {
+      "pair_id": "v2_btad_s2_k4_full_v1",
+      "audit": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\btad_prediction_matrix\\runtime\\audits\\v2_btad_s2_k4_full_v1.json",
+      "audit_sha256": "812ab09b2bf0863b04a2791763f6ffb1b8688594364a4a02c65eaf49bc31d878",
+      "calibration": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibrations\\v2_btad_s2_k4_branch_cache_v1.json",
+      "calibration_sha256": "4f8b46206a7f92ba2d477f407a3ebf34cd3e187e4f06c53c76de201dfaef114c"
+    }
+  ]
+}

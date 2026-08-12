@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_reference_pipeline_attempt2_failed",
+  "purpose": "synthetic normal-reference audit and calibration fit",
+  "status": "failed",
+  "audit_status": "passed",
+  "failure_stage": "calibration report assembly",
+  "gpu_used": false,
+  "test_data_used": false,
+  "exit_code": 1
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "visual_categories_passed": 12,
+  "text_categories_passed": 12,
+  "calibration_categories_fitted": 12,
+  "failures": 0,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "output": "outputs/dynamic_fusion/reference_pipeline/20260730_synthetic_visa_s0_k1/calibration_v3.json"
+}

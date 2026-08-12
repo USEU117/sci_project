@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "run_count": 9,
+  "runs": [
+    {
+      "run": "20260805_mvtec_final_validation_s0_k1",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.8187285706833539",
+      "image_ap": "0.8941020495615947",
+      "image_f1_max": "0.8983574538741446",
+      "pixel_auroc": "0.9140236011868915",
+      "pixel_ap": "0.2712089382495989",
+      "aupro": "0.8018392773547794"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s0_k2",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.8767511411084921",
+      "image_ap": "0.9314191517557748",
+      "image_f1_max": "0.9215869239123453",
+      "pixel_auroc": "0.9427550451871276",
+      "pixel_ap": "0.37376434767727196",
+      "aupro": "0.9143774257487414"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s0_k4",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.881277004443529",
+      "image_ap": "0.9337556120417824",
+      "image_f1_max": "0.9220560546540729",
+      "pixel_auroc": "0.9415830011572304",
+      "pixel_ap": "0.34577472105862234",
+      "aupro": "0.9229971128198043"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k1",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.7972615207713412",
+      "image_ap": "0.8879521829071321",
+      "image_f1_max": "0.8924259720696406",
+      "pixel_auroc": "0.9061418512726654",
+      "pixel_ap": "0.22616180416718384",
+      "aupro": "0.8591126308760126"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k2",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.8409779474958892",
+      "image_ap": "0.9128756937726048",
+      "image_f1_max": "0.9113157661892459",
+      "pixel_auroc": "0.9346618585279967",
+      "pixel_ap": "0.31889851379082557",
+      "aupro": "0.912962450463666"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s1_k4",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.8781630061699052",
+      "image_ap": "0.9319201194145642",
+      "image_f1_max": "0.9182791001561154",
+      "pixel_auroc": "0.9416094027199381",
+      "pixel_ap": "0.34752766752396763",
+      "aupro": "0.9225554978519929"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k1",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.7667839926509754",
+      "image_ap": "0.863574615161849",
+      "image_f1_max": "0.8754315042460663",
+      "pixel_auroc": "0.9114992274855251",
+      "pixel_ap": "0.24243781872173673",
+      "aupro": "0.8090974221497772"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k2",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.8734454692083304",
+      "image_ap": "0.9283234602109082",
+      "image_f1_max": "0.9124892903373436",
+      "pixel_auroc": "0.936271387079833",
+      "pixel_ap": "0.339196599587685",
+      "aupro": "0.8901478888820941"
+    },
+    {
+      "run": "20260805_mvtec_final_validation_s2_k4",
+      "category": "macro_mean",
+      "sample_count": "1725",
+      "image_auroc": "0.9261883112561032",
+      "image_ap": "0.9594521315656694",
+      "image_f1_max": "0.9323182605685314",
+      "pixel_auroc": "0.942124442669828",
+      "pixel_ap": "0.35138855368549043",
+      "aupro": "0.9088673955661205"
+    }
+  ]
+}

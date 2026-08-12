@@ -1,0 +1,110 @@
+[
+  {
+    "cat": "bracket_black",
+    "dino_ap": 0.024395,
+    "static_dap": 0.165821,
+    "r4_a0.2": 0.168206
+  },
+  {
+    "cat": "bracket_black",
+    "dino_ap": 0.024395,
+    "static_dap": 0.165821,
+    "r4_a0.4": 0.168122
+  },
+  {
+    "cat": "bracket_black",
+    "dino_ap": 0.024395,
+    "static_dap": 0.165821,
+    "r4_a0.6": 0.168443
+  },
+  {
+    "cat": "bracket_brown",
+    "dino_ap": 0.045688,
+    "static_dap": 0.004127,
+    "r4_a0.2": 0.004172
+  },
+  {
+    "cat": "bracket_brown",
+    "dino_ap": 0.045688,
+    "static_dap": 0.004127,
+    "r4_a0.4": 0.004001
+  },
+  {
+    "cat": "bracket_brown",
+    "dino_ap": 0.045688,
+    "static_dap": 0.004127,
+    "r4_a0.6": 0.003597
+  },
+  {
+    "cat": "bracket_white",
+    "dino_ap": 0.094335,
+    "static_dap": 0.071357,
+    "r4_a0.2": 0.070436
+  },
+  {
+    "cat": "bracket_white",
+    "dino_ap": 0.094335,
+    "static_dap": 0.071357,
+    "r4_a0.4": 0.068272
+  },
+  {
+    "cat": "bracket_white",
+    "dino_ap": 0.094335,
+    "static_dap": 0.071357,
+    "r4_a0.6": 0.066771
+  },
+  {
+    "cat": "connector",
+    "dino_ap": 0.098322,
+    "static_dap": 0.096882,
+    "r4_a0.2": 0.096771
+  },
+  {
+    "cat": "connector",
+    "dino_ap": 0.098322,
+    "static_dap": 0.096882,
+    "r4_a0.4": 0.095445
+  },
+  {
+    "cat": "connector",
+    "dino_ap": 0.098322,
+    "static_dap": 0.096882,
+    "r4_a0.6": 0.09217
+  },
+  {
+    "cat": "metal_plate",
+    "dino_ap": 0.847173,
+    "static_dap": -0.036872,
+    "r4_a0.2": -0.051523
+  },
+  {
+    "cat": "metal_plate",
+    "dino_ap": 0.847173,
+    "static_dap": -0.036872,
+    "r4_a0.4": -0.068173
+  },
+  {
+    "cat": "metal_plate",
+    "dino_ap": 0.847173,
+    "static_dap": -0.036872,
+    "r4_a0.6": -0.086565
+  },
+  {
+    "cat": "tubes",
+    "dino_ap": 0.571518,
+    "static_dap": 0.128153,
+    "r4_a0.2": 0.122291
+  },
+  {
+    "cat": "tubes",
+    "dino_ap": 0.571518,
+    "static_dap": 0.128153,
+    "r4_a0.4": 0.114514
+  },
+  {
+    "cat": "tubes",
+    "dino_ap": 0.571518,
+    "static_dap": 0.128153,
+    "r4_a0.6": 0.105098
+  }
+]

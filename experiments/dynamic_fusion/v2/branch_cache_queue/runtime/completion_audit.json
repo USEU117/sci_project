@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T02:10:07.988343+00:00",
+  "status": "passed",
+  "queue": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\queue.json",
+  "queue_sha256": "6a8a7264c59c837ee80acc233da1dda72eb74609fb843559ad8fdeae67ebf3f7",
+  "runtime_status": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\status.json",
+  "runtime_status_sha256": "1050b844004a9baac7ea69aec93d0a14bf30aa3c0b2bde0a39ee32be32657b90",
+  "cache_jobs_expected": 36,
+  "cache_audits_passed": 36,
+  "calibrations_expected": 18,
+  "calibration_audits_passed": 18,
+  "development_dataset": "mpdd",
+  "holdout_dataset": "btad",
+  "holdout_metrics_read": false,
+  "failures": [],
+  "cache_audits": [
+    {
+      "run_id": "v2_mpdd_s0_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "80f1ee7c21cfc2386c7b82efb5e2584fa013607771d2ab643c22b1c73549e235"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "e735a3eab26f4fccddd88de4759d901c8dfd505b35fd92cc12fdaf68344583cb"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "2d8ec7aea087a7fbc6300f2cab69c5953102213f8960789bed5087476cbb7828"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "bd7095471670f4612769d12c771ba21797b9e4b94f4f13088188f8b93ba067ab"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "07e4969a99e67ae4c7b50c7bda6f95afdfbc7c6f2fc93257313cb95900d96546"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s0_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "27fee38d05aa62a67073d472f8438eff5c1aeccae2bc9921535284bd7d9ae7a7"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "323335789f0064c662dfba38a3942dcc2ced4a6f64f79e695e8adf920e428583"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "c346846ebdc1af6f34e9a348319e17038911a270fdae92dd9fc1c6ef2e9aa874"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "f454ecfb529ff1afe8b285d1e2c8c244d9f1bed0388e5a017b71d7ca18b16499"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "1dd7937ebdb9a3e41120045f39a4ab8705c4789be58c586a0744dbd8b4efa58f"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "6885add5468b6cb165d84df42516e5442a72eaa9748d7d3afb72ea8dca31f4f1"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s1_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "021d87e6bcffad971348204b9fe018463c497b6239f99d3782501766105d5fb3"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "3bf6da5a3be0203ed8d173d3a530c93409e418852853688d2cf0501267dbef0a"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "0d5ecb6c685ca74cd025358c305d7838b3a385cb53c6836d8027b610ce06ee26"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "e094dc242b06f9e844d43a391324d4d210b2d944debce9d8d4535150482b426d"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "92fdfe4fb08d1253c4cb2992cdc64de6a6a0995c6a86aacfc2c9b571dd539a50"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "d82646926ee7603c122d92ae4fc02d4aec8f3033c4c0461da55973ca773b4251"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_mpdd_s2_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "7f457be5158a22332839ed8e96aba7db740747c44a081c5034e7b7cf77780070"
+    },
+    {
+      "run_id": "v2_btad_s0_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "611eed1fb86e47329abad4e6497fcd87409af4a4187b1f77f8e71dbcb23b8f99"
+    },
+    {
+      "run_id": "v2_btad_s0_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "9501cfa13ce2b7b2d3e132d498fd14a3444ebaa02a911be82dbd66ddc6ca700e"
+    },
+    {
+      "run_id": "v2_btad_s0_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "fee965a06d20538b9bd426fb71e3588d62780f3c44cf80a076f01a2d7379c400"
+    },
+    {
+      "run_id": "v2_btad_s0_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "bdf98a4498478853d0ab4215f59575b7e46fa927f49b5f5a2d5f0ff89bd53b8a"
+    },
+    {
+      "run_id": "v2_btad_s0_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "a67dc4d36af3743cc96dee28d58a0d3819a8e0a61a75ba21cbb95e8b894f3f87"
+    },
+    {
+      "run_id": "v2_btad_s0_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s0_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "97c6368417b9671af8b860d8159725611a73f1fd0f6437ca3542e82f2281d21a"
+    },
+    {
+      "run_id": "v2_btad_s1_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "98bcfcc63e848e6ea7deae9e27c2918c40706e61adaefdaa15db99e382f69335"
+    },
+    {
+      "run_id": "v2_btad_s1_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "7bf7776cb2430d9bf2d9c2feface595e1515ae10a39036c4188646ffdd457971"
+    },
+    {
+      "run_id": "v2_btad_s1_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "be4309a9ea25d5181482e37c116e7a12247b5ea1ee24ad14322d2719b623f651"
+    },
+    {
+      "run_id": "v2_btad_s1_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "4077219a9478b0e5b505c7d81cf26cfe64f80074689a57f525f830997e23fb10"
+    },
+    {
+      "run_id": "v2_btad_s1_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "78aad8a59634cdddbd7f68ed65d1ab2e243b669484cdb605a20a371330a05dcb"
+    },
+    {
+      "run_id": "v2_btad_s1_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s1_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "f482a33633b56c7c1c774a574f8975475992f285bf74718559974863937f56c4"
+    },
+    {
+      "run_id": "v2_btad_s2_k1_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k1_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "1cacdebc40e0576b4e2c37342fb7844ed0bfb772afbfdbf7c60ba2b5a5c0d105"
+    },
+    {
+      "run_id": "v2_btad_s2_k1_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k1_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "82d2e121f0ee708f9f20fe0c988c89c89c0baa33b99a80a185e43837a45c208a"
+    },
+    {
+      "run_id": "v2_btad_s2_k2_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k2_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "e1d26c23013d15ac00b7610a7b32ea309cfc040465a5305b61c3c76298e0e519"
+    },
+    {
+      "run_id": "v2_btad_s2_k2_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k2_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "93218e9ead5149a32c5952e06578df5647a9f7f4af72969725690a8a9b3af762"
+    },
+    {
+      "run_id": "v2_btad_s2_k4_branch_cache_v1_anomalydino_visual",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k4_branch_cache_v1_anomalydino_visual.json",
+      "sha256": "fb47f2e560075594edd367e80130d7f1b30aa4b76637c27ecbaf8f94d1101100"
+    },
+    {
+      "run_id": "v2_btad_s2_k4_branch_cache_v1_anomalyclip_text",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\cache_audits\\v2_btad_s2_k4_branch_cache_v1_anomalyclip_text.json",
+      "sha256": "bde6dbd22856490557f8331ecd1e29db3703fd3cfe80357493465e3ac02dc48b"
+    }
+  ],
+  "calibration_audits": [
+    {
+      "run_id": "v2_mpdd_s0_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s0_k1_branch_cache_v1.json",
+      "sha256": "8ec210146f5aae816bb7d0e58903ff0146d8ad4471dee707ad467dc0cec22e82"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s0_k2_branch_cache_v1.json",
+      "sha256": "2520a69e36623763db811f7a7098a12924dc6ae66fdc6dfebf202f77cd49d2ea"
+    },
+    {
+      "run_id": "v2_mpdd_s0_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s0_k4_branch_cache_v1.json",
+      "sha256": "8c41fd1d826e79a4922376a0813ff0bca2d60294ba6c004451113361f2a68334"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s1_k1_branch_cache_v1.json",
+      "sha256": "72f7c31f5224e7c633767f00cbeced3d4dc698172e804baa8cf8daeaf02260a6"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s1_k2_branch_cache_v1.json",
+      "sha256": "f5c1b4fa213e781bba77cdd376c1d825b77bc6b0ca4fa520ac900378f7527302"
+    },
+    {
+      "run_id": "v2_mpdd_s1_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s1_k4_branch_cache_v1.json",
+      "sha256": "ce529c6ff9e2047649b65a8441ab46d637ec9c44ba5126e70c56d139e2940e9b"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s2_k1_branch_cache_v1.json",
+      "sha256": "4adaaa385bfbdbcda66a47c412c57091ac1ca3da8c4486f2b93a0049fc15b6d0"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s2_k2_branch_cache_v1.json",
+      "sha256": "6f32b230fe88b0a5c980d773d92cc67a4d2227b481c088d39b741f1cd5c3a518"
+    },
+    {
+      "run_id": "v2_mpdd_s2_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_mpdd_s2_k4_branch_cache_v1.json",
+      "sha256": "25e47e3978d47c54fce37ccc9b4e86942b0266a1e3f27ac99a25ac4bffd9b62e"
+    },
+    {
+      "run_id": "v2_btad_s0_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s0_k1_branch_cache_v1.json",
+      "sha256": "ede4d26559e3f42d1b1e20ce23e3a89c205b3f07260391dc6d13f8b9a8c57bd3"
+    },
+    {
+      "run_id": "v2_btad_s0_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s0_k2_branch_cache_v1.json",
+      "sha256": "6ffb005ce4c8739d755d314b5c3ea463a4c9b4fa623fdcfc7b73999a62da7567"
+    },
+    {
+      "run_id": "v2_btad_s0_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s0_k4_branch_cache_v1.json",
+      "sha256": "950f7ada2cd9e45b22ea44c5dc747eda6ecb501d267020c6a20fb71d8a6fc97d"
+    },
+    {
+      "run_id": "v2_btad_s1_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s1_k1_branch_cache_v1.json",
+      "sha256": "987951c1bc2fd476a5e93a5c99a5addb450016a4a0f208ece88c3216d04794b7"
+    },
+    {
+      "run_id": "v2_btad_s1_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s1_k2_branch_cache_v1.json",
+      "sha256": "5b246b7491f3db4ca64a15fb9400557d7a70862b3fafd01a8b66b2355372b8fd"
+    },
+    {
+      "run_id": "v2_btad_s1_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s1_k4_branch_cache_v1.json",
+      "sha256": "d5a97d3b37c8a2f3ae97081b1da54db03d9e4fb7017d0b34eb2c1c1abf97d6b7"
+    },
+    {
+      "run_id": "v2_btad_s2_k1_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s2_k1_branch_cache_v1.json",
+      "sha256": "b55a8592aa719e5fb4b50db6fb1b7181a9b45f8b5ace867097453a52f04559d7"
+    },
+    {
+      "run_id": "v2_btad_s2_k2_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s2_k2_branch_cache_v1.json",
+      "sha256": "a32a08103031f33a7a7befd311a5f8c442dc506431ab74cd940ccb6d8cd4cf21"
+    },
+    {
+      "run_id": "v2_btad_s2_k4_branch_cache_v1",
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\v2\\branch_cache_queue\\runtime\\calibration_audits\\v2_btad_s2_k4_branch_cache_v1.json",
+      "sha256": "1dd968acc4d7df3b80ebcda362523b44f2d2f27a3c817400c5293e384c4902a3"
+    }
+  ]
+}

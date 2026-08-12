@@ -1,0 +1,4 @@
+﻿category,status,sources,views,height,width,image_score_min,image_score_max,cache_sha256,errors,cache
+01,passed,4,20,448,448,3.5762786865234375e-07,0.07135455310344696,f75850b74ed5027d90cebdb2efea1577be9b4b733c6b99517cd8e29c8801735a,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k4_branch_cache_v1\anomalydino_visual\01.npz
+02,passed,4,20,448,448,3.5762786865234375e-07,0.053810715675354004,a5a6554910bef411c93928a23b56fa817452c11f6b1e7148fa392ea704f94e6c,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k4_branch_cache_v1\anomalydino_visual\02.npz
+03,passed,4,20,336,448,3.6679782056125987e-07,0.07893767952919006,c362132aba3c29ee8b2ccd80dc437ba6620c24b1fdf7d3c746ceea58155a7c5b,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k4_branch_cache_v1\anomalydino_visual\03.npz

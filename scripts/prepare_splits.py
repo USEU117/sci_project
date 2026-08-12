@@ -22,7 +22,7 @@ def image_files(path: Path) -> list[Path]:
 
 
 def normal_candidates(root: Path, dataset: str, category: str) -> list[str]:
-    """Return normal-reference paths for either MVTec layout or VisA meta.json."""
+    """Return normal-reference paths for supported industrial AD layouts."""
     if dataset == "visa" and (root / "meta.json").is_file():
         meta = json.loads((root / "meta.json").read_text(encoding="utf-8"))
         return sorted(
@@ -30,13 +30,22 @@ def normal_candidates(root: Path, dataset: str, category: str) -> list[str]:
             for item in meta["train"][category]
             if int(item.get("anomaly", 0)) == 0
         )
-    good_dir = root / category / "train" / "good"
-    return [p.relative_to(root).as_posix() for p in image_files(good_dir)]
+    category_root = root / category
+    candidates = [
+        category_root / "train" / "good",
+        category_root / "train" / "ok",
+    ]
+    normal_dir = next((path for path in candidates if path.is_dir()), None)
+    if normal_dir is None:
+        return []
+    return [p.relative_to(root).as_posix() for p in image_files(normal_dir)]
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", required=True, choices=["mvtec", "visa"])
+    ap.add_argument(
+        "--dataset", required=True, choices=["mvtec", "visa", "mpdd", "btad"]
+    )
     ap.add_argument("--root", type=Path, required=True)
     ap.add_argument("--output", type=Path, default=Path("data/splits"))
     ap.add_argument("--shots", nargs="+", type=int, default=[1, 2, 4])
@@ -86,6 +95,23 @@ def main() -> None:
             for shot in shots:
                 selected[str(shot)] = shuffled[:shot]
             manifest["categories"][category][str(seed)] = selected
+
+    if args.dataset in {"mpdd", "btad"}:
+        selected_paths = sorted(
+            {
+                relative
+                for seed_map in manifest["categories"].values()
+                for shot_map in seed_map.values()
+                for paths in shot_map.values()
+                for relative in paths
+            }
+        )
+        manifest["selected_file_sha256"] = {
+            relative: hashlib.sha256(
+                root.joinpath(*Path(relative).parts).read_bytes()
+            ).hexdigest()
+            for relative in selected_paths
+        }
 
     payload = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     payload_bytes = payload.encode("utf-8")

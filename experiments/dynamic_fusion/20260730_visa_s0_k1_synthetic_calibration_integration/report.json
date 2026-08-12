@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "samples": 200,
+  "finite_outputs": true,
+  "route_counts": {
+    "text": 166,
+    "weighted_fusion": 34
+  },
+  "calibration_metadata_written": true,
+  "performance_claim_allowed": false
+}

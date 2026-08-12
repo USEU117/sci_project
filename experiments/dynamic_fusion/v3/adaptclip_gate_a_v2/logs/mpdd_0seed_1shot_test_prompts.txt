@@ -1,0 +1,12 @@
+bracket_black/train/good/271.png
+bracket_brown/train/good/039.png
+bracket_white/train/good/023.png
+connector/train/good/048.png
+metal_plate/train/good/029.png
+tubes/train/good/069.png
+bracket_black/train/good/271.png
+bracket_brown/train/good/039.png
+bracket_white/train/good/023.png
+connector/train/good/048.png
+metal_plate/train/good/029.png
+tubes/train/good/069.png

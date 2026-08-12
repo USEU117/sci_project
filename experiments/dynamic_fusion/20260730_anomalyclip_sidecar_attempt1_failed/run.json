@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_anomalyclip_sidecar_attempt1_failed",
+  "purpose": "WP1.3 first strict mask/order verification for legacy AnomalyCLIP caches",
+  "status": "failed",
+  "dataset": "visa",
+  "categories": 12,
+  "passed": 0,
+  "failed": 12,
+  "gpu_used": false,
+  "exit_code": 1,
+  "report": "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/sidecars/anomalyclip_visa_518/report.json"
+}

@@ -1,0 +1,1 @@
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run_dynamic_fusion_reference_pipeline.ps1 -RunId 20260731_visa_s0_k1_real_reference_v1 -ValidateOnly

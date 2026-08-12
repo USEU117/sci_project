@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "status": "code_protocol_frozen",
+  "created_at_utc": "2026-08-10T14:57:44.496332+00:00",
+  "test_count_passed": 48,
+  "parameters_frozen": false,
+  "holdout_metrics_allowed": false,
+  "reason_parameters_not_frozen": "MPDD development and BTAD holdout data/caches are not yet ready",
+  "forbidden_parameter_sources": [
+    "btad_holdout_metrics",
+    "mvtec_final_metrics",
+    "visa_final_metrics"
+  ],
+  "files": [
+    {
+      "relative_path": "configs/dynamic_fusion_v2.yaml",
+      "size_bytes": 1723,
+      "sha256": "579f1c564ba7f1ba20c21fc5b0e1ed27b91563454604fe9f38492aae20f561e4"
+    },
+    {
+      "relative_path": "configs/dynamic_fusion_v2_data_protocol.yaml",
+      "size_bytes": 1005,
+      "sha256": "babc3d857f76bb5acf7152ca1ff8eff5bc7c7527e575d6099dd2bec69b66af56"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v2_calibration.py",
+      "size_bytes": 8805,
+      "sha256": "81466a09f82cefc752c2b32a8e908326427e93473bb02aa73545487269f78db7"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v2_router.py",
+      "size_bytes": 9179,
+      "sha256": "5871714e97cd4abdce6045b5b151c8e55bb746b3ee196185033fcd102da41524"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v2_diagnostics.py",
+      "size_bytes": 2732,
+      "sha256": "5fb53cbba1e8312a969b8adc5e09253e030969b98a13746309a2edad0a50b4a8"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v2_ablation.py",
+      "size_bytes": 1915,
+      "sha256": "3f69ac8bafb536a3bba53a030a01cd68383327c855167093384fe606b7f0ecdb"
+    },
+    {
+      "relative_path": "scripts/fit_dynamic_fusion_v2_calibration.py",
+      "size_bytes": 5263,
+      "sha256": "f5eb6ae9d82dbaaa461735e540e214f4e92a6b589f0d3fa473f32500b6d413db"
+    },
+    {
+      "relative_path": "scripts/run_dynamic_fusion_v2_cache.py",
+      "size_bytes": 8034,
+      "sha256": "ca4981513f6d8bca2e3791f9bcc32d25e349b997a7a808b6a09c1fd1e185978a"
+    },
+    {
+      "relative_path": "scripts/audit_dynamic_fusion_v2_calibration.py",
+      "size_bytes": 3422,
+      "sha256": "2ada60acc852974ed7d501a046da386aa8ea015899ca3087e0c8a34b953cdecc"
+    },
+    {
+      "relative_path": "scripts/prepare_v2_dataset_archive.py",
+      "size_bytes": 4814,
+      "sha256": "3c431f2452c5033c9d9d68fe843ed06f3968290b57e6b7c409ed5f260c9fb820"
+    },
+    {
+      "relative_path": "scripts/audit_v2_data_readiness.py",
+      "size_bytes": 3542,
+      "sha256": "029a6ebaf5f7caaebda21db6d23a403c50848e4bba78eb4d73cd239fa6b66c5b"
+    },
+    {
+      "relative_path": "scripts/freeze_v2_data_protocol.py",
+      "size_bytes": 3326,
+      "sha256": "e7aed7624b9cc69e8c7c22989debfae75e1d0da18b5c842052c1b97505016c65"
+    },
+    {
+      "relative_path": "scripts/complete_v2_data_preparation.ps1",
+      "size_bytes": 4585,
+      "sha256": "4a1562091a4ce1d9b22c57aa6ab13b0774921076cea1d8d3984c19ce3329c117"
+    },
+    {
+      "relative_path": "scripts/start_v2_data_preparation.ps1",
+      "size_bytes": 2210,
+      "sha256": "a9c49a2678d06c021c99b875cfda4032e44354ef8d956c1734ba94fc32a287e3"
+    },
+    {
+      "relative_path": "scripts/prepare_splits.py",
+      "size_bytes": 4805,
+      "sha256": "deb62bc2e897c39f344e660e0df31302879b0e40b979caf62ec51664bb8197c7"
+    },
+    {
+      "relative_path": "scripts/validate_splits.py",
+      "size_bytes": 5849,
+      "sha256": "d9b9852bc55e8ac4075ad9fc7337950667c2804fa9d061d28a6b81707143ced6"
+    },
+    {
+      "relative_path": "scripts/validate_dataset.py",
+      "size_bytes": 3674,
+      "sha256": "35b48e5d364286125e9a403305641b1b8a840bcd8f704ceb9090b523691677f4"
+    },
+    {
+      "relative_path": "tests/test_dynamic_fusion_v2.py",
+      "size_bytes": 8314,
+      "sha256": "99fa749f4bf8fcc720f1bbd2b5601444184abe289a2b19344cfe42d58ce9b987"
+    },
+    {
+      "relative_path": "tests/test_v2_data_protocol.py",
+      "size_bytes": 4129,
+      "sha256": "f713709d060eacfa257215fc1b80232834df332aa264acacb6106ffc249e716b"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/20260810_v2_cpu_contract_v2/report.json",
+      "size_bytes": 873,
+      "sha256": "aa82f63483709e6dd749915e7ac6b972f3fce813f5889d88f51818dfda96891e"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/20260810_visa_s0_k1_retrospective_calibration/audit.json",
+      "size_bytes": 19183,
+      "sha256": "dba3f6939efd02cc5cc5fb3cdb6c235f7285f6c2015cca0879b2837129c4da56"
+    }
+  ]
+}

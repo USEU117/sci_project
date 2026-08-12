@@ -1,0 +1,4 @@
+﻿category,status,sources,views,height,width,image_score_min,image_score_max,cache_sha256,errors,cache
+01,passed,2,10,518,518,0.7239371538162231,0.7927950620651245,8101467339d414657a5c9f550b1d7c31e6f35ae440586906ee1ad19f5cf5c9e6,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k2_branch_cache_v1\anomalyclip_text\01.npz
+02,passed,2,10,518,518,0.6898151636123657,0.7720897793769836,53c3535f07b6a1554d8e26053f7e079f8ce3056606276ec1b7620aa7ae4c744b,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k2_branch_cache_v1\anomalyclip_text\02.npz
+03,passed,2,10,518,518,0.8425695300102234,0.8938183784484863,c2ee34b119c22a2d422208d735e78327923b07a377834070d658afff8bf6ddab,,D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v2_branch_cache\v2_btad_s1_k2_branch_cache_v1\anomalyclip_text\03.npz

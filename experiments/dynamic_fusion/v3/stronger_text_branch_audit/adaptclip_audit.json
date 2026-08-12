@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T02:03:15+08:00",
+  "run_id": "v3_adaptclip_preflight_20260812_0203",
+  "status": "blocked_before_validate_only",
+  "candidate": "AdaptCLIP",
+  "purpose": "one stronger text branch after the current AnomalyCLIP reliability Gate A2 failed",
+  "repository": {
+    "path": "methods/adaptclip",
+    "origin": "https://github.com/gaobb/AdaptCLIP.git",
+    "commit": "354d9e3332ec5348b3d8e4439111d34f8e94c0a9",
+    "worktree_clean": true
+  },
+  "official_checkpoint_instruction": {
+    "source_declared_by_repository": "https://huggingface.co/csgaobb/AdaptCLIP",
+    "huggingface_revision": "e9f5c06c9abd4015b73a8bb4e0477e48b7bd7b86",
+    "expected_directory": "methods/adaptclip/adaptclip_checkpoints",
+    "directory_present": false,
+    "checkpoint_verified": false,
+    "repository_access": "gated_auto",
+    "download_probe": "HTTP 401 without an authenticated accepted Hugging Face account; no file was written",
+    "candidate_for_mpdd_cross_dataset_test": {
+      "file": "adaptclip_checkpoints/12_4_128_train_on_visa_3adapters_batch8/epoch_15.pth",
+      "size_bytes": 7520074,
+      "declared_lfs_sha256": "777821da141eb57d159acef46868440faf773a2dd0acf5c276ec3f258c27edee"
+    }
+  },
+  "dataset_support": {
+    "repository_dataset_modules": ["mvtec", "visa"],
+    "mpdd_adapter_present": false,
+    "mpdd_development_only": true,
+    "btad_accessed": false
+  },
+  "validate_only": {
+    "attempted": false,
+    "reason": "A meaningful MPDD dry-run requires the authenticated official checkpoint plus a V3-only MPDD adapter. The repository code already recognizes the MPDD category names, but it still requires frozen-manifest metadata/export integration.",
+    "gpu_used": false
+  },
+  "safety_decision": "Do not bypass the gated official artifact or start GPU inference. Implement and CPU-test the frozen-manifest MPDD metadata/export integration while checkpoint access awaits authenticated license acceptance; after download, require the local SHA256 to equal the declared LFS SHA256.",
+  "source_sha256": {
+    "README.md": "85C06CA57DE68372F596A26D9113665FDB6AFA819D681002AC9C6F516D212EF8",
+    "test.py": "D73C3DD1781C025D3BD83FDB93BF0CE034962E360518B7C7CA48DB20229698D3",
+    "scripts/test_adaptclip.sh": "C6E7503483827DF29DD2D163509D1CD79CCD7D105AC5F616E96A8AEAF68176CD"
+  }
+}

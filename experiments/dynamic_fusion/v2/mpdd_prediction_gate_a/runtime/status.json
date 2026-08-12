@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "started_at": "2026-08-11T10:14:05.072354+08:00",
+  "pid": 22988,
+  "current": null,
+  "completed": [
+    "anomalydino_visual",
+    "anomalyclip_text"
+  ],
+  "failed": [],
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "btad_accessed": false,
+  "metrics_computed": false,
+  "completed_at": "2026-08-11T10:18:19.261314+08:00"
+}

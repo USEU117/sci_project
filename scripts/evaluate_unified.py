@@ -170,8 +170,20 @@ def main() -> None:
     ap.add_argument("--output-dir", type=Path, required=True)
     ap.add_argument("--apro-steps", type=int, default=200)
     ap.add_argument("--workers", type=int, default=1)
+    ap.add_argument(
+        "--include-categories",
+        nargs="+",
+        help="Optional explicit cache stems to evaluate; rejects missing names.",
+    )
     args = ap.parse_args()
     paths = sorted(args.cache_dir.glob("*.npz"))
+    if args.include_categories is not None:
+        requested = set(args.include_categories)
+        available = {path.stem for path in paths}
+        missing = sorted(requested.difference(available))
+        if missing:
+            raise SystemExit(f"Requested categories missing from cache: {missing}")
+        paths = [path for path in paths if path.stem in requested]
     if not paths:
         raise SystemExit(f"No NPZ prediction files found in {args.cache_dir}")
     if args.apro_steps <= 1:

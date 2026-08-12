@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-08-10T16:00:27.622096+00:00",
+  "dataset": "mpdd",
+  "archive": "D:\\STUDY\\My_github\\sci_project\\data\\downloads\\MPDD.zip",
+  "archive_size_bytes": 1825041283,
+  "archive_sha256": "69f8da73eea4a31451a50251e5c261e83e0c53f2d1a39a7d4dfc78b5c434ddd6",
+  "expected_sha256": "69f8da73eea4a31451a50251e5c261e83e0c53f2d1a39a7d4dfc78b5c434ddd6",
+  "source_url": "https://huggingface.co/datasets/meksamiao/mpdd",
+  "source_kind": "mirror",
+  "zip_member_count": 1628,
+  "destination": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw",
+  "dataset_root": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD",
+  "category_count": 6,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "image_file_count": 1628
+}

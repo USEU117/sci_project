@@ -1,0 +1,8 @@
+work_packages: [WP3, WP4, WP5]
+data: synthetic_only
+gpu_used: false
+ground_truth_used: false
+test_predictions_used: false
+test_labels_used: false
+fixed_visual_weights: [0.0, 0.25, 0.5, 0.75, 1.0]
+formal_performance_claim_allowed: false

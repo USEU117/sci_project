@@ -1,0 +1,13 @@
+dataset: visa
+seed: 0
+shot: 1
+data_source: frozen_normal_reference_manifest
+views:
+  - identity
+  - brightness_090
+  - brightness_110
+  - contrast_090
+  - contrast_110
+gpu_used: false
+test_images_used: false
+test_labels_used: false

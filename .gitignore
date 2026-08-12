@@ -7,6 +7,8 @@ data/visa_raw/
 data/visa_1cls/
 data/visa_patchcore*/
 data/visa_candle_smoke/
+data/btad_raw/
+data/mpdd_raw/
 
 # Third-party source mirrors
 methods/
@@ -18,6 +20,13 @@ venv/
 # Experiment outputs
 outputs/
 *.log
+
+# Staged dataset copies in experiments (do not redistribute)
+experiments/**/staged_*/
+experiments/**/predictions/
+
+# Large binary prediction caches
+*.npz
 
 # Python
 __pycache__/

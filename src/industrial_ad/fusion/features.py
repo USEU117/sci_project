@@ -18,6 +18,75 @@ def binary_entropy(values: np.ndarray) -> np.ndarray:
     return -(probability * np.log2(probability) + (1 - probability) * np.log2(1 - probability))
 
 
+def spatial_response_concentration(pixel_maps: np.ndarray) -> np.ndarray:
+    """Return 0 for uniform maps and values near 1 for concentrated maps."""
+
+    maps = as_probability(pixel_maps)
+    if maps.ndim != 3:
+        raise ValueError(f"pixel_maps must be [N,H,W], got {maps.shape}")
+    flattened = maps.reshape(len(maps), -1)
+    mass = flattened / np.maximum(flattened.sum(axis=1, keepdims=True), EPS)
+    entropy = -(mass * np.log(np.maximum(mass, EPS))).sum(axis=1)
+    maximum_entropy = np.log(flattened.shape[1])
+    if maximum_entropy <= 0:
+        return np.ones(len(maps), dtype=np.float64)
+    return np.clip(1.0 - entropy / maximum_entropy, 0.0, 1.0)
+
+
+def augmentation_consistency(
+    source_ids: np.ndarray,
+    image_probabilities: np.ndarray,
+    pixel_probabilities: np.ndarray,
+) -> dict[str, np.ndarray]:
+    """Measure prediction variation across deterministic views of each source."""
+
+    sources = np.asarray(source_ids).astype(str).reshape(-1)
+    image = as_probability(image_probabilities).reshape(-1)
+    pixel = as_probability(pixel_probabilities)
+    if pixel.ndim != 3:
+        raise ValueError(f"pixel_probabilities must be [N,H,W], got {pixel.shape}")
+    if not (len(sources) == len(image) == len(pixel)):
+        raise ValueError("source_ids, image_probabilities and pixel_probabilities need equal N")
+    unique_sources = np.asarray(list(dict.fromkeys(sources.tolist())))
+    image_std: list[float] = []
+    pixel_std: list[np.ndarray] = []
+    view_counts: list[int] = []
+    for source in unique_sources:
+        index = np.flatnonzero(sources == source)
+        if len(index) < 2:
+            raise ValueError(f"source {source} requires at least 2 views")
+        image_std.append(float(np.std(image[index], ddof=0)))
+        pixel_std.append(np.std(pixel[index], axis=0, ddof=0))
+        view_counts.append(len(index))
+    return {
+        "source_ids": unique_sources,
+        "view_counts": np.asarray(view_counts, dtype=np.int32),
+        "image_view_std": np.asarray(image_std, dtype=np.float64),
+        "pixel_view_std": np.stack(pixel_std).astype(np.float64),
+    }
+
+
+def shot_sensitivity(
+    image_probabilities: np.ndarray, pixel_probabilities: np.ndarray
+) -> dict[str, np.ndarray]:
+    """Measure variation across frozen shot settings, with shape [K,N,...]."""
+
+    image = as_probability(image_probabilities)
+    pixel = as_probability(pixel_probabilities)
+    if image.ndim != 2:
+        raise ValueError(f"image_probabilities must be [K,N], got {image.shape}")
+    if pixel.ndim != 4:
+        raise ValueError(f"pixel_probabilities must be [K,N,H,W], got {pixel.shape}")
+    if image.shape[:2] != pixel.shape[:2]:
+        raise ValueError("image and pixel shot arrays must share [K,N]")
+    if image.shape[0] < 2:
+        raise ValueError("shot sensitivity requires at least 2 shot settings")
+    return {
+        "image_shot_std": np.std(image, axis=0, ddof=0),
+        "pixel_shot_std": np.std(pixel, axis=0, ddof=0),
+    }
+
+
 def branch_uncertainty(branch: BranchPrediction) -> tuple[np.ndarray, np.ndarray]:
     image = (
         np.asarray(branch.image_uncertainty, dtype=np.float64)
@@ -53,5 +122,19 @@ def extract_pair_features(
         ),
         "pixel_disagreement": np.abs(
             as_probability(visual.pixel_maps) - as_probability(text.pixel_maps)
+        ),
+        "image_agreement": 1.0
+        - np.abs(
+            as_probability(visual.image_scores) - as_probability(text.image_scores)
+        ),
+        "pixel_agreement": 1.0
+        - np.abs(
+            as_probability(visual.pixel_maps) - as_probability(text.pixel_maps)
+        ),
+        "visual_response_concentration": spatial_response_concentration(
+            visual.pixel_maps
+        ),
+        "text_response_concentration": spatial_response_concentration(
+            text.pixel_maps
         ),
     }

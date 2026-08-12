@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:51:39.422675+00:00",
+  "dataset": "btad",
+  "branch": "anomalyclip_text",
+  "seed": 1,
+  "shot": 2,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k2_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.7239371538162231,
+      "image_score_max": 0.7927950620651245,
+      "cache_sha256": "8101467339d414657a5c9f550b1d7c31e6f35ae440586906ee1ad19f5cf5c9e6"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k2_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.6898151636123657,
+      "image_score_max": 0.7720897793769836,
+      "cache_sha256": "53c3535f07b6a1554d8e26053f7e079f8ce3056606276ec1b7620aa7ae4c744b"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k2_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 2,
+      "views": 10,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8425695300102234,
+      "image_score_max": 0.8938183784484863,
+      "cache_sha256": "c2ee34b119c22a2d422208d735e78327923b07a377834070d658afff8bf6ddab"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+schema_version: 2
+phase: cpu_implementation_before_freeze
+run_namespace: dynamic_fusion_v2
+
+evidence_boundary:
+  v1_frozen: true
+  overwrite_v1_forbidden: true
+  development_dataset: mpdd
+  holdout_dataset: btad
+  retrospective_only_datasets: [visa, mvtec]
+  allowed_shots: [1, 2, 4]
+  allowed_seeds: [0, 1, 2]
+  nested_sampling_required: true
+
+branches:
+  visual: anomalydino
+  text: anomalyclip
+  replacement_requires_separate_gate_a: true
+
+calibration:
+  type: rank_preserving_arctan
+  minimum_scale: 1.0e-6
+  scale_floor_fraction: 0.05
+  support_lower_quantile: 0.01
+  support_upper_quantile: 0.99
+  pixel_tail_quantile: 0.99
+  fitted_from: target_normal_reference_views_only
+
+router:
+  type: safe_visual_default_v2
+  support_tolerance: 3.0
+  minimum_disagreement: 0.05
+  uncertainty_margin: 0.05
+  concentration_tolerance: 0.10
+  max_image_text_weight: 0.15
+  max_pixel_text_weight: 0.35
+  smooth_pixel_weights: true
+  image_and_pixel_routes_separate: true
+
+forbidden_inputs:
+  - test_image_label
+  - test_pixel_mask
+  - category_test_label
+  - test_set_mean
+  - test_set_standard_deviation
+  - test_set_quantile
+  - previous_test_query_memory
+
+required_audit_fields:
+  status: passed
+  test_predictions_used: false
+  test_labels_used: false
+  test_masks_used: false
+  test_set_statistics_used: false
+
+acceptance:
+  finite_outputs_required: true
+  sample_alignment_required: true
+  visual_rank_preservation_required: true
+  boundary_saturation_rate_max: 0.01
+  no_material_image_level_degradation: true
+  localization_gain_must_repeat_on_holdout: true
+  parameters_frozen_before_holdout_metrics: true
+
+gpu:
+  long_jobs_enabled: false
+  note: Branch cache generation starts only after CPU contracts and manifests pass.

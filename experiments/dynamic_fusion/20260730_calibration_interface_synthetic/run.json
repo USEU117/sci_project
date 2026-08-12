@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_calibration_interface_synthetic",
+  "purpose": "WP2 calibration interface and synthetic regression tests",
+  "status": "passed",
+  "gpu_used": false,
+  "real_prediction_cache_used": false,
+  "target_test_aggregates_used": false,
+  "tests_passed": 16,
+  "exit_code": 0
+}

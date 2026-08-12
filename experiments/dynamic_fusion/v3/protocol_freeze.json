@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "development_protocol_frozen",
+  "created_at": "2026-08-12T00:30:00+08:00",
+  "run_id": "v3_20260812_overnight_gate_a_v1",
+  "development_dataset": "mpdd",
+  "consumed_holdout_datasets": ["btad"],
+  "historical_only_datasets": ["mvtec_ad", "visa"],
+  "fresh_holdout_dataset": null,
+  "fresh_holdout_access_allowed": false,
+  "router_test_labels_allowed": false,
+  "router_test_masks_allowed": false,
+  "router_test_set_statistics_allowed": false,
+  "development_labels_evaluator_only": true,
+  "frozen_controls": [
+    "anomalydino_visual_only",
+    "anomalyclip_text_only",
+    "dynamic_fusion_v2_visual_only_safe_fallback"
+  ],
+  "gate_a_order": [
+    "a1_oracle_headroom",
+    "v3_contracts_and_cpu_tests",
+    "a2_label_free_predictability",
+    "cached_mpdd_candidate_screen"
+  ],
+  "parameters_frozen": false
+}
+

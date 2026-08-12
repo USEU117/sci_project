@@ -1,0 +1,18 @@
+26-08-12 10:12:21.708 - INFO: 
+loading model from: D:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 10:17:22.674 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_black.npz
+26-08-12 10:17:26.541 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_brown.npz
+26-08-12 10:17:29.515 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_white.npz
+26-08-12 10:17:31.633 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\connector.npz
+26-08-12 10:17:36.185 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\metal_plate.npz
+26-08-12 10:17:40.751 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\tubes.npz
+26-08-12 10:17:40.763 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.
+26-08-12 10:38:23.982 - INFO: 
+loading model from: D:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-12 10:41:58.779 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_black.npz
+26-08-12 10:42:02.745 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_brown.npz
+26-08-12 10:42:05.800 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\bracket_white.npz
+26-08-12 10:42:08.007 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\connector.npz
+26-08-12 10:42:12.696 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\metal_plate.npz
+26-08-12 10:42:17.408 - INFO: V3 prediction cache: D:\STUDY\My_github\sci_project\experiments\dynamic_fusion\v3\adaptclip_gate_a_v2\predictions\tubes.npz
+26-08-12 10:42:17.420 - INFO: Metric computation skipped for V3 prediction-cache Gate A audit.

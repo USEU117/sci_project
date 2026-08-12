@@ -1,0 +1,21 @@
+{
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "dataset": "btad",
+  "root": "D:\\STUDY\\My_github\\sci_project\\data\\btad_raw\\BTech_Dataset_transformed",
+  "sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "checksum_match": true,
+  "category_count": 3,
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "checked_path_entries": 63,
+  "error_count": 0,
+  "errors": []
+}

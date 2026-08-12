@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T20:33:49.840400+00:00",
+  "run_id": "v3_leakage_provenance_audit_20260812_v1",
+  "status": "passed",
+  "checks": {
+    "router_public_api_has_no_forbidden_arguments": true,
+    "gate_a2_test_labels_used_by_router_false": true,
+    "gate_a2_test_masks_used_by_router_false": true,
+    "gate_a2_test_set_statistics_used_by_router_false": true,
+    "gate_a2_btad_accessed_false": true,
+    "all_v3_sources_present": true
+  },
+  "forbidden_router_argument_hits": {},
+  "router_public_arguments": {
+    "validate": [
+      "self"
+    ],
+    "fuse": [
+      "self",
+      "visual",
+      "text"
+    ]
+  },
+  "source_sha256": {
+    "src/industrial_ad/fusion/v3_contracts.py": "c46a3ed02197a62b3de69519ba9d1de2d27d02bf9b1cf4bf04de0ef50fb368e6",
+    "src/industrial_ad/fusion/v3_calibration.py": "b7c8eec405697552e717eacbdd993196ab412f5c4c28ce2876f3d73a586d30ed",
+    "src/industrial_ad/fusion/v3_router.py": "5f1f6645c02517244ebdc8b6768da1d3d23afe43aa49c0ffd9032985d2e2612c",
+    "src/industrial_ad/fusion/v3_adaptclip_mpdd.py": "9d6cbf7512e82ef9a22ebb581faa94029afcee364f27631d7c2a08526688c6ea"
+  },
+  "gate_a2_report_sha256": "dfc6d1cdbe26026252c04a1067aeb73fb27bcf973b5970fbbb9f3ae80e7ffb53",
+  "scientific_note": "Passing this audit establishes interface/provenance compliance, not predictive benefit; Gate A2 remains scientifically failed."
+}

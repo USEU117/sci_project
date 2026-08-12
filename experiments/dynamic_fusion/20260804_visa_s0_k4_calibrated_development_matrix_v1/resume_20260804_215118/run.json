@@ -1,0 +1,41 @@
+﻿{
+    "schema_version":  1,
+    "run_id":  "20260804_visa_s0_k4_calibrated_development_matrix_v1",
+    "purpose":  "VisA seed-0 4-shot calibrated development comparison; not final validation",
+    "dataset":  "visa",
+    "seed":  0,
+    "shot":  4,
+    "categories":  [
+                       "candle",
+                       "capsules",
+                       "cashew",
+                       "chewinggum",
+                       "fryum",
+                       "macaroni1",
+                       "macaroni2",
+                       "pcb1",
+                       "pcb2",
+                       "pcb3",
+                       "pcb4",
+                       "pipe_fryum"
+                   ],
+    "visual_branch":  "anomalydino_visual",
+    "text_branch":  "anomalyclip_text",
+    "gpu_used":  false,
+    "test_predictions_used_by_router":  false,
+    "test_labels_used_by_router":  false,
+    "evaluation_uses_ground_truth_only_after_fusion":  true,
+    "calibration":  "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\normal_reference_predictions\\20260804_visa_s0_k4_real_reference_v1_q99\\calibration.json",
+    "calibration_sha256":  "143931d0846cd00d4acfb33585908f2941a8830e900e6d632f3b9a8d556d1a1e",
+    "fixed_visual_weights":  [
+                                 0,
+                                 0.25,
+                                 0.5,
+                                 0.75,
+                                 1
+                             ],
+    "git_commit":  "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+    "git_dirty":  true,
+    "started_at_utc":  "2026-08-04T13:51:19.1900719Z",
+    "resume":  true
+}

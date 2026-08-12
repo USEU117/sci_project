@@ -1,0 +1,266 @@
+{
+  "pipeline": "v3_3_btad_holdout",
+  "strategy": "weighted_ensemble",
+  "weights": {
+    "anomalydino_visual": 0.6,
+    "anomalyclip_text": 0.4
+  },
+  "calibrate": true,
+  "tuned_on": "mpdd",
+  "evaluated_on": "btad_holdout",
+  "categories": [
+    "01",
+    "02",
+    "03"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "k": 1,
+  "stride": 8,
+  "per_seed_summary": {
+    "0": {
+      "mean_delta_ap": 0.07027,
+      "positive_categories": 3,
+      "gate_b": "PASSED"
+    },
+    "1": {
+      "mean_delta_ap": 0.071112,
+      "positive_categories": 3,
+      "gate_b": "PASSED"
+    },
+    "2": {
+      "mean_delta_ap": 0.057709,
+      "positive_categories": 3,
+      "gate_b": "PASSED"
+    }
+  },
+  "per_category": {
+    "01": {
+      "0": {
+        "seed": 0,
+        "category": "01",
+        "n_samples": 70,
+        "dino": {
+          "pixel_auroc": 0.9311139972159423,
+          "pixel_ap": 0.38770545054808936,
+          "pixel_aupro": 0.6114776119056399
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.7578833008221343,
+          "pixel_ap": 0.2117191100055976,
+          "pixel_aupro": 0.3300582899974269
+        },
+        "fused": {
+          "pixel_auroc": 0.9393709141861339,
+          "pixel_ap": 0.4738099762787557,
+          "pixel_aupro": 0.6457231051294293
+        },
+        "delta_ap": 0.086105,
+        "delta_auroc": 0.008257,
+        "delta_aupro": 0.034245
+      },
+      "1": {
+        "seed": 1,
+        "category": "01",
+        "n_samples": 70,
+        "dino": {
+          "pixel_auroc": 0.9347217057716863,
+          "pixel_ap": 0.39613947756171625,
+          "pixel_aupro": 0.6057137250086784
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.7578833008221343,
+          "pixel_ap": 0.2117191100055976,
+          "pixel_aupro": 0.3300582899974269
+        },
+        "fused": {
+          "pixel_auroc": 0.9417334094762623,
+          "pixel_ap": 0.47259633599703016,
+          "pixel_aupro": 0.6318641342699565
+        },
+        "delta_ap": 0.076457,
+        "delta_auroc": 0.007012,
+        "delta_aupro": 0.02615
+      },
+      "2": {
+        "seed": 2,
+        "category": "01",
+        "n_samples": 70,
+        "dino": {
+          "pixel_auroc": 0.9222089897717283,
+          "pixel_ap": 0.3775187750762512,
+          "pixel_aupro": 0.5821900569568949
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.7578833008221343,
+          "pixel_ap": 0.2117191100055976,
+          "pixel_aupro": 0.3300582899974269
+        },
+        "fused": {
+          "pixel_auroc": 0.9321264888428367,
+          "pixel_ap": 0.4581507210715362,
+          "pixel_aupro": 0.6351623255454182
+        },
+        "delta_ap": 0.080632,
+        "delta_auroc": 0.009917,
+        "delta_aupro": 0.052972
+      }
+    },
+    "02": {
+      "0": {
+        "seed": 0,
+        "category": "02",
+        "n_samples": 230,
+        "dino": {
+          "pixel_auroc": 0.9643610006533334,
+          "pixel_ap": 0.6359684392481794,
+          "pixel_aupro": 0.6640574670893872
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9428476702485141,
+          "pixel_ap": 0.6385124451172614,
+          "pixel_aupro": 0.6917814860771936
+        },
+        "fused": {
+          "pixel_auroc": 0.970137212533037,
+          "pixel_ap": 0.7094459977637196,
+          "pixel_aupro": 0.6987065224533869
+        },
+        "delta_ap": 0.073478,
+        "delta_auroc": 0.005776,
+        "delta_aupro": 0.034649
+      },
+      "1": {
+        "seed": 1,
+        "category": "02",
+        "n_samples": 230,
+        "dino": {
+          "pixel_auroc": 0.9614662788723183,
+          "pixel_ap": 0.6198259392877618,
+          "pixel_aupro": 0.634962893319306
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9428476702485141,
+          "pixel_ap": 0.6385124451172614,
+          "pixel_aupro": 0.6917814860771936
+        },
+        "fused": {
+          "pixel_auroc": 0.9685705269324537,
+          "pixel_ap": 0.7007051730852563,
+          "pixel_aupro": 0.6840697649840757
+        },
+        "delta_ap": 0.080879,
+        "delta_auroc": 0.007104,
+        "delta_aupro": 0.049107
+      },
+      "2": {
+        "seed": 2,
+        "category": "02",
+        "n_samples": 230,
+        "dino": {
+          "pixel_auroc": 0.9641448558742151,
+          "pixel_ap": 0.6407651614512532,
+          "pixel_aupro": 0.6704467519509713
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9428476702485141,
+          "pixel_ap": 0.6385124451172614,
+          "pixel_aupro": 0.6917814860771936
+        },
+        "fused": {
+          "pixel_auroc": 0.9698429004611355,
+          "pixel_ap": 0.7104936035483992,
+          "pixel_aupro": 0.7021800999448652
+        },
+        "delta_ap": 0.069728,
+        "delta_auroc": 0.005698,
+        "delta_aupro": 0.031733
+      }
+    },
+    "03": {
+      "0": {
+        "seed": 0,
+        "category": "03",
+        "n_samples": 441,
+        "dino": {
+          "pixel_auroc": 0.9950461314734312,
+          "pixel_ap": 0.6700256019461884,
+          "pixel_aupro": 0.9768395966623961
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9278193879636356,
+          "pixel_ap": 0.30819232077741676,
+          "pixel_aupro": 0.8055882681716422
+        },
+        "fused": {
+          "pixel_auroc": 0.9948187011239904,
+          "pixel_ap": 0.7212520073530231,
+          "pixel_aupro": 0.9759629408139016
+        },
+        "delta_ap": 0.051226,
+        "delta_auroc": -0.000227,
+        "delta_aupro": -0.000877
+      },
+      "1": {
+        "seed": 1,
+        "category": "03",
+        "n_samples": 441,
+        "dino": {
+          "pixel_auroc": 0.9946795907403156,
+          "pixel_ap": 0.662286072737034,
+          "pixel_aupro": 0.9756238796443234
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9278193879636356,
+          "pixel_ap": 0.30819232077741676,
+          "pixel_aupro": 0.8055882681716422
+        },
+        "fused": {
+          "pixel_auroc": 0.9948914171264723,
+          "pixel_ap": 0.7182870043145421,
+          "pixel_aupro": 0.9750814770197805
+        },
+        "delta_ap": 0.056001,
+        "delta_auroc": 0.000212,
+        "delta_aupro": -0.000542
+      },
+      "2": {
+        "seed": 2,
+        "category": "03",
+        "n_samples": 441,
+        "dino": {
+          "pixel_auroc": 0.9964167999410408,
+          "pixel_ap": 0.6921611325354252,
+          "pixel_aupro": 0.9847104501280929
+        },
+        "anomalyclip": {
+          "pixel_auroc": 0.9278193879636356,
+          "pixel_ap": 0.30819232077741676,
+          "pixel_aupro": 0.8055882681716422
+        },
+        "fused": {
+          "pixel_auroc": 0.9954005669878194,
+          "pixel_ap": 0.7149275584019986,
+          "pixel_aupro": 0.9793750878961911
+        },
+        "delta_ap": 0.022766,
+        "delta_auroc": -0.001016,
+        "delta_aupro": -0.005335
+      }
+    }
+  },
+  "aggregate": {
+    "mean_delta_ap": 0.066364,
+    "positive_entries": 9,
+    "total_entries": 9,
+    "seeds_passed_gate_b": 3,
+    "seeds_with_positive_mean": 3
+  },
+  "verdict": {
+    "holds_out": true,
+    "conclusion": "PASSED — frozen weights generalize to BTAD holdout"
+  }
+}

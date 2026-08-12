@@ -1,0 +1,2 @@
+﻿status,exit_code,failure
+failed,1,Normal-reference calibration fit failed with exit code 1

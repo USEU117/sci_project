@@ -1,0 +1,1768 @@
+{
+  "pipeline": "v3_5",
+  "direction": "C_image_level_hierarchical_fusion",
+  "seed": 1,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "stride": 8,
+  "variants_tested": 23,
+  "baselines": {
+    "anomalydino_visual": {
+      "auroc": 0.958397,
+      "ap": 0.302961,
+      "aupro": 0.872772
+    },
+    "anomalyclip_text": {
+      "auroc": 0.87762,
+      "ap": 0.244432,
+      "aupro": 0.723358
+    }
+  },
+  "v3_3_static_mean_dap": 0.07998,
+  "strategy_summary": {
+    "discrete_gate": {
+      "mean_delta_ap": 0.049861,
+      "positive": 4,
+      "per_category": {
+        "bracket_black": 0.092793,
+        "bracket_brown": 0.0,
+        "bracket_white": 0.083921,
+        "connector": 0.016058,
+        "metal_plate": 0.0,
+        "tubes": 0.106394
+      }
+    },
+    "continuous_gate": {
+      "mean_delta_ap": 0.05699,
+      "positive": 4,
+      "per_category": {
+        "bracket_black": 0.103893,
+        "bracket_brown": 0.0,
+        "bracket_white": 0.103409,
+        "connector": 0.016445,
+        "metal_plate": 0.0,
+        "tubes": 0.118191
+      }
+    },
+    "agreement_gate": {
+      "mean_delta_ap": 0.07797,
+      "positive": 5,
+      "per_category": {
+        "bracket_black": 0.124094,
+        "bracket_brown": 0.003825,
+        "bracket_white": 0.132846,
+        "connector": 0.037814,
+        "metal_plate": 0.0,
+        "tubes": 0.169241
+      }
+    },
+    "oracle": {
+      "mean_delta_ap": 0.01664,
+      "positive": 4
+    }
+  },
+  "oracle_summary": {
+    "mean_delta_ap": 0.01664,
+    "positive": 4
+  },
+  "leave_one_out": {
+    "mean_delta_ap": 0.066727,
+    "positive_categories": 5,
+    "selections": {
+      "bracket_black": "v3_3_static::v3_3_static_dino=0.60",
+      "bracket_brown": "v3_3_static::v3_3_static_dino=0.60",
+      "bracket_white": "v3_3_static::v3_3_static_dino=0.60",
+      "connector": "agreement_gate::boost=0.45_thr=0.5",
+      "metal_plate": "v3_3_static::v3_3_static_dino=0.60",
+      "tubes": "v3_3_static::v3_3_static_dino=0.60"
+    },
+    "per_category": {
+      "bracket_black": 0.119545,
+      "bracket_brown": 0.002674,
+      "bracket_white": 0.11434,
+      "connector": 0.037814,
+      "metal_plate": -0.045791,
+      "tubes": 0.17178
+    }
+  },
+  "per_category_baselines": {
+    "bracket_black": {
+      "anomalydino_visual": {
+        "auroc": 0.9185940624340692,
+        "ap": 0.10445417867501305,
+        "aupro": 0.8191784275994207
+      },
+      "anomalyclip_text": {
+        "auroc": 0.8239116366044127,
+        "ap": 0.17889529414936467,
+        "aupro": 0.587599748462524
+      }
+    },
+    "bracket_brown": {
+      "anomalydino_visual": {
+        "auroc": 0.9360359151204016,
+        "ap": 0.05496216099742324,
+        "aupro": 0.7616660900231813
+      },
+      "anomalyclip_text": {
+        "auroc": 0.7839544697586349,
+        "ap": 0.020411944053718583,
+        "aupro": 0.5206815748999507
+      }
+    },
+    "bracket_white": {
+      "anomalydino_visual": {
+        "auroc": 0.9869170979812044,
+        "ap": 0.05627763059009143,
+        "aupro": 0.9428975356569055
+      },
+      "anomalyclip_text": {
+        "auroc": 0.9972968332053617,
+        "ap": 0.1177614990861584,
+        "aupro": 0.9894770575076822
+      }
+    },
+    "connector": {
+      "anomalydino_visual": {
+        "auroc": 0.9724262486731668,
+        "ap": 0.22323899397913644,
+        "aupro": 0.9019972482576875
+      },
+      "anomalyclip_text": {
+        "auroc": 0.8251749159258911,
+        "ap": 0.0780768263195774,
+        "aupro": 0.5386316836763783
+      }
+    },
+    "metal_plate": {
+      "anomalydino_visual": {
+        "auroc": 0.9655662289701493,
+        "ap": 0.8601842262704156,
+        "aupro": 0.9298623683294508
+      },
+      "anomalyclip_text": {
+        "auroc": 0.8579700661692874,
+        "ap": 0.5544631113773666,
+        "aupro": 0.7859470451616687
+      }
+    },
+    "tubes": {
+      "anomalydino_visual": {
+        "auroc": 0.9708446301682703,
+        "ap": 0.5186469476525324,
+        "aupro": 0.8810293920027331
+      },
+      "anomalyclip_text": {
+        "auroc": 0.9774093353707426,
+        "ap": 0.5169819134450303,
+        "aupro": 0.9178123009111696
+      }
+    }
+  },
+  "all_results": {
+    "bracket_black": [
+      {
+        "category": "bracket_black",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9354036540799928,
+        "ap": 0.22399870347172948,
+        "aupro": 0.8331897718964996,
+        "delta_ap": 0.119545,
+        "delta_auroc": 0.01681,
+        "delta_aupro": 0.014011
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9268992002027351,
+        "ap": 0.1972473750068978,
+        "aupro": 0.8035821577045753,
+        "delta_ap": 0.092793,
+        "delta_auroc": 0.008305,
+        "delta_aupro": -0.015596
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9270059457687708,
+        "ap": 0.19205270396214957,
+        "aupro": 0.8057282236607861,
+        "delta_ap": 0.087599,
+        "delta_auroc": 0.008412,
+        "delta_aupro": -0.01345
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.928644086176809,
+        "ap": 0.19443318872632698,
+        "aupro": 0.8107495052893808,
+        "delta_ap": 0.089979,
+        "delta_auroc": 0.01005,
+        "delta_aupro": -0.008429
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9257719887547756,
+        "ap": 0.19598013798897776,
+        "aupro": 0.7946401701523466,
+        "delta_ap": 0.091526,
+        "delta_auroc": 0.007178,
+        "delta_aupro": -0.024538
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9258620638141563,
+        "ap": 0.19094821469170514,
+        "aupro": 0.7967986056510824,
+        "delta_ap": 0.086494,
+        "delta_auroc": 0.007268,
+        "delta_aupro": -0.02238
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.927515754307832,
+        "ap": 0.19286917531033776,
+        "aupro": 0.8019368464402787,
+        "delta_ap": 0.088415,
+        "delta_auroc": 0.008922,
+        "delta_aupro": -0.017242
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9244450707484758,
+        "ap": 0.19442246826507356,
+        "aupro": 0.795295233499314,
+        "delta_ap": 0.089968,
+        "delta_auroc": 0.005851,
+        "delta_aupro": -0.023883
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9260944662949178,
+        "ap": 0.19638865744730605,
+        "aupro": 0.8002858406103925,
+        "delta_ap": 0.091934,
+        "delta_auroc": 0.0075,
+        "delta_aupro": -0.018893
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.929018408653127,
+        "ap": 0.20190224956623898,
+        "aupro": 0.8029435233760602,
+        "delta_ap": 0.097448,
+        "delta_auroc": 0.010424,
+        "delta_aupro": -0.016235
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9242193059134396,
+        "ap": 0.19294763897245754,
+        "aupro": 0.7916406933269929,
+        "delta_ap": 0.088493,
+        "delta_auroc": 0.005625,
+        "delta_aupro": -0.027538
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9277243223778565,
+        "ap": 0.19922172551723988,
+        "aupro": 0.8101096794879963,
+        "delta_ap": 0.094768,
+        "delta_auroc": 0.00913,
+        "delta_aupro": -0.009069
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.9216729793902968,
+        "ap": 0.18863406086733925,
+        "aupro": 0.7828568017457188,
+        "delta_ap": 0.08418,
+        "delta_auroc": 0.003079,
+        "delta_aupro": -0.036322
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.9312934065531864,
+        "ap": 0.20834710402452464,
+        "aupro": 0.821033186743376,
+        "delta_ap": 0.103893,
+        "delta_auroc": 0.012699,
+        "delta_aupro": 0.001855
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9282592215572807,
+        "ap": 0.20026069994670878,
+        "aupro": 0.8084644843450853,
+        "delta_ap": 0.095807,
+        "delta_auroc": 0.009665,
+        "delta_aupro": -0.010714
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.9296832766705867,
+        "ap": 0.20433847910178476,
+        "aupro": 0.818176824937927,
+        "delta_ap": 0.099884,
+        "delta_auroc": 0.011089,
+        "delta_aupro": -0.001002
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.9255427777763066,
+        "ap": 0.1947957200544191,
+        "aupro": 0.801536031874536,
+        "delta_ap": 0.090342,
+        "delta_auroc": 0.006949,
+        "delta_aupro": -0.017642
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.9286232225793762,
+        "ap": 0.2268355753550197,
+        "aupro": 0.8060914403835197,
+        "delta_ap": 0.122381,
+        "delta_auroc": 0.010029,
+        "delta_aupro": -0.013087
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.929659561092382,
+        "ap": 0.21159006904151606,
+        "aupro": 0.8059243220477376,
+        "delta_ap": 0.107136,
+        "delta_auroc": 0.011065,
+        "delta_aupro": -0.013254
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9339622154648387,
+        "ap": 0.21193745208800568,
+        "aupro": 0.810892261273233,
+        "delta_ap": 0.107483,
+        "delta_auroc": 0.015368,
+        "delta_aupro": -0.008286
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.9330892716835589,
+        "ap": 0.2285485550044538,
+        "aupro": 0.8239406228981943,
+        "delta_ap": 0.124094,
+        "delta_auroc": 0.014495,
+        "delta_aupro": 0.004762
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.933551241640386,
+        "ap": 0.22208818862512933,
+        "aupro": 0.826131489652185,
+        "delta_ap": 0.117634,
+        "delta_auroc": 0.014957,
+        "delta_aupro": 0.006953
+      },
+      {
+        "category": "bracket_black",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9356480756225789,
+        "ap": 0.22278891706121182,
+        "aupro": 0.8319310731516243,
+        "delta_ap": 0.118335,
+        "delta_auroc": 0.017054,
+        "delta_aupro": 0.012753
+      }
+    ],
+    "bracket_brown": [
+      {
+        "category": "bracket_brown",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9387417860641801,
+        "ap": 0.0576357858801921,
+        "aupro": 0.797304858075942,
+        "delta_ap": 0.002674,
+        "delta_auroc": 0.002706,
+        "delta_aupro": 0.035639
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9366224000547924,
+        "ap": 0.051738501150636385,
+        "aupro": 0.8033822778328791,
+        "delta_ap": -0.003224,
+        "delta_auroc": 0.000586,
+        "delta_aupro": 0.041716
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9363251214499,
+        "ap": 0.05169589865440949,
+        "aupro": 0.8033864781401879,
+        "delta_ap": -0.003266,
+        "delta_auroc": 0.000289,
+        "delta_aupro": 0.04172
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9360984571426103,
+        "ap": 0.051530807159937436,
+        "aupro": 0.802829935833941,
+        "delta_ap": -0.003431,
+        "delta_auroc": 6.3e-05,
+        "delta_aupro": 0.041164
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.934172702789714,
+        "ap": 0.049000862402257206,
+        "aupro": 0.798263267485774,
+        "delta_ap": -0.005961,
+        "delta_auroc": -0.001863,
+        "delta_aupro": 0.036597
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9338627342781083,
+        "ap": 0.04896261563863857,
+        "aupro": 0.7982608492800275,
+        "delta_ap": -0.006,
+        "delta_auroc": -0.002173,
+        "delta_aupro": 0.036595
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9336234181948347,
+        "ap": 0.04881050051937805,
+        "aupro": 0.7976755416378385,
+        "delta_ap": -0.006152,
+        "delta_auroc": -0.002412,
+        "delta_aupro": 0.036009
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9272510640961507,
+        "ap": 0.05097140897295364,
+        "aupro": 0.7805867147679736,
+        "delta_ap": -0.003991,
+        "delta_auroc": -0.008785,
+        "delta_aupro": 0.018921
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9269863338817942,
+        "ap": 0.05077965978935297,
+        "aupro": 0.7799569486101832,
+        "delta_ap": -0.004183,
+        "delta_auroc": -0.00905,
+        "delta_aupro": 0.018291
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.932116114278421,
+        "ap": 0.05035832417105915,
+        "aupro": 0.7905779807637722,
+        "delta_ap": -0.004604,
+        "delta_auroc": -0.00392,
+        "delta_aupro": 0.028912
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9256080185964787,
+        "ap": 0.04639130478780118,
+        "aupro": 0.7721349326145587,
+        "delta_ap": -0.008571,
+        "delta_auroc": -0.010428,
+        "delta_aupro": 0.010469
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9332497294214849,
+        "ap": 0.05056091446203183,
+        "aupro": 0.7936788318239563,
+        "delta_ap": -0.004401,
+        "delta_auroc": -0.002786,
+        "delta_aupro": 0.032013
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.926487027233817,
+        "ap": 0.04641081223651368,
+        "aupro": 0.7734520863646263,
+        "delta_ap": -0.008551,
+        "delta_auroc": -0.009549,
+        "delta_aupro": 0.011786
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.9369764400633304,
+        "ap": 0.053076618202810136,
+        "aupro": 0.7959613581673525,
+        "delta_ap": -0.001886,
+        "delta_auroc": 0.000941,
+        "delta_aupro": 0.034295
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9339906743141505,
+        "ap": 0.050629076039135246,
+        "aupro": 0.7892966018456384,
+        "delta_ap": -0.004333,
+        "delta_auroc": -0.002045,
+        "delta_aupro": 0.027631
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.937688664890682,
+        "ap": 0.05315940059445751,
+        "aupro": 0.7987554243764697,
+        "delta_ap": -0.001803,
+        "delta_auroc": 0.001653,
+        "delta_aupro": 0.037089
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.934557209250968,
+        "ap": 0.05039322241858416,
+        "aupro": 0.7900104998222774,
+        "delta_ap": -0.004569,
+        "delta_auroc": -0.001479,
+        "delta_aupro": 0.028344
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.9251415997025286,
+        "ap": 0.049436430792786784,
+        "aupro": 0.7793274470938055,
+        "delta_ap": -0.005526,
+        "delta_auroc": -0.010894,
+        "delta_aupro": 0.017661
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.9303133315275381,
+        "ap": 0.057744909222708744,
+        "aupro": 0.7912895603208099,
+        "delta_ap": 0.002783,
+        "delta_auroc": -0.005723,
+        "delta_aupro": 0.029623
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9323681545860643,
+        "ap": 0.05592573706661223,
+        "aupro": 0.7909282505041977,
+        "delta_ap": 0.000964,
+        "delta_auroc": -0.003668,
+        "delta_aupro": 0.029262
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.9328282857227519,
+        "ap": 0.052960367431953564,
+        "aupro": 0.7924579778055798,
+        "delta_ap": -0.002002,
+        "delta_auroc": -0.003208,
+        "delta_aupro": 0.030792
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.9353226645764315,
+        "ap": 0.05878666775411169,
+        "aupro": 0.797770855951567,
+        "delta_ap": 0.003825,
+        "delta_auroc": -0.000713,
+        "delta_aupro": 0.036105
+      },
+      {
+        "category": "bracket_brown",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9362074881499892,
+        "ap": 0.05779672248126498,
+        "aupro": 0.7968256939435108,
+        "delta_ap": 0.002835,
+        "delta_auroc": 0.000172,
+        "delta_aupro": 0.03516
+      }
+    ],
+    "bracket_white": [
+      {
+        "category": "bracket_white",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9952328035335753,
+        "ap": 0.17061755873690973,
+        "aupro": 0.9778107473393055,
+        "delta_ap": 0.11434,
+        "delta_auroc": 0.008316,
+        "delta_aupro": 0.034913
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9967360738263952,
+        "ap": 0.1380931404007454,
+        "aupro": 0.985307299799922,
+        "delta_ap": 0.081816,
+        "delta_auroc": 0.009819,
+        "delta_aupro": 0.04241
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9967360738263952,
+        "ap": 0.1380931404007454,
+        "aupro": 0.985307299799922,
+        "delta_ap": 0.081816,
+        "delta_auroc": 0.009819,
+        "delta_aupro": 0.04241
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9967360738263953,
+        "ap": 0.13809318113960709,
+        "aupro": 0.9850967401941563,
+        "delta_ap": 0.081816,
+        "delta_auroc": 0.009819,
+        "delta_aupro": 0.042199
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9969024720018999,
+        "ap": 0.1401823178105282,
+        "aupro": 0.9860862455547306,
+        "delta_ap": 0.083905,
+        "delta_auroc": 0.009985,
+        "delta_aupro": 0.043189
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9969024720018999,
+        "ap": 0.1401823178105282,
+        "aupro": 0.9860862455547306,
+        "delta_ap": 0.083905,
+        "delta_auroc": 0.009985,
+        "delta_aupro": 0.043189
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9969024720018999,
+        "ap": 0.14018240281018274,
+        "aupro": 0.9858763969336999,
+        "delta_ap": 0.083905,
+        "delta_auroc": 0.009985,
+        "delta_aupro": 0.042979
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9970338845283199,
+        "ap": 0.14019856268690317,
+        "aupro": 0.9868178276420166,
+        "delta_ap": 0.083921,
+        "delta_auroc": 0.010117,
+        "delta_aupro": 0.04392
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.99703388452832,
+        "ap": 0.1401986580123313,
+        "aupro": 0.9866129739399893,
+        "delta_ap": 0.083921,
+        "delta_auroc": 0.010117,
+        "delta_aupro": 0.043715
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.9970034729746987,
+        "ap": 0.1480494386795332,
+        "aupro": 0.9876032027312998,
+        "delta_ap": 0.091772,
+        "delta_auroc": 0.010086,
+        "delta_aupro": 0.044706
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9973309534850342,
+        "ap": 0.14511433212777794,
+        "aupro": 0.9886611713339356,
+        "delta_ap": 0.088837,
+        "delta_auroc": 0.010414,
+        "delta_aupro": 0.045764
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9969524161793917,
+        "ap": 0.15036032364473836,
+        "aupro": 0.9865342627422748,
+        "delta_ap": 0.094083,
+        "delta_auroc": 0.010035,
+        "delta_aupro": 0.043637
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.9973197036826784,
+        "ap": 0.14519461818327545,
+        "aupro": 0.9887964743737124,
+        "delta_ap": 0.088917,
+        "delta_auroc": 0.010403,
+        "delta_aupro": 0.045899
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.9964581666209463,
+        "ap": 0.15279327305627224,
+        "aupro": 0.9842133845446444,
+        "delta_ap": 0.096516,
+        "delta_auroc": 0.009541,
+        "delta_aupro": 0.041316
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9968886260913081,
+        "ap": 0.14523957518628045,
+        "aupro": 0.9868502364694327,
+        "delta_ap": 0.088962,
+        "delta_auroc": 0.009972,
+        "delta_aupro": 0.043953
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.9963674264568896,
+        "ap": 0.15968657071491887,
+        "aupro": 0.98456955013412,
+        "delta_ap": 0.103409,
+        "delta_auroc": 0.00945,
+        "delta_aupro": 0.041672
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.9968726785692873,
+        "ap": 0.146738170870525,
+        "aupro": 0.9859818251726,
+        "delta_ap": 0.090461,
+        "delta_auroc": 0.009956,
+        "delta_aupro": 0.043084
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.9958556222618012,
+        "ap": 0.16927728082646828,
+        "aupro": 0.9820223639893988,
+        "delta_ap": 0.113,
+        "delta_auroc": 0.008939,
+        "delta_aupro": 0.039125
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.9964512436656505,
+        "ap": 0.13197322064710282,
+        "aupro": 0.9848168947137306,
+        "delta_ap": 0.075696,
+        "delta_auroc": 0.009534,
+        "delta_aupro": 0.041919
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9964655840730491,
+        "ap": 0.13425970860020325,
+        "aupro": 0.9848858909549396,
+        "delta_ap": 0.077982,
+        "delta_auroc": 0.009548,
+        "delta_aupro": 0.041988
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.9957567229004315,
+        "ap": 0.18912375273990117,
+        "aupro": 0.9810902884139361,
+        "delta_ap": 0.132846,
+        "delta_auroc": 0.00884,
+        "delta_aupro": 0.038193
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.9961581306833909,
+        "ap": 0.14184396615678857,
+        "aupro": 0.9838250038627471,
+        "delta_ap": 0.085566,
+        "delta_auroc": 0.009241,
+        "delta_aupro": 0.040927
+      },
+      {
+        "category": "bracket_white",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9961960833133165,
+        "ap": 0.14148734097158447,
+        "aupro": 0.983954265605284,
+        "delta_ap": 0.08521,
+        "delta_auroc": 0.009279,
+        "delta_aupro": 0.041057
+      }
+    ],
+    "connector": [
+      {
+        "category": "connector",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9766439760052072,
+        "ap": 0.29477844195295744,
+        "aupro": 0.9178509151828819,
+        "delta_ap": 0.071539,
+        "delta_auroc": 0.004218,
+        "delta_aupro": 0.015854
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.970525004368725,
+        "ap": 0.2340111422443811,
+        "aupro": 0.8963505639631139,
+        "delta_ap": 0.010772,
+        "delta_auroc": -0.001901,
+        "delta_aupro": -0.005647
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.970525004368725,
+        "ap": 0.2340111422443811,
+        "aupro": 0.8963505639631139,
+        "delta_ap": 0.010772,
+        "delta_auroc": -0.001901,
+        "delta_aupro": -0.005647
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9710623003072988,
+        "ap": 0.23929701284745028,
+        "aupro": 0.8982277911529841,
+        "delta_ap": 0.016058,
+        "delta_auroc": -0.001364,
+        "delta_aupro": -0.003769
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9656853155898237,
+        "ap": 0.21701726953720787,
+        "aupro": 0.8792021114274036,
+        "delta_ap": -0.006222,
+        "delta_auroc": -0.006741,
+        "delta_aupro": -0.022795
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9656853155898237,
+        "ap": 0.21701726953720787,
+        "aupro": 0.8792021114274036,
+        "delta_ap": -0.006222,
+        "delta_auroc": -0.006741,
+        "delta_aupro": -0.022795
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9662565883806414,
+        "ap": 0.2218096926852734,
+        "aupro": 0.8811841755958069,
+        "delta_ap": -0.001429,
+        "delta_auroc": -0.00617,
+        "delta_aupro": -0.020813
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9653183426927063,
+        "ap": 0.21114419834611273,
+        "aupro": 0.8714279861797071,
+        "delta_ap": -0.012095,
+        "delta_auroc": -0.007108,
+        "delta_aupro": -0.030569
+      },
+      {
+        "category": "connector",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9658967885865248,
+        "ap": 0.21581932745514076,
+        "aupro": 0.8735126863038045,
+        "delta_ap": -0.00742,
+        "delta_auroc": -0.006529,
+        "delta_aupro": -0.028485
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.9683251510357885,
+        "ap": 0.22527403949230737,
+        "aupro": 0.8836046861259409,
+        "delta_ap": 0.002035,
+        "delta_auroc": -0.004101,
+        "delta_aupro": -0.018393
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9628047901066121,
+        "ap": 0.2101713583879668,
+        "aupro": 0.8731520409869914,
+        "delta_ap": -0.013068,
+        "delta_auroc": -0.009621,
+        "delta_aupro": -0.028845
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9684072983270645,
+        "ap": 0.22048426006386249,
+        "aupro": 0.8870063015667563,
+        "delta_ap": -0.002755,
+        "delta_auroc": -0.004019,
+        "delta_aupro": -0.014991
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.9625237418262872,
+        "ap": 0.2042108872606708,
+        "aupro": 0.8634707421371504,
+        "delta_ap": -0.019028,
+        "delta_auroc": -0.009903,
+        "delta_aupro": -0.038527
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.9722772064731913,
+        "ap": 0.23968412313832488,
+        "aupro": 0.9018282431503452,
+        "delta_ap": 0.016445,
+        "delta_auroc": -0.000149,
+        "delta_aupro": -0.000169
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9692641502810866,
+        "ap": 0.22584583343219267,
+        "aupro": 0.8894495143762993,
+        "delta_ap": 0.002607,
+        "delta_auroc": -0.003162,
+        "delta_aupro": -0.012548
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.9721096401162654,
+        "ap": 0.23374866064656616,
+        "aupro": 0.8987666858128035,
+        "delta_ap": 0.01051,
+        "delta_auroc": -0.000317,
+        "delta_aupro": -0.003231
+      },
+      {
+        "category": "connector",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.9688091733304028,
+        "ap": 0.21862151014256465,
+        "aupro": 0.8917098953752727,
+        "delta_ap": -0.004617,
+        "delta_auroc": -0.003617,
+        "delta_aupro": -0.010287
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.9727686880318303,
+        "ap": 0.23978168336670613,
+        "aupro": 0.897841984658326,
+        "delta_ap": 0.016543,
+        "delta_auroc": 0.000342,
+        "delta_aupro": -0.004155
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.9680595363733555,
+        "ap": 0.23307721260663808,
+        "aupro": 0.8776899564898757,
+        "delta_ap": 0.009838,
+        "delta_auroc": -0.004367,
+        "delta_aupro": -0.024307
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9701849401465603,
+        "ap": 0.23512037212443296,
+        "aupro": 0.8890794260804236,
+        "delta_ap": 0.011881,
+        "delta_auroc": -0.002241,
+        "delta_aupro": -0.012918
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.9756733273506604,
+        "ap": 0.2610527544667742,
+        "aupro": 0.9123577842040363,
+        "delta_ap": 0.037814,
+        "delta_auroc": 0.003247,
+        "delta_aupro": 0.010361
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.9736111651637488,
+        "ap": 0.2569674993292965,
+        "aupro": 0.9032342411684235,
+        "delta_ap": 0.033729,
+        "delta_auroc": 0.001185,
+        "delta_aupro": 0.001237
+      },
+      {
+        "category": "connector",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9743757492649476,
+        "ap": 0.2595447259402158,
+        "aupro": 0.9079638013464358,
+        "delta_ap": 0.036306,
+        "delta_auroc": 0.00195,
+        "delta_aupro": 0.005967
+      }
+    ],
+    "metal_plate": [
+      {
+        "category": "metal_plate",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9667239535628955,
+        "ap": 0.8143931687207023,
+        "aupro": 0.9293450078920814,
+        "delta_ap": -0.045791,
+        "delta_auroc": 0.001158,
+        "delta_aupro": -0.000517
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9712043749092627,
+        "ap": 0.8556563257237675,
+        "aupro": 0.9412674895335326,
+        "delta_ap": -0.004528,
+        "delta_auroc": 0.005638,
+        "delta_aupro": 0.011405
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9711951713110244,
+        "ap": 0.8555846260881088,
+        "aupro": 0.9412199164683926,
+        "delta_ap": -0.0046,
+        "delta_auroc": 0.005629,
+        "delta_aupro": 0.011358
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9711469838646496,
+        "ap": 0.8553759652829762,
+        "aupro": 0.9411236225023547,
+        "delta_ap": -0.004808,
+        "delta_auroc": 0.005581,
+        "delta_aupro": 0.011261
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9709804215160716,
+        "ap": 0.8535175927330265,
+        "aupro": 0.9406465268127895,
+        "delta_ap": -0.006667,
+        "delta_auroc": 0.005414,
+        "delta_aupro": 0.010784
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9709712179178331,
+        "ap": 0.8534464029978901,
+        "aupro": 0.9405984989236297,
+        "delta_ap": -0.006738,
+        "delta_auroc": 0.005405,
+        "delta_aupro": 0.010736
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9709230304714581,
+        "ap": 0.8532390921981965,
+        "aupro": 0.9405022350731185,
+        "delta_ap": -0.006945,
+        "delta_auroc": 0.005357,
+        "delta_aupro": 0.01064
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9709860334434259,
+        "ap": 0.8533393340832784,
+        "aupro": 0.9404835241054763,
+        "delta_ap": -0.006845,
+        "delta_auroc": 0.00542,
+        "delta_aupro": 0.010621
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9709378459970512,
+        "ap": 0.8531320786195906,
+        "aupro": 0.9403870472431579,
+        "delta_ap": -0.007052,
+        "delta_auroc": 0.005372,
+        "delta_aupro": 0.010525
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.971047419628789,
+        "ap": 0.8541930498101522,
+        "aupro": 0.9401506951012447,
+        "delta_ap": -0.005991,
+        "delta_auroc": 0.005481,
+        "delta_aupro": 0.010288
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9707333213494892,
+        "ap": 0.8510840098529016,
+        "aupro": 0.9397414803082457,
+        "delta_ap": -0.0091,
+        "delta_auroc": 0.005167,
+        "delta_aupro": 0.009879
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9702534254039481,
+        "ap": 0.8565891296232075,
+        "aupro": 0.9375671945440214,
+        "delta_ap": -0.003595,
+        "delta_auroc": 0.004687,
+        "delta_aupro": 0.007705
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.9699149665153856,
+        "ap": 0.8531239432662883,
+        "aupro": 0.9365399237754207,
+        "delta_ap": -0.00706,
+        "delta_auroc": 0.004349,
+        "delta_aupro": 0.006678
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.97137322382934,
+        "ap": 0.857317831312439,
+        "aupro": 0.9411373802600794,
+        "delta_ap": -0.002866,
+        "delta_auroc": 0.005807,
+        "delta_aupro": 0.011275
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9711669916507935,
+        "ap": 0.8552155682019029,
+        "aupro": 0.940966737798608,
+        "delta_ap": -0.004969,
+        "delta_auroc": 0.005601,
+        "delta_aupro": 0.011104
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.9705567168996794,
+        "ap": 0.8596113604308593,
+        "aupro": 0.9385153125814606,
+        "delta_ap": -0.000573,
+        "delta_auroc": 0.00499,
+        "delta_aupro": 0.008653
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.9703312045512564,
+        "ap": 0.8572664512906385,
+        "aupro": 0.937749962322358,
+        "delta_ap": -0.002918,
+        "delta_auroc": 0.004765,
+        "delta_aupro": 0.007888
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.960489101337902,
+        "ap": 0.7881906584408911,
+        "aupro": 0.9200394815529069,
+        "delta_ap": -0.071994,
+        "delta_auroc": -0.005077,
+        "delta_aupro": -0.009823
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.9587807207405165,
+        "ap": 0.7788969964892876,
+        "aupro": 0.9175316301616994,
+        "delta_ap": -0.081287,
+        "delta_auroc": -0.006786,
+        "delta_aupro": -0.012331
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9579741628835239,
+        "ap": 0.7737517989144971,
+        "aupro": 0.9167392740159275,
+        "delta_ap": -0.086432,
+        "delta_auroc": -0.007592,
+        "delta_aupro": -0.013123
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.963794336027878,
+        "ap": 0.8006133805055898,
+        "aupro": 0.9250304342037767,
+        "delta_ap": -0.059571,
+        "delta_auroc": -0.001772,
+        "delta_aupro": -0.004832
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.9630014765230988,
+        "ap": 0.7957099514255632,
+        "aupro": 0.9239193590854694,
+        "delta_ap": -0.064474,
+        "delta_auroc": -0.002565,
+        "delta_aupro": -0.005943
+      },
+      {
+        "category": "metal_plate",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9626257329074361,
+        "ap": 0.7929038989207011,
+        "aupro": 0.9235874752598824,
+        "delta_ap": -0.06728,
+        "delta_auroc": -0.00294,
+        "delta_aupro": -0.006275
+      }
+    ],
+    "tubes": [
+      {
+        "category": "tubes",
+        "strategy": "v3_3_static",
+        "variant": "v3_3_static_dino=0.60",
+        "auroc": 0.9905949255623829,
+        "ap": 0.6904268454630372,
+        "aupro": 0.9614788989013633,
+        "delta_ap": 0.17178,
+        "delta_auroc": 0.01975,
+        "delta_aupro": 0.08045
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.9839966005333698,
+        "ap": 0.6226984043000857,
+        "aupro": 0.9347602614375398,
+        "delta_ap": 0.104051,
+        "delta_auroc": 0.013152,
+        "delta_aupro": 0.053731
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9849461149678006,
+        "ap": 0.6249088019522762,
+        "aupro": 0.9430190662434267,
+        "delta_ap": 0.106262,
+        "delta_auroc": 0.014101,
+        "delta_aupro": 0.06199
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9854675202792591,
+        "ap": 0.6250407189718311,
+        "aupro": 0.9445049274424611,
+        "delta_ap": 0.106394,
+        "delta_auroc": 0.014623,
+        "delta_aupro": 0.063476
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.0_conf=0.85_unc=0.40",
+        "auroc": 0.983350696455419,
+        "ap": 0.6194211022834364,
+        "aupro": 0.9361906705409816,
+        "delta_ap": 0.100774,
+        "delta_auroc": 0.012506,
+        "delta_aupro": 0.055161
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9842887809861816,
+        "ap": 0.6216268155740688,
+        "aupro": 0.9406022621928415,
+        "delta_ap": 0.10298,
+        "delta_auroc": 0.013444,
+        "delta_aupro": 0.059573
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=1.5_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.984801459328528,
+        "ap": 0.6217319804434336,
+        "aupro": 0.9420659130302785,
+        "delta_ap": 0.103085,
+        "delta_auroc": 0.013957,
+        "delta_aupro": 0.061037
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=2.5_conf=0.85_unc=0.40",
+        "auroc": 0.9841212741594094,
+        "ap": 0.6197333630382486,
+        "aupro": 0.9400235055324904,
+        "delta_ap": 0.101086,
+        "delta_auroc": 0.013277,
+        "delta_aupro": 0.058994
+      },
+      {
+        "category": "tubes",
+        "strategy": "discrete_gate",
+        "variant": "lo=2.0_hi=3.0_conf=0.85_unc=0.40",
+        "auroc": 0.9846289948641597,
+        "ap": 0.6198270667543054,
+        "aupro": 0.9414753311863681,
+        "delta_ap": 0.10118,
+        "delta_auroc": 0.013784,
+        "delta_aupro": 0.060446
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=1.0",
+        "auroc": 0.986584186895746,
+        "ap": 0.6333865498004756,
+        "aupro": 0.9488619887467921,
+        "delta_ap": 0.11474,
+        "delta_auroc": 0.01574,
+        "delta_aupro": 0.067833
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.85_steep=2.0",
+        "auroc": 0.9844712653951904,
+        "ap": 0.6178806469670262,
+        "aupro": 0.9411911344938928,
+        "delta_ap": 0.099234,
+        "delta_auroc": 0.013627,
+        "delta_aupro": 0.060162
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=1.0",
+        "auroc": 0.9845455412979555,
+        "ap": 0.6064632842588368,
+        "aupro": 0.9410569504998634,
+        "delta_ap": 0.087816,
+        "delta_auroc": 0.013701,
+        "delta_aupro": 0.060028
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.3_max=0.9_steep=2.0",
+        "auroc": 0.9818633682343754,
+        "ap": 0.5899180329789746,
+        "aupro": 0.9313766964389055,
+        "delta_ap": 0.071271,
+        "delta_auroc": 0.011019,
+        "delta_aupro": 0.050347
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=1.0",
+        "auroc": 0.9868406319677719,
+        "ap": 0.636838053412418,
+        "aupro": 0.9462748956732302,
+        "delta_ap": 0.118191,
+        "delta_auroc": 0.015996,
+        "delta_aupro": 0.065246
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.85_steep=2.0",
+        "auroc": 0.9851840446302642,
+        "ap": 0.6266363376222989,
+        "aupro": 0.9400323980240862,
+        "delta_ap": 0.107989,
+        "delta_auroc": 0.014339,
+        "delta_aupro": 0.059003
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=1.0",
+        "auroc": 0.9847585867228271,
+        "ap": 0.6089682146524019,
+        "aupro": 0.9414906376286402,
+        "delta_ap": 0.090321,
+        "delta_auroc": 0.013914,
+        "delta_aupro": 0.060461
+      },
+      {
+        "category": "tubes",
+        "strategy": "continuous_gate",
+        "variant": "min=0.4_max=0.9_steep=2.0",
+        "auroc": 0.9825947626228383,
+        "ap": 0.5977945016962201,
+        "aupro": 0.9337483547376743,
+        "delta_ap": 0.079148,
+        "delta_auroc": 0.01175,
+        "delta_aupro": 0.052719
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=0.5",
+        "auroc": 0.9900895802383887,
+        "ap": 0.6798296925535658,
+        "aupro": 0.959759717677508,
+        "delta_ap": 0.161183,
+        "delta_auroc": 0.019245,
+        "delta_aupro": 0.07873
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.0",
+        "auroc": 0.9901626838433416,
+        "ap": 0.6795227867206942,
+        "aupro": 0.9597243273486828,
+        "delta_ap": 0.160876,
+        "delta_auroc": 0.019318,
+        "delta_aupro": 0.078695
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.35_thr=1.5",
+        "auroc": 0.9904519335516234,
+        "ap": 0.6820317462950714,
+        "aupro": 0.9609142159365517,
+        "delta_ap": 0.163385,
+        "delta_auroc": 0.019607,
+        "delta_aupro": 0.079885
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=0.5",
+        "auroc": 0.9904302066371302,
+        "ap": 0.6868293378015379,
+        "aupro": 0.9609758701827302,
+        "delta_ap": 0.168182,
+        "delta_auroc": 0.019586,
+        "delta_aupro": 0.079946
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.0",
+        "auroc": 0.9904739633918115,
+        "ap": 0.6866336299079675,
+        "aupro": 0.9609616457197124,
+        "delta_ap": 0.167987,
+        "delta_auroc": 0.019629,
+        "delta_aupro": 0.079932
+      },
+      {
+        "category": "tubes",
+        "strategy": "agreement_gate",
+        "variant": "boost=0.45_thr=1.5",
+        "auroc": 0.9906784148393398,
+        "ap": 0.6878882877478457,
+        "aupro": 0.9617712034641696,
+        "delta_ap": 0.169241,
+        "delta_auroc": 0.019834,
+        "delta_aupro": 0.080742
+      }
+    ]
+  },
+  "oracles": {
+    "bracket_black": {
+      "auroc": 0.9341269682826465,
+      "ap": 0.15728453116537175,
+      "aupro": 0.8140111517106048,
+      "delta_ap": 0.05283,
+      "oracle_stats": {
+        "dino_choices": 69,
+        "text_choices": 10,
+        "text_ratio": 0.12658227848101267
+      }
+    },
+    "bracket_brown": {
+      "auroc": 0.9362128035736547,
+      "ap": 0.055141606039004074,
+      "aupro": 0.7698383746610009,
+      "delta_ap": 0.000179,
+      "oracle_stats": {
+        "dino_choices": 73,
+        "text_choices": 4,
+        "text_ratio": 0.05194805194805195
+      }
+    },
+    "bracket_white": {
+      "auroc": 0.9920582576578084,
+      "ap": 0.10066984460685179,
+      "aupro": 0.9657814866527831,
+      "delta_ap": 0.044392,
+      "oracle_stats": {
+        "dino_choices": 36,
+        "text_choices": 24,
+        "text_ratio": 0.4
+      }
+    },
+    "connector": {
+      "auroc": 0.9698283548946127,
+      "ap": 0.2553962972081432,
+      "aupro": 0.8948064477512039,
+      "delta_ap": 0.032157,
+      "oracle_stats": {
+        "dino_choices": 42,
+        "text_choices": 2,
+        "text_ratio": 0.045454545454545456
+      }
+    },
+    "metal_plate": {
+      "auroc": 0.9647204419748614,
+      "ap": 0.8453492163819545,
+      "aupro": 0.9315537965198899,
+      "delta_ap": -0.014835,
+      "oracle_stats": {
+        "dino_choices": 94,
+        "text_choices": 3,
+        "text_ratio": 0.030927835051546393
+      }
+    },
+    "tubes": {
+      "auroc": 0.9825624166850437,
+      "ap": 0.5037648372881594,
+      "aupro": 0.9327002767014688,
+      "delta_ap": -0.014882,
+      "oracle_stats": {
+        "dino_choices": 70,
+        "text_choices": 31,
+        "text_ratio": 0.3069306930693069
+      }
+    }
+  }
+}

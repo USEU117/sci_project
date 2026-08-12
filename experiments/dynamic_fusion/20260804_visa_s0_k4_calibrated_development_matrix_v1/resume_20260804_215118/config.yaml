@@ -1,0 +1,63 @@
+phase: design
+development:
+  dataset: visa
+  allowed_seeds: [0]
+  frozen_predictions_only: true
+  visual_branch: anomalydino
+  text_guided_branch: winclip_plus
+final_validation:
+  visa_seeds: [1, 2]
+  mvtec_seeds: [0, 1, 2]
+  locked_until_design_freeze: true
+forbidden_router_inputs:
+  - ground_truth_mask
+  - image_label
+  - category_test_label
+  - test_set_mean
+  - test_set_standard_deviation
+router:
+  type: confidence
+  temperature: 0.20
+  min_weight: 0.05
+  decision_margin: 0.15
+  pixel_level: true
+calibration:
+  required_before_performance_claim: true
+  allowed_sources:
+    - source_domain_validation
+    - target_normal_reference_shots
+  forbidden_sources:
+    - target_test_images
+    - target_test_labels
+    - target_test_masks
+  status: real_fit_passed_k1_development_matrix_pending_freeze
+features:
+  implemented:
+    - binary_entropy
+    - branch_image_agreement
+    - branch_pixel_agreement
+    - spatial_response_concentration
+    - normal_reference_augmentation_consistency
+    - cross_shot_sensitivity
+  deferred:
+    - internal_layer_consistency
+baselines:
+  modes:
+    - visual
+    - text
+    - fixed
+    - dynamic
+  declared_fixed_visual_weights: [0.0, 0.25, 0.5, 0.75, 1.0]
+  selection_on_test_metrics_forbidden: true
+outputs:
+  - fused_image_score
+  - fused_pixel_map
+  - visual_weight
+  - visual_pixel_weight
+  - route_decision
+evidence:
+  cpu_contract_report: outputs/dynamic_fusion/cpu_contract/20260731_wp3_wp4_wp5_synthetic/report.json
+  real_calibration_report: experiments/dynamic_fusion/20260731_visa_s0_k1_real_reference_v6_q99/report.json
+  development_matrix_report: experiments/dynamic_fusion/20260731_visa_s0_k1_calibrated_development_matrix/run.json
+  regression_tests_passed: 28
+  performance_claim_allowed: false

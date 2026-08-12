@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "data_protocol_frozen",
+  "created_at_utc": "2026-08-10T16:01:19.826869+00:00",
+  "datasets": {
+    "development": "mpdd",
+    "holdout": "btad"
+  },
+  "shots": [
+    1,
+    2,
+    4
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "nested_sampling": true,
+  "parameters_frozen": false,
+  "holdout_metrics_allowed": false,
+  "files": [
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/mpdd_archive.json",
+      "size_bytes": 891,
+      "sha256": "b648659dcc77545390f72cc3da3a899189cc99239b235a27a81d7ccb73899789"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/btad_archive.json",
+      "size_bytes": 770,
+      "sha256": "fdcb83d6efe106114f6bbc34510d72dd6fc12b55ce7e8bdaccc58236c7156227"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/mpdd_validation.json",
+      "size_bytes": 1426,
+      "sha256": "35f235472b3c0750f363855382bf3d46ea9872da6332aa42d815729d8ccacecb"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/btad_validation.json",
+      "size_bytes": 830,
+      "sha256": "5bcca5ea30f3599d23b388c9115fcc946cafef90d8dbdc5e20ea940bc7303859"
+    },
+    {
+      "relative_path": "data/splits/mpdd/manifest.json",
+      "size_bytes": 15029,
+      "sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8"
+    },
+    {
+      "relative_path": "data/splits/mpdd/manifest.sha256",
+      "size_bytes": 80,
+      "sha256": "14a676034649f65d304f64f310990f0cf1dce9bbdb75f42b335a797f18649b14"
+    },
+    {
+      "relative_path": "data/splits/btad/manifest.json",
+      "size_bytes": 6682,
+      "sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215"
+    },
+    {
+      "relative_path": "data/splits/btad/manifest.sha256",
+      "size_bytes": 80,
+      "sha256": "ca0923254e1dcc69bc96858dbefb3c08c78bd9f585c079bdc5c2f315f3b03d73"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/mpdd_split_validation.json",
+      "size_bytes": 472,
+      "sha256": "21271c81aa56b081856e9a8536080b8df2ebc34db49acfbc2430cbe80ffdf5eb"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/data_preparation/btad_split_validation.json",
+      "size_bytes": 492,
+      "sha256": "0b90c886e54e529003893b6cf815702002192d2d4b23c87c79617702b8bbbdba"
+    }
+  ]
+}

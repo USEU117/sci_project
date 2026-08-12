@@ -1,0 +1,45 @@
+schema_version: 1
+status: waiting_for_data
+
+development:
+  dataset: mpdd
+  purpose: parameter_selection_and_ablation
+  labels_visible_during_development: true
+
+holdout:
+  dataset: btad
+  purpose: one_time_validation_after_freeze
+  labels_visible_before_freeze: false
+
+retrospective:
+  datasets: [mvtec, visa]
+  purpose: frozen_v2_cross_dataset_check_only
+  parameter_selection_forbidden: true
+
+sampling:
+  shots: [1, 2, 4]
+  seeds: [0, 1, 2]
+  nested_within_seed: true
+  normal_reference_only: true
+  required_manifest_fields:
+    - dataset
+    - category
+    - seed
+    - shot
+    - sample_ids
+    - source_file_sha256
+
+freeze_gate:
+  required_before_holdout_metrics:
+    - calibration_type_and_parameters
+    - support_definition
+    - image_router_features_and_thresholds
+    - pixel_router_features_and_thresholds
+    - weight_caps_and_fallback_rules
+    - primary_metrics
+    - negative_transfer_limits
+
+local_data_status_20260810:
+  mpdd: missing
+  btad: missing
+  gpu_cache_generation_ready: false

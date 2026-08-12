@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-09T02:19:58.406781+00:00",
+  "status": "passed",
+  "errors": [],
+  "active_training_processes": [],
+  "gpu_queue": {
+    "authoritative_status": "outputs\\logs\\promptad_mvtec_resumable_queue\\status.json",
+    "state": "paused_by_schedule",
+    "completed": [
+      "s0_k1",
+      "s0_k2",
+      "s0_k4",
+      "s1_k1"
+    ],
+    "pending": [
+      "s1_k2",
+      "s1_k4",
+      "s2_k1",
+      "s2_k2",
+      "s2_k4"
+    ],
+    "legacy_status": "outputs\\logs\\overnight_status.json",
+    "legacy_phase": "superseded",
+    "current_partial": {
+      "run": "s1_k2",
+      "complete_marker_count": 5,
+      "expected_marker_count": 30,
+      "complete_markers": [
+        "bottle_cls.complete",
+        "bottle_seg.complete",
+        "cable_cls.complete",
+        "cable_seg.complete",
+        "capsule_cls.complete"
+      ],
+      "resume_at": "capsule_seg"
+    }
+  },
+  "visa": {
+    "baseline_runs": 36,
+    "status": "passed"
+  },
+  "mvtec": {
+    "complete_counts": {
+      "PatchCore": 9,
+      "WinCLIP+": 9,
+      "AnomalyDINO": 9,
+      "PromptAD": 4,
+      "DynamicFusion": 9
+    },
+    "missing": {
+      "PatchCore": [],
+      "WinCLIP+": [],
+      "AnomalyDINO": [],
+      "PromptAD": [
+        "s1_k2",
+        "s1_k4",
+        "s2_k1",
+        "s2_k2",
+        "s2_k4"
+      ],
+      "DynamicFusion": []
+    }
+  },
+  "dynamic_fusion": {
+    "audit_status": "passed",
+    "audited_runs": 17,
+    "visual_branch": "AnomalyDINO",
+    "text_branch": "AnomalyCLIP",
+    "image_temperature": 0.5,
+    "pixel_temperature": 0.2,
+    "design_frozen": true
+  },
+  "evidence": {
+    "visa_audit": "experiments\\summaries\\visa_result_audit_20260809.json",
+    "mvtec_completeness": "experiments\\summaries\\mvtec_method_seed_shot_completeness_20260809.json",
+    "dynamic_fusion_audit": "experiments\\dynamic_fusion\\final_validation_audit_20260808\\final_validation_audit.json",
+    "method_status_csv": "experiments\\summaries\\current_method_status_20260809.csv"
+  }
+}

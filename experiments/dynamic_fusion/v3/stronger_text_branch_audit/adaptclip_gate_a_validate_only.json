@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-12T04:03:17+08:00",
+  "run_id": "v3_adaptclip_mpdd_s0_k1_gate_a_v1",
+  "mode": "validate_only",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 1,
+  "metadata_audit_passed": true,
+  "entrypoint_compile_passed": true,
+  "prediction_cache_arguments_present": true,
+  "gpu_started": false,
+  "btad_accessed": false,
+  "status": "blocked",
+  "blocker": "official_checkpoint_missing",
+  "expected_checkpoint_sha256": "777821da141eb57d159acef46868440faf773a2dd0acf5c276ec3f258c27edee",
+  "next_safe_action": "After authenticated Hugging Face access, download the official VisA-trained checkpoint, verify the exact SHA256, then rerun validate-only before any GPU Gate A."
+}

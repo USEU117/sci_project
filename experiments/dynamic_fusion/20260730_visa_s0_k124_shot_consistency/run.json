@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_visa_s0_k124_shot_consistency",
+  "purpose": "WP1.4 pair alignment and cross-shot test-set consistency",
+  "status": "passed",
+  "dataset": "visa",
+  "seed": 0,
+  "shots": [1, 2, 4],
+  "categories": 12,
+  "samples_per_shot": 2162,
+  "visual_branch": "anomalydino",
+  "text_branch": "winclip_plus",
+  "manifest": "D:/STUDY/My_github/sci_project/data/splits/visa/manifest.json",
+  "manifest_sha256": "35ECDD88BD3DF2C7168A6C234B575AB425180946A80A93CE837D7E350B75E0F2",
+  "config": "D:/STUDY/My_github/sci_project/configs/dynamic_fusion.yaml",
+  "config_sha256": "6DBD36E2602A2BB73685ACAD4D051A601EC8574F4767AAF61BC2C5B387C9C401",
+  "git_commit": "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+  "working_tree_dirty": true,
+  "gpu_used": false,
+  "test_ground_truth_read": true,
+  "ground_truth_usage": "pair alignment audit only; cross-shot comparison uses sample_ids only",
+  "router_executed": false,
+  "exit_code": 0,
+  "reports": [
+    "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/alignment/20260730_visa_s0_k1_alignment_anomalydino_winclip/report.json",
+    "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/alignment/20260730_visa_s0_k2_alignment_anomalydino_winclip/report.json",
+    "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/alignment/20260730_visa_s0_k4_alignment_anomalydino_winclip/report.json",
+    "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/alignment/20260730_visa_s0_k124_shot_consistency/report.json"
+  ]
+}

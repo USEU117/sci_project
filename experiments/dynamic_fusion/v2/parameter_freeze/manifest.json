@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "parameters_frozen",
+  "created_at_utc": "2026-08-11T06:09:56.712349+00:00",
+  "development_dataset": "mpdd",
+  "holdout_dataset": "btad",
+  "selection_protocol": "three seeds and 1/2/4-shot; localization gain must be positive on at least two of three seeds with no material image degradation",
+  "selected_candidate": "visual_only_safe_fallback",
+  "router_parameters": {
+    "support_tolerance": 3.0,
+    "minimum_disagreement": 0.05,
+    "uncertainty_margin": 0.05,
+    "concentration_tolerance": 0.1,
+    "max_image_text_weight": 0.0,
+    "max_pixel_text_weight": 0.0,
+    "smooth_pixel_weights": true
+  },
+  "dynamic_text_assistance_enabled": false,
+  "decision_reason": "pixel_only_w15 improved aggregate AUPRO but was positive on only one of three seeds; the gain did not repeat",
+  "final_apro_steps": 200,
+  "aggregate_delta_aupro_pixel_w15_vs_visual": 0.0032418145094011974,
+  "per_seed_delta_aupro_pixel_w15_vs_visual": {
+    "0": -0.0031515267228539035,
+    "1": 0.017696814942018135,
+    "2": -0.004819844690960862
+  },
+  "positive_seed_count": 1,
+  "test_labels_used_by_router": false,
+  "mpdd_development_labels_used_for_selection": true,
+  "btad_predictions_used": false,
+  "btad_labels_used": false,
+  "btad_metrics_read": false,
+  "holdout_metrics_allowed_after_this_freeze": true,
+  "evidence_files": [
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/seed0/report.json",
+      "size_bytes": 7631,
+      "sha256": "c9148d6cd3ead766e2b205d3cf4e5945cd3db52b35c7f82ec3e2e5cbdd854607"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/seed12_validation/report.json",
+      "size_bytes": 5283,
+      "sha256": "8bf264697d07069a893823ae2aa052beb1ca72998ff3d2d728d34fe57cd81ce1"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/gate_diagnostics.json",
+      "size_bytes": 39670,
+      "sha256": "0e2c28cb9467a6db38f455a7414e5d4bddfb2284f368f7ce0fa368cf8327232f"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/seed0_pixel_independence_fix/report.json",
+      "size_bytes": 7997,
+      "sha256": "c0c0353fa1961b928c34564b5292da4b0bf8e54cfbd27e57c35c9b26edca1504"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/seed12_pixel_independence_fix/report.json",
+      "size_bytes": 4480,
+      "sha256": "f1efcc6bdcaa750d5df6b671ef8f537f476ab8493a1bff139af5cffec646d6ee"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_router_selection/final_all_seeds_apro200/report.json",
+      "size_bytes": 5463,
+      "sha256": "61da426ae401c894d0c8d51acb03ce0233fa3f555d724344783079cba67770a8"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/branch_cache_queue/runtime/completion_audit.json",
+      "size_bytes": 19146,
+      "sha256": "56cd269da6a5d4a2e06ffb63e101282300e24421b26649639075aa2ff6c85c49"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_prediction_gate_a/runtime/gate_a_audit.json",
+      "size_bytes": 4848,
+      "sha256": "4940a873dce194c9f962dc8afe38d410b43199356fcf565343f6d7526a77783f"
+    },
+    {
+      "relative_path": "experiments/dynamic_fusion/v2/mpdd_prediction_matrix/runtime/status.json",
+      "size_bytes": 691,
+      "sha256": "bbca04fbbf49dad520814c4057934cead4c1cbdb2f7a9982355e54a71c1f12c9"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v2_router.py",
+      "size_bytes": 9224,
+      "sha256": "6f9de00c106867eb232de40252b7cbf60d3635e450ab79216b78d13a5aa72cb7"
+    },
+    {
+      "relative_path": "tests/test_dynamic_fusion_v2.py",
+      "size_bytes": 8968,
+      "sha256": "9fe95e13596e3f62835e3078598c585cf9c28d3167d0f6ab0acb905778cf33aa"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "frozen_v1_no_retuning": true,
+  "run_count": 17,
+  "category_run_count": 231,
+  "provenance_run_count": 17,
+  "mvtec": {
+    "mean_dynamic_minus_raw_visual_image_auroc": -0.11570532525563958,
+    "mean_visual_calibration_auroc_loss": -0.4243270417813086,
+    "mean_visual_high_saturation_fraction": 0.9999355877616747,
+    "mean_dynamic_to_raw_visual_spearman": 0.5441116480828952
+  },
+  "visa": {
+    "mean_dynamic_minus_raw_visual_image_auroc": -0.09249544829482945,
+    "mean_visual_calibration_auroc_loss": -0.30581237279977996,
+    "mean_visual_high_saturation_fraction": 0.9153645833333333
+  },
+  "interpretation": [
+    "Normal-reference median/MAD sigmoid calibration saturates many test scores and introduces ties, destroying strong raw-visual rankings.",
+    "Entropy reliability is low at both probability extremes; saturated probabilities therefore look over-confident rather than unreliable.",
+    "Sample-dependent routing weights can further alter image ranking, while the weaker text branch often becomes the only remaining ranking signal when visual scores saturate.",
+    "Split image/pixel temperatures fix the seed-0 fixed-weight comparison but do not repair calibration saturation against the raw AnomalyDINO baseline."
+  ]
+}

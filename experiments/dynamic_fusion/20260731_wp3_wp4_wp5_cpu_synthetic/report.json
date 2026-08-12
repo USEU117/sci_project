@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checks_passed": 8,
+  "checks_failed": 0,
+  "tests_passed": 28,
+  "implemented_baselines": ["visual", "text", "fixed", "dynamic"],
+  "implemented_features": [
+    "binary_entropy",
+    "image_agreement",
+    "pixel_agreement",
+    "spatial_response_concentration",
+    "augmentation_consistency",
+    "shot_sensitivity"
+  ],
+  "gpu_used": false,
+  "formal_performance_claim_allowed": false,
+  "output": "outputs/dynamic_fusion/cpu_contract/20260731_wp3_wp4_wp5_synthetic/report.json"
+}

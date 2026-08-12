@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T10:14:05.835893+00:00",
+  "status": "passed",
+  "dataset": "btad",
+  "dataset_role": "holdout",
+  "seed": 1,
+  "shot": 1,
+  "categories": 3,
+  "samples": 741,
+  "branches": 2,
+  "metrics_computed": false,
+  "btad_accessed": true,
+  "failures": [],
+  "rows": [
+    {
+      "category": "01",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 70,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalydino_visual\\01.npz",
+      "sha256": "d013245456781fd032f85fd93646de315494843acdeeb44aae77acb8908e0e30"
+    },
+    {
+      "category": "01",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 70,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalyclip_text\\01.npz",
+      "sha256": "52ac27b0cb7fab6bbab92af30db3bc3cbfd61ebf2f49765f2999ffc4eb62488d"
+    },
+    {
+      "category": "02",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 230,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalydino_visual\\02.npz",
+      "sha256": "3df97b0b74549d901dfdfa79fbedbad67713a6e349e96a1cee0e3201900a1eb5"
+    },
+    {
+      "category": "02",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 230,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalyclip_text\\02.npz",
+      "sha256": "3dc08d6e534abefe020615860d67aa617bd58e715f5fc72b8ade34ce106eb767"
+    },
+    {
+      "category": "03",
+      "branch": "anomalydino_visual",
+      "status": "passed",
+      "samples": 441,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalydino_visual\\03.npz",
+      "sha256": "d905790e2431fe48fa00f916255e00c087df72db8bc77d74e1df35ddc916e386"
+    },
+    {
+      "category": "03",
+      "branch": "anomalyclip_text",
+      "status": "passed",
+      "samples": 441,
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_btad_predictions\\v2_btad_s1_k1_full_v1\\anomalyclip_text\\03.npz",
+      "sha256": "43492f224ff2ffab76a6b9877a18e9e4b06e7ecc9befb9c9f47ad4129353ba7b"
+    }
+  ]
+}

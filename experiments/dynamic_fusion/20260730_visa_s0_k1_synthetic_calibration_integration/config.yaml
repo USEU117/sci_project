@@ -1,0 +1,10 @@
+dataset: visa
+seed: 0
+shot: 1
+category: candle
+visual_branch: anomalydino
+text_branch: winclip_plus
+router: deterministic_confidence_router
+calibration_source: synthetic_normal_reference_predictions
+performance_claim_allowed: false
+gpu_used: false

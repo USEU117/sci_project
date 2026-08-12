@@ -1,0 +1,14 @@
+dataset,method,complete,expected,status,notes
+VisA,PatchCore,9,9,complete,3 seeds x 1/2/4-shot
+VisA,WinCLIP+,9,9,complete,3 seeds x 1/2/4-shot
+VisA,AnomalyDINO,9,9,complete,3 seeds x 1/2/4-shot
+VisA,PromptAD,9,9,complete,3 seeds x 1/2/4-shot
+VisA,DynamicFusion,6,6,complete,independent final validation: seeds 1/2 x 1/2/4-shot
+MVTec,PatchCore,9,9,complete,none
+MVTec,WinCLIP+,9,9,complete,none
+MVTec,AnomalyDINO,9,9,complete,none
+MVTec,PromptAD,4,9,partial,"s1_k2,s1_k4,s2_k1,s2_k2,s2_k4"
+MVTec,DynamicFusion,9,9,complete,none
+MVTec,AnomalyCLIP,1,1,zero_shot_only,not a 1/2/4-shot matrix
+MVTec,ReMP-AD,0,1,gate_a_pending,environment ready; manifest and NPZ adapters pending
+MVTec,AdaptCLIP,0,1,gate_a_blocked,checkpoint missing; 6 GB VRAM smoke pending

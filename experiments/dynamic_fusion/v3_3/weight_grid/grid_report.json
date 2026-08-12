@@ -1,0 +1,515 @@
+{
+  "generated": "2026-08-12T16:05:13.648337",
+  "grid": {
+    "dino_weights": [
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ]
+  },
+  "summary": {
+    "global_best_dino_w": 0.65,
+    "d60_mean_dap": 0.07122,
+    "oracle_mean_dap": 0.082653,
+    "mean_regret": -0.011433
+  },
+  "details": [
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "bracket_black",
+      "dino_ap": 0.024395,
+      "optimal_dino_w": 0.45,
+      "optimal_delta_ap": 0.181348,
+      "dino60_delta_ap": 0.177674
+    },
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "bracket_brown",
+      "dino_ap": 0.045688,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.00427,
+      "dino60_delta_ap": 0.004058
+    },
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "bracket_white",
+      "dino_ap": 0.094335,
+      "optimal_dino_w": 0.75,
+      "optimal_delta_ap": 0.075713,
+      "dino60_delta_ap": 0.071385
+    },
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "connector",
+      "dino_ap": 0.098322,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.097715,
+      "dino60_delta_ap": 0.096002
+    },
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "metal_plate",
+      "dino_ap": 0.847173,
+      "optimal_dino_w": 0.85,
+      "optimal_delta_ap": 0.010079,
+      "dino60_delta_ap": -0.033706
+    },
+    {
+      "k": 1,
+      "seed": 0,
+      "cat": "tubes",
+      "dino_ap": 0.571518,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.140047,
+      "dino60_delta_ap": 0.13676
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "bracket_black",
+      "dino_ap": 0.104454,
+      "optimal_dino_w": 0.6,
+      "optimal_delta_ap": 0.119545,
+      "dino60_delta_ap": 0.119545
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "bracket_brown",
+      "dino_ap": 0.054962,
+      "optimal_dino_w": 0.75,
+      "optimal_delta_ap": 0.004601,
+      "dino60_delta_ap": 0.002674
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "bracket_white",
+      "dino_ap": 0.056278,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.124145,
+      "dino60_delta_ap": 0.11434
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "connector",
+      "dino_ap": 0.223239,
+      "optimal_dino_w": 0.7,
+      "optimal_delta_ap": 0.083075,
+      "dino60_delta_ap": 0.071539
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "metal_plate",
+      "dino_ap": 0.860184,
+      "optimal_dino_w": 0.9,
+      "optimal_delta_ap": 0.004625,
+      "dino60_delta_ap": -0.045791
+    },
+    {
+      "k": 1,
+      "seed": 1,
+      "cat": "tubes",
+      "dino_ap": 0.518647,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.171947,
+      "dino60_delta_ap": 0.17178
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "bracket_black",
+      "dino_ap": 0.004763,
+      "optimal_dino_w": 0.3,
+      "optimal_delta_ap": 0.17439,
+      "dino60_delta_ap": 0.159843
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "bracket_brown",
+      "dino_ap": 0.050163,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.002788,
+      "dino60_delta_ap": 0.002741
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "bracket_white",
+      "dino_ap": 0.07736,
+      "optimal_dino_w": 0.75,
+      "optimal_delta_ap": 0.160872,
+      "dino60_delta_ap": 0.135264
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "connector",
+      "dino_ap": 0.151671,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.096925,
+      "dino60_delta_ap": 0.093738
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "metal_plate",
+      "dino_ap": 0.79253,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.024969,
+      "dino60_delta_ap": 0.004667
+    },
+    {
+      "k": 1,
+      "seed": 2,
+      "cat": "tubes",
+      "dino_ap": 0.558445,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.146198,
+      "dino60_delta_ap": 0.143081
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "bracket_black",
+      "dino_ap": 0.047821,
+      "optimal_dino_w": 0.45,
+      "optimal_delta_ap": 0.165522,
+      "dino60_delta_ap": 0.154463
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "bracket_brown",
+      "dino_ap": 0.043309,
+      "optimal_dino_w": 0.6,
+      "optimal_delta_ap": 0.003972,
+      "dino60_delta_ap": 0.003972
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "bracket_white",
+      "dino_ap": 0.145771,
+      "optimal_dino_w": 0.85,
+      "optimal_delta_ap": 0.056033,
+      "dino60_delta_ap": 0.041344
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "connector",
+      "dino_ap": 0.167614,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.099423,
+      "dino60_delta_ap": 0.093023
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "metal_plate",
+      "dino_ap": 0.845482,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.013307,
+      "dino60_delta_ap": -0.009359
+    },
+    {
+      "k": 2,
+      "seed": 0,
+      "cat": "tubes",
+      "dino_ap": 0.566374,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.142911,
+      "dino60_delta_ap": 0.13893
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "bracket_black",
+      "dino_ap": 0.079049,
+      "optimal_dino_w": 0.4,
+      "optimal_delta_ap": 0.12831,
+      "dino60_delta_ap": 0.110823
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "bracket_brown",
+      "dino_ap": 0.03994,
+      "optimal_dino_w": 0.55,
+      "optimal_delta_ap": 0.004996,
+      "dino60_delta_ap": 0.004658
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "bracket_white",
+      "dino_ap": 0.033019,
+      "optimal_dino_w": 0.7,
+      "optimal_delta_ap": 0.132629,
+      "dino60_delta_ap": 0.1302
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "connector",
+      "dino_ap": 0.274491,
+      "optimal_dino_w": 0.7,
+      "optimal_delta_ap": 0.079051,
+      "dino60_delta_ap": 0.059316
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "metal_plate",
+      "dino_ap": 0.858726,
+      "optimal_dino_w": 0.9,
+      "optimal_delta_ap": 0.00457,
+      "dino60_delta_ap": -0.033952
+    },
+    {
+      "k": 2,
+      "seed": 1,
+      "cat": "tubes",
+      "dino_ap": 0.56706,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.139893,
+      "dino60_delta_ap": 0.138057
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "bracket_black",
+      "dino_ap": 0.032522,
+      "optimal_dino_w": 0.4,
+      "optimal_delta_ap": 0.169222,
+      "dino60_delta_ap": 0.157395
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "bracket_brown",
+      "dino_ap": 0.053896,
+      "optimal_dino_w": 0.6,
+      "optimal_delta_ap": 0.00498,
+      "dino60_delta_ap": 0.00498
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "bracket_white",
+      "dino_ap": 0.06002,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.137945,
+      "dino60_delta_ap": 0.129463
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "connector",
+      "dino_ap": 0.175294,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.095496,
+      "dino60_delta_ap": 0.091025
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "metal_plate",
+      "dino_ap": 0.835184,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.015422,
+      "dino60_delta_ap": -0.010706
+    },
+    {
+      "k": 2,
+      "seed": 2,
+      "cat": "tubes",
+      "dino_ap": 0.565336,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.142095,
+      "dino60_delta_ap": 0.138952
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "bracket_black",
+      "dino_ap": 0.131701,
+      "optimal_dino_w": 0.55,
+      "optimal_delta_ap": 0.113824,
+      "dino60_delta_ap": 0.111154
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "bracket_brown",
+      "dino_ap": 0.046819,
+      "optimal_dino_w": 0.6,
+      "optimal_delta_ap": 0.003218,
+      "dino60_delta_ap": 0.003218
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "bracket_white",
+      "dino_ap": 0.104165,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.123144,
+      "dino60_delta_ap": 0.100499
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "connector",
+      "dino_ap": 0.206996,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.101738,
+      "dino60_delta_ap": 0.096231
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "metal_plate",
+      "dino_ap": 0.875097,
+      "optimal_dino_w": 0.85,
+      "optimal_delta_ap": 0.006559,
+      "dino60_delta_ap": -0.020775
+    },
+    {
+      "k": 4,
+      "seed": 0,
+      "cat": "tubes",
+      "dino_ap": 0.607457,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.114823,
+      "dino60_delta_ap": 0.111811
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "bracket_black",
+      "dino_ap": 0.08848,
+      "optimal_dino_w": 0.4,
+      "optimal_delta_ap": 0.132675,
+      "dino60_delta_ap": 0.117605
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "bracket_brown",
+      "dino_ap": 0.06413,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.00171,
+      "dino60_delta_ap": -0.001033
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "bracket_white",
+      "dino_ap": 0.070073,
+      "optimal_dino_w": 0.7,
+      "optimal_delta_ap": 0.137979,
+      "dino60_delta_ap": 0.127787
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "connector",
+      "dino_ap": 0.357658,
+      "optimal_dino_w": 0.75,
+      "optimal_delta_ap": 0.050374,
+      "dino60_delta_ap": 0.015033
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "metal_plate",
+      "dino_ap": 0.878882,
+      "optimal_dino_w": 0.9,
+      "optimal_delta_ap": 0.004004,
+      "dino60_delta_ap": -0.029997
+    },
+    {
+      "k": 4,
+      "seed": 1,
+      "cat": "tubes",
+      "dino_ap": 0.598625,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.120346,
+      "dino60_delta_ap": 0.11733
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "bracket_black",
+      "dino_ap": 0.172701,
+      "optimal_dino_w": 0.6,
+      "optimal_delta_ap": 0.071404,
+      "dino60_delta_ap": 0.071404
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "bracket_brown",
+      "dino_ap": 0.061905,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.004564,
+      "dino60_delta_ap": 0.004488
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "bracket_white",
+      "dino_ap": 0.089211,
+      "optimal_dino_w": 0.8,
+      "optimal_delta_ap": 0.116648,
+      "dino60_delta_ap": 0.101081
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "connector",
+      "dino_ap": 0.258148,
+      "optimal_dino_w": 0.7,
+      "optimal_delta_ap": 0.072697,
+      "dino60_delta_ap": 0.060147
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "metal_plate",
+      "dino_ap": 0.88012,
+      "optimal_dino_w": 0.85,
+      "optimal_delta_ap": 0.00648,
+      "dino60_delta_ap": -0.026192
+    },
+    {
+      "k": 4,
+      "seed": 2,
+      "cat": "tubes",
+      "dino_ap": 0.59747,
+      "optimal_dino_w": 0.65,
+      "optimal_delta_ap": 0.122054,
+      "dino60_delta_ap": 0.117915
+    }
+  ]
+}

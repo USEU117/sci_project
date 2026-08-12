@@ -1,0 +1,72 @@
+{
+  "direction": "B_defect_ensemble",
+  "seed": 0,
+  "dino_weight": 0.6,
+  "original": {
+    "bracket_black": {
+      "dino_ap": 0.024394520289369392,
+      "fused_ap": 0.2020687330513069,
+      "delta_ap": 0.177674
+    },
+    "bracket_brown": {
+      "dino_ap": 0.04568812907492223,
+      "fused_ap": 0.049745748733978856,
+      "delta_ap": 0.004058
+    },
+    "bracket_white": {
+      "dino_ap": 0.09433514780956423,
+      "fused_ap": 0.16571966108364175,
+      "delta_ap": 0.071385
+    },
+    "connector": {
+      "dino_ap": 0.09832228961017495,
+      "fused_ap": 0.19432394404830922,
+      "delta_ap": 0.096002
+    },
+    "metal_plate": {
+      "dino_ap": 0.8471732544842592,
+      "fused_ap": 0.8134677281287697,
+      "delta_ap": -0.033706
+    },
+    "tubes": {
+      "dino_ap": 0.5715182717942442,
+      "fused_ap": 0.7082780838937107,
+      "delta_ap": 0.13676
+    }
+  },
+  "defect_ensemble": {
+    "bracket_black": {
+      "dino_ap": 0.024394520289369392,
+      "fused_ap": 0.0037745551962102496,
+      "delta_ap": -0.02062
+    },
+    "bracket_brown": {
+      "dino_ap": 0.04568812907492223,
+      "fused_ap": 0.044192883502658306,
+      "delta_ap": -0.001495
+    },
+    "bracket_white": {
+      "dino_ap": 0.09433514780956423,
+      "fused_ap": 0.009852247428652303,
+      "delta_ap": -0.084483
+    },
+    "connector": {
+      "dino_ap": 0.09832228961017495,
+      "fused_ap": 0.04719403065843568,
+      "delta_ap": -0.051128
+    },
+    "metal_plate": {
+      "dino_ap": 0.8471732544842592,
+      "fused_ap": 0.8487770196728517,
+      "delta_ap": 0.001604
+    },
+    "tubes": {
+      "dino_ap": 0.5715182717942442,
+      "fused_ap": 0.5095007469809595,
+      "delta_ap": -0.062018
+    }
+  },
+  "mean_original_dap": 0.075362,
+  "mean_defect_dap": -0.036357,
+  "gain_vs_original": -0.111719
+}

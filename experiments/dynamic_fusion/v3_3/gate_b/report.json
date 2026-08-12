@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "run_id": "v3_3_20260812_gate_b_v1",
+  "created_at_utc": "2026-08-12T04:47:27.644612+00:00",
+  "status": "passed",
+  "gate": "v3_3_gate_b_dynamic_fusion",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 1,
+  "strategies": {
+    "v3_3": "Weighted ensemble (z-score calibrated) + Two-stage calibrated",
+    "v3_2_comparison": "Hierarchical selective rescue (V3_2Router) — FAILED"
+  },
+  "gate_b_criteria": {
+    "description": "Leave-one-out cross-validation: select best candidate on 5 categories, test on held-out",
+    "pass_threshold": "mean_heldout_delta_ap > 0 AND positive_categories >= 3"
+  },
+  "lateral_comparison": {
+    "summary": {
+      "v3_2_mean_delta_ap": -0.0,
+      "v3_3_loo_mean_delta_ap": 0.04625,
+      "v3_3_best_mean_delta_ap": 0.10936,
+      "v3_3_vs_v3_2_improvement": 0.04625,
+      "v3_3_positive_categories": "5/6",
+      "gate_b": "PASSED"
+    },
+    "note": "V3.2 uses hierarchical selective rescue requiring text > visual evidence. Text adapter scores were 10-20x lower than DINO visual, making rescue impossible. V3.3 uses simple z-score calibrated weighted ensemble — no rescue logic needed, all branches contribute simultaneously."
+  },
+  "rows": [
+    {
+      "category": "bracket_black",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "alpha=0.70",
+      "v3_3_loo_strategy": "two_stage_calibrated",
+      "v3_3_loo_delta_ap": 0.006768,
+      "v3_3_best_delta_ap": 0.214434,
+      "v3_3_best_candidate": "dino=0.60_anomalyclip=0.35_adaptclip_vis=0.05",
+      "v3_3_best_fused_ap": 0.238828
+    },
+    {
+      "category": "bracket_brown",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "dino=0.60_anomalyclip=0.40",
+      "v3_3_loo_strategy": "weighted_ensemble",
+      "v3_3_loo_delta_ap": 0.004058,
+      "v3_3_best_delta_ap": 0.005379,
+      "v3_3_best_candidate": "alpha=0.70",
+      "v3_3_best_fused_ap": 0.051067
+    },
+    {
+      "category": "bracket_white",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "dino=0.60_anomalyclip=0.40",
+      "v3_3_loo_strategy": "weighted_ensemble",
+      "v3_3_loo_delta_ap": 0.071385,
+      "v3_3_best_delta_ap": 0.075713,
+      "v3_3_best_candidate": "dino=0.75_anomalyclip=0.25",
+      "v3_3_best_fused_ap": 0.170048
+    },
+    {
+      "category": "connector",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "dino=0.70_anomalyclip=0.30",
+      "v3_3_loo_strategy": "weighted_ensemble",
+      "v3_3_loo_delta_ap": 0.092234,
+      "v3_3_best_delta_ap": 0.096002,
+      "v3_3_best_candidate": "dino=0.60_anomalyclip=0.40",
+      "v3_3_best_fused_ap": 0.194324
+    },
+    {
+      "category": "metal_plate",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "dino=0.60_anomalyclip=0.40",
+      "v3_3_loo_strategy": "weighted_ensemble",
+      "v3_3_loo_delta_ap": -0.033706,
+      "v3_3_best_delta_ap": 0.088183,
+      "v3_3_best_candidate": "alpha=0.60",
+      "v3_3_best_fused_ap": 0.935356
+    },
+    {
+      "category": "tubes",
+      "v3_2_best_delta_ap": -0.0,
+      "v3_2_best_candidate": "best of strict/balanced/permissive",
+      "v3_3_loo_selection": "dino=0.60_anomalyclip=0.40",
+      "v3_3_loo_strategy": "weighted_ensemble",
+      "v3_3_loo_delta_ap": 0.13676,
+      "v3_3_best_delta_ap": 0.176451,
+      "v3_3_best_candidate": "alpha=0.80",
+      "v3_3_best_fused_ap": 0.74797
+    }
+  ],
+  "heldout_per_category": {
+    "bracket_black": 0.006768,
+    "bracket_brown": 0.004058,
+    "bracket_white": 0.071385,
+    "connector": 0.092234,
+    "metal_plate": -0.033706,
+    "tubes": 0.13676
+  },
+  "strategy_summary": {
+    "weighted_ensemble": {
+      "mean_delta_ap": 0.089769,
+      "positive_categories": 6,
+      "per_category": {
+        "bracket_black": 0.214434,
+        "bracket_brown": 0.00418,
+        "bracket_white": 0.075713,
+        "connector": 0.096002,
+        "metal_plate": 0.010079,
+        "tubes": 0.138206
+      }
+    },
+    "max_z_selection": {
+      "mean_delta_ap": -0.068142,
+      "positive_categories": 0,
+      "per_category": {
+        "bracket_black": -0.015419,
+        "bracket_brown": -0.024741,
+        "bracket_white": -0.061027,
+        "connector": -0.067215,
+        "metal_plate": -0.145929,
+        "tubes": -0.094519
+      }
+    },
+    "two_stage_calibrated": {
+      "mean_delta_ap": 0.060192,
+      "positive_categories": 6,
+      "per_category": {
+        "bracket_black": 0.011557,
+        "bracket_brown": 0.005379,
+        "bracket_white": 0.049591,
+        "connector": 0.029991,
+        "metal_plate": 0.088183,
+        "tubes": 0.176451
+      }
+    }
+  }
+}

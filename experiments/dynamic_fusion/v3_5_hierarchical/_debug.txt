@@ -1,0 +1,6 @@
+DINO AP=0.0244
+discrete_gate: AP=0.133303, dAP=+0.108909, time=0.75s
+continuous_gate: AP=0.132306, dAP=+0.107911, time=0.82s
+agreement_gate: AP=0.194565, dAP=+0.170171, time=0.83s
+oracle: AP=0.130379, dAP=+0.105984, stats={'dino_choices': 59, 'text_choices': 20, 'text_ratio': 0.25316455696202533}, time=3.19s
+DONE

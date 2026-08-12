@@ -1,0 +1,2 @@
+26-08-12 11:55:59.476 - INFO: 
+loading model from: d:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth

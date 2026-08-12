@@ -1,0 +1,2 @@
+status,syntax_valid,inputs_valid,steps_constructed,baseline_processes_detected,execution_guard_passed,unexpected_outputs_created
+passed,true,true,5,3,true,false

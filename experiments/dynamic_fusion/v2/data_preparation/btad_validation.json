@@ -1,0 +1,34 @@
+{
+  "dataset": "btad",
+  "root": "D:\\STUDY\\My_github\\sci_project\\data\\btad_raw\\BTech_Dataset_transformed",
+  "category_count": 3,
+  "categories": {
+    "01": {
+      "train_good": 400,
+      "test_images": 70,
+      "abnormal_test_images": 49,
+      "mask_files": 49,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "02": {
+      "train_good": 399,
+      "test_images": 230,
+      "abnormal_test_images": 200,
+      "mask_files": 200,
+      "errors": [],
+      "missing_masks_examples": []
+    },
+    "03": {
+      "train_good": 1000,
+      "test_images": 441,
+      "abnormal_test_images": 41,
+      "mask_files": 41,
+      "errors": [],
+      "missing_masks_examples": []
+    }
+  },
+  "expected_category_count": 3,
+  "category_count_matches": true,
+  "error_count": 0
+}

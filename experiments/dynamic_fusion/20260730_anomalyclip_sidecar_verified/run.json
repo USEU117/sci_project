@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_anomalyclip_sidecar_verified",
+  "purpose": "WP1.3 legacy AnomalyCLIP sample-ID sidecars and pair audit",
+  "status": "passed",
+  "dataset": "visa",
+  "categories": 12,
+  "samples": 2162,
+  "gpu_used": false,
+  "ground_truth_usage": "labels and masks used only to verify cache order; no router input or tuning",
+  "sidecar_dir": "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/sidecars/anomalyclip_visa_518_verified",
+  "pair_report": "D:/STUDY/My_github/sci_project/outputs/dynamic_fusion/alignment/20260730_visa_s0_k1_alignment_anomalydino_anomalyclip_sidecar/report.json",
+  "exit_code": 0
+}

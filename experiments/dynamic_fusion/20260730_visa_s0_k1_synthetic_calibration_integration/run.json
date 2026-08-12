@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "run_id": "20260730_visa_s0_k1_synthetic_calibration_integration",
+  "purpose": "Verify that a passed calibration report is loaded and applied by the frozen-cache fusion runner",
+  "status": "passed",
+  "dataset": "visa",
+  "seed": 0,
+  "shot": 1,
+  "category": "candle",
+  "samples": 200,
+  "gpu_used": false,
+  "calibration_source": "synthetic_normal_reference_predictions",
+  "performance_claim_allowed": false,
+  "test_labels_used_for_routing": false,
+  "output_sha256": "f3e65f78d1d4c11861e7ee3d1280904313e72b436dfa9035c7c935df09967038",
+  "git_commit": "f0f18eb4635ceb2ee957649d78b9139cd21cbbfe",
+  "working_tree_dirty": true,
+  "exit_code": 0
+}

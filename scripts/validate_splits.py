@@ -53,6 +53,7 @@ def main() -> None:
     shots = sorted(int(value) for value in manifest["shots"])
     seeds = sorted(int(value) for value in manifest["seeds"])
     categories = manifest.get("categories", {})
+    selected_hashes = manifest.get("selected_file_sha256", {})
     if not root.is_dir():
         add_error(errors, f"dataset root does not exist: {root}")
     if not categories:
@@ -111,6 +112,14 @@ def main() -> None:
                     path = root.joinpath(*posix.parts)
                     if not path.is_file():
                         add_error(errors, f"missing reference image: {relative}")
+                    elif manifest.get("dataset") in {"mpdd", "btad"}:
+                        expected_file_hash = selected_hashes.get(relative)
+                        if not expected_file_hash:
+                            add_error(errors, f"missing selected file SHA256: {relative}")
+                        else:
+                            actual_file_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+                            if actual_file_hash != expected_file_hash:
+                                add_error(errors, f"selected file SHA256 mismatch: {relative}")
                     checked_files += 1
 
     report = {

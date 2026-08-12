@@ -1,0 +1,581 @@
+{
+  "generated": "2026-08-12T16:22:06.130465",
+  "config": {
+    "stride": 8
+  },
+  "gate_a1_oracle": {
+    "mean_dap": 0.47173,
+    "positive": 18,
+    "total": 18,
+    "passed": true
+  },
+  "gate_a2_comparison": {
+    "static_mean": 0.07687,
+    "r2_uncert_mean": -0.07992,
+    "r3_normref_mean": -0.077761,
+    "oracle_mean": 0.47173,
+    "r2_oracle_ratio": -0.1694,
+    "r3_oracle_ratio": -0.1648,
+    "static_oracle_ratio": 0.163
+  },
+  "details": [
+    {
+      "cat": "bracket_black",
+      "seed": 0,
+      "dino_ap": 0.024395,
+      "oracle_dap": 0.642297,
+      "static_dap": 0.16582,
+      "r2_uncert_dap": -0.009638,
+      "r3_normref_dap": -0.010336,
+      "oracle_full": {
+        "oracle_auroc": 0.9958,
+        "oracle_ap": 0.666691,
+        "oracle_aupro": 0.987773,
+        "dino_ap": 0.024395,
+        "delta_ap": 0.642297
+      },
+      "static_full": {
+        "auroc": 0.954751,
+        "ap": 0.190215,
+        "aupro": 0.851988
+      },
+      "r2_full": {
+        "auroc": 0.871828,
+        "ap": 0.014757,
+        "aupro": 0.724027
+      },
+      "r3_full": {
+        "auroc": 0.87144,
+        "ap": 0.014059,
+        "aupro": 0.721438
+      }
+    },
+    {
+      "cat": "bracket_black",
+      "seed": 1,
+      "dino_ap": 0.104454,
+      "oracle_dap": 0.443754,
+      "static_dap": 0.119829,
+      "r2_uncert_dap": -0.008001,
+      "r3_normref_dap": -0.004242,
+      "oracle_full": {
+        "oracle_auroc": 0.982649,
+        "oracle_ap": 0.548208,
+        "oracle_aupro": 0.940675,
+        "dino_ap": 0.104454,
+        "delta_ap": 0.443754
+      },
+      "static_full": {
+        "auroc": 0.935657,
+        "ap": 0.224283,
+        "aupro": 0.833169
+      },
+      "r2_full": {
+        "auroc": 0.880179,
+        "ap": 0.096453,
+        "aupro": 0.77339
+      },
+      "r3_full": {
+        "auroc": 0.8809,
+        "ap": 0.100212,
+        "aupro": 0.761987
+      }
+    },
+    {
+      "cat": "bracket_black",
+      "seed": 2,
+      "dino_ap": 0.004763,
+      "oracle_dap": 0.463048,
+      "static_dap": 0.155558,
+      "r2_uncert_dap": 0.009854,
+      "r3_normref_dap": 0.005131,
+      "oracle_full": {
+        "oracle_auroc": 0.992342,
+        "oracle_ap": 0.467811,
+        "oracle_aupro": 0.962241,
+        "dino_ap": 0.004763,
+        "delta_ap": 0.463048
+      },
+      "static_full": {
+        "auroc": 0.934581,
+        "ap": 0.160321,
+        "aupro": 0.731111
+      },
+      "r2_full": {
+        "auroc": 0.858401,
+        "ap": 0.014617,
+        "aupro": 0.548417
+      },
+      "r3_full": {
+        "auroc": 0.860191,
+        "ap": 0.009894,
+        "aupro": 0.572661
+      }
+    },
+    {
+      "cat": "bracket_brown",
+      "seed": 0,
+      "dino_ap": 0.045688,
+      "oracle_dap": 0.484254,
+      "static_dap": 0.004127,
+      "r2_uncert_dap": -0.021298,
+      "r3_normref_dap": -0.02111,
+      "oracle_full": {
+        "oracle_auroc": 0.989156,
+        "oracle_ap": 0.529942,
+        "oracle_aupro": 0.964793,
+        "dino_ap": 0.045688,
+        "delta_ap": 0.484254
+      },
+      "static_full": {
+        "auroc": 0.9341,
+        "ap": 0.049815,
+        "aupro": 0.79651
+      },
+      "r2_full": {
+        "auroc": 0.786331,
+        "ap": 0.02439,
+        "aupro": 0.41304
+      },
+      "r3_full": {
+        "auroc": 0.784906,
+        "ap": 0.024578,
+        "aupro": 0.404819
+      }
+    },
+    {
+      "cat": "bracket_brown",
+      "seed": 1,
+      "dino_ap": 0.054962,
+      "oracle_dap": 0.517617,
+      "static_dap": 0.002949,
+      "r2_uncert_dap": -0.030119,
+      "r3_normref_dap": -0.03009,
+      "oracle_full": {
+        "oracle_auroc": 0.990748,
+        "oracle_ap": 0.572579,
+        "oracle_aupro": 0.968223,
+        "dino_ap": 0.054962,
+        "delta_ap": 0.517617
+      },
+      "static_full": {
+        "auroc": 0.93904,
+        "ap": 0.057911,
+        "aupro": 0.79868
+      },
+      "r2_full": {
+        "auroc": 0.786314,
+        "ap": 0.024843,
+        "aupro": 0.405285
+      },
+      "r3_full": {
+        "auroc": 0.785054,
+        "ap": 0.024872,
+        "aupro": 0.399782
+      }
+    },
+    {
+      "cat": "bracket_brown",
+      "seed": 2,
+      "dino_ap": 0.050163,
+      "oracle_dap": 0.512508,
+      "static_dap": 0.002851,
+      "r2_uncert_dap": -0.017654,
+      "r3_normref_dap": -0.018338,
+      "oracle_full": {
+        "oracle_auroc": 0.989942,
+        "oracle_ap": 0.562671,
+        "oracle_aupro": 0.979285,
+        "dino_ap": 0.050163,
+        "delta_ap": 0.512508
+      },
+      "static_full": {
+        "auroc": 0.939075,
+        "ap": 0.053014,
+        "aupro": 0.861117
+      },
+      "r2_full": {
+        "auroc": 0.801336,
+        "ap": 0.032509,
+        "aupro": 0.460014
+      },
+      "r3_full": {
+        "auroc": 0.798751,
+        "ap": 0.031825,
+        "aupro": 0.45751
+      }
+    },
+    {
+      "cat": "bracket_white",
+      "seed": 0,
+      "dino_ap": 0.094335,
+      "oracle_dap": 0.655541,
+      "static_dap": 0.071357,
+      "r2_uncert_dap": -0.059435,
+      "r3_normref_dap": -0.055359,
+      "oracle_full": {
+        "oracle_auroc": 0.999518,
+        "oracle_ap": 0.749876,
+        "oracle_aupro": 0.998002,
+        "dino_ap": 0.094335,
+        "delta_ap": 0.655541
+      },
+      "static_full": {
+        "auroc": 0.997707,
+        "ap": 0.165692,
+        "aupro": 0.990778
+      },
+      "r2_full": {
+        "auroc": 0.987471,
+        "ap": 0.0349,
+        "aupro": 0.943017
+      },
+      "r3_full": {
+        "auroc": 0.98811,
+        "ap": 0.038976,
+        "aupro": 0.946831
+      }
+    },
+    {
+      "cat": "bracket_white",
+      "seed": 1,
+      "dino_ap": 0.056278,
+      "oracle_dap": 0.559825,
+      "static_dap": 0.114289,
+      "r2_uncert_dap": -0.051369,
+      "r3_normref_dap": -0.051833,
+      "oracle_full": {
+        "oracle_auroc": 0.999306,
+        "oracle_ap": 0.616103,
+        "oracle_aupro": 0.997156,
+        "dino_ap": 0.056278,
+        "delta_ap": 0.559825
+      },
+      "static_full": {
+        "auroc": 0.9952,
+        "ap": 0.170567,
+        "aupro": 0.97789
+      },
+      "r2_full": {
+        "auroc": 0.941609,
+        "ap": 0.004909,
+        "aupro": 0.78423
+      },
+      "r3_full": {
+        "auroc": 0.938715,
+        "ap": 0.004445,
+        "aupro": 0.762387
+      }
+    },
+    {
+      "cat": "bracket_white",
+      "seed": 2,
+      "dino_ap": 0.07736,
+      "oracle_dap": 0.664622,
+      "static_dap": 0.135236,
+      "r2_uncert_dap": -0.053689,
+      "r3_normref_dap": -0.052777,
+      "oracle_full": {
+        "oracle_auroc": 0.999681,
+        "oracle_ap": 0.741982,
+        "oracle_aupro": 0.998668,
+        "dino_ap": 0.07736,
+        "delta_ap": 0.664622
+      },
+      "static_full": {
+        "auroc": 0.998658,
+        "ap": 0.212596,
+        "aupro": 0.994903
+      },
+      "r2_full": {
+        "auroc": 0.989379,
+        "ap": 0.023671,
+        "aupro": 0.958545
+      },
+      "r3_full": {
+        "auroc": 0.989943,
+        "ap": 0.024583,
+        "aupro": 0.963843
+      }
+    },
+    {
+      "cat": "connector",
+      "seed": 0,
+      "dino_ap": 0.098322,
+      "oracle_dap": 0.699577,
+      "static_dap": 0.096882,
+      "r2_uncert_dap": 0.071313,
+      "r3_normref_dap": 0.076439,
+      "oracle_full": {
+        "oracle_auroc": 0.99609,
+        "oracle_ap": 0.797899,
+        "oracle_aupro": 0.985947,
+        "dino_ap": 0.098322,
+        "delta_ap": 0.699577
+      },
+      "static_full": {
+        "auroc": 0.962835,
+        "ap": 0.195204,
+        "aupro": 0.868705
+      },
+      "r2_full": {
+        "auroc": 0.929212,
+        "ap": 0.169635,
+        "aupro": 0.786655
+      },
+      "r3_full": {
+        "auroc": 0.929941,
+        "ap": 0.174761,
+        "aupro": 0.788117
+      }
+    },
+    {
+      "cat": "connector",
+      "seed": 1,
+      "dino_ap": 0.223239,
+      "oracle_dap": 0.61524,
+      "static_dap": 0.072818,
+      "r2_uncert_dap": -0.059802,
+      "r3_normref_dap": -0.058807,
+      "oracle_full": {
+        "oracle_auroc": 0.997576,
+        "oracle_ap": 0.838479,
+        "oracle_aupro": 0.990547,
+        "dino_ap": 0.223239,
+        "delta_ap": 0.61524
+      },
+      "static_full": {
+        "auroc": 0.976709,
+        "ap": 0.296057,
+        "aupro": 0.913368
+      },
+      "r2_full": {
+        "auroc": 0.926994,
+        "ap": 0.163437,
+        "aupro": 0.793425
+      },
+      "r3_full": {
+        "auroc": 0.926996,
+        "ap": 0.164432,
+        "aupro": 0.790005
+      }
+    },
+    {
+      "cat": "connector",
+      "seed": 2,
+      "dino_ap": 0.151671,
+      "oracle_dap": 0.675938,
+      "static_dap": 0.093778,
+      "r2_uncert_dap": 0.04967,
+      "r3_normref_dap": 0.061323,
+      "oracle_full": {
+        "oracle_auroc": 0.99783,
+        "oracle_ap": 0.827609,
+        "oracle_aupro": 0.99248,
+        "dino_ap": 0.151671,
+        "delta_ap": 0.675938
+      },
+      "static_full": {
+        "auroc": 0.974784,
+        "ap": 0.245449,
+        "aupro": 0.913153
+      },
+      "r2_full": {
+        "auroc": 0.931736,
+        "ap": 0.201341,
+        "aupro": 0.799409
+      },
+      "r3_full": {
+        "auroc": 0.931391,
+        "ap": 0.212994,
+        "aupro": 0.804736
+      }
+    },
+    {
+      "cat": "metal_plate",
+      "seed": 0,
+      "dino_ap": 0.847173,
+      "oracle_dap": 0.114274,
+      "static_dap": -0.036872,
+      "r2_uncert_dap": -0.123073,
+      "r3_normref_dap": -0.12823,
+      "oracle_full": {
+        "oracle_auroc": 0.994031,
+        "oracle_ap": 0.961447,
+        "oracle_aupro": 0.987444,
+        "dino_ap": 0.847173,
+        "delta_ap": 0.114274
+      },
+      "static_full": {
+        "auroc": 0.968061,
+        "ap": 0.810301,
+        "aupro": 0.929259
+      },
+      "r2_full": {
+        "auroc": 0.941216,
+        "ap": 0.7241,
+        "aupro": 0.882404
+      },
+      "r3_full": {
+        "auroc": 0.940983,
+        "ap": 0.718943,
+        "aupro": 0.86583
+      }
+    },
+    {
+      "cat": "metal_plate",
+      "seed": 1,
+      "dino_ap": 0.860184,
+      "oracle_dap": 0.093237,
+      "static_dap": -0.049568,
+      "r2_uncert_dap": -0.143039,
+      "r3_normref_dap": -0.146888,
+      "oracle_full": {
+        "oracle_auroc": 0.992776,
+        "oracle_ap": 0.953421,
+        "oracle_aupro": 0.985876,
+        "dino_ap": 0.860184,
+        "delta_ap": 0.093237
+      },
+      "static_full": {
+        "auroc": 0.966153,
+        "ap": 0.810616,
+        "aupro": 0.926614
+      },
+      "r2_full": {
+        "auroc": 0.940982,
+        "ap": 0.717145,
+        "aupro": 0.887541
+      },
+      "r3_full": {
+        "auroc": 0.940914,
+        "ap": 0.713296,
+        "aupro": 0.859822
+      }
+    },
+    {
+      "cat": "metal_plate",
+      "seed": 2,
+      "dino_ap": 0.79253,
+      "oracle_dap": 0.164117,
+      "static_dap": 0.001904,
+      "r2_uncert_dap": -0.070528,
+      "r3_normref_dap": -0.075464,
+      "oracle_full": {
+        "oracle_auroc": 0.993425,
+        "oracle_ap": 0.956647,
+        "oracle_aupro": 0.986385,
+        "dino_ap": 0.79253,
+        "delta_ap": 0.164117
+      },
+      "static_full": {
+        "auroc": 0.961884,
+        "ap": 0.794434,
+        "aupro": 0.923597
+      },
+      "r2_full": {
+        "auroc": 0.942076,
+        "ap": 0.722002,
+        "aupro": 0.859534
+      },
+      "r3_full": {
+        "auroc": 0.941984,
+        "ap": 0.717066,
+        "aupro": 0.883475
+      }
+    },
+    {
+      "cat": "tubes",
+      "seed": 0,
+      "dino_ap": 0.571518,
+      "oracle_dap": 0.380529,
+      "static_dap": 0.128153,
+      "r2_uncert_dap": -0.276835,
+      "r3_normref_dap": -0.261547,
+      "oracle_full": {
+        "oracle_auroc": 0.999418,
+        "oracle_ap": 0.952048,
+        "oracle_aupro": 0.997711,
+        "dino_ap": 0.571518,
+        "delta_ap": 0.380529
+      },
+      "static_full": {
+        "auroc": 0.991136,
+        "ap": 0.699671,
+        "aupro": 0.96325
+      },
+      "r2_full": {
+        "auroc": 0.965464,
+        "ap": 0.294683,
+        "aupro": 0.87419
+      },
+      "r3_full": {
+        "auroc": 0.965584,
+        "ap": 0.309971,
+        "aupro": 0.874319
+      }
+    },
+    {
+      "cat": "tubes",
+      "seed": 1,
+      "dino_ap": 0.518647,
+      "oracle_dap": 0.41715,
+      "static_dap": 0.167991,
+      "r2_uncert_dap": -0.314354,
+      "r3_normref_dap": -0.303665,
+      "oracle_full": {
+        "oracle_auroc": 0.999071,
+        "oracle_ap": 0.935797,
+        "oracle_aupro": 0.996307,
+        "dino_ap": 0.518647,
+        "delta_ap": 0.41715
+      },
+      "static_full": {
+        "auroc": 0.990553,
+        "ap": 0.686638,
+        "aupro": 0.961496
+      },
+      "r2_full": {
+        "auroc": 0.94508,
+        "ap": 0.204293,
+        "aupro": 0.804722
+      },
+      "r3_full": {
+        "auroc": 0.945589,
+        "ap": 0.214982,
+        "aupro": 0.819304
+      }
+    },
+    {
+      "cat": "tubes",
+      "seed": 2,
+      "dino_ap": 0.558445,
+      "oracle_dap": 0.387614,
+      "static_dap": 0.136554,
+      "r2_uncert_dap": -0.330566,
+      "r3_normref_dap": -0.323914,
+      "oracle_full": {
+        "oracle_auroc": 0.999181,
+        "oracle_ap": 0.946059,
+        "oracle_aupro": 0.99676,
+        "dino_ap": 0.558445,
+        "delta_ap": 0.387614
+      },
+      "static_full": {
+        "auroc": 0.990176,
+        "ap": 0.694999,
+        "aupro": 0.959732
+      },
+      "r2_full": {
+        "auroc": 0.948617,
+        "ap": 0.227879,
+        "aupro": 0.796985
+      },
+      "r3_full": {
+        "auroc": 0.949214,
+        "ap": 0.234531,
+        "aupro": 0.817783
+      }
+    }
+  ]
+}

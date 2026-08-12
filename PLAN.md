@@ -523,3 +523,19 @@ python run_anomalydino.py --dataset VisA --shots 1 2 4 --num_seeds 3 --preproces
 - 汇总表只能由脚本从逐 run 文件生成，不能手工填数。
 - 任何失败运行保留日志，不覆盖之前的成功结果。
 - 结果比较必须注明数据集、shot、seed、目标域调参和分辨率。
+
+## 13. 2026-08-09 权威项目断点
+
+早期章节保留为计划和过程记录；当前执行状态以本节、`PROJECT_STATUS.md`最新章节、
+`NEXT_ACTIONS.md`和机器可读快照为准。
+
+1. VisA四方法基线36/36完成；MVTec PatchCore、WinCLIP+、AnomalyDINO和
+   DynamicFusion均9/9完成。
+2. PromptAD MVTec为4/9，队列暂停，待完成s1/k2、s1/k4、s2/k1、s2/k2、s2/k4。
+3. 动态融合V1已经冻结并完成最终验证，实际分支为AnomalyDINO视觉分支和
+   AnomalyCLIP文本分支。下一步只做科学分析、消融整理和可视化，不用最终集继续调参。
+4. ReMP-AD环境已建立但Gate A未开始；AdaptCLIP缺官方checkpoint且存在6 GB显存风险。
+5. 当前优先顺序为：状态同步完成 → CPU动态融合分析 → 准备/恢复PromptAD队列 →
+   ReMP-AD/AdaptCLIP Gate A → 最终公平表格与论文交付。
+
+权威机器可读快照：`experiments/summaries/project_state_snapshot_20260809.json`。

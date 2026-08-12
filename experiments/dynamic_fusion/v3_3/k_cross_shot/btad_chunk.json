@@ -1,0 +1,236 @@
+[
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 0,
+    "cat": "01",
+    "dino_ap": 0.387705,
+    "fused_ap": 0.47381,
+    "delta_ap": 0.086105
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 0,
+    "cat": "02",
+    "dino_ap": 0.635968,
+    "fused_ap": 0.709446,
+    "delta_ap": 0.073478
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 0,
+    "cat": "03",
+    "dino_ap": 0.670026,
+    "fused_ap": 0.721252,
+    "delta_ap": 0.051226
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 1,
+    "cat": "01",
+    "dino_ap": 0.396139,
+    "fused_ap": 0.472596,
+    "delta_ap": 0.076457
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 1,
+    "cat": "02",
+    "dino_ap": 0.619826,
+    "fused_ap": 0.700705,
+    "delta_ap": 0.080879
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 1,
+    "cat": "03",
+    "dino_ap": 0.662286,
+    "fused_ap": 0.718287,
+    "delta_ap": 0.056001
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 2,
+    "cat": "01",
+    "dino_ap": 0.377519,
+    "fused_ap": 0.458151,
+    "delta_ap": 0.080632
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 2,
+    "cat": "02",
+    "dino_ap": 0.640765,
+    "fused_ap": 0.710494,
+    "delta_ap": 0.069728
+  },
+  {
+    "dataset": "btad",
+    "k": 1,
+    "seed": 2,
+    "cat": "03",
+    "dino_ap": 0.692161,
+    "fused_ap": 0.714928,
+    "delta_ap": 0.022766
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 0,
+    "cat": "01",
+    "dino_ap": 0.327577,
+    "fused_ap": 0.42064,
+    "delta_ap": 0.093063
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 0,
+    "cat": "02",
+    "dino_ap": 0.609801,
+    "fused_ap": 0.693578,
+    "delta_ap": 0.083777
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 0,
+    "cat": "03",
+    "dino_ap": 0.714288,
+    "fused_ap": 0.74162,
+    "delta_ap": 0.027332
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 1,
+    "cat": "01",
+    "dino_ap": 0.420906,
+    "fused_ap": 0.488904,
+    "delta_ap": 0.067998
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 1,
+    "cat": "02",
+    "dino_ap": 0.613808,
+    "fused_ap": 0.695392,
+    "delta_ap": 0.081584
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 1,
+    "cat": "03",
+    "dino_ap": 0.682905,
+    "fused_ap": 0.732114,
+    "delta_ap": 0.049209
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 2,
+    "cat": "01",
+    "dino_ap": 0.413684,
+    "fused_ap": 0.482257,
+    "delta_ap": 0.068573
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 2,
+    "cat": "02",
+    "dino_ap": 0.613788,
+    "fused_ap": 0.693756,
+    "delta_ap": 0.079968
+  },
+  {
+    "dataset": "btad",
+    "k": 2,
+    "seed": 2,
+    "cat": "03",
+    "dino_ap": 0.7101,
+    "fused_ap": 0.723829,
+    "delta_ap": 0.013729
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 0,
+    "cat": "01",
+    "dino_ap": 0.355696,
+    "fused_ap": 0.440541,
+    "delta_ap": 0.084844
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 0,
+    "cat": "02",
+    "dino_ap": 0.603839,
+    "fused_ap": 0.683988,
+    "delta_ap": 0.080149
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 1,
+    "cat": "01",
+    "dino_ap": 0.424053,
+    "fused_ap": 0.484814,
+    "delta_ap": 0.060761
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 1,
+    "cat": "02",
+    "dino_ap": 0.617232,
+    "fused_ap": 0.695142,
+    "delta_ap": 0.07791
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 1,
+    "cat": "03",
+    "dino_ap": 0.70851,
+    "fused_ap": 0.739241,
+    "delta_ap": 0.030731
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 2,
+    "cat": "01",
+    "dino_ap": 0.419585,
+    "fused_ap": 0.480451,
+    "delta_ap": 0.060866
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 2,
+    "cat": "02",
+    "dino_ap": 0.606463,
+    "fused_ap": 0.686325,
+    "delta_ap": 0.079862
+  },
+  {
+    "dataset": "btad",
+    "k": 4,
+    "seed": 2,
+    "cat": "03",
+    "dino_ap": 0.719623,
+    "fused_ap": 0.742696,
+    "delta_ap": 0.023072
+  }
+]

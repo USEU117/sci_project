@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "run_id": "20260731_reference_pipeline_validate_passed",
+  "purpose": "Validate the real normal-reference pipeline wrapper without running GPU work",
+  "status": "passed",
+  "gpu_used": false,
+  "baseline_processes_detected": 3,
+  "steps_validated": 5,
+  "guard_exit_code": 1,
+  "guard_output_created": false,
+  "exit_code": 0
+}

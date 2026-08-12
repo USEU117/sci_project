@@ -20,8 +20,14 @@ def stem_set(path: Path) -> set[str]:
     return {p.stem for p in files(path)}
 
 
+def first_directory(*paths: Path) -> Path:
+    return next((path for path in paths if path.is_dir()), paths[0])
+
+
 def validate_category(category_dir: Path) -> dict:
-    train_good = category_dir / "train" / "good"
+    train_good = first_directory(
+        category_dir / "train" / "good", category_dir / "train" / "ok"
+    )
     test_dir = category_dir / "test"
     gt_dir = category_dir / "ground_truth"
     errors: list[str] = []
@@ -31,7 +37,8 @@ def validate_category(category_dir: Path) -> dict:
         errors.append("missing test")
     train_count = len(files(train_good)) if train_good.is_dir() else 0
     test_images = files(test_dir) if test_dir.is_dir() else []
-    abnormal_images = [p for p in test_images if p.parent.name != "good"]
+    normal_names = {"good", "ok"}
+    abnormal_images = [p for p in test_images if p.parent.name.lower() not in normal_names]
     missing_masks: list[str] = []
     if gt_dir.is_dir():
         masks = stem_set(gt_dir)
@@ -55,7 +62,9 @@ def validate_category(category_dir: Path) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", required=True, choices=["mvtec", "visa"])
+    ap.add_argument(
+        "--dataset", required=True, choices=["mvtec", "visa", "mpdd", "btad"]
+    )
     ap.add_argument("--root", type=Path, required=True)
     ap.add_argument("--output", type=Path, default=Path("outputs/logs"))
     args = ap.parse_args()
@@ -69,9 +78,16 @@ def main() -> None:
         "category_count": len(categories),
         "categories": {p.name: validate_category(p) for p in categories},
     }
+    expected_categories = {"mvtec": 15, "visa": 12, "mpdd": 6, "btad": 3}
+    report["expected_category_count"] = expected_categories[args.dataset]
+    report["category_count_matches"] = (
+        len(categories) == expected_categories[args.dataset]
+    )
     report["error_count"] = sum(
         len(info["errors"]) for info in report["categories"].values()
     )
+    if not report["category_count_matches"]:
+        report["error_count"] += 1
     args.output.mkdir(parents=True, exist_ok=True)
     destination = args.output / f"{args.dataset}_validation.json"
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -83,4 +99,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

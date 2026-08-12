@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "created_at_utc": "2026-08-10T14:05:18.629272+00:00",
+  "purpose": "protect DynamicFusion V1 evidence before V2 development",
+  "files": [
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\configs\\dynamic_fusion.yaml",
+      "size_bytes": 2216,
+      "sha256": "1ca999597deb8736608f642308d604f3346d502011dab3bc71e69e6978dd3ec9"
+    },
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\src\\industrial_ad\\fusion\\calibration.py",
+      "size_bytes": 5777,
+      "sha256": "87a7b846c2f9286851054841433618255243d5b5e358e85bfe45ea234124b1ca"
+    },
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\src\\industrial_ad\\fusion\\router.py",
+      "size_bytes": 4206,
+      "sha256": "69ad01dec381bb55dde54e880103d328a1e813a0af2fb4f429da41f37086cb90"
+    },
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\final_validation_audit_20260808\\final_validation_audit.json",
+      "size_bytes": 17466,
+      "sha256": "550b6bd1b658ad9c5b4d54ccce7b86c6ddead577b4f3e2c87fa13fbe207622d6"
+    },
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\experiments\\summaries\\dynamic_fusion_scientific_analysis_20260809\\summary.json",
+      "size_bytes": 1322,
+      "sha256": "726c081c7e4761eaf058ca4ab7ccd5e22642198c3459932d3aa0139ef26187d1"
+    },
+    {
+      "path": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\final_validation\\summary.json",
+      "size_bytes": 1923,
+      "sha256": "696bb7a98479a8c933621af97d74fb05de52e22a479a489722b59f09b923f1db"
+    }
+  ]
+}

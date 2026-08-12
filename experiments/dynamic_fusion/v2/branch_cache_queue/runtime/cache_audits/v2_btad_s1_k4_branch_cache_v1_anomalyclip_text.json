@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-11T01:52:27.354612+00:00",
+  "dataset": "btad",
+  "branch": "anomalyclip_text",
+  "seed": 1,
+  "shot": 4,
+  "manifest": "D:\\STUDY\\My_github\\sci_project\\data\\splits\\btad\\manifest.json",
+  "manifest_sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215",
+  "min_views_per_source": 4,
+  "expected_categories": 3,
+  "categories_found": 3,
+  "passed": 3,
+  "failed": 0,
+  "all_passed": true,
+  "test_predictions_used": false,
+  "test_labels_used": false,
+  "categories": [
+    {
+      "category": "01",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k4_branch_cache_v1\\anomalyclip_text\\01.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 4,
+      "views": 20,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.7239371538162231,
+      "image_score_max": 0.8052980899810791,
+      "cache_sha256": "a637f489500575054d5c005088a5c13a3b179c19b4349cd7a8111526c77f2e6c"
+    },
+    {
+      "category": "02",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k4_branch_cache_v1\\anomalyclip_text\\02.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 4,
+      "views": 20,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.6898155808448792,
+      "image_score_max": 0.8194867372512817,
+      "cache_sha256": "415781384159f7e883f35bc1c33a8fc83c387a07f3d4123ecb68f7d123e689db"
+    },
+    {
+      "category": "03",
+      "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v2_branch_cache\\v2_btad_s1_k4_branch_cache_v1\\anomalyclip_text\\03.npz",
+      "status": "passed",
+      "errors": [],
+      "sources": 4,
+      "views": 20,
+      "height": 518,
+      "width": 518,
+      "image_score_min": 0.8425695300102234,
+      "image_score_max": 0.9024612307548523,
+      "cache_sha256": "423fb7953c90bdc4be1e6b01c457c5c2fb3ad4f45cccb96e34156d1c64c88bcf"
+    }
+  ]
+}

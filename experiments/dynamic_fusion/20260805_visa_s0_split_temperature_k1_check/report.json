@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "run_id": "20260805_visa_s0_split_temperature_k1_check",
+  "scope": "development_only_seed_0",
+  "k1_consistency": [
+    {
+      "category": "candle",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "capsules",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "cashew",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "chewinggum",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "fryum",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "macaroni1",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "macaroni2",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "pcb1",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "pcb2",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "pcb3",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "pcb4",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    },
+    {
+      "category": "pipe_fryum",
+      "pixel_weights_identical": true,
+      "pixel_maps_identical": true,
+      "image_weights_changed": true
+    }
+  ],
+  "summaries": {
+    "1": {
+      "category": "macro_mean",
+      "sample_count": "2162",
+      "image_auroc": "0.8202948707370737",
+      "image_ap": "0.842682036263139",
+      "image_f1_max": "0.8103939166704964",
+      "pixel_auroc": "0.9330253968278672",
+      "pixel_ap": "0.15929116557521672",
+      "aupro": "0.6778076518007597"
+    },
+    "2": {
+      "category": "macro_mean",
+      "sample_count": "2162",
+      "image_auroc": "0.8226382700770077",
+      "image_ap": "0.8562135619833952",
+      "image_f1_max": "0.8070214898967673",
+      "pixel_auroc": "0.9487401050919408",
+      "pixel_ap": "0.18028736406017357",
+      "aupro": "0.8154636914656682"
+    },
+    "4": {
+      "category": "macro_mean",
+      "sample_count": "2162",
+      "image_auroc": "0.8210646589658966",
+      "image_ap": "0.8541954390715888",
+      "image_f1_max": "0.8060137523377254",
+      "pixel_auroc": "0.9486242310503773",
+      "pixel_ap": "0.1782187704814773",
+      "aupro": "0.7959941071111546"
+    }
+  },
+  "finished_at_utc": "2026-08-04T15:46:03.484173+00:00"
+}
