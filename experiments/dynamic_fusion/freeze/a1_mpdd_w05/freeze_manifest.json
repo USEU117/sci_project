@@ -1,0 +1,1319 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "created_at_utc": "2026-08-18T01:19:53.167108+00:00",
+  "development_dataset": "mpdd",
+  "dataset_role": "development",
+  "method": "A1_feature_level_fusion_concat_knn_memory_bank",
+  "frozen_config": {
+    "branches": [
+      "anomalydino_visual (dinov2_vitb14)",
+      "anomalyclip_text (ViT-L/14@336px)"
+    ],
+    "fusion": "L2-normalize each branch -> concat -> L2-normalize -> KNN (k=1) memory bank on K normal-reference patches -> distance/2 = anomaly map",
+    "pca_dim": 0,
+    "whiten": false,
+    "dino_weight": 0.5,
+    "clip_weight": 0.5,
+    "pixel_stride": 8,
+    "map_size": 448,
+    "clip_grid_resize_to_dino_grid": true,
+    "K": [
+      1,
+      2,
+      4
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "selection_evidence": {
+    "matrix_9_configs_all_positive": true,
+    "mean_delta_ap_vs_dino_9_configs": 0.048558777777777784,
+    "matrix_audit_all_pass": true,
+    "weight_scan_best": 0.4,
+    "weight_scan_frozen_0_5_delta_gap": 0.000927,
+    "weight_decision": "keep w=0.5 (equal, no hyperparameter, symmetric); w=0.4 gain ~+0.0009 within noise",
+    "dynamic_vs_fixed": {
+      "dynamic_mean_delta_ap": 0.04951190740740739,
+      "fixed_mean_delta_ap": 0.0485977037037037,
+      "dynamic_minus_fixed": 0.0009141851851851853,
+      "dynamic_wins_fraction": 0.4444444444444444,
+      "decision": "dynamic router does not exceed best fixed fusion; freeze fixed w=0.5"
+    }
+  },
+  "leakage_flags": {
+    "test_predictions_used": false,
+    "test_labels_used": false,
+    "test_masks_used": false,
+    "test_dataset_statistics_used": false,
+    "test_normal_selection_used": false
+  },
+  "code": [
+    {
+      "relative_path": "scripts/evaluate_a1_feature_fusion.py",
+      "size_bytes": 11676,
+      "sha256": "145f1685999ee6246f74c7f4b7d1bafcb3f37732211eaa11fb834bad409c607f"
+    },
+    {
+      "relative_path": "scripts/export_anomalydino_mpdd_features.py",
+      "size_bytes": 6732,
+      "sha256": "0747e54b33e7964c4c10c64ae015bd2722b0ea9812be33f1a4327d1f0f3831c2"
+    },
+    {
+      "relative_path": "scripts/export_anomalyclip_mpdd_features.py",
+      "size_bytes": 8625,
+      "sha256": "be8c56b0a2a6f62811dab0d2edfcae7e527191ae10532d821bd2cff3dd0b4030"
+    },
+    {
+      "relative_path": "scripts/export_a1_mpdd_ref_only.py",
+      "size_bytes": 10647,
+      "sha256": "d7c21382731477f107a33432489a594db6ed8da6b7ea433f62ef432295c879d0"
+    },
+    {
+      "relative_path": "scripts/run_a1_mpdd_matrix.py",
+      "size_bytes": 4173,
+      "sha256": "d0426903c1852ceb5461e735f3cb499c40feda0d863ad26ccc04850de73b5890"
+    },
+    {
+      "relative_path": "scripts/summarize_a1_mpdd_matrix.py",
+      "size_bytes": 4108,
+      "sha256": "ff5cfb8f30f19a432fc71c3aef1385bd3270df2db57f69da58f7571094d28cc3"
+    },
+    {
+      "relative_path": "scripts/audit_a1_mpdd_matrix.py",
+      "size_bytes": 4056,
+      "sha256": "db8480b95fc7760a58ff99f3d02f1216117739cf2e4bf81d10acdc0f2a5a2310"
+    },
+    {
+      "relative_path": "scripts/evaluate_a1_dynamic_vs_fixed.py",
+      "size_bytes": 8184,
+      "sha256": "11c25c3891273a8eea564c90ade9902e6fbe7a43e7125bcdf3128a3e394635cb"
+    },
+    {
+      "relative_path": "src/industrial_ad/fusion/v3_3_clean.py",
+      "size_bytes": 9921,
+      "sha256": "4a5f275f439116352d385746da4df5103d66a7d6306b9e3ebca0266f95101335"
+    }
+  ],
+  "checkpoints": [
+    {
+      "relative_path": "methods/AnomalyCLIP-main/checkpoints/9_12_4_multiscale_visa/epoch_15.pth",
+      "size_bytes": 22631975,
+      "sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4"
+    },
+    {
+      "relative_path": "C:\\Users\\lynle/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+      "size_bytes": 346378731,
+      "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    }
+  ],
+  "manifests": [
+    {
+      "relative_path": "data/splits/mpdd/manifest.json",
+      "size_bytes": 15029,
+      "sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8"
+    }
+  ],
+  "evaluators": [
+    {
+      "relative_path": "scripts/evaluate_unified.py",
+      "size_bytes": 9360,
+      "sha256": "297592be05d74ddb8ec6128d6b0f6a637f921132998d43e7b0301ed98e255919"
+    }
+  ],
+  "feature_caches": {
+    "s0_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 233940751,
+          "sha256": "7c92d62ce58121b54e4d994384732c8e3a588459e555203c7a643c071e15a7fe"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 228095628,
+          "sha256": "a2b1b9d509b286361c1211f17d4780827a8f39afbef9553e9693c1dd225fd6e7"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 178382499,
+          "sha256": "31cdf9a1a75a52fc0bde1e4553b5cba2a9d1cf8323affc4282a43d18af4ca4a5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/connector.npz",
+          "size_bytes": 131580394,
+          "sha256": "efd1e73fb877e25af0f95d09d2fe8d3567618da260473b79d99dce3096019622"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 286653905,
+          "sha256": "283fc1638adc4d547df105b9122f2b0b43489bd67bbb8d859368d5ef7049d206"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/tubes.npz",
+          "size_bytes": 298262130,
+          "sha256": "928004df6a47c1e1f5f6c193d7af90fa74b90688f42a97836ddd94fa0086f8e6"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 312162292,
+          "sha256": "c7a734db92ba1d384c7548618dd51318c180b7de8ad9c292a1e812b49d2528ee"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 304379093,
+          "sha256": "998f7cd78220426f24959296f6f357b046a2e49d306cd02e05db087251fed535"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 238053697,
+          "sha256": "cb4620c5fde7c4fe441fdcacc8563be71358be4e1256cc0e7138cdff172a43e9"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/connector.npz",
+          "size_bytes": 175574878,
+          "sha256": "ad99fb91ef077b8becc4eb6f38f11159032c78500d2569068d9847b42c1fd95e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 382631665,
+          "sha256": "4bdad5f84ce3cebee6b1f49369fdcd887aa2944cf4f63c290dd8810692f627c1"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k1/anomalyclip_text/tubes.npz",
+          "size_bytes": 398092561,
+          "sha256": "23d2d0a6ad3dc06eeb558b61471f060984bd5097aff35b903b549c5ffb8a7fa1"
+        }
+      ]
+    },
+    "s0_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 236864799,
+          "sha256": "a066c70bb9082130d8b9e5f951b1e52d0e6c938287c5ca45f7dce5e724101ec6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 231019568,
+          "sha256": "5547dc8a647c476a5554d40ffc28d76fad89871949f0fe6af9d1e0efe7ba9297"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 181306939,
+          "sha256": "d31690ebb456ceb5587c17d90b8eb4a737eae91b9093003d013c8705d6fa78dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/connector.npz",
+          "size_bytes": 134504209,
+          "sha256": "57fcb9fe9fcf10518e8e40175e77ec8e070cc9723addf5e4dfa5fd1452a39074"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 289577309,
+          "sha256": "65ec9a580fd912c606e957df65f6ec57f0501002714f6e1d4aacab120d7df30e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k2/anomalydino_visual/tubes.npz",
+          "size_bytes": 301185965,
+          "sha256": "b393e49fbfbf4f875340a12303f8bbda066f8b6337f0186655f0557f26dc7923"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 316063583,
+          "sha256": "64e34407d48c58c679f36a57827e61460bfadb2bf143c04776a8738569698fcd"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 308281285,
+          "sha256": "401ba83c4008ff8fa6e53f90ea9b076b26e444a6e6bf2039262cec8829c5b305"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 241955980,
+          "sha256": "b7131333fc5c3e72c3bfdb832fab22e9b144cde44b4ce037d3cd0ba20789c20e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/connector.npz",
+          "size_bytes": 179476037,
+          "sha256": "4f01943864febb349b3c390ac449373aae4fc3131bdba1b5c7acf6f06ef2ff32"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 386534607,
+          "sha256": "d6b11912d86c289fbbc535e0579e63c4ad0f982244e3153f87d990cc3159478d"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k2/anomalyclip_text/tubes.npz",
+          "size_bytes": 401995041,
+          "sha256": "0085bd1125883fb457eb85c3c3066c0641ab516d0ee629f52e36d94fb23eac66"
+        }
+      ]
+    },
+    "s0_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 242712840,
+          "sha256": "a8bb0fbcc21a8f9ea24508be5ed39b4e6652769ed905535eca4e1791fda5c60e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 236867519,
+          "sha256": "3ce58545a0a9f26c2efaa137e8b15bacbd01781ccad6312da060a192bd6f3a4c"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 187156051,
+          "sha256": "e732183a4f2409dd800db5a1dc3a8e94f4c3e88593ebe9d14edd9dea3bf81026"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/connector.npz",
+          "size_bytes": 140351602,
+          "sha256": "b2d015e9611b1976dc180d7c42a2ae4546f0794f0749fe9e6bc1bac22eef1e71"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 295424839,
+          "sha256": "2bfc0b878e1a87943bad4f490408dd9cb0d3ff5f1d37d65ad5bb0361ab8db538"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual/tubes.npz",
+          "size_bytes": 307032672,
+          "sha256": "ed069fcc4e89a4907750031078789a195a9de31677190f4d4bbffe19e5fcd33b"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 323866876,
+          "sha256": "eac563c9f7500a20519c5bd4c074f760dbeadfa9d0696393d3a1025db2496f33"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 316085429,
+          "sha256": "73ddee3e832af50d81b189f74107208acbb11120d504774698d4987d8c960ad9"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 249759729,
+          "sha256": "12643d7a6863497feff34b2cb508b48e32e336a6b80db2945d378499bb3cde49"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/connector.npz",
+          "size_bytes": 187277830,
+          "sha256": "6d34b631d702802930bfd38aa00acd0bd4b807205f113af4885b8ab90a429f64"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 394339972,
+          "sha256": "5c8a1e17351a1ae04e32e778517ceb51561b8e2b2f4c15bd617cfb4999eb1013"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s0_k4/anomalyclip_text/tubes.npz",
+          "size_bytes": 409800449,
+          "sha256": "f894e32df5b331cd82642de555f741b5c24b491c5cc0c9fc5bb3237d8b922849"
+        }
+      ]
+    },
+    "s1_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 233940367,
+          "sha256": "a2d22e7480998cffe86856d0bcefcef571a34a7f279c73efd509149fdb02b827"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 228096561,
+          "sha256": "500160b53c3eefb05cb7cc389cd381aa3bf15d2835419f9c9c953e5dd671e58f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 178381586,
+          "sha256": "f489509061128806f42cd76b99c03ec91ef9df24d7a7f82feddc74d1d129fda5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/connector.npz",
+          "size_bytes": 131581830,
+          "sha256": "b0ddd3bb8f796b8ff1a0eee2f268c047ea0cf6407c3f87790f1e8d1a97d27441"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 286653863,
+          "sha256": "eb97e082bf5f6d52d283dba76193f5239eab0dc3b25c3b7981978fb4914bbad8"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k1/anomalydino_visual/tubes.npz",
+          "size_bytes": 298262775,
+          "sha256": "2bfb07253d4c16b02d343e052be1d8d5e72fc903290bf83caab29e7f74d35c89"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 312163354,
+          "sha256": "bf1c7da75c83e0b7e57c73a205255e284f422e9653f722402cc0a17cd4292bb2"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 304379318,
+          "sha256": "c625885e9c647d935160df5b37fbaacbcae37439060c678cd3babb7c080b26c9"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 238052119,
+          "sha256": "b2214a47bc0f656026acb98465b6e6c1868c53624dce8c7ce0e4bc72acd6d11e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/connector.npz",
+          "size_bytes": 175574481,
+          "sha256": "acb3c267b932114474c26b5f1bb07abd805e310f5c20a40cba8fbc22f0950ee7"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 382631589,
+          "sha256": "22cb43378b10c55f57901344b09fcca14b9608281d1ab5b7a06cde00aebd9d4e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k1/anomalyclip_text/tubes.npz",
+          "size_bytes": 398094839,
+          "sha256": "8abc7cb802f56012d7176b2df8a7f5cd3fc08acefc6fccfba27ea94e1875dfa2"
+        }
+      ]
+    },
+    "s1_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 236864308,
+          "sha256": "0c6d45c04d3bd8b0ad8fc013252533cd027ab239ce7576305ea40c13e2bcf6f3"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 231020399,
+          "sha256": "9164748f5f1a919de19d0dd104ea3d6bcbe00e362ed4f88a9bbad0dc657bf9db"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 181304945,
+          "sha256": "be3fc99dbd72f793abadeaf472b0fb25a1f74e82882aa390b7f3162f981a7cd5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/connector.npz",
+          "size_bytes": 134505316,
+          "sha256": "92bae80b8c53e147ad02eadce46e4b4ed5ea6b4e43939b830249577b09a447d8"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 289578096,
+          "sha256": "bf69fe0d885086d5457e31021b7549429907e3ba9eba1600ff48ccd81a1e05f1"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k2/anomalydino_visual/tubes.npz",
+          "size_bytes": 301186550,
+          "sha256": "a8cdc4d6494d46acae3522b2a1da6bfc615d8e354b4fb3d62881e55d45cf53b6"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 316065734,
+          "sha256": "03b1d3788363f6d9be44b6a5cc1ac3489ad271bda347a8fd5143b80864b6074f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 308281738,
+          "sha256": "76fdc314ec03cf31b6dcdd41921e917d9923c9b67d9714ac079ff1eb844884a0"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 241954620,
+          "sha256": "46cb719aef51cd1fa22fdf0a4f3c76b27b0d45f5dae840927738bb72324c5f9c"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/connector.npz",
+          "size_bytes": 179475341,
+          "sha256": "ee557b7a188c4c9a9969ba3f0df1eeccc2c770ca42366b6bf19dfdfab97729ed"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 386534825,
+          "sha256": "a768e0ca810bb72d01f6760baeab31e711f87985b802e1eb18044a7a384a0bc2"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k2/anomalyclip_text/tubes.npz",
+          "size_bytes": 401997541,
+          "sha256": "7211b24514fc8acb20e0b6077fe6e0b83045d1c68855eb1f98ffafe227374344"
+        }
+      ]
+    },
+    "s1_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 242712231,
+          "sha256": "764f894693c32391357109a9228719f2f54d8fcc5fefed0328bcb681f8a6a22e"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 236868485,
+          "sha256": "3b51898816b281c94c21aa9079ef8018c78c8e6c4f5e1e307cdff9c963968927"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 187153076,
+          "sha256": "44f9139f66a18f32e46354fe69be27ddd41c4510abc602b7633e7588491f30b0"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/connector.npz",
+          "size_bytes": 140353407,
+          "sha256": "8d816bf7943a65b0dc08d1da1a4f948a21e527970e67ce0c4aa3f42a05196b7d"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 295426135,
+          "sha256": "ebc376ffb576a7049da96e5fd9982edf37cf481665db5655dec88a82c6b0f6f7"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s1_k4/anomalydino_visual/tubes.npz",
+          "size_bytes": 307034346,
+          "sha256": "142e67f6f10e89672883557f4897a8bf58e0acf75797a05462d36452a62e9e45"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 323868907,
+          "sha256": "ed1cff5c4d312055bc4da4bfa4c7856c77b625b0bd2ae6d5a40cd84be5471bda"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 316085649,
+          "sha256": "89a34814bd50aa44bb2a73a5b9f8b90a1df784837fb482483e928dbe61319dd0"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 249760064,
+          "sha256": "ee08daa963611273783fe5b2b984f18e64fb097db0ddb82ab050150b64f59320"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/connector.npz",
+          "size_bytes": 187278643,
+          "sha256": "36e14ac5352d4dc2507d55babcb79ade760745eed6d3d112c9a7d75ce7522482"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 394340575,
+          "sha256": "2c512aa52cbb38678137ef7ea31e3db8f635cf816be1d0b8512deee73894fd46"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s1_k4/anomalyclip_text/tubes.npz",
+          "size_bytes": 409802533,
+          "sha256": "b91946dc18260b863dc7c41e8f43a0c31b394ff99acdee6aee6f83bdbc51511e"
+        }
+      ]
+    },
+    "s2_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 233940367,
+          "sha256": "44b8d3d24f35b37ef1510e54fe571a35a0a935b1a50ccaa19b54268752687d6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 228096579,
+          "sha256": "df245881659f1c085d0821ad998f2b053eb40cb2713cf99013cee4a4dbf92251"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 178381333,
+          "sha256": "6f72a168d04b41d43bdb892fa8de5780613c797af031ea4102b17d30fa4d5c6b"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/connector.npz",
+          "size_bytes": 131581914,
+          "sha256": "fea0f293883bef4e01e6bded0dec8ce94c3b3cef05f417fc232d7b616503bb2f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 286654729,
+          "sha256": "7dde01bf031ef5994c34cfeb944d38dc869116a2f4c65ea96d8dc8b3e8120aa4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k1/anomalydino_visual/tubes.npz",
+          "size_bytes": 298262438,
+          "sha256": "ee9a94c9ab3b4f86ad8753332f897c1596f7f85dcc140be058a65607feca6f18"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 312164253,
+          "sha256": "47db1a32fd702a9b84bffdab8f158b856c4ce0654b6a9c03552d176942c81362"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 304379669,
+          "sha256": "22c58fc5e13d68517430bb61c88bcea091f4ae8abc9e10852a04a171ee0f0090"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 238051470,
+          "sha256": "728b48f55afe581841939bcfae61b1d1f9cfa454ec8515e4aa2be759132a78a5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/connector.npz",
+          "size_bytes": 175575731,
+          "sha256": "4f94e4e7e839fb03762b2b182eb25360a1eac0ad3eead2efb23efca6a31e3f69"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 382632730,
+          "sha256": "78acdd0c186367bdd244f4606fa8c11564c1da6ee1bb13a0ac9b3f09de5d91fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k1/anomalyclip_text/tubes.npz",
+          "size_bytes": 398094241,
+          "sha256": "d185e2f59b44456b91618597785e623b7cec3259a05cfb9501ef89947963ed09"
+        }
+      ]
+    },
+    "s2_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 236864509,
+          "sha256": "dea50db4b74adfa198a43051429dd149594a3cbe5f6ea1f17f24d4bf4b9b48a4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 231020568,
+          "sha256": "b15de9afff4d5febd0382899c42e2dc89311ae1474298f90bb610eca98c75267"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 181305495,
+          "sha256": "c9c809a435e712e57f983eb2eaa8fbba3f56f34d398f91a8857614c46804eb27"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/connector.npz",
+          "size_bytes": 134506068,
+          "sha256": "a179bab03642fdd69eead48fb989dc40c20ffefef3fdf02e6abf0ee5592710e0"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 289578588,
+          "sha256": "b32e87fbc15f98e35bfd564be68019fd3b4fa23a9fa363a0389e5fb93ad1ca5c"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k2/anomalydino_visual/tubes.npz",
+          "size_bytes": 301185824,
+          "sha256": "de6492d3d74a8161fbe7571fade7d7fb349af0d1e0954ecda50397b836b6385f"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 316065987,
+          "sha256": "4c7549eaaa94225cc7e183a0aa38cb5c89f9710ab5dd998ea27db47e5f30c5d5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 308281822,
+          "sha256": "de285812e9b0e7d885b5804c3c00a144a014dba3d48046592df6ea4b08616e6f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 241953174,
+          "sha256": "1e43d131cf6f857acb7abb877041c216b79546bf7d62ced79939028642549f29"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/connector.npz",
+          "size_bytes": 179477068,
+          "sha256": "d2a84d77b7fa930a2a701e3084e97fc228857efd991a2cada1cf70009b47f229"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 386535970,
+          "sha256": "81ee2d8b3daa1d3991bcd0fe73a8e13385aef8c31bb952325f84162400bd42db"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k2/anomalyclip_text/tubes.npz",
+          "size_bytes": 401996143,
+          "sha256": "01d58c9773fb427714d6722d01a17e317ac4679479043ae5271e3531ee4334a8"
+        }
+      ]
+    },
+    "s2_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 242712375,
+          "sha256": "7cfd2ce5eb46a0ac16cdc953ee6994b497beeff9e6859d4c5f37c9acd073a0df"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 236868237,
+          "sha256": "566dcc994f0bd9999b2c432d7e3447dc92b7367235860c6054aa2db61edc0e81"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 187153243,
+          "sha256": "fb250bf386d6532c60604fb98d3585f6720f84600a986eaed469e7b16d6fd654"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/connector.npz",
+          "size_bytes": 140353929,
+          "sha256": "dd95acd6c3dc3c66299b58e7938b61245f8214eb8522c7c0075544647aaea629"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 295426367,
+          "sha256": "9132ce8bf1fdb5ed2d1ddd052ecc7f10733d4e60f8f9d6410bd1a90025112613"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s2_k4/anomalydino_visual/tubes.npz",
+          "size_bytes": 307033889,
+          "sha256": "733f8f5e1bfe38d833d0be7faabede8af5d266570e00f5324d0e3db328af90b3"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 323869343,
+          "sha256": "3dc78847f7f9131ab49fb823806a02d63e61245d8eb9d9bef7a5c83a9c9be9a9"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 316085740,
+          "sha256": "a8f5089a1b3fa4a23223906374120441f52ed7ae29a54e46a10d650783321011"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 249757396,
+          "sha256": "652784719d854018bde61f3f82a650e83c7f81731dea12472c3c64759655506f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/connector.npz",
+          "size_bytes": 187278676,
+          "sha256": "9dd24eccb56790b81cb75824c7095c1d6232b662be72fdd79f587c391d92b0ca"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 394343036,
+          "sha256": "8f625b311f8f468585490f4f9682d7610b3809dbf3b9c71a20ca7d709bf8c48b"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v3_direction_a/features_s2_k4/anomalyclip_text/tubes.npz",
+          "size_bytes": 409801621,
+          "sha256": "85c641ccbf015ae5e979af47540fcbde6a6d4301ee979273c8b0fdf5f813cb57"
+        }
+      ]
+    }
+  },
+  "baseline_prediction_caches": {
+    "s0_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55544273,
+          "sha256": "9ed24afdf565a5016e300bad1b0988dc0f5015334d9f871e9901cab33439dbbc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53765996,
+          "sha256": "b94b75022185c1f16ba7070639d1bc327677c4248ef73c223cf3562d4314f434"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 42088520,
+          "sha256": "258bcdcff508431b2207f88f56cc1c16e962799401ecd97057dad3c2eb943460"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30749424,
+          "sha256": "f5b1186774512f61e9ef98399070a6d29cc0b321ed62d44330081558cfa358eb"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67969464,
+          "sha256": "633fabb6c0b06cdf7637d9d84d7092445ec36fe0a95ef1edfef2ad13e8803bcb"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70336455,
+          "sha256": "75c8377bcf0b0b53ddce832a7273e56927fafee563c0b71ea7ca828dce7f55e1"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k1_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s0_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55319926,
+          "sha256": "ce1da96473255e66dc42cb1c150cbf7f39dfe53e2d8e4b1b447cd838ec4b8a2b"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53742634,
+          "sha256": "9f8e3852aa7fbd2093b43ef1523a48255feb5d7345820313077bfaebe6d33ffb"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41812069,
+          "sha256": "dcfb8f662687bfa7cf2600dfa07d623854e15456204c8b252e2a2a16be98146c"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30721678,
+          "sha256": "2711d48e2629ec2f78c5dd6ced991a1e5055200745961f3c9123c2e30d197ee4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67738319,
+          "sha256": "907b1b77cf982c80d8700f38987fecb86962513f71e90d19eeb7638dc7ad2c69"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70484338,
+          "sha256": "92b9c7aa6fb503f647c19a78688ff999d6cb53e4bf079cc3efb5ba1e5ab7b5c4"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k2_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s0_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 54932167,
+          "sha256": "74ab9fe3d8315f9f0c87c44ffad37c6a17d42131709bb093b26da7730c144f91"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53664514,
+          "sha256": "e0e4261a84d559b965994d7b6702ea2c019263c94fea17800137088ac3ad17b4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41705129,
+          "sha256": "99a776766fcc3dc440f8880525fa4d93232a06e145ed827e0c8e76e4e65f2f41"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30828335,
+          "sha256": "cb25bf06b466f2ae64254a036948cd13110844ee130c934d60f463a15ffb01d2"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67538581,
+          "sha256": "da898bdcc8297075a420c9f1efb6a99aeb6ec8642b34fbb240d4cc9189b5b06f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70394922,
+          "sha256": "4d42479719482d822b2beef0b35b61e5f33ef655d8e1b6d0e821d7ad49636704"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s0_k4_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s1_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55337429,
+          "sha256": "664db2721344182165b60898cfd74a2300351b429bf0c752f102f4a4fcbda4e6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53765374,
+          "sha256": "a42358c57e6c7f9956f0d12e30708ff156c6a753e1c14f4bc48ceab2be1aaa26"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 42158779,
+          "sha256": "82115ddadf85933f394846ef393df8a181a6eba9678aa2a1740c6b40456af773"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30466721,
+          "sha256": "46149ef7dcac0f477a8d012413a753c55cbfe1a81f60b2a4566b101274322a37"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 68051385,
+          "sha256": "d811ada8401f4c0848527490bf8a6143a99833b6eb6ca1007b76ff776aa0c5cd"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70589308,
+          "sha256": "4c64fed208b8b9430999f1884a852cdc924fd1d4f0af699c06e07b257157a493"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k1_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s1_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55042163,
+          "sha256": "ed5cf5308db734a7c8c78ed644ed78703d5a3a5b536a2f15feb3b8bcfec8fe72"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53718669,
+          "sha256": "cc2c347667c9cf7e51b086e97f2d9c51316cf0eb31f5f0ef936e2fdf288a44ca"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 42073713,
+          "sha256": "8c6fbb43ed35fe0283f4e935c134fc958d8d782146adb97ce041cc0fa9785de4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30664871,
+          "sha256": "869be3fe0d3f759938ac8f58fbf7fa6bd4b64904de035c41197e38205a18b8da"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67655725,
+          "sha256": "9e089169560bb7dc460dfc02816d3d5d3c9e2814c6e9ff956f9dcd874905d0aa"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70505588,
+          "sha256": "9c6fa7ff3bef67dda2bd61399a000d85e02cfbe5bc6c8f9a6ffd832e4d020062"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k2_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s1_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 54886837,
+          "sha256": "330ece85cce095c8cd7133d744dbb9fa32721a2027bcab86e368c80b708ad385"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53496568,
+          "sha256": "b2599df4aba12f593ab9a670040aea3eeb793a5d86d6a64376813fb66f37d464"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41848940,
+          "sha256": "b1316f3c1a1a61d51c8c3323969f630dfe722b8237f43db69392f0e8c298f573"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30757470,
+          "sha256": "b53d7b6d7432cc9277cf3e6e91c3e5c2937efde3634ace864331a0df6f5c89f5"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67580308,
+          "sha256": "2f7a0501d03b02246dca98fe1ade0fb0514a6e66c3161c88c296585b84f0f4a8"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70594557,
+          "sha256": "db5c99f18920789d4cdb4c5f29b20234daf4c858c1e94632d3991c6da1a7b995"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s1_k4_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s2_k1": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55418822,
+          "sha256": "c5f169372dc026c301e585a61901eac766c1e715adb8663f6b611ad3169e9d9a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53643910,
+          "sha256": "643a88eba2f8e3552792bce7cfc630afeaccf05553d05e31bb0aecb9a7e4a0ec"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41970394,
+          "sha256": "ba3646381000fbbcda6ac9cc8badb137706a15b38675dbb1a20426b00bd93768"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30513071,
+          "sha256": "721bf9c7fa97ce1a519f8335de691748173e7a57d9dc6d416c5786ab12f99360"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 68185499,
+          "sha256": "7ed70b3808c175296656a243b975ce851a3b5f92b42622446fe09f24dfe8ddf4"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70503181,
+          "sha256": "103ace4c8a11debc82cc29a17c4dbad0220df661bf19516bf7527f0343546031"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k1_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s2_k2": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 55239071,
+          "sha256": "37cdf5ed0de0dd546b84ed2d5fb7827fe646bd7c58dc1a1b9ba906ae2f272cb2"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53489381,
+          "sha256": "1e82a3a96f76cc06d49fb05eba77640e9901832f34904829da13b2713953d0fa"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41819979,
+          "sha256": "6f5e110e657d2b7ea3a2ccc37f4c8688129ac6799403e90f7a820f610312bb25"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30512389,
+          "sha256": "1d08ec9cfc9b3febc67d4fe7c5e886b7ac9edffcb70e4c23ff6196f2ae5c80ab"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67804057,
+          "sha256": "9acfce3b81916401c14122858a3b3404a3a0ced1196a66cc1255cbff5d23dd3f"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70692322,
+          "sha256": "3f558abb368d47275bcd10df6484b890fafc74ebf10cceba2ff468b987c8b4e6"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k2_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    },
+    "s2_k4": {
+      "anomalydino_visual": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/bracket_black.npz",
+          "size_bytes": 54869475,
+          "sha256": "fbd79b5a9c41fe4666e2d4d355e45b0330ba92f66487e24c571242bbfc58f892"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/bracket_brown.npz",
+          "size_bytes": 53482575,
+          "sha256": "c1061abcf4696659b1f89f2579965113bcb6c751c5dea257db8d59bb42883cbb"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/bracket_white.npz",
+          "size_bytes": 41777248,
+          "sha256": "e1af7a1f7f091b13f374706a93795bed52716ff369e259570eb8e6e251777313"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/connector.npz",
+          "size_bytes": 30676812,
+          "sha256": "3577bb809217448b62f9c43d5869be80ce36bc4a31968854f6504291f1b395c6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/metal_plate.npz",
+          "size_bytes": 67565260,
+          "sha256": "7bd54d6453aebe7bd9b4d929d5fbbd602d382fcc59d84c336066959b91a591c1"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalydino_visual/tubes.npz",
+          "size_bytes": 70464355,
+          "sha256": "c873dbfa5bc20f84ed0e69bc8be41e01b7fdbc9adddfba3a23bd0cbb1bc9afad"
+        }
+      ],
+      "anomalyclip_text": [
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/bracket_black.npz",
+          "size_bytes": 73897626,
+          "sha256": "66b6a4b5e2364faf530e84d94684fcd0950b11683c2062d04682010b9895e9dc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/bracket_brown.npz",
+          "size_bytes": 71833911,
+          "sha256": "14c0edcf57980bc7c094881c071c6c94bfec35d150ef7de0bd147bc9fa6d2ac6"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/bracket_white.npz",
+          "size_bytes": 56264190,
+          "sha256": "5be77ece9e53c5f3f884b965a6fb4bb743599d40bcf68867342c300e145fbf6a"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/connector.npz",
+          "size_bytes": 41035893,
+          "sha256": "e1f6609fcc1a26124a37cde1473f8424c76caabe0855b19a36804fa6db8bf9fc"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/metal_plate.npz",
+          "size_bytes": 91551942,
+          "sha256": "d6ff426bd3333186cca6ec971c15a975f4ba14ff94dea3d213a96dc55532c810"
+        },
+        {
+          "relative_path": "outputs/dynamic_fusion/v2_mpdd_predictions/v2_mpdd_s2_k4_full_v1/anomalyclip_text/tubes.npz",
+          "size_bytes": 95593730,
+          "sha256": "70111b4b8767f47bc0a29e11b76462d26ea9a363dbe4ae6d95abcf7e389a97f0"
+        }
+      ]
+    }
+  }
+}

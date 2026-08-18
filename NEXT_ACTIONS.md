@@ -6,11 +6,13 @@
 
 ## 当前权威状态
 
-- 当前没有项目训练进程，GPU 队列未启动。
+- PromptAD MVTec 剩余 5 组训练已启动（GPU 串行，从 s1_k2 capsule seg 断点续跑）；基线 ReMP-AD/AdaptCLIP 待 GPU 空出后接力。
+- 基线前置已就绪：AdaptCLIP 环境依赖冲突已修复（transformers 4.38.2）、ReMP-AD 环境可用、`data/visa -> data/visa_raw` junction 已建立；两个基线脚本已写好并通过 `-ValidateOnly` 预检（`scripts/start_adaptclip_mvtec_gate_a.ps1`、`scripts/start_remp_ad_mvtec.ps1`）。
+- 用户已确认「等 PromptAD 全部完成再接力基线」；看门狗脚本 `scripts/run_baselines_after_promptad.ps1` 已后台启动（poll 120s / max 96h / stall 45min）：① `status.json=completed` 后自动跑 AdaptCLIP Gate A（bottle, batch 1）→ ReMP-AD MVTec（train VisA → test 4/2/1，batch 1）；② 检测到队列进程消失但未 completed 时自动断点重启队列；③ `state=blocked` 则停止并记录；④ marker 停滞 >45min 仅告警不杀进程。看门狗日志 `outputs/logs/baselines_after_promptad.log`。
 - VisA 四种基线共 36/36 运行通过统一审计。
 - MVTec：PatchCore 9/9、WinCLIP+ 9/9、AnomalyDINO 9/9、PromptAD 4/9、DynamicFusion 9/9。
 - 动态融合 V1 已冻结并完成最终验证、科学分析、完整消融和可视化材料；不得再使用已查看的最终结果调参。
-- PromptAD MVTec 队列状态为 `paused_by_schedule`，不是运行中。
+- V3.3 论文主线已完整：metal_plate 天花板（safe 退火）✅、BTAD holdout ✅、图像级指标 ✅。
 - AnomalyCLIP 只作为 zero-shot 结果和动态融合文本分支，不冒充少样本矩阵。
 - 机器可读状态快照：`experiments/summaries/project_state_snapshot_20260809.json`。
 
@@ -63,16 +65,18 @@
 - [ ] 补充作者姓名、单位、ORCID、通讯作者、基金、贡献分工、利益冲突和公开仓库/归档编号。
 - [ ] 长 GPU 实验完成后，只更新明确标为待补的结果表、效率表和相应讨论，保留 V1 失效证据。
 
-## P3：PromptAD MVTec 剩余 GPU 矩阵（保持暂停）
+## P3：PromptAD MVTec 剩余 GPU 矩阵（已完成）
 
 - [x] 复核 `s1_k2` 断点：已有 5/30 个阶段标记；从 capsule 分割恢复。
-- [ ] 完成 `s1_k2`。
-- [ ] 完成 `s1_k4`。
-- [ ] 完成 `s2_k1`。
-- [ ] 完成 `s2_k2`。
-- [ ] 完成 `s2_k4`。
-- [ ] 每组验收 15 类、1,725 样本、零 schema 错误、无 Traceback。
-- [ ] 全部完成后生成 3-seed 均值±标准差和论文主表。
+- [x] 重建缺失的训练入口 `_run_promptad_mvtec.ps1`（此前队列脚本引用但文件不存在），并修复根目录路径解析 bug。
+- [x] 通过 `--validate-only` 确认 completed=4（s0_k1/s0_k2/s0_k4/s1_k1）、pending=5（s1_k2/s1_k4/s2_k1/s2_k2/s2_k4），并启动断点续跑队列。
+- [x] 完成 `s1_k2`。
+- [x] 完成 `s1_k4`。
+- [x] 完成 `s2_k1`。
+- [x] 完成 `s2_k2`。
+- [x] 完成 `s2_k4`。
+- [x] 每组验收 15 类、1,725 样本、零 schema 错误、无 Traceback（`status.json=completed`，9/9 组合全部完成）。
+- [ ] 全部完成后生成 3-seed 均值±标准差和论文主表（PromptAD 部分）。
 
 ## P2.5：DynamicFusion V2 在 13 日前的落实
 
@@ -103,11 +107,16 @@
 
 当前执行状态：`experiments/dynamic_fusion/v2/branch_cache_queue/runtime/status.json`。代码/协议预冻结、数据协议冻结、参考视图和分支缓存命令干跑均已验证；GPU 队列只生成正常参考分支缓存并做逐任务审计/校准，不读取 BTAD 测试指标。
 
-## P4：ReMP-AD 和 AdaptCLIP 门控
+## P4：ReMP-AD 和 AdaptCLIP 门控（已完成）
 
-- [ ] ReMP-AD：完成冻结 manifest 适配、统一 NPZ 导出和 bottle Gate A。
-- [ ] AdaptCLIP：取得并校验官方 checkpoint，修复数据配置，以 batch size 1 完成 bottle Gate A 和 6 GB 显存检查。
-- [ ] 只有 Gate A 通过的方法才进入 Gate B 和完整矩阵；失败也保留日志和报告。
+- [x] AdaptCLIP：取得并校验官方 checkpoint（`12_4_128_train_on_visa_3adapters_batch8/epoch_15.pth`，SHA256 匹配）、修复环境依赖（venv 装 transformers 4.38.2 解决 huggingface_hub 冲突）。
+- [x] 建立 `data/visa -> data/visa_raw` junction，满足 ReMP-AD `train_data_path` 与 AdaptCLIP 默认数据根。
+- [x] 写好 `scripts/start_adaptclip_mvtec_gate_a.ps1`（bottle、batch size 1、VisA checkpoint、`--dataset mvtec`）并通过 `-ValidateOnly`。
+- [x] 写好 `scripts/start_remp_ad_mvtec.ps1`（train VisA → test MVTec，k_shot 4/2/1，batch_size 参数化）并通过 `-ValidateOnly`。
+- [x] AdaptCLIP bottle Gate A（batch size 1）运行完成（2026-08-14，bottle: I-AUROC 99.2 / P-AUROC 95.6 / P-AUPRO 90.8）。
+- [x] ReMP-AD 训练（VisA，15 epoch，loss 0.2555）+ MVTec 测试 4/2/1 完成（2026-08-14，seed 10）。
+- [x] AdaptCLIP MVTec 完整矩阵（全 15 类，1-shot，seed 0/1/2）完成并导出统一结果（2026-08-17，`outputs/unified/adaptclip_mvtec_seed_{0,1,2}_shot_1/`）。
+- [x] ReMP-AD MVTec 统一导出完成（k4/k2/k1；`--prediction_cache_dir` 补丁 + evaluate_unified，`outputs/unified/remp_ad_mvtec_k{4,2,1}/`；图像分数采用官方口径 0.5*(文本概率+few-shot 归一化 max)，与官方 auroc_sp 一致）。
 
 ## GPU 执行规则
 

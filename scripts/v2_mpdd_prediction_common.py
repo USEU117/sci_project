@@ -1,8 +1,14 @@
-"""Shared, leakage-explicit MPDD/BTAD indexing for V2 prediction exporters."""
+"""Shared, leakage-explicit MPDD/BTAD/VisA indexing for V2 prediction exporters.
+
+VisA indexing uses the official meta.json test split (img_path/mask_path/anomaly);
+this is the authoritative, frozen test partition and does not read any labels
+beyond the annotation file that defines the test set itself.
+"""
 
 from __future__ import annotations
 
 import hashlib
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -93,11 +99,50 @@ def index_btad(data_root: Path) -> dict[str, list[TestSample]]:
     return indexed
 
 
+def index_visa(data_root: Path) -> dict[str, list[TestSample]]:
+    """Index the VisA official test split from meta.json (12 categories)."""
+    meta_path = data_root / "meta.json"
+    if not meta_path.is_file():
+        raise FileNotFoundError(f"VisA meta.json missing: {meta_path}")
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    indexed: dict[str, list[TestSample]] = {}
+    for category, samples in meta["test"].items():
+        rows: list[TestSample] = []
+        for entry in samples:
+            img_path = data_root / entry["img_path"]
+            if not img_path.is_file():
+                raise FileNotFoundError(f"VisA test image missing: {img_path}")
+            mask_path = None
+            if entry.get("mask_path"):
+                mask_path = data_root / entry["mask_path"]
+                if not mask_path.is_file():
+                    raise FileNotFoundError(f"VisA mask missing: {mask_path}")
+            # anomaly_type := the image parent folder name (Normal / defect dir).
+            anomaly_type = str(Path(entry["img_path"]).parent.name)
+            rows.append(
+                TestSample(
+                    category=category,
+                    anomaly_type=anomaly_type,
+                    image_path=img_path,
+                    mask_path=mask_path,
+                    sample_id=entry["img_path"],
+                    label=int(entry["anomaly"]),
+                )
+            )
+        indexed[category] = rows
+    return indexed
+
+
 def index_dataset(dataset: str, data_root: Path) -> dict[str, list[TestSample]]:
     if dataset == "mpdd":
         return index_mpdd(data_root)
+    if dataset == "mvtec":
+        # MVTec shares the MPDD layout (train/good refs, test/good + ground_truth/<defect>/<stem>_mask.png).
+        return index_mpdd(data_root)
     if dataset == "btad":
         return index_btad(data_root)
+    if dataset == "visa":
+        return index_visa(data_root)
     raise ValueError(f"unsupported dataset: {dataset}")
 
 
@@ -107,7 +152,7 @@ def validate_dataset_gate_inputs(dataset: str, data_root: Path, manifest: dict, 
     indexed = index_dataset(dataset, data_root)
     if set(indexed) != set(manifest["categories"]):
         raise ValueError(f"dataset categories differ from the frozen {dataset.upper()} manifest")
-    normal_dir = "good" if dataset == "mpdd" else "ok"
+    normal_marker = {"mpdd": "/train/good/", "mvtec": "/train/good/", "btad": "/train/ok/", "visa": "/Data/Images/Normal/"}[dataset]
     reference_paths = 0
     for category in sorted(indexed):
         selected = manifest["categories"][category][str(seed)][str(shot)]
@@ -117,8 +162,8 @@ def validate_dataset_gate_inputs(dataset: str, data_root: Path, manifest: dict, 
             if not path.is_file():
                 raise FileNotFoundError(f"normal reference missing: {path}")
             normalized = Path(relative).as_posix()
-            if f"/train/{normal_dir}/" not in f"/{normalized}":
-                raise ValueError(f"reference is not from train/{normal_dir}: {relative}")
+            if normal_marker not in f"/{normalized}":
+                raise ValueError(f"reference is not a normal image ({normal_marker}): {relative}")
     return {
         "categories": len(indexed),
         "test_images": sum(len(samples) for samples in indexed.values()),

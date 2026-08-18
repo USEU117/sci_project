@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_mpdd_matrix_20260817",
+  "created_at_utc": "2026-08-17T06:43:35.156590+00:00",
+  "stage": "phase_5_2_a1_full_development_matrix",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (vitb14 DINO + CLIP)",
+  "gpu_used": "reference-features-only export only (12 small runs); evaluation CPU/faiss",
+  "n_configs": 9,
+  "overall": {
+    "mean_delta_ap_vs_dino": 0.048558777777777784,
+    "positive_configs": 9,
+    "all_positive": true
+  },
+  "by_seed": {
+    "0": {
+      "mean_delta_ap": 0.04319133333333333
+    },
+    "1": {
+      "mean_delta_ap": 0.050664999999999995
+    },
+    "2": {
+      "mean_delta_ap": 0.05182
+    }
+  },
+  "by_shot": {
+    "1": {
+      "mean_delta_ap": 0.037318333333333335,
+      "positive_seeds": 3
+    },
+    "2": {
+      "mean_delta_ap": 0.04948866666666666,
+      "positive_seeds": 3
+    },
+    "4": {
+      "mean_delta_ap": 0.05886933333333333,
+      "positive_seeds": 3
+    }
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "mean_fused_pixel_ap": 0.309212,
+      "mean_fused_pixel_auroc": 0.959673,
+      "mean_fused_pixel_aupro": 0.881029,
+      "mean_dino_baseline_ap": 0.280239,
+      "mean_delta_ap_vs_dino": 0.028974,
+      "positive_categories": 3,
+      "max_regression": -0.01391,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.010484188694173327,
+          "dino_ap": 0.024394520289369392,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": -0.01391
+        },
+        "bracket_brown": {
+          "fused_ap": 0.0344457443733089,
+          "dino_ap": 0.04568812907492223,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.011242
+        },
+        "bracket_white": {
+          "fused_ap": 0.08474999424338445,
+          "dino_ap": 0.09433514780956423,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": -0.009585
+        },
+        "connector": {
+          "fused_ap": 0.12611168215417842,
+          "dino_ap": 0.09832228961017495,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.027789
+        },
+        "metal_plate": {
+          "fused_ap": 0.8713213618730062,
+          "dino_ap": 0.8471732544842592,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.024148
+        },
+        "tubes": {
+          "fused_ap": 0.7281612727091581,
+          "dino_ap": 0.5715182717942442,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.156643
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mean_fused_pixel_ap": 0.343707,
+      "mean_fused_pixel_auroc": 0.963955,
+      "mean_fused_pixel_aupro": 0.900274,
+      "mean_dino_baseline_ap": 0.302729,
+      "mean_delta_ap_vs_dino": 0.040978,
+      "positive_categories": 3,
+      "max_regression": -0.039782,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.014642167384294838,
+          "dino_ap": 0.04782129234552851,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": -0.033179
+        },
+        "bracket_brown": {
+          "fused_ap": 0.03336961705899507,
+          "dino_ap": 0.04330874991398748,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.009939
+        },
+        "bracket_white": {
+          "fused_ap": 0.10598851655794718,
+          "dino_ap": 0.14577065697861974,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": -0.039782
+        },
+        "connector": {
+          "fused_ap": 0.299112980381566,
+          "dino_ap": 0.1676141611672435,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.131499
+        },
+        "metal_plate": {
+          "fused_ap": 0.8783905186688103,
+          "dino_ap": 0.8454822628598787,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.032908
+        },
+        "tubes": {
+          "fused_ap": 0.7307359700718565,
+          "dino_ap": 0.5663739415777083,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.164362
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mean_fused_pixel_ap": 0.388328,
+      "mean_fused_pixel_auroc": 0.970334,
+      "mean_fused_pixel_aupro": 0.920035,
+      "mean_dino_baseline_ap": 0.328706,
+      "mean_delta_ap_vs_dino": 0.059622,
+      "positive_categories": 4,
+      "max_regression": -0.012867,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.18559337033460327,
+          "dino_ap": 0.13170098182448509,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": 0.053892
+        },
+        "bracket_brown": {
+          "fused_ap": 0.03395186899926496,
+          "dino_ap": 0.046818892405918716,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.012867
+        },
+        "bracket_white": {
+          "fused_ap": 0.09536222826166874,
+          "dino_ap": 0.10416485177295358,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": -0.008803
+        },
+        "connector": {
+          "fused_ap": 0.3750393052252403,
+          "dino_ap": 0.206995628558822,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.168044
+        },
+        "metal_plate": {
+          "fused_ap": 0.8849814538463253,
+          "dino_ap": 0.8750971610375512,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.009884
+        },
+        "tubes": {
+          "fused_ap": 0.7550406065320321,
+          "dino_ap": 0.6074572852833209,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.147583
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mean_fused_pixel_ap": 0.34251,
+      "mean_fused_pixel_auroc": 0.964231,
+      "mean_fused_pixel_aupro": 0.892734,
+      "mean_dino_baseline_ap": 0.302961,
+      "mean_delta_ap_vs_dino": 0.03955,
+      "positive_categories": 4,
+      "max_regression": -0.019854,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.11756472143764006,
+          "dino_ap": 0.10445417867501305,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": 0.013111
+        },
+        "bracket_brown": {
+          "fused_ap": 0.03510862644641534,
+          "dino_ap": 0.05496216099742324,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.019854
+        },
+        "bracket_white": {
+          "fused_ap": 0.0546008956057872,
+          "dino_ap": 0.05627763059009143,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": -0.001677
+        },
+        "connector": {
+          "fused_ap": 0.2862965250169145,
+          "dino_ap": 0.22323899397913644,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.063058
+        },
+        "metal_plate": {
+          "fused_ap": 0.8772040681435346,
+          "dino_ap": 0.8601842262704156,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.01702
+        },
+        "tubes": {
+          "fused_ap": 0.6842870446172398,
+          "dino_ap": 0.5186469476525324,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.16564
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mean_fused_pixel_ap": 0.365612,
+      "mean_fused_pixel_auroc": 0.963792,
+      "mean_fused_pixel_aupro": 0.89809,
+      "mean_dino_baseline_ap": 0.308714,
+      "mean_delta_ap_vs_dino": 0.056898,
+      "positive_categories": 5,
+      "max_regression": -0.008626,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.09204471794321918,
+          "dino_ap": 0.0790491734522544,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": 0.012996
+        },
+        "bracket_brown": {
+          "fused_ap": 0.031313501373798645,
+          "dino_ap": 0.039939764244231804,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.008626
+        },
+        "bracket_white": {
+          "fused_ap": 0.0438834901963296,
+          "dino_ap": 0.03301934507866051,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": 0.010864
+        },
+        "connector": {
+          "fused_ap": 0.42480883388916163,
+          "dino_ap": 0.27449112036977424,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.150318
+        },
+        "metal_plate": {
+          "fused_ap": 0.8688472534092626,
+          "dino_ap": 0.8587261580620388,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.010121
+        },
+        "tubes": {
+          "fused_ap": 0.7327730639607943,
+          "dino_ap": 0.5670596154648496,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.165713
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mean_fused_pixel_ap": 0.398521,
+      "mean_fused_pixel_auroc": 0.971911,
+      "mean_fused_pixel_aupro": 0.922714,
+      "mean_dino_baseline_ap": 0.342975,
+      "mean_delta_ap_vs_dino": 0.055547,
+      "positive_categories": 5,
+      "max_regression": -0.011938,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.10532274611833663,
+          "dino_ap": 0.0884803489174549,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": 0.016842
+        },
+        "bracket_brown": {
+          "fused_ap": 0.05219183113843786,
+          "dino_ap": 0.06412956556415397,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.011938
+        },
+        "bracket_white": {
+          "fused_ap": 0.1561633017689133,
+          "dino_ap": 0.07007257189113883,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": 0.086091
+        },
+        "connector": {
+          "fused_ap": 0.43219767085195065,
+          "dino_ap": 0.35765808773471197,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.07454
+        },
+        "metal_plate": {
+          "fused_ap": 0.8824153818545908,
+          "dino_ap": 0.8788824826609368,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.003533
+        },
+        "tubes": {
+          "fused_ap": 0.7628376217623263,
+          "dino_ap": 0.5986245630595957,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.164213
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mean_fused_pixel_ap": 0.315919,
+      "mean_fused_pixel_auroc": 0.951931,
+      "mean_fused_pixel_aupro": 0.863163,
+      "mean_dino_baseline_ap": 0.272489,
+      "mean_delta_ap_vs_dino": 0.043431,
+      "positive_categories": 3,
+      "max_regression": -0.014092,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.0042561228138954296,
+          "dino_ap": 0.004763473485515043,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": -0.000507
+        },
+        "bracket_brown": {
+          "fused_ap": 0.036071374483532904,
+          "dino_ap": 0.050163185466292504,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.014092
+        },
+        "bracket_white": {
+          "fused_ap": 0.07056833073220141,
+          "dino_ap": 0.07736038401818238,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": -0.006792
+        },
+        "connector": {
+          "fused_ap": 0.2217981717516888,
+          "dino_ap": 0.15167095576186135,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.070127
+        },
+        "metal_plate": {
+          "fused_ap": 0.8471341862016024,
+          "dino_ap": 0.792529668287076,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.054605
+        },
+        "tubes": {
+          "fused_ap": 0.7156883354496849,
+          "dino_ap": 0.5584449724818465,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.157243
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mean_fused_pixel_ap": 0.337632,
+      "mean_fused_pixel_auroc": 0.962959,
+      "mean_fused_pixel_aupro": 0.895409,
+      "mean_dino_baseline_ap": 0.287042,
+      "mean_delta_ap_vs_dino": 0.05059,
+      "positive_categories": 4,
+      "max_regression": -0.017808,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.02396047146817645,
+          "dino_ap": 0.03252195378666519,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": -0.008561
+        },
+        "bracket_brown": {
+          "fused_ap": 0.036087758615774346,
+          "dino_ap": 0.05389566538421089,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.017808
+        },
+        "bracket_white": {
+          "fused_ap": 0.08921857724623022,
+          "dino_ap": 0.06002042962420089,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": 0.029198
+        },
+        "connector": {
+          "fused_ap": 0.2756071180407245,
+          "dino_ap": 0.1752936947022055,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.100313
+        },
+        "metal_plate": {
+          "fused_ap": 0.868196842681487,
+          "dino_ap": 0.8351842715885707,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.033013
+        },
+        "tubes": {
+          "fused_ap": 0.7327202217827626,
+          "dino_ap": 0.5653360127590658,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.167384
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mean_fused_pixel_ap": 0.404698,
+      "mean_fused_pixel_auroc": 0.972464,
+      "mean_fused_pixel_aupro": 0.927095,
+      "mean_dino_baseline_ap": 0.343259,
+      "mean_delta_ap_vs_dino": 0.061439,
+      "positive_categories": 5,
+      "max_regression": -0.006506,
+      "per_category": {
+        "bracket_black": {
+          "fused_ap": 0.19838917682516072,
+          "dino_ap": 0.1727008226786913,
+          "clip_ap": 0.16781234268792877,
+          "delta_ap": 0.025688
+        },
+        "bracket_brown": {
+          "fused_ap": 0.05539838735866727,
+          "dino_ap": 0.06190466333377208,
+          "clip_ap": 0.020910963885681283,
+          "delta_ap": -0.006506
+        },
+        "bracket_white": {
+          "fused_ap": 0.14017065633931952,
+          "dino_ap": 0.0892106345082212,
+          "clip_ap": 0.13287004066538838,
+          "delta_ap": 0.05096
+        },
+        "connector": {
+          "fused_ap": 0.37048636631536336,
+          "dino_ap": 0.25814779123903614,
+          "clip_ap": 0.07893216414476595,
+          "delta_ap": 0.112339
+        },
+        "metal_plate": {
+          "fused_ap": 0.8905866570300993,
+          "dino_ap": 0.8801196390099191,
+          "clip_ap": 0.5547538820848124,
+          "delta_ap": 0.010467
+        },
+        "tubes": {
+          "fused_ap": 0.7731574475475165,
+          "dino_ap": 0.5974698495338593,
+          "clip_ap": 0.5240045848787394,
+          "delta_ap": 0.175688
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "run_id": "v3_3_audit_20260817",
+  "audit_type": "protocol_leakage_review",
+  "created_at_utc": "2026-08-17T04:00:00.000000+00:00",
+  "reference_doc": "docs/DYNAMIC_FUSION_NEXT_STEPS.md (阶段一)",
+  "scope": "V3.3 全部策略代码与全部 V3.3 输出报告的校准/路由信息源审计；本阶段只读，不修改任何旧数值。",
+  "reviewed_code": [
+    "src/industrial_ad/fusion/v3_3_strategies.py",
+    "scripts/evaluate_v3_3_pipeline.py",
+    "scripts/evaluate_v3_3_gate_b.py"
+  ],
+  "affected_reports": [
+    "experiments/dynamic_fusion/v3_3/s0_k1/report.json",
+    "experiments/dynamic_fusion/v3_3/s1_k1/report.json",
+    "experiments/dynamic_fusion/v3_3/s2_k1/report.json",
+    "experiments/dynamic_fusion/v3_3/gate_b/report.json",
+    "experiments/dynamic_fusion/v3_3/cross_seed_report.json",
+    "experiments/dynamic_fusion/v3_3/k_cross_shot/report.json",
+    "experiments/dynamic_fusion/v3_3/btad_holdout/report.json",
+    "experiments/dynamic_fusion/v3_3/metal_plate_annealing/report.json",
+    "experiments/dynamic_fusion/v3_3/pipeline_comparison/report.json",
+    "experiments/dynamic_fusion/v3_3/weight_grid/grid_report.json",
+    "experiments/dynamic_fusion/v3_3/fusion_decisions.json",
+    "experiments/dynamic_fusion/v3_3/overview.md"
+  ],
+  "leakage_evidence": [
+    {
+      "file": "src/industrial_ad/fusion/v3_3_strategies.py",
+      "lines": "L60-L77",
+      "function": "estimate_robust_stats",
+      "finding": "normal_only=True 时用 ~masks.any(axis=(1,2)) 选择『完全正常的测试图』，再用这些测试图的像素估计 z-score 的 center(median)/scale(IQR)。masks 来自 BranchData.gt_masks，即测试掩码。",
+      "leak_type": "test_masks_used / test_normal_selection_used"
+    },
+    {
+      "file": "src/industrial_ad/fusion/v3_3_strategies.py",
+      "lines": "L116-L119",
+      "function": "weighted_ensemble_fusion",
+      "finding": "calibrate=True 时调用 estimate_robust_stats(maps, bdata.gt_masks)，把测试掩码传入校准统计。",
+      "leak_type": "test_masks_used / test_normal_selection_used"
+    },
+    {
+      "file": "src/industrial_ad/fusion/v3_3_strategies.py",
+      "lines": "L183-L188",
+      "function": "max_z_fusion",
+      "finding": "每个分支用 estimate_robust_stats(..., bdata.gt_masks) 计算 z-score 校准统计。",
+      "leak_type": "test_masks_used / test_normal_selection_used"
+    },
+    {
+      "file": "src/industrial_ad/fusion/v3_3_strategies.py",
+      "lines": "L265-L273",
+      "function": "two_stage_calibrated_fusion",
+      "finding": "DINO 与 AdaptCLIP 分支的 z-score 校准均使用 dino_branch.gt_masks（测试掩码）。",
+      "leak_type": "test_masks_used / test_normal_selection_used"
+    },
+    {
+      "file": "scripts/evaluate_v3_3_pipeline.py / evaluate_v3_3_gate_b.py",
+      "lines": "pipeline L105-L112 / gate_b 同类",
+      "function": "load_branches_for_category",
+      "finding": "BranchData.gt_masks 直接由缓存 npz 的 imgs_masks（测试掩码）填充，并随 BranchData 传入所有融合策略。",
+      "leak_type": "channel: 测试掩码进入校准"
+    }
+  ],
+  "extra_leakage_notes": [
+    "metal_plate_annealing（weighted_ensemble_fusion_safe）除上述 z-score 校准泄漏外，还以『DINO 基线测试 AP > 0.80』作为退火触发信号，属于文档阶段四禁止的『按测试指标挑选类别规则』（test_labels_used 层面的类别级选择泄漏）。"
+  ],
+  "leakage_flags": {
+    "test_predictions_used": false,
+    "test_labels_used": false,
+    "test_masks_used": true,
+    "test_dataset_statistics_used": true,
+    "test_normal_selection_used": true
+  },
+  "conclusion": "V3.3 全部三个策略（weighted_ensemble / max_z_selection / two_stage_calibrated）的 z-score 校准统计（center/scale）均读取测试掩码并据此选择完全正常测试图；safe 退火额外使用测试 AP 作类别级触发信号。所有依赖该校准的旧结果均为 development-only、不可作为论文证据。",
+  "marker": {
+    "development_only_leaky_calibration": true,
+    "paper_eligible": false
+  },
+  "old_values_modified": false,
+  "next_step": "阶段二：实现 V3.3-clean（RouterInput/EvaluationTarget 分离；校准仅来自 K 张正常参考图的 median/IQR 或 MAD+q95/q99），并补齐 CPU 测试后重跑开发 Gate。"
+}

@@ -4,6 +4,7 @@ data/mvtec_ad/
 data/mvtec/
 data/mvtec_patchcore_fewshot*/
 data/visa_raw/
+data/visa/
 data/visa_1cls/
 data/visa_patchcore*/
 data/visa_candle_smoke/

@@ -1,0 +1,1438 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_visa_post_freeze_audit_20260818",
+  "created_at_utc": "2026-08-18T08:29:11.649723+00:00",
+  "status": "passed",
+  "dataset": "visa",
+  "dataset_role": "holdout",
+  "n_checks": 285,
+  "n_failed": 0,
+  "errors": [],
+  "checks": [
+    {
+      "check": "s0_k1_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s0_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.338083 vs 0.3380834585751324"
+    },
+    {
+      "check": "s0_k1_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.281498 vs 0.28149751569384407"
+    },
+    {
+      "check": "s0_k1_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.208435 vs 0.20843452886540537"
+    },
+    {
+      "check": "s0_k2_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s0_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.370648 vs 0.37064779211092835"
+    },
+    {
+      "check": "s0_k2_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.315653 vs 0.31565347223743295"
+    },
+    {
+      "check": "s0_k2_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.224222 vs 0.2242219913458623"
+    },
+    {
+      "check": "s0_k4_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s0_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.39072 vs 0.39071971312400705"
+    },
+    {
+      "check": "s0_k4_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.339502 vs 0.3395015702762431"
+    },
+    {
+      "check": "s0_k4_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s0_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.237317 vs 0.23731663924062127"
+    },
+    {
+      "check": "s1_k1_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s1_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.343882 vs 0.3438816972414351"
+    },
+    {
+      "check": "s1_k1_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.294757 vs 0.294757286520197"
+    },
+    {
+      "check": "s1_k1_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.197459 vs 0.19745917409457625"
+    },
+    {
+      "check": "s1_k2_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s1_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.3743 vs 0.3743000482114451"
+    },
+    {
+      "check": "s1_k2_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.325679 vs 0.32567865211266694"
+    },
+    {
+      "check": "s1_k2_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.230823 vs 0.23082316653969004"
+    },
+    {
+      "check": "s1_k4_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s1_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.399006 vs 0.3990061932800641"
+    },
+    {
+      "check": "s1_k4_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.351153 vs 0.35115313165597306"
+    },
+    {
+      "check": "s1_k4_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s1_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.276274 vs 0.2762739713622953"
+    },
+    {
+      "check": "s2_k1_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s2_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.346271 vs 0.34627057620597484"
+    },
+    {
+      "check": "s2_k1_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.284505 vs 0.2845053227910807"
+    },
+    {
+      "check": "s2_k1_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.216998 vs 0.2169976308804272"
+    },
+    {
+      "check": "s2_k2_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s2_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.386684 vs 0.3866842274642667"
+    },
+    {
+      "check": "s2_k2_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.333554 vs 0.33355422936086554"
+    },
+    {
+      "check": "s2_k2_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.232524 vs 0.2325238179330479"
+    },
+    {
+      "check": "s2_k4_concat_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on VisA)"
+    },
+    {
+      "check": "s2_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.402713 vs 0.40271295491017106"
+    },
+    {
+      "check": "s2_k4_dino_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.354826 vs 0.3548263125522511"
+    },
+    {
+      "check": "s2_k4_clip_categories",
+      "passed": true,
+      "detail": "['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum'] vs ['candle', 'capsules', 'cashew', 'chewinggum', 'fryum', 'macaroni1', 'macaroni2', 'pcb1', 'pcb2', 'pcb3', 'pcb4', 'pipe_fryum']"
+    },
+    {
+      "check": "s2_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.24687 vs 0.24687021561226077"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "align_candle_mask_sizes",
+      "passed": true,
+      "detail": "dino (200, 448, 448) clip (200, 518, 518)"
+    },
+    {
+      "check": "align_candle_sample_ids",
+      "passed": true,
+      "detail": "200 vs 200"
+    },
+    {
+      "check": "align_candle_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_candle_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_candle_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_capsules_mask_sizes",
+      "passed": true,
+      "detail": "dino (160, 448, 448) clip (160, 518, 518)"
+    },
+    {
+      "check": "align_capsules_sample_ids",
+      "passed": true,
+      "detail": "160 vs 160"
+    },
+    {
+      "check": "align_capsules_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_capsules_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_capsules_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_cashew_mask_sizes",
+      "passed": true,
+      "detail": "dino (150, 448, 448) clip (150, 518, 518)"
+    },
+    {
+      "check": "align_cashew_sample_ids",
+      "passed": true,
+      "detail": "150 vs 150"
+    },
+    {
+      "check": "align_cashew_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_cashew_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_cashew_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_chewinggum_mask_sizes",
+      "passed": true,
+      "detail": "dino (150, 448, 448) clip (150, 518, 518)"
+    },
+    {
+      "check": "align_chewinggum_sample_ids",
+      "passed": true,
+      "detail": "150 vs 150"
+    },
+    {
+      "check": "align_chewinggum_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_chewinggum_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_chewinggum_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_fryum_mask_sizes",
+      "passed": true,
+      "detail": "dino (150, 448, 448) clip (150, 518, 518)"
+    },
+    {
+      "check": "align_fryum_sample_ids",
+      "passed": true,
+      "detail": "150 vs 150"
+    },
+    {
+      "check": "align_fryum_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_fryum_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_fryum_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_macaroni1_mask_sizes",
+      "passed": true,
+      "detail": "dino (200, 448, 448) clip (200, 518, 518)"
+    },
+    {
+      "check": "align_macaroni1_sample_ids",
+      "passed": true,
+      "detail": "200 vs 200"
+    },
+    {
+      "check": "align_macaroni1_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_macaroni1_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_macaroni1_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_macaroni2_mask_sizes",
+      "passed": true,
+      "detail": "dino (200, 448, 448) clip (200, 518, 518)"
+    },
+    {
+      "check": "align_macaroni2_sample_ids",
+      "passed": true,
+      "detail": "200 vs 200"
+    },
+    {
+      "check": "align_macaroni2_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_macaroni2_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_macaroni2_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pcb1_mask_sizes",
+      "passed": true,
+      "detail": "dino (200, 448, 448) clip (200, 518, 518)"
+    },
+    {
+      "check": "align_pcb1_sample_ids",
+      "passed": true,
+      "detail": "200 vs 200"
+    },
+    {
+      "check": "align_pcb1_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pcb1_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pcb1_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pcb2_mask_sizes",
+      "passed": true,
+      "detail": "dino (200, 448, 448) clip (200, 518, 518)"
+    },
+    {
+      "check": "align_pcb2_sample_ids",
+      "passed": true,
+      "detail": "200 vs 200"
+    },
+    {
+      "check": "align_pcb2_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pcb2_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pcb2_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pcb3_mask_sizes",
+      "passed": true,
+      "detail": "dino (201, 448, 448) clip (201, 518, 518)"
+    },
+    {
+      "check": "align_pcb3_sample_ids",
+      "passed": true,
+      "detail": "201 vs 201"
+    },
+    {
+      "check": "align_pcb3_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pcb3_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pcb3_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pcb4_mask_sizes",
+      "passed": true,
+      "detail": "dino (201, 448, 448) clip (201, 518, 518)"
+    },
+    {
+      "check": "align_pcb4_sample_ids",
+      "passed": true,
+      "detail": "201 vs 201"
+    },
+    {
+      "check": "align_pcb4_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pcb4_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pcb4_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pipe_fryum_mask_sizes",
+      "passed": true,
+      "detail": "dino (150, 448, 448) clip (150, 518, 518)"
+    },
+    {
+      "check": "align_pipe_fryum_sample_ids",
+      "passed": true,
+      "detail": "150 vs 150"
+    },
+    {
+      "check": "align_pipe_fryum_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pipe_fryum_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pipe_fryum_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "grid_s0_k1_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s0_k1_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k1_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s0_k1_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s0_k1_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k1_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k1_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k1_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k1_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k1_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s0_k1_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s0_k1_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s0_k2_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s0_k2_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k2_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s0_k2_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s0_k2_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k2_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k2_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k2_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k2_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k2_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s0_k2_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s0_k2_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s0_k4_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s0_k4_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k4_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s0_k4_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s0_k4_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k4_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k4_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s0_k4_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k4_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s0_k4_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s0_k4_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s0_k4_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s1_k1_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s1_k1_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k1_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s1_k1_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s1_k1_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k1_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k1_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k1_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k1_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k1_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s1_k1_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s1_k1_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s1_k2_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s1_k2_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k2_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s1_k2_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s1_k2_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k2_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k2_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k2_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k2_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k2_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s1_k2_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s1_k2_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s1_k4_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s1_k4_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k4_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s1_k4_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s1_k4_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k4_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k4_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s1_k4_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k4_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s1_k4_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s1_k4_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s1_k4_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s2_k1_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s2_k1_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k1_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s2_k1_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s2_k1_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k1_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k1_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k1_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k1_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k1_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s2_k1_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s2_k1_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s2_k2_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s2_k2_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k2_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s2_k2_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s2_k2_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k2_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k2_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k2_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k2_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k2_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s2_k2_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s2_k2_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    },
+    {
+      "check": "grid_s2_k4_candle",
+      "passed": true,
+      "detail": "(32, 35) vs (32, 35)"
+    },
+    {
+      "check": "grid_s2_k4_capsules",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k4_cashew",
+      "passed": true,
+      "detail": "(32, 34) vs (32, 34)"
+    },
+    {
+      "check": "grid_s2_k4_chewinggum",
+      "passed": true,
+      "detail": "(32, 38) vs (32, 38)"
+    },
+    {
+      "check": "grid_s2_k4_fryum",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k4_macaroni1",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k4_macaroni2",
+      "passed": true,
+      "detail": "(32, 48) vs (32, 48)"
+    },
+    {
+      "check": "grid_s2_k4_pcb1",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k4_pcb2",
+      "passed": true,
+      "detail": "(32, 41) vs (32, 41)"
+    },
+    {
+      "check": "grid_s2_k4_pcb3",
+      "passed": true,
+      "detail": "(32, 52) vs (32, 52)"
+    },
+    {
+      "check": "grid_s2_k4_pcb4",
+      "passed": true,
+      "detail": "(32, 39) vs (32, 39)"
+    },
+    {
+      "check": "grid_s2_k4_pipe_fryum",
+      "passed": true,
+      "detail": "(32, 36) vs (32, 36)"
+    }
+  ]
+}

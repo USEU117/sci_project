@@ -1,0 +1,337 @@
+{
+  "pipeline": "v3_direction_a_a1",
+  "direction": "A_feature_level_fusion",
+  "mode": "dino",
+  "pca_dim": 0,
+  "whiten": false,
+  "seed": 0,
+  "stride": 8,
+  "dataset": "mvtec",
+  "dataset_role": "holdout",
+  "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+  "created_at_utc": "2026-08-18T11:02:47.444081+00:00",
+  "mean_fused": {
+    "pixel_auroc": 0.957035,
+    "pixel_ap": 0.543408,
+    "pixel_aupro": 0.911718
+  },
+  "mean_dino_baseline_ap": 0.543408,
+  "mean_delta_ap_vs_dino": 0.0,
+  "per_category": [
+    {
+      "category": "bottle",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.98581849287629,
+        "pixel_ap": 0.8127389940432949,
+        "pixel_aupro": 0.9646017295229572
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.98581849287629,
+          "pixel_ap": 0.8127389940432949,
+          "pixel_aupro": 0.9646017295229572
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "cable",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9100521146704432,
+        "pixel_ap": 0.5882253786250023,
+        "pixel_aupro": 0.8383135688892656
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9100521146704432,
+          "pixel_ap": 0.5882253786250023,
+          "pixel_aupro": 0.8383135688892656
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "capsule",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9746698204504194,
+        "pixel_ap": 0.5011567307537093,
+        "pixel_aupro": 0.948447289685327
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9746698204504194,
+          "pixel_ap": 0.5011567307537093,
+          "pixel_aupro": 0.948447289685327
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "carpet",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9894543626739599,
+        "pixel_ap": 0.5060060975517815,
+        "pixel_aupro": 0.9739485881757419
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9894543626739599,
+          "pixel_ap": 0.5060060975517815,
+          "pixel_aupro": 0.9739485881757419
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "grid",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9939131531307537,
+        "pixel_ap": 0.47925637203367966,
+        "pixel_aupro": 0.9743424355433704
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9939131531307537,
+          "pixel_ap": 0.47925637203367966,
+          "pixel_aupro": 0.9743424355433704
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "hazelnut",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9944791413264215,
+        "pixel_ap": 0.7879476244318425,
+        "pixel_aupro": 0.9515840983915719
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9944791413264215,
+          "pixel_ap": 0.7879476244318425,
+          "pixel_aupro": 0.9515840983915719
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "leather",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9896078877808826,
+        "pixel_ap": 0.3545696032032287,
+        "pixel_aupro": 0.9795025371156277
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9896078877808826,
+          "pixel_ap": 0.3545696032032287,
+          "pixel_aupro": 0.9795025371156277
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "metal_nut",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9604494210377323,
+        "pixel_ap": 0.7483442751697981,
+        "pixel_aupro": 0.9339648187027247
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9604494210377323,
+          "pixel_ap": 0.7483442751697981,
+          "pixel_aupro": 0.9339648187027247
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "pill",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9305716950970099,
+        "pixel_ap": 0.5737420437824015,
+        "pixel_aupro": 0.9473846096666428
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9305716950970099,
+          "pixel_ap": 0.5737420437824015,
+          "pixel_aupro": 0.9473846096666428
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "screw",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9138134841236221,
+        "pixel_ap": 0.16371814996308098,
+        "pixel_aupro": 0.7576519084851966
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9138134841236221,
+          "pixel_ap": 0.16371814996308098,
+          "pixel_aupro": 0.7576519084851966
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "tile",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9562812357587587,
+        "pixel_ap": 0.5793852303226934,
+        "pixel_aupro": 0.951351365731756
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9562812357587587,
+          "pixel_ap": 0.5793852303226934,
+          "pixel_aupro": 0.951351365731756
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "toothbrush",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9921647716918709,
+        "pixel_ap": 0.554660783932788,
+        "pixel_aupro": 0.9635587356942593
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9921647716918709,
+          "pixel_ap": 0.554660783932788,
+          "pixel_aupro": 0.9635587356942593
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "transistor",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.8928884231338817,
+        "pixel_ap": 0.4536051677031255,
+        "pixel_aupro": 0.7052958789801821
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.8928884231338817,
+          "pixel_ap": 0.4536051677031255,
+          "pixel_aupro": 0.7052958789801821
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "wood",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9273917372942682,
+        "pixel_ap": 0.6315228059346223,
+        "pixel_aupro": 0.9357337084581645
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9273917372942682,
+          "pixel_ap": 0.6315228059346223,
+          "pixel_aupro": 0.9357337084581645
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    },
+    {
+      "category": "zipper",
+      "mode": "dino",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9439663209963172,
+        "pixel_ap": 0.41624801460848593,
+        "pixel_aupro": 0.8500874003570299
+      },
+      "baselines": {
+        "anomalydino_visual_feature_knn": {
+          "pixel_auroc": 0.9439663209963172,
+          "pixel_ap": 0.41624801460848593,
+          "pixel_aupro": 0.8500874003570299
+        }
+      },
+      "delta_ap": 0.0,
+      "delta_auroc": 0.0,
+      "delta_aupro": 0.0
+    }
+  ]
+}

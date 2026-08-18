@@ -1,0 +1,2502 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_mpdd_matrix_audit_20260817",
+  "created_at_utc": "2026-08-17T06:47:03.713228+00:00",
+  "stage": "phase_5_2_matrix_audit",
+  "all_9_configs_pass": true,
+  "results": {
+    "s0_k1": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s0_k2": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s0_k4": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s1_k1": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s1_k2": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s1_k4": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s2_k1": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s2_k2": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    },
+    "s2_k4": {
+      "ok": true,
+      "categories_ok": 6,
+      "report_exists_and_complete": true,
+      "categories": {
+        "bracket_black": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              79,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_brown": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              77,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "bracket_white": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              60,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "connector": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              44,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "metal_plate": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              97,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        },
+        "tubes": {
+          "dino": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              32,
+              32,
+              768
+            ]
+          },
+          "clip": {
+            "ok": true,
+            "checks": {
+              "patch_features_ndim": true,
+              "ref_ndim": true,
+              "n_match": true,
+              "grid_consistent": true,
+              "ref_grid_same": true,
+              "mask_n_match": true,
+              "no_nan_inf_patch": true,
+              "no_nan_inf_ref": true,
+              "no_nan_inf_mask": true,
+              "finite_gt": true
+            },
+            "shape": [
+              101,
+              37,
+              37,
+              768
+            ]
+          },
+          "ok": true
+        }
+      }
+    }
+  }
+}

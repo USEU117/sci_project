@@ -1,0 +1,221 @@
+{
+  "pipeline": "v3_3",
+  "role": "metal_plate_ceiling_fix",
+  "strategy": "weighted_ensemble_fusion_safe",
+  "weights": {
+    "anomalydino_visual": 0.6,
+    "anomalyclip_text": 0.4
+  },
+  "anneal_threshold": 0.8,
+  "anneal_factor": 0.3,
+  "note": "Anneals CLIP weight for categories whose DINO baseline AP > 0.80. Only metal_plate triggers; other categories unchanged.",
+  "rows": [
+    {
+      "seed": 0,
+      "category": "bracket_black",
+      "dino_baseline_ap": 0.024395,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.202069,
+      "frozen_delta_ap": 0.177674,
+      "annealed_fused_ap": 0.202069,
+      "annealed_delta_ap": 0.177674,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 0,
+      "category": "bracket_brown",
+      "dino_baseline_ap": 0.045688,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.049746,
+      "frozen_delta_ap": 0.004058,
+      "annealed_fused_ap": 0.049746,
+      "annealed_delta_ap": 0.004058,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 0,
+      "category": "bracket_white",
+      "dino_baseline_ap": 0.094335,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.16572,
+      "frozen_delta_ap": 0.071385,
+      "annealed_fused_ap": 0.16572,
+      "annealed_delta_ap": 0.071385,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 0,
+      "category": "connector",
+      "dino_baseline_ap": 0.098322,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.194324,
+      "frozen_delta_ap": 0.096002,
+      "annealed_fused_ap": 0.194324,
+      "annealed_delta_ap": 0.096002,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 0,
+      "category": "metal_plate",
+      "dino_baseline_ap": 0.847173,
+      "annealed_flag": true,
+      "frozen_fused_ap": 0.813468,
+      "frozen_delta_ap": -0.033706,
+      "annealed_fused_ap": 0.856744,
+      "annealed_delta_ap": 0.009571,
+      "delta_change": 0.043277
+    },
+    {
+      "seed": 0,
+      "category": "tubes",
+      "dino_baseline_ap": 0.571518,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.708278,
+      "frozen_delta_ap": 0.13676,
+      "annealed_fused_ap": 0.708278,
+      "annealed_delta_ap": 0.13676,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 1,
+      "category": "bracket_black",
+      "dino_baseline_ap": 0.104454,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.223999,
+      "frozen_delta_ap": 0.119545,
+      "annealed_fused_ap": 0.223999,
+      "annealed_delta_ap": 0.119545,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 1,
+      "category": "bracket_brown",
+      "dino_baseline_ap": 0.054962,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.057636,
+      "frozen_delta_ap": 0.002674,
+      "annealed_fused_ap": 0.057636,
+      "annealed_delta_ap": 0.002674,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 1,
+      "category": "bracket_white",
+      "dino_baseline_ap": 0.056278,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.170618,
+      "frozen_delta_ap": 0.11434,
+      "annealed_fused_ap": 0.170618,
+      "annealed_delta_ap": 0.11434,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 1,
+      "category": "connector",
+      "dino_baseline_ap": 0.223239,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.294778,
+      "frozen_delta_ap": 0.071539,
+      "annealed_fused_ap": 0.294778,
+      "annealed_delta_ap": 0.071539,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 1,
+      "category": "metal_plate",
+      "dino_baseline_ap": 0.860184,
+      "annealed_flag": true,
+      "frozen_fused_ap": 0.814393,
+      "frozen_delta_ap": -0.045791,
+      "annealed_fused_ap": 0.862264,
+      "annealed_delta_ap": 0.00208,
+      "delta_change": 0.047871
+    },
+    {
+      "seed": 1,
+      "category": "tubes",
+      "dino_baseline_ap": 0.518647,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.690427,
+      "frozen_delta_ap": 0.17178,
+      "annealed_fused_ap": 0.690427,
+      "annealed_delta_ap": 0.17178,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "bracket_black",
+      "dino_baseline_ap": 0.004763,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.164606,
+      "frozen_delta_ap": 0.159843,
+      "annealed_fused_ap": 0.164606,
+      "annealed_delta_ap": 0.159843,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "bracket_brown",
+      "dino_baseline_ap": 0.050163,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.052905,
+      "frozen_delta_ap": 0.002741,
+      "annealed_fused_ap": 0.052905,
+      "annealed_delta_ap": 0.002741,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "bracket_white",
+      "dino_baseline_ap": 0.07736,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.212624,
+      "frozen_delta_ap": 0.135264,
+      "annealed_fused_ap": 0.212624,
+      "annealed_delta_ap": 0.135264,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "connector",
+      "dino_baseline_ap": 0.151671,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.245409,
+      "frozen_delta_ap": 0.093738,
+      "annealed_fused_ap": 0.245409,
+      "annealed_delta_ap": 0.093738,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "metal_plate",
+      "dino_baseline_ap": 0.79253,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.797196,
+      "frozen_delta_ap": 0.004667,
+      "annealed_fused_ap": 0.797196,
+      "annealed_delta_ap": 0.004667,
+      "delta_change": 0.0
+    },
+    {
+      "seed": 2,
+      "category": "tubes",
+      "dino_baseline_ap": 0.558445,
+      "annealed_flag": false,
+      "frozen_fused_ap": 0.701526,
+      "frozen_delta_ap": 0.143081,
+      "annealed_fused_ap": 0.701526,
+      "annealed_delta_ap": 0.143081,
+      "delta_change": 0.0
+    }
+  ],
+  "summary": {
+    "metal_plate_mean_frozen_delta_ap": -0.024943,
+    "metal_plate_mean_annealed_delta_ap": 0.005439,
+    "metal_plate_annealed_positive_seeds": 3,
+    "others_mean_frozen_delta_ap": 0.100028,
+    "others_mean_annealed_delta_ap": 0.100028,
+    "overall_mean_frozen_delta_ap": 0.0792,
+    "overall_mean_annealed_delta_ap": 0.084263
+  }
+}

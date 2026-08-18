@@ -1,0 +1,2142 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_visa_post_freeze_20260818",
+  "created_at_utc": "2026-08-18T08:28:11.415205+00:00",
+  "stage": "phase_7_post_freeze_external_validation",
+  "dataset": "visa",
+  "dataset_role": "holdout",
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (vitb14 DINO + AnomalyCLIP), KNN k=1, stride=8",
+  "baseline_source": "feature_level_dino_only_knn (VisA has no v2 score cache; ~0.001 AP apart from v2 score-level on MPDD s0/k1)",
+  "cpu_only_eval": true,
+  "overall": {
+    "concat": {
+      "mean_delta_ap_vs_dino": 0.05235311111111111,
+      "mean_fused_pixel_ap": 0.3724785555555556,
+      "mean_fused_pixel_auroc": 0.9756525555555555,
+      "mean_fused_pixel_aupro": 0.9124861111111111,
+      "positive_configs": 9,
+      "by_seed_delta": {
+        "0": 0.054266,
+        "1": 0.04853266666666667,
+        "2": 0.05426066666666666
+      },
+      "by_shot_delta": {
+        "1": 0.05582499999999999,
+        "2": 0.052248333333333334,
+        "4": 0.048985999999999995
+      }
+    },
+    "dino_only": {
+      "mean_delta_ap_vs_dino": 0.0,
+      "mean_fused_pixel_ap": 0.32012522222222217,
+      "mean_fused_pixel_auroc": 0.9662043333333332,
+      "mean_fused_pixel_aupro": 0.8933197777777777,
+      "positive_configs": 0,
+      "by_seed_delta": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "by_shot_delta": {
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0
+      }
+    },
+    "clip_only": {
+      "mean_delta_ap_vs_dino": -0.09002288888888889,
+      "mean_fused_pixel_ap": 0.23010244444444444,
+      "mean_fused_pixel_auroc": 0.9632632222222222,
+      "mean_fused_pixel_aupro": 0.8749316666666667,
+      "positive_configs": 0,
+      "by_seed_delta": {
+        "0": -0.08889333333333334,
+        "1": -0.08901066666666667,
+        "2": -0.09216466666666667
+      },
+      "by_shot_delta": {
+        "1": -0.07928966666666666,
+        "2": -0.09577233333333333,
+        "4": -0.09500666666666667
+      }
+    },
+    "concat_beats_every_single_branch": true
+  },
+  "per_category_concat": {
+    "candle": {
+      "mean_delta_ap": -0.019793,
+      "positive_configs": 0
+    },
+    "capsules": {
+      "mean_delta_ap": 0.019897,
+      "positive_configs": 9
+    },
+    "cashew": {
+      "mean_delta_ap": 0.114463,
+      "positive_configs": 9
+    },
+    "chewinggum": {
+      "mean_delta_ap": -0.038646,
+      "positive_configs": 0
+    },
+    "fryum": {
+      "mean_delta_ap": 0.080505,
+      "positive_configs": 9
+    },
+    "macaroni1": {
+      "mean_delta_ap": 0.040944,
+      "positive_configs": 9
+    },
+    "macaroni2": {
+      "mean_delta_ap": 0.092547,
+      "positive_configs": 9
+    },
+    "pcb1": {
+      "mean_delta_ap": 0.114746,
+      "positive_configs": 9
+    },
+    "pcb2": {
+      "mean_delta_ap": 0.033544,
+      "positive_configs": 9
+    },
+    "pcb3": {
+      "mean_delta_ap": 0.058884,
+      "positive_configs": 9
+    },
+    "pcb4": {
+      "mean_delta_ap": 0.054963,
+      "positive_configs": 9
+    },
+    "pipe_fryum": {
+      "mean_delta_ap": 0.076186,
+      "positive_configs": 9
+    }
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.338083,
+      "mean_fused_pixel_auroc": 0.969385,
+      "mean_fused_pixel_aupro": 0.898077,
+      "mean_dino_baseline_ap": 0.281498,
+      "mean_delta_ap_vs_dino": 0.056586,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.021467,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.26148018060807754,
+          "dino_ap": 0.271048165370299,
+          "delta_ap": -0.009568
+        },
+        "capsules": {
+          "fused_ap": 0.2830400190512051,
+          "dino_ap": 0.25800516863363376,
+          "delta_ap": 0.025035
+        },
+        "cashew": {
+          "fused_ap": 0.5977425381930279,
+          "dino_ap": 0.4852361103126732,
+          "delta_ap": 0.112506
+        },
+        "chewinggum": {
+          "fused_ap": 0.740275219032953,
+          "dino_ap": 0.7617424865193562,
+          "delta_ap": -0.021467
+        },
+        "fryum": {
+          "fused_ap": 0.26204995047211654,
+          "dino_ap": 0.1822447755018223,
+          "delta_ap": 0.079805
+        },
+        "macaroni1": {
+          "fused_ap": 0.12016460250423054,
+          "dino_ap": 0.0866667710805029,
+          "delta_ap": 0.033498
+        },
+        "macaroni2": {
+          "fused_ap": 0.13139963046241818,
+          "dino_ap": 0.029506701262054257,
+          "delta_ap": 0.101893
+        },
+        "pcb1": {
+          "fused_ap": 0.7394775749777003,
+          "dino_ap": 0.6259653270855124,
+          "delta_ap": 0.113512
+        },
+        "pcb2": {
+          "fused_ap": 0.135601225308203,
+          "dino_ap": 0.09794229539239468,
+          "delta_ap": 0.037659
+        },
+        "pcb3": {
+          "fused_ap": 0.14298798762613962,
+          "dino_ap": 0.0948077489737234,
+          "delta_ap": 0.04818
+        },
+        "pcb4": {
+          "fused_ap": 0.19754821698109185,
+          "dino_ap": 0.11597868746600853,
+          "delta_ap": 0.08157
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4452343576844241,
+          "dino_ap": 0.36882595072814806,
+          "delta_ap": 0.076408
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.281498,
+      "mean_fused_pixel_auroc": 0.95645,
+      "mean_fused_pixel_aupro": 0.870521,
+      "mean_dino_baseline_ap": 0.281498,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.271048165370299,
+          "dino_ap": 0.271048165370299,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.25800516863363376,
+          "dino_ap": 0.25800516863363376,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.4852361103126732,
+          "dino_ap": 0.4852361103126732,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7617424865193562,
+          "dino_ap": 0.7617424865193562,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.1822447755018223,
+          "dino_ap": 0.1822447755018223,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.0866667710805029,
+          "dino_ap": 0.0866667710805029,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.029506701262054257,
+          "dino_ap": 0.029506701262054257,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6259653270855124,
+          "dino_ap": 0.6259653270855124,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.09794229539239468,
+          "dino_ap": 0.09794229539239468,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.0948077489737234,
+          "dino_ap": 0.0948077489737234,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.11597868746600853,
+          "dino_ap": 0.11597868746600853,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.36882595072814806,
+          "dino_ap": 0.36882595072814806,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.208435,
+      "mean_fused_pixel_auroc": 0.959591,
+      "mean_fused_pixel_aupro": 0.868068,
+      "mean_dino_baseline_ap": 0.281498,
+      "mean_delta_ap_vs_dino": -0.073063,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 6,
+      "max_regression": -0.452235,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.11643413460146779,
+          "dino_ap": 0.271048165370299,
+          "delta_ap": -0.154614
+        },
+        "capsules": {
+          "fused_ap": 0.1582846032129535,
+          "dino_ap": 0.25800516863363376,
+          "delta_ap": -0.099721
+        },
+        "cashew": {
+          "fused_ap": 0.5274368787728925,
+          "dino_ap": 0.4852361103126732,
+          "delta_ap": 0.042201
+        },
+        "chewinggum": {
+          "fused_ap": 0.4459576942428226,
+          "dino_ap": 0.7617424865193562,
+          "delta_ap": -0.315785
+        },
+        "fryum": {
+          "fused_ap": 0.2900712515107709,
+          "dino_ap": 0.1822447755018223,
+          "delta_ap": 0.107826
+        },
+        "macaroni1": {
+          "fused_ap": 0.10556081748422294,
+          "dino_ap": 0.0866667710805029,
+          "delta_ap": 0.018894
+        },
+        "macaroni2": {
+          "fused_ap": 0.03318026373704949,
+          "dino_ap": 0.029506701262054257,
+          "delta_ap": 0.003674
+        },
+        "pcb1": {
+          "fused_ap": 0.17373018820725564,
+          "dino_ap": 0.6259653270855124,
+          "delta_ap": -0.452235
+        },
+        "pcb2": {
+          "fused_ap": 0.025225646429038684,
+          "dino_ap": 0.09794229539239468,
+          "delta_ap": -0.072717
+        },
+        "pcb3": {
+          "fused_ap": 0.04585102412054638,
+          "dino_ap": 0.0948077489737234,
+          "delta_ap": -0.048957
+        },
+        "pcb4": {
+          "fused_ap": 0.12504884110855102,
+          "dino_ap": 0.11597868746600853,
+          "delta_ap": 0.00907
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.45443300295729355,
+          "dino_ap": 0.36882595072814806,
+          "delta_ap": 0.085607
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.370648,
+      "mean_fused_pixel_auroc": 0.976183,
+      "mean_fused_pixel_aupro": 0.916438,
+      "mean_dino_baseline_ap": 0.315653,
+      "mean_delta_ap_vs_dino": 0.054994,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.03056,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.293049344237105,
+          "dino_ap": 0.3085824899947128,
+          "delta_ap": -0.015533
+        },
+        "capsules": {
+          "fused_ap": 0.3155201269979172,
+          "dino_ap": 0.29582905630066797,
+          "delta_ap": 0.019691
+        },
+        "cashew": {
+          "fused_ap": 0.5959039092647669,
+          "dino_ap": 0.4846468006839463,
+          "delta_ap": 0.111257
+        },
+        "chewinggum": {
+          "fused_ap": 0.7364044901539644,
+          "dino_ap": 0.7669642415852711,
+          "delta_ap": -0.03056
+        },
+        "fryum": {
+          "fused_ap": 0.27607110447462024,
+          "dino_ap": 0.19184669238720958,
+          "delta_ap": 0.084224
+        },
+        "macaroni1": {
+          "fused_ap": 0.14686399497917807,
+          "dino_ap": 0.10862545280342448,
+          "delta_ap": 0.038239
+        },
+        "macaroni2": {
+          "fused_ap": 0.22252035655124663,
+          "dino_ap": 0.10855082276229609,
+          "delta_ap": 0.11397
+        },
+        "pcb1": {
+          "fused_ap": 0.7826344078579438,
+          "dino_ap": 0.6968673472125395,
+          "delta_ap": 0.085767
+        },
+        "pcb2": {
+          "fused_ap": 0.15614913454852514,
+          "dino_ap": 0.11141898708062416,
+          "delta_ap": 0.04473
+        },
+        "pcb3": {
+          "fused_ap": 0.2261443887826028,
+          "dino_ap": 0.15723708937091307,
+          "delta_ap": 0.068907
+        },
+        "pcb4": {
+          "fused_ap": 0.23396566392116094,
+          "dino_ap": 0.1818414484030288,
+          "delta_ap": 0.052124
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.462546583562109,
+          "dino_ap": 0.3754312382645608,
+          "delta_ap": 0.087115
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.315653,
+      "mean_fused_pixel_auroc": 0.966912,
+      "mean_fused_pixel_aupro": 0.894889,
+      "mean_dino_baseline_ap": 0.315653,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.3085824899947128,
+          "dino_ap": 0.3085824899947128,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.29582905630066797,
+          "dino_ap": 0.29582905630066797,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.4846468006839463,
+          "dino_ap": 0.4846468006839463,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7669642415852711,
+          "dino_ap": 0.7669642415852711,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.19184669238720958,
+          "dino_ap": 0.19184669238720958,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.10862545280342448,
+          "dino_ap": 0.10862545280342448,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.10855082276229609,
+          "dino_ap": 0.10855082276229609,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6968673472125395,
+          "dino_ap": 0.6968673472125395,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.11141898708062416,
+          "dino_ap": 0.11141898708062416,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.15723708937091307,
+          "dino_ap": 0.15723708937091307,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.1818414484030288,
+          "dino_ap": 0.1818414484030288,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.3754312382645608,
+          "dino_ap": 0.3754312382645608,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.224222,
+      "mean_fused_pixel_auroc": 0.961749,
+      "mean_fused_pixel_aupro": 0.873389,
+      "mean_dino_baseline_ap": 0.315653,
+      "mean_delta_ap_vs_dino": -0.091432,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.466377,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.12981617768784232,
+          "dino_ap": 0.3085824899947128,
+          "delta_ap": -0.178766
+        },
+        "capsules": {
+          "fused_ap": 0.15916572858356484,
+          "dino_ap": 0.29582905630066797,
+          "delta_ap": -0.136663
+        },
+        "cashew": {
+          "fused_ap": 0.5444664881494155,
+          "dino_ap": 0.4846468006839463,
+          "delta_ap": 0.05982
+        },
+        "chewinggum": {
+          "fused_ap": 0.4431023684155017,
+          "dino_ap": 0.7669642415852711,
+          "delta_ap": -0.323862
+        },
+        "fryum": {
+          "fused_ap": 0.33212503155904805,
+          "dino_ap": 0.19184669238720958,
+          "delta_ap": 0.140278
+        },
+        "macaroni1": {
+          "fused_ap": 0.106129938161025,
+          "dino_ap": 0.10862545280342448,
+          "delta_ap": -0.002496
+        },
+        "macaroni2": {
+          "fused_ap": 0.052509026139477694,
+          "dino_ap": 0.10855082276229609,
+          "delta_ap": -0.056042
+        },
+        "pcb1": {
+          "fused_ap": 0.230490558107069,
+          "dino_ap": 0.6968673472125395,
+          "delta_ap": -0.466377
+        },
+        "pcb2": {
+          "fused_ap": 0.031748060248330816,
+          "dino_ap": 0.11141898708062416,
+          "delta_ap": -0.079671
+        },
+        "pcb3": {
+          "fused_ap": 0.08579644736773258,
+          "dino_ap": 0.15723708937091307,
+          "delta_ap": -0.071441
+        },
+        "pcb4": {
+          "fused_ap": 0.10168428842051307,
+          "dino_ap": 0.1818414484030288,
+          "delta_ap": -0.080157
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.47362978331082717,
+          "dino_ap": 0.3754312382645608,
+          "delta_ap": 0.098199
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.39072,
+      "mean_fused_pixel_auroc": 0.97961,
+      "mean_fused_pixel_aupro": 0.923546,
+      "mean_dino_baseline_ap": 0.339502,
+      "mean_delta_ap_vs_dino": 0.051218,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.03053,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.31553528052529867,
+          "dino_ap": 0.344167658804751,
+          "delta_ap": -0.028632
+        },
+        "capsules": {
+          "fused_ap": 0.34484222656667557,
+          "dino_ap": 0.3197470256009153,
+          "delta_ap": 0.025095
+        },
+        "cashew": {
+          "fused_ap": 0.5891805780528423,
+          "dino_ap": 0.48559360915946104,
+          "delta_ap": 0.103587
+        },
+        "chewinggum": {
+          "fused_ap": 0.7353032410832951,
+          "dino_ap": 0.7658336908907384,
+          "delta_ap": -0.03053
+        },
+        "fryum": {
+          "fused_ap": 0.3504763011358843,
+          "dino_ap": 0.27711699894432484,
+          "delta_ap": 0.073359
+        },
+        "macaroni1": {
+          "fused_ap": 0.16840754399885352,
+          "dino_ap": 0.13086115459970504,
+          "delta_ap": 0.037546
+        },
+        "macaroni2": {
+          "fused_ap": 0.2193893267723297,
+          "dino_ap": 0.10713344870724938,
+          "delta_ap": 0.112256
+        },
+        "pcb1": {
+          "fused_ap": 0.7951841891869627,
+          "dino_ap": 0.6950348386260261,
+          "delta_ap": 0.100149
+        },
+        "pcb2": {
+          "fused_ap": 0.19185955195812376,
+          "dino_ap": 0.16295311802766257,
+          "delta_ap": 0.028906
+        },
+        "pcb3": {
+          "fused_ap": 0.23588380624701388,
+          "dino_ap": 0.1728583271092402,
+          "delta_ap": 0.063025
+        },
+        "pcb4": {
+          "fused_ap": 0.2585112242905059,
+          "dino_ap": 0.19936265298022166,
+          "delta_ap": 0.059149
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4840632876703004,
+          "dino_ap": 0.4133563198646209,
+          "delta_ap": 0.070707
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.339502,
+      "mean_fused_pixel_auroc": 0.972724,
+      "mean_fused_pixel_aupro": 0.909612,
+      "mean_dino_baseline_ap": 0.339502,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.344167658804751,
+          "dino_ap": 0.344167658804751,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.3197470256009153,
+          "dino_ap": 0.3197470256009153,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.48559360915946104,
+          "dino_ap": 0.48559360915946104,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7658336908907384,
+          "dino_ap": 0.7658336908907384,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.27711699894432484,
+          "dino_ap": 0.27711699894432484,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.13086115459970504,
+          "dino_ap": 0.13086115459970504,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.10713344870724938,
+          "dino_ap": 0.10713344870724938,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6950348386260261,
+          "dino_ap": 0.6950348386260261,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.16295311802766257,
+          "dino_ap": 0.16295311802766257,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.1728583271092402,
+          "dino_ap": 0.1728583271092402,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.19936265298022166,
+          "dino_ap": 0.19936265298022166,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4133563198646209,
+          "dino_ap": 0.4133563198646209,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.237317,
+      "mean_fused_pixel_auroc": 0.965558,
+      "mean_fused_pixel_aupro": 0.882395,
+      "mean_dino_baseline_ap": 0.339502,
+      "mean_delta_ap_vs_dino": -0.102185,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.441569,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.1548323677203122,
+          "dino_ap": 0.344167658804751,
+          "delta_ap": -0.189335
+        },
+        "capsules": {
+          "fused_ap": 0.1813846913126978,
+          "dino_ap": 0.3197470256009153,
+          "delta_ap": -0.138362
+        },
+        "cashew": {
+          "fused_ap": 0.5591086164806839,
+          "dino_ap": 0.48559360915946104,
+          "delta_ap": 0.073515
+        },
+        "chewinggum": {
+          "fused_ap": 0.43353732584589527,
+          "dino_ap": 0.7658336908907384,
+          "delta_ap": -0.332296
+        },
+        "fryum": {
+          "fused_ap": 0.36024395852311525,
+          "dino_ap": 0.27711699894432484,
+          "delta_ap": 0.083127
+        },
+        "macaroni1": {
+          "fused_ap": 0.12860813612617228,
+          "dino_ap": 0.13086115459970504,
+          "delta_ap": -0.002253
+        },
+        "macaroni2": {
+          "fused_ap": 0.04921973134804185,
+          "dino_ap": 0.10713344870724938,
+          "delta_ap": -0.057914
+        },
+        "pcb1": {
+          "fused_ap": 0.25346613108319466,
+          "dino_ap": 0.6950348386260261,
+          "delta_ap": -0.441569
+        },
+        "pcb2": {
+          "fused_ap": 0.042253496886079406,
+          "dino_ap": 0.16295311802766257,
+          "delta_ap": -0.1207
+        },
+        "pcb3": {
+          "fused_ap": 0.08708138747184829,
+          "dino_ap": 0.1728583271092402,
+          "delta_ap": -0.085777
+        },
+        "pcb4": {
+          "fused_ap": 0.10980188264387211,
+          "dino_ap": 0.19936265298022166,
+          "delta_ap": -0.089561
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4882619454455419,
+          "dino_ap": 0.4133563198646209,
+          "delta_ap": 0.074906
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.343882,
+      "mean_fused_pixel_auroc": 0.972039,
+      "mean_fused_pixel_aupro": 0.904681,
+      "mean_dino_baseline_ap": 0.294757,
+      "mean_delta_ap_vs_dino": 0.049124,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.056239,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.254010171578175,
+          "dino_ap": 0.2790564482640378,
+          "delta_ap": -0.025046
+        },
+        "capsules": {
+          "fused_ap": 0.2679412224671267,
+          "dino_ap": 0.2442386389422735,
+          "delta_ap": 0.023703
+        },
+        "cashew": {
+          "fused_ap": 0.5260230984347707,
+          "dino_ap": 0.4181156047262102,
+          "delta_ap": 0.107907
+        },
+        "chewinggum": {
+          "fused_ap": 0.7369404385076828,
+          "dino_ap": 0.7931789668615992,
+          "delta_ap": -0.056239
+        },
+        "fryum": {
+          "fused_ap": 0.3405901300700984,
+          "dino_ap": 0.2580620406987461,
+          "delta_ap": 0.082528
+        },
+        "macaroni1": {
+          "fused_ap": 0.14177636000354094,
+          "dino_ap": 0.09916743500898094,
+          "delta_ap": 0.042609
+        },
+        "macaroni2": {
+          "fused_ap": 0.05953160605630129,
+          "dino_ap": 0.020823402986996826,
+          "delta_ap": 0.038708
+        },
+        "pcb1": {
+          "fused_ap": 0.7574570348056403,
+          "dino_ap": 0.6159888267437094,
+          "delta_ap": 0.141468
+        },
+        "pcb2": {
+          "fused_ap": 0.1465429608045131,
+          "dino_ap": 0.11429720741256806,
+          "delta_ap": 0.032246
+        },
+        "pcb3": {
+          "fused_ap": 0.2222878677527629,
+          "dino_ap": 0.1591096065774004,
+          "delta_ap": 0.063178
+        },
+        "pcb4": {
+          "fused_ap": 0.24812500806769994,
+          "dino_ap": 0.19114219491104378,
+          "delta_ap": 0.056983
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4253544683489091,
+          "dino_ap": 0.3439070651087978,
+          "delta_ap": 0.081447
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.294757,
+      "mean_fused_pixel_auroc": 0.961413,
+      "mean_fused_pixel_aupro": 0.885727,
+      "mean_dino_baseline_ap": 0.294757,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.2790564482640378,
+          "dino_ap": 0.2790564482640378,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.2442386389422735,
+          "dino_ap": 0.2442386389422735,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.4181156047262102,
+          "dino_ap": 0.4181156047262102,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7931789668615992,
+          "dino_ap": 0.7931789668615992,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.2580620406987461,
+          "dino_ap": 0.2580620406987461,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.09916743500898094,
+          "dino_ap": 0.09916743500898094,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.020823402986996826,
+          "dino_ap": 0.020823402986996826,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6159888267437094,
+          "dino_ap": 0.6159888267437094,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.11429720741256806,
+          "dino_ap": 0.11429720741256806,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.1591096065774004,
+          "dino_ap": 0.1591096065774004,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.19114219491104378,
+          "dino_ap": 0.19114219491104378,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.3439070651087978,
+          "dino_ap": 0.3439070651087978,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.197459,
+      "mean_fused_pixel_auroc": 0.95746,
+      "mean_fused_pixel_aupro": 0.857388,
+      "mean_dino_baseline_ap": 0.294757,
+      "mean_delta_ap_vs_dino": -0.097298,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.476248,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.07642671345010041,
+          "dino_ap": 0.2790564482640378,
+          "delta_ap": -0.20263
+        },
+        "capsules": {
+          "fused_ap": 0.14683909915959742,
+          "dino_ap": 0.2442386389422735,
+          "delta_ap": -0.0974
+        },
+        "cashew": {
+          "fused_ap": 0.4810146677822264,
+          "dino_ap": 0.4181156047262102,
+          "delta_ap": 0.062899
+        },
+        "chewinggum": {
+          "fused_ap": 0.4449632091331313,
+          "dino_ap": 0.7931789668615992,
+          "delta_ap": -0.348216
+        },
+        "fryum": {
+          "fused_ap": 0.33834202534778174,
+          "dino_ap": 0.2580620406987461,
+          "delta_ap": 0.08028
+        },
+        "macaroni1": {
+          "fused_ap": 0.05799322770278195,
+          "dino_ap": 0.09916743500898094,
+          "delta_ap": -0.041174
+        },
+        "macaroni2": {
+          "fused_ap": 0.017559901843841073,
+          "dino_ap": 0.020823402986996826,
+          "delta_ap": -0.003264
+        },
+        "pcb1": {
+          "fused_ap": 0.1397408420988229,
+          "dino_ap": 0.6159888267437094,
+          "delta_ap": -0.476248
+        },
+        "pcb2": {
+          "fused_ap": 0.04259415775121906,
+          "dino_ap": 0.11429720741256806,
+          "delta_ap": -0.071703
+        },
+        "pcb3": {
+          "fused_ap": 0.04109033541339381,
+          "dino_ap": 0.1591096065774004,
+          "delta_ap": -0.118019
+        },
+        "pcb4": {
+          "fused_ap": 0.14310765480963505,
+          "dino_ap": 0.19114219491104378,
+          "delta_ap": -0.048035
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.43983825464238413,
+          "dino_ap": 0.3439070651087978,
+          "delta_ap": 0.095931
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.3743,
+      "mean_fused_pixel_auroc": 0.976707,
+      "mean_fused_pixel_aupro": 0.912368,
+      "mean_dino_baseline_ap": 0.325679,
+      "mean_delta_ap_vs_dino": 0.048621,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.060541,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.27920360558615115,
+          "dino_ap": 0.2958967343291227,
+          "delta_ap": -0.016693
+        },
+        "capsules": {
+          "fused_ap": 0.302540976239629,
+          "dino_ap": 0.28851182166974326,
+          "delta_ap": 0.014029
+        },
+        "cashew": {
+          "fused_ap": 0.5503354113176657,
+          "dino_ap": 0.43868711762679724,
+          "delta_ap": 0.111648
+        },
+        "chewinggum": {
+          "fused_ap": 0.7206567187039089,
+          "dino_ap": 0.7811980215776735,
+          "delta_ap": -0.060541
+        },
+        "fryum": {
+          "fused_ap": 0.3517736535168317,
+          "dino_ap": 0.28556091102018044,
+          "delta_ap": 0.066213
+        },
+        "macaroni1": {
+          "fused_ap": 0.17327376081850698,
+          "dino_ap": 0.13667546251723212,
+          "delta_ap": 0.036598
+        },
+        "macaroni2": {
+          "fused_ap": 0.19156672412648032,
+          "dino_ap": 0.06215830145382551,
+          "delta_ap": 0.129408
+        },
+        "pcb1": {
+          "fused_ap": 0.7824594812764055,
+          "dino_ap": 0.69621733430589,
+          "delta_ap": 0.086242
+        },
+        "pcb2": {
+          "fused_ap": 0.16193866582097122,
+          "dino_ap": 0.13901775945377248,
+          "delta_ap": 0.022921
+        },
+        "pcb3": {
+          "fused_ap": 0.25323500296402396,
+          "dino_ap": 0.19537533244078822,
+          "delta_ap": 0.05786
+        },
+        "pcb4": {
+          "fused_ap": 0.247472122567166,
+          "dino_ap": 0.1902697311832805,
+          "delta_ap": 0.057202
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.47714445559960056,
+          "dino_ap": 0.398575297773698,
+          "delta_ap": 0.078569
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.325679,
+      "mean_fused_pixel_auroc": 0.968155,
+      "mean_fused_pixel_aupro": 0.896632,
+      "mean_dino_baseline_ap": 0.325679,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.2958967343291227,
+          "dino_ap": 0.2958967343291227,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.28851182166974326,
+          "dino_ap": 0.28851182166974326,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.43868711762679724,
+          "dino_ap": 0.43868711762679724,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7811980215776735,
+          "dino_ap": 0.7811980215776735,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.28556091102018044,
+          "dino_ap": 0.28556091102018044,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.13667546251723212,
+          "dino_ap": 0.13667546251723212,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.06215830145382551,
+          "dino_ap": 0.06215830145382551,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.69621733430589,
+          "dino_ap": 0.69621733430589,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.13901775945377248,
+          "dino_ap": 0.13901775945377248,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.19537533244078822,
+          "dino_ap": 0.19537533244078822,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.1902697311832805,
+          "dino_ap": 0.1902697311832805,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.398575297773698,
+          "dino_ap": 0.398575297773698,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.230823,
+      "mean_fused_pixel_auroc": 0.964218,
+      "mean_fused_pixel_aupro": 0.875743,
+      "mean_dino_baseline_ap": 0.325679,
+      "mean_delta_ap_vs_dino": -0.094855,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.521561,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.12305612015189486,
+          "dino_ap": 0.2958967343291227,
+          "delta_ap": -0.172841
+        },
+        "capsules": {
+          "fused_ap": 0.17113035044428182,
+          "dino_ap": 0.28851182166974326,
+          "delta_ap": -0.117381
+        },
+        "cashew": {
+          "fused_ap": 0.5802773991307775,
+          "dino_ap": 0.43868711762679724,
+          "delta_ap": 0.14159
+        },
+        "chewinggum": {
+          "fused_ap": 0.45407056363092346,
+          "dino_ap": 0.7811980215776735,
+          "delta_ap": -0.327127
+        },
+        "fryum": {
+          "fused_ap": 0.33198019190663663,
+          "dino_ap": 0.28556091102018044,
+          "delta_ap": 0.046419
+        },
+        "macaroni1": {
+          "fused_ap": 0.1266750826193176,
+          "dino_ap": 0.13667546251723212,
+          "delta_ap": -0.01
+        },
+        "macaroni2": {
+          "fused_ap": 0.023077005117497103,
+          "dino_ap": 0.06215830145382551,
+          "delta_ap": -0.039081
+        },
+        "pcb1": {
+          "fused_ap": 0.17465611928591465,
+          "dino_ap": 0.69621733430589,
+          "delta_ap": -0.521561
+        },
+        "pcb2": {
+          "fused_ap": 0.07509254435320425,
+          "dino_ap": 0.13901775945377248,
+          "delta_ap": -0.063925
+        },
+        "pcb3": {
+          "fused_ap": 0.04974994889649574,
+          "dino_ap": 0.19537533244078822,
+          "delta_ap": -0.145625
+        },
+        "pcb4": {
+          "fused_ap": 0.14980811694721147,
+          "dino_ap": 0.1902697311832805,
+          "delta_ap": -0.040462
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5103045559921247,
+          "dino_ap": 0.398575297773698,
+          "delta_ap": 0.111729
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.399006,
+      "mean_fused_pixel_auroc": 0.980734,
+      "mean_fused_pixel_aupro": 0.924024,
+      "mean_dino_baseline_ap": 0.351153,
+      "mean_delta_ap_vs_dino": 0.047853,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.04915,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.29213035476399557,
+          "dino_ap": 0.31874289979376885,
+          "delta_ap": -0.026613
+        },
+        "capsules": {
+          "fused_ap": 0.403151233223841,
+          "dino_ap": 0.3981396890029997,
+          "delta_ap": 0.005012
+        },
+        "cashew": {
+          "fused_ap": 0.5801028061195141,
+          "dino_ap": 0.46876914723260094,
+          "delta_ap": 0.111334
+        },
+        "chewinggum": {
+          "fused_ap": 0.7262357222622073,
+          "dino_ap": 0.7753856571894024,
+          "delta_ap": -0.04915
+        },
+        "fryum": {
+          "fused_ap": 0.36598791177845147,
+          "dino_ap": 0.2922736485121823,
+          "delta_ap": 0.073714
+        },
+        "macaroni1": {
+          "fused_ap": 0.1731845085308053,
+          "dino_ap": 0.1344192525486016,
+          "delta_ap": 0.038765
+        },
+        "macaroni2": {
+          "fused_ap": 0.23437557042210724,
+          "dino_ap": 0.1117200038137468,
+          "delta_ap": 0.122656
+        },
+        "pcb1": {
+          "fused_ap": 0.8205627866739674,
+          "dino_ap": 0.7339781061155267,
+          "delta_ap": 0.086585
+        },
+        "pcb2": {
+          "fused_ap": 0.19257978072000528,
+          "dino_ap": 0.16696114990471644,
+          "delta_ap": 0.025619
+        },
+        "pcb3": {
+          "fused_ap": 0.26371832284099306,
+          "dino_ap": 0.20196692336525868,
+          "delta_ap": 0.061751
+        },
+        "pcb4": {
+          "fused_ap": 0.260717401606145,
+          "dino_ap": 0.20920775962489546,
+          "delta_ap": 0.05151
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.47532792041873584,
+          "dino_ap": 0.4022733427679769,
+          "delta_ap": 0.073055
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.351153,
+      "mean_fused_pixel_auroc": 0.973714,
+      "mean_fused_pixel_aupro": 0.908782,
+      "mean_dino_baseline_ap": 0.351153,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.31874289979376885,
+          "dino_ap": 0.31874289979376885,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.3981396890029997,
+          "dino_ap": 0.3981396890029997,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.46876914723260094,
+          "dino_ap": 0.46876914723260094,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7753856571894024,
+          "dino_ap": 0.7753856571894024,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.2922736485121823,
+          "dino_ap": 0.2922736485121823,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.1344192525486016,
+          "dino_ap": 0.1344192525486016,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.1117200038137468,
+          "dino_ap": 0.1117200038137468,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.7339781061155267,
+          "dino_ap": 0.7339781061155267,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.16696114990471644,
+          "dino_ap": 0.16696114990471644,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.20196692336525868,
+          "dino_ap": 0.20196692336525868,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.20920775962489546,
+          "dino_ap": 0.20920775962489546,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4022733427679769,
+          "dino_ap": 0.4022733427679769,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.276274,
+      "mean_fused_pixel_auroc": 0.968346,
+      "mean_fused_pixel_aupro": 0.888818,
+      "mean_dino_baseline_ap": 0.351153,
+      "mean_delta_ap_vs_dino": -0.074879,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.349141,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.14390563867159234,
+          "dino_ap": 0.31874289979376885,
+          "delta_ap": -0.174837
+        },
+        "capsules": {
+          "fused_ap": 0.19634870890820424,
+          "dino_ap": 0.3981396890029997,
+          "delta_ap": -0.201791
+        },
+        "cashew": {
+          "fused_ap": 0.6157286009751178,
+          "dino_ap": 0.46876914723260094,
+          "delta_ap": 0.146959
+        },
+        "chewinggum": {
+          "fused_ap": 0.42624443894328934,
+          "dino_ap": 0.7753856571894024,
+          "delta_ap": -0.349141
+        },
+        "fryum": {
+          "fused_ap": 0.39162700599564426,
+          "dino_ap": 0.2922736485121823,
+          "delta_ap": 0.099353
+        },
+        "macaroni1": {
+          "fused_ap": 0.11442057478892229,
+          "dino_ap": 0.1344192525486016,
+          "delta_ap": -0.019999
+        },
+        "macaroni2": {
+          "fused_ap": 0.06470916723738859,
+          "dino_ap": 0.1117200038137468,
+          "delta_ap": -0.047011
+        },
+        "pcb1": {
+          "fused_ap": 0.6062867166462765,
+          "dino_ap": 0.7339781061155267,
+          "delta_ap": -0.127691
+        },
+        "pcb2": {
+          "fused_ap": 0.05073248527870132,
+          "dino_ap": 0.16696114990471644,
+          "delta_ap": -0.116229
+        },
+        "pcb3": {
+          "fused_ap": 0.06255610939777453,
+          "dino_ap": 0.20196692336525868,
+          "delta_ap": -0.139411
+        },
+        "pcb4": {
+          "fused_ap": 0.1420677788758985,
+          "dino_ap": 0.20920775962489546,
+          "delta_ap": -0.06714
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5006604306287339,
+          "dino_ap": 0.4022733427679769,
+          "delta_ap": 0.098387
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.346271,
+      "mean_fused_pixel_auroc": 0.968852,
+      "mean_fused_pixel_aupro": 0.892811,
+      "mean_dino_baseline_ap": 0.284505,
+      "mean_delta_ap_vs_dino": 0.061765,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.041181,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.26306624659283045,
+          "dino_ap": 0.26371033216286444,
+          "delta_ap": -0.000644
+        },
+        "capsules": {
+          "fused_ap": 0.35285184639966355,
+          "dino_ap": 0.31558590888070004,
+          "delta_ap": 0.037266
+        },
+        "cashew": {
+          "fused_ap": 0.5166025077362335,
+          "dino_ap": 0.37730663811069687,
+          "delta_ap": 0.139296
+        },
+        "chewinggum": {
+          "fused_ap": 0.7235297160515536,
+          "dino_ap": 0.7647108726768926,
+          "delta_ap": -0.041181
+        },
+        "fryum": {
+          "fused_ap": 0.25245113971415817,
+          "dino_ap": 0.17238108908222852,
+          "delta_ap": 0.08007
+        },
+        "macaroni1": {
+          "fused_ap": 0.195097911652823,
+          "dino_ap": 0.15406176708563346,
+          "delta_ap": 0.041036
+        },
+        "macaroni2": {
+          "fused_ap": 0.18900728940918154,
+          "dino_ap": 0.11145577645339907,
+          "delta_ap": 0.077552
+        },
+        "pcb1": {
+          "fused_ap": 0.7114390029240856,
+          "dino_ap": 0.5316372934872466,
+          "delta_ap": 0.179802
+        },
+        "pcb2": {
+          "fused_ap": 0.0869847900498708,
+          "dino_ap": 0.036647896180231176,
+          "delta_ap": 0.050337
+        },
+        "pcb3": {
+          "fused_ap": 0.0898893817420372,
+          "dino_ap": 0.050781039110538065,
+          "delta_ap": 0.039108
+        },
+        "pcb4": {
+          "fused_ap": 0.25782690876176295,
+          "dino_ap": 0.2086006773007366,
+          "delta_ap": 0.049226
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5165001734374981,
+          "dino_ap": 0.4271845829618005,
+          "delta_ap": 0.089316
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.284505,
+      "mean_fused_pixel_auroc": 0.95543,
+      "mean_fused_pixel_aupro": 0.864542,
+      "mean_dino_baseline_ap": 0.284505,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.26371033216286444,
+          "dino_ap": 0.26371033216286444,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.31558590888070004,
+          "dino_ap": 0.31558590888070004,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.37730663811069687,
+          "dino_ap": 0.37730663811069687,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7647108726768926,
+          "dino_ap": 0.7647108726768926,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.17238108908222852,
+          "dino_ap": 0.17238108908222852,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.15406176708563346,
+          "dino_ap": 0.15406176708563346,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.11145577645339907,
+          "dino_ap": 0.11145577645339907,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.5316372934872466,
+          "dino_ap": 0.5316372934872466,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.036647896180231176,
+          "dino_ap": 0.036647896180231176,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.050781039110538065,
+          "dino_ap": 0.050781039110538065,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.2086006773007366,
+          "dino_ap": 0.2086006773007366,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4271845829618005,
+          "dino_ap": 0.4271845829618005,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.216998,
+      "mean_fused_pixel_auroc": 0.960564,
+      "mean_fused_pixel_aupro": 0.866577,
+      "mean_dino_baseline_ap": 0.284505,
+      "mean_delta_ap_vs_dino": -0.067508,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 4,
+      "max_regression": -0.354653,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.12111421149763366,
+          "dino_ap": 0.26371033216286444,
+          "delta_ap": -0.142596
+        },
+        "capsules": {
+          "fused_ap": 0.1612788278636736,
+          "dino_ap": 0.31558590888070004,
+          "delta_ap": -0.154307
+        },
+        "cashew": {
+          "fused_ap": 0.5494067789115722,
+          "dino_ap": 0.37730663811069687,
+          "delta_ap": 0.1721
+        },
+        "chewinggum": {
+          "fused_ap": 0.41005828340414596,
+          "dino_ap": 0.7647108726768926,
+          "delta_ap": -0.354653
+        },
+        "fryum": {
+          "fused_ap": 0.3277340781555925,
+          "dino_ap": 0.17238108908222852,
+          "delta_ap": 0.155353
+        },
+        "macaroni1": {
+          "fused_ap": 0.1221312209302844,
+          "dino_ap": 0.15406176708563346,
+          "delta_ap": -0.031931
+        },
+        "macaroni2": {
+          "fused_ap": 0.029549727390376996,
+          "dino_ap": 0.11145577645339907,
+          "delta_ap": -0.081906
+        },
+        "pcb1": {
+          "fused_ap": 0.21401081202766128,
+          "dino_ap": 0.5316372934872466,
+          "delta_ap": -0.317626
+        },
+        "pcb2": {
+          "fused_ap": 0.04831366532721053,
+          "dino_ap": 0.036647896180231176,
+          "delta_ap": 0.011666
+        },
+        "pcb3": {
+          "fused_ap": 0.03147651278946105,
+          "dino_ap": 0.050781039110538065,
+          "delta_ap": -0.019305
+        },
+        "pcb4": {
+          "fused_ap": 0.0977768899305513,
+          "dino_ap": 0.2086006773007366,
+          "delta_ap": -0.110824
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.491120562336963,
+          "dino_ap": 0.4271845829618005,
+          "delta_ap": 0.063936
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.386684,
+      "mean_fused_pixel_auroc": 0.976646,
+      "mean_fused_pixel_aupro": 0.915428,
+      "mean_dino_baseline_ap": 0.333554,
+      "mean_delta_ap_vs_dino": 0.05313,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.026427,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.267311778669271,
+          "dino_ap": 0.29373920753566446,
+          "delta_ap": -0.026427
+        },
+        "capsules": {
+          "fused_ap": 0.4183171184434265,
+          "dino_ap": 0.3991946425941595,
+          "delta_ap": 0.019122
+        },
+        "cashew": {
+          "fused_ap": 0.5638085133291173,
+          "dino_ap": 0.44439125464760143,
+          "delta_ap": 0.119417
+        },
+        "chewinggum": {
+          "fused_ap": 0.7360291807336096,
+          "dino_ap": 0.7527403890306675,
+          "delta_ap": -0.016711
+        },
+        "fryum": {
+          "fused_ap": 0.3375061589264396,
+          "dino_ap": 0.24847711126051744,
+          "delta_ap": 0.089029
+        },
+        "macaroni1": {
+          "fused_ap": 0.18531601326290661,
+          "dino_ap": 0.1422819375863422,
+          "delta_ap": 0.043034
+        },
+        "macaroni2": {
+          "fused_ap": 0.22976502802546944,
+          "dino_ap": 0.1604070176744671,
+          "delta_ap": 0.069358
+        },
+        "pcb1": {
+          "fused_ap": 0.7504162429465955,
+          "dino_ap": 0.6251807615411928,
+          "delta_ap": 0.125235
+        },
+        "pcb2": {
+          "fused_ap": 0.1704849742465948,
+          "dino_ap": 0.1369620178117388,
+          "delta_ap": 0.033523
+        },
+        "pcb3": {
+          "fused_ap": 0.16910986865565725,
+          "dino_ap": 0.1023710903883037,
+          "delta_ap": 0.066739
+        },
+        "pcb4": {
+          "fused_ap": 0.29272114513177994,
+          "dino_ap": 0.24715201874649023,
+          "delta_ap": 0.045569
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5194247072003326,
+          "dino_ap": 0.4497533035132414,
+          "delta_ap": 0.069671
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.333554,
+      "mean_fused_pixel_auroc": 0.967898,
+      "mean_fused_pixel_aupro": 0.899751,
+      "mean_dino_baseline_ap": 0.333554,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.29373920753566446,
+          "dino_ap": 0.29373920753566446,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.3991946425941595,
+          "dino_ap": 0.3991946425941595,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.44439125464760143,
+          "dino_ap": 0.44439125464760143,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7527403890306675,
+          "dino_ap": 0.7527403890306675,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.24847711126051744,
+          "dino_ap": 0.24847711126051744,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.1422819375863422,
+          "dino_ap": 0.1422819375863422,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.1604070176744671,
+          "dino_ap": 0.1604070176744671,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6251807615411928,
+          "dino_ap": 0.6251807615411928,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.1369620178117388,
+          "dino_ap": 0.1369620178117388,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.1023710903883037,
+          "dino_ap": 0.1023710903883037,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.24715201874649023,
+          "dino_ap": 0.24715201874649023,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4497533035132414,
+          "dino_ap": 0.4497533035132414,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.232524,
+      "mean_fused_pixel_auroc": 0.964412,
+      "mean_fused_pixel_aupro": 0.875195,
+      "mean_dino_baseline_ap": 0.333554,
+      "mean_delta_ap_vs_dino": -0.10103,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 3,
+      "max_regression": -0.389007,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.10161170760012447,
+          "dino_ap": 0.29373920753566446,
+          "delta_ap": -0.192127
+        },
+        "capsules": {
+          "fused_ap": 0.18442632132299608,
+          "dino_ap": 0.3991946425941595,
+          "delta_ap": -0.214768
+        },
+        "cashew": {
+          "fused_ap": 0.5717724595201098,
+          "dino_ap": 0.44439125464760143,
+          "delta_ap": 0.127381
+        },
+        "chewinggum": {
+          "fused_ap": 0.4267464647607694,
+          "dino_ap": 0.7527403890306675,
+          "delta_ap": -0.325994
+        },
+        "fryum": {
+          "fused_ap": 0.38164360584461837,
+          "dino_ap": 0.24847711126051744,
+          "delta_ap": 0.133166
+        },
+        "macaroni1": {
+          "fused_ap": 0.10865153643138882,
+          "dino_ap": 0.1422819375863422,
+          "delta_ap": -0.03363
+        },
+        "macaroni2": {
+          "fused_ap": 0.035484482530802317,
+          "dino_ap": 0.1604070176744671,
+          "delta_ap": -0.124923
+        },
+        "pcb1": {
+          "fused_ap": 0.23617327939448243,
+          "dino_ap": 0.6251807615411928,
+          "delta_ap": -0.389007
+        },
+        "pcb2": {
+          "fused_ap": 0.07094184348099385,
+          "dino_ap": 0.1369620178117388,
+          "delta_ap": -0.06602
+        },
+        "pcb3": {
+          "fused_ap": 0.04490104163531298,
+          "dino_ap": 0.1023710903883037,
+          "delta_ap": -0.05747
+        },
+        "pcb4": {
+          "fused_ap": 0.1252722450083873,
+          "dino_ap": 0.24715201874649023,
+          "delta_ap": -0.12188
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5026608276665896,
+          "dino_ap": 0.4497533035132414,
+          "delta_ap": 0.052908
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.402713,
+      "mean_fused_pixel_auroc": 0.980717,
+      "mean_fused_pixel_aupro": 0.925002,
+      "mean_dino_baseline_ap": 0.354826,
+      "mean_delta_ap_vs_dino": 0.047887,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 10,
+      "max_regression": -0.041438,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.28784847303587957,
+          "dino_ap": 0.31682765739547464,
+          "delta_ap": -0.028979
+        },
+        "capsules": {
+          "fused_ap": 0.4179661496544654,
+          "dino_ap": 0.40784469607187657,
+          "delta_ap": 0.010121
+        },
+        "cashew": {
+          "fused_ap": 0.5546904240785067,
+          "dino_ap": 0.4414783618628851,
+          "delta_ap": 0.113212
+        },
+        "chewinggum": {
+          "fused_ap": 0.7053911139146165,
+          "dino_ap": 0.7468289807813038,
+          "delta_ap": -0.041438
+        },
+        "fryum": {
+          "fused_ap": 0.36987608298477814,
+          "dino_ap": 0.2742707727305962,
+          "delta_ap": 0.095605
+        },
+        "macaroni1": {
+          "fused_ap": 0.19111615345181937,
+          "dino_ap": 0.1339493658262421,
+          "delta_ap": 0.057167
+        },
+        "macaroni2": {
+          "fused_ap": 0.23916990242821612,
+          "dino_ap": 0.17204991278926057,
+          "delta_ap": 0.06712
+        },
+        "pcb1": {
+          "fused_ap": 0.7754905272572987,
+          "dino_ap": 0.6615340714281188,
+          "delta_ap": 0.113956
+        },
+        "pcb2": {
+          "fused_ap": 0.1937656447338442,
+          "dino_ap": 0.16781263677424446,
+          "delta_ap": 0.025953
+        },
+        "pcb3": {
+          "fused_ap": 0.2659354232143466,
+          "dino_ap": 0.20473054233144364,
+          "delta_ap": 0.061205
+        },
+        "pcb4": {
+          "fused_ap": 0.31077366308371357,
+          "dino_ap": 0.2694421440113653,
+          "delta_ap": 0.041332
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.5205319010845677,
+          "dino_ap": 0.461146608624202,
+          "delta_ap": 0.059385
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.354826,
+      "mean_fused_pixel_auroc": 0.973143,
+      "mean_fused_pixel_aupro": 0.909422,
+      "mean_dino_baseline_ap": 0.354826,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.31682765739547464,
+          "dino_ap": 0.31682765739547464,
+          "delta_ap": 0.0
+        },
+        "capsules": {
+          "fused_ap": 0.40784469607187657,
+          "dino_ap": 0.40784469607187657,
+          "delta_ap": 0.0
+        },
+        "cashew": {
+          "fused_ap": 0.4414783618628851,
+          "dino_ap": 0.4414783618628851,
+          "delta_ap": 0.0
+        },
+        "chewinggum": {
+          "fused_ap": 0.7468289807813038,
+          "dino_ap": 0.7468289807813038,
+          "delta_ap": 0.0
+        },
+        "fryum": {
+          "fused_ap": 0.2742707727305962,
+          "dino_ap": 0.2742707727305962,
+          "delta_ap": 0.0
+        },
+        "macaroni1": {
+          "fused_ap": 0.1339493658262421,
+          "dino_ap": 0.1339493658262421,
+          "delta_ap": 0.0
+        },
+        "macaroni2": {
+          "fused_ap": 0.17204991278926057,
+          "dino_ap": 0.17204991278926057,
+          "delta_ap": 0.0
+        },
+        "pcb1": {
+          "fused_ap": 0.6615340714281188,
+          "dino_ap": 0.6615340714281188,
+          "delta_ap": 0.0
+        },
+        "pcb2": {
+          "fused_ap": 0.16781263677424446,
+          "dino_ap": 0.16781263677424446,
+          "delta_ap": 0.0
+        },
+        "pcb3": {
+          "fused_ap": 0.20473054233144364,
+          "dino_ap": 0.20473054233144364,
+          "delta_ap": 0.0
+        },
+        "pcb4": {
+          "fused_ap": 0.2694421440113653,
+          "dino_ap": 0.2694421440113653,
+          "delta_ap": 0.0
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.461146608624202,
+          "dino_ap": 0.461146608624202,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.24687,
+      "mean_fused_pixel_auroc": 0.967471,
+      "mean_fused_pixel_aupro": 0.886812,
+      "mean_dino_baseline_ap": 0.354826,
+      "mean_delta_ap_vs_dino": -0.107956,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on VisA)",
+      "positive_categories": 4,
+      "max_regression": -0.42268,
+      "per_category": {
+        "candle": {
+          "fused_ap": 0.1168747027535132,
+          "dino_ap": 0.31682765739547464,
+          "delta_ap": -0.199953
+        },
+        "capsules": {
+          "fused_ap": 0.19461535534483376,
+          "dino_ap": 0.40784469607187657,
+          "delta_ap": -0.213229
+        },
+        "cashew": {
+          "fused_ap": 0.5663004608781057,
+          "dino_ap": 0.4414783618628851,
+          "delta_ap": 0.124822
+        },
+        "chewinggum": {
+          "fused_ap": 0.42495223066316523,
+          "dino_ap": 0.7468289807813038,
+          "delta_ap": -0.321877
+        },
+        "fryum": {
+          "fused_ap": 0.4161617867791868,
+          "dino_ap": 0.2742707727305962,
+          "delta_ap": 0.141891
+        },
+        "macaroni1": {
+          "fused_ap": 0.19928018733252859,
+          "dino_ap": 0.1339493658262421,
+          "delta_ap": 0.065331
+        },
+        "macaroni2": {
+          "fused_ap": 0.04500712950513646,
+          "dino_ap": 0.17204991278926057,
+          "delta_ap": -0.127043
+        },
+        "pcb1": {
+          "fused_ap": 0.23885455517957332,
+          "dino_ap": 0.6615340714281188,
+          "delta_ap": -0.42268
+        },
+        "pcb2": {
+          "fused_ap": 0.050983015709618926,
+          "dino_ap": 0.16781263677424446,
+          "delta_ap": -0.11683
+        },
+        "pcb3": {
+          "fused_ap": 0.07729751435956872,
+          "dino_ap": 0.20473054233144364,
+          "delta_ap": -0.127433
+        },
+        "pcb4": {
+          "fused_ap": 0.13626535206414517,
+          "dino_ap": 0.2694421440113653,
+          "delta_ap": -0.133177
+        },
+        "pipe_fryum": {
+          "fused_ap": 0.4958502967777533,
+          "dino_ap": 0.461146608624202,
+          "delta_ap": 0.034704
+        }
+      }
+    }
+  ]
+}

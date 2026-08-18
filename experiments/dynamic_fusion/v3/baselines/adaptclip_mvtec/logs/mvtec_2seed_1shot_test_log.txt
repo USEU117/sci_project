@@ -1,0 +1,17 @@
+26-08-16 22:52:37.439 - INFO: 
+loading model from: methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-17 02:16:34.368 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\bottle.npz
+26-08-17 02:16:40.626 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\cable.npz
+26-08-17 02:16:46.482 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\capsule.npz
+26-08-17 02:16:51.624 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\carpet.npz
+26-08-17 02:16:55.453 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\grid.npz
+26-08-17 02:17:00.110 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\hazelnut.npz
+26-08-17 02:17:05.554 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\leather.npz
+26-08-17 02:17:10.312 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\metal_nut.npz
+26-08-17 02:17:17.516 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\pill.npz
+26-08-17 02:17:24.467 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\screw.npz
+26-08-17 02:17:29.613 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\tile.npz
+26-08-17 02:17:31.380 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\toothbrush.npz
+26-08-17 02:17:35.616 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\transistor.npz
+26-08-17 02:17:38.897 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\wood.npz
+26-08-17 02:17:45.709 - INFO: V3 prediction cache: outputs\adaptclip\mvtec\seed_2_shot_1\predictions\zipper.npz

@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_mpdd_weight_scan_20260817",
+  "created_at_utc": "2026-08-17T14:17:21.182470+00:00",
+  "stage": "phase_5_2_weight_scan_pre_freeze",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "config": "concat pca_dim=0 whiten=0 (vitb14 DINO + CLIP)",
+  "weights": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "per_weight": {
+    "0.3": {
+      "mean_delta_ap": 0.02989377777777778,
+      "positive_configs": 9,
+      "min_delta": 0.013547,
+      "max_delta": 0.047343
+    },
+    "0.4": {
+      "mean_delta_ap": 0.04948533333333333,
+      "positive_configs": 9,
+      "min_delta": 0.031555,
+      "max_delta": 0.060717
+    },
+    "0.5": {
+      "mean_delta_ap": 0.048558777777777784,
+      "positive_configs": 9,
+      "min_delta": 0.028974,
+      "max_delta": 0.061439
+    },
+    "0.6": {
+      "mean_delta_ap": 0.038082111111111115,
+      "positive_configs": 9,
+      "min_delta": 0.015752,
+      "max_delta": 0.050423
+    },
+    "0.7": {
+      "mean_delta_ap": 0.029474,
+      "positive_configs": 9,
+      "min_delta": 0.00645,
+      "max_delta": 0.042061
+    }
+  },
+  "best_weight_by_mean_delta": 0.4,
+  "frozen_w0_5_rank": 2,
+  "w0_5_vs_best_gap": 0.000927,
+  "rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "weight": 0.3,
+      "delta_ap": 0.030649,
+      "fused_ap": 0.310888
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "weight": 0.4,
+      "delta_ap": 0.040496,
+      "fused_ap": 0.320734
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "weight": 0.5,
+      "delta_ap": 0.028974,
+      "fused_ap": 0.309212
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "weight": 0.6,
+      "delta_ap": 0.015752,
+      "fused_ap": 0.295991
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "weight": 0.7,
+      "delta_ap": 0.00645,
+      "fused_ap": 0.286688
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "weight": 0.3,
+      "delta_ap": 0.022274,
+      "fused_ap": 0.325003
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "weight": 0.4,
+      "delta_ap": 0.039747,
+      "fused_ap": 0.342475
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "weight": 0.5,
+      "delta_ap": 0.040978,
+      "fused_ap": 0.343707
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "weight": 0.6,
+      "delta_ap": 0.03076,
+      "fused_ap": 0.333488
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "weight": 0.7,
+      "delta_ap": 0.020689,
+      "fused_ap": 0.323418
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "weight": 0.3,
+      "delta_ap": 0.027803,
+      "fused_ap": 0.356509
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "weight": 0.4,
+      "delta_ap": 0.055975,
+      "fused_ap": 0.38468
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "weight": 0.5,
+      "delta_ap": 0.059622,
+      "fused_ap": 0.388328
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "weight": 0.6,
+      "delta_ap": 0.049723,
+      "fused_ap": 0.378429
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "weight": 0.7,
+      "delta_ap": 0.04111,
+      "fused_ap": 0.369815
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "weight": 0.3,
+      "delta_ap": 0.013547,
+      "fused_ap": 0.316508
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "weight": 0.4,
+      "delta_ap": 0.031555,
+      "fused_ap": 0.334516
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "weight": 0.5,
+      "delta_ap": 0.03955,
+      "fused_ap": 0.34251
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "weight": 0.6,
+      "delta_ap": 0.033502,
+      "fused_ap": 0.336463
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "weight": 0.7,
+      "delta_ap": 0.029356,
+      "fused_ap": 0.332316
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "weight": 0.3,
+      "delta_ap": 0.030722,
+      "fused_ap": 0.339436
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "weight": 0.4,
+      "delta_ap": 0.054934,
+      "fused_ap": 0.363648
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "weight": 0.5,
+      "delta_ap": 0.056898,
+      "fused_ap": 0.365612
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "weight": 0.6,
+      "delta_ap": 0.049083,
+      "fused_ap": 0.357797
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "weight": 0.7,
+      "delta_ap": 0.040773,
+      "fused_ap": 0.349487
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "weight": 0.3,
+      "delta_ap": 0.020156,
+      "fused_ap": 0.363131
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "weight": 0.4,
+      "delta_ap": 0.05048,
+      "fused_ap": 0.393454
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "weight": 0.5,
+      "delta_ap": 0.055547,
+      "fused_ap": 0.398521
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "weight": 0.6,
+      "delta_ap": 0.043906,
+      "fused_ap": 0.38688
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "weight": 0.7,
+      "delta_ap": 0.033981,
+      "fused_ap": 0.376956
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "weight": 0.3,
+      "delta_ap": 0.042498,
+      "fused_ap": 0.314987
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "weight": 0.4,
+      "delta_ap": 0.051027,
+      "fused_ap": 0.323516
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "weight": 0.5,
+      "delta_ap": 0.043431,
+      "fused_ap": 0.315919
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "weight": 0.6,
+      "delta_ap": 0.031637,
+      "fused_ap": 0.304126
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "weight": 0.7,
+      "delta_ap": 0.022529,
+      "fused_ap": 0.295018
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "weight": 0.3,
+      "delta_ap": 0.047343,
+      "fused_ap": 0.334385
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "weight": 0.4,
+      "delta_ap": 0.060717,
+      "fused_ap": 0.347759
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "weight": 0.5,
+      "delta_ap": 0.05059,
+      "fused_ap": 0.337632
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "weight": 0.6,
+      "delta_ap": 0.037953,
+      "fused_ap": 0.324995
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "weight": 0.7,
+      "delta_ap": 0.028317,
+      "fused_ap": 0.315359
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "weight": 0.3,
+      "delta_ap": 0.034052,
+      "fused_ap": 0.377312
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "weight": 0.4,
+      "delta_ap": 0.060437,
+      "fused_ap": 0.403696
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "weight": 0.5,
+      "delta_ap": 0.061439,
+      "fused_ap": 0.404698
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "weight": 0.6,
+      "delta_ap": 0.050423,
+      "fused_ap": 0.393681
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "weight": 0.7,
+      "delta_ap": 0.042061,
+      "fused_ap": 0.38532
+    }
+  ]
+}

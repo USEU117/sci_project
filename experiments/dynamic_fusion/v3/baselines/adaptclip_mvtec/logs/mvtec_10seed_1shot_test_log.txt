@@ -1,0 +1,8 @@
+26-08-14 21:49:54.983 - INFO: 
+loading model from: D:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-14 23:38:12.532 - INFO: 
+loading model from: D:\STUDY\My_github\sci_project\methods\adaptclip\adaptclip_checkpoints\12_4_128_train_on_visa_3adapters_batch8\epoch_15.pth
+26-08-14 23:39:14.606 - INFO: 
+|  Name  |  I-AUROC  |  I-AP  |  I-F1max  |  P-AUROC  |  P-AP  |  P-F1max  |  P-AUPRO  |
+|:------:|:---------:|:------:|:---------:|:---------:|:------:|:---------:|:---------:|
+| bottle |   99.2    |  99.6  |   98.4    |   95.6    |  74.8  |   70.5    |   90.8    |

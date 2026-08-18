@@ -1,0 +1,2 @@
+bottle/train/good/010.png
+bottle/train/good/010.png

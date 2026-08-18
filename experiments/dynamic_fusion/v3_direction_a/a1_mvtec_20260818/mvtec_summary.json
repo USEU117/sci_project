@@ -1,0 +1,2559 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_mvtec_post_freeze_20260818",
+  "created_at_utc": "2026-08-18T11:56:14.818410+00:00",
+  "stage": "phase_7_post_freeze_external_validation",
+  "dataset": "mvtec",
+  "dataset_role": "holdout",
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (vitb14 DINO + AnomalyCLIP), KNN k=1, stride=8",
+  "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout; ~0.001 AP apart from v2 score-level on MPDD s0/k1)",
+  "cpu_only_eval": true,
+  "overall": {
+    "concat": {
+      "mean_delta_ap_vs_dino": 0.03196177777777777,
+      "mean_fused_pixel_ap": 0.5546113333333333,
+      "mean_fused_pixel_auroc": 0.9662506666666667,
+      "mean_fused_pixel_aupro": 0.919878888888889,
+      "positive_configs": 9,
+      "by_seed_delta": {
+        "0": 0.03559333333333333,
+        "1": 0.026637666666666667,
+        "2": 0.033654333333333335
+      },
+      "by_shot_delta": {
+        "1": 0.034778666666666666,
+        "2": 0.031139333333333335,
+        "4": 0.029967333333333332
+      }
+    },
+    "dino_only": {
+      "mean_delta_ap_vs_dino": 0.0,
+      "mean_fused_pixel_ap": 0.5226494444444444,
+      "mean_fused_pixel_auroc": 0.954796,
+      "mean_fused_pixel_aupro": 0.9065075555555556,
+      "positive_configs": 0,
+      "by_seed_delta": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "by_shot_delta": {
+        "1": 0.0,
+        "2": 0.0,
+        "4": 0.0
+      }
+    },
+    "clip_only": {
+      "mean_delta_ap_vs_dino": -0.05725433333333333,
+      "mean_fused_pixel_ap": 0.46539511111111104,
+      "mean_fused_pixel_auroc": 0.9538587777777777,
+      "mean_fused_pixel_aupro": 0.873215,
+      "positive_configs": 0,
+      "by_seed_delta": {
+        "0": -0.058764666666666666,
+        "1": -0.056029,
+        "2": -0.05696933333333334
+      },
+      "by_shot_delta": {
+        "1": -0.056927666666666675,
+        "2": -0.05710433333333333,
+        "4": -0.057731000000000005
+      }
+    },
+    "concat_beats_every_single_branch": true
+  },
+  "per_category_concat": {
+    "bottle": {
+      "mean_delta_ap": 0.010711,
+      "positive_configs": 9
+    },
+    "cable": {
+      "mean_delta_ap": 0.03492,
+      "positive_configs": 9
+    },
+    "capsule": {
+      "mean_delta_ap": -0.016133,
+      "positive_configs": 5
+    },
+    "carpet": {
+      "mean_delta_ap": 0.079502,
+      "positive_configs": 9
+    },
+    "grid": {
+      "mean_delta_ap": -0.006143,
+      "positive_configs": 2
+    },
+    "hazelnut": {
+      "mean_delta_ap": -0.029716,
+      "positive_configs": 0
+    },
+    "leather": {
+      "mean_delta_ap": -0.042787,
+      "positive_configs": 0
+    },
+    "metal_nut": {
+      "mean_delta_ap": 0.043413,
+      "positive_configs": 9
+    },
+    "pill": {
+      "mean_delta_ap": 0.076874,
+      "positive_configs": 9
+    },
+    "screw": {
+      "mean_delta_ap": 0.0675,
+      "positive_configs": 9
+    },
+    "tile": {
+      "mean_delta_ap": 0.050639,
+      "positive_configs": 9
+    },
+    "toothbrush": {
+      "mean_delta_ap": 0.107998,
+      "positive_configs": 9
+    },
+    "transistor": {
+      "mean_delta_ap": 0.011733,
+      "positive_configs": 9
+    },
+    "wood": {
+      "mean_delta_ap": 0.04219,
+      "positive_configs": 9
+    },
+    "zipper": {
+      "mean_delta_ap": 0.048727,
+      "positive_configs": 9
+    }
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.561549,
+      "mean_fused_pixel_auroc": 0.96375,
+      "mean_fused_pixel_aupro": 0.916432,
+      "mean_dino_baseline_ap": 0.520567,
+      "mean_delta_ap_vs_dino": 0.040982,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 12,
+      "max_regression": -0.027833,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8113713808827598,
+          "dino_ap": 0.7951997967894257,
+          "delta_ap": 0.016172
+        },
+        "cable": {
+          "fused_ap": 0.6260388134965739,
+          "dino_ap": 0.5958690414303536,
+          "delta_ap": 0.03017
+        },
+        "capsule": {
+          "fused_ap": 0.4907053805896857,
+          "dino_ap": 0.46960527049752826,
+          "delta_ap": 0.0211
+        },
+        "carpet": {
+          "fused_ap": 0.5917228171182309,
+          "dino_ap": 0.506701506128957,
+          "delta_ap": 0.085021
+        },
+        "grid": {
+          "fused_ap": 0.4683820578558556,
+          "dino_ap": 0.4717115257697223,
+          "delta_ap": -0.003329
+        },
+        "hazelnut": {
+          "fused_ap": 0.7310697102567396,
+          "dino_ap": 0.7466939422711758,
+          "delta_ap": -0.015624
+        },
+        "leather": {
+          "fused_ap": 0.2913285005682532,
+          "dino_ap": 0.3191619346439492,
+          "delta_ap": -0.027833
+        },
+        "metal_nut": {
+          "fused_ap": 0.732462518781205,
+          "dino_ap": 0.6464839020277477,
+          "delta_ap": 0.085979
+        },
+        "pill": {
+          "fused_ap": 0.6510070735103014,
+          "dino_ap": 0.5670896069140343,
+          "delta_ap": 0.083917
+        },
+        "screw": {
+          "fused_ap": 0.2102090497408074,
+          "dino_ap": 0.1438228043958219,
+          "delta_ap": 0.066386
+        },
+        "tile": {
+          "fused_ap": 0.6378904367350499,
+          "dino_ap": 0.5883627499364217,
+          "delta_ap": 0.049528
+        },
+        "toothbrush": {
+          "fused_ap": 0.6058495421104718,
+          "dino_ap": 0.5057061162221197,
+          "delta_ap": 0.100143
+        },
+        "transistor": {
+          "fused_ap": 0.44405031396230976,
+          "dino_ap": 0.42036981213413693,
+          "delta_ap": 0.023681
+        },
+        "wood": {
+          "fused_ap": 0.6905637496389883,
+          "dino_ap": 0.6428412516035131,
+          "delta_ap": 0.047722
+        },
+        "zipper": {
+          "fused_ap": 0.44058488254728456,
+          "dino_ap": 0.38888240238132926,
+          "delta_ap": 0.051702
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.520567,
+      "mean_fused_pixel_auroc": 0.94976,
+      "mean_fused_pixel_aupro": 0.900658,
+      "mean_dino_baseline_ap": 0.520567,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.7951997967894257,
+          "dino_ap": 0.7951997967894257,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5958690414303536,
+          "dino_ap": 0.5958690414303536,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.46960527049752826,
+          "dino_ap": 0.46960527049752826,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.506701506128957,
+          "dino_ap": 0.506701506128957,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.4717115257697223,
+          "dino_ap": 0.4717115257697223,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7466939422711758,
+          "dino_ap": 0.7466939422711758,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.3191619346439492,
+          "dino_ap": 0.3191619346439492,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.6464839020277477,
+          "dino_ap": 0.6464839020277477,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5670896069140343,
+          "dino_ap": 0.5670896069140343,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.1438228043958219,
+          "dino_ap": 0.1438228043958219,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5883627499364217,
+          "dino_ap": 0.5883627499364217,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.5057061162221197,
+          "dino_ap": 0.5057061162221197,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.42036981213413693,
+          "dino_ap": 0.42036981213413693,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6428412516035131,
+          "dino_ap": 0.6428412516035131,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.38888240238132926,
+          "dino_ap": 0.38888240238132926,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.463639,
+      "mean_fused_pixel_auroc": 0.951651,
+      "mean_fused_pixel_aupro": 0.866384,
+      "mean_dino_baseline_ap": 0.520567,
+      "mean_delta_ap_vs_dino": -0.056928,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.280633,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6586746157284733,
+          "dino_ap": 0.7951997967894257,
+          "delta_ap": -0.136525
+        },
+        "cable": {
+          "fused_ap": 0.3731782998980375,
+          "dino_ap": 0.5958690414303536,
+          "delta_ap": -0.222691
+        },
+        "capsule": {
+          "fused_ap": 0.3851507844879968,
+          "dino_ap": 0.46960527049752826,
+          "delta_ap": -0.084454
+        },
+        "carpet": {
+          "fused_ap": 0.5755213981609012,
+          "dino_ap": 0.506701506128957,
+          "delta_ap": 0.06882
+        },
+        "grid": {
+          "fused_ap": 0.1910788345819512,
+          "dino_ap": 0.4717115257697223,
+          "delta_ap": -0.280633
+        },
+        "hazelnut": {
+          "fused_ap": 0.4833277221654085,
+          "dino_ap": 0.7466939422711758,
+          "delta_ap": -0.263366
+        },
+        "leather": {
+          "fused_ap": 0.21630404186515495,
+          "dino_ap": 0.3191619346439492,
+          "delta_ap": -0.102858
+        },
+        "metal_nut": {
+          "fused_ap": 0.7272589780193217,
+          "dino_ap": 0.6464839020277477,
+          "delta_ap": 0.080775
+        },
+        "pill": {
+          "fused_ap": 0.6543897651182856,
+          "dino_ap": 0.5670896069140343,
+          "delta_ap": 0.0873
+        },
+        "screw": {
+          "fused_ap": 0.10078093385349571,
+          "dino_ap": 0.1438228043958219,
+          "delta_ap": -0.043042
+        },
+        "tile": {
+          "fused_ap": 0.6407718194424279,
+          "dino_ap": 0.5883627499364217,
+          "delta_ap": 0.052409
+        },
+        "toothbrush": {
+          "fused_ap": 0.5766969449339956,
+          "dino_ap": 0.5057061162221197,
+          "delta_ap": 0.070991
+        },
+        "transistor": {
+          "fused_ap": 0.35729779588006366,
+          "dino_ap": 0.42036981213413693,
+          "delta_ap": -0.063072
+        },
+        "wood": {
+          "fused_ap": 0.5734401637708733,
+          "dino_ap": 0.6428412516035131,
+          "delta_ap": -0.069401
+        },
+        "zipper": {
+          "fused_ap": 0.4407168433325559,
+          "dino_ap": 0.38888240238132926,
+          "delta_ap": 0.051834
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.575326,
+      "mean_fused_pixel_auroc": 0.968249,
+      "mean_fused_pixel_aupro": 0.924313,
+      "mean_dino_baseline_ap": 0.543408,
+      "mean_delta_ap_vs_dino": 0.031917,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 12,
+      "max_regression": -0.064079,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8190532669673043,
+          "dino_ap": 0.8127389940432949,
+          "delta_ap": 0.006314
+        },
+        "cable": {
+          "fused_ap": 0.6214522553826606,
+          "dino_ap": 0.5882253786250023,
+          "delta_ap": 0.033227
+        },
+        "capsule": {
+          "fused_ap": 0.5136037594801565,
+          "dino_ap": 0.5011567307537093,
+          "delta_ap": 0.012447
+        },
+        "carpet": {
+          "fused_ap": 0.5793539771925694,
+          "dino_ap": 0.5060060975517815,
+          "delta_ap": 0.073348
+        },
+        "grid": {
+          "fused_ap": 0.47756622841528185,
+          "dino_ap": 0.47925637203367966,
+          "delta_ap": -0.00169
+        },
+        "hazelnut": {
+          "fused_ap": 0.7516221317907883,
+          "dino_ap": 0.7879476244318425,
+          "delta_ap": -0.036325
+        },
+        "leather": {
+          "fused_ap": 0.29049078859213745,
+          "dino_ap": 0.3545696032032287,
+          "delta_ap": -0.064079
+        },
+        "metal_nut": {
+          "fused_ap": 0.79483854278105,
+          "dino_ap": 0.7483442751697981,
+          "delta_ap": 0.046494
+        },
+        "pill": {
+          "fused_ap": 0.6566191611542442,
+          "dino_ap": 0.5737420437824015,
+          "delta_ap": 0.082877
+        },
+        "screw": {
+          "fused_ap": 0.22165807883431904,
+          "dino_ap": 0.16371814996308098,
+          "delta_ap": 0.05794
+        },
+        "tile": {
+          "fused_ap": 0.6353343790931797,
+          "dino_ap": 0.5793852303226934,
+          "delta_ap": 0.055949
+        },
+        "toothbrush": {
+          "fused_ap": 0.6522749704724942,
+          "dino_ap": 0.554660783932788,
+          "delta_ap": 0.097614
+        },
+        "transistor": {
+          "fused_ap": 0.46599094318850875,
+          "dino_ap": 0.4536051677031255,
+          "delta_ap": 0.012386
+        },
+        "wood": {
+          "fused_ap": 0.6838438705361891,
+          "dino_ap": 0.6315228059346223,
+          "delta_ap": 0.052321
+        },
+        "zipper": {
+          "fused_ap": 0.4661818769257537,
+          "dino_ap": 0.41624801460848593,
+          "delta_ap": 0.049934
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.543408,
+      "mean_fused_pixel_auroc": 0.957035,
+      "mean_fused_pixel_aupro": 0.911718,
+      "mean_dino_baseline_ap": 0.543408,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8127389940432949,
+          "dino_ap": 0.8127389940432949,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5882253786250023,
+          "dino_ap": 0.5882253786250023,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.5011567307537093,
+          "dino_ap": 0.5011567307537093,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.5060060975517815,
+          "dino_ap": 0.5060060975517815,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.47925637203367966,
+          "dino_ap": 0.47925637203367966,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7879476244318425,
+          "dino_ap": 0.7879476244318425,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.3545696032032287,
+          "dino_ap": 0.3545696032032287,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7483442751697981,
+          "dino_ap": 0.7483442751697981,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5737420437824015,
+          "dino_ap": 0.5737420437824015,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.16371814996308098,
+          "dino_ap": 0.16371814996308098,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5793852303226934,
+          "dino_ap": 0.5793852303226934,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.554660783932788,
+          "dino_ap": 0.554660783932788,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.4536051677031255,
+          "dino_ap": 0.4536051677031255,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6315228059346223,
+          "dino_ap": 0.6315228059346223,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.41624801460848593,
+          "dino_ap": 0.41624801460848593,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.478382,
+      "mean_fused_pixel_auroc": 0.955431,
+      "mean_fused_pixel_aupro": 0.874016,
+      "mean_dino_baseline_ap": 0.543408,
+      "mean_delta_ap_vs_dino": -0.065026,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.290059,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.668553014584038,
+          "dino_ap": 0.8127389940432949,
+          "delta_ap": -0.144186
+        },
+        "cable": {
+          "fused_ap": 0.37704606894862325,
+          "dino_ap": 0.5882253786250023,
+          "delta_ap": -0.211179
+        },
+        "capsule": {
+          "fused_ap": 0.39806789383632574,
+          "dino_ap": 0.5011567307537093,
+          "delta_ap": -0.103089
+        },
+        "carpet": {
+          "fused_ap": 0.5546897787067624,
+          "dino_ap": 0.5060060975517815,
+          "delta_ap": 0.048684
+        },
+        "grid": {
+          "fused_ap": 0.217756764686175,
+          "dino_ap": 0.47925637203367966,
+          "delta_ap": -0.2615
+        },
+        "hazelnut": {
+          "fused_ap": 0.4978889018944066,
+          "dino_ap": 0.7879476244318425,
+          "delta_ap": -0.290059
+        },
+        "leather": {
+          "fused_ap": 0.21643144414272497,
+          "dino_ap": 0.3545696032032287,
+          "delta_ap": -0.138138
+        },
+        "metal_nut": {
+          "fused_ap": 0.7608160637777635,
+          "dino_ap": 0.7483442751697981,
+          "delta_ap": 0.012472
+        },
+        "pill": {
+          "fused_ap": 0.651716411782034,
+          "dino_ap": 0.5737420437824015,
+          "delta_ap": 0.077974
+        },
+        "screw": {
+          "fused_ap": 0.14309796743373396,
+          "dino_ap": 0.16371814996308098,
+          "delta_ap": -0.02062
+        },
+        "tile": {
+          "fused_ap": 0.6487173528651213,
+          "dino_ap": 0.5793852303226934,
+          "delta_ap": 0.069332
+        },
+        "toothbrush": {
+          "fused_ap": 0.6654800919181243,
+          "dino_ap": 0.554660783932788,
+          "delta_ap": 0.110819
+        },
+        "transistor": {
+          "fused_ap": 0.3614845565258933,
+          "dino_ap": 0.4536051677031255,
+          "delta_ap": -0.092121
+        },
+        "wood": {
+          "fused_ap": 0.5650202699323752,
+          "dino_ap": 0.6315228059346223,
+          "delta_ap": -0.066503
+        },
+        "zipper": {
+          "fused_ap": 0.4489668684205814,
+          "dino_ap": 0.41624801460848593,
+          "delta_ap": 0.032719
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.577138,
+      "mean_fused_pixel_auroc": 0.970392,
+      "mean_fused_pixel_aupro": 0.926859,
+      "mean_dino_baseline_ap": 0.543258,
+      "mean_delta_ap_vs_dino": 0.033881,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 13,
+      "max_regression": -0.055011,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8196305845417791,
+          "dino_ap": 0.8130466228371629,
+          "delta_ap": 0.006584
+        },
+        "cable": {
+          "fused_ap": 0.61924554420304,
+          "dino_ap": 0.5941005715697935,
+          "delta_ap": 0.025145
+        },
+        "capsule": {
+          "fused_ap": 0.5437803343052279,
+          "dino_ap": 0.5290291649237577,
+          "delta_ap": 0.014751
+        },
+        "carpet": {
+          "fused_ap": 0.5432596177246307,
+          "dino_ap": 0.4656573081290117,
+          "delta_ap": 0.077602
+        },
+        "grid": {
+          "fused_ap": 0.4627721620396059,
+          "dino_ap": 0.4460466583020647,
+          "delta_ap": 0.016726
+        },
+        "hazelnut": {
+          "fused_ap": 0.752062101570836,
+          "dino_ap": 0.7930334600688975,
+          "delta_ap": -0.040971
+        },
+        "leather": {
+          "fused_ap": 0.2810654954626082,
+          "dino_ap": 0.33607643142424615,
+          "delta_ap": -0.055011
+        },
+        "metal_nut": {
+          "fused_ap": 0.8290551430148166,
+          "dino_ap": 0.7975233474337715,
+          "delta_ap": 0.031532
+        },
+        "pill": {
+          "fused_ap": 0.6642223851874361,
+          "dino_ap": 0.5872975808174877,
+          "delta_ap": 0.076925
+        },
+        "screw": {
+          "fused_ap": 0.21440123511069786,
+          "dino_ap": 0.11348235951839496,
+          "delta_ap": 0.100919
+        },
+        "tile": {
+          "fused_ap": 0.6378765275527609,
+          "dino_ap": 0.5877067156656509,
+          "delta_ap": 0.05017
+        },
+        "toothbrush": {
+          "fused_ap": 0.6543972545967514,
+          "dino_ap": 0.5615222378792939,
+          "delta_ap": 0.092875
+        },
+        "transistor": {
+          "fused_ap": 0.4798913623922399,
+          "dino_ap": 0.4710817705679716,
+          "delta_ap": 0.00881
+        },
+        "wood": {
+          "fused_ap": 0.6873705419645104,
+          "dino_ap": 0.6388652316013216,
+          "delta_ap": 0.048505
+        },
+        "zipper": {
+          "fused_ap": 0.46804689081539225,
+          "dino_ap": 0.41439942076713043,
+          "delta_ap": 0.053647
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.543258,
+      "mean_fused_pixel_auroc": 0.959273,
+      "mean_fused_pixel_aupro": 0.91466,
+      "mean_dino_baseline_ap": 0.543258,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8130466228371629,
+          "dino_ap": 0.8130466228371629,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5941005715697935,
+          "dino_ap": 0.5941005715697935,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.5290291649237577,
+          "dino_ap": 0.5290291649237577,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.4656573081290117,
+          "dino_ap": 0.4656573081290117,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.4460466583020647,
+          "dino_ap": 0.4460466583020647,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7930334600688975,
+          "dino_ap": 0.7930334600688975,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.33607643142424615,
+          "dino_ap": 0.33607643142424615,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7975233474337715,
+          "dino_ap": 0.7975233474337715,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5872975808174877,
+          "dino_ap": 0.5872975808174877,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.11348235951839496,
+          "dino_ap": 0.11348235951839496,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5877067156656509,
+          "dino_ap": 0.5877067156656509,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.5615222378792939,
+          "dino_ap": 0.5615222378792939,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.4710817705679716,
+          "dino_ap": 0.4710817705679716,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6388652316013216,
+          "dino_ap": 0.6388652316013216,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.41439942076713043,
+          "dino_ap": 0.41439942076713043,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.488918,
+      "mean_fused_pixel_auroc": 0.95978,
+      "mean_fused_pixel_aupro": 0.882794,
+      "mean_dino_baseline_ap": 0.543258,
+      "mean_delta_ap_vs_dino": -0.05434,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.303184,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6772671476938329,
+          "dino_ap": 0.8130466228371629,
+          "delta_ap": -0.135779
+        },
+        "cable": {
+          "fused_ap": 0.390516938498773,
+          "dino_ap": 0.5941005715697935,
+          "delta_ap": -0.203584
+        },
+        "capsule": {
+          "fused_ap": 0.4329224746216281,
+          "dino_ap": 0.5290291649237577,
+          "delta_ap": -0.096107
+        },
+        "carpet": {
+          "fused_ap": 0.5547697654801086,
+          "dino_ap": 0.4656573081290117,
+          "delta_ap": 0.089112
+        },
+        "grid": {
+          "fused_ap": 0.2375450284703262,
+          "dino_ap": 0.4460466583020647,
+          "delta_ap": -0.208502
+        },
+        "hazelnut": {
+          "fused_ap": 0.4898491418726554,
+          "dino_ap": 0.7930334600688975,
+          "delta_ap": -0.303184
+        },
+        "leather": {
+          "fused_ap": 0.2049247077528654,
+          "dino_ap": 0.33607643142424615,
+          "delta_ap": -0.131152
+        },
+        "metal_nut": {
+          "fused_ap": 0.7832187401502488,
+          "dino_ap": 0.7975233474337715,
+          "delta_ap": -0.014305
+        },
+        "pill": {
+          "fused_ap": 0.653570113363546,
+          "dino_ap": 0.5872975808174877,
+          "delta_ap": 0.066273
+        },
+        "screw": {
+          "fused_ap": 0.17892979946330864,
+          "dino_ap": 0.11348235951839496,
+          "delta_ap": 0.065447
+        },
+        "tile": {
+          "fused_ap": 0.650507889427844,
+          "dino_ap": 0.5877067156656509,
+          "delta_ap": 0.062801
+        },
+        "toothbrush": {
+          "fused_ap": 0.6601114778742284,
+          "dino_ap": 0.5615222378792939,
+          "delta_ap": 0.098589
+        },
+        "transistor": {
+          "fused_ap": 0.38435625286422237,
+          "dino_ap": 0.4710817705679716,
+          "delta_ap": -0.086726
+        },
+        "wood": {
+          "fused_ap": 0.5852175306239943,
+          "dino_ap": 0.6388652316013216,
+          "delta_ap": -0.053648
+        },
+        "zipper": {
+          "fused_ap": 0.4500664342917935,
+          "dino_ap": 0.41439942076713043,
+          "delta_ap": 0.035667
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.532391,
+      "mean_fused_pixel_auroc": 0.96077,
+      "mean_fused_pixel_aupro": 0.90735,
+      "mean_dino_baseline_ap": 0.502135,
+      "mean_delta_ap_vs_dino": 0.030256,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 11,
+      "max_regression": -0.058901,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8038983923227552,
+          "dino_ap": 0.7973589117976644,
+          "delta_ap": 0.006539
+        },
+        "cable": {
+          "fused_ap": 0.5651271112558519,
+          "dino_ap": 0.5407981892499407,
+          "delta_ap": 0.024329
+        },
+        "capsule": {
+          "fused_ap": 0.2360556898519685,
+          "dino_ap": 0.29495661099348164,
+          "delta_ap": -0.058901
+        },
+        "carpet": {
+          "fused_ap": 0.5725362852710163,
+          "dino_ap": 0.4879954929792959,
+          "delta_ap": 0.084541
+        },
+        "grid": {
+          "fused_ap": 0.4357948473004093,
+          "dino_ap": 0.45076088274046444,
+          "delta_ap": -0.014966
+        },
+        "hazelnut": {
+          "fused_ap": 0.7075635249562122,
+          "dino_ap": 0.7322566034623508,
+          "delta_ap": -0.024693
+        },
+        "leather": {
+          "fused_ap": 0.26926514700127674,
+          "dino_ap": 0.30818078666781573,
+          "delta_ap": -0.038916
+        },
+        "metal_nut": {
+          "fused_ap": 0.7866687043119883,
+          "dino_ap": 0.7596273522020436,
+          "delta_ap": 0.027041
+        },
+        "pill": {
+          "fused_ap": 0.5930213271195253,
+          "dino_ap": 0.5164812367887783,
+          "delta_ap": 0.07654
+        },
+        "screw": {
+          "fused_ap": 0.194952651501995,
+          "dino_ap": 0.11368321087309649,
+          "delta_ap": 0.081269
+        },
+        "tile": {
+          "fused_ap": 0.6381376728844217,
+          "dino_ap": 0.5850015524445404,
+          "delta_ap": 0.053136
+        },
+        "toothbrush": {
+          "fused_ap": 0.6186931579391652,
+          "dino_ap": 0.4840059038013771,
+          "delta_ap": 0.134687
+        },
+        "transistor": {
+          "fused_ap": 0.45812777202718213,
+          "dino_ap": 0.4382849536246064,
+          "delta_ap": 0.019843
+        },
+        "wood": {
+          "fused_ap": 0.6831896148011123,
+          "dino_ap": 0.650479849539858,
+          "delta_ap": 0.03271
+        },
+        "zipper": {
+          "fused_ap": 0.42284051734555483,
+          "dino_ap": 0.37215657543627734,
+          "delta_ap": 0.050684
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.502135,
+      "mean_fused_pixel_auroc": 0.947975,
+      "mean_fused_pixel_aupro": 0.892326,
+      "mean_dino_baseline_ap": 0.502135,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.7973589117976644,
+          "dino_ap": 0.7973589117976644,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5407981892499407,
+          "dino_ap": 0.5407981892499407,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.29495661099348164,
+          "dino_ap": 0.29495661099348164,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.4879954929792959,
+          "dino_ap": 0.4879954929792959,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.45076088274046444,
+          "dino_ap": 0.45076088274046444,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7322566034623508,
+          "dino_ap": 0.7322566034623508,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.30818078666781573,
+          "dino_ap": 0.30818078666781573,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7596273522020436,
+          "dino_ap": 0.7596273522020436,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5164812367887783,
+          "dino_ap": 0.5164812367887783,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.11368321087309649,
+          "dino_ap": 0.11368321087309649,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5850015524445404,
+          "dino_ap": 0.5850015524445404,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.4840059038013771,
+          "dino_ap": 0.4840059038013771,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.4382849536246064,
+          "dino_ap": 0.4382849536246064,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.650479849539858,
+          "dino_ap": 0.650479849539858,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.37215657543627734,
+          "dino_ap": 0.37215657543627734,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.452043,
+      "mean_fused_pixel_auroc": 0.950192,
+      "mean_fused_pixel_aupro": 0.866297,
+      "mean_dino_baseline_ap": 0.502135,
+      "mean_delta_ap_vs_dino": -0.050092,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.231432,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6581231000947404,
+          "dino_ap": 0.7973589117976644,
+          "delta_ap": -0.139236
+        },
+        "cable": {
+          "fused_ap": 0.3093658894703316,
+          "dino_ap": 0.5407981892499407,
+          "delta_ap": -0.231432
+        },
+        "capsule": {
+          "fused_ap": 0.14015754038452577,
+          "dino_ap": 0.29495661099348164,
+          "delta_ap": -0.154799
+        },
+        "carpet": {
+          "fused_ap": 0.5718979080282964,
+          "dino_ap": 0.4879954929792959,
+          "delta_ap": 0.083902
+        },
+        "grid": {
+          "fused_ap": 0.2460574349646114,
+          "dino_ap": 0.45076088274046444,
+          "delta_ap": -0.204703
+        },
+        "hazelnut": {
+          "fused_ap": 0.5163168662345546,
+          "dino_ap": 0.7322566034623508,
+          "delta_ap": -0.21594
+        },
+        "leather": {
+          "fused_ap": 0.19332957195486683,
+          "dino_ap": 0.30818078666781573,
+          "delta_ap": -0.114851
+        },
+        "metal_nut": {
+          "fused_ap": 0.680265514443884,
+          "dino_ap": 0.7596273522020436,
+          "delta_ap": -0.079362
+        },
+        "pill": {
+          "fused_ap": 0.6017497510692541,
+          "dino_ap": 0.5164812367887783,
+          "delta_ap": 0.085269
+        },
+        "screw": {
+          "fused_ap": 0.172805758893594,
+          "dino_ap": 0.11368321087309649,
+          "delta_ap": 0.059123
+        },
+        "tile": {
+          "fused_ap": 0.6473501736501398,
+          "dino_ap": 0.5850015524445404,
+          "delta_ap": 0.062349
+        },
+        "toothbrush": {
+          "fused_ap": 0.668561731027692,
+          "dino_ap": 0.4840059038013771,
+          "delta_ap": 0.184556
+        },
+        "transistor": {
+          "fused_ap": 0.37860672398309037,
+          "dino_ap": 0.4382849536246064,
+          "delta_ap": -0.059678
+        },
+        "wood": {
+          "fused_ap": 0.5662866046036314,
+          "dino_ap": 0.650479849539858,
+          "delta_ap": -0.084193
+        },
+        "zipper": {
+          "fused_ap": 0.42976529672242886,
+          "dino_ap": 0.37215657543627734,
+          "delta_ap": 0.057609
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.539377,
+      "mean_fused_pixel_auroc": 0.966262,
+      "mean_fused_pixel_aupro": 0.919206,
+      "mean_dino_baseline_ap": 0.513964,
+      "mean_delta_ap_vs_dino": 0.025412,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 11,
+      "max_regression": -0.060724,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8068370673075936,
+          "dino_ap": 0.7998537492520741,
+          "delta_ap": 0.006983
+        },
+        "cable": {
+          "fused_ap": 0.6231763712383548,
+          "dino_ap": 0.5865026011495774,
+          "delta_ap": 0.036674
+        },
+        "capsule": {
+          "fused_ap": 0.2407328229722075,
+          "dino_ap": 0.3014564161262559,
+          "delta_ap": -0.060724
+        },
+        "carpet": {
+          "fused_ap": 0.5719459782023136,
+          "dino_ap": 0.4928865920033788,
+          "delta_ap": 0.079059
+        },
+        "grid": {
+          "fused_ap": 0.4315648649587711,
+          "dino_ap": 0.43384210206823925,
+          "delta_ap": -0.002277
+        },
+        "hazelnut": {
+          "fused_ap": 0.724095507237529,
+          "dino_ap": 0.7619736675535442,
+          "delta_ap": -0.037878
+        },
+        "leather": {
+          "fused_ap": 0.27561875940520175,
+          "dino_ap": 0.313015623114309,
+          "delta_ap": -0.037397
+        },
+        "metal_nut": {
+          "fused_ap": 0.7673397905728007,
+          "dino_ap": 0.7389610635911361,
+          "delta_ap": 0.028379
+        },
+        "pill": {
+          "fused_ap": 0.620294918497668,
+          "dino_ap": 0.5463988006898075,
+          "delta_ap": 0.073896
+        },
+        "screw": {
+          "fused_ap": 0.18030023111943116,
+          "dino_ap": 0.12081697891292663,
+          "delta_ap": 0.059483
+        },
+        "tile": {
+          "fused_ap": 0.6425861249079343,
+          "dino_ap": 0.5928987865787647,
+          "delta_ap": 0.049687
+        },
+        "toothbrush": {
+          "fused_ap": 0.5903266002043343,
+          "dino_ap": 0.49325268681609746,
+          "delta_ap": 0.097074
+        },
+        "transistor": {
+          "fused_ap": 0.49493017016347174,
+          "dino_ap": 0.48384188799898564,
+          "delta_ap": 0.011088
+        },
+        "wood": {
+          "fused_ap": 0.6792612641456248,
+          "dino_ap": 0.6492278654660395,
+          "delta_ap": 0.030033
+        },
+        "zipper": {
+          "fused_ap": 0.4416407037724846,
+          "dino_ap": 0.394533766357697,
+          "delta_ap": 0.047107
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.513964,
+      "mean_fused_pixel_auroc": 0.955096,
+      "mean_fused_pixel_aupro": 0.904988,
+      "mean_dino_baseline_ap": 0.513964,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.7998537492520741,
+          "dino_ap": 0.7998537492520741,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5865026011495774,
+          "dino_ap": 0.5865026011495774,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.3014564161262559,
+          "dino_ap": 0.3014564161262559,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.4928865920033788,
+          "dino_ap": 0.4928865920033788,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.43384210206823925,
+          "dino_ap": 0.43384210206823925,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7619736675535442,
+          "dino_ap": 0.7619736675535442,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.313015623114309,
+          "dino_ap": 0.313015623114309,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7389610635911361,
+          "dino_ap": 0.7389610635911361,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5463988006898075,
+          "dino_ap": 0.5463988006898075,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.12081697891292663,
+          "dino_ap": 0.12081697891292663,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5928987865787647,
+          "dino_ap": 0.5928987865787647,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.49325268681609746,
+          "dino_ap": 0.49325268681609746,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.48384188799898564,
+          "dino_ap": 0.48384188799898564,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6492278654660395,
+          "dino_ap": 0.6492278654660395,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.394533766357697,
+          "dino_ap": 0.394533766357697,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.456229,
+      "mean_fused_pixel_auroc": 0.95433,
+      "mean_fused_pixel_aupro": 0.877539,
+      "mean_dino_baseline_ap": 0.513964,
+      "mean_delta_ap_vs_dino": -0.057735,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 5,
+      "max_regression": -0.242841,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6747540259868972,
+          "dino_ap": 0.7998537492520741,
+          "delta_ap": -0.1251
+        },
+        "cable": {
+          "fused_ap": 0.3845111073270973,
+          "dino_ap": 0.5865026011495774,
+          "delta_ap": -0.201991
+        },
+        "capsule": {
+          "fused_ap": 0.1398772450303878,
+          "dino_ap": 0.3014564161262559,
+          "delta_ap": -0.161579
+        },
+        "carpet": {
+          "fused_ap": 0.5662351155529719,
+          "dino_ap": 0.4928865920033788,
+          "delta_ap": 0.073349
+        },
+        "grid": {
+          "fused_ap": 0.26658214865549323,
+          "dino_ap": 0.43384210206823925,
+          "delta_ap": -0.16726
+        },
+        "hazelnut": {
+          "fused_ap": 0.5191328513595012,
+          "dino_ap": 0.7619736675535442,
+          "delta_ap": -0.242841
+        },
+        "leather": {
+          "fused_ap": 0.19291867623461414,
+          "dino_ap": 0.313015623114309,
+          "delta_ap": -0.120097
+        },
+        "metal_nut": {
+          "fused_ap": 0.6923246477602614,
+          "dino_ap": 0.7389610635911361,
+          "delta_ap": -0.046636
+        },
+        "pill": {
+          "fused_ap": 0.6246740140727618,
+          "dino_ap": 0.5463988006898075,
+          "delta_ap": 0.078275
+        },
+        "screw": {
+          "fused_ap": 0.10405713167349112,
+          "dino_ap": 0.12081697891292663,
+          "delta_ap": -0.01676
+        },
+        "tile": {
+          "fused_ap": 0.63700902504815,
+          "dino_ap": 0.5928987865787647,
+          "delta_ap": 0.04411
+        },
+        "toothbrush": {
+          "fused_ap": 0.6395500175046922,
+          "dino_ap": 0.49325268681609746,
+          "delta_ap": 0.146297
+        },
+        "transistor": {
+          "fused_ap": 0.38558930808285613,
+          "dino_ap": 0.48384188799898564,
+          "delta_ap": -0.098253
+        },
+        "wood": {
+          "fused_ap": 0.5728069975858464,
+          "dino_ap": 0.6492278654660395,
+          "delta_ap": -0.076421
+        },
+        "zipper": {
+          "fused_ap": 0.44341303830699585,
+          "dino_ap": 0.394533766357697,
+          "delta_ap": 0.048879
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.54799,
+      "mean_fused_pixel_auroc": 0.970381,
+      "mean_fused_pixel_aupro": 0.927392,
+      "mean_dino_baseline_ap": 0.523745,
+      "mean_delta_ap_vs_dino": 0.024245,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 12,
+      "max_regression": -0.064668,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8191560158816126,
+          "dino_ap": 0.8123076655730489,
+          "delta_ap": 0.006848
+        },
+        "cable": {
+          "fused_ap": 0.6256784937361339,
+          "dino_ap": 0.5871752821241603,
+          "delta_ap": 0.038503
+        },
+        "capsule": {
+          "fused_ap": 0.2379607082949562,
+          "dino_ap": 0.3026285803855621,
+          "delta_ap": -0.064668
+        },
+        "carpet": {
+          "fused_ap": 0.5662451969088613,
+          "dino_ap": 0.48702559677864565,
+          "delta_ap": 0.07922
+        },
+        "grid": {
+          "fused_ap": 0.444639439508512,
+          "dino_ap": 0.43808115421506727,
+          "delta_ap": 0.006558
+        },
+        "hazelnut": {
+          "fused_ap": 0.7201535405459512,
+          "dino_ap": 0.7610260527484793,
+          "delta_ap": -0.040873
+        },
+        "leather": {
+          "fused_ap": 0.26649431947275276,
+          "dino_ap": 0.3027867843480989,
+          "delta_ap": -0.036292
+        },
+        "metal_nut": {
+          "fused_ap": 0.7935208905684312,
+          "dino_ap": 0.7707706800756767,
+          "delta_ap": 0.02275
+        },
+        "pill": {
+          "fused_ap": 0.6480778249128021,
+          "dino_ap": 0.5734175998861415,
+          "delta_ap": 0.07466
+        },
+        "screw": {
+          "fused_ap": 0.1893817480354182,
+          "dino_ap": 0.1412012121531697,
+          "delta_ap": 0.048181
+        },
+        "tile": {
+          "fused_ap": 0.6420722154430947,
+          "dino_ap": 0.5931378123694832,
+          "delta_ap": 0.048934
+        },
+        "toothbrush": {
+          "fused_ap": 0.6315399396090873,
+          "dino_ap": 0.5416920214033186,
+          "delta_ap": 0.089848
+        },
+        "transistor": {
+          "fused_ap": 0.4996854009476167,
+          "dino_ap": 0.49370933414687534,
+          "delta_ap": 0.005976
+        },
+        "wood": {
+          "fused_ap": 0.6859088757939378,
+          "dino_ap": 0.6480445615213504,
+          "delta_ap": 0.037864
+        },
+        "zipper": {
+          "fused_ap": 0.44934100135302424,
+          "dino_ap": 0.403168662088323,
+          "delta_ap": 0.046172
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.523745,
+      "mean_fused_pixel_auroc": 0.961245,
+      "mean_fused_pixel_aupro": 0.916549,
+      "mean_dino_baseline_ap": 0.523745,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8123076655730489,
+          "dino_ap": 0.8123076655730489,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5871752821241603,
+          "dino_ap": 0.5871752821241603,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.3026285803855621,
+          "dino_ap": 0.3026285803855621,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.48702559677864565,
+          "dino_ap": 0.48702559677864565,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.43808115421506727,
+          "dino_ap": 0.43808115421506727,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7610260527484793,
+          "dino_ap": 0.7610260527484793,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.3027867843480989,
+          "dino_ap": 0.3027867843480989,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7707706800756767,
+          "dino_ap": 0.7707706800756767,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5734175998861415,
+          "dino_ap": 0.5734175998861415,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.1412012121531697,
+          "dino_ap": 0.1412012121531697,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5931378123694832,
+          "dino_ap": 0.5931378123694832,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.5416920214033186,
+          "dino_ap": 0.5416920214033186,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.49370933414687534,
+          "dino_ap": 0.49370933414687534,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6480445615213504,
+          "dino_ap": 0.6480445615213504,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.403168662088323,
+          "dino_ap": 0.403168662088323,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.463485,
+      "mean_fused_pixel_auroc": 0.957842,
+      "mean_fused_pixel_aupro": 0.883456,
+      "mean_dino_baseline_ap": 0.523745,
+      "mean_delta_ap_vs_dino": -0.06026,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 5,
+      "max_regression": -0.243378,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6870747137390609,
+          "dino_ap": 0.8123076655730489,
+          "delta_ap": -0.125233
+        },
+        "cable": {
+          "fused_ap": 0.40927596634110064,
+          "dino_ap": 0.5871752821241603,
+          "delta_ap": -0.177899
+        },
+        "capsule": {
+          "fused_ap": 0.1374873993026948,
+          "dino_ap": 0.3026285803855621,
+          "delta_ap": -0.165141
+        },
+        "carpet": {
+          "fused_ap": 0.5501205879139899,
+          "dino_ap": 0.48702559677864565,
+          "delta_ap": 0.063095
+        },
+        "grid": {
+          "fused_ap": 0.26810216383509283,
+          "dino_ap": 0.43808115421506727,
+          "delta_ap": -0.169979
+        },
+        "hazelnut": {
+          "fused_ap": 0.5176484781242274,
+          "dino_ap": 0.7610260527484793,
+          "delta_ap": -0.243378
+        },
+        "leather": {
+          "fused_ap": 0.19278373207023414,
+          "dino_ap": 0.3027867843480989,
+          "delta_ap": -0.110003
+        },
+        "metal_nut": {
+          "fused_ap": 0.7115970190445325,
+          "dino_ap": 0.7707706800756767,
+          "delta_ap": -0.059174
+        },
+        "pill": {
+          "fused_ap": 0.6421161942781718,
+          "dino_ap": 0.5734175998861415,
+          "delta_ap": 0.068699
+        },
+        "screw": {
+          "fused_ap": 0.12407139776599255,
+          "dino_ap": 0.1412012121531697,
+          "delta_ap": -0.01713
+        },
+        "tile": {
+          "fused_ap": 0.6401330875588467,
+          "dino_ap": 0.5931378123694832,
+          "delta_ap": 0.046995
+        },
+        "toothbrush": {
+          "fused_ap": 0.6709713635326775,
+          "dino_ap": 0.5416920214033186,
+          "delta_ap": 0.129279
+        },
+        "transistor": {
+          "fused_ap": 0.3794776161318846,
+          "dino_ap": 0.49370933414687534,
+          "delta_ap": -0.114232
+        },
+        "wood": {
+          "fused_ap": 0.5726499518881474,
+          "dino_ap": 0.6480445615213504,
+          "delta_ap": -0.075395
+        },
+        "zipper": {
+          "fused_ap": 0.44875785922546463,
+          "dino_ap": 0.403168662088323,
+          "delta_ap": 0.045589
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.523403,
+      "mean_fused_pixel_auroc": 0.958552,
+      "mean_fused_pixel_aupro": 0.906767,
+      "mean_dino_baseline_ap": 0.490305,
+      "mean_delta_ap_vs_dino": 0.033098,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 11,
+      "max_regression": -0.059852,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8147510190293504,
+          "dino_ap": 0.796859577151535,
+          "delta_ap": 0.017891
+        },
+        "cable": {
+          "fused_ap": 0.5511917255536403,
+          "dino_ap": 0.49536777930495735,
+          "delta_ap": 0.055824
+        },
+        "capsule": {
+          "fused_ap": 0.23465710751478308,
+          "dino_ap": 0.294508834169281,
+          "delta_ap": -0.059852
+        },
+        "carpet": {
+          "fused_ap": 0.5720184221392197,
+          "dino_ap": 0.48791514960201177,
+          "delta_ap": 0.084103
+        },
+        "grid": {
+          "fused_ap": 0.4841829079580722,
+          "dino_ap": 0.4912541669857617,
+          "delta_ap": -0.007071
+        },
+        "hazelnut": {
+          "fused_ap": 0.6698205150332094,
+          "dino_ap": 0.6875189777020928,
+          "delta_ap": -0.017698
+        },
+        "leather": {
+          "fused_ap": 0.25810646685623484,
+          "dino_ap": 0.2899319591125283,
+          "delta_ap": -0.031825
+        },
+        "metal_nut": {
+          "fused_ap": 0.7377911275327274,
+          "dino_ap": 0.671046957814587,
+          "delta_ap": 0.066744
+        },
+        "pill": {
+          "fused_ap": 0.6331315332171524,
+          "dino_ap": 0.552297901836746,
+          "delta_ap": 0.080834
+        },
+        "screw": {
+          "fused_ap": 0.1340188574392246,
+          "dino_ap": 0.09385816930102847,
+          "delta_ap": 0.040161
+        },
+        "tile": {
+          "fused_ap": 0.6501725472622397,
+          "dino_ap": 0.6074183769063778,
+          "delta_ap": 0.042754
+        },
+        "toothbrush": {
+          "fused_ap": 0.5978450412898534,
+          "dino_ap": 0.46550258811112677,
+          "delta_ap": 0.132342
+        },
+        "transistor": {
+          "fused_ap": 0.42002715883232367,
+          "dino_ap": 0.41085737867059346,
+          "delta_ap": 0.00917
+        },
+        "wood": {
+          "fused_ap": 0.6607089458698534,
+          "dino_ap": 0.6216549321810997,
+          "delta_ap": 0.039054
+        },
+        "zipper": {
+          "fused_ap": 0.4326186456729575,
+          "dino_ap": 0.38857845295400495,
+          "delta_ap": 0.04404
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.490305,
+      "mean_fused_pixel_auroc": 0.945573,
+      "mean_fused_pixel_aupro": 0.891524,
+      "mean_dino_baseline_ap": 0.490305,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.796859577151535,
+          "dino_ap": 0.796859577151535,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.49536777930495735,
+          "dino_ap": 0.49536777930495735,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.294508834169281,
+          "dino_ap": 0.294508834169281,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.48791514960201177,
+          "dino_ap": 0.48791514960201177,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.4912541669857617,
+          "dino_ap": 0.4912541669857617,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.6875189777020928,
+          "dino_ap": 0.6875189777020928,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.2899319591125283,
+          "dino_ap": 0.2899319591125283,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.671046957814587,
+          "dino_ap": 0.671046957814587,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.552297901836746,
+          "dino_ap": 0.552297901836746,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.09385816930102847,
+          "dino_ap": 0.09385816930102847,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.6074183769063778,
+          "dino_ap": 0.6074183769063778,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.46550258811112677,
+          "dino_ap": 0.46550258811112677,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.41085737867059346,
+          "dino_ap": 0.41085737867059346,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6216549321810997,
+          "dino_ap": 0.6216549321810997,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.38857845295400495,
+          "dino_ap": 0.38857845295400495,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.426542,
+      "mean_fused_pixel_auroc": 0.943469,
+      "mean_fused_pixel_aupro": 0.847524,
+      "mean_dino_baseline_ap": 0.490305,
+      "mean_delta_ap_vs_dino": -0.063763,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.295747,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6897635960687988,
+          "dino_ap": 0.796859577151535,
+          "delta_ap": -0.107096
+        },
+        "cable": {
+          "fused_ap": 0.338738692961429,
+          "dino_ap": 0.49536777930495735,
+          "delta_ap": -0.156629
+        },
+        "capsule": {
+          "fused_ap": 0.12853371059775426,
+          "dino_ap": 0.294508834169281,
+          "delta_ap": -0.165975
+        },
+        "carpet": {
+          "fused_ap": 0.5663296765155965,
+          "dino_ap": 0.48791514960201177,
+          "delta_ap": 0.078415
+        },
+        "grid": {
+          "fused_ap": 0.195507230411459,
+          "dino_ap": 0.4912541669857617,
+          "delta_ap": -0.295747
+        },
+        "hazelnut": {
+          "fused_ap": 0.4282239675650688,
+          "dino_ap": 0.6875189777020928,
+          "delta_ap": -0.259295
+        },
+        "leather": {
+          "fused_ap": 0.20305782675567083,
+          "dino_ap": 0.2899319591125283,
+          "delta_ap": -0.086874
+        },
+        "metal_nut": {
+          "fused_ap": 0.6706117970726629,
+          "dino_ap": 0.671046957814587,
+          "delta_ap": -0.000435
+        },
+        "pill": {
+          "fused_ap": 0.595150181311949,
+          "dino_ap": 0.552297901836746,
+          "delta_ap": 0.042852
+        },
+        "screw": {
+          "fused_ap": 0.09657568540124845,
+          "dino_ap": 0.09385816930102847,
+          "delta_ap": 0.002718
+        },
+        "tile": {
+          "fused_ap": 0.6403671387280028,
+          "dino_ap": 0.6074183769063778,
+          "delta_ap": 0.032949
+        },
+        "toothbrush": {
+          "fused_ap": 0.5594003903087814,
+          "dino_ap": 0.46550258811112677,
+          "delta_ap": 0.093898
+        },
+        "transistor": {
+          "fused_ap": 0.31293748001882127,
+          "dino_ap": 0.41085737867059346,
+          "delta_ap": -0.09792
+        },
+        "wood": {
+          "fused_ap": 0.56569323121307,
+          "dino_ap": 0.6216549321810997,
+          "delta_ap": -0.055962
+        },
+        "zipper": {
+          "fused_ap": 0.4072417949407896,
+          "dino_ap": 0.38857845295400495,
+          "delta_ap": 0.018663
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.563074,
+      "mean_fused_pixel_auroc": 0.967884,
+      "mean_fused_pixel_aupro": 0.922854,
+      "mean_dino_baseline_ap": 0.526985,
+      "mean_delta_ap_vs_dino": 0.036089,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 12,
+      "max_regression": -0.043334,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8165409432402396,
+          "dino_ap": 0.8031807382580527,
+          "delta_ap": 0.01336
+        },
+        "cable": {
+          "fused_ap": 0.6020328598132096,
+          "dino_ap": 0.569444142292373,
+          "delta_ap": 0.032589
+        },
+        "capsule": {
+          "fused_ap": 0.5010115173488616,
+          "dino_ap": 0.47304206259435555,
+          "delta_ap": 0.027969
+        },
+        "carpet": {
+          "fused_ap": 0.5752912616841306,
+          "dino_ap": 0.49836337548980963,
+          "delta_ap": 0.076928
+        },
+        "grid": {
+          "fused_ap": 0.45908885614758793,
+          "dino_ap": 0.4648311157896872,
+          "delta_ap": -0.005742
+        },
+        "hazelnut": {
+          "fused_ap": 0.7083763858644723,
+          "dino_ap": 0.7319978711137275,
+          "delta_ap": -0.023621
+        },
+        "leather": {
+          "fused_ap": 0.3037126618163681,
+          "dino_ap": 0.34704710050478005,
+          "delta_ap": -0.043334
+        },
+        "metal_nut": {
+          "fused_ap": 0.7975082821838708,
+          "dino_ap": 0.7545864059803318,
+          "delta_ap": 0.042922
+        },
+        "pill": {
+          "fused_ap": 0.6461272208400863,
+          "dino_ap": 0.5750061467971737,
+          "delta_ap": 0.071121
+        },
+        "screw": {
+          "fused_ap": 0.18138272156848115,
+          "dino_ap": 0.11076928548898304,
+          "delta_ap": 0.070613
+        },
+        "tile": {
+          "fused_ap": 0.6479436905782237,
+          "dino_ap": 0.5947303408710939,
+          "delta_ap": 0.053213
+        },
+        "toothbrush": {
+          "fused_ap": 0.615899734170755,
+          "dino_ap": 0.4929086611703444,
+          "delta_ap": 0.122991
+        },
+        "transistor": {
+          "fused_ap": 0.484722161458384,
+          "dino_ap": 0.47537036878876343,
+          "delta_ap": 0.009352
+        },
+        "wood": {
+          "fused_ap": 0.6672001316344105,
+          "dino_ap": 0.6209354299214043,
+          "delta_ap": 0.046265
+        },
+        "zipper": {
+          "fused_ap": 0.4392673828459658,
+          "dino_ap": 0.3925593953487124,
+          "delta_ap": 0.046708
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.526985,
+      "mean_fused_pixel_auroc": 0.957174,
+      "mean_fused_pixel_aupro": 0.910157,
+      "mean_dino_baseline_ap": 0.526985,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8031807382580527,
+          "dino_ap": 0.8031807382580527,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.569444142292373,
+          "dino_ap": 0.569444142292373,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.47304206259435555,
+          "dino_ap": 0.47304206259435555,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.49836337548980963,
+          "dino_ap": 0.49836337548980963,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.4648311157896872,
+          "dino_ap": 0.4648311157896872,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7319978711137275,
+          "dino_ap": 0.7319978711137275,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.34704710050478005,
+          "dino_ap": 0.34704710050478005,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.7545864059803318,
+          "dino_ap": 0.7545864059803318,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.5750061467971737,
+          "dino_ap": 0.5750061467971737,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.11076928548898304,
+          "dino_ap": 0.11076928548898304,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5947303408710939,
+          "dino_ap": 0.5947303408710939,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.4929086611703444,
+          "dino_ap": 0.4929086611703444,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.47537036878876343,
+          "dino_ap": 0.47537036878876343,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6209354299214043,
+          "dino_ap": 0.6209354299214043,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.3925593953487124,
+          "dino_ap": 0.3925593953487124,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.478433,
+      "mean_fused_pixel_auroc": 0.955085,
+      "mean_fused_pixel_aupro": 0.876876,
+      "mean_dino_baseline_ap": 0.526985,
+      "mean_delta_ap_vs_dino": -0.048552,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 7,
+      "max_regression": -0.240579,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.6998859785978879,
+          "dino_ap": 0.8031807382580527,
+          "delta_ap": -0.103295
+        },
+        "cable": {
+          "fused_ap": 0.3924429358258833,
+          "dino_ap": 0.569444142292373,
+          "delta_ap": -0.177001
+        },
+        "capsule": {
+          "fused_ap": 0.3949255776791618,
+          "dino_ap": 0.47304206259435555,
+          "delta_ap": -0.078116
+        },
+        "carpet": {
+          "fused_ap": 0.5543702725342807,
+          "dino_ap": 0.49836337548980963,
+          "delta_ap": 0.056007
+        },
+        "grid": {
+          "fused_ap": 0.2683993127492502,
+          "dino_ap": 0.4648311157896872,
+          "delta_ap": -0.196432
+        },
+        "hazelnut": {
+          "fused_ap": 0.49141872921648944,
+          "dino_ap": 0.7319978711137275,
+          "delta_ap": -0.240579
+        },
+        "leather": {
+          "fused_ap": 0.20138700420306138,
+          "dino_ap": 0.34704710050478005,
+          "delta_ap": -0.14566
+        },
+        "metal_nut": {
+          "fused_ap": 0.7617730475552219,
+          "dino_ap": 0.7545864059803318,
+          "delta_ap": 0.007187
+        },
+        "pill": {
+          "fused_ap": 0.6222754742898244,
+          "dino_ap": 0.5750061467971737,
+          "delta_ap": 0.047269
+        },
+        "screw": {
+          "fused_ap": 0.11783637901188251,
+          "dino_ap": 0.11076928548898304,
+          "delta_ap": 0.007067
+        },
+        "tile": {
+          "fused_ap": 0.6444337025059343,
+          "dino_ap": 0.5947303408710939,
+          "delta_ap": 0.049703
+        },
+        "toothbrush": {
+          "fused_ap": 0.6603747090644194,
+          "dino_ap": 0.4929086611703444,
+          "delta_ap": 0.167466
+        },
+        "transistor": {
+          "fused_ap": 0.3609511840822217,
+          "dino_ap": 0.47537036878876343,
+          "delta_ap": -0.114419
+        },
+        "wood": {
+          "fused_ap": 0.5683255812073185,
+          "dino_ap": 0.6209354299214043,
+          "delta_ap": -0.05261
+        },
+        "zipper": {
+          "fused_ap": 0.4376884258385487,
+          "dino_ap": 0.3925593953487124,
+          "delta_ap": 0.045129
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "concat",
+      "mean_fused_pixel_ap": 0.571254,
+      "mean_fused_pixel_auroc": 0.970016,
+      "mean_fused_pixel_aupro": 0.927737,
+      "mean_dino_baseline_ap": 0.539478,
+      "mean_delta_ap_vs_dino": 0.031776,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 12,
+      "max_regression": -0.0504,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8222478885246914,
+          "dino_ap": 0.8065364480858026,
+          "delta_ap": 0.015711
+        },
+        "cable": {
+          "fused_ap": 0.6270659298821848,
+          "dino_ap": 0.5892473076967966,
+          "delta_ap": 0.037819
+        },
+        "capsule": {
+          "fused_ap": 0.518358355768601,
+          "dino_ap": 0.4956781615964623,
+          "delta_ap": 0.02268
+        },
+        "carpet": {
+          "fused_ap": 0.5767656163713949,
+          "dino_ap": 0.5010677611823866,
+          "delta_ap": 0.075698
+        },
+        "grid": {
+          "fused_ap": 0.47369119000375315,
+          "dino_ap": 0.5171888252938012,
+          "delta_ap": -0.043498
+        },
+        "hazelnut": {
+          "fused_ap": 0.7269370440079668,
+          "dino_ap": 0.7566990556428563,
+          "delta_ap": -0.029762
+        },
+        "leather": {
+          "fused_ap": 0.30236365206591187,
+          "dino_ap": 0.3527634248921362,
+          "delta_ap": -0.0504
+        },
+        "metal_nut": {
+          "fused_ap": 0.8035601047674511,
+          "dino_ap": 0.764683183070658,
+          "delta_ap": 0.038877
+        },
+        "pill": {
+          "fused_ap": 0.6587918220298434,
+          "dino_ap": 0.587694134921753,
+          "delta_ap": 0.071098
+        },
+        "screw": {
+          "fused_ap": 0.18334848109194488,
+          "dino_ap": 0.10079772697142295,
+          "delta_ap": 0.082551
+        },
+        "tile": {
+          "fused_ap": 0.6456300378149569,
+          "dino_ap": 0.5932541824013633,
+          "delta_ap": 0.052376
+        },
+        "toothbrush": {
+          "fused_ap": 0.6274107271657122,
+          "dino_ap": 0.523001138829717,
+          "delta_ap": 0.10441
+        },
+        "transistor": {
+          "fused_ap": 0.479236763358204,
+          "dino_ap": 0.47394724408791206,
+          "delta_ap": 0.00529
+        },
+        "wood": {
+          "fused_ap": 0.6769305208271602,
+          "dino_ap": 0.6316905609968044,
+          "delta_ap": 0.04524
+        },
+        "zipper": {
+          "fused_ap": 0.4464686317502714,
+          "dino_ap": 0.3979208788894348,
+          "delta_ap": 0.048548
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "dino",
+      "mean_fused_pixel_ap": 0.539478,
+      "mean_fused_pixel_auroc": 0.960033,
+      "mean_fused_pixel_aupro": 0.915988,
+      "mean_dino_baseline_ap": 0.539478,
+      "mean_delta_ap_vs_dino": 0.0,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 0,
+      "max_regression": 0.0,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.8065364480858026,
+          "dino_ap": 0.8065364480858026,
+          "delta_ap": 0.0
+        },
+        "cable": {
+          "fused_ap": 0.5892473076967966,
+          "dino_ap": 0.5892473076967966,
+          "delta_ap": 0.0
+        },
+        "capsule": {
+          "fused_ap": 0.4956781615964623,
+          "dino_ap": 0.4956781615964623,
+          "delta_ap": 0.0
+        },
+        "carpet": {
+          "fused_ap": 0.5010677611823866,
+          "dino_ap": 0.5010677611823866,
+          "delta_ap": 0.0
+        },
+        "grid": {
+          "fused_ap": 0.5171888252938012,
+          "dino_ap": 0.5171888252938012,
+          "delta_ap": 0.0
+        },
+        "hazelnut": {
+          "fused_ap": 0.7566990556428563,
+          "dino_ap": 0.7566990556428563,
+          "delta_ap": 0.0
+        },
+        "leather": {
+          "fused_ap": 0.3527634248921362,
+          "dino_ap": 0.3527634248921362,
+          "delta_ap": 0.0
+        },
+        "metal_nut": {
+          "fused_ap": 0.764683183070658,
+          "dino_ap": 0.764683183070658,
+          "delta_ap": 0.0
+        },
+        "pill": {
+          "fused_ap": 0.587694134921753,
+          "dino_ap": 0.587694134921753,
+          "delta_ap": 0.0
+        },
+        "screw": {
+          "fused_ap": 0.10079772697142295,
+          "dino_ap": 0.10079772697142295,
+          "delta_ap": 0.0
+        },
+        "tile": {
+          "fused_ap": 0.5932541824013633,
+          "dino_ap": 0.5932541824013633,
+          "delta_ap": 0.0
+        },
+        "toothbrush": {
+          "fused_ap": 0.523001138829717,
+          "dino_ap": 0.523001138829717,
+          "delta_ap": 0.0
+        },
+        "transistor": {
+          "fused_ap": 0.47394724408791206,
+          "dino_ap": 0.47394724408791206,
+          "delta_ap": 0.0
+        },
+        "wood": {
+          "fused_ap": 0.6316905609968044,
+          "dino_ap": 0.6316905609968044,
+          "delta_ap": 0.0
+        },
+        "zipper": {
+          "fused_ap": 0.3979208788894348,
+          "dino_ap": 0.3979208788894348,
+          "delta_ap": 0.0
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "mode": "clip",
+      "mean_fused_pixel_ap": 0.480885,
+      "mean_fused_pixel_auroc": 0.956949,
+      "mean_fused_pixel_aupro": 0.884049,
+      "mean_dino_baseline_ap": 0.539478,
+      "mean_delta_ap_vs_dino": -0.058593,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this holdout)",
+      "positive_categories": 6,
+      "max_regression": -0.265256,
+      "per_category": {
+        "bottle": {
+          "fused_ap": 0.7023785040251995,
+          "dino_ap": 0.8065364480858026,
+          "delta_ap": -0.104158
+        },
+        "cable": {
+          "fused_ap": 0.40868301982763494,
+          "dino_ap": 0.5892473076967966,
+          "delta_ap": -0.180564
+        },
+        "capsule": {
+          "fused_ap": 0.40497478117506425,
+          "dino_ap": 0.4956781615964623,
+          "delta_ap": -0.090703
+        },
+        "carpet": {
+          "fused_ap": 0.5560320002310439,
+          "dino_ap": 0.5010677611823866,
+          "delta_ap": 0.054964
+        },
+        "grid": {
+          "fused_ap": 0.25764495244702573,
+          "dino_ap": 0.5171888252938012,
+          "delta_ap": -0.259544
+        },
+        "hazelnut": {
+          "fused_ap": 0.49144326659066107,
+          "dino_ap": 0.7566990556428563,
+          "delta_ap": -0.265256
+        },
+        "leather": {
+          "fused_ap": 0.19775896076405797,
+          "dino_ap": 0.3527634248921362,
+          "delta_ap": -0.155004
+        },
+        "metal_nut": {
+          "fused_ap": 0.7418710933476811,
+          "dino_ap": 0.764683183070658,
+          "delta_ap": -0.022812
+        },
+        "pill": {
+          "fused_ap": 0.6378875477509544,
+          "dino_ap": 0.587694134921753,
+          "delta_ap": 0.050193
+        },
+        "screw": {
+          "fused_ap": 0.139412443753337,
+          "dino_ap": 0.10079772697142295,
+          "delta_ap": 0.038615
+        },
+        "tile": {
+          "fused_ap": 0.6407540311572669,
+          "dino_ap": 0.5932541824013633,
+          "delta_ap": 0.0475
+        },
+        "toothbrush": {
+          "fused_ap": 0.6699378596291767,
+          "dino_ap": 0.523001138829717,
+          "delta_ap": 0.146937
+        },
+        "transistor": {
+          "fused_ap": 0.3562651453259635,
+          "dino_ap": 0.47394724408791206,
+          "delta_ap": -0.117682
+        },
+        "wood": {
+          "fused_ap": 0.5693770859300858,
+          "dino_ap": 0.6316905609968044,
+          "delta_ap": -0.062313
+        },
+        "zipper": {
+          "fused_ap": 0.4388589039547259,
+          "dino_ap": 0.3979208788894348,
+          "delta_ap": 0.040938
+        }
+      }
+    }
+  ]
+}

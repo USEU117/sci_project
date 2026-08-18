@@ -1,0 +1,176 @@
+{
+  "pipeline": "v3_direction_a_a1",
+  "direction": "A_feature_level_fusion",
+  "mode": "concat",
+  "pca_dim": 0,
+  "whiten": false,
+  "seed": 2,
+  "stride": 8,
+  "dataset": "mpdd",
+  "created_at_utc": "2026-08-17T14:08:35.076286+00:00",
+  "mean_fused": {
+    "pixel_auroc": 0.96805,
+    "pixel_ap": 0.334385,
+    "pixel_aupro": 0.902652
+  },
+  "mean_dino_baseline_ap": 0.287042,
+  "mean_delta_ap_vs_dino": 0.047343,
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9397706987088064,
+        "pixel_ap": 0.00937265306783145,
+        "pixel_aupro": 0.8005152673615216
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9261537637284678,
+          "pixel_ap": 0.03252195378666519,
+          "pixel_aupro": 0.8050649088495694
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.8226066308018265,
+          "pixel_ap": 0.16781234268792877,
+          "pixel_aupro": 0.5659576611287699
+        }
+      },
+      "delta_auroc": 0.013617,
+      "delta_ap": -0.023149,
+      "delta_aupro": -0.00455
+    },
+    {
+      "category": "bracket_brown",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9251209786041195,
+        "pixel_ap": 0.03407487005721889,
+        "pixel_aupro": 0.811886514392232
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9376886915821927,
+          "pixel_ap": 0.05389566538421089,
+          "pixel_aupro": 0.8274487246878127
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.7864609953856214,
+          "pixel_ap": 0.020910963885681283,
+          "pixel_aupro": 0.5483524672257672
+        }
+      },
+      "delta_auroc": -0.012568,
+      "delta_ap": -0.019821,
+      "delta_aupro": -0.015562
+    },
+    {
+      "category": "bracket_white",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9968755219259267,
+        "pixel_ap": 0.08805117926960257,
+        "pixel_aupro": 0.9893142258051051
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9958363368863341,
+          "pixel_ap": 0.06002042962420089,
+          "pixel_aupro": 0.986422127892738
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.9976464910590032,
+          "pixel_ap": 0.13287004066538838,
+          "pixel_aupro": 0.9902034039264146
+        }
+      },
+      "delta_auroc": 0.001039,
+      "delta_ap": 0.028031,
+      "delta_aupro": 0.002892
+    },
+    {
+      "category": "connector",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9691911076797224,
+        "pixel_ap": 0.23857621745605045,
+        "pixel_aupro": 0.8927209541649368
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9654057553468234,
+          "pixel_ap": 0.1752936947022055,
+          "pixel_aupro": 0.8790099021628043
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.8247605322880074,
+          "pixel_ap": 0.07893216414476595,
+          "pixel_aupro": 0.5501781962478662
+        }
+      },
+      "delta_auroc": 0.003785,
+      "delta_ap": 0.063283,
+      "delta_aupro": 0.013711
+    },
+    {
+      "category": "metal_plate",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.989174140073003,
+        "pixel_ap": 0.9324484843891618,
+        "pixel_aupro": 0.9678966090894232
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9679296208829038,
+          "pixel_ap": 0.8351842715885707,
+          "pixel_aupro": 0.9203473444909059
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.8589259742965475,
+          "pixel_ap": 0.5547538820848124,
+          "pixel_aupro": 0.7912957940015002
+        }
+      },
+      "delta_auroc": 0.021245,
+      "delta_ap": 0.097264,
+      "delta_aupro": 0.047549
+    },
+    {
+      "category": "tubes",
+      "mode": "concat",
+      "pca_dim": 0,
+      "whiten": false,
+      "fused": {
+        "pixel_auroc": 0.9881654762641187,
+        "pixel_ap": 0.703783976457553,
+        "pixel_aupro": 0.9535768817492993
+      },
+      "baselines": {
+        "anomalydino_visual": {
+          "pixel_auroc": 0.9754544068598829,
+          "pixel_ap": 0.5653360127590658,
+          "pixel_aupro": 0.8999565093991426
+        },
+        "anomalyclip_text": {
+          "pixel_auroc": 0.9779556745866614,
+          "pixel_ap": 0.5240045848787394,
+          "pixel_aupro": 0.9210613179262227
+        }
+      },
+      "delta_auroc": 0.012711,
+      "delta_ap": 0.138448,
+      "delta_aupro": 0.05362
+    }
+  ]
+}

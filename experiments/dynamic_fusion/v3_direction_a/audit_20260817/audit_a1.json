@@ -1,0 +1,59 @@
+{
+  "run_id": "v3_direction_a_a1_audit_20260817",
+  "audit_type": "protocol_leakage_review",
+  "created_at_utc": "2026-08-17T04:10:00.000000+00:00",
+  "reference_doc": "docs/DYNAMIC_FUSION_NEXT_STEPS.md 阶段五 5.1 (7.1-A1 先行)",
+  "scope": "方向A A1 静态 concat + KNN memory bank 的输入信息源审计：concat 特征与 memory bank 是否只使用正常参考特征；是否读取测试标签/掩码/测试集统计。",
+  "candidate": "A1: 各分支 patch 特征 L2-normalize → concat → L2-normalize → KNN memory bank（distance/2 = 异常分数）",
+  "reviewed_code": [
+    "scripts/export_anomalydino_mpdd_features.py",
+    "scripts/export_anomalyclip_mpdd_features.py",
+    "scripts/evaluate_a1_feature_fusion.py"
+  ],
+  "evidence": [
+    {
+      "file": "scripts/export_anomalydino_mpdd_features.py",
+      "lines": "L71, L75-L79, L110",
+      "finding": "ref_patch_features 仅来自 manifest['categories'][cat][seed][shot] 预声明的正常参考图（K 张），与测试图特征分开保存。",
+      "conclusion": "正常参考来源合规"
+    },
+    {
+      "file": "scripts/export_anomalyclip_mpdd_features.py",
+      "lines": "L110-L119, L153",
+      "finding": "ref_patch_features 同样仅来自 manifest 正常参考图。",
+      "conclusion": "正常参考来源合规"
+    },
+    {
+      "file": "scripts/evaluate_a1_feature_fusion.py",
+      "lines": "L87-L101 (score_via_memory)",
+      "finding": "pca_dim>0 时 PCA/whitening 仅 fit 于 ref_flat（正常参考特征）；KNN memory bank 由 ref_proj 构建；测试特征只做 transform 与 search。",
+      "conclusion": "拟合与记忆库只使用正常参考"
+    },
+    {
+      "file": "scripts/evaluate_a1_feature_fusion.py",
+      "lines": "L134-L140 (concat mode)",
+      "finding": "concat 前各分支 patch 做 L2-normalize（仅特征变换，不含标签/掩码）；无去中心化、无投影对齐。",
+      "conclusion": "无信息源违规"
+    },
+    {
+      "file": "scripts/evaluate_a1_feature_fusion.py",
+      "lines": "L211-L215, L228-L239",
+      "finding": "测试掩码 imgs_masks 仅在 compute_metrics（评价）阶段用于指标计算，不进入任何拟合/校准/路由路径；baseline 缓存同样只读评价。",
+      "conclusion": "测试真值仅限评价"
+    }
+  ],
+  "leakage_flags": {
+    "test_predictions_used": false,
+    "test_labels_used": false,
+    "test_masks_used": false,
+    "test_dataset_statistics_used": false,
+    "test_normal_selection_used": false
+  },
+  "conclusion": "A1 concat + KNN memory bank 的特征来源、PCA/记忆库拟合、concat 变换均只使用 manifest 正常参考；测试真值仅用于评价。未发现泄漏。A1 是当前最值得继续的候选，可按阶段五协议推进小 Gate。",
+  "marker": {
+    "development_only_leaky_calibration": false,
+    "paper_eligible": "pending_gate_review"
+  },
+  "old_values_modified": false,
+  "next_step": "阶段三：MPDD seed0/K1 CPU Gate —— 固定唯一 A1 配置（w=0.5, pca_dim=0）并预注册小网格，对照 DINO/CLIP/50-50/固定权重/V3.2，报告 Image AUROC/AP/F1、Pixel AUROC/AP/AUPRO、逐类 delta、rescue/harm/coverage/risk-coverage。"
+}

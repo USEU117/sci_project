@@ -1,0 +1,1648 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_mvtec_post_freeze_audit_20260818",
+  "created_at_utc": "2026-08-18T11:56:34.415656+00:00",
+  "status": "passed",
+  "dataset": "mvtec",
+  "dataset_role": "holdout",
+  "n_checks": 327,
+  "n_failed": 0,
+  "errors": [],
+  "checks": [
+    {
+      "check": "s0_k1_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s0_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.561549 vs 0.5615490818529678"
+    },
+    {
+      "check": "s0_k1_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.520567 vs 0.5205667775430823"
+    },
+    {
+      "check": "s0_k1_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.463639 vs 0.4636392627492628"
+    },
+    {
+      "check": "s0_k2_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s0_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.575326 vs 0.575325615387109"
+    },
+    {
+      "check": "s0_k2_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.543408 vs 0.5434084848039691"
+    },
+    {
+      "check": "s0_k2_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.478382 vs 0.47838222996364554"
+    },
+    {
+      "check": "s0_k4_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s0_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.577138 vs 0.5771384786988222"
+    },
+    {
+      "check": "s0_k4_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.543258 vs 0.5432579254337304"
+    },
+    {
+      "check": "s0_k4_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s0_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.488918 vs 0.4889182294966251"
+    },
+    {
+      "check": "s1_k1_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s1_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.532391 vs 0.5323914943926956"
+    },
+    {
+      "check": "s1_k1_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.502135 vs 0.5021352075067728"
+    },
+    {
+      "check": "s1_k1_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.452043 vs 0.45204265770170937"
+    },
+    {
+      "check": "s1_k2_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s1_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.539377 vs 0.5393767449803815"
+    },
+    {
+      "check": "s1_k2_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.513964 vs 0.5139641725119222"
+    },
+    {
+      "check": "s1_k2_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.456229 vs 0.4562290233454679"
+    },
+    {
+      "check": "s1_k4_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s1_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.54799 vs 0.5479903740674795"
+    },
+    {
+      "check": "s1_k4_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.523745 vs 0.5237448666544934"
+    },
+    {
+      "check": "s1_k4_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s1_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.463485 vs 0.46348450205014124"
+    },
+    {
+      "check": "s2_k1_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k1_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s2_k1_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.523403 vs 0.5234028014133895"
+    },
+    {
+      "check": "s2_k1_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k1_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.490305 vs 0.49030474678691544"
+    },
+    {
+      "check": "s2_k1_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k1_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.426542 vs 0.4265421599914068"
+    },
+    {
+      "check": "s2_k2_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k2_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s2_k2_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.563074 vs 0.5630737207463365"
+    },
+    {
+      "check": "s2_k2_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k2_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.526985 vs 0.5269848293606395"
+    },
+    {
+      "check": "s2_k2_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k2_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.478433 vs 0.4784325542907591"
+    },
+    {
+      "check": "s2_k4_concat_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k4_concat_baseline_source",
+      "passed": true,
+      "detail": "feature_level_dino_only_knn (no v2 score cache on this holdout)"
+    },
+    {
+      "check": "s2_k4_concat_mean_consistent",
+      "passed": true,
+      "detail": "0.571254 vs 0.571253784362003"
+    },
+    {
+      "check": "s2_k4_dino_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k4_dino_mean_consistent",
+      "passed": true,
+      "detail": "0.539478 vs 0.5394780023039538"
+    },
+    {
+      "check": "s2_k4_clip_categories",
+      "passed": true,
+      "detail": "['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper'] vs ['bottle', 'cable', 'capsule', 'carpet', 'grid', 'hazelnut', 'leather', 'metal_nut', 'pill', 'screw', 'tile', 'toothbrush', 'transistor', 'wood', 'zipper']"
+    },
+    {
+      "check": "s2_k4_clip_mean_consistent",
+      "passed": true,
+      "detail": "0.480885 vs 0.4808853063939919"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s0_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s1_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k1/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k2/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalydino_visual_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_predictions_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_labels_used_for_parameter_fit",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "leak_s2_k4/anomalyclip_text_test_set_statistics_used_for_calibration",
+      "passed": true,
+      "detail": "False"
+    },
+    {
+      "check": "align_bottle_mask_sizes",
+      "passed": true,
+      "detail": "dino (83, 448, 448) clip (83, 518, 518)"
+    },
+    {
+      "check": "align_bottle_sample_ids",
+      "passed": true,
+      "detail": "83 vs 83 vs 83"
+    },
+    {
+      "check": "align_bottle_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_bottle_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_bottle_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_cable_mask_sizes",
+      "passed": true,
+      "detail": "dino (150, 448, 448) clip (150, 518, 518)"
+    },
+    {
+      "check": "align_cable_sample_ids",
+      "passed": true,
+      "detail": "150 vs 150 vs 150"
+    },
+    {
+      "check": "align_cable_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_cable_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_cable_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_capsule_mask_sizes",
+      "passed": true,
+      "detail": "dino (132, 448, 448) clip (132, 518, 518)"
+    },
+    {
+      "check": "align_capsule_sample_ids",
+      "passed": true,
+      "detail": "132 vs 132 vs 132"
+    },
+    {
+      "check": "align_capsule_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_capsule_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_capsule_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_carpet_mask_sizes",
+      "passed": true,
+      "detail": "dino (117, 448, 448) clip (117, 518, 518)"
+    },
+    {
+      "check": "align_carpet_sample_ids",
+      "passed": true,
+      "detail": "117 vs 117 vs 117"
+    },
+    {
+      "check": "align_carpet_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_carpet_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_carpet_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_grid_mask_sizes",
+      "passed": true,
+      "detail": "dino (78, 448, 448) clip (78, 518, 518)"
+    },
+    {
+      "check": "align_grid_sample_ids",
+      "passed": true,
+      "detail": "78 vs 78 vs 78"
+    },
+    {
+      "check": "align_grid_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_grid_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_grid_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_hazelnut_mask_sizes",
+      "passed": true,
+      "detail": "dino (110, 448, 448) clip (110, 518, 518)"
+    },
+    {
+      "check": "align_hazelnut_sample_ids",
+      "passed": true,
+      "detail": "110 vs 110 vs 110"
+    },
+    {
+      "check": "align_hazelnut_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_hazelnut_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_hazelnut_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_leather_mask_sizes",
+      "passed": true,
+      "detail": "dino (124, 448, 448) clip (124, 518, 518)"
+    },
+    {
+      "check": "align_leather_sample_ids",
+      "passed": true,
+      "detail": "124 vs 124 vs 124"
+    },
+    {
+      "check": "align_leather_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_leather_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_leather_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_metal_nut_mask_sizes",
+      "passed": true,
+      "detail": "dino (115, 448, 448) clip (115, 518, 518)"
+    },
+    {
+      "check": "align_metal_nut_sample_ids",
+      "passed": true,
+      "detail": "115 vs 115 vs 115"
+    },
+    {
+      "check": "align_metal_nut_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_metal_nut_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_metal_nut_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_pill_mask_sizes",
+      "passed": true,
+      "detail": "dino (167, 448, 448) clip (167, 518, 518)"
+    },
+    {
+      "check": "align_pill_sample_ids",
+      "passed": true,
+      "detail": "167 vs 167 vs 167"
+    },
+    {
+      "check": "align_pill_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_pill_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_pill_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_screw_mask_sizes",
+      "passed": true,
+      "detail": "dino (160, 448, 448) clip (160, 518, 518)"
+    },
+    {
+      "check": "align_screw_sample_ids",
+      "passed": true,
+      "detail": "160 vs 160 vs 160"
+    },
+    {
+      "check": "align_screw_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_screw_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_screw_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_tile_mask_sizes",
+      "passed": true,
+      "detail": "dino (117, 448, 448) clip (117, 518, 518)"
+    },
+    {
+      "check": "align_tile_sample_ids",
+      "passed": true,
+      "detail": "117 vs 117 vs 117"
+    },
+    {
+      "check": "align_tile_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_tile_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_tile_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_toothbrush_mask_sizes",
+      "passed": true,
+      "detail": "dino (42, 448, 448) clip (42, 518, 518)"
+    },
+    {
+      "check": "align_toothbrush_sample_ids",
+      "passed": true,
+      "detail": "42 vs 42 vs 42"
+    },
+    {
+      "check": "align_toothbrush_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_toothbrush_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_toothbrush_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_transistor_mask_sizes",
+      "passed": true,
+      "detail": "dino (100, 448, 448) clip (100, 518, 518)"
+    },
+    {
+      "check": "align_transistor_sample_ids",
+      "passed": true,
+      "detail": "100 vs 100 vs 100"
+    },
+    {
+      "check": "align_transistor_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_transistor_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_transistor_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_wood_mask_sizes",
+      "passed": true,
+      "detail": "dino (79, 448, 448) clip (79, 518, 518)"
+    },
+    {
+      "check": "align_wood_sample_ids",
+      "passed": true,
+      "detail": "79 vs 79 vs 79"
+    },
+    {
+      "check": "align_wood_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_wood_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_wood_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "align_zipper_mask_sizes",
+      "passed": true,
+      "detail": "dino (151, 448, 448) clip (151, 518, 518)"
+    },
+    {
+      "check": "align_zipper_sample_ids",
+      "passed": true,
+      "detail": "151 vs 151 vs 151"
+    },
+    {
+      "check": "align_zipper_labels",
+      "passed": true,
+      "detail": "dino/clip labels differ"
+    },
+    {
+      "check": "align_zipper_refs_nonempty",
+      "passed": true,
+      "detail": "dino refs 1, clip refs 1"
+    },
+    {
+      "check": "align_zipper_ref_count",
+      "passed": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "grid_s0_k1_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k1_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k2_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s0_k4_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k1_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k2_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s1_k4_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k1_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k2_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_bottle",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_cable",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_capsule",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_carpet",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_grid",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_hazelnut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_leather",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_metal_nut",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_pill",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_screw",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_tile",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_toothbrush",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_transistor",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_wood",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    },
+    {
+      "check": "grid_s2_k4_zipper",
+      "passed": true,
+      "detail": "(32, 32) vs (32, 32)"
+    }
+  ]
+}

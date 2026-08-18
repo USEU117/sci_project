@@ -1,0 +1,15 @@
+bottle/train/good/121.png
+cable/train/good/133.png
+capsule/train/good/184.png
+carpet/train/good/245.png
+grid/train/good/253.png
+hazelnut/train/good/308.png
+leather/train/good/070.png
+metal_nut/train/good/165.png
+pill/train/good/037.png
+screw/train/good/165.png
+tile/train/good/055.png
+toothbrush/train/good/025.png
+transistor/train/good/145.png
+wood/train/good/045.png
+zipper/train/good/085.png
