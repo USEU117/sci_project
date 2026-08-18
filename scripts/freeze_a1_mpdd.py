@@ -4,9 +4,17 @@ Frozen candidate: A1 feature-level fusion `concat + KNN memory bank`,
 DINO dinov2_vitb14 + AnomalyCLIP ViT-L/14@336, pca_dim=0, whiten=0,
 dino_weight=0.5, pixel stride=8.
 
-Collects hashes for: code, config/manifest, checkpoints, evaluator,
-feature caches (dino/clip x 9 configs) and baseline prediction caches.
-Generates freeze_manifest.json.
+Modes (mutually exclusive, exactly one required):
+  --create : recompute all hashes and write freeze_manifest.json.
+  --verify : strictly read-only full verification of the existing manifest.
+             Never writes; reports missing / size mismatch / hash mismatch /
+             extra undeclared .npz; exit code 0 only when everything matches.
+
+S1 fix (2026-08-18): previously --verify recomputed and *overwrote* the
+manifest before checking, so it could not prove the freeze was unchanged,
+and it only checked a subset of entries. Now --create/--verify are
+exclusive, --verify is read-only and verifies every declared entry plus
+detects extra undeclared cache files.
 """
 
 from __future__ import annotations
@@ -73,12 +81,8 @@ def dir_npz_hashes(relative_dir: str) -> list[dict]:
     return entries
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=ROOT / "experiments" / "dynamic_fusion" / "freeze" / "a1_mpdd_w05" / "freeze_manifest.json")
-    parser.add_argument("--verify", action="store_true")
-    args = parser.parse_args()
-
+def collect_payload() -> dict:
+    """Compute all hashes for the frozen artifact set (never writes anything)."""
     code = [file_entry(p) for p in CODE_FILES]
     checkpoints = [file_entry(p) for p in CHECKPOINTS]
     manifests = [file_entry(p) for p in MANIFESTS]
@@ -110,7 +114,7 @@ def main() -> int:
                 ),
             }
 
-    payload = {
+    return {
         "schema_version": 1,
         "status": "frozen",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -159,27 +163,138 @@ def main() -> int:
         "feature_caches": feature_caches,
         "baseline_prediction_caches": baseline_caches,
     }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    if args.verify:
-        current = json.loads(args.output.read_text(encoding="utf-8"))
-        # recompute and compare a lightweight subset (code + checkpoints + manifests)
-        ok = current.get("status") == "frozen"
-        for entry in current["code"]:
-            if entry != file_entry(entry["relative_path"]):
-                ok = False
-        print(json.dumps({"status": "passed" if ok else "failed"}))
-        return 0 if ok else 1
 
-    print(json.dumps({
-        "status": payload["status"],
-        "code_files": len(code),
-        "checkpoints": len(checkpoints),
-        "feature_cache_npz": sum(len(v) for k in feature_caches for v in feature_caches[k].values()),
-        "output": str(args.output),
-    }))
-    return 0
+def _declared_npz_paths(payload: dict) -> set[str]:
+    declared = set()
+    for group in ("feature_caches", "baseline_prediction_caches"):
+        for branches in payload.get(group, {}).values():
+            for entries in branches.values():
+                declared.update(e["relative_path"] for e in entries)
+    return declared
+
+
+def _cache_dirs(payload: dict) -> list[str]:
+    dirs = []
+    for group in ("feature_caches", "baseline_prediction_caches"):
+        for branches in payload.get(group, {}).values():
+            for entries in branches.values():
+                if entries:
+                    rel = Path(entries[0]["relative_path"]).parent.as_posix()
+                    if rel not in dirs:
+                        dirs.append(rel)
+    return dirs
+
+
+def extra_undeclared_npz(payload: dict) -> list[str]:
+    """Scan the declared cache directories and return .npz not declared in the manifest."""
+    declared = _declared_npz_paths(payload)
+    extra = []
+    for relative_dir in _cache_dirs(payload):
+        base = ROOT / relative_dir
+        if not base.is_dir():
+            continue
+        for path in sorted(base.rglob("*.npz")):
+            rel = str(path.relative_to(ROOT)).replace("\\", "/")
+            if rel not in declared:
+                extra.append(rel)
+    return extra
+
+
+def create_manifest(output: Path) -> dict:
+    """Recompute all hashes and write the manifest (create mode only)."""
+    payload = collect_payload()
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return payload
+
+
+def verify_manifest(manifest_path: Path) -> dict:
+    """Strictly read-only full verification of an existing manifest."""
+    if not manifest_path.is_file():
+        return {"mode": "verify", "all_ok": False, "error": f"manifest missing: {manifest_path}"}
+    manifest_sha_before = sha256(manifest_path)
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001 - report any read/parse failure
+        return {"mode": "verify", "all_ok": False, "error": f"cannot read manifest: {exc}"}
+
+    missing, size_mismatch, hash_mismatch, verified = [], [], [], []
+
+    def check_group(group: str, entries: list[dict]) -> None:
+        for entry in entries:
+            rel = entry["relative_path"]
+            path = ROOT / rel
+            if not path.is_file():
+                missing.append({"group": group, "relative_path": rel, "reason": "missing"})
+                continue
+            size = path.stat().st_size
+            if size != entry["size_bytes"]:
+                size_mismatch.append({
+                    "group": group, "relative_path": rel,
+                    "expected_size": entry["size_bytes"], "actual_size": size,
+                })
+                continue
+            if sha256(path) != entry["sha256"]:
+                hash_mismatch.append({"group": group, "relative_path": rel})
+                continue
+            verified.append(rel)
+
+    for group in ("code", "checkpoints", "manifests", "evaluators"):
+        check_group(group, manifest.get(group, []))
+
+    for group in ("feature_caches", "baseline_prediction_caches"):
+        for key, branches in manifest.get(group, {}).items():
+            for branch, entries in branches.items():
+                check_group(f"{group}/{key}/{branch}", entries)
+
+    extra = extra_undeclared_npz(manifest)
+    all_ok = not (missing or size_mismatch or hash_mismatch or extra)
+    return {
+        "mode": "verify",
+        "manifest_path": str(manifest_path),
+        "manifest_sha256_before": manifest_sha_before,
+        "status": manifest.get("status", "unknown"),
+        "verified_entries": len(verified),
+        "missing": missing,
+        "size_mismatch": size_mismatch,
+        "hash_mismatch": hash_mismatch,
+        "extra_undeclared_npz": extra,
+        "all_ok": all_ok,
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="A1 MPDD freeze manifest creator/verifier (S1 read-only fix)")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=ROOT / "experiments" / "dynamic_fusion" / "freeze" / "a1_mpdd_w05" / "freeze_manifest.json",
+    )
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--create", action="store_true", help="recompute all hashes and write the manifest")
+    mode.add_argument("--verify", action="store_true", help="read-only full verification of the existing manifest")
+    args = parser.parse_args(argv)
+
+    if args.create:
+        payload = create_manifest(args.output)
+        feature_npz = sum(
+            len(entries)
+            for branches in payload["feature_caches"].values()
+            for entries in branches.values()
+        )
+        print(json.dumps({
+            "status": payload["status"],
+            "code_files": len(payload["code"]),
+            "checkpoints": len(payload["checkpoints"]),
+            "feature_cache_npz": feature_npz,
+            "output": str(args.output),
+        }))
+        return 0
+
+    report = verify_manifest(args.output)
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    return 0 if report.get("all_ok") else 1
 
 
 if __name__ == "__main__":

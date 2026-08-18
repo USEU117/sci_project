@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "s1_freeze_verifier_readonly_20260818",
+  "created_at_utc": "2026-08-18T19:30:00+00:00",
+  "tool": "scripts/freeze_a1_mpdd.py",
+  "tool_sha256": "recomputed at runtime via --verify (code files are declared entries)",
+  "verifier_behavior": "read-only; --create/--verify mutually exclusive; verify never writes",
+  "verification": {
+    "manifest_path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json",
+    "manifest_sha256": "80c5ac9bd85d7f7b0037afda222ee1ca3ad084117695bcb606108a1849c8b369",
+    "status": "frozen",
+    "verified_entries": 229,
+    "missing": [],
+    "size_mismatch": [],
+    "hash_mismatch": [],
+    "extra_undeclared_npz": [],
+    "all_ok": true
+  },
+  "tamper_tests": {
+    "test_freeze_a1_mpdd.py": {
+      "status": "passed",
+      "passed": 8,
+      "checks": [
+        "verify passes and manifest unchanged",
+        "tampered file (same size) -> hash mismatch",
+        "missing file -> missing",
+        "size mismatch detected",
+        "extra undeclared npz detected",
+        "broken manifest reported",
+        "create/verify mutually exclusive",
+        "missing manifest -> exit 1"
+      ]
+    }
+  },
+  "manifest_unchanged_after_verify": true,
+  "conclusion": "S1 complete: verifier is strictly read-only, full 229-entry verification passes, tamper tests 8/8 pass, manifest hash unchanged before/after verify."
+}
