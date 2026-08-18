@@ -62,11 +62,17 @@
     "acceptance_mapping": "completed",
     "s1_readonly_verifier": "completed",
     "s2_docs_and_roles": "completed",
-    "s3_unified_table": "pending",
-    "s4_method_package": "pending",
-    "s5_git_archival": "pending",
+    "s3_unified_table": "completed",
+    "s4_method_package": "completed",
+    "s5_git_archival": "completed",
     "s6_paper_delivery": "pending",
-    "d0_decision_gate": "optional"
+    "d0_decision_gate": "passed",
+    "d1_predictability_gate": "failed_route_D_archived"
+  },
+  "route_d": {
+    "d0": {"status": "passed", "mean_headroom_vs_a1": 0.5807, "evidence": "experiments/dynamic_fusion/route_d_d0_20260818/d0_headroom_report.json"},
+    "d1": {"status": "failed", "mean_auroc": 0.592, "permuted_auroc": 0.616, "evidence": "experiments/dynamic_fusion/route_d_d0_20260818/d1_predictability_report.json"},
+    "decision": "route D permanently archived: pixel-level complementarity exists but unlabeled features cannot predict when A1 needs correction (reproduced V3.4 lesson)"
   },
   "archived_negative_routes": [
     "v3_3_leaky (development_only)",

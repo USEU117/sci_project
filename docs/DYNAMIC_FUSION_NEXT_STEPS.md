@@ -118,6 +118,19 @@
 - A1 特征级消融（dino-only / clip-only × 9 配置）已完成：dino-only +0.0227（8/9 正）、clip-only -0.0222（0/9 正）、concat +0.0486（9/9 正）→ 确认 concat 增益来自 CLIP 互补（产物 `a1_ablation_20260817/`）。
 - 验收对账总表：`experiments/dynamic_fusion/freeze/a1_mpdd_w05/ACCEPTANCE_MAPPING.md`（逐条映射 GPT 验收点 → 产物，含真实缺口清单）。
 
+### 收敛状态（S0–S5 + D0/D1，2026-08-18）
+
+依据 `docs/DYNAMIC_FUSION_DESIGN_REVIEW_AND_NEXT_PLAN.md`：
+
+- **S0 状态对账** ✅：`experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/{state.json,state.md,hashes.sha256,link_check.json}`。
+- **S1 只读 verifier** ✅：`freeze_a1_mpdd.py --create/--verify` 互斥，`--verify` 严格只读全量 229 项验证通过、manifest hash 不变；篡改测试 8/8（`tests/test_freeze_a1_mpdd.py`）；报告 `freeze_verification.{json,md}`。
+- **S2 角色与路径修正** ✅：VisA→`in_domain_frozen_validation`（60 处 JSON 修正）、MVTec→`external_frozen_validation`、BTAD→`external_frozen_validation_k1_only`、MPDD→`development`；VisA 路径 20260817→20260818；权威状态 `docs/CURRENT_DYNAMIC_FUSION_STATUS.{md,json}`；链接检查通过。
+- **S3 统一性能表** ✅：`experiments/dynamic_fusion/main_results_20260818/`（13 行主表 + 36 行逐类；MPDD 三口径 0.0486/0.0227/0.0258；4 数据集 concat 均值重算 diff=0.0，`recompute_all_pass=true`）。
+- **S4 正式方法包** ✅：`METHOD_CARD.md`（名称、伪代码、schema、资源统计、failure cases）、`REPRODUCE.md`（validate-only 检查、CPU 重算命令、角色与验收）。
+- **S5 Git 归档** ✅：分 3 批提交（S1/S2/S3+S4）并 push；数据/cache 排除。
+- **路线 D**：D0（headroom）**passed**（MPDD 9 配置 per-pixel best-of-3 Oracle，mean +0.5807）；D1（可预测性）**failed**（LOCO AUROC 0.592 < 0.60，特征置乱不下降 0.616）→ **动态路线永久归档**，仅保留证据 `route_d_d0_20260818/`。
+- **项目完成判定**：第 12 节 1–10 条已满足（S1–S5 完成、D 路线失败已归档）；剩余唯一主线为 **S6 论文交付**。
+
 ## GPU 需求与预计时间
 
 | 阶段 | GPU 需求 | 预计时间 |

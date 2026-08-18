@@ -1,0 +1,472 @@
+{
+  "schema_version": 1,
+  "run_id": "route_d_d0_20260818",
+  "created_at_utc": "2026-08-18T20:20:00+00:00",
+  "stage": "route_D_gate_D0_development_diagnostics",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "oracle_definition": "per-pixel best-of-branch (concat / feature-DINO-only / CLIP-only) selected with GT; development-only, never feeds fusion",
+  "n_configs": 54,
+  "per_category_mean_headroom": {
+    "bracket_black": 0.713369,
+    "bracket_brown": 0.818065,
+    "bracket_white": 0.905409,
+    "connector": 0.667569,
+    "metal_plate": 0.119394,
+    "tubes": 0.260445
+  },
+  "categories_over_0_005": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "mean_headroom_vs_a1": 0.580709,
+  "top_category_share_of_headroom": 0.259858,
+  "gate_conditions": {
+    "mean_headroom_ge_0_015": true,
+    "at_least_4_of_6_cats_ge_0_005": true,
+    "headroom_not_single_category": true
+  },
+  "gate_d0_passed": true,
+  "decision": "headroom exists -> proceed to D1 predictability gate (requires feature-prediction evidence)",
+  "not_computed": [
+    "per-region Oracle vs V3.3-clean (per-pixel best-of-3 subsumes it for D0)"
+  ],
+  "config_rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.010484,
+      "oracle_pixel_ap": 0.765711,
+      "headroom": 0.755227
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.034446,
+      "oracle_pixel_ap": 0.896086,
+      "headroom": 0.861641
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.08475,
+      "oracle_pixel_ap": 0.992991,
+      "headroom": 0.908241
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "connector",
+      "a1_pixel_ap": 0.126112,
+      "oracle_pixel_ap": 0.94212,
+      "headroom": 0.816008
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.871321,
+      "oracle_pixel_ap": 0.997306,
+      "headroom": 0.125985
+    },
+    {
+      "seed": 0,
+      "shot": 1,
+      "category": "tubes",
+      "a1_pixel_ap": 0.728161,
+      "oracle_pixel_ap": 0.995757,
+      "headroom": 0.267595
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.014642,
+      "oracle_pixel_ap": 0.720799,
+      "headroom": 0.706157
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.03337,
+      "oracle_pixel_ap": 0.810334,
+      "headroom": 0.776965
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.105989,
+      "oracle_pixel_ap": 0.996926,
+      "headroom": 0.890938
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "connector",
+      "a1_pixel_ap": 0.299113,
+      "oracle_pixel_ap": 0.966193,
+      "headroom": 0.66708
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.878391,
+      "oracle_pixel_ap": 0.992576,
+      "headroom": 0.114186
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "category": "tubes",
+      "a1_pixel_ap": 0.730736,
+      "oracle_pixel_ap": 0.995109,
+      "headroom": 0.264373
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.185593,
+      "oracle_pixel_ap": 0.931471,
+      "headroom": 0.745878
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.033952,
+      "oracle_pixel_ap": 0.798412,
+      "headroom": 0.76446
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.095362,
+      "oracle_pixel_ap": 0.999471,
+      "headroom": 0.904109
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "connector",
+      "a1_pixel_ap": 0.375039,
+      "oracle_pixel_ap": 0.978519,
+      "headroom": 0.603479
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.884981,
+      "oracle_pixel_ap": 0.991733,
+      "headroom": 0.106752
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "category": "tubes",
+      "a1_pixel_ap": 0.755041,
+      "oracle_pixel_ap": 0.994309,
+      "headroom": 0.239268
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.117565,
+      "oracle_pixel_ap": 0.799423,
+      "headroom": 0.681859
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.035109,
+      "oracle_pixel_ap": 0.885642,
+      "headroom": 0.850534
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.054601,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.945399
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "connector",
+      "a1_pixel_ap": 0.286297,
+      "oracle_pixel_ap": 0.998645,
+      "headroom": 0.712348
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.877204,
+      "oracle_pixel_ap": 0.990956,
+      "headroom": 0.113751
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "category": "tubes",
+      "a1_pixel_ap": 0.684287,
+      "oracle_pixel_ap": 0.996029,
+      "headroom": 0.311742
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.092045,
+      "oracle_pixel_ap": 0.860342,
+      "headroom": 0.768298
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.031314,
+      "oracle_pixel_ap": 0.809132,
+      "headroom": 0.777819
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.043883,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.956117
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "connector",
+      "a1_pixel_ap": 0.424809,
+      "oracle_pixel_ap": 0.986176,
+      "headroom": 0.561368
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.868847,
+      "oracle_pixel_ap": 0.992934,
+      "headroom": 0.124087
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "category": "tubes",
+      "a1_pixel_ap": 0.732773,
+      "oracle_pixel_ap": 0.995048,
+      "headroom": 0.262275
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.105323,
+      "oracle_pixel_ap": 0.876823,
+      "headroom": 0.7715
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.052192,
+      "oracle_pixel_ap": 0.92874,
+      "headroom": 0.876548
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.156163,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.843837
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "connector",
+      "a1_pixel_ap": 0.432198,
+      "oracle_pixel_ap": 0.987645,
+      "headroom": 0.555448
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.882415,
+      "oracle_pixel_ap": 0.992626,
+      "headroom": 0.110211
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "category": "tubes",
+      "a1_pixel_ap": 0.762838,
+      "oracle_pixel_ap": 0.995521,
+      "headroom": 0.232684
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.004256,
+      "oracle_pixel_ap": 0.703893,
+      "headroom": 0.699637
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.036071,
+      "oracle_pixel_ap": 0.843259,
+      "headroom": 0.807187
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.070568,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.929432
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "connector",
+      "a1_pixel_ap": 0.221798,
+      "oracle_pixel_ap": 0.989123,
+      "headroom": 0.767325
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.847134,
+      "oracle_pixel_ap": 0.995444,
+      "headroom": 0.14831
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "category": "tubes",
+      "a1_pixel_ap": 0.715688,
+      "oracle_pixel_ap": 0.996202,
+      "headroom": 0.280514
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.02396,
+      "oracle_pixel_ap": 0.636313,
+      "headroom": 0.612352
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.036088,
+      "oracle_pixel_ap": 0.863131,
+      "headroom": 0.827043
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.089219,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.910781
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "connector",
+      "a1_pixel_ap": 0.275607,
+      "oracle_pixel_ap": 0.981669,
+      "headroom": 0.706061
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.868197,
+      "oracle_pixel_ap": 0.996013,
+      "headroom": 0.127816
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "category": "tubes",
+      "a1_pixel_ap": 0.73272,
+      "oracle_pixel_ap": 0.9957,
+      "headroom": 0.26298
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "bracket_black",
+      "a1_pixel_ap": 0.198389,
+      "oracle_pixel_ap": 0.877805,
+      "headroom": 0.679416
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "bracket_brown",
+      "a1_pixel_ap": 0.055398,
+      "oracle_pixel_ap": 0.87579,
+      "headroom": 0.820391
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "bracket_white",
+      "a1_pixel_ap": 0.140171,
+      "oracle_pixel_ap": 1.0,
+      "headroom": 0.859829
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "connector",
+      "a1_pixel_ap": 0.370486,
+      "oracle_pixel_ap": 0.989494,
+      "headroom": 0.619008
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "metal_plate",
+      "a1_pixel_ap": 0.890587,
+      "oracle_pixel_ap": 0.994037,
+      "headroom": 0.103451
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "category": "tubes",
+      "a1_pixel_ap": 0.773157,
+      "oracle_pixel_ap": 0.995727,
+      "headroom": 0.22257
+    }
+  ]
+}

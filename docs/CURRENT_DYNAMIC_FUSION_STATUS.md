@@ -56,19 +56,17 @@
 | GPT 验收对账 | ✅ completed（8 点全映射） |
 | S1：只读 verifier | ✅ completed（229 项全过 + 8/8 篡改测试） |
 | S2：文档与角色修正 | ✅ completed（本文件 + 60 处 JSON 角色修正 + 链接检查） |
-| S3：统一性能表 | ⏳ pending |
-| S4：正式方法包 | ⏳ pending |
-| S5：Git 归档 | ⏳ pending |
-| S6：论文交付 | ⏳ pending |
-| D0：动态路线决策门 | ⚪ optional（仅当必须保留"动态"创新） |
+| S3：统一性能表 | ✅ completed（13 行主表 + 36 行逐类，重算 <1e-6 全 PASS） |
+| S4：正式方法包 | ✅ completed（METHOD_CARD/REPRODUCE 修订 + 伪代码 + schema + 资源统计） |
+| S5：Git 归档 | ✅ completed（分 3 批提交并 push） |
+| S6：论文交付 | ⏳ pending（建议下一步） |
+| D0：动态 headroom 门 | ✅ passed（MPDD 9 配置逐像素 best-of-3 Oracle，mean headroom +0.5807） |
+| D1：可预测性门 | ❌ **failed → 路线 D 永久归档**（LOCO mean AUROC 0.592 < 0.60，特征置乱不下降 0.616 → 无标签特征无法预测修正时机，复现 V3.4 教训） |
 
 ## 5. 剩余工作
 
-1. S3 统一性能表（matched baseline 口径，自动重算 <1e-6）
-2. S4 正式方法包（METHOD_CARD / REPRODUCE 修订 + 伪代码 + schema + 显存统计）
-3. S5 Git 分批归档（数据/cache 排除）
-4. S6 论文交付（7 节结构，全部数字可追溯）
-5. D0（可选）：A1 之上动态 headroom 诊断，不过则永久归档动态路线
+1. S6 论文交付（7 节结构，全部数字可追溯）——唯一剩余主线任务
+2. ~~路线 D~~ → **已归档**（D0 通过但 D1 失败：像素级虽有互补上限，但无标签特征无法预测"何时修正 A1"，动态路由无可靠依据；按设计审查第 12 节第 9 条正式停止扩展）
 
 ## 6. 链接检查
 
