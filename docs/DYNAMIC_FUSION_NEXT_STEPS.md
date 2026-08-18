@@ -101,7 +101,7 @@
   - 逐类：10/12 类 9/9 全正（candle -0.020 / chewinggum -0.039 小幅退化，无灾难类）。
   - 审计：285 项检查全过；导出队列 18/18 成功（s0/k1 全量 + 其余 8 组合 ref-only，测试特征复用黄金结论）。
   - baseline 口径：VisA 无 v2 分数级缓存 → 用特征级 dino-only KNN 作 DINO baseline（MPDD s0/K1 上该口径与 v2 分数级差 ~0.0008 AP，可比）。
-  - 产物：`experiments/dynamic_fusion/v3_direction_a/a1_visa_20260817/{visa.md,visa_summary.json,visa_audit.json}`。
+  - 产物：`experiments/dynamic_fusion/v3_direction_a/a1_visa_20260818/{visa.md,visa_summary.json,visa_audit.json}`。
   - 新脚本（不触碰冻结清单哈希）：`scripts/{export_a1_visa_features.py, export_a1_visa_ref_only.py, evaluate_a1_visa_frozen.py, run_a1_visa_export_queue.py, summarize_a1_visa.py, audit_a1_visa.py}`；`scripts/v2_mpdd_prediction_common.py` 新增 `index_visa`（不在冻结清单，MPDD/BTAD 行为不变）。
 - MVTec：**冻结后验证 ✅（2026-08-18 完成）**：
   - 结果：9/9 配置全正，mean ΔAP **+0.0320**（vs DINO feature-level baseline；by_seed 0.036/0.027/0.034；by_shot 0.035/0.031/0.030）。

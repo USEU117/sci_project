@@ -1,0 +1,14 @@
+dataset,role,method,mean_fused_pixel_ap,mean_delta_ap,positive,n_configs,baseline_source
+mpdd,development,A1 concat (frozen w=0.5),0.356238,0.048559,9/9,9,legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN
+mpdd,development,feature-DINO-only KNN,0.330408,0.022729,8/9,9,legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN
+mpdd,development,CLIP-only KNN,0.285444,-0.022235,0/9,9,legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN
+mpdd,development,A1 concat minus feature-DINO-only,,0.02583,9/9,9,matched feature-level dino-only KNN (concat contribution isolated)
+btad,external_frozen_validation_k1_only,A1 concat (frozen w=0.5),0.637341,0.07263,3/3,3,legacy v2 dino score cache (v2_btad_predictions)
+btad,external_frozen_validation_k1_only,feature-DINO-only KNN,0.611535,0.046824,3/3,3,legacy v2 dino score cache (v2_btad_predictions)
+btad,external_frozen_validation_k1_only,A1 concat minus feature-DINO-only,,0.025806,3/3,3,matched feature-level dino-only KNN (concat contribution isolated; CLIP-only not evaluated standalone on BTAD)
+visa,in_domain_frozen_validation,A1 concat (frozen w=0.5),0.372479,0.052353,9/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)
+visa,in_domain_frozen_validation,feature-DINO-only KNN,0.320125,0.0,0/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)
+visa,in_domain_frozen_validation,CLIP-only KNN,0.230102,-0.090023,0/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)
+mvtec,external_frozen_validation,A1 concat (frozen w=0.5),0.554611,0.031962,9/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)
+mvtec,external_frozen_validation,feature-DINO-only KNN,0.522649,0.0,0/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)
+mvtec,external_frozen_validation,CLIP-only KNN,0.465395,-0.057254,0/9,9,feature-level dino-only KNN (no v2 score cache on this dataset)

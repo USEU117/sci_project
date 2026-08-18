@@ -62,7 +62,7 @@
 - **结果**：9/9 配置全正，mean ΔAP **+0.0524**（vs DINO feature-level baseline；by_seed 0.054/0.049/0.054；by_shot 0.056/0.052/0.049）。
 - **逐类**：10/12 类 9/9 全正（capsules/cashew/fryum/macaroni1/macaroni2/pcb1-4/pipe_fryum）；candle（-0.020）与 chewinggum（-0.039）小幅退化，无灾难类。
 - **审计**：285 项检查全过（schema/类别/NaN/均值一致性/对齐/泄漏字段/grid 一致性）。
-- **产物**：`experiments/dynamic_fusion/v3_direction_a/a1_visa_20260817/{visa.md,visa_summary.json,visa_audit.json}` + 27 个 per-config report；特征缓存 `outputs/dynamic_fusion/v3_direction_a/visa_features*/`（导出队列 18/18 成功）。
+- **产物**：`experiments/dynamic_fusion/v3_direction_a/a1_visa_20260818/{visa.md,visa_summary.json,visa_audit.json}` + 27 个 per-config report；特征缓存 `outputs/dynamic_fusion/v3_direction_a/visa_features*/`（导出队列 18/18 成功）。
 - **baseline 口径说明**：VisA 无 v2 分数级缓存 → 用特征级 dino-only KNN 作 DINO baseline（MPDD s0/K1 上该口径与 v2 分数级差 ~0.0008 AP，可比）。
 
 ## 八、MVTec 冻结后验证（2026-08-18 完成）

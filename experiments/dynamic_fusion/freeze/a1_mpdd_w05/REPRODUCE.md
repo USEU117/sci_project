@@ -59,24 +59,51 @@ CLIP（同理，branch=clip，加 `--checkpoint methods\AnomalyCLIP-main\checkpo
 .venv-patchcore\Scripts\python.exe scripts\audit_a1_mpdd_matrix.py
 ```
 
+### 3.4 输入检查（validate-only，一条命令）
+```powershell
+.venv-anomalyclip\Scripts\python.exe scripts\freeze_a1_mpdd.py --verify
+```
+（S1 只读全量验证：229 项 hash 检查，缺失/尺寸/hash/额外 npz 均报告，**不写盘**。）
+
+### 3.5 CPU 从冻结缓存重算单配置报告
+```powershell
+# 任意 (seed, shot) 的 concat 报告，纯 CPU/faiss，复用冻结特征缓存
+.venv-patchcore\Scripts\python.exe scripts\evaluate_a1_feature_fusion.py `
+  --mode concat --pca-dim 0 --whiten 0 --dino-weight 0.5 `
+  --dino-features outputs\dynamic_fusion\v3_direction_a\features_vitb14_s{SEED}_k{SHOT}\anomalydino_visual `
+  --clip-features outputs\dynamic_fusion\v3_direction_a\features_s{SEED}_k{SHOT}\anomalyclip_text `
+  --baseline-dir outputs\dynamic_fusion\v2_mpdd_predictions\v2_mpdd_s{SEED}_k{SHOT}_full_v1 `
+  --output experiments\dynamic_fusion\v3_direction_a\a1_matrix_20260817\seed{SEED}_k{SHOT}\concat_pca0_whiten0_w0.5_report.json
+```
+（汇总表 `experiments/dynamic_fusion/main_results_20260818/` 可由
+`scripts/build_main_results_table.py` 一键重算，内部对每数据集 concat 均值做 <1e-6 重算校验。）
+
 ## 4. 目录与产物
 
 | 产物 | 路径 |
 |---|---|
 | freeze_manifest | `experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json` |
 | METHOD_CARD | `experiments/dynamic_fusion/freeze/a1_mpdd_w05/METHOD_CARD.md` |
+| 只读验证报告 | `experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_verification.{json,md}` |
 | 特征缓存 | `outputs/dynamic_fusion/v3_direction_a/features_vitb14_s{seed}_k{shot}/anomalydino_visual/`、`features_s{seed}_k{shot}/anomalyclip_text/` |
 | 9 配置报告 | `experiments/dynamic_fusion/v3_direction_a/a1_matrix_20260817/` |
 | 矩阵汇总/审计 | `.../a1_matrix_20260817/matrix_summary.json`、`matrix_audit.json` |
+| 统一性能表 | `experiments/dynamic_fusion/main_results_20260818/{main_results.csv,main_results.json,main_results.md,per_category_results.csv,metric_definition.md}` |
+| 状态对账 | `experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/` |
 
 ## 5. 验收标准
 
 - 复现 9 配置 mean ΔAP（vs DINO baseline）= **+0.0486**（±0.0005 内视为一致）。
 - 逐配置报告存在且含 6 类；`matrix_audit.json` `all_9_configs_pass=true`。
-- freeze_manifest `--verify` 通过（代码/checkpoint/manifest 哈希不变）。
+- `freeze_a1_mpdd.py --verify`（只读）全量通过，且 verify 前后 manifest SHA256 不变。
 - 五个泄漏字段全 `false`。
+- 统一性能表重算校验 `recompute_all_pass=true`（与 per-config report 误差 <1e-6）。
 
 ## 6. 预期产物（冻结配置下）
 
 - MPDD 9 配置 mean fused Pixel AP：0.309~0.405（K1→K4 递增），ΔAP 全正。
-- 若后续在 VisA / MVTec / BTAD 或新数据集验证：**只运行冻结版**，不得按验证结果重选权重/规则。
+- 冻结后验证角色（只读，不得按结果调参）：
+  - BTAD（external，K1 only）：3/3 正，mean ΔAP +0.0726。
+  - VisA（**in-domain**，checkpoint 在 VisA 训练过）：9/9 正，mean ΔAP +0.0524。
+  - MVTec（external）：9/9 正，mean ΔAP +0.0320。
+- 若新增数据集验证：**只运行冻结版**，不得按验证结果重选权重/规则。
