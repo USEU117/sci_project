@@ -1,0 +1,16 @@
+{
+  "run_id": "s2_link_check_20260818",
+  "generated_at_utc": "2026-08-18T19:50:00+00:00",
+  "docs_checked": [
+    "docs/CURRENT_DYNAMIC_FUSION_STATUS.md",
+    "docs/DYNAMIC_FUSION_NEXT_STEPS.md",
+    "docs/DYNAMIC_FUSION_DESIGN_REVIEW_AND_NEXT_PLAN.md",
+    "experiments/dynamic_fusion/freeze/a1_mpdd_w05/ACCEPTANCE_MAPPING.md",
+    "experiments/dynamic_fusion/freeze/a1_mpdd_w05/REPRODUCE.md",
+    "experiments/dynamic_fusion/freeze/a1_mpdd_w05/METHOD_CARD.md",
+    "experiments/dynamic_fusion/freeze/a1_mpdd_w05/phase7_post_freeze_20260817.md"
+  ],
+  "references_checked": 18,
+  "missing": [],
+  "status": "passed"
+}

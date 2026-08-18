@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "run_id": "dynamic_fusion_state_reconcile_20260818_v1",
+  "created_at_utc": "2026-08-18T19:10:00+00:00",
+  "purpose": "read-only snapshot of authoritative state at 2026-08-18 (post phase-7 closure); distinguishes current authoritative status from historical reports",
+  "git": {
+    "branch": "main",
+    "commit": "46129a7483a366f4b0593d5ea20afa79f1f96ad6",
+    "commit_message": "Archive phase1-7 deliverables: A1 freeze + multi-dataset frozen validation",
+    "upstream": "origin/main",
+    "working_tree_clean": true,
+    "untracked_count": 0
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "total_memory_mib": 6144,
+    "used_memory_mib": 1238,
+    "utilization_percent": 1,
+    "state": "idle"
+  },
+  "active_processes": [],
+  "queues": {
+    "promptad_mvtec_resumable_queue": {
+      "state": "completed",
+      "completed": 9,
+      "pending": 0,
+      "failures": 0
+    },
+    "a1_visa_export_queue": {
+      "state": "complete",
+      "completed": 18,
+      "failed": 0
+    },
+    "a1_mvtec_export_queue": {
+      "state": "complete",
+      "completed": 18,
+      "failed": 0
+    }
+  },
+  "freeze": {
+    "manifest_path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json",
+    "manifest_sha256": "80C5AC9BD85D7F7B0037AFDA222EE1CA3AD084117695BCB606108A1849C8B369",
+    "status": "frozen",
+    "method": "A1_feature_level_fusion_concat_knn_memory_bank",
+    "config": "concat w=0.5 pca_dim=0 whiten=0 KNN k=1 stride=8 map=448 (dinov2_vitb14 + AnomalyCLIP)",
+    "leakage_flags_all_false": true
+  },
+  "components": {
+    "phase1_v33_leak_audit": {"status": "completed", "evidence": "experiments/dynamic_fusion/v3_3/audit_20260817/audit.json"},
+    "phase2_v33_clean": {"status": "completed", "evidence": "src/industrial_ad/fusion/v3_3_clean.py + tests/test_v3_3_clean.py (15/15)"},
+    "phase3_mpdd_s0_k1_gate": {"status": "completed", "evidence": "experiments/dynamic_fusion/v3_3_clean/gate_20260817/report.json"},
+    "phase4_local_rescue": {"status": "completed", "evidence": "src/industrial_ad/fusion/v3_3_rescue.py + phase4_rescue_20260817/"},
+    "phase5_a1_audit_matrix": {
+      "status": "completed",
+      "evidence": "experiments/dynamic_fusion/v3_direction_a/{audit_20260817,a1_matrix_20260817,a1_weight_scan_20260817,a1_dynamic_vs_fixed_20260817,a1_ablation_20260817}/",
+      "mean_delta_ap_vs_dino": 0.0486,
+      "positive_configs": "9/9"
+    },
+    "phase6_freeze": {"status": "completed", "evidence": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/"},
+    "phase7_post_freeze_validation": {
+      "status": "completed",
+      "datasets": {
+        "mpdd": {"role": "development", "mean_delta_ap": 0.0486, "positive": "9/9"},
+        "btad": {"role": "external_frozen_validation_k1_only", "mean_delta_ap": 0.0726, "positive": "3/3"},
+        "visa": {"role": "in_domain_frozen_validation", "mean_delta_ap": 0.0524, "positive": "9/9"},
+        "mvtec": {"role": "external_frozen_validation", "mean_delta_ap": 0.0320, "positive": "9/9"}
+      }
+    },
+    "audit_acceptance_mapping": {
+      "status": "completed",
+      "evidence": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/ACCEPTANCE_MAPPING.md",
+      "gpt_points_mapped": 8,
+      "remaining_optional": ["new_external_dataset_validation (needs authorization)"]
+    },
+    "archived_negative_routes": {
+      "status": "completed",
+      "routes": ["a2_attention", "a2b_cca", "a3_shared_subspace", "v3_4_dynamic", "v3_5_defect_ensemble", "v3_5_hierarchical"],
+      "evidence": "experiments/dynamic_fusion/v3_direction_a/{a2_attention,a2b_cca,a3_shared_subspace}/ + v3_4/ + v3_5_*/"
+    }
+  },
+  "known_pending_fixes": [
+    "S1: freeze verifier must be strictly read-only (--create/--verify exclusive) + tamper test",
+    "S2: fix visa path a1_visa_20260817 -> a1_visa_20260818 in documents; correct dataset roles",
+    "S3: unified results table with matched feature baselines",
+    "S4: revised METHOD_CARD/REPRODUCE method package",
+    "S5: staged git archival of remaining untracked outputs (data/cache excluded)",
+    "D0: optional decision gate for route D (dynamic headroom), only if 'dynamic' innovation required"
+  ],
+  "notes": "VisA export queue status.json still says dataset_role='holdout' (needs correction in S2); this snapshot records the factual role overrides above."
+}

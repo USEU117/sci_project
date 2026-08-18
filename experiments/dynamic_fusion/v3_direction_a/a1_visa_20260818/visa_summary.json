@@ -4,7 +4,7 @@
   "created_at_utc": "2026-08-18T08:28:11.415205+00:00",
   "stage": "phase_7_post_freeze_external_validation",
   "dataset": "visa",
-  "dataset_role": "holdout",
+  "dataset_role": "in_domain_frozen_validation",
   "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (vitb14 DINO + AnomalyCLIP), KNN k=1, stride=8",
   "baseline_source": "feature_level_dino_only_knn (VisA has no v2 score cache; ~0.001 AP apart from v2 score-level on MPDD s0/k1)",
   "cpu_only_eval": true,

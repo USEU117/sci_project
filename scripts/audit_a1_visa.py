@@ -156,7 +156,7 @@ def main() -> int:
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "passed" if not errors else "failed",
         "dataset": args.dataset,
-        "dataset_role": "holdout",
+        "dataset_role": "in_domain_frozen_validation" if args.dataset == "visa" else "external_frozen_validation",
         "n_checks": len(checks),
         "n_failed": len(errors),
         "errors": errors,

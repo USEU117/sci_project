@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "run_id": "current_dynamic_fusion_status_20260818",
+  "generated_at_utc": "2026-08-18T19:45:00+00:00",
+  "authoritative_plan": "docs/DYNAMIC_FUSION_DESIGN_REVIEW_AND_NEXT_PLAN.md",
+  "status_snapshot": "experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/state.json",
+  "method": {
+    "name": "Reference-Conditioned Multimodal Feature Fusion with a Normal Memory Bank (A1)",
+    "config": "concat + KNN(k=1) memory bank; dinov2_vitb14 + AnomalyCLIP ViT-L/14@336; pca_dim=0, whiten=0, dino_weight=0.5, stride=8, map=448",
+    "leakage_flags": {
+      "test_predictions_used": false,
+      "test_labels_used": false,
+      "test_masks_used": false,
+      "test_dataset_statistics_used": false,
+      "test_normal_selection_used": false
+    },
+    "freeze_manifest": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json"
+  },
+  "dataset_roles": {
+    "mpdd": "development",
+    "btad": "external_frozen_validation_k1_only",
+    "visa": "in_domain_frozen_validation",
+    "mvtec": "external_frozen_validation"
+  },
+  "main_results": {
+    "mpdd": {
+      "dataset_role": "development",
+      "positive_configs": "9/9",
+      "mean_delta_ap_vs_legacy_dino": 0.0486,
+      "mean_delta_ap_feature_dino_only_vs_legacy_dino": 0.0227,
+      "mean_delta_ap_concat_vs_matched_feature_dino_only": 0.0258,
+      "baseline_source": "legacy v2 dino score cache (MPDD) + matched feature-level dino-only KNN"
+    },
+    "btad": {
+      "dataset_role": "external_frozen_validation_k1_only",
+      "positive_configs": "3/3 (K1 only)",
+      "mean_delta_ap_vs_dino": 0.0726,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this dataset)"
+    },
+    "visa": {
+      "dataset_role": "in_domain_frozen_validation",
+      "positive_configs": "9/9",
+      "mean_delta_ap_vs_dino": 0.0524,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this dataset)",
+      "note": "AnomalyCLIP checkpoint trained on VisA -> in-domain, NOT an independent holdout"
+    },
+    "mvtec": {
+      "dataset_role": "external_frozen_validation",
+      "positive_configs": "9/9",
+      "mean_delta_ap_vs_dino": 0.0320,
+      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this dataset)"
+    }
+  },
+  "phase_status": {
+    "phase1_v33_leak_audit": "completed",
+    "phase2_v33_clean": "completed",
+    "phase3_mpdd_s0_k1_gate": "completed",
+    "phase4_local_rescue": "completed",
+    "phase5_a1_audit_matrix": "completed",
+    "phase6_freeze": "completed",
+    "phase7_post_freeze_validation": "completed",
+    "acceptance_mapping": "completed",
+    "s1_readonly_verifier": "completed",
+    "s2_docs_and_roles": "completed",
+    "s3_unified_table": "pending",
+    "s4_method_package": "pending",
+    "s5_git_archival": "pending",
+    "s6_paper_delivery": "pending",
+    "d0_decision_gate": "optional"
+  },
+  "archived_negative_routes": [
+    "v3_3_leaky (development_only)",
+    "v3_4_dynamic (Oracle diagnostics only)",
+    "v3_5_hierarchical_gate",
+    "v3_5_defect_ensemble",
+    "a2_attention",
+    "a2b_cca",
+    "a3_shared_subspace"
+  ],
+  "remaining": [
+    "S3 unified results table with matched feature baselines",
+    "S4 method package (METHOD_CARD/REPRODUCE revision)",
+    "S5 staged git archival",
+    "S6 paper delivery",
+    "D0 decision gate for route D (only if 'dynamic' innovation required)"
+  ]
+}
