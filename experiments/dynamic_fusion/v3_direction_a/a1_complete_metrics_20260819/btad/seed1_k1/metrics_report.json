@@ -1,0 +1,122 @@
+{
+  "pipeline": "v3_direction_a_a1",
+  "direction": "A_feature_level_fusion",
+  "dataset": "btad",
+  "dataset_role": "external_frozen_validation",
+  "seed": 1,
+  "shot": 1,
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (dinov2_vitb14 DINO + AnomalyCLIP), KNN k=1, distance/2, stride=8, map=448",
+  "image_score": "max_pool",
+  "stride": 8,
+  "created_at_utc": "2026-08-19T00:46:37.989851+00:00",
+  "concat": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.971925,
+        "pixel_ap": 0.633254,
+        "pixel_aupro": 0.755171
+      },
+      "image": {
+        "image_auroc": 0.925594,
+        "image_ap": 0.920561,
+        "image_f1_max": 0.879854
+      }
+    },
+    "per_category": [
+      {
+        "category": "01",
+        "pixel": {
+          "pixel_auroc": 0.9610252351011053,
+          "pixel_ap": 0.6000953221845774,
+          "pixel_aupro": 0.652285836920417
+        },
+        "image": {
+          "image_auroc": 0.946550048590865,
+          "image_ap": 0.9808487461815267,
+          "image_f1_max": 0.9375000000000001
+        }
+      },
+      {
+        "category": "02",
+        "pixel": {
+          "pixel_auroc": 0.960954745817392,
+          "pixel_ap": 0.5729596740619545,
+          "pixel_aupro": 0.6410725395273671
+        },
+        "image": {
+          "image_auroc": 0.8920000000000001,
+          "image_ap": 0.9831617015867764,
+          "image_f1_max": 0.9349397590361446
+        }
+      },
+      {
+        "category": "03",
+        "pixel": {
+          "pixel_auroc": 0.993795274088682,
+          "pixel_ap": 0.7267073394608053,
+          "pixel_aupro": 0.972156025355355
+        },
+        "image": {
+          "image_auroc": 0.9382317073170732,
+          "image_ap": 0.7976730742108321,
+          "image_f1_max": 0.767123287671233
+        }
+      }
+    ]
+  },
+  "dino": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.968779,
+        "pixel_ap": 0.601919,
+        "pixel_aupro": 0.748646
+      },
+      "image": {
+        "image_auroc": 0.911322,
+        "image_ap": 0.918772,
+        "image_f1_max": 0.874817
+      }
+    },
+    "per_category": [
+      {
+        "category": "01",
+        "pixel": {
+          "pixel_auroc": 0.9558709344647492,
+          "pixel_ap": 0.5738129002376023,
+          "pixel_aupro": 0.6466375320315491
+        },
+        "image": {
+          "image_auroc": 0.9193391642371234,
+          "image_ap": 0.9721449773141492,
+          "image_f1_max": 0.9111111111111111
+        }
+      },
+      {
+        "category": "02",
+        "pixel": {
+          "pixel_auroc": 0.957910251349255,
+          "pixel_ap": 0.5349578080466355,
+          "pixel_aupro": 0.6350774994114431
+        },
+        "image": {
+          "image_auroc": 0.8788333333333334,
+          "image_ap": 0.9804817001558859,
+          "image_f1_max": 0.9355608591885441
+        }
+      },
+      {
+        "category": "03",
+        "pixel": {
+          "pixel_auroc": 0.9925562077045238,
+          "pixel_ap": 0.696987190392078,
+          "pixel_aupro": 0.9642243795022538
+        },
+        "image": {
+          "image_auroc": 0.9357926829268293,
+          "image_ap": 0.8036880047351115,
+          "image_f1_max": 0.7777777777777778
+        }
+      }
+    ]
+  }
+}

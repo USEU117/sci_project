@@ -46,32 +46,32 @@
     },
     {
       "dataset": "btad",
-      "role": "external_frozen_validation_k1_only",
+      "role": "external_frozen_validation",
       "method": "A1 concat (frozen w=0.5)",
-      "mean_fused_pixel_ap": 0.637341,
-      "mean_delta_ap": 0.07263,
-      "positive": "3/3",
-      "n_configs": 3,
-      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions)"
+      "mean_fused_pixel_ap": 0.645512,
+      "mean_delta_ap": 0.076575,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))"
     },
     {
       "dataset": "btad",
-      "role": "external_frozen_validation_k1_only",
+      "role": "external_frozen_validation",
       "method": "feature-DINO-only KNN",
-      "mean_fused_pixel_ap": 0.611535,
-      "mean_delta_ap": 0.046824,
-      "positive": "3/3",
-      "n_configs": 3,
-      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions)"
+      "mean_fused_pixel_ap": 0.620617,
+      "mean_delta_ap": 0.05168,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))"
     },
     {
       "dataset": "btad",
-      "role": "external_frozen_validation_k1_only",
+      "role": "external_frozen_validation",
       "method": "A1 concat minus feature-DINO-only",
       "mean_fused_pixel_ap": "",
-      "mean_delta_ap": 0.025806,
-      "positive": "3/3",
-      "n_configs": 3,
+      "mean_delta_ap": 0.024895,
+      "positive": "9/9",
+      "n_configs": 9,
       "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated; CLIP-only not evaluated standalone on BTAD)"
     },
     {
@@ -147,8 +147,8 @@
     {
       "dataset": "btad",
       "mode": "concat",
-      "recomputed_from_reports": 0.07263,
-      "reported_in_summary": 0.07263,
+      "recomputed_from_reports": 0.076575,
+      "reported_in_summary": 0.076575,
       "abs_diff": 0.0,
       "pass": true
     },

@@ -95,7 +95,7 @@
 ### 阶段七状态（2026-08-18 更新）
 
 - MPDD 复核 ✅（9/9 全正，mean ΔAP +0.0486）。
-- BTAD K1 冻结后验证 ✅（3/3 正，mean +0.0726）。
+- BTAD 冻结后验证 ✅（2026-08-19 完成，9/9 正，mean ΔAP **+0.0766** vs legacy v2 dino score；三口径 0.0766/0.0517/0.0249，角色升级为 `external_frozen_validation`）。
 - **VisA 冻结后验证 ✅（2026-08-18 完成）**：
   - 结果：9/9 配置全正，mean ΔAP **+0.0524**（vs DINO feature-level baseline）。
   - 逐类：10/12 类 9/9 全正（candle -0.020 / chewinggum -0.039 小幅退化，无灾难类）。
@@ -124,8 +124,8 @@
 
 - **S0 状态对账** ✅：`experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/{state.json,state.md,hashes.sha256,link_check.json}`。
 - **S1 只读 verifier** ✅：`freeze_a1_mpdd.py --create/--verify` 互斥，`--verify` 严格只读全量 229 项验证通过、manifest hash 不变；篡改测试 8/8（`tests/test_freeze_a1_mpdd.py`）；报告 `freeze_verification.{json,md}`。
-- **S2 角色与路径修正** ✅：VisA→`in_domain_frozen_validation`（60 处 JSON 修正）、MVTec→`external_frozen_validation`、BTAD→`external_frozen_validation_k1_only`、MPDD→`development`；VisA 路径 20260817→20260818；权威状态 `docs/CURRENT_DYNAMIC_FUSION_STATUS.{md,json}`；链接检查通过。
-- **S3 统一性能表** ✅：`experiments/dynamic_fusion/main_results_20260818/`（13 行主表 + 36 行逐类；MPDD 三口径 0.0486/0.0227/0.0258；4 数据集 concat 均值重算 diff=0.0，`recompute_all_pass=true`）。
+- **S2 角色与路径修正** ✅：VisA→`in_domain_frozen_validation`（60 处 JSON 修正）、MVTec→`external_frozen_validation`、BTAD→`external_frozen_validation_k1_only`（2026-08-19 9 配置收口后升级为 `external_frozen_validation`）、MPDD→`development`；VisA 路径 20260817→20260818；权威状态 `docs/CURRENT_DYNAMIC_FUSION_STATUS.{md,json}`；链接检查通过。
+- **S3 统一性能表** ✅：`experiments/dynamic_fusion/main_results_20260818/`（13 行主表 + 36 行逐类；MPDD 三口径 0.0486/0.0227/0.0258；BTAD 三口径 0.0766/0.0517/0.0249；4 数据集 concat 均值重算 diff=0.0，`recompute_all_pass=true`）。
 - **S4 正式方法包** ✅：`METHOD_CARD.md`（名称、伪代码、schema、资源统计、failure cases）、`REPRODUCE.md`（validate-only 检查、CPU 重算命令、角色与验收）。
 - **S5 Git 归档** ✅：分 3 批提交（S1/S2/S3+S4）并 push；数据/cache 排除。
 - **路线 D**：D0（headroom）**passed**（MPDD 9 配置 per-pixel best-of-3 Oracle，mean +0.5807）；D1（可预测性）**failed**（LOCO AUROC 0.592 < 0.60，特征置乱不下降 0.616）→ **动态路线永久归档**，仅保留证据 `route_d_d0_20260818/`。

@@ -55,13 +55,21 @@ mpdd_dirs = [(f"a1_matrix_20260817/seed{s}_k{k}", "concat_pca0_whiten0_w0.5_repo
 mpdd_recomp = mean(report_deltas("concat", mpdd_dirs))
 
 # ---------------------------------------------------------------------------
-# 2. BTAD (external K1 only)
+# 2. BTAD (external, 9 configs = 3 seeds x 1/2/4-shot reference sampling)
 # ---------------------------------------------------------------------------
 btad_seeds = [0, 1, 2]
-btad_concat_ap = [load(R("a1_vitb14_btad_fusion", f"seed{s}", "concat_pca0_whiten0_w0.5_report.json"))["mean_fused"]["pixel_ap"] for s in btad_seeds]
-btad_concat_delta = [load(R("a1_vitb14_btad_fusion", f"seed{s}", "concat_pca0_whiten0_w0.5_report.json"))["mean_delta_ap_vs_dino"] for s in btad_seeds]
-btad_dino_delta = [load(R("a1_vitb14_btad_dino", f"seed{s}", "dino_pca0_whiten0_w0.5_report.json"))["mean_delta_ap_vs_dino"] for s in btad_seeds]
-btad_dino_ap = [load(R("a1_vitb14_btad_dino", f"seed{s}", "dino_pca0_whiten0_w0.5_report.json"))["mean_fused"]["pixel_ap"] for s in btad_seeds]
+btad_concat_dirs = (
+    [(f"a1_vitb14_btad_fusion/seed{s}", "concat_pca0_whiten0_w0.5_report.json") for s in btad_seeds]
+    + [(f"a1_vitb14_btad_20260819/seed{s}_k{k}", "concat_pca0_whiten0_w0.5_report.json") for s in btad_seeds for k in (2, 4)]
+)
+btad_dino_dirs = (
+    [(f"a1_vitb14_btad_dino/seed{s}", "dino_pca0_whiten0_w0.5_report.json") for s in btad_seeds]
+    + [(f"a1_vitb14_btad_20260819/seed{s}_k{k}", "dino_pca0_whiten0_w0.5_report.json") for s in btad_seeds for k in (2, 4)]
+)
+btad_concat_ap = [load(R(subdir, fname))["mean_fused"]["pixel_ap"] for subdir, fname in btad_concat_dirs]
+btad_concat_delta = [load(R(subdir, fname))["mean_delta_ap_vs_dino"] for subdir, fname in btad_concat_dirs]
+btad_dino_ap = [load(R(subdir, fname))["mean_fused"]["pixel_ap"] for subdir, fname in btad_dino_dirs]
+btad_dino_delta = [load(R(subdir, fname))["mean_delta_ap_vs_dino"] for subdir, fname in btad_dino_dirs]
 
 # ---------------------------------------------------------------------------
 # 3. VisA (in-domain) / MVTec (external)
@@ -81,7 +89,7 @@ per_cat_sources = {
 # ---------------------------------------------------------------------------
 BASELINE_DICT = {
     "mpdd": "legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN",
-    "btad": "legacy v2 dino score cache (v2_btad_predictions)",
+    "btad": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))",
     "visa": "feature-level dino-only KNN (no v2 score cache on this dataset)",
     "mvtec": "feature-level dino-only KNN (no v2 score cache on this dataset)",
 }
@@ -92,10 +100,10 @@ rows = [
     {"dataset": "mpdd", "role": "development", "method": "feature-DINO-only KNN", "mean_fused_pixel_ap": round(mpdd_dino["mean_fused_pixel_ap"], 6), "mean_delta_ap": round(mpdd_dino["mean_delta_ap_vs_dino"], 6), "positive": f'{mpdd_dino["positive_configs"]}/9', "n_configs": 9, "baseline_source": BASELINE_DICT["mpdd"]},
     {"dataset": "mpdd", "role": "development", "method": "CLIP-only KNN", "mean_fused_pixel_ap": round(mpdd_clip["mean_fused_pixel_ap"], 6), "mean_delta_ap": round(mpdd_clip["mean_delta_ap_vs_dino"], 6), "positive": f'{mpdd_clip["positive_configs"]}/9', "n_configs": 9, "baseline_source": BASELINE_DICT["mpdd"]},
     {"dataset": "mpdd", "role": "development", "method": "A1 concat minus feature-DINO-only", "mean_fused_pixel_ap": "", "mean_delta_ap": round(mpdd_concat_minus_dino, 6), "positive": "9/9", "n_configs": 9, "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated)"},
-    # BTAD (K1)
-    {"dataset": "btad", "role": "external_frozen_validation_k1_only", "method": "A1 concat (frozen w=0.5)", "mean_fused_pixel_ap": round(mean(btad_concat_ap), 6), "mean_delta_ap": round(mean(btad_concat_delta), 6), "positive": "3/3", "n_configs": 3, "baseline_source": BASELINE_DICT["btad"]},
-    {"dataset": "btad", "role": "external_frozen_validation_k1_only", "method": "feature-DINO-only KNN", "mean_fused_pixel_ap": round(mean(btad_dino_ap), 6), "mean_delta_ap": round(mean(btad_dino_delta), 6), "positive": "3/3", "n_configs": 3, "baseline_source": BASELINE_DICT["btad"]},
-    {"dataset": "btad", "role": "external_frozen_validation_k1_only", "method": "A1 concat minus feature-DINO-only", "mean_fused_pixel_ap": "", "mean_delta_ap": round(mean(btad_concat_delta) - mean(btad_dino_delta), 6), "positive": "3/3", "n_configs": 3, "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated; CLIP-only not evaluated standalone on BTAD)"},
+    # BTAD (9 configs)
+    {"dataset": "btad", "role": "external_frozen_validation", "method": "A1 concat (frozen w=0.5)", "mean_fused_pixel_ap": round(mean(btad_concat_ap), 6), "mean_delta_ap": round(mean(btad_concat_delta), 6), "positive": "9/9", "n_configs": 9, "baseline_source": BASELINE_DICT["btad"]},
+    {"dataset": "btad", "role": "external_frozen_validation", "method": "feature-DINO-only KNN", "mean_fused_pixel_ap": round(mean(btad_dino_ap), 6), "mean_delta_ap": round(mean(btad_dino_delta), 6), "positive": "9/9", "n_configs": 9, "baseline_source": BASELINE_DICT["btad"]},
+    {"dataset": "btad", "role": "external_frozen_validation", "method": "A1 concat minus feature-DINO-only", "mean_fused_pixel_ap": "", "mean_delta_ap": round(mean(btad_concat_delta) - mean(btad_dino_delta), 6), "positive": "9/9", "n_configs": 9, "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated; CLIP-only not evaluated standalone on BTAD)"},
     # VisA
     {"dataset": "visa", "role": "in_domain_frozen_validation", "method": "A1 concat (frozen w=0.5)", "mean_fused_pixel_ap": round(visa_sum["overall"]["concat"]["mean_fused_pixel_ap"], 6), "mean_delta_ap": round(visa_sum["overall"]["concat"]["mean_delta_ap_vs_dino"], 6), "positive": f'{visa_sum["overall"]["concat"]["positive_configs"]}/9', "n_configs": 9, "baseline_source": BASELINE_DICT["visa"]},
     {"dataset": "visa", "role": "in_domain_frozen_validation", "method": "feature-DINO-only KNN", "mean_fused_pixel_ap": round(visa_sum["overall"]["dino_only"]["mean_fused_pixel_ap"], 6), "mean_delta_ap": round(visa_sum["overall"]["dino_only"]["mean_delta_ap_vs_dino"], 6), "positive": f'{visa_sum["overall"]["dino_only"]["positive_configs"]}/9', "n_configs": 9, "baseline_source": BASELINE_DICT["visa"]},
@@ -121,8 +129,7 @@ def check(dataset: str, mode: str, reported: float, dirs: list[tuple[str, str]])
 
 checks = []
 checks.append(check("mpdd", "concat", mpdd_concat["mean_delta_ap_vs_dino"], mpdd_dirs))
-btad_dirs = [(f"a1_vitb14_btad_fusion/seed{s}", "concat_pca0_whiten0_w0.5_report.json") for s in btad_seeds]
-checks.append(check("btad", "concat", mean(btad_concat_delta), btad_dirs))
+checks.append(check("btad", "concat", mean(btad_concat_delta), btad_concat_dirs))
 
 for ds, summary, prefix in (("visa", visa_sum, "a1_visa_20260818"), ("mvtec", mvtec_sum, "a1_mvtec_20260818")):
     dirs = [(f"{prefix}/seed{s}_k{k}", "concat_pca0_whiten0_w0.5_report.json") for s in (0, 1, 2) for k in (1, 2, 4)]
@@ -203,8 +210,9 @@ md_lines.append(f"\n- 全部通过: **{all_pass}**")
         "- Pixel AUROC: 像素级 Area Under ROC。",
         "- Pixel AUPRO: 像素级 Area Under Per-Region Overlap（stride=8 下采样后计算，与冻结 evaluator 一致）。",
         "- ΔAP: `fused Pixel AP − baseline Pixel AP`；baseline 每行显式标注 source。",
-        "- MPDD 三口径: ①A1 concat vs legacy v2 dino score = +0.0486；②feature-DINO-only vs legacy = +0.0227；③concat vs matched feature-DINO-only = +0.0258（纯融合贡献）。",
-        "- VisA/MVTec/BTAD 无 v2 分数级缓存 → baseline 用特征级 dino-only KNN（MPDD s0/K1 上该口径与 v2 分数级差 ~0.0008 AP，可比）。",
+        "- MPDD 三口径（9 配置）: ①A1 concat vs legacy v2 dino score = +0.0486；②feature-DINO-only vs legacy = +0.0227；③concat vs matched feature-DINO-only = +0.0258（纯融合贡献）。",
+        "- BTAD 三口径（9 配置）: ①A1 concat vs legacy v2 dino score = +0.0766；②feature-DINO-only vs legacy = +0.0517；③concat vs matched feature-DINO-only = +0.0249（纯融合贡献）。",
+        "- VisA/MVTec 无 v2 分数级缓存 → baseline 用特征级 dino-only KNN（MPDD s0/K1 上该口径与 v2 分数级差 ~0.0008 AP，可比）。",
         "- 逐类表（per_category_results.csv）取每个数据集 seed0/K1（BTAD seed0）的 concat 报告。",
     ]),
     encoding="utf-8",

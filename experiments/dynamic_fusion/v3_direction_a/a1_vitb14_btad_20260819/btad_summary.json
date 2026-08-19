@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "run_id": "a1_btad_matrix_20260819",
+  "created_at_utc": "2026-08-18T23:46:45.566906+00:00",
+  "stage": "phase_7_post_freeze_external_validation",
+  "dataset": "btad",
+  "dataset_role": "external_frozen_validation",
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (dinov2_vitb14 DINO + AnomalyCLIP), KNN k=1, stride=8, map=448",
+  "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))",
+  "n_configs": 9,
+  "overall": {
+    "concat": {
+      "mean_fused_pixel_ap": 0.6455121111111111,
+      "mean_fused_pixel_auroc": 0.9734791111111112,
+      "mean_fused_pixel_aupro": 0.7608435555555556,
+      "mean_delta_ap_vs_dino": 0.07657477777777778,
+      "positive_configs": 9,
+      "by_seed_delta": {
+        "0": 0.07961766666666667,
+        "1": 0.07065199999999999,
+        "2": 0.07945466666666666
+      },
+      "by_shot_delta": {
+        "1": 0.07263033333333334,
+        "2": 0.07910266666666665,
+        "4": 0.07799133333333333
+      }
+    },
+    "dino_only": {
+      "mean_fused_pixel_ap": 0.6206171111111112,
+      "mean_delta_ap_vs_dino": 0.051679777777777776,
+      "positive_configs": 9,
+      "by_seed_delta": {
+        "0": 0.052670999999999996,
+        "1": 0.03866733333333333,
+        "2": 0.06370100000000001
+      },
+      "by_shot_delta": {
+        "1": 0.04682433333333333,
+        "2": 0.05523566666666666,
+        "4": 0.052979333333333344
+      }
+    },
+    "concat_minus_dino_only": {
+      "mean_delta_ap": 0.024895,
+      "positive_configs": 9
+    }
+  },
+  "per_category_concat": {
+    "01": {
+      "mean_delta_ap_vs_legacy_dino": 0.206306,
+      "positive_configs_vs_legacy": 9,
+      "mean_delta_ap_vs_dino_only": 0.024516,
+      "positive_configs_vs_dino_only": 9
+    },
+    "02": {
+      "mean_delta_ap_vs_legacy_dino": -0.018064,
+      "positive_configs_vs_legacy": 3,
+      "mean_delta_ap_vs_dino_only": 0.034574,
+      "positive_configs_vs_dino_only": 9
+    },
+    "03": {
+      "mean_delta_ap_vs_legacy_dino": 0.041482,
+      "positive_configs_vs_legacy": 9,
+      "mean_delta_ap_vs_dino_only": 0.015596,
+      "positive_configs_vs_dino_only": 7
+    }
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "shot": 1,
+      "concat_ap": 0.620275,
+      "concat_auroc": 0.971794,
+      "concat_aupro": 0.761943,
+      "concat_delta_vs_legacy_dino": 0.055709,
+      "dino_only_ap": 0.589328,
+      "dino_only_delta_vs_legacy_dino": 0.024761,
+      "legacy_dino_baseline_ap": 0.564566,
+      "concat_minus_dino_only": 0.030947000000000058,
+      "positive_categories": 2,
+      "max_regression": -0.028067
+    },
+    {
+      "seed": 0,
+      "shot": 2,
+      "concat_ap": 0.642167,
+      "concat_auroc": 0.972833,
+      "concat_aupro": 0.749209,
+      "concat_delta_vs_legacy_dino": 0.091611,
+      "dino_only_ap": 0.616535,
+      "dino_only_delta_vs_legacy_dino": 0.06598,
+      "legacy_dino_baseline_ap": 0.550555,
+      "concat_minus_dino_only": 0.025631999999999988,
+      "positive_categories": 2,
+      "max_regression": -0.014519
+    },
+    {
+      "seed": 0,
+      "shot": 4,
+      "concat_ap": 0.650396,
+      "concat_auroc": 0.973159,
+      "concat_aupro": 0.750059,
+      "concat_delta_vs_legacy_dino": 0.091533,
+      "dino_only_ap": 0.626136,
+      "dino_only_delta_vs_legacy_dino": 0.067272,
+      "legacy_dino_baseline_ap": 0.558863,
+      "concat_minus_dino_only": 0.02425999999999995,
+      "positive_categories": 2,
+      "max_regression": -0.008437
+    },
+    {
+      "seed": 1,
+      "shot": 1,
+      "concat_ap": 0.633254,
+      "concat_auroc": 0.971925,
+      "concat_aupro": 0.755171,
+      "concat_delta_vs_legacy_dino": 0.073837,
+      "dino_only_ap": 0.601919,
+      "dino_only_delta_vs_legacy_dino": 0.042502,
+      "legacy_dino_baseline_ap": 0.559417,
+      "concat_minus_dino_only": 0.031335,
+      "positive_categories": 2,
+      "max_regression": -0.046866
+    },
+    {
+      "seed": 1,
+      "shot": 2,
+      "concat_ap": 0.645953,
+      "concat_auroc": 0.973172,
+      "concat_aupro": 0.762392,
+      "concat_delta_vs_legacy_dino": 0.073414,
+      "dino_only_ap": 0.613948,
+      "dino_only_delta_vs_legacy_dino": 0.041409,
+      "legacy_dino_baseline_ap": 0.57254,
+      "concat_minus_dino_only": 0.03200499999999995,
+      "positive_categories": 2,
+      "max_regression": -0.039203
+    },
+    {
+      "seed": 1,
+      "shot": 4,
+      "concat_ap": 0.64797,
+      "concat_auroc": 0.974037,
+      "concat_aupro": 0.760743,
+      "concat_delta_vs_legacy_dino": 0.064705,
+      "dino_only_ap": 0.615356,
+      "dino_only_delta_vs_legacy_dino": 0.032091,
+      "legacy_dino_baseline_ap": 0.583265,
+      "concat_minus_dino_only": 0.03261400000000003,
+      "positive_categories": 2,
+      "max_regression": -0.049166
+    },
+    {
+      "seed": 2,
+      "shot": 1,
+      "concat_ap": 0.658494,
+      "concat_auroc": 0.974766,
+      "concat_aupro": 0.783918,
+      "concat_delta_vs_legacy_dino": 0.088345,
+      "dino_only_ap": 0.643358,
+      "dino_only_delta_vs_legacy_dino": 0.07321,
+      "legacy_dino_baseline_ap": 0.570148,
+      "concat_minus_dino_only": 0.015136000000000038,
+      "positive_categories": 3,
+      "max_regression": 0.010199
+    },
+    {
+      "seed": 2,
+      "shot": 2,
+      "concat_ap": 0.651473,
+      "concat_auroc": 0.97455,
+      "concat_aupro": 0.76125,
+      "concat_delta_vs_legacy_dino": 0.072283,
+      "dino_only_ap": 0.637508,
+      "dino_only_delta_vs_legacy_dino": 0.058318,
+      "legacy_dino_baseline_ap": 0.579191,
+      "concat_minus_dino_only": 0.013965000000000005,
+      "positive_categories": 3,
+      "max_regression": 0.008306
+    },
+    {
+      "seed": 2,
+      "shot": 4,
+      "concat_ap": 0.659627,
+      "concat_auroc": 0.975076,
+      "concat_aupro": 0.762907,
+      "concat_delta_vs_legacy_dino": 0.077736,
+      "dino_only_ap": 0.641466,
+      "dino_only_delta_vs_legacy_dino": 0.059575,
+      "legacy_dino_baseline_ap": 0.58189,
+      "concat_minus_dino_only": 0.018160999999999983,
+      "positive_categories": 3,
+      "max_regression": 0.005178
+    }
+  ]
+}

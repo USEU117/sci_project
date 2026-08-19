@@ -1,6 +1,6 @@
 # 动态融合权威状态（CURRENT STATUS）
 
-更新日期：2026-08-18 · RunId：`current_dynamic_fusion_status_20260818`
+更新日期：2026-08-19 · RunId：`current_dynamic_fusion_status_20260818`
 机器可读版：[current_dynamic_fusion_status.json](file:///d:/STUDY/My_github/sci_project/docs/current_dynamic_fusion_status.json)
 状态快照：`experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/state.json`
 
@@ -23,7 +23,7 @@
 | 数据集 | 角色 | 说明 |
 |---|---|---|
 | MPDD | `development` | 冻结配置与权重在此开发、矩阵 9/9 全正 |
-| BTAD | `external_frozen_validation_k1_only` | 仅 K1 三 seed 全覆盖，K2/4 缺 GPU 特征缓存 |
+| BTAD | `external_frozen_validation` | 9 配置（3 seeds × 1/2/4-shot）全覆盖 |
 | VisA | `in_domain_frozen_validation` | AnomalyCLIP checkpoint 在 VisA 训练过，**非独立 holdout** |
 | MVTec | `external_frozen_validation` | 冻结后新验证，9/9 全正 |
 
@@ -33,7 +33,8 @@
 |---|---|---|---|---|
 | MPDD | development | 9/9 | **+0.0486**（vs legacy v2 dino score） | legacy v2 score 缓存 + matched feature-level dino-only KNN |
 | MPDD（口径拆分） | development | — | concat-minus-feature-DINO-only **+0.0258** | feature-DINO-only 自身 +0.0227（vs legacy） |
-| BTAD | K1 only | 3/3 | **+0.0726** | feature-level dino-only KNN |
+| BTAD | external | 9/9 | **+0.0766**（vs legacy v2 dino score） | legacy v2 score 缓存（matched per seed/shot） |
+| BTAD（口径拆分） | external | — | concat-minus-feature-DINO-only **+0.0249** | feature-DINO-only 自身 +0.0517（vs legacy） |
 | VisA | in-domain | 9/9 | **+0.0524** | feature-level dino-only KNN |
 | MVTec | external | 9/9 | **+0.0320** | feature-level dino-only KNN |
 
@@ -52,7 +53,7 @@
 | 四：local rescue | ✅ completed（13/13 测试，安全回退） |
 | 五：A1 审计+矩阵+权重+动态 | ✅ completed（9/9 全正，冻结 w=0.5） |
 | 六：正式冻结 | ✅ completed（freeze_manifest + METHOD_CARD + REPRODUCE） |
-| 七：冻结后验证 | ✅ completed（MPDD/BTAD/VisA/MVTec） |
+| 七：冻结后验证 | ✅ completed（MPDD/BTAD 9 配置/VisA/MVTec） |
 | GPT 验收对账 | ✅ completed（8 点全映射） |
 | S1：只读 verifier | ✅ completed（229 项全过 + 8/8 篡改测试） |
 | S2：文档与角色修正 | ✅ completed（本文件 + 60 处 JSON 角色修正 + 链接检查） |

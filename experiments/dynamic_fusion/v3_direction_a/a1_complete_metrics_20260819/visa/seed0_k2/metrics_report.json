@@ -1,0 +1,356 @@
+{
+  "pipeline": "v3_direction_a_a1",
+  "direction": "A_feature_level_fusion",
+  "dataset": "visa",
+  "dataset_role": "in_domain_frozen_validation",
+  "seed": 0,
+  "shot": 2,
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (dinov2_vitb14 DINO + AnomalyCLIP), KNN k=1, distance/2, stride=8, map=448",
+  "image_score": "max_pool",
+  "stride": 8,
+  "created_at_utc": "2026-08-19T01:01:44.775253+00:00",
+  "concat": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.976183,
+        "pixel_ap": 0.370648,
+        "pixel_aupro": 0.916438
+      },
+      "image": {
+        "image_auroc": 0.91014,
+        "image_ap": 0.917266,
+        "image_f1_max": 0.877788
+      }
+    },
+    "per_category": [
+      {
+        "category": "candle",
+        "pixel": {
+          "pixel_auroc": 0.9853490496382877,
+          "pixel_ap": 0.293049344237105,
+          "pixel_aupro": 0.9382379537116187
+        },
+        "image": {
+          "image_auroc": 0.9319000000000001,
+          "image_ap": 0.9406707026169563,
+          "image_f1_max": 0.8866995073891626
+        }
+      },
+      {
+        "category": "capsules",
+        "pixel": {
+          "pixel_auroc": 0.9695874798485065,
+          "pixel_ap": 0.3155201269979172,
+          "pixel_aupro": 0.9483342569378137
+        },
+        "image": {
+          "image_auroc": 0.969,
+          "image_ap": 0.9809271500180035,
+          "image_f1_max": 0.9447236180904524
+        }
+      },
+      {
+        "category": "cashew",
+        "pixel": {
+          "pixel_auroc": 0.9933575838181893,
+          "pixel_ap": 0.5959039092647669,
+          "pixel_aupro": 0.9619868499028532
+        },
+        "image": {
+          "image_auroc": 0.9538,
+          "image_ap": 0.9782320055901462,
+          "image_f1_max": 0.9214659685863875
+        }
+      },
+      {
+        "category": "chewinggum",
+        "pixel": {
+          "pixel_auroc": 0.9935286813748514,
+          "pixel_ap": 0.7364044901539644,
+          "pixel_aupro": 0.9293282355857209
+        },
+        "image": {
+          "image_auroc": 0.9734,
+          "image_ap": 0.9884137031064992,
+          "image_f1_max": 0.9489795918367346
+        }
+      },
+      {
+        "category": "fryum",
+        "pixel": {
+          "pixel_auroc": 0.9374955588668192,
+          "pixel_ap": 0.27607110447462024,
+          "pixel_aupro": 0.9059324895919705
+        },
+        "image": {
+          "image_auroc": 0.9324,
+          "image_ap": 0.9706090533869066,
+          "image_f1_max": 0.896551724137931
+        }
+      },
+      {
+        "category": "macaroni1",
+        "pixel": {
+          "pixel_auroc": 0.9794898330987316,
+          "pixel_ap": 0.14686399497917807,
+          "pixel_aupro": 0.9478603889177359
+        },
+        "image": {
+          "image_auroc": 0.905,
+          "image_ap": 0.9223536588491466,
+          "image_f1_max": 0.8426395939086294
+        }
+      },
+      {
+        "category": "macaroni2",
+        "pixel": {
+          "pixel_auroc": 0.9771320207467974,
+          "pixel_ap": 0.22252035655124663,
+          "pixel_aupro": 0.9394941985768037
+        },
+        "image": {
+          "image_auroc": 0.7595000000000001,
+          "image_ap": 0.7862776955610106,
+          "image_f1_max": 0.721189591078067
+        }
+      },
+      {
+        "category": "pcb1",
+        "pixel": {
+          "pixel_auroc": 0.992643453081244,
+          "pixel_ap": 0.7826344078579438,
+          "pixel_aupro": 0.9460895181405387
+        },
+        "image": {
+          "image_auroc": 0.9364000000000001,
+          "image_ap": 0.9276129710526059,
+          "image_f1_max": 0.8971962616822429
+        }
+      },
+      {
+        "category": "pcb2",
+        "pixel": {
+          "pixel_auroc": 0.9676952891141343,
+          "pixel_ap": 0.15614913454852514,
+          "pixel_aupro": 0.8027258982479495
+        },
+        "image": {
+          "image_auroc": 0.7808,
+          "image_ap": 0.730598774596962,
+          "image_f1_max": 0.7788461538461539
+        }
+      },
+      {
+        "category": "pcb3",
+        "pixel": {
+          "pixel_auroc": 0.9692813047094544,
+          "pixel_ap": 0.2261443887826028,
+          "pixel_aupro": 0.8347278531320776
+        },
+        "image": {
+          "image_auroc": 0.8144554455445545,
+          "image_ap": 0.8241069021302612,
+          "image_f1_max": 0.7577092511013216
+        }
+      },
+      {
+        "category": "pcb4",
+        "pixel": {
+          "pixel_auroc": 0.959413291369518,
+          "pixel_ap": 0.23396566392116094,
+          "pixel_aupro": 0.858034262236288
+        },
+        "image": {
+          "image_auroc": 0.968019801980198,
+          "image_ap": 0.9588656074377953,
+          "image_f1_max": 0.9523809523809523
+        }
+      },
+      {
+        "category": "pipe_fryum",
+        "pixel": {
+          "pixel_auroc": 0.9892191337873557,
+          "pixel_ap": 0.462546583562109,
+          "pixel_aupro": 0.98450279346233
+        },
+        "image": {
+          "image_auroc": 0.997,
+          "image_ap": 0.998521399652084,
+          "image_f1_max": 0.9850746268656716
+        }
+      }
+    ]
+  },
+  "dino": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.966912,
+        "pixel_ap": 0.315653,
+        "pixel_aupro": 0.894889
+      },
+      "image": {
+        "image_auroc": 0.878433,
+        "image_ap": 0.88682,
+        "image_f1_max": 0.8463
+      }
+    },
+    "per_category": [
+      {
+        "category": "candle",
+        "pixel": {
+          "pixel_auroc": 0.9813722446899519,
+          "pixel_ap": 0.3085824899947128,
+          "pixel_aupro": 0.9285076004928533
+        },
+        "image": {
+          "image_auroc": 0.8904000000000001,
+          "image_ap": 0.8892604344030371,
+          "image_f1_max": 0.8317757009345794
+        }
+      },
+      {
+        "category": "capsules",
+        "pixel": {
+          "pixel_auroc": 0.9691935800571989,
+          "pixel_ap": 0.29582905630066797,
+          "pixel_aupro": 0.9450116786105952
+        },
+        "image": {
+          "image_auroc": 0.9395000000000001,
+          "image_ap": 0.9616954921764798,
+          "image_f1_max": 0.9025641025641025
+        }
+      },
+      {
+        "category": "cashew",
+        "pixel": {
+          "pixel_auroc": 0.9882120329843108,
+          "pixel_ap": 0.4846468006839463,
+          "pixel_aupro": 0.9463159622058511
+        },
+        "image": {
+          "image_auroc": 0.9374,
+          "image_ap": 0.9661355689320141,
+          "image_f1_max": 0.9174311926605504
+        }
+      },
+      {
+        "category": "chewinggum",
+        "pixel": {
+          "pixel_auroc": 0.9931371836735854,
+          "pixel_ap": 0.7669642415852711,
+          "pixel_aupro": 0.9226750701436461
+        },
+        "image": {
+          "image_auroc": 0.9652000000000001,
+          "image_ap": 0.9832469047626284,
+          "image_f1_max": 0.9484536082474226
+        }
+      },
+      {
+        "category": "fryum",
+        "pixel": {
+          "pixel_auroc": 0.8979884115854432,
+          "pixel_ap": 0.19184669238720958,
+          "pixel_aupro": 0.8617329678899451
+        },
+        "image": {
+          "image_auroc": 0.8389999999999999,
+          "image_ap": 0.9232012120943133,
+          "image_f1_max": 0.8376068376068375
+        }
+      },
+      {
+        "category": "macaroni1",
+        "pixel": {
+          "pixel_auroc": 0.9651833912071115,
+          "pixel_ap": 0.10862545280342448,
+          "pixel_aupro": 0.9166582915247141
+        },
+        "image": {
+          "image_auroc": 0.8829,
+          "image_ap": 0.8967826199128239,
+          "image_f1_max": 0.8290155440414508
+        }
+      },
+      {
+        "category": "macaroni2",
+        "pixel": {
+          "pixel_auroc": 0.9712047017315765,
+          "pixel_ap": 0.10855082276229609,
+          "pixel_aupro": 0.9098043459660897
+        },
+        "image": {
+          "image_auroc": 0.7146,
+          "image_ap": 0.7534438445799672,
+          "image_f1_max": 0.7020408163265306
+        }
+      },
+      {
+        "category": "pcb1",
+        "pixel": {
+          "pixel_auroc": 0.990283552061067,
+          "pixel_ap": 0.6968673472125395,
+          "pixel_aupro": 0.9238803944146343
+        },
+        "image": {
+          "image_auroc": 0.9113,
+          "image_ap": 0.8969179144041262,
+          "image_f1_max": 0.8461538461538461
+        }
+      },
+      {
+        "category": "pcb2",
+        "pixel": {
+          "pixel_auroc": 0.9619501375438383,
+          "pixel_ap": 0.11141898708062416,
+          "pixel_aupro": 0.7820049643343999
+        },
+        "image": {
+          "image_auroc": 0.7379000000000001,
+          "image_ap": 0.6466646949723949,
+          "image_f1_max": 0.7577092511013216
+        }
+      },
+      {
+        "category": "pcb3",
+        "pixel": {
+          "pixel_auroc": 0.9660241545328273,
+          "pixel_ap": 0.15723708937091307,
+          "pixel_aupro": 0.8239368225561436
+        },
+        "image": {
+          "image_auroc": 0.8482178217821782,
+          "image_ap": 0.8495286897685583,
+          "image_f1_max": 0.7962962962962963
+        }
+      },
+      {
+        "category": "pcb4",
+        "pixel": {
+          "pixel_auroc": 0.9364516674230217,
+          "pixel_ap": 0.1818414484030288,
+          "pixel_aupro": 0.7990144628233025
+        },
+        "image": {
+          "image_auroc": 0.9025742574257425,
+          "image_ap": 0.8906696754637073,
+          "image_f1_max": 0.8380952380952381
+        }
+      },
+      {
+        "category": "pipe_fryum",
+        "pixel": {
+          "pixel_auroc": 0.981938454011061,
+          "pixel_ap": 0.3754312382645608,
+          "pixel_aupro": 0.9791259434654855
+        },
+        "image": {
+          "image_auroc": 0.9722,
+          "image_ap": 0.9842982195591794,
+          "image_f1_max": 0.9484536082474226
+        }
+      }
+    ]
+  }
+}

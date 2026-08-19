@@ -1,0 +1,200 @@
+{
+  "pipeline": "v3_direction_a_a1",
+  "direction": "A_feature_level_fusion",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 2,
+  "frozen_config": "concat pca_dim=0 whiten=0 dino_weight=0.5 (dinov2_vitb14 DINO + AnomalyCLIP), KNN k=1, distance/2, stride=8, map=448",
+  "image_score": "max_pool",
+  "stride": 8,
+  "created_at_utc": "2026-08-19T00:16:30.580699+00:00",
+  "concat": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.963955,
+        "pixel_ap": 0.343707,
+        "pixel_aupro": 0.900274
+      },
+      "image": {
+        "image_auroc": 0.769536,
+        "image_ap": 0.78782,
+        "image_f1_max": 0.833983
+      }
+    },
+    "per_category": [
+      {
+        "category": "bracket_black",
+        "pixel": {
+          "pixel_auroc": 0.9498238630256107,
+          "pixel_ap": 0.014642167384294838,
+          "pixel_aupro": 0.850918329581129
+        },
+        "image": {
+          "image_auroc": 0.4607712765957447,
+          "image_ap": 0.561718394831281,
+          "image_f1_max": 0.7519999999999999
+        }
+      },
+      {
+        "category": "bracket_brown",
+        "pixel": {
+          "pixel_auroc": 0.9039261271112798,
+          "pixel_ap": 0.03336961705899507,
+          "pixel_aupro": 0.7832904054699854
+        },
+        "image": {
+          "image_auroc": 0.5708898944193062,
+          "image_ap": 0.7598400574200707,
+          "image_f1_max": 0.8160000000000001
+        }
+      },
+      {
+        "category": "bracket_white",
+        "pixel": {
+          "pixel_auroc": 0.9959438899418237,
+          "pixel_ap": 0.10598851655794718,
+          "pixel_aupro": 0.9856932146148062
+        },
+        "image": {
+          "image_auroc": 0.8266666666666667,
+          "image_ap": 0.8071000882339985,
+          "image_f1_max": 0.8307692307692307
+        }
+      },
+      {
+        "category": "connector",
+        "pixel": {
+          "pixel_auroc": 0.9694350981074454,
+          "pixel_ap": 0.299112980381566,
+          "pixel_aupro": 0.8932622431729584
+        },
+        "image": {
+          "image_auroc": 0.7928571428571429,
+          "image_ap": 0.6124756244175316,
+          "image_f1_max": 0.6666666666666666
+        }
+      },
+      {
+        "category": "metal_plate",
+        "pixel": {
+          "pixel_auroc": 0.976486747070264,
+          "pixel_ap": 0.8783905186688103,
+          "pixel_aupro": 0.9351227719374107
+        },
+        "image": {
+          "image_auroc": 1.0,
+          "image_ap": 1.0,
+          "image_f1_max": 1.0
+        }
+      },
+      {
+        "category": "tubes",
+        "pixel": {
+          "pixel_auroc": 0.9881148470366543,
+          "pixel_ap": 0.7307359700718565,
+          "pixel_aupro": 0.953359463492687
+        },
+        "image": {
+          "image_auroc": 0.9660326086956521,
+          "image_ap": 0.9857863842897303,
+          "image_f1_max": 0.9384615384615386
+        }
+      }
+    ]
+  },
+  "dino": {
+    "mean": {
+      "pixel": {
+        "pixel_auroc": 0.952415,
+        "pixel_ap": 0.315611,
+        "pixel_aupro": 0.876749
+      },
+      "image": {
+        "image_auroc": 0.73233,
+        "image_ap": 0.743302,
+        "image_f1_max": 0.823424
+      }
+    },
+    "per_category": [
+      {
+        "category": "bracket_black",
+        "pixel": {
+          "pixel_auroc": 0.9481782870962742,
+          "pixel_ap": 0.04185023501384583,
+          "pixel_aupro": 0.8465790701105569
+        },
+        "image": {
+          "image_auroc": 0.46276595744680854,
+          "image_ap": 0.6130649371564897,
+          "image_f1_max": 0.7460317460317459
+        }
+      },
+      {
+        "category": "bracket_brown",
+        "pixel": {
+          "pixel_auroc": 0.8817224280347402,
+          "pixel_ap": 0.0376840220118873,
+          "pixel_aupro": 0.7502945728992648
+        },
+        "image": {
+          "image_auroc": 0.45248868778280543,
+          "image_ap": 0.6526055952335706,
+          "image_f1_max": 0.8095238095238095
+        }
+      },
+      {
+        "category": "bracket_white",
+        "pixel": {
+          "pixel_auroc": 0.9941295811574958,
+          "pixel_ap": 0.08935313647194147,
+          "pixel_aupro": 0.9795647615284061
+        },
+        "image": {
+          "image_auroc": 0.77,
+          "image_ap": 0.7121305306218283,
+          "image_f1_max": 0.7941176470588235
+        }
+      },
+      {
+        "category": "connector",
+        "pixel": {
+          "pixel_auroc": 0.9646359297295358,
+          "pixel_ap": 0.26825938092064566,
+          "pixel_aupro": 0.8770825342678349
+        },
+        "image": {
+          "image_auroc": 0.7523809523809524,
+          "image_ap": 0.49926502652342986,
+          "image_f1_max": 0.6666666666666665
+        }
+      },
+      {
+        "category": "metal_plate",
+        "pixel": {
+          "pixel_auroc": 0.942020936888784,
+          "pixel_ap": 0.7560394664584232,
+          "pixel_aupro": 0.8680755132565448
+        },
+        "image": {
+          "image_auroc": 0.9989165763813652,
+          "image_ap": 0.9996141230947329,
+          "image_f1_max": 0.9929078014184397
+        }
+      },
+      {
+        "category": "tubes",
+        "pixel": {
+          "pixel_auroc": 0.9838009462450534,
+          "pixel_ap": 0.7004824814963483,
+          "pixel_aupro": 0.9388976584968174
+        },
+        "image": {
+          "image_auroc": 0.957427536231884,
+          "image_ap": 0.9831327875544104,
+          "image_f1_max": 0.9312977099236642
+        }
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "run_id": "current_dynamic_fusion_status_20260818",
-  "generated_at_utc": "2026-08-18T19:45:00+00:00",
+  "generated_at_utc": "2026-08-19T00:30:00+00:00",
   "authoritative_plan": "docs/DYNAMIC_FUSION_DESIGN_REVIEW_AND_NEXT_PLAN.md",
   "status_snapshot": "experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/state.json",
   "method": {
@@ -18,7 +18,7 @@
   },
   "dataset_roles": {
     "mpdd": "development",
-    "btad": "external_frozen_validation_k1_only",
+    "btad": "external_frozen_validation",
     "visa": "in_domain_frozen_validation",
     "mvtec": "external_frozen_validation"
   },
@@ -32,10 +32,12 @@
       "baseline_source": "legacy v2 dino score cache (MPDD) + matched feature-level dino-only KNN"
     },
     "btad": {
-      "dataset_role": "external_frozen_validation_k1_only",
-      "positive_configs": "3/3 (K1 only)",
-      "mean_delta_ap_vs_dino": 0.0726,
-      "baseline_source": "feature_level_dino_only_knn (no v2 score cache on this dataset)"
+      "dataset_role": "external_frozen_validation",
+      "positive_configs": "9/9",
+      "mean_delta_ap_vs_legacy_dino": 0.0766,
+      "mean_delta_ap_feature_dino_only_vs_legacy_dino": 0.0517,
+      "mean_delta_ap_concat_vs_matched_feature_dino_only": 0.0249,
+      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))"
     },
     "visa": {
       "dataset_role": "in_domain_frozen_validation",
