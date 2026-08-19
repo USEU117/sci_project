@@ -154,7 +154,12 @@ def main() -> int:
                 check(f"align_{cat}_s{seed}_k{shot}_sample_ids", ids_d == ids_c, f"{len(ids_d)} vs {len(ids_c)}")
                 check(f"align_{cat}_s{seed}_k{shot}_test_count", len(ids_d) == EXPECTED_TEST_COUNTS[cat],
                       f"{len(ids_d)} vs {EXPECTED_TEST_COUNTS[cat]}")
-                check(f"align_{cat}_s{seed}_k{shot}_labels", np.array_equal(gt_d, gt_c), "dino/clip labels differ")
+                labels_match = np.array_equal(gt_d, gt_c)
+                check(
+                    f"align_{cat}_s{seed}_k{shot}_labels",
+                    labels_match,
+                    "labels match" if labels_match else "dino/clip labels differ",
+                )
                 check(f"align_{cat}_s{seed}_k{shot}_ref_count",
                       int(refs_d.shape[0]) == shot and int(refs_c.shape[0]) == shot,
                       f"dino refs {refs_d.shape[0]}, clip refs {refs_c.shape[0]}, shot {shot}")

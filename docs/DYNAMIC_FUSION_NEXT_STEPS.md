@@ -128,7 +128,7 @@
 - **S3 统一性能表** ✅：`experiments/dynamic_fusion/main_results_20260818/`（13 行主表 + 36 行逐类；MPDD 三口径 0.0486/0.0227/0.0258；BTAD 三口径 0.0766/0.0517/0.0249；4 数据集 concat 均值重算 diff=0.0，`recompute_all_pass=true`）。
 - **S4 正式方法包** ✅：`METHOD_CARD.md`（名称、伪代码、schema、资源统计、failure cases）、`REPRODUCE.md`（validate-only 检查、CPU 重算命令、角色与验收）。
 - **S5 Git 归档** ✅：分 3 批提交（S1/S2/S3+S4）并 push；数据/cache 排除。
-- **路线 D**：D0（headroom）**passed**（MPDD 9 配置 per-pixel best-of-3 Oracle，mean +0.5807）；D1（可预测性）**failed**（LOCO AUROC 0.592 < 0.60，特征置乱不下降 0.616）→ **动态路线永久归档**，仅保留证据 `route_d_d0_20260818/`。
+- **路线 D**：D0（headroom）**passed**（MPDD 9 配置 per-pixel best-of-3 Oracle，mean +0.5807）；D1（可预测性）**failed**（LOCO AUROC 0.592 < 0.60，特征置乱不下降 0.616）→ **本项目停止该路线**：当前无标签特征不能可靠预测A1的修正时机；仅保留证据 `route_d_d0_20260818/`。
 - **项目完成判定**：第 12 节 1–10 条已满足（S1–S5 完成、D 路线失败已归档）；剩余唯一主线为 **S6 论文交付**。
 
 ## GPU 需求与预计时间

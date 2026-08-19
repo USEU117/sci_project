@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "run_id": "a1_btad_post_freeze_audit_20260819",
-  "created_at_utc": "2026-08-18T23:46:57.520862+00:00",
+  "created_at_utc": "2026-08-19T04:06:32.397649+00:00",
   "status": "passed",
   "dataset": "btad",
   "dataset_role": "external_frozen_validation",
@@ -877,7 +877,7 @@
     {
       "check": "align_01_s0_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s0_k1_ref_count",
@@ -912,7 +912,7 @@
     {
       "check": "align_02_s0_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s0_k1_ref_count",
@@ -947,7 +947,7 @@
     {
       "check": "align_03_s0_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s0_k1_ref_count",
@@ -982,7 +982,7 @@
     {
       "check": "align_01_s0_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s0_k2_ref_count",
@@ -1017,7 +1017,7 @@
     {
       "check": "align_02_s0_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s0_k2_ref_count",
@@ -1052,7 +1052,7 @@
     {
       "check": "align_03_s0_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s0_k2_ref_count",
@@ -1087,7 +1087,7 @@
     {
       "check": "align_01_s0_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s0_k4_ref_count",
@@ -1122,7 +1122,7 @@
     {
       "check": "align_02_s0_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s0_k4_ref_count",
@@ -1157,7 +1157,7 @@
     {
       "check": "align_03_s0_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s0_k4_ref_count",
@@ -1192,7 +1192,7 @@
     {
       "check": "align_01_s1_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s1_k1_ref_count",
@@ -1227,7 +1227,7 @@
     {
       "check": "align_02_s1_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s1_k1_ref_count",
@@ -1262,7 +1262,7 @@
     {
       "check": "align_03_s1_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s1_k1_ref_count",
@@ -1297,7 +1297,7 @@
     {
       "check": "align_01_s1_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s1_k2_ref_count",
@@ -1332,7 +1332,7 @@
     {
       "check": "align_02_s1_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s1_k2_ref_count",
@@ -1367,7 +1367,7 @@
     {
       "check": "align_03_s1_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s1_k2_ref_count",
@@ -1402,7 +1402,7 @@
     {
       "check": "align_01_s1_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s1_k4_ref_count",
@@ -1437,7 +1437,7 @@
     {
       "check": "align_02_s1_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s1_k4_ref_count",
@@ -1472,7 +1472,7 @@
     {
       "check": "align_03_s1_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s1_k4_ref_count",
@@ -1507,7 +1507,7 @@
     {
       "check": "align_01_s2_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s2_k1_ref_count",
@@ -1542,7 +1542,7 @@
     {
       "check": "align_02_s2_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s2_k1_ref_count",
@@ -1577,7 +1577,7 @@
     {
       "check": "align_03_s2_k1_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s2_k1_ref_count",
@@ -1612,7 +1612,7 @@
     {
       "check": "align_01_s2_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s2_k2_ref_count",
@@ -1647,7 +1647,7 @@
     {
       "check": "align_02_s2_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s2_k2_ref_count",
@@ -1682,7 +1682,7 @@
     {
       "check": "align_03_s2_k2_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s2_k2_ref_count",
@@ -1717,7 +1717,7 @@
     {
       "check": "align_01_s2_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_01_s2_k4_ref_count",
@@ -1752,7 +1752,7 @@
     {
       "check": "align_02_s2_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_02_s2_k4_ref_count",
@@ -1787,7 +1787,7 @@
     {
       "check": "align_03_s2_k4_labels",
       "passed": true,
-      "detail": "dino/clip labels differ"
+      "detail": "labels match"
     },
     {
       "check": "align_03_s2_k4_ref_count",

@@ -74,7 +74,7 @@
   "route_d": {
     "d0": {"status": "passed", "mean_headroom_vs_a1": 0.5807, "evidence": "experiments/dynamic_fusion/route_d_d0_20260818/d0_headroom_report.json"},
     "d1": {"status": "failed", "mean_auroc": 0.592, "permuted_auroc": 0.616, "evidence": "experiments/dynamic_fusion/route_d_d0_20260818/d1_predictability_report.json"},
-    "decision": "route D permanently archived: pixel-level complementarity exists but unlabeled features cannot predict when A1 needs correction (reproduced V3.4 lesson)"
+    "decision": "当前无标签特征不能可靠预测A1的修正时机，因此本项目停止该路线。"
   },
   "archived_negative_routes": [
     "v3_3_leaky (development_only)",
@@ -86,10 +86,6 @@
     "a3_shared_subspace"
   ],
   "remaining": [
-    "S3 unified results table with matched feature baselines",
-    "S4 method package (METHOD_CARD/REPRODUCE revision)",
-    "S5 staged git archival",
-    "S6 paper delivery",
-    "D0 decision gate for route D (only if 'dynamic' innovation required)"
+    "S6 paper delivery (single remaining mainline)"
   ]
 }
