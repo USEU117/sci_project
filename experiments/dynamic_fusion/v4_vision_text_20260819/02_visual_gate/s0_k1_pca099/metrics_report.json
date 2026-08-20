@@ -1,0 +1,66 @@
+{
+  "run_id": "v4_g2_visual_anchor_smoke_s0_k1",
+  "pipeline": "v4_visual_anchor",
+  "mode": "subspace_style_same_backbone",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 1,
+  "pca_ev": 0.99,
+  "augmentation_count": 0,
+  "backbone": "dinov2_vitb14 (frozen DINO raw patch cache, no re-export)",
+  "anomaly_score": "l2 reconstruction residual in normal PCA subspace",
+  "map_size": 448,
+  "stride": 8,
+  "created_at_utc": "2026-08-19T06:26:09.204927+00:00",
+  "mean": {
+    "pixel_auroc": 0.950634,
+    "pixel_ap": 0.279976,
+    "pixel_aupro": 0.843797
+  },
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "pixel_auroc": 0.9090527777376011,
+      "pixel_ap": 0.005262562161047555,
+      "pixel_aupro": 0.7239636247595918
+    },
+    {
+      "category": "bracket_brown",
+      "pixel_auroc": 0.9021794861396915,
+      "pixel_ap": 0.035362427012526725,
+      "pixel_aupro": 0.7129459637609663
+    },
+    {
+      "category": "bracket_white",
+      "pixel_auroc": 0.991756490981429,
+      "pixel_ap": 0.02792234736389416,
+      "pixel_aupro": 0.97232998646071
+    },
+    {
+      "category": "connector",
+      "pixel_auroc": 0.9425264756179361,
+      "pixel_ap": 0.07513688029388593,
+      "pixel_aupro": 0.8036841785393072
+    },
+    {
+      "category": "metal_plate",
+      "pixel_auroc": 0.9675236389347273,
+      "pixel_ap": 0.7953708035361344,
+      "pixel_aupro": 0.8869744444863681
+    },
+    {
+      "category": "tubes",
+      "pixel_auroc": 0.9907666721174822,
+      "pixel_ap": 0.7408033076856965,
+      "pixel_aupro": 0.9628836157714632
+    }
+  ],
+  "leakage_flags": {
+    "test_predictions_used_for_parameter_fit": false,
+    "test_labels_used_for_parameter_fit": false,
+    "test_masks_used_for_parameter_fit": false,
+    "test_dataset_statistics_used_for_calibration": false,
+    "test_normal_selection_used": false
+  }
+}

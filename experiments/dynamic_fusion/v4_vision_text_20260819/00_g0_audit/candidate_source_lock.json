@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-08-19T06:17:00.504103+00:00",
+  "candidates": [
+    {
+      "id": "V0_AnomalyDINO",
+      "role": "strong visual baseline (must beat)",
+      "source": "https://github.com/dammsi/AnomalyDINO",
+      "local_path": "methods/anomalydino",
+      "status": "available",
+      "license": "Apache-2.0",
+      "commit": "n/a (local archive, not a git checkout)",
+      "weights": "dinov2_vitb14 via torch hub (cached locally); official AnomalyDINO uses DINOv2 (ViT-B/14)",
+      "queueable": true
+    },
+    {
+      "id": "T0_AnomalyCLIP_text",
+      "role": "explicit text branch backbone (text-conditioned map)",
+      "source": "https://github.com/caoyunkang/AnomalyCLIP",
+      "local_path": "methods/AnomalyCLIP-main",
+      "status": "available",
+      "license": "MIT",
+      "commit": "n/a (local archive)",
+      "weights": "methods/AnomalyCLIP-main/checkpoints/9_12_4_multiscale_visa/epoch_15.pth (frozen A1 checkpoint)",
+      "queueable": true,
+      "note": "A1 used only its encode_image patch features; T0 must produce explicit normal/abnormal text embeddings + similarity map."
+    },
+    {
+      "id": "V1_SubspaceAD_style",
+      "role": "PCA normal-subspace reconstruction residual (same backbone/cache)",
+      "source": "https://github.com/CLendering/SubspaceAD",
+      "local_path": null,
+      "status": "not_cloned",
+      "license": "unknown (to verify on clone)",
+      "commit": "unknown",
+      "weights": "not required for V1 (reuses frozen DINO raw patch cache)",
+      "queueable": true,
+      "note": "V1 = subspace_style_same_backbone, NOT an official SubspaceAD reproduction."
+    },
+    {
+      "id": "V2_SubspaceAD_official",
+      "role": "official SubspaceAD (DINOv2-giant, 672, augmentation)",
+      "source": "https://github.com/CLendering/SubspaceAD",
+      "local_path": null,
+      "status": "not_cloned",
+      "license": "unknown (to verify on clone)",
+      "commit": "unknown",
+      "weights": "DINOv2-giant (needs download; 6GB VRAM constraint -> validate-only/single-category smoke first)",
+      "queueable": false,
+      "note": "Only after V1 passes G2."
+    },
+    {
+      "id": "V3_FoundAD",
+      "role": "nonlinear manifold projector candidate",
+      "source": "https://github.com/ymxlzgy/FoundAD",
+      "local_path": null,
+      "status": "not_cloned",
+      "license": "unknown (to verify on clone)",
+      "commit": "unknown",
+      "weights": "unknown",
+      "queueable": false,
+      "note": "Second visual candidate."
+    },
+    {
+      "id": "V4_alt_FastRef",
+      "role": "query-conditioned prototype refinement",
+      "source": "https://github.com/liyufei25/FastRef",
+      "local_path": null,
+      "status": "blocked_empty_repo",
+      "license": "n/a",
+      "commit": "n/a",
+      "weights": "n/a",
+      "queueable": false,
+      "note": "Repo is empty as of 2026-08-19; do not rewrite and call it an official reproduction."
+    },
+    {
+      "id": "T1_ReMP_AD",
+      "role": "retrieval-enhanced prompt fusion (fallback text branch)",
+      "source": "https://github.com/cshcma/ReMP-AD",
+      "local_path": "methods/remp_ad",
+      "status": "available",
+      "license": "MIT",
+      "commit": "n/a (local archive)",
+      "weights": "methods/remp_ad/result/mvtec/epoch_15.pth present (training artifact); verify protocol/retrieval library before use",
+      "queueable": true,
+      "note": "Audit whether the retrieval library uses target test info before queueing."
+    },
+    {
+      "id": "T2_AdaptCLIP",
+      "role": "conditional text branch candidate",
+      "source": "https://github.com/caoyunkang/AdaptCLIP",
+      "local_path": "methods/adaptclip",
+      "status": "available",
+      "license": "GPL",
+      "commit": "n/a (local archive)",
+      "weights": "unknown (needs verification)",
+      "queueable": false,
+      "note": "Clarify whether it adapts per K/seed and the training data/parameter source before queueing."
+    }
+  ]
+}

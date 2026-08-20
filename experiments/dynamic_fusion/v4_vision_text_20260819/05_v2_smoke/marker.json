@@ -1,0 +1,54 @@
+{
+  "run_id": "v4_v2_official_subspacead_smoke_20260819",
+  "official_repo": "https://github.com/CLendering/SubspaceAD",
+  "official_commit": "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7",
+  "license": "Apache-2.0",
+  "model": "facebook/dinov2-with-registers-giant (local memmap load, fp16 inference)",
+  "protocol": "image_res 672, k_shot 1, aug_count 30 (rotate), pca_ev 0.99, agg mean layers -12..-18, reconstruction score, batch 1, seed 0, manifest-pinned reference",
+  "dataset_role": "development",
+  "results": {
+    "metal_plate": {
+      "reference": "metal_plate/train/good/029.png",
+      "n_test": 97,
+      "image_auroc": 1.0,
+      "image_aupr": 1.0,
+      "pixel_auroc": 0.9815,
+      "pixel_ap": 0.8513,
+      "aupro": 0.9432
+    },
+    "bracket_black": {
+      "reference": "bracket_black/train/good/271.png",
+      "n_test": 79,
+      "image_auroc": 0.3943,
+      "image_aupr": 0.5757,
+      "pixel_auroc": 0.9695,
+      "pixel_ap": 0.0655,
+      "aupro": 0.9297
+    }
+  },
+  "baselines_s0_k1_pca099": {
+    "metal_plate": {"matched_dino_knn_pixel_ap": 0.763262, "v1_subspace_pixel_ap": 0.814379},
+    "bracket_black": {"matched_dino_knn_pixel_ap": 0.020698, "v1_subspace_pixel_ap": 0.005149}
+  },
+  "gate_decision": {
+    "criterion": "pixel_ap >= matched_dino_knn + 0.010",
+    "metal_plate": "pass (0.8513 >= 0.7733)",
+    "bracket_black": "pass (0.0655 >= 0.0307)",
+    "status": "PASS",
+    "interpretation": "proxy V1 failure does NOT imply official SubspaceAD failure; official version materially stronger; worst-case category rescued"
+  },
+  "adaptations": [
+    "safetensors >4GB load crash (sandbox) -> numpy memmap loader + fp16 init + load_state_dict",
+    "P-AUROC/P-AP on stride-8 subsample of 672x672 map (memory); AU-PRO full resolution",
+    "MPDDDataset loader added (official repo supports only mvtec/visa)",
+    "official repo main.py lacks Pixel AP column -> added"
+  ],
+  "caveats": [
+    "cross-protocol indicative comparison (giant/672 vs vitb14/448), not strict same-backbone ablation",
+    "single seed (0) / k=1 only; full G2 audit requires 6 cats x 3 seeds x 1/2/4-shot",
+    "I-AUROC < 0.5 on bracket_black (mtop1p agg); primary metric is Pixel AP"
+  ],
+  "paper_eligible": false,
+  "next_step": "await user decision: full official G2 audit (54 runs, ~1.5-3h GPU) or stop at route 1 (D)",
+  "created_at_utc": "2026-08-19T12:00:00+00:00"
+}

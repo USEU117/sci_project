@@ -1,0 +1,3 @@
+.venv-patchcore\Scripts\python.exe scripts\freeze_a1_mpdd.py --verify
+.venv-patchcore\Scripts\python.exe -m pytest tests\test_v3_3_clean.py tests\test_v3_3_rescue.py tests\test_freeze_a1_mpdd.py -q
+.venv-patchcore\Scripts\python.exe scripts\audit_v4_modality_semantics.py --output-dir experiments\dynamic_fusion\v4_vision_text_20260819\00_g0_audit

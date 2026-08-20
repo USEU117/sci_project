@@ -1,0 +1,62 @@
+{
+  "run_id": "v4_v2_official_g2_audit",
+  "official_commit": "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7",
+  "model": "facebook/dinov2-with-registers-giant (fp16, local memmap)",
+  "protocol": "image_res 672, aug 30x rotate, pca_ev 0.99, agg mean layers -12..-18, reconstruction score, batch 1, manifest-pinned refs",
+  "dataset_role": "development",
+  "baseline": "matched feature-DINO-only KNN (frozen G2 matrix, pca 0.99 rows)",
+  "elapsed_seconds": 182.6,
+  "gate": {
+    "pca_ev": 0.99,
+    "n_configs": 1,
+    "mean_delta_ap": 0.09547224265580356,
+    "mean_delta_aupro": 0.07027208734668211,
+    "cond_a_delta_ap_ge_0010": true,
+    "cond_b_ap_flat_aupro_ge_0010": false,
+    "non_negative_configs": 1,
+    "non_negative_ge_7_of_9": false,
+    "positive_4of6_cat_configs": 0,
+    "positive_cat_ge_7_of_9": false,
+    "worst_category_delta_ap": 0.09547224265580356,
+    "worst_category_ge_neg_0020": true,
+    "mean_aupro": 0.9443962823081972,
+    "per_category_mean_delta_ap": {
+      "metal_plate": 0.09547224265580356
+    },
+    "configs": {
+      "s0_k1": {
+        "mean_delta_ap": 0.09547224265580356,
+        "mean_delta_aupro": 0.07027208734668211,
+        "n_non_negative_categories": 1,
+        "positive_4of6": 1
+      }
+    },
+    "gate_passed": false
+  },
+  "leakage_flags": {
+    "test_predictions_used_for_parameter_fit": false,
+    "test_labels_used_for_parameter_fit": false,
+    "test_masks_used_for_parameter_fit": false,
+    "test_dataset_statistics_used_for_calibration": false,
+    "test_normal_selection_used": false
+  },
+  "rows": [
+    {
+      "category": "metal_plate",
+      "seed": 0,
+      "shot": 1,
+      "pca_ev": 0.99,
+      "pixel_ap": 0.8587339100730493,
+      "pixel_auroc": 0.981989510814282,
+      "aupro": 0.9443962823081972,
+      "image_auroc": 0.9604550379198266,
+      "image_aupr": 0.9854067411033056,
+      "n_test": 97,
+      "matched_dino_knn_pixel_ap": 0.7632616674172458,
+      "matched_dino_knn_aupro": 0.874124194961515,
+      "delta_ap_vs_dino": 0.09547224265580356,
+      "delta_aupro_vs_dino": 0.07027208734668211,
+      "fit_seconds": 104.7
+    }
+  ]
+}

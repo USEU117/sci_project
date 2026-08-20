@@ -1,0 +1,22 @@
+{
+  "run_id": "v4_v1_subspace_archived",
+  "gate": "G2",
+  "mode": "subspace_style_same_backbone",
+  "status": "archived_failed_gate",
+  "archive_reason": "G2 hard criteria not met on MPDD 9-config matrix vs matched feature-DINO-only KNN",
+  "evidence": "experiments/dynamic_fusion/v4_vision_text_20260819/02_visual_gate/g2_matrix/g2_matrix_report.json",
+  "gate_summary": {
+    "pca_ev_0.95": {"mean_delta_ap": -0.012419, "mean_delta_aupro": 0.006422, "non_negative_configs": "1/9", "positive_4of6_cat_configs": "1/9", "worst_category_delta_ap": -0.134502, "gate_passed": false},
+    "pca_ev_0.99": {"mean_delta_ap": 0.001234, "mean_delta_aupro": 0.005377, "non_negative_configs": "4/9", "positive_4of6_cat_configs": "2/9", "worst_category_delta_ap": -0.135386, "gate_passed": false}
+  },
+  "rules_respected": {
+    "pca_ev_grid_limited_to_0.95_0.99": true,
+    "no_pca_whiten_centering_grid_expansion": true,
+    "no_gpu_started": true,
+    "reused_frozen_dino_cache": true
+  },
+  "next_step_per_plan": "decision pending: official SubspaceAD (V2) smoke requires user approval + clone + DINOv2-giant weights (6GB VRAM -> validate-only/single-category smoke only)",
+  "dataset_role": "development",
+  "paper_eligible": false,
+  "archived_at_utc": "2026-08-19T00:00:00+00:00"
+}

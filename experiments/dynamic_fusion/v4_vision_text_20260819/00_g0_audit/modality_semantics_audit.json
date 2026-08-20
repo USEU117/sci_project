@@ -1,0 +1,59 @@
+{
+  "a1_modality": "dual_visual_fixed_fusion",
+  "conclusion": "A1's second branch is a CLIP image patch feature (encode_image -> visual ViT), not an explicit text branch. The prompt_learner is loaded but never used during export; encode_text / image-text similarity are never computed. Therefore A1 is a dual-visual fixed fusion, not explicit visual-text fusion.",
+  "evidence": [
+    {
+      "id": "export_calls_encode_text",
+      "check": "export script never calls encode_text",
+      "passed": true,
+      "detail": "encode_text present in export script = False"
+    },
+    {
+      "id": "export_calls_encode_image",
+      "check": "export script calls model.encode_image(...)",
+      "passed": true,
+      "detail": "encode_image present = True"
+    },
+    {
+      "id": "prompt_learner_usage",
+      "check": "prompt learner is loaded but not used in feature extraction",
+      "passed": true,
+      "detail": [
+        "    prompt_learner = AnomalyCLIP_PromptLearner(model.to(\"cpu\"), design)",
+        "    prompt_learner.load_state_dict(checkpoint[\"prompt_learner\"])",
+        "    prompt_learner.to(args.device)"
+      ]
+    },
+    {
+      "id": "anomalyclip_encode_image_visual_only",
+      "check": "AnomalyCLIP.encode_image delegates to self.visual (vision-only)",
+      "passed": true,
+      "detail": "encode_image returns self.visual(image.type(...), ...) at AnomalyCLIP.py:478-479"
+    },
+    {
+      "id": "vit_forward_pixel_only",
+      "check": "VisionTransformer.forward consumes only pixel tokens (conv1 -> patches)",
+      "passed": true,
+      "detail": "forward begins `x = self.conv1(x)` (AnomalyCLIP.py:358); no text tensor enters the vision tower."
+    },
+    {
+      "id": "dapm_is_visual_self_attention",
+      "check": "DAPM_replace swaps in visual self-attention (no text/prompt injection)",
+      "passed": true,
+      "detail": "DAPM_replace clones in_proj/out_proj into an Attention module and re-assigns visual resblock attn (AnomalyCLIP.py:344-353)."
+    },
+    {
+      "id": "attention_qkv_from_visual_x",
+      "check": "Attention computes q,k,v all from the same visual patch tensor",
+      "passed": true,
+      "detail": "Attention.forward: qkv = self.qkv(x) -> q,k,v (AnomalyCLIP.py:71-74); no text or prompt tensor present."
+    }
+  ],
+  "all_passed": true,
+  "sources": {
+    "export_script": "scripts\\export_anomalyclip_mpdd_features.py",
+    "anomalyclip_source": "methods\\AnomalyCLIP-main\\AnomalyCLIP_lib\\AnomalyCLIP.py",
+    "export_script_sha256": "be8c56b0a2a6f62811dab0d2edfcae7e527191ae10532d821bd2cff3dd0b4030",
+    "anomalyclip_source_sha256": "7046163f10d9d8f1f5fa1c8efc01af72ba3ee712c1629c58c54511bfa138cc01"
+  }
+}

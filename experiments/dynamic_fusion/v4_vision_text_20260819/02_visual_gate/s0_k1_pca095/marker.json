@@ -1,0 +1,9 @@
+{
+  "run_id": "v4_g2_visual_anchor_smoke_s0_k1",
+  "status": "smoke_complete",
+  "gate_passed": null,
+  "paper_eligible": false,
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 1
+}

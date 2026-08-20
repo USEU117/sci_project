@@ -1,0 +1,18 @@
+{
+  "run_id": "v4_g0_modality_and_source_audit_20260819_v1",
+  "created_at_utc": "2026-08-19T06:18:55.458697+00:00",
+  "git": {
+    "branch_status": "## main...origin/main [ahead 1]\n M docs/DYNAMIC_FUSION_NEXT_STEPS.md\n?? scripts/audit_v4_modality_semantics.py",
+    "last_commits": "ac5c2f1 (HEAD -> main) CPU/doc closure: status remaining, neutral cross-method comparison, Route-D stop, audit labels detail\n3fc9a0d (origin/main) BTAD 9-config frozen validation closure + A1 complete metrics & cross-method SOTA\na953865 Route-D gates: D0 headroom passed, D1 predictability failed -> archive dynamic routing",
+    "head": "ac5c2f1dd0d570fce27cea83b7b3e69ae7ea1f90"
+  },
+  "a1_freeze_verify": {
+    "all_ok": true,
+    "verified_entries": 229,
+    "missing": [],
+    "size_mismatch": [],
+    "hash_mismatch": [],
+    "extra_undeclared_npz": [],
+    "manifest_sha256_before": "80c5ac9bd85d7f7b0037afda222ee1ca3ad084117695bcb606108a1849c8b369"
+  }
+}

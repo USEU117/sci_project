@@ -1,0 +1,10 @@
+{
+  "run_id": "v4_g3_text_branch_gate",
+  "status": "passed",
+  "gate_passed": {
+    "vs_anomalydino": true,
+    "vs_v1_subspace": true
+  },
+  "paper_eligible": false,
+  "dataset_role": "development"
+}

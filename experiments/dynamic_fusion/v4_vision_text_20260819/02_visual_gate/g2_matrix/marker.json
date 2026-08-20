@@ -1,0 +1,10 @@
+{
+  "run_id": "v4_g2_visual_anchor_matrix",
+  "status": "failed",
+  "gate_passed": {
+    "0.95": false,
+    "0.99": false
+  },
+  "paper_eligible": false,
+  "dataset_role": "development"
+}
