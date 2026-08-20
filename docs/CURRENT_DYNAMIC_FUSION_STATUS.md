@@ -72,3 +72,20 @@
 ## 6. 链接检查
 
 详见 `experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/link_check.json`。
+
+## 7. V4 研究扩展（2026-08-19）
+
+权威计划：`docs/DYNAMIC_FUSION_NEXT_STEPS.md`（取代旧执行路线）。V4 是用户新授权的扩展，不影响上文 A1 结论。
+
+| V4 Gate | 状态 | 关键结果 |
+|---|---|---|
+| G0 审计 | ✅ passed | A1 = `dual_visual_fixed_fusion`（7 项语义证据全过）；A1 冻结 verify 229 项 `all_ok`；候选来源锁定表完成 |
+| G1 契约 | ✅ passed | `v4_contracts` + 回归测试 **49 passed**（RouterInput/EvaluationTarget 隔离 + 五项泄漏字段） |
+| G2 强视觉锚点 | ❌ V1 failed / ❌ V2 official audit **FAILED** | `subspace_style_same_backbone` vs matched DINO-KNN：pca0.95 mean ΔAP **-0.0124**、pca0.99 **+0.0012**；非负配置 ≤4/9、最差类 ΔAP **-0.135** → V1 归档（`02_visual_gate/v1_archived.json`）。官方 SubspaceAD（giant/672/aug30，commit `ef56d5c`）完整 54 配置审计：mean ΔAP **+0.0472**、9/9 非负、9/9 配置类别正，但 **worst 类 connector = -0.1167**，跌破 -0.020 底线 → **gate_passed = false**（证据：`06_v2_g2_audit/g2_audit_report.json`）。代理失败不成立，但官方版本仍未通过 Gate |
+| G3 文本分支 | ⚠️ partial | T0 显式文本 map 方向翻转通过、6 类导出成功；文本单分支 P-AP 仅 **0.139**；Oracle headroom 仅对**弱视觉**成立（vs DINO-KNN +0.359 / vs V1 +0.324），强视觉不存在 → 不构成 H2 证据 |
+| 第 12 节决策 | **D（最终，已锁定）** | V2 smoke 2/2 PASS 曾推翻基于 V1 的 D；完整官方审计（54/54）FAIL（connector 单类 -0.117）→ 按预注册判据与停止规则回到 **D**：停止 V4 算法扩展，诚实交付当前 A1（`paper_eligible = false`） |
+| G4–G11 | 全部阻断（永久） | 依赖 H1（强视觉锚点）成立；完整官方审计失败后不再进入 |
+
+- 证据目录：`experiments/dynamic_fusion/v4_vision_text_20260819/`（00_g0_audit、02_visual_gate、03_text_gate、04_gate_decision、05_v2_smoke、06_v2_g2_audit）。
+- 决策汇总：`experiments/dynamic_fusion/v4_vision_text_20260819/04_gate_decision/gate_decision.md`；官方完整审计：`06_v2_g2_audit/g2_audit_report.json`；官方 smoke：`05_v2_smoke/smoke_report.md`。
+- V4 扩展已按第 12 节决策 **D 关闭**：完整官方 G2 审计失败（worst 类 connector），G4–G11 永久阻断，`paper_eligible = false`。剩余主线仅 S6 论文交付。

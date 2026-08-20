@@ -86,6 +86,67 @@
     "a3_shared_subspace"
   ],
   "remaining": [
-    "S6 paper delivery (single remaining mainline)"
-  ]
+    "S6 paper delivery (single remaining mainline; requires user authorization)",
+    "V4 closed under Section 12 decision D (full official G2 audit FAILED); archive evidence only, no further V4 gates"
+  ],
+  "v4_extension": {
+    "plan": "docs/DYNAMIC_FUSION_NEXT_STEPS.md",
+    "date": "2026-08-19",
+    "evidence_dir": "experiments/dynamic_fusion/v4_vision_text_20260819",
+    "g0_audit": {
+      "status": "passed",
+      "a1_modality": "dual_visual_fixed_fusion",
+      "a1_freeze_verify_all_ok": true,
+      "evidence": "experiments/dynamic_fusion/v4_vision_text_20260819/00_g0_audit"
+    },
+    "g1_contracts": {
+      "status": "passed",
+      "tests_passed": 49,
+      "evidence": "tests/test_v4_contracts.py"
+    },
+    "g2_visual_anchor": {
+      "status": "v1_failed_v2_full_audit_failed",
+      "mode": "subspace_style_same_backbone (V1) -> official SubspaceAD (V2) full 54-config audit",
+      "baseline": "matched feature-DINO-only KNN (FAISS IndexFlatL2 k=1)",
+      "mean_delta_ap": {"0.95": -0.012419, "0.99": 0.001234, "v2_official_0.99": 0.047151},
+      "non_negative_configs": {"0.95": "1/9", "0.99": "4/9", "v2_official_0.99": "9/9"},
+      "worst_category_delta_ap": {"0.95": -0.134502, "0.99": -0.135386, "v2_official_0.99": -0.116749},
+      "v1_archived": "experiments/dynamic_fusion/v4_vision_text_20260819/02_visual_gate/v1_archived.json",
+      "v2_smoke": {
+        "status": "PASS",
+        "official_commit": "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7",
+        "metal_plate": {"pixel_ap": 0.8513, "matched_dino_knn_pixel_ap": 0.763262, "aupro": 0.9432},
+        "bracket_black": {"pixel_ap": 0.0655, "matched_dino_knn_pixel_ap": 0.020698, "aupro": 0.9297},
+        "evidence": "experiments/dynamic_fusion/v4_vision_text_20260819/05_v2_smoke"
+      },
+      "v2_full_audit": {
+        "status": "FAILED",
+        "n_configs": "54/54 (6 cats x 3 seeds x 1/2/4-shot)",
+        "official_commit": "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7",
+        "model": "facebook/dinov2-with-registers-giant (fp16, local memmap)",
+        "mean_delta_ap": 0.047151,
+        "mean_delta_aupro": 0.063442,
+        "non_negative_configs": "9/9",
+        "positive_4of6_cat_configs": "9/9",
+        "worst_category_delta_ap": -0.116749,
+        "worst_category": "connector",
+        "per_category_mean_delta_ap": {"bracket_black": 0.146564, "bracket_brown": 0.027469, "bracket_white": 0.005819, "connector": -0.116749, "metal_plate": 0.130037, "tubes": 0.089765},
+        "gate_passed": false,
+        "evidence": "experiments/dynamic_fusion/v4_vision_text_20260819/06_v2_g2_audit/g2_audit_report.json"
+      }
+    },
+    "g3_text_branch": {
+      "status": "partial",
+      "text_mean_pixel_ap": 0.139236,
+      "direction_flip_verified": true,
+      "oracle_headroom_vs_dino": 0.359423,
+      "oracle_headroom_vs_v1": 0.323811,
+      "note": "headroom is only vs weak visual (DINO-KNN / V1); strong visual anchor does not exist, so this is NOT H2 evidence",
+      "evidence": "experiments/dynamic_fusion/v4_vision_text_20260819/03_text_gate/text_gate_report.json"
+    },
+    "section12_decision": "D (final, locked by full official G2 audit FAIL)",
+    "paper_eligible": false,
+    "blocked_gates": ["G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11"],
+    "pending_user_decision": "none - V4 extension closed per Section 12 decision D; G4-G11 permanently blocked (H1 not established)"
+  }
 }
