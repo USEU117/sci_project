@@ -2,9 +2,11 @@
 
 Updated: 2026-08-09
 
-Status reading rule: the final section, `2026-08-09 synchronized current
-state`, is authoritative. Earlier `In progress`, `Next action` and dated queue
-sections are retained only as historical evidence.
+Status reading rule: this file is a historical audit trail. The single
+authoritative current state is `docs/CURRENT_DYNAMIC_FUSION_STATUS.md`
+(2026-08-19). Earlier `Confirmed`, `Completed`, `In progress`, `Next action`,
+dated queue sections and the `2026-08-09 synchronized current state` section
+are retained only as historical evidence.
 
 ## Confirmed
 
@@ -521,15 +523,17 @@ CPU analysis has now completed the shot-, seed- and category-level comparison.
 
 ## Current open work
 
-1. Select a concrete target journal, verify its current scope and ranking, and
-   migrate the English draft to that journal's exact author template.
-2. Fill author, affiliation, ORCID, corresponding-author, funding, CRediT,
-   conflict-of-interest and archival repository details.
-3. Prepare and later resume the five pending PromptAD MVTec configurations.
-4. Complete ReMP-AD and AdaptCLIP Gate A; only expand methods that pass.
-5. Rebuild the final fair tables after PromptAD and any admitted new methods
-   complete. Keep PromptAD target-normal tuning and AnomalyCLIP zero-shot scope
-   visibly separated.
+Authoritative status has moved to `docs/CURRENT_DYNAMIC_FUSION_STATUS.md`.
+The PromptAD MVTec matrix, ReMP-AD / AdaptCLIP Gate A and the final fair tables
+are complete. The V4 extension is closed by decision D (`paper_eligible =
+false`).
+
+The single remaining main-line task is:
+
+1. S6 paper delivery: write the paper from the A1 main results (MPDD / BTAD /
+   VisA / MVTec, 9/9 positive each), including journal selection,
+   author/affiliation/ORCID/funding/CRediT/conflict-of-interest details, and
+   archival repository identifiers.
 
 ## 2026-08-10 DynamicFusion V2 implementation checkpoint
 

@@ -1,8 +1,10 @@
 # 项目交接文档 — 少样本工业异常检测动态融合研究
 
-> 日期: 2026-08-12  
+> 日期: 2026-08-19  
 > 目标平台: SLE.Work克  
-> 当前状态: V3.3 加权集成为主力方案，V3.5 (B/C方向) 实验已完成
+> 当前状态: A1 双视觉固定融合（concat+KNN）为论文主结果；V4 视觉—文本动态融合扩展已按决策 D 关闭
+
+> 注: 本文档的第 4 节记录的是 V3.3/V3.5 早期实验结论；V3.3 后续经泄漏审计标记为 development-only，不再是主结果。当前唯一权威状态见 [docs/CURRENT_DYNAMIC_FUSION_STATUS.md](docs/CURRENT_DYNAMIC_FUSION_STATUS.md)。
 
 ---
 
@@ -184,14 +186,15 @@ $env:PYTHONDONTWRITEBYTECODE=1
 | V3.5 缺陷评估 | `scripts/evaluate_v3_5_defect_ensemble.py` | 缺陷词 vs 原始对比 |
 | 预测通用 | `scripts/v2_mpdd_prediction_common.py` | 数据集索引/校验 |
 
-## 7. 仍存在的缺口
+## 7. 当前剩余工作
 
-1. **BTAD holdout 对 V3.3 的验证**: V3.3 在 MPDD 上通过 Gate B，但未在 BTAD holdout 上验证
-2. **图像级指标**: V3.3 当前仅评估像素级 (AP/AUPRO)，需补图像级 AUROC/AP
-3. **metal_plate 天花板**: DINO 基线 AP=0.847，融合在该类上的增益不稳定
-4. **PromptAD MVTec**: s1/k2-k4, s2/k1-k4 未完成
-5. **ReMP-AD / AdaptCLIP Gate A**: 需要 manifest/NPZ 适配
-6. **论文**: 英文草稿在 `outputs/paper_draft_20260810/`
+历史缺口（BTAD holdout 验证、图像级指标、metal_plate 天花板、PromptAD MVTec、ReMP-AD / AdaptCLIP Gate A）均已在后续阶段完成，或被 A1 主结果取代。
+
+当前唯一剩余主线任务：
+
+1. **S6 论文交付**: 按 A1 主结果（MPDD/BTAD/VisA/MVTec 四数据集 9/9 全正）撰写论文，7 节结构、全部数字可追溯。英文草稿在 `outputs/paper_draft_20260810/`。
+
+详见 [docs/CURRENT_DYNAMIC_FUSION_STATUS.md](docs/CURRENT_DYNAMIC_FUSION_STATUS.md) 第 5 节「剩余工作」。
 
 ## 8. 注意事项
 
@@ -215,3 +218,17 @@ $env:PYTHONDONTWRITEBYTECODE=1
    ```
 5. **运行 V3.3 复现**: 参见上面的复现命令
 6. **注意**: 如果 GPU 显存不足 6GB，某些导出脚本的 batch_size 需要进一步降低
+
+## 10. 磁盘清理记录（2026-08-20）
+
+为精简项目、聚焦 A1 主结果，本轮清理了以下内容（均已从工作区删除，权威结果与源码框架不受影响）：
+
+- **outputs/** 下 7 个基线的预测缓存与导出目录：`promptad`、`anomalydino`、`winclip`、`remp_ad`、`adaptclip`、`anomalyclip`、`patchcore`
+- **data/** 下临时 fewshot 采样与 patchcore 数据集：`visa_patchcore`、`visa_patchcore_v2`、`visa_patchcore_v3`、`visa_patchcore_fewshot`、`visa_patchcore_all`、`mvtec_patchcore_fewshot`
+- **methods/anomalydino** 基线源码（可随时从上游重新拉取）
+- **outputs/dynamic_fusion**（旧 V2/V3.3/V3.5 预测缓存，已被 A1 主结果取代）
+- 更早已清理 `outputs/dynamic_fusion/v3_direction_a`（约 324 GB，由用户手动删除）
+
+保留内容：A1 主结果（`experiments/dynamic_fusion/freeze/a1_mpdd_w05/`）、`experiments/dynamic_fusion/main_results_20260818/`、`docs/` 权威文档、`src/industrial_ad/fusion/` 核心框架、`scripts/` 及其余方法源码。
+
+> 注: 第 3 节的目录结构为清理前快照；当前实际目录以工作区为准，权威状态见 [docs/CURRENT_DYNAMIC_FUSION_STATUS.md](docs/CURRENT_DYNAMIC_FUSION_STATUS.md)。
