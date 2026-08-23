@@ -89,3 +89,16 @@
 - 证据目录：`experiments/dynamic_fusion/v4_vision_text_20260819/`（00_g0_audit、02_visual_gate、03_text_gate、04_gate_decision、05_v2_smoke、06_v2_g2_audit）。
 - 决策汇总：`experiments/dynamic_fusion/v4_vision_text_20260819/04_gate_decision/gate_decision.md`；官方完整审计：`06_v2_g2_audit/g2_audit_report.json`；官方 smoke：`05_v2_smoke/smoke_report.md`。
 - V4 扩展已按第 12 节决策 **D 关闭**：完整官方 G2 审计失败（worst 类 connector），G4–G11 永久阻断，`paper_eligible = false`。剩余主线仅 S6 论文交付。
+
+## 8. 动态融合新方向探索（2026-08-22）
+
+在决策 D 关闭 V4 后，按用户要求对四个候选方向做最后一轮「按顺序试跑、有价值则深入、无价值则放置」的实测（VisA 5 类，同 backbone `dinov2_vitb14`；脚本 `scripts/explore_dynamic_fusion_visa.py`，结果 `experiments/dynamic_fusion/explore_visa_fusion/report.json`）。结论一致为负，进一步坐实决策 D：
+
+| 方向 | 内容 | 结果 | 判定 |
+|---|---|---|---|
+| A | KNN 距离 + PCA 重建残差逐像素融合（max/mean/加权/秩） | 两映射 Pearson 相关 0.62–0.86（均值 0.75），融合 AP 一律劣于最优单分支（mean 0.313 vs PCA 0.461 / KNN 0.439） | 无价值 |
+| B | 类别级 oracle / 逐类选最优 | oracle 均值 0.4747，仅比最优单分支 +0.014，无互补 headroom | 无价值 |
+| C | connector「检索型异常」研究 | MPDD 原始数据已清理，无法重跑特征实验；VisA 无同类缺陷可替代 | 不可行 |
+| D | backbone 放大（giant） | giant 权重 4.23GB > free RAM 4.0GB，6GB GPU 无法承载，fp64 PCA 必 OOM | 不可行（资源） |
+
+要点：方向 A/B 从像素级与类别级两个层面再次证明「视觉 KNN 距离」与「视觉 PCA 残差」同 backbone 高度冗余、无互补信号，与 Route-D 的 D1 失败（LOCO 0.592）一致——当前特征下不存在可被无标签 gate 利用的互补修正时机。动态融合探索到此正式收敛为「A1 固定融合（w=0.5）+ 负结果叙事」。
