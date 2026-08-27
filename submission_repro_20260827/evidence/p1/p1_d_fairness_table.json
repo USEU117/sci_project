@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "p1_d_fairness_table",
-  "created_at_utc": "2026-08-27T06:52:38.640541+00:00",
+  "created_at_utc": "2026-08-27T07:40:16.742730+00:00",
   "rows": [
     {
       "method": "A1 concat (this paper)",
@@ -53,11 +53,11 @@
     },
     {
       "method": "AnomalyDINO",
-      "visual_backbone": "DINOv2 (methods/anomalydino, official ViT-L/14)",
-      "input_resolution": "official",
-      "shot_protocol": "1/2/4-shot; few-shot fine-tuning",
-      "training": "yes (few-shot fine-tuned)",
-      "target_normal_tuning": "yes (fine-tuning on normal references)",
+      "visual_backbone": "DINOv2 ViT-S/14 (project run: dinov2_vits14_448)",
+      "input_resolution": "448 (project run)",
+      "shot_protocol": "1/2/4-shot normal reference nearest-neighbor; 3 seeds",
+      "training": "none (training-free frozen DINOv2 features)",
+      "target_normal_tuning": "no (normal references only build the non-parametric bank)",
       "test_time_adaptation": "no",
       "text_in_inference": "no",
       "evaluator": "unified evaluator on project caches",
@@ -79,8 +79,8 @@
       "method": "WinCLIP+",
       "visual_backbone": "OpenCLIP ViT-B/16-plus-240 (project env)",
       "input_resolution": "official",
-      "shot_protocol": "zero-/one-shot; text-guided",
-      "training": "none (zero-shot)",
+      "shot_protocol": "project unified 1/2/4-shot normal references; 3 seeds (zero-shot WinCLIP reported separately)",
+      "training": "none (frozen text/image features)",
       "target_normal_tuning": "no",
       "test_time_adaptation": "no",
       "text_in_inference": "yes (text prompts)",

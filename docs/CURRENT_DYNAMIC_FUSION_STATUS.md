@@ -61,17 +61,19 @@
 | S4：正式方法包 | ✅ completed（METHOD_CARD/REPRODUCE 修订 + 伪代码 + schema + 资源统计） |
 | S5：Git 归档 | ✅ completed（分 3 批提交并 push） |
 | P0：投稿技术复现包 | ✅ completed（P0A–P0I；324 maps；独立 CPU 重算） |
-| P1：统计、效率、公平性、失败案例 | ✅ completed（bootstrap CI、shot-wise mean±std、worst/negative、失败样例、效率表、公平性表；`evidence/p1/p1_acceptance.json`） |
-| S6/P2：论文交付 | ⏳ pending（P1 后执行，作者先处理发布人工 Gate） |
+| P1：统计、效率、公平性、失败案例、完整指标 | ✅ completed（P1-A/B/C/D 门禁全过，`p1_acceptance.json` `p1_complete=true`；P1-C 效率以 smoke 实测为准，未单列预热端到端 benchmark 与峰值 RAM） |
+| S6/P2：论文交付 | ⏳ pending（先关闭论文前准备 Gate） |
 | D0：动态 headroom 门 | ✅ passed（MPDD 9 配置逐像素 best-of-3 Oracle，mean headroom +0.5807） |
 | D1：可预测性门 | ❌ **failed → 本项目停止该路线**（LOCO mean AUROC 0.592 < 0.60，特征置乱不下降 0.616 → 当前无标签特征不能可靠预测A1的修正时机） |
 
 ## 5. 剩余工作
 
-1. P1 论文实验收尾：✅ 已完成（bootstrap CI、shot-wise mean±std、worst/negative categories、失败案例、效率表和公平性表；证据在 `submission_repro_20260827/evidence/p1/`）。
-2. S6/P2 论文交付：P1 通过后按 7 节结构写作，全部数字可追溯。
-3. 公开发布前人工事项：作者选择根仓库 LICENSE；补全并复核数据集精确官方 URL；审阅后 push 当前本地提交。
-4. ~~路线 D~~ → **本项目停止该路线**（D0 通过但 D1 失败：像素级虽有互补上限，但当前无标签特征不能可靠预测A1的修正时机；按设计审查第 12 节第 9 条停止扩展）。
+1. P1 论文实验收尾：✅ 已完成（P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表、P1-D 公平性表；`p1_acceptance.json` `p1_complete=true`，证据在 `submission_repro_20260827/evidence/p1/`）。
+2. ✅ 36份 image+pixel 完整指标报告已汇总进 `p1_e_complete_metrics.*`；无需重跑模型。论文须保留 BTAD 图像级 AP/F1 下降的边界。
+3. 最终 A1 成功/失败定性图尚未从 compact maps 与合法本地原图生成；P1-B 当前只有 sample ID。
+4. 公开发布前人工事项：自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening）；仍须确认 MPDD/BTAD 使用与再分发条款。
+5. S6/P2 论文交付：关闭上述准备 Gate 后按7节结构写作，全部数字可追溯。
+6. ~~路线 D~~ → **本项目停止该路线**（D0 通过但 D1 失败：像素级虽有互补上限，但当前无标签特征不能可靠预测A1的修正时机；按设计审查第 12 节第 9 条停止扩展）。
 
 ## 6. 链接检查
 
@@ -118,7 +120,7 @@
   - `rebuild_manifest_v2.json`：324 个 compact npz SHA256，`numerically_equivalent_to_historical=true`、`byte_identical_to_historical=false`；历史 `freeze_manifest.json` 原样保留。
   - `SOURCE_COMMIT.txt`：最终源码提交 `12e1fcf`，dirty=false；提交后已重新生成 `SHA256SUMS`（447 条受校验记录全通过；包内 448 个文件含清单自身）。
   - `METHOD_SPEC_V2.md` 已固定 1536/双视觉语义，`anomalyclip_text` 仅为历史目录名。
-  - `LICENSES_AND_DATA.md` 已建立索引，但数据集来源目前仍是名称而非实际 URL，且根目录尚无作者选定的代码 `LICENSE`。因此技术复现 Gate 已通过，**公开发布许可仍未完成**。
+  - `LICENSES_AND_DATA.md` 已修正 MPDD 数据集身份并补入四数据集官方/作者托管 URL；根目录代码 `LICENSE` 已于 2026-08-27 选定 **MIT** 并随包分发（包内 `LICENSE` 哈希已入 `SHA256SUMS`），MPDD/BTAD 的标准许可文本仍未明确核验。因此技术复现 Gate 已通过，**公开发布许可仅剩 MPDD/BTAD 数据条款待确认**。
 - 历史 freeze byte identity：❌ 仍不成立（仅声明数值等价，见 `rebuild_manifest_v2.json`）。
 - 权威验收：`docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md`；机器审计：`P0_ACCEPTANCE_AUDIT_20260827.json`（`submission_repro_package_complete=true`）。
 
@@ -128,9 +130,11 @@
 
 1. **P1-A 统计**：✅ 已完成。`scripts/p1_stats_bootstrap.py` 从 324 个 compact maps + 用户 mask 生成 36 配置的 category bootstrap 与异常图像级 per-image ΔAP bootstrap 95% CI；`p1_a_bootstrap_ci.*` 含 dataset×shot 三 seed mean±std；四数据集均值 0.025839/0.024896/0.052361/0.031957，与主表差 ≤8e-6（≤5e-4）。统计层级已明确（类别=论文口径 pooled AP；图像=异常图 per-image ΔAP）。
 2. **P1-B 失败边界**：✅ 已完成。`p1_b_failure_boundaries.md` 列出每 dataset worst category（mvtec leather −0.043、visa chewinggum −0.039、mvtec hazelnut −0.030 等）与 10 个负增益 dataset@category；`p1_b_failure_samples.csv` 含每配置 top-5 逐图失败样例 ID（仅 ID，不复制原图）。
-3. **P1-C 效率**：✅ 已完成。`p1_c_efficiency.*`：0 训练参数；单图特征提取 DINO 10.2s / CLIP 9.0s（smoke 实测，含一次性加载）；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；按 dataset×shot 记忆库 patch 数与 float32 MB；compact 包 186.5 MB。
-4. **P1-D 公平性**：✅ 已完成。`p1_d_fairness_table.*` 覆盖 11 方法（A1/feature-DINO/CLIP-only/PatchCore/AnomalyDINO/PromptAD/WinCLIP+/AnomalyCLIP/ReMP-AD/AdaptCLIP/SubspaceAD）的 backbone、分辨率、shot/seed、训练域、目标正常图调优、测试时适应、evaluator 与 baseline source，并标注项目内证据来源。
-5. **发布人工 Gate**：作者选择代码 LICENSE；将 `LICENSES_AND_DATA.md` 的来源名称替换为精确官方 URL 并重新核验许可；审阅本地 ahead 提交后 push。
-6. **P2/P3**：P1 完成后重写论文，再实时核验目标 SCI 四区期刊的最新分区、scope 与格式。
+3. **P1-C 效率**：✅ 已入包。`p1_c_efficiency.*`：0 训练参数；单图特征提取（smoke 实测，含一次性加载）DINO 10.2s / CLIP 9.0s；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；按 dataset×shot 记忆库 patch 数与 float32 MB；compact 包 186.5 MB。门禁通过；若论文需稳态吞吐，后续可补预热 benchmark 与峰值 RAM（非门禁项）。
+4. **P1-D 公平性**：✅ 已纠错并完成。AnomalyDINO 项目实际为 `dinov2_vits14_448`、training-free；WinCLIP+ 为项目统一1/2/4-shot三 seed 矩阵，zero-shot WinCLIP 单独报告。
+5. **P1-E 完整指标主表**：✅ 已聚合。`p1_e_complete_metrics.*` 汇总四数据集36份报告、72个method-config rows和六项指标，输入哈希齐全；相对P0 Pixel-AP最大差 `3e-6`。重要边界：四数据集稳定提升针对Pixel-AP；BTAD Image-AP约 `−0.0131`、Image-F1-max约 `−0.0237`，不得宣称所有检测/定位指标全面提升。
+6. **定性图**：⏳ 待生成。根据 P1-B sample IDs，从 compact concat/DINO maps + 合法本地原图/GT mask 制作固定成功与失败案例图，记录选择规则和 source IDs；不得据此调参。
+7. **发布人工 Gate**：代码 LICENSE 已选 **MIT**（2026-08-27，根 `LICENSE` 已落盘并随包分发）；仍须确认 MPDD/BTAD 的使用与再分发条款。当前 `main` 已与 `origin/main` 同步；本轮 LICENSE 落地尚未提交。
+8. **P2/P3**：上述准备完成后重写论文，再实时核验目标 SCI 四区期刊的最新分区、scope 与格式。
 
-P1 交付已同时包含机器可读 JSON/CSV、面向论文的 Markdown 表、生成命令/脚本（`scripts/p1_stats_bootstrap.py`、`scripts/p1_c_efficiency.py`、`scripts/p1_d_fairness_table.py`、`scripts/p1_render_tables.py`、`scripts/p1_acceptance.py`）、输入 source pointer（compact maps SHA256 由 `rebuild_manifest_v2.json` 固定）与无测试标签调参声明（`p1_acceptance.json`）。
+P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、输入 source pointer 与无测试标签调参声明。P1-C 在补齐预热 benchmark 与峰值 RAM 前不得恢复为 completed。

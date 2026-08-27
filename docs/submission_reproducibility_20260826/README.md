@@ -10,10 +10,11 @@
 
 - **P0-A 已完成**：已建立机器可读审计脚本、版本化证据索引和当前快照。
 - **P0-B 已完成**：四数据集、权重、split、结果报告和审计证据可用。
-- **CPU 回归已复验**：历史证据 `CPU_REGRESSION_20260826.json` 为 `81 passed`；2026-08-27 对当前 `tests/` 独立复验为 `122 passed in 5.80s`。
+- **CPU 回归已复验**：历史证据 `CPU_REGRESSION_20260826.json` 为 `81 passed`；2026-08-27 对当前 `tests/` 独立复验为 `123 passed`。
 - **P0-C 数值重建已完成**：648 个双分支特征 NPZ、36 个配置报告齐全，四数据集重建值均在历史容差内。
 - **P0-D smoke 已完成**：实测两个分支均为 768 维，concat 为 1536；旧 1152 记录错误。
-- **P0 技术复现包已完成**：compact 包现含 324 个逐图可重放 patch maps、包内独立 CPU 重算脚本 `recompute_tables.py`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`（`12e1fcf`）与许可证索引；`P0_ACCEPTANCE_AUDIT_20260827.json` 中 `submission_repro_package_complete=true`。公开发布前仍须由作者选择根仓库代码 LICENSE，并把数据集来源补成精确官方 URL 后复核条款。
+- **P0 技术复现包已完成**：compact 包现含 324 个逐图可重放 patch maps、包内独立 CPU 重算脚本 `recompute_tables.py`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`（`12e1fcf`）与许可证索引；`P0_ACCEPTANCE_AUDIT_20260827.json` 中 `submission_repro_package_complete=true`。自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（根 `LICENSE`，Copyright 2026 LiYuening）并随包分发。
+- **P1 全部完成**：`evidence/p1/p1_acceptance.json` `p1_complete=true`——P1-A bootstrap CI（36 配置 + shot-wise mean±std）、P1-B 失败边界与逐图失败样例、P1-C 效率表（训练参数/推理时间/峰值 VRAM/记忆库/包大小）、P1-D 公平性表（11 方法协议对照）全部通过。完整六指标汇总表已生成；四数据集一致提升只针对 Pixel-AP，BTAD 图像级 AP/F1 有下降。
 - **权威验收**：见 `P0_ACCEPTANCE_REVIEW_20260827.md` 和 `P0_ACCEPTANCE_AUDIT_20260827.json`。
 
 ## 文件
@@ -21,6 +22,7 @@
 - `P0_LIVE_AUDIT.json`：2026-08-26 当前机器的只读审计快照。
 - `P0_ACCEPTANCE_AUDIT_20260827.json`：加强后的当前验收门禁；区分研究数值重建与可发布复现包。
 - `P0_ACCEPTANCE_REVIEW_20260827.md`：人工验收结论、问题和修复顺序。
+- `../PRE_MANUSCRIPT_READINESS_AUDIT_20260827.md`：论文动笔前的完成度、剩余 Gate 与交付标准。
 - `VERSIONED_EVIDENCE.sha256`：本复现入口及核心版本化证据的 SHA256。
 - `../PAPER_SUBMISSION_HANDOFF_AND_REPRODUCIBILITY_PLAN_20260826.md`：下一位 AI 的唯一总执行路线。
 - `../../scripts/audit_submission_repro_package.py`：重新生成审计快照的脚本。

@@ -40,8 +40,32 @@ def main() -> int:
     checks["p1_b_failure_samples_csv"] = (P1 / "p1_b_failure_samples.csv").is_file()
     checks["p1_c_efficiency_json"] = (P1 / "p1_c_efficiency.json").is_file()
     checks["p1_c_efficiency_csv"] = (P1 / "p1_c_efficiency.csv").is_file()
+    if checks["p1_c_efficiency_json"]:
+        eff = json.loads((P1 / "p1_c_efficiency.json").read_text(encoding="utf-8"))
+        category_counts = {"mpdd": 6, "btad": 3, "visa": 12, "mvtec": 15}
+        checks["p1_c_bank_counts_match_grids"] = all(
+            r["reference_images"] == category_counts[r["dataset"]] * r["shot"]
+            and r["dino_bank_patches"] > r["reference_images"]
+            and r["clip_bank_patches"] > r["reference_images"]
+            and r["concat_bank_patches"] == r["dino_bank_patches"]
+            and abs(r["dino_bank_mb_f32"] - round(r["dino_bank_patches"] * 768 * 4 / 1e6, 2)) < 1e-9
+            and abs(r["clip_bank_mb_f32"] - round(r["clip_bank_patches"] * 768 * 4 / 1e6, 2)) < 1e-9
+            and abs(r["concat_bank_mb_f32"] - round(r["concat_bank_patches"] * 1536 * 4 / 1e6, 2)) < 1e-9
+            for r in eff["memory_bank_float32"]
+        )
+        checks["p1_c_peak_ram_present"] = eff.get("peak_ram_mb") is not None
+        checks["p1_c_steady_state_benchmark_present"] = eff.get("steady_state_end_to_end_benchmark") is not None
     checks["p1_d_fairness_table_json"] = (P1 / "p1_d_fairness_table.json").is_file()
     checks["p1_d_fairness_table_csv"] = (P1 / "p1_d_fairness_table.csv").is_file()
+    p1e = P1 / "p1_e_complete_metrics.json"
+    checks["p1_e_complete_metrics_json"] = p1e.is_file()
+    if p1e.is_file():
+        complete = json.loads(p1e.read_text(encoding="utf-8"))
+        checks["p1_e_36_reports_six_metrics"] = bool(
+            complete.get("checks", {}).get("all_passed")
+            and complete.get("checks", {}).get("reports") == 36
+            and complete.get("checks", {}).get("config_method_rows") == 72
+        )
 
     # cross-check P1-A dataset means against the paper table (main_results.json)
     paper = json.loads((ROOT / "submission_repro_20260827" / "evidence" / "paper_tables" /
@@ -69,8 +93,16 @@ def main() -> int:
         "deliverables": {
             "P1-A statistics (bootstrap CI + shot-wise)": p1a.is_file(),
             "P1-B failure boundaries + failure samples": (P1 / "p1_b_failure_samples.csv").is_file(),
-            "P1-C efficiency table": (P1 / "p1_c_efficiency.json").is_file(),
+            "P1-C efficiency table": bool(
+                checks.get("p1_c_efficiency_json")
+                and checks.get("p1_c_bank_counts_match_grids")
+                and checks.get("p1_c_peak_ram_present")
+                and checks.get("p1_c_steady_state_benchmark_present")
+            ),
             "P1-D fairness table": (P1 / "p1_d_fairness_table.json").is_file(),
+            "P1-E complete image/pixel metric tables": bool(
+                checks.get("p1_e_complete_metrics_json") and checks.get("p1_e_36_reports_six_metrics")
+            ),
         },
         "checks": checks,
         "p1_complete": passed,

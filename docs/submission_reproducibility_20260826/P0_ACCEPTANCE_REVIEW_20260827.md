@@ -6,7 +6,7 @@
 
 - **P0 研究数值重建：PASS。** 四数据集、36 个配置的 A1 concat vs matched feature-DINO-only 均已重建，数据集平均值与历史结果的绝对误差不超过 `5e-4`。
 - **P0 技术复现包：PASS。** `P0_ACCEPTANCE_AUDIT_20260827.json` 的 P0A–P0I 全部为 `true`，`research_rebuild_complete=true`、`submission_repro_package_complete=true`。
-- **公开发布准备：仍有两项人工事项。** 作者须选择本仓库代码许可证，并把 `LICENSES_AND_DATA.md` 中数据集官方来源名称补成可点击的精确 URL 后逐项复核许可条款。完成前可以继续统计与写稿，但不要公开发布代码包。
+- **公开发布准备：仅剩一项人工事项。** 数据集 URL 与 MPDD 身份已修正；自研代码许可证已选定为 **MIT（2026, LiYuening）**（仓库根 `LICENSE`，2026-08-27 落盘）。作者仍须确认 MPDD/BTAD 未明确展示的使用与再分发条款。完成前不要公开发布代码包。
 
 本文件取代此前同名文档中的 `CONDITIONAL` 结论；旧问题及其关闭证据保留在第 3 节，供审计追溯。
 
@@ -35,8 +35,8 @@
 | 重建结果混同历史 byte identity | 已关闭 | `rebuild_manifest_v2.json` 明确 numerical equivalence=true、byte identity=false，旧 freeze manifest 未改 |
 | 1152 维及 multimodal 命名歧义 | 已关闭 | `METHOD_SPEC_V2.md` 固定 DINO 768 + CLIP image tower 768 = 1536，并声明 A1 无文本推理 |
 | 包内哈希覆盖不足 | 已关闭 | 447 条清单记录独立复验全部通过 |
-| 自研代码 LICENSE 未选择 | **未关闭，发布前人工决定** | 根目录当前没有 `LICENSE`；不得由 AI 擅自替作者选择 |
-| 数据集官方 URL 不够精确 | **未关闭，发布前核验** | 当前 `LICENSES_AND_DATA.md` 只有来源名称，需补实际 URL 并复核当日条款 |
+| 自研代码 LICENSE 未选择 | **已关闭（2026-08-27 选定 MIT）** | 仓库根 `LICENSE`（MIT, 2026, LiYuening）已放置并随包分发（包内 `LICENSE` 哈希已入 `SHA256SUMS`） |
+| 数据集官方 URL/身份不准确 | 已纠正 URL 与 MPDD 身份；许可仍 partial | MPDD/BTAD 发布入口未明确展示标准许可证文本，发布前须确认条款 |
 
 ## 4. P0 方法与数值证据
 
@@ -48,13 +48,12 @@
 
 ## 5. 接下来应做什么
 
-P0 不需要再跑四数据集特征导出，也不需要重新设计动态融合。下一主线是 P1：
+P0 不需要再跑四数据集特征导出，也不需要重新设计动态融合。P1 已全部完成（`p1_acceptance.json` `p1_complete=true`；P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表、P1-D 公平性表）：
 
-1. 由 324 个 compact maps 生成 paired image bootstrap 或 category bootstrap 的 ΔPixel-AP 置信区间，并明确统计单位。
-2. 生成按 dataset×shot 汇总的三 seed mean±std、逐类增益、worst/negative categories 和可追溯失败样例清单。
-3. 完成效率表：训练参数、推理时间、峰值 VRAM/RAM、memory-bank 大小、复现包大小；若缺运行时数据，只补最小代表性 benchmark，不重跑全矩阵。
-4. 完成公平性表：backbone、输入分辨率、shot/seed、训练域、目标正常图调优、测试时适应、评价实现和 baseline source。
-5. 作者完成 LICENSE/官方 URL 决策后再公开发布复现包；Git 当前相对 `origin/main` ahead 3，推送前应先审阅提交。
-6. P1 通过后再按双编码器固定视觉融合主线重写论文，并最后实时核验 SCI 四区期刊要求。
+1. P1-C 效率以 smoke 实测为准（单图特征提取 DINO 10.2s / CLIP 9.0s 含一次性加载；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；记忆库 patch 数按完整空间维乘积计）；若论文需稳态吞吐与峰值 RAM，再补预热 benchmark（非门禁项）。
+2. 聚合已存在的四数据集36份 image+pixel 完整指标报告，生成投稿主表，不需重跑模型。
+3. 生成 A1 成功/失败定性图；当前 P1-B 只有 sample IDs。
+4. 自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening），并同步进复现包与 `SHA256SUMS`；作者仍须确认 MPDD/BTAD 条款后再公开发布复现包。
+5. 当前 `main` 已与 `origin/main` 同步；本轮 LICENSE 落地尚未提交。
 
 当前不建议新增动态路由、视觉—文本路由、SubspaceAD 或新 backbone 实验。MVTec AD 2 仍是可选增强项，不是 P1 前置条件。

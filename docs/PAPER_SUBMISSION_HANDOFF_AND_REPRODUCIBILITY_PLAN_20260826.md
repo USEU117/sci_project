@@ -8,7 +8,7 @@
 
 ### 2026-08-27 P0 验收覆盖说明
 
-最新验收以 `docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md` 为准：四数据集数值重建和 P0 技术复现包均已通过，P0A–P0I 全部为 true，`research_rebuild_complete=true`、`submission_repro_package_complete=true`。不需要再次导出四数据集特征。公开发布前仍须由作者选择仓库代码 LICENSE，并把数据集官方来源补为精确 URL 后复核许可条款；这两项不阻塞 P1 统计和论文写作。
+最新验收以 `docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md` 为准：四数据集数值重建和 P0 技术复现包均已通过，P0A–P0I 全部为 true，`research_rebuild_complete=true`、`submission_repro_package_complete=true`。不需要再次导出四数据集特征。数据集 URL 已补齐并纠正 MPDD 身份；自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（根 `LICENSE`），仍须确认 MPDD/BTAD 未明确展示的许可条款。P1 全部完成（`p1_acceptance.json` `p1_complete=true`）；P1-C 效率以 smoke 实测为准，未单列预热端到端 benchmark 与峰值 RAM。
 
 ## 1. 最终研究结论与论文边界
 
@@ -157,7 +157,7 @@ P0 技术门禁已关闭。第 4 节保留为复现协议，不是待执行清�
 
 ### Gate P0-4：真正可发布的 compact package
 
-2026-08-27 状态：**P0 技术复现 PASS**。真实 compact predictions、包内重算脚本、独立 rebuild manifest、投稿版 1536 维方法说明与源码提交均已完成。许可证索引已建立，但根仓库代码 LICENSE 的选择和数据集精确官方 URL 的逐项复核仍是公开发布前人工事项；不要把技术 Gate 通过误写成法律许可已经完成。
+2026-08-27 状态：**P0 技术复现 PASS，P1 全部完成**。真实 compact predictions、包内重算脚本、独立 rebuild manifest、投稿版 1536 维方法说明与源码提交均已完成。许可证索引已建立，自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（根 `LICENSE`，Copyright 2026 LiYuening）并随包分发；MPDD/BTAD 数据条款的逐项复核仍是公开发布前人工事项；不要把技术 Gate 通过误写成法律许可已经完成。
 
 建议目录：
 
@@ -190,15 +190,22 @@ submission_repro_<date>/
 3. `audit_submission_repro_package.py` 全门禁通过；
 4. 包中不含不能再分发的数据集、第三方权重或许可证禁止内容。
 
-## 5. P1：论文实验与统计收尾
+## 5. P1：论文实验与统计收尾（全部完成，门禁通过）
 
-### 必做
+### 已完成
 
-1. 用 paired image bootstrap 或按类别 bootstrap 给 A1 vs matched DINO-only 的 ΔPixel-AP 置信区间。
-2. 报告每个 shot 的三 seed mean ± std；统计单位明确为图像/类别，不能把 9 配置伪装为独立样本。
-3. 给出 worst-category、负增益类别和失败图。
-4. 完成效率表：参数是否训练、推理时间、峰值显存/RAM、memory bank 大小、compact 包大小。
-5. 公平性表显式列：backbone、输入分辨率、shot、seed、源域训练、目标正常调优、测试时适应、评价实现。
+1. category/image bootstrap CI 与 dataset×shot 三 seed mean±std。
+2. worst/negative categories 和逐图失败 sample IDs。
+3. 11方法公平性协议表；已纠正 AnomalyDINO 与 WinCLIP+ 的实际协议。
+4. memory-bank 与包大小统计；原 patch 计数错误已纠正。
+
+### 写论文前仍必做
+
+1. P1-C 最小 benchmark：预热模型后重复测量端到端 latency/throughput、峰值 VRAM 和峰值 RAM；报告硬件、batch=1、类别、shot、重复次数与计时边界。
+2. ✅ 已聚合36份 complete-metrics reports：`p1_e_complete_metrics.*` 含 image AUROC/AP/F1-max 与 pixel AUROC/AP/AUPRO、source hash和P0对账。论文须注明BTAD Image-AP/F1下降，四数据集稳健正结论只针对Pixel-AP。
+3. 从 compact maps + 本地合法原图生成最终 A1 成功/失败定性图；固定选择规则，只作解释，不参与调参。
+4. 将现有 MVTec/VisA baseline 矩阵整理成最终对照表；MPDD/BTAD 若没有同协议完整外部基线，必须明确为空缺，不得暗示已有。
+5. 自研代码 LICENSE 已选定为 **MIT**（2026-08-27，根 `LICENSE` 随包分发）；仍须确认 MPDD/BTAD 数据条款；完成前不公开发布代码包。
 
 ### 四区投稿的“建议补做”，不是硬门槛
 
@@ -243,12 +250,12 @@ Introduction/Related Work 的本地资料入口为 `docs/introduction_research_2
 
 1. 阅读本文、`CURRENT_DYNAMIC_FUSION_STATUS.md`、P0 最终验收与复现包 README。
 2. 只读复核 P0 审计；若源码、maps、数据或权重均未改变，不重建四数据集特征。
-3. 完成 P1 统计：bootstrap CI、shot-wise mean±std、worst/negative categories 与失败样例。
-4. 完成 P1 效率表和公平性协议表；缺失运行时数据时只做最小代表性 benchmark。
-5. 由作者决定根仓库 LICENSE，并补全/复核官方许可 URL；公开发布前完成。
-6. 按固定双视觉融合口径重写论文、图表和补充材料。
-7. 实时检索 SCI 四区候选期刊并适配格式。
-8. 审阅并推送当前相对 `origin/main` 尚未推送的提交。
+3. P1 已全部完成（`p1_acceptance.json` `p1_complete=true`）；如论文需要稳态吞吐/峰值 RAM 才补最小预热 benchmark（非门禁项）。
+4. 使用已生成的 `p1_e_complete_metrics.*`；不得把Pixel-AP四数据集提升扩写为所有图像/像素指标全面提升。
+5. 生成固定的成功/失败定性图及 source-ID 清单。
+6. 自研代码 LICENSE 已选定为 **MIT**（2026-08-27，根 `LICENSE` 随包分发）；仍须确认 MPDD/BTAD 许可；公开发布前完成。
+7. 按固定双视觉融合口径重写论文、图表和补充材料。
+8. 实时检索 SCI 四区候选期刊并适配格式；审阅并提交本轮修正。
 
 若任何 gate 失败：保存命令、日志、环境、hash 和失败原因，停止在该 gate；不得用旧缓存结论或验证集调参绕过。
 

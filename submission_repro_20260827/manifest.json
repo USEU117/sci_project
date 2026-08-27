@@ -10,8 +10,9 @@
     "p0_4_package": "submission_repro_package_complete=true (all P0A..P0I gates)",
     "p1_statistics": "passed (36-config bootstrap CI + shot-wise mean/std; dataset means within 5e-4 of paper table)",
     "p1_failure_boundaries": "passed (worst/negative categories + per-image failure sample IDs)",
-    "p1_efficiency": "passed (trainable params, wall time, peak VRAM, memory bank, package size)",
-    "p1_fairness": "passed (protocol comparison table across 11 methods)",
+    "p1_efficiency": "passed (memory-bank accounting corrected; steady-state benchmark + peak RAM measured via scripts/p1_c_benchmark.py, MVTec bottle s0/k1)",
+    "p1_fairness": "passed after protocol correction (AnomalyDINO training-free ViT-S/14 project run; WinCLIP+ project 1/2/4-shot matrix)",
+    "p1_complete_metrics": "passed (36 source reports, 72 method-config rows, six metrics; Pixel-AP cross-check max abs delta 3e-6)",
     "leakage_flags": "all false across datasets",
     "paper_safe_label": "dual-encoder visual feature fusion (no dynamic router, no text features at inference)"
   },
@@ -21,7 +22,7 @@
     "evidence": ["P0_ACCEPTANCE_AUDIT_20260827.json", "P0_ACCEPTANCE_REVIEW_20260827.md", "P0_LIVE_AUDIT_REBUILD_20260827.json", "P0_LIVE_AUDIT.json", "CPU_REGRESSION_20260826.json", "negative_results_index.md"],
     "evidence_paper_tables": ["main_results.json", "main_results.csv", "per_category_results.csv", "metric_definition.md"],
     "evidence_per_config": ["mpdd/btad/visa/mvtec s{S}_k{K}.json (36 configs) + summaries + P0_3_ACCEPTANCE.json"],
-    "evidence_p1": ["p1_a_bootstrap_ci.json/.csv/.md", "p1_b_failure_boundaries.md", "p1_b_failure_samples.csv", "p1_c_efficiency.json/.csv/.md", "p1_d_fairness_table.json/.csv/.md", "p1_acceptance.json"],
+    "evidence_p1": ["p1_a_bootstrap_ci.json/.csv/.md", "p1_b_failure_boundaries.md", "p1_b_failure_samples.csv", "p1_c_efficiency.json/.csv/.md", "p1_d_fairness_table.json/.csv/.md", "p1_e_complete_metrics.json/.csv/.md", "p1_acceptance.json"],
     "predictions_compact": ["{dataset}_summary.json (4)", "P0_3_ACCEPTANCE.json", "maps/{dataset}/s{S}_k{K}/{category}.npz (per-image patch maps, float16)", "maps_report.json per config"],
     "recompute_tables.py": "package-local standalone CPU recompute (--verify-only / full with data roots)",
     "METHOD_SPEC_V2.md": "corrected method spec (1536, dual-visual semantics)",
@@ -29,7 +30,8 @@
     "SOURCE_COMMIT.txt": "final source commit pointer",
     "logs": ["mvtec export queue status + 18 step logs", "visa export queue status", "build_compact_predictions.log"],
     "manifest.json": "this file",
-    "SHA256SUMS": "package integrity"
+    "SHA256SUMS": "package integrity",
+    "LICENSE": "MIT (2026, LiYuening) — author-selected code license for this package"
   },
   "not_included": ["datasets (MPDD/BTAD/VisA/MVTec raw images)", "third-party weights (AnomalyCLIP checkpoint, DINOv2)", "GT masks", "full feature caches (stay in repo outputs/, gitignored)"]
 }

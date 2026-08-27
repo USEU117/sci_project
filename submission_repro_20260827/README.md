@@ -14,8 +14,8 @@ KNN(k=1) 正常记忆库 → distance/2 = 像素异常图（map=448, stride=8）
   reference IDs、特征缓存 SHA256。**包内不包含 GT mask**。
 - `recompute_tables.py`：包内独立 CPU 脚本，从 compact maps + 用户数据 mask 重算逐类/逐配置/四数据集论文表
   （`--verify-only` 做结构校验，无需数据）。
-- `METHOD_SPEC_V2.md` / `LICENSES_AND_DATA.md`：方法口径与正式许可证清单。
-- `evidence/p1/`：**P1 论文实验收尾证据**——`p1_a_bootstrap_ci.*`（36 配置 bootstrap CI + dataset×shot 三 seed mean±std，dataset 均值与主表差 ≤5e-4）、`p1_b_*`（worst/negative categories 与逐图失败样例 ID）、`p1_c_efficiency.*`（训练参数/时间/显存/记忆库/包大小）、`p1_d_fairness_table.*`（11 方法协议对照）、`p1_acceptance.json`。
+- `METHOD_SPEC_V2.md` / `LICENSES_AND_DATA.md`：方法口径与数据/权重许可索引；自研代码已选 **MIT（2026, LiYuening）**（仓库根 `LICENSE`），MPDD/BTAD 再分发条款发布前仍须向作者确认。
+- `evidence/p1/`：**P1 论文实验收尾证据**——`p1_a_bootstrap_ci.*`（36 配置 bootstrap CI + dataset×shot 三 seed mean±std，dataset 均值与主表差 ≤5e-4）、`p1_b_*`（worst/negative categories 与逐图失败样例 ID）、`p1_c_efficiency.*`（训练参数/推理时间/峰值 VRAM/记忆库规模/包大小）、`p1_d_fairness_table.*`（11 方法协议对照）、`p1_acceptance.json`。**P1-A/B/C/D 全部通过**（`p1_complete=true`）。
 - `environment/`、`logs/`、`manifest.json`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`、`SHA256SUMS`。
 
 本包**不包含**数据集原图、第三方权重——不可再分发，须按 `LICENSES_AND_DATA.md` 与 `config/split_manifest_hashes.json`
@@ -33,6 +33,7 @@ A1 concat vs matched feature-DINO-only 的 ΔPixel-AP（9 配置 = 3 seeds × 1/
 | MVTec AD | external frozen validation | +0.031962 | +0.031962 | 0 | 是 |
 
 注意：3 seeds × 3 shots 是同一测试集上的参考采样配置，不是 9 个独立数据集。
+四数据集一致正结论仅针对 Pixel-AP；完整指标表显示 BTAD 的 Image-AP 与 Image-F1-max 相对 matched DINO-only 下降，论文不得扩写为所有图像级与像素级指标全面提升。
 
 ## 如何复现
 
