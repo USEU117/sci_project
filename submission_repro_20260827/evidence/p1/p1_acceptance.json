@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "p1_acceptance",
-  "created_at_utc": "2026-08-27T07:18:15.014065+00:00",
+  "created_at_utc": "2026-08-27T07:22:09.499006+00:00",
   "deliverables": {
     "P1-A statistics (bootstrap CI + shot-wise)": true,
     "P1-B failure boundaries + failure samples": true,
