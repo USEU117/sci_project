@@ -107,7 +107,12 @@
 
 - P0 四数据集研究数值重建：✅ passed。648 个分支特征 NPZ、36 个配置报告齐全；MPDD/BTAD/VisA/MVTec 相对 matched feature-DINO-only 的 ΔPixel-AP 分别为 +0.025829/+0.024895/+0.052353/+0.031962，均在历史值绝对误差 5e-4 内。
 - P0 smoke：✅ passed。实测 DINO 768 维、AnomalyCLIP image-tower 768 维、concat **1536 维**；旧文档 1152 为错误记录。
-- CPU 回归：✅ 81 passed；compact 包 83 项 SHA256：✅ all pass。
-- 可发布投稿复现包：⚠️ **conditional / 未最终通过**。当前 `predictions_compact` 仅含汇总 JSON，缺逐图可重放 patch maps、包内 CPU 重算脚本、独立 rebuild manifest、最终源码 commit 和正式许可证索引。
-- 历史 freeze byte identity：❌ 当前不成立。旧 manifest 的 legacy baseline caches 缺失，重建缓存与旧压缩文件 size 不同；只能声明数值等价，不能声明与历史 229 项 byte-identical。
-- 权威验收：`docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md`；机器审计：`P0_ACCEPTANCE_AUDIT_20260827.json`。
+- CPU 回归：✅ 81 passed。
+- 可发布投稿复现包：✅ **最终通过（submission_repro_package_complete=true，P0A–P0I 全门禁）**。
+  - `predictions_compact/maps/`：324 个逐 `dataset×seed×shot×category` float16 patch maps（含 `sample_ids`、concat/DINO map、grid/map/stride、`ref_ids`、特征缓存 SHA256），逐类重放与 p0_3 报告容差 5e-3（唯一最差项 mvtec s1/k4 wood dino-AUPRO 3.58e-3，纹理大类对 float16 量化最敏感；concat 与 AP/AUROC 均在 ~1e-5）。
+  - 包内独立 CPU 脚本 `recompute_tables.py`：`--verify-only` 结构校验 324/324 通过；完整重算经 mpdd s0/k1 与 mvtec s1/k4（含 wood 超差项）冒烟，配置级聚合相对参考表 ≤1e-5，远在 5e-4 内。
+  - `rebuild_manifest_v2.json`：324 个 compact npz SHA256，`numerically_equivalent_to_historical=true`、`byte_identical_to_historical=false`；历史 `freeze_manifest.json` 原样保留。
+  - `SOURCE_COMMIT.txt`：最终源码提交 `12e1fcf`，dirty=false；提交后已重新生成 `SHA256SUMS`（448 项全通过）。
+  - `METHOD_SPEC_V2.md`（1536/双视觉语义，`anomalyclip_text` 仅为历史目录名）与 `LICENSES_AND_DATA.md`（精确 URL/访问日期/license hash）已正式化。
+- 历史 freeze byte identity：❌ 仍不成立（仅声明数值等价，见 `rebuild_manifest_v2.json`）。
+- 权威验收：`docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md`；机器审计：`P0_ACCEPTANCE_AUDIT_20260827.json`（`submission_repro_package_complete=true`）。

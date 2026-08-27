@@ -1,0 +1,41 @@
+SOURCE COMMIT POINTER — A1 dual-encoder visual patch fusion
+=============================================================
+
+This package was generated from git commit:
+
+  source_commit = 12e1fcf180f7eacd41854acbbc865a4190df7c98
+  git_dirty     = false
+
+`git_dirty=false` refers to the working tree at the time of that commit:
+`git status --short` was empty. The only follow-up commit adds this
+`SOURCE_COMMIT.txt` and the regenerated `SHA256SUMS`; it changes no shipped
+artifact (code, evidence, config, or compact predictions).
+
+Environment
+-----------
+Python: see environment/patchcore_pip_freeze.txt and environment/anomalyclip_pip_freeze.txt
+(venvs used: .venv-patchcore for DINO features / metrics, .venv-anomalyclip for CLIP features)
+System: see environment/system.txt
+Feature caches: outputs/dynamic_fusion/v3_direction_a (648 NPZ, rebuilt; hashes in
+  rebuild_manifest_v2.json / P0_ACCEPTANCE_AUDIT_20260827.json rebuild_cache_matrix)
+
+Generation commands (from repository root)
+------------------------------------------
+1) Rebuild 648 feature caches + 36 per-config reports:
+     python scripts/p0_3_evaluate_a1_rebuild.py            # see docs/PAPER_SUBMISSION_HANDOFF_AND_REPRODUCIBILITY_PLAN_20260826.md
+2) Build compact per-image patch maps (float16) for all 324 category payloads:
+     python scripts/build_compact_predictions.py --datasets mpdd btad visa mvtec \
+         --seeds 0 1 2 --shots 1 2 4
+   Replay-verify against the packaged p0_3 reports (per-category tolerance 5e-3;
+   config/table aggregates must stay within 5e-4):
+     python scripts/build_compact_predictions.py --datasets mpdd btad visa mvtec \
+         --seeds 0 1 2 --shots 1 2 4 --verify-only
+3) Package-local CPU recompute of all paper tables from compact maps + user masks:
+     python submission_repro_20260827/recompute_tables.py --verify-only
+     python submission_repro_20260827/recompute_tables.py \
+         --data-root mpdd=<abs> --data-root btad=<abs> \
+         --data-root visa=<abs> --data-root mvtec=<abs>
+4) Rebuild manifest (distinct from the historical freeze manifest):
+     python scripts/build_rebuild_manifest_v2.py
+5) Machine audit (all P0A..P0I gates):
+     python scripts/audit_submission_repro_package.py
