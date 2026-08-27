@@ -10,10 +10,10 @@
 
 - **P0-A 已完成**：已建立机器可读审计脚本、版本化证据索引和当前快照。
 - **P0-B 已完成**：四数据集、权重、split、结果报告和审计证据可用。
-- **CPU 回归已复验**：使用现有 `.venv-anomalyclip` 执行 5 个测试文件，`81 passed`；详见 `CPU_REGRESSION_20260826.json`。
+- **CPU 回归已复验**：历史证据 `CPU_REGRESSION_20260826.json` 为 `81 passed`；2026-08-27 对当前 `tests/` 独立复验为 `122 passed in 5.80s`。
 - **P0-C 数值重建已完成**：648 个双分支特征 NPZ、36 个配置报告齐全，四数据集重建值均在历史容差内。
 - **P0-D smoke 已完成**：实测两个分支均为 768 维，concat 为 1536；旧 1152 记录错误。
-- **投稿包已完成（P0 最终通过）**：compact 包现含 324 个逐图可重放 patch maps、包内独立 CPU 重算脚本 `recompute_tables.py`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`（`12e1fcf`）与正式许可证索引；`P0_ACCEPTANCE_AUDIT_20260827.json` 中 `submission_repro_package_complete=true`。
+- **P0 技术复现包已完成**：compact 包现含 324 个逐图可重放 patch maps、包内独立 CPU 重算脚本 `recompute_tables.py`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`（`12e1fcf`）与许可证索引；`P0_ACCEPTANCE_AUDIT_20260827.json` 中 `submission_repro_package_complete=true`。公开发布前仍须由作者选择根仓库代码 LICENSE，并把数据集来源补成精确官方 URL 后复核条款。
 - **权威验收**：见 `P0_ACCEPTANCE_REVIEW_20260827.md` 和 `P0_ACCEPTANCE_AUDIT_20260827.json`。
 
 ## 文件
@@ -32,7 +32,7 @@ python scripts\audit_submission_repro_package.py `
   --output docs\submission_reproducibility_20260826\P0_LIVE_AUDIT.json
 ```
 
-脚本在“复现包尚未完整”时返回非零，这是门禁行为，不是脚本故障。它不会启动训练、GPU 推理或修改实验结果。
+脚本在复现包不完整时返回非零，这是门禁行为，不是脚本故障。当前 P0A–P0I 应全部通过；若返回非零，先检查 maps、source pointer 和 SHA256，不要启动训练或覆盖结果。
 
 ## 禁止事项
 

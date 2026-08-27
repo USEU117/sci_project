@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "kind": "p1_d_fairness_table",
+  "created_at_utc": "2026-08-27T06:52:38.640541+00:00",
+  "rows": [
+    {
+      "method": "A1 concat (this paper)",
+      "visual_backbone": "DINOv2 ViT-B/14 + AnomalyCLIP ViT-L/14@336 image tower",
+      "input_resolution": "DINO 448 / CLIP 518",
+      "shot_protocol": "1/2/4-shot normal reference memory bank; 3 seeds",
+      "training": "none (pretrained backbones frozen; memory bank built at inference)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "unified frozen evaluator (stride=8)",
+      "baseline_source": "matched feature-level dino-only KNN (same pipeline)"
+    },
+    {
+      "method": "feature-DINO-only KNN (matched control)",
+      "visual_backbone": "DINOv2 ViT-B/14",
+      "input_resolution": "448",
+      "shot_protocol": "1/2/4-shot; 3 seeds",
+      "training": "none (frozen, KNN memory bank)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "unified frozen evaluator (stride=8)",
+      "baseline_source": "feature-level KNN in the same pipeline"
+    },
+    {
+      "method": "CLIP-only KNN",
+      "visual_backbone": "AnomalyCLIP ViT-L/14@336 image tower",
+      "input_resolution": "518",
+      "shot_protocol": "1/2/4-shot; 3 seeds (MPDD/VisA only)",
+      "training": "none (frozen, KNN memory bank)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "unified frozen evaluator (stride=8)",
+      "baseline_source": "feature-level KNN in the same pipeline"
+    },
+    {
+      "method": "PatchCore",
+      "visual_backbone": "WideResNet-50 (layer2/3)",
+      "input_resolution": "official resize/imagesize",
+      "shot_protocol": "1/2/4-shot; coreset sampling",
+      "training": "none (ImageNet-pretrained features; coreset memory bank)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "v2 score prediction caches (PLAN.md P0 protocol)"
+    },
+    {
+      "method": "AnomalyDINO",
+      "visual_backbone": "DINOv2 (methods/anomalydino, official ViT-L/14)",
+      "input_resolution": "official",
+      "shot_protocol": "1/2/4-shot; few-shot fine-tuning",
+      "training": "yes (few-shot fine-tuned)",
+      "target_normal_tuning": "yes (fine-tuning on normal references)",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "v2 score prediction caches"
+    },
+    {
+      "method": "PromptAD",
+      "visual_backbone": "CLIP ViT-L/14@336",
+      "input_resolution": "official (336)",
+      "shot_protocol": "1/2/4-shot; prompt learning",
+      "training": "yes (only-normal prompt learning)",
+      "target_normal_tuning": "true (must be labeled target_normal_tuning=true)",
+      "test_time_adaptation": "no",
+      "text_in_inference": "yes (prompts, training-time)",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "v2 score prediction caches"
+    },
+    {
+      "method": "WinCLIP+",
+      "visual_backbone": "OpenCLIP ViT-B/16-plus-240 (project env)",
+      "input_resolution": "official",
+      "shot_protocol": "zero-/one-shot; text-guided",
+      "training": "none (zero-shot)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "yes (text prompts)",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "v2 score prediction caches"
+    },
+    {
+      "method": "AnomalyCLIP",
+      "visual_backbone": "CLIP ViT-L/14@336 (text + image)",
+      "input_resolution": "official",
+      "shot_protocol": "zero-shot",
+      "training": "none (zero-shot)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "yes",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "fixed zero-shot text cache (reused by hash)"
+    },
+    {
+      "method": "ReMP-AD",
+      "visual_backbone": "CLIP ViT-L/14@336 (official)",
+      "input_resolution": "official (518)",
+      "shot_protocol": "train once, test 4/2/1-shot",
+      "training": "yes (official training before testing; source-domain)",
+      "target_normal_tuning": "no (official protocol)",
+      "test_time_adaptation": "no",
+      "text_in_inference": "yes (retrieval of text descriptions)",
+      "evaluator": "unified evaluator (official image-score 0.5*(text prob + few-shot max))",
+      "baseline_source": "outputs/unified remp_ad_mvtec_* (official protocol)"
+    },
+    {
+      "method": "AdaptCLIP",
+      "visual_backbone": "CLIP ViT-L/14@336 + 3 adapters",
+      "input_resolution": "518 (features 6/12/18/24)",
+      "shot_protocol": "1-shot; seeds 0/1/2",
+      "training": "yes (source-domain adapter training; official ckpt train_on_visa)",
+      "target_normal_tuning": "no (adapters pretrained on source domain)",
+      "test_time_adaptation": "no",
+      "text_in_inference": "yes (textual adapter)",
+      "evaluator": "unified evaluator on project caches",
+      "baseline_source": "outputs/unified adaptclip_mvtec_seed_*_shot_1"
+    },
+    {
+      "method": "SubspaceAD",
+      "visual_backbone": "DINOv2 (frozen)",
+      "input_resolution": "official",
+      "shot_protocol": "few-shot normal subspace PCA",
+      "training": "none (training-free PCA subspace on normal patches)",
+      "target_normal_tuning": "no",
+      "test_time_adaptation": "no",
+      "text_in_inference": "no",
+      "evaluator": "official / project cross-check",
+      "baseline_source": "external training-free visual baseline (see introduction research notes)"
+    }
+  ],
+  "note": "Protocol comparison only; numbers live in paper_tables and outputs/unified."
+}

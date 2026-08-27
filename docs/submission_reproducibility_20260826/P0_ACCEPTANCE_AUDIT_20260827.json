@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "audit_kind": "submission_reproducibility_p0_live_audit",
-  "generated_at_utc": "2026-08-27T04:19:47.048549+00:00",
-  "git_head": "12e1fcf180f7eacd41854acbbc865a4190df7c98",
+  "generated_at_utc": "2026-08-27T07:19:51.360015+00:00",
+  "git_head": "313688ceaa63d5c37b977228a89ea6883e4c0c1d",
   "paper_method": "A1 dual-encoder visual patch fusion, fixed w=0.5, normal-memory KNN",
   "method_semantics": {
     "dynamic_router": false,
@@ -13,8 +13,8 @@
     {
       "path": "docs/CURRENT_DYNAMIC_FUSION_STATUS.md",
       "exists": true,
-      "size_bytes": 10633,
-      "sha256": "c24b499f03240371ca30b42417ce30e0c7759db5cfd059f37512b4e60ebf5485"
+      "size_bytes": 13848,
+      "sha256": "a50292b65737b8aef3eccf4c295b30601cc866aa2d90647b1dc7547ce033cf18"
     },
     {
       "path": "experiments/dynamic_fusion/main_results_20260818/main_results.json",
@@ -368,7 +368,7 @@
   },
   "compact_package": {
     "exists": true,
-    "checksum_files_checked": 447,
+    "checksum_files_checked": 460,
     "checksum_errors": [],
     "checksum_passed": true,
     "compact_prediction_files": 324,

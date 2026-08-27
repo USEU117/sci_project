@@ -8,7 +8,7 @@
 
 ### 2026-08-27 P0 验收覆盖说明
 
-最新验收以 `docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md` 为准：四数据集数值重建已通过，但可发布 compact 包仍缺逐图可重放 patch maps、包内 CPU 重算脚本和最终源码 commit，因此 `research_rebuild_complete=true`、`submission_repro_package_complete=false`。不需要再次导出四数据集特征。
+最新验收以 `docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md` 为准：四数据集数值重建和 P0 技术复现包均已通过，P0A–P0I 全部为 true，`research_rebuild_complete=true`、`submission_repro_package_complete=true`。不需要再次导出四数据集特征。公开发布前仍须由作者选择仓库代码 LICENSE，并把数据集官方来源补为精确 URL 后复核许可条款；这两项不阻塞 P1 统计和论文写作。
 
 ## 1. 最终研究结论与论文边界
 
@@ -56,9 +56,9 @@ A1 使用两个互补的视觉 patch 表征：
 
 G0 语义审计已证明 A1 的 AnomalyCLIP 导出只调用 image encoder；prompt learner 虽被加载，但没有进入导出的 A1 patch 表征。动态路线和更强视觉替代路线均按预注册门禁失败或停止，可作为负结果讨论。
 
-### 1.3 一个必须先修正的技术错误
+### 1.3 已关闭的维度错误
 
-旧 `METHOD_CARD.md` 同时写了 DINO 768 维、CLIP 768 维和 concat 1152 维，数学上不一致。代码注释也残留过早的 384 维描述。下一位 AI 必须先做一类一图的原始特征 smoke，直接记录两个 NPZ 的实际 `patch_features.shape[-1]`；若两者均为 768，则 concat 必须改为 **1536**，同时修正伪代码、FAISS 维度、schema、正文和图。不得仅凭旧文档猜测。
+旧 `METHOD_CARD.md` 曾同时写 DINO 768 维、CLIP 768 维和 concat 1152 维。P0 smoke 已实测 DINO 768、AnomalyCLIP image tower 768、concat **1536**；投稿版 `METHOD_SPEC_V2.md` 已修正。后续正文、图和表只允许使用 1536，不再重复运行该 smoke，除非代码或权重发生变化。
 
 ## 2. 为什么不需要全部重跑
 
@@ -72,7 +72,7 @@ G0 语义审计已证明 A1 的 AnomalyCLIP 导出只调用 image encoder；prom
 
 需要重建的是“投稿复现链”而非“整个研究史”。2026-08-20 清理过 `outputs/dynamic_fusion` 等大缓存，因此旧 `freeze_verification.json` 的 229 项 `all_ok=true` 是当时的历史证据；当前运行 `freeze_a1_mpdd.py --verify` 会因缓存缺失失败，这是预期状态。
 
-## 3. P0 当前已经完成的部分
+## 3. P0 已完成（2026-08-27 最终复验）
 
 本次已完成：
 
@@ -81,11 +81,14 @@ G0 语义审计已证明 A1 的 AnomalyCLIP 导出只调用 image encoder；prom
 3. 生成当前 `P0_LIVE_AUDIT.json` 与核心文件 SHA256 清单。
 4. 明确“无需全重跑、但必须最小重建”的边界。
 5. 把 SCI 目标从一区修正为四区：不再把新增强算法或 MVTec AD 2 设为硬性投稿前置条件。
-6. 使用 `.venv-anomalyclip` 完成 CPU 回归：5 个测试文件共 `81 passed in 6.46s`，证据见复现目录的 `CPU_REGRESSION_20260826.json`。
+6. 历史 CPU 回归证据为 `81 passed`；2026-08-27 当前复验扩大为 `python -m pytest -q tests`，`122 passed in 5.80s`。
+7. 324 个 compact maps、包内 CPU 重算脚本、独立 rebuild manifest、1536 维方法说明和 source commit 均已入包。
+8. `--verify-only` 为 324/324；MPDD s0/K1 与 MVTec s1/K4 从 maps + mask 完整重算均通过。
+9. `SHA256SUMS` 有 447 条受校验记录且全部通过；包内共 448 个文件（包含清单自身）。
 
-P0 只有在第 4 节全部验收后，才能标记为真正 `submission_repro_package_complete=true`。
+P0 技术门禁已关闭。第 4 节保留为复现协议，不是待执行清单。
 
-## 4. P0 执行路线（P0-1 至 P0-3 已于 2026-08-27 完成）
+## 4. P0 执行路线（P0-1 至 P0-4 均已于 2026-08-27 完成）
 
 ### Gate P0-1：环境与只读输入
 
@@ -154,7 +157,7 @@ P0 只有在第 4 节全部验收后，才能标记为真正 `submission_repro_p
 
 ### Gate P0-4：真正可发布的 compact package
 
-2026-08-27 状态：**conditional，尚未最终通过**。数值、报告和 SHA256 已通过；剩余工作仅为真实 compact predictions、包内重算脚本、独立 rebuild manifest、投稿版 1536 维方法说明、许可证正式化与源码提交。详细验收见 P0 acceptance review。
+2026-08-27 状态：**P0 技术复现 PASS**。真实 compact predictions、包内重算脚本、独立 rebuild manifest、投稿版 1536 维方法说明与源码提交均已完成。许可证索引已建立，但根仓库代码 LICENSE 的选择和数据集精确官方 URL 的逐项复核仍是公开发布前人工事项；不要把技术 Gate 通过误写成法律许可已经完成。
 
 建议目录：
 
@@ -216,7 +219,7 @@ submission_repro_<date>/
 5. Discussion：为什么简单融合有效；为什么 CLIP-only 弱但能提供互补；为什么动态/同 backbone 子空间路线失败；VisA 域内和非 SOTA 限制。
 6. Conclusion：强调稳健性、审计和边界，不夸大复杂性。
 
-Introduction/Related Work 的本地资料入口为 `docs/introduction_research_20260825/INTRODUCTION_LITERATURE_MASTER_20260826.md`。该目录当前尚未纳入 Git，投稿工作开始前应先人工审阅 BibTeX 后提交。
+Introduction/Related Work 的本地资料入口为 `docs/introduction_research_20260825/INTRODUCTION_LITERATURE_MASTER_20260826.md`。该目录当前已纳入 Git；写稿前仍应人工复核 BibTeX 元数据与原文对应关系。
 
 ## 7. P3：SCI 四区选刊与投稿
 
@@ -238,14 +241,14 @@ Introduction/Related Work 的本地资料入口为 `docs/introduction_research_2
 
 严格按以下顺序，不要跳步：
 
-1. 阅读本文、`CURRENT_DYNAMIC_FUSION_STATUS.md`、复现包 README。
-2. 运行 P0 审计并修复环境/输入 blocker。
-3. 完成一类一图 smoke，实测特征维度。
-4. 冻结 corrected method spec；此后不再改算法。
-5. 重建四数据集 compact A1/DINO-only 证据并审计。
-6. 计算统计、效率与失败案例。
-7. 重写论文和图表。
-8. 再进行实时选刊检索与投稿格式适配。
+1. 阅读本文、`CURRENT_DYNAMIC_FUSION_STATUS.md`、P0 最终验收与复现包 README。
+2. 只读复核 P0 审计；若源码、maps、数据或权重均未改变，不重建四数据集特征。
+3. 完成 P1 统计：bootstrap CI、shot-wise mean±std、worst/negative categories 与失败样例。
+4. 完成 P1 效率表和公平性协议表；缺失运行时数据时只做最小代表性 benchmark。
+5. 由作者决定根仓库 LICENSE，并补全/复核官方许可 URL；公开发布前完成。
+6. 按固定双视觉融合口径重写论文、图表和补充材料。
+7. 实时检索 SCI 四区候选期刊并适配格式。
+8. 审阅并推送当前相对 `origin/main` 尚未推送的提交。
 
 若任何 gate 失败：保存命令、日志、环境、hash 和失败原因，停止在该 gate；不得用旧缓存结论或验证集调参绕过。
 

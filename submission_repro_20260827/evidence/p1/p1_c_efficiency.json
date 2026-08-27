@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "kind": "p1_c_efficiency",
+  "created_at_utc": "2026-08-26T13:59:25.408068+00:00",
+  "method": "A1 dual-encoder visual patch fusion (frozen w=0.5, KNN k=1)",
+  "trainable_parameters": 0,
+  "training": "none (pretrained backbones frozen; normal-reference memory bank built at inference)",
+  "per_image_feature_extraction_seconds": {
+    "dino": 10.225,
+    "clip": 9.042,
+    "note": "single-image wall clock from P0-2 smoke (includes one-time model load); not a throughput measurement"
+  },
+  "peak_vram_mb": {
+    "dino": 374.58,
+    "clip": 2072.81
+  },
+  "peak_ram_mb": null,
+  "peak_ram_note": "not separately measured in P0-2 smoke; CPU peak RAM only from full recompute runs",
+  "compact_package_size_bytes": 186548885,
+  "compact_package_size_mb": 186.5,
+  "memory_bank_float32": [
+    {
+      "dataset": "mpdd",
+      "shot": 1,
+      "n_seeds": 3,
+      "dino_bank_patches": 6,
+      "clip_bank_patches": 6,
+      "concat_bank_patches": 12,
+      "dino_bank_mb_f32": 0.02,
+      "clip_bank_mb_f32": 0.02,
+      "concat_bank_mb_f32": 0.07
+    },
+    {
+      "dataset": "mpdd",
+      "shot": 2,
+      "n_seeds": 3,
+      "dino_bank_patches": 12,
+      "clip_bank_patches": 12,
+      "concat_bank_patches": 24,
+      "dino_bank_mb_f32": 0.04,
+      "clip_bank_mb_f32": 0.04,
+      "concat_bank_mb_f32": 0.15
+    },
+    {
+      "dataset": "mpdd",
+      "shot": 4,
+      "n_seeds": 3,
+      "dino_bank_patches": 24,
+      "clip_bank_patches": 24,
+      "concat_bank_patches": 48,
+      "dino_bank_mb_f32": 0.07,
+      "clip_bank_mb_f32": 0.07,
+      "concat_bank_mb_f32": 0.29
+    },
+    {
+      "dataset": "btad",
+      "shot": 1,
+      "n_seeds": 3,
+      "dino_bank_patches": 3,
+      "clip_bank_patches": 3,
+      "concat_bank_patches": 6,
+      "dino_bank_mb_f32": 0.01,
+      "clip_bank_mb_f32": 0.01,
+      "concat_bank_mb_f32": 0.04
+    },
+    {
+      "dataset": "btad",
+      "shot": 2,
+      "n_seeds": 3,
+      "dino_bank_patches": 6,
+      "clip_bank_patches": 6,
+      "concat_bank_patches": 12,
+      "dino_bank_mb_f32": 0.02,
+      "clip_bank_mb_f32": 0.02,
+      "concat_bank_mb_f32": 0.07
+    },
+    {
+      "dataset": "btad",
+      "shot": 4,
+      "n_seeds": 3,
+      "dino_bank_patches": 12,
+      "clip_bank_patches": 12,
+      "concat_bank_patches": 24,
+      "dino_bank_mb_f32": 0.04,
+      "clip_bank_mb_f32": 0.04,
+      "concat_bank_mb_f32": 0.15
+    },
+    {
+      "dataset": "visa",
+      "shot": 1,
+      "n_seeds": 3,
+      "dino_bank_patches": 12,
+      "clip_bank_patches": 12,
+      "concat_bank_patches": 24,
+      "dino_bank_mb_f32": 0.04,
+      "clip_bank_mb_f32": 0.04,
+      "concat_bank_mb_f32": 0.15
+    },
+    {
+      "dataset": "visa",
+      "shot": 2,
+      "n_seeds": 3,
+      "dino_bank_patches": 24,
+      "clip_bank_patches": 24,
+      "concat_bank_patches": 48,
+      "dino_bank_mb_f32": 0.07,
+      "clip_bank_mb_f32": 0.07,
+      "concat_bank_mb_f32": 0.29
+    },
+    {
+      "dataset": "visa",
+      "shot": 4,
+      "n_seeds": 3,
+      "dino_bank_patches": 48,
+      "clip_bank_patches": 48,
+      "concat_bank_patches": 96,
+      "dino_bank_mb_f32": 0.15,
+      "clip_bank_mb_f32": 0.15,
+      "concat_bank_mb_f32": 0.59
+    },
+    {
+      "dataset": "mvtec",
+      "shot": 1,
+      "n_seeds": 3,
+      "dino_bank_patches": 15,
+      "clip_bank_patches": 15,
+      "concat_bank_patches": 30,
+      "dino_bank_mb_f32": 0.05,
+      "clip_bank_mb_f32": 0.05,
+      "concat_bank_mb_f32": 0.18
+    },
+    {
+      "dataset": "mvtec",
+      "shot": 2,
+      "n_seeds": 3,
+      "dino_bank_patches": 30,
+      "clip_bank_patches": 30,
+      "concat_bank_patches": 60,
+      "dino_bank_mb_f32": 0.09,
+      "clip_bank_mb_f32": 0.09,
+      "concat_bank_mb_f32": 0.37
+    },
+    {
+      "dataset": "mvtec",
+      "shot": 4,
+      "n_seeds": 3,
+      "dino_bank_patches": 60,
+      "clip_bank_patches": 60,
+      "concat_bank_patches": 120,
+      "dino_bank_mb_f32": 0.18,
+      "clip_bank_mb_f32": 0.18,
+      "concat_bank_mb_f32": 0.74
+    }
+  ],
+  "note": "bank = reference patch features only (no test features stored in the bank). DINO 768-d, CLIP image-tower 768-d, concat 1536-d."
+}

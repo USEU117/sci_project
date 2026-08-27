@@ -15,6 +15,7 @@ KNN(k=1) 正常记忆库 → distance/2 = 像素异常图（map=448, stride=8）
 - `recompute_tables.py`：包内独立 CPU 脚本，从 compact maps + 用户数据 mask 重算逐类/逐配置/四数据集论文表
   （`--verify-only` 做结构校验，无需数据）。
 - `METHOD_SPEC_V2.md` / `LICENSES_AND_DATA.md`：方法口径与正式许可证清单。
+- `evidence/p1/`：**P1 论文实验收尾证据**——`p1_a_bootstrap_ci.*`（36 配置 bootstrap CI + dataset×shot 三 seed mean±std，dataset 均值与主表差 ≤5e-4）、`p1_b_*`（worst/negative categories 与逐图失败样例 ID）、`p1_c_efficiency.*`（训练参数/时间/显存/记忆库/包大小）、`p1_d_fairness_table.*`（11 方法协议对照）、`p1_acceptance.json`。
 - `environment/`、`logs/`、`manifest.json`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`、`SHA256SUMS`。
 
 本包**不包含**数据集原图、第三方权重——不可再分发，须按 `LICENSES_AND_DATA.md` 与 `config/split_manifest_hashes.json`

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "p1_acceptance",
+  "created_at_utc": "2026-08-27T07:18:15.014065+00:00",
+  "deliverables": {
+    "P1-A statistics (bootstrap CI + shot-wise)": true,
+    "P1-B failure boundaries + failure samples": true,
+    "P1-C efficiency table": true,
+    "P1-D fairness table": true
+  },
+  "checks": {
+    "p1_a_bootstrap_ci_json_exists": true,
+    "p1_a_n_configs": true,
+    "p1_a_sanity_all_within_tolerance": true,
+    "p1_a_bootstrap_B": true,
+    "p1_a_shot_wise_present": true,
+    "p1_a_dataset_wise_present": true,
+    "p1_a_each_config_has_both_cis": true,
+    "p1_b_failure_boundaries_md": true,
+    "p1_b_failure_samples_csv": true,
+    "p1_c_efficiency_json": true,
+    "p1_c_efficiency_csv": true,
+    "p1_d_fairness_table_json": true,
+    "p1_d_fairness_table_csv": true,
+    "p1_a_match_paper_mpdd": true,
+    "p1_a_match_paper_btad": true,
+    "p1_a_match_paper_visa": true,
+    "p1_a_match_paper_mvtec": true
+  },
+  "p1_complete": true
+}
