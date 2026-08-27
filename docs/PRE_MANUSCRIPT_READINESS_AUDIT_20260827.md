@@ -78,7 +78,7 @@
 1. ✅ 作者已选定根仓库代码 LICENSE 为 **MIT**（2026-08-27，根 `LICENSE` 随包分发，包内 `LICENSE` 哈希已入 `SHA256SUMS`）。
 2. ⏳ 作者待办：确认 MPDD/BTAD 使用与再分发条款；数据本体和第三方权重继续不入包。
 3. ⏳ 作者待办：人工复核 Introduction master package 的 BibTeX、出版状态、题名、年份、DOI/官方链接。
-4. ⏳ 待本轮 R3/R4 修正通过测试与哈希后提交并推送，更新 source pointer/变更说明。
+4. ✅ 本轮 R3/R4 修正已通过测试与哈希（p1_acceptance 21/21、audit 469 checksum 全过、pytest 123 passed），已提交（`040638d`）并推送 `origin/main`。
 
 ## 4. 不需要做的事情
 
