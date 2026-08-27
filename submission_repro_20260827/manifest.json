@@ -10,6 +10,8 @@
     "p0_4_package": "submission_repro_package_complete=true (all P0A..P0I gates)",
     "p1_statistics": "passed (36-config bootstrap CI + shot-wise mean/std; dataset means within 5e-4 of paper table)",
     "p1_failure_boundaries": "passed (worst/negative categories + per-image failure sample IDs)",
+    "p1_qualitative_figures": "R4 passed (7 fixed success/failure figures; figure images kept local, manifest packaged in evidence/p1/p1_b_figures_manifest.*)",
+    "p1_r3_baseline_comparison": "passed (cross-method macro-mean table with protocol boundaries; evidence/p1/p1_r3_baseline_comparison.*)",
     "p1_efficiency": "passed (memory-bank accounting corrected; steady-state benchmark + peak RAM measured via scripts/p1_c_benchmark.py, MVTec bottle s0/k1)",
     "p1_fairness": "passed after protocol correction (AnomalyDINO training-free ViT-S/14 project run; WinCLIP+ project 1/2/4-shot matrix)",
     "p1_complete_metrics": "passed (36 source reports, 72 method-config rows, six metrics; Pixel-AP cross-check max abs delta 3e-6)",

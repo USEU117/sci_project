@@ -61,19 +61,20 @@
 | S4：正式方法包 | ✅ completed（METHOD_CARD/REPRODUCE 修订 + 伪代码 + schema + 资源统计） |
 | S5：Git 归档 | ✅ completed（分 3 批提交并 push） |
 | P0：投稿技术复现包 | ✅ completed（P0A–P0I；324 maps；独立 CPU 重算） |
-| P1：统计、效率、公平性、失败案例、完整指标 | ✅ completed（P1-A/B/C/D 门禁全过，`p1_acceptance.json` `p1_complete=true`；P1-C 效率以 smoke 实测为准，未单列预热端到端 benchmark 与峰值 RAM） |
+| P1：统计、效率、公平性、失败案例、完整指标 | ✅ completed（P1-A/B/C/D/E 门禁全过，`p1_acceptance.json` `p1_complete=true`；P1-C 已补齐预热端到端稳态 benchmark 与峰值进程 RAM，见 `scripts/p1_c_benchmark.py` 与 `p1_c_efficiency.*`） |
 | S6/P2：论文交付 | ⏳ pending（先关闭论文前准备 Gate） |
 | D0：动态 headroom 门 | ✅ passed（MPDD 9 配置逐像素 best-of-3 Oracle，mean headroom +0.5807） |
 | D1：可预测性门 | ❌ **failed → 本项目停止该路线**（LOCO mean AUROC 0.592 < 0.60，特征置乱不下降 0.616 → 当前无标签特征不能可靠预测A1的修正时机） |
 
 ## 5. 剩余工作
 
-1. P1 论文实验收尾：✅ 已完成（P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表、P1-D 公平性表；`p1_acceptance.json` `p1_complete=true`，证据在 `submission_repro_20260827/evidence/p1/`）。
+1. P1 论文实验收尾：✅ 已完成（P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表+稳态 benchmark+峰值 RAM、P1-D 公平性表、P1-E 完整指标；`p1_acceptance.json` `p1_complete=true`，证据在 `submission_repro_20260827/evidence/p1/`）。
 2. ✅ 36份 image+pixel 完整指标报告已汇总进 `p1_e_complete_metrics.*`；无需重跑模型。论文须保留 BTAD 图像级 AP/F1 下降的边界。
-3. 最终 A1 成功/失败定性图尚未从 compact maps 与合法本地原图生成；P1-B 当前只有 sample ID。
-4. 公开发布前人工事项：自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening）；仍须确认 MPDD/BTAD 使用与再分发条款。
-5. S6/P2 论文交付：关闭上述准备 Gate 后按7节结构写作，全部数字可追溯。
-6. ~~路线 D~~ → **本项目停止该路线**（D0 通过但 D1 失败：像素级虽有互补上限，但当前无标签特征不能可靠预测A1的修正时机；按设计审查第 12 节第 9 条停止扩展）。
+3. ✅ A1 成功/失败定性图已生成（7 张固定案例，`scripts/build_a1_qualitative_figures.py`；图文件在 `outputs/p1_b_figures/`，source manifest 在包内 `evidence/p1/p1_b_figures_manifest.*`）；P1-B sample IDs 已用于选例，未据图调参。
+4. ✅ 带数字的跨方法 baseline 对照表已入包（`evidence/p1/p1_r3_baseline_comparison.*`，由 `scripts/build_cross_method_comparison_table.py` 生成，显式标注协议边界，不宣称全面 SOTA）。
+5. 公开发布前人工事项：自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening，随包分发）；仍须确认 MPDD/BTAD 使用与再分发条款。
+6. S6/P2 论文交付：关闭上述准备 Gate 后按7节结构写作，全部数字可追溯。
+7. ~~路线 D~~ → **本项目停止该路线**（D0 通过但 D1 失败：像素级虽有互补上限，但当前无标签特征不能可靠预测A1的修正时机；按设计审查第 12 节第 9 条停止扩展）。
 
 ## 6. 链接检查
 
@@ -133,8 +134,8 @@
 3. **P1-C 效率**：✅ 已入包。`p1_c_efficiency.*`：0 训练参数；单图特征提取（smoke 实测，含一次性加载）DINO 10.2s / CLIP 9.0s；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；按 dataset×shot 记忆库 patch 数与 float32 MB；compact 包 186.5 MB。门禁通过；若论文需稳态吞吐，后续可补预热 benchmark 与峰值 RAM（非门禁项）。
 4. **P1-D 公平性**：✅ 已纠错并完成。AnomalyDINO 项目实际为 `dinov2_vits14_448`、training-free；WinCLIP+ 为项目统一1/2/4-shot三 seed 矩阵，zero-shot WinCLIP 单独报告。
 5. **P1-E 完整指标主表**：✅ 已聚合。`p1_e_complete_metrics.*` 汇总四数据集36份报告、72个method-config rows和六项指标，输入哈希齐全；相对P0 Pixel-AP最大差 `3e-6`。重要边界：四数据集稳定提升针对Pixel-AP；BTAD Image-AP约 `−0.0131`、Image-F1-max约 `−0.0237`，不得宣称所有检测/定位指标全面提升。
-6. **定性图**：⏳ 待生成。根据 P1-B sample IDs，从 compact concat/DINO maps + 合法本地原图/GT mask 制作固定成功与失败案例图，记录选择规则和 source IDs；不得据此调参。
-7. **发布人工 Gate**：代码 LICENSE 已选 **MIT**（2026-08-27，根 `LICENSE` 已落盘并随包分发）；仍须确认 MPDD/BTAD 的使用与再分发条款。当前 `main` 已与 `origin/main` 同步；本轮 LICENSE 落地尚未提交。
+6. **定性图**：✅ 已完成（R4）。`scripts/build_a1_qualitative_figures.py` 从 P1-B 固定 sample IDs + compact concat/DINO maps + 合法本地原图/GT 生成 7 张固定成功/失败案例图（含 DINO-only 与 A1 对照、逐图 Pixel-AP）；图文件本地保存于 `outputs/p1_b_figures/`（gitignored，含不可再分发原图），包内 `evidence/p1/p1_b_figures_manifest.*` 记录选择规则、source IDs 与文件哈希；未据图调参。
+7. **发布人工 Gate**：代码 LICENSE 已选 **MIT**（2026-08-27，根 `LICENSE` 已落盘并随包分发）；仍须确认 MPDD/BTAD 的使用与再分发条款。R3 跨方法 baseline 对照表已入包，R1–R4 机器可执行 Gate 全部关闭。
 8. **P2/P3**：上述准备完成后重写论文，再实时核验目标 SCI 四区期刊的最新分区、scope 与格式。
 
-P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、输入 source pointer 与无测试标签调参声明。P1-C 在补齐预热 benchmark 与峰值 RAM 前不得恢复为 completed。
+P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、输入 source pointer 与无测试标签调参声明。P1-C 的预热端到端稳态 benchmark 与峰值进程 RAM 已实测并入包（`scripts/p1_c_benchmark.py`，MVTec bottle s0/k1：DINO 0.0631s / CLIP 0.3047s / concat 0.0471s，端到端 0.4146s、2.412 img/s，峰值进程 RAM 3980.9MB）。

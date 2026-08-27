@@ -48,12 +48,12 @@
 
 ## 5. 接下来应做什么
 
-P0 不需要再跑四数据集特征导出，也不需要重新设计动态融合。P1 已全部完成（`p1_acceptance.json` `p1_complete=true`；P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表、P1-D 公平性表）：
+P0 不需要再跑四数据集特征导出，也不需要重新设计动态融合。P1 已全部完成（`p1_acceptance.json` `p1_complete=true`；P1-A bootstrap CI、P1-B 失败边界、P1-C 效率表+稳态 benchmark+峰值 RAM、P1-D 公平性表、P1-E 完整指标）：
 
-1. P1-C 效率以 smoke 实测为准（单图特征提取 DINO 10.2s / CLIP 9.0s 含一次性加载；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；记忆库 patch 数按完整空间维乘积计）；若论文需稳态吞吐与峰值 RAM，再补预热 benchmark（非门禁项）。
-2. 聚合已存在的四数据集36份 image+pixel 完整指标报告，生成投稿主表，不需重跑模型。
-3. 生成 A1 成功/失败定性图；当前 P1-B 只有 sample IDs。
-4. 自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening），并同步进复现包与 `SHA256SUMS`；作者仍须确认 MPDD/BTAD 条款后再公开发布复现包。
-5. 当前 `main` 已与 `origin/main` 同步；本轮 LICENSE 落地尚未提交。
+1. ✅ P1-C 已补预热端到端稳态 benchmark 与峰值进程 RAM 并入包（`scripts/p1_c_benchmark.py`，MVTec bottle s0/k1：端到端 0.4146s、2.412 img/s、峰值进程 RAM 3980.9MB），不再以含模型加载的 smoke 时间代替稳态吞吐。
+2. ✅ 已聚合四数据集36份 image+pixel 完整指标报告生成投稿主表（`p1_e_complete_metrics.*`），不需重跑模型。
+3. ✅ A1 成功/失败定性图已生成（`scripts/build_a1_qualitative_figures.py`，7 张固定案例；图文件本地存 `outputs/p1_b_figures/`，包内 `evidence/p1/p1_b_figures_manifest.*` 记录选择规则与 source IDs）。
+4. ✅ 跨方法 baseline 对照表已入包（`evidence/p1/p1_r3_baseline_comparison.*`，显式标注协议边界）。自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening），并同步进复现包与 `SHA256SUMS`；作者仍须确认 MPDD/BTAD 条款后再公开发布复现包。
+5. 本轮 R1–R4 修正与状态文档同步已提交并推送（VERSIONED_EVIDENCE.sha256 已同步）。
 
 当前不建议新增动态路由、视觉—文本路由、SubspaceAD 或新 backbone 实验。MVTec AD 2 仍是可选增强项，不是 P1 前置条件。

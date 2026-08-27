@@ -201,10 +201,10 @@ submission_repro_<date>/
 
 ### 写论文前仍必做
 
-1. P1-C 最小 benchmark：预热模型后重复测量端到端 latency/throughput、峰值 VRAM 和峰值 RAM；报告硬件、batch=1、类别、shot、重复次数与计时边界。
+1. ✅ P1-C 最小 benchmark 已完成：预热模型后重复测量端到端 latency/throughput、峰值进程 RAM（`scripts/p1_c_benchmark.py`，MVTec bottle s0/k1，预热3次+重复30次；端到端 0.4146s、2.412 img/s、峰值进程 RAM 3980.9MB），数据并入 `p1_c_efficiency.*` 与包。
 2. ✅ 已聚合36份 complete-metrics reports：`p1_e_complete_metrics.*` 含 image AUROC/AP/F1-max 与 pixel AUROC/AP/AUPRO、source hash和P0对账。论文须注明BTAD Image-AP/F1下降，四数据集稳健正结论只针对Pixel-AP。
-3. 从 compact maps + 本地合法原图生成最终 A1 成功/失败定性图；固定选择规则，只作解释，不参与调参。
-4. 将现有 MVTec/VisA baseline 矩阵整理成最终对照表；MPDD/BTAD 若没有同协议完整外部基线，必须明确为空缺，不得暗示已有。
+3. ✅ 已从 compact maps + 本地合法原图生成最终 A1 成功/失败定性图（`scripts/build_a1_qualitative_figures.py`，7 张固定案例，图文件本地存 `outputs/p1_b_figures/`，包内 `evidence/p1/p1_b_figures_manifest.*` 记录选择规则与 source IDs）；只作解释，未参与调参。
+4. ✅ 已将现有 MVTec/VisA baseline 矩阵整理成最终对照表并入包（`evidence/p1/p1_r3_baseline_comparison.*`，由 `scripts/build_cross_method_comparison_table.py` 生成）；MPDD/BTAD 明确标注 `not evaluated under the unified protocol`，未暗示已有全面 SOTA 对照。
 5. 自研代码 LICENSE 已选定为 **MIT**（2026-08-27，根 `LICENSE` 随包分发）；仍须确认 MPDD/BTAD 数据条款；完成前不公开发布代码包。
 
 ### 四区投稿的“建议补做”，不是硬门槛
@@ -250,9 +250,9 @@ Introduction/Related Work 的本地资料入口为 `docs/introduction_research_2
 
 1. 阅读本文、`CURRENT_DYNAMIC_FUSION_STATUS.md`、P0 最终验收与复现包 README。
 2. 只读复核 P0 审计；若源码、maps、数据或权重均未改变，不重建四数据集特征。
-3. P1 已全部完成（`p1_acceptance.json` `p1_complete=true`）；如论文需要稳态吞吐/峰值 RAM 才补最小预热 benchmark（非门禁项）。
+3. P1 已全部完成（`p1_acceptance.json` `p1_complete=true`），含 P1-C 预热稳态 benchmark 与峰值进程 RAM（`scripts/p1_c_benchmark.py`）。
 4. 使用已生成的 `p1_e_complete_metrics.*`；不得把Pixel-AP四数据集提升扩写为所有图像/像素指标全面提升。
-5. 生成固定的成功/失败定性图及 source-ID 清单。
+5. ✅ 固定成功/失败定性图及 source-ID 清单已生成（`scripts/build_a1_qualitative_figures.py` + 包内 `evidence/p1/p1_b_figures_manifest.*`）。
 6. 自研代码 LICENSE 已选定为 **MIT**（2026-08-27，根 `LICENSE` 随包分发）；仍须确认 MPDD/BTAD 许可；公开发布前完成。
 7. 按固定双视觉融合口径重写论文、图表和补充材料。
 8. 实时检索 SCI 四区候选期刊并适配格式；审阅并提交本轮修正。
