@@ -13,7 +13,7 @@
 - **CPU 回归已复验**：使用现有 `.venv-anomalyclip` 执行 5 个测试文件，`81 passed`；详见 `CPU_REGRESSION_20260826.json`。
 - **P0-C 数值重建已完成**：648 个双分支特征 NPZ、36 个配置报告齐全，四数据集重建值均在历史容差内。
 - **P0-D smoke 已完成**：实测两个分支均为 768 维，concat 为 1536；旧 1152 记录错误。
-- **投稿包仍为 conditional**：当前 compact 包缺逐图可重放预测、包内 CPU 重算脚本和最终 source commit，不能标记为完全完成。
+- **投稿包已完成（P0 最终通过）**：compact 包现含 324 个逐图可重放 patch maps、包内独立 CPU 重算脚本 `recompute_tables.py`、`rebuild_manifest_v2.json`、`SOURCE_COMMIT.txt`（`12e1fcf`）与正式许可证索引；`P0_ACCEPTANCE_AUDIT_20260827.json` 中 `submission_repro_package_complete=true`。
 - **权威验收**：见 `P0_ACCEPTANCE_REVIEW_20260827.md` 和 `P0_ACCEPTANCE_AUDIT_20260827.json`。
 
 ## 文件
