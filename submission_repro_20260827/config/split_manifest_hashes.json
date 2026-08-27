@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "note": "SHA256 of the frozen per-dataset split manifests (reference sampling lists). Source: experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json and live files.",
+  "created_at_utc": "2026-08-27T00:20:00+08:00",
+  "manifests": {
+    "mpdd": {
+      "path": "data/splits/mpdd/manifest.json",
+      "size_bytes": 15029,
+      "sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8"
+    },
+    "btad": {
+      "path": "data/splits/btad/manifest.json",
+      "size_bytes": 6682,
+      "sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215"
+    },
+    "visa": {
+      "path": "data/splits/visa/manifest.json",
+      "size_bytes": 16068,
+      "sha256": "35ecdd88bd3df2c7168a6c234b575ab425180946a80a93ce837d7e350b75e0f2"
+    },
+    "mvtec": {
+      "path": "data/splits/mvtec/manifest.json",
+      "size_bytes": 17246,
+      "sha256": "0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f"
+    }
+  },
+  "weights": {
+    "anomalyclip_9_12_4_multiscale_visa_epoch_15": {
+      "path": "methods/AnomalyCLIP-main/checkpoints/9_12_4_multiscale_visa/epoch_15.pth",
+      "size_bytes": 22631975,
+      "sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4"
+    },
+    "dinov2_vitb14_pretrain": {
+      "path": "C:/Users/lynle/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+      "size_bytes": 346378731,
+      "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    }
+  }
+}

@@ -1,0 +1,264 @@
+# SCI 四区投稿：A1 复现包与论文收尾总交接（2026-08-26）
+
+## 0. 文档地位
+
+这是下一位 AI 的**唯一投稿收尾入口**。项目历史状态以 `docs/CURRENT_DYNAMIC_FUSION_STATUS.md` 为事实来源；动态路线设计细节见 `docs/DYNAMIC_FUSION_NEXT_STEPS.md`，但不得据此自动重启实验。
+
+任务不是继续寻找更复杂算法，而是把已有 A1 结果变成可投稿、可复核、口径诚实的 SCI 四区论文与精简复现包。
+
+### 2026-08-27 P0 验收覆盖说明
+
+最新验收以 `docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md` 为准：四数据集数值重建已通过，但可发布 compact 包仍缺逐图可重放 patch maps、包内 CPU 重算脚本和最终源码 commit，因此 `research_rebuild_complete=true`、`submission_repro_package_complete=false`。不需要再次导出四数据集特征。
+
+## 1. 最终研究结论与论文边界
+
+### 1.1 最终正结果
+
+A1 使用两个互补的视觉 patch 表征：
+
+1. DINOv2 `dinov2_vitb14`；
+2. AnomalyCLIP `ViT-L/14@336px` 的 image tower patch tokens。
+
+两分支分别按 patch 做 L2 归一化，CLIP grid 双线性对齐至 DINO grid，按 `w=0.5/0.5` 拼接，再整体 L2 归一化。仅用 K 张正常参考图的 patch 建立 `faiss.IndexFlatL2`、`k=1` 正常记忆库，以最近邻平方 L2 距离除以 2 形成 patch 异常分数并上采样为像素异常图。没有学习式路由，也不依据测试图改变权重。
+
+相对 matched feature-DINO-only KNN 的纯拼接 Pixel-AP 增益：
+
+| 数据集 | 角色 | 平均增益 | 配置覆盖 |
+|---|---|---:|---:|
+| MPDD | development | +0.025830 | 9/9 |
+| BTAD | external frozen validation | +0.024895 | 9/9 |
+| VisA | in-domain frozen validation | +0.052353 | 9/9 |
+| MVTec AD | external frozen validation | +0.031962 | 9/9 |
+
+这里的 9/9 是 `3 seeds × 1/2/4-shot` 的参考采样配置，不是 9 个独立数据集。
+
+### 1.2 必须使用的论文表述
+
+建议英文方法名：`Reference-Conditioned Dual-Encoder Patch Fusion with a Normal Memory Bank`。
+
+推荐中文概括：`面向少样本工业异常检测的参考条件双编码器视觉特征融合与正常记忆库方法`。
+
+必须写作：
+
+- dual-encoder visual patch fusion；
+- heterogeneous pretrained visual representations；
+- training-free / normal-reference-conditioned inference（按论文具体定义谨慎用词）；
+- fixed equal-weight fusion；
+- leakage-safe development and frozen validation。
+
+禁止写作：
+
+- 动态融合方法已经成功；
+- 视觉—文本特征在 A1 推理时显式融合；
+- multimodal/text branch 是 A1 的实际输入；
+- SOTA；
+- VisA 是独立外部泛化验证。
+
+G0 语义审计已证明 A1 的 AnomalyCLIP 导出只调用 image encoder；prompt learner 虽被加载，但没有进入导出的 A1 patch 表征。动态路线和更强视觉替代路线均按预注册门禁失败或停止，可作为负结果讨论。
+
+### 1.3 一个必须先修正的技术错误
+
+旧 `METHOD_CARD.md` 同时写了 DINO 768 维、CLIP 768 维和 concat 1152 维，数学上不一致。代码注释也残留过早的 384 维描述。下一位 AI 必须先做一类一图的原始特征 smoke，直接记录两个 NPZ 的实际 `patch_features.shape[-1]`；若两者均为 768，则 concat 必须改为 **1536**，同时修正伪代码、FAISS 维度、schema、正文和图。不得仅凭旧文档猜测。
+
+## 2. 为什么不需要全部重跑
+
+以下内容已有版本化 JSON/CSV/Markdown 与 Git 历史，除非审计发现 hash 或计算错误，不应重跑：
+
+- PatchCore、WinCLIP、PromptAD、AnomalyDINO 等历史基线全矩阵；
+- V3.3/V3.4/V4 动态路由探索；
+- SubspaceAD V1/V2 gate；
+- Route-D oracle/predictability；
+- 权重搜索与动态对固定融合的开发期比较。
+
+需要重建的是“投稿复现链”而非“整个研究史”。2026-08-20 清理过 `outputs/dynamic_fusion` 等大缓存，因此旧 `freeze_verification.json` 的 229 项 `all_ok=true` 是当时的历史证据；当前运行 `freeze_a1_mpdd.py --verify` 会因缓存缺失失败，这是预期状态。
+
+## 3. P0 当前已经完成的部分
+
+本次已完成：
+
+1. 新建 `scripts/audit_submission_repro_package.py`，机器可读地区分版本化证据、数据、权重、环境、缓存和测试门禁。
+2. 新建 `docs/submission_reproducibility_20260826/` 作为投稿复现入口。
+3. 生成当前 `P0_LIVE_AUDIT.json` 与核心文件 SHA256 清单。
+4. 明确“无需全重跑、但必须最小重建”的边界。
+5. 把 SCI 目标从一区修正为四区：不再把新增强算法或 MVTec AD 2 设为硬性投稿前置条件。
+6. 使用 `.venv-anomalyclip` 完成 CPU 回归：5 个测试文件共 `81 passed in 6.46s`，证据见复现目录的 `CPU_REGRESSION_20260826.json`。
+
+P0 只有在第 4 节全部验收后，才能标记为真正 `submission_repro_package_complete=true`。
+
+## 4. P0 执行路线（P0-1 至 P0-3 已于 2026-08-27 完成）
+
+### Gate P0-1：环境与只读输入
+
+目标：证明脚本、数据、split、权重可用，不运行全量推理。
+
+步骤：
+
+1. 运行 P0 审计脚本并阅读 `blockers`，不要只看退出码。
+2. 恢复或确认 MVTec AD 本体；目录存在但文件数为 0 也视为缺失。
+3. CPU 测试可直接使用已验证的 `.venv-anomalyclip`；无需只为 pytest 改动 `.venv-patchcore`。若以后必须在 patchcore 环境运行，安装前后记录 `pip freeze`，且不要无约束升级 torch/faiss/numpy。
+4. 对 DINO/CLIP 导出脚本分别执行 `--validate-only`（MPDD seed0/K1）。
+5. 运行 CPU 单元测试；优先范围：
+
+```powershell
+.venv-anomalyclip\Scripts\python.exe -m pytest `
+  tests\test_freeze_a1_mpdd.py tests\test_v4_contracts.py `
+  tests\test_dynamic_fusion.py tests\test_dynamic_fusion_v2.py `
+  tests\test_dynamic_fusion_v3.py -q
+```
+
+验收：数据/权重/split 全存在；validate-only 通过；测试全过；把实际命令、解释器、版本、Git SHA 和日志保存到新的 `submission_repro_<date>` 目录。
+
+### Gate P0-2：一类一图端到端 smoke
+
+目标：以最小 GPU 成本验证“数据 → 两分支特征 → 对齐/拼接 → KNN → anomaly map → evaluator”。
+
+要求：
+
+- 只选 MPDD 一个类别、seed0、K=1，并限制为一张正常参考和一张测试图；若现有导出脚本不支持样本上限，新增 `--categories`、`--max-test-images` 的非破坏性参数，默认行为必须不变。
+- 保存 DINO/CLIP 原始 shape、grid、dtype、sample_id、参考 ID。
+- 现场确认 concat 维度，解决 1152/1536 冲突。
+- 输出一张 anomaly map 和对应指标 smoke；smoke 指标不得进入论文表。
+- 记录峰值显存、墙钟时间、CPU RAM、文件大小。
+
+验收：两个分支 sample_id 完全一致；grid 对齐明确；无 NaN/Inf；五个泄漏 flag 全 false；重复运行的数值在声明容差内一致。
+
+### Gate P0-3：四数据集精简最终证据
+
+目标：恢复论文真正需要的可核验证据，不恢复 324 GB 研究缓存。
+
+最小建议保留：
+
+- 每数据集、每 `(seed, shot)` 的 A1 concat 与 matched DINO-only 的逐图 `image_score`；
+- 压缩后的像素 anomaly map，或能从保留 patch-distance map 无损/声明精度地重建指标的最小表示；
+- sample_id、label、mask 相对路径、reference IDs、dataset/category/shot/seed；
+- 每配置和逐类别指标 JSON/CSV；
+- 配置、代码、split、checkpoint、产物 SHA256；
+- 运行日志、耗时、峰值 VRAM/RAM、磁盘占用。
+
+执行原则：
+
+1. 只重跑 A1 concat 与 matched feature-DINO-only，不重跑所有历史方法。
+2. 先 MPDD seed0/K1，全链通过后再扩至 MPDD 9 配置。
+3. 再按冻结配置运行 BTAD、MVTec、VisA；任何验证集结果都不得反向修改 w、归一化、PCA、阈值或规则。
+4. K2/K4 仅重算参考特征；测试特征应按数据集复用，避免重复存储。
+5. 每完成一个数据集立即生成审计报告和 SHA256，不等四个全部结束。
+
+验收数值采用“重算接近历史结果”而非逐位相同：
+
+- MPDD concat vs matched DINO-only ΔPixel-AP：`+0.025830`；
+- BTAD：`+0.024895`；
+- VisA：`+0.052353`；
+- MVTec：`+0.031962`。
+
+初始容差建议为绝对误差 `5e-4`。超过容差时先检查依赖、图像排序、插值、维度、`distance/2` 和 evaluator；不得为了贴合历史值而调权重。
+
+### Gate P0-4：真正可发布的 compact package
+
+2026-08-27 状态：**conditional，尚未最终通过**。数值、报告和 SHA256 已通过；剩余工作仅为真实 compact predictions、包内重算脚本、独立 rebuild manifest、投稿版 1536 维方法说明、许可证正式化与源码提交。详细验收见 P0 acceptance review。
+
+建议目录：
+
+```text
+submission_repro_<date>/
+├── README.md
+├── LICENSES_AND_DATA.md
+├── environment/
+│   ├── system.txt
+│   ├── patchcore_pip_freeze.txt
+│   └── anomalyclip_pip_freeze.txt
+├── config/
+│   ├── frozen_a1.json
+│   └── split_manifest_hashes.json
+├── evidence/
+│   ├── paper_tables/
+│   ├── per_config/
+│   ├── per_category/
+│   └── negative_results_index.md
+├── predictions_compact/
+├── logs/
+├── manifest.json
+└── SHA256SUMS
+```
+
+验收：在一个新的目录/机器上，按 README 能完成：
+
+1. CPU-only：从 compact predictions 重算论文全部表格；
+2. GPU smoke：从原图重建一个类别的两分支输出和 A1 anomaly map；
+3. `audit_submission_repro_package.py` 全门禁通过；
+4. 包中不含不能再分发的数据集、第三方权重或许可证禁止内容。
+
+## 5. P1：论文实验与统计收尾
+
+### 必做
+
+1. 用 paired image bootstrap 或按类别 bootstrap 给 A1 vs matched DINO-only 的 ΔPixel-AP 置信区间。
+2. 报告每个 shot 的三 seed mean ± std；统计单位明确为图像/类别，不能把 9 配置伪装为独立样本。
+3. 给出 worst-category、负增益类别和失败图。
+4. 完成效率表：参数是否训练、推理时间、峰值显存/RAM、memory bank 大小、compact 包大小。
+5. 公平性表显式列：backbone、输入分辨率、shot、seed、源域训练、目标正常调优、测试时适应、评价实现。
+
+### 四区投稿的“建议补做”，不是硬门槛
+
+- 一个独立新数据集（如 MVTec AD 2）可增强说服力，但不应在现阶段自动启动；先完成 P0/P1，再按期刊要求、数据可得性和时间预算决定。
+- 可以补一张 normalization/alignment 的小消融，但只有在已有缓存可低成本重算时做。
+- 不再设计动态路由、新 backbone 或新训练模块。
+
+## 6. P2：论文重写
+
+旧英文稿围绕 `When Should Visual and Language Evidence Be Fused?` 和 uncertainty routing，已与最终方法不符，必须整体重写，不能局部修补。
+
+推荐结构：
+
+1. Introduction：工业缺陷少样本问题 → 正常记忆库 → 异构预训练视觉表征互补 → 严格防泄漏固定融合的研究空缺 → 四数据集结果与失败边界。
+2. Related Work：visual memory-bank、vision-language anomaly detection、training-free/few-shot 方法；严格区分 zero-shot、target-normal tuning、transductive/test-time adaptation。
+3. Method：两个 image encoder、grid 对齐、双重 L2、等权 concat、KNN、distance/2、指标；明确没有文本推理和动态路由。
+4. Experiments：协议、数据角色、matched controls、主表、统计、效率、消融、失败案例。
+5. Discussion：为什么简单融合有效；为什么 CLIP-only 弱但能提供互补；为什么动态/同 backbone 子空间路线失败；VisA 域内和非 SOTA 限制。
+6. Conclusion：强调稳健性、审计和边界，不夸大复杂性。
+
+Introduction/Related Work 的本地资料入口为 `docs/introduction_research_20260825/INTRODUCTION_LITERATURE_MASTER_20260826.md`。该目录当前尚未纳入 Git，投稿工作开始前应先人工审阅 BibTeX 后提交。
+
+## 7. P3：SCI 四区选刊与投稿
+
+四区目标使“再造一个强算法”不再是合理的硬要求，但不降低可复现性、对照公平性和表述准确性要求。
+
+选刊时逐本核验当年 JCR/中科院分区、scope、版面费、篇幅、开放获取政策、审稿周期和近两年是否接收工业视觉异常检测。分区会变化，不在本文档固化具体期刊名单。优先选择接受应用型机器视觉、质量检测、工业 AI、可复现经验研究的期刊。
+
+投稿前最终门禁：
+
+- P0 compact package 全通过；
+- P1 统计、效率、公平性和失败案例齐全；
+- 方法维度冲突已由 smoke 实测解决；
+- 全文无 dynamic/multimodal/text-fusion 误称；
+- 表格数字可由 compact predictions 一键重算；
+- 数据和第三方权重没有被非法打包；
+- 稿件、补充材料、代码 README、cover letter 的贡献口径一致。
+
+## 8. 下一位 AI 的执行顺序
+
+严格按以下顺序，不要跳步：
+
+1. 阅读本文、`CURRENT_DYNAMIC_FUSION_STATUS.md`、复现包 README。
+2. 运行 P0 审计并修复环境/输入 blocker。
+3. 完成一类一图 smoke，实测特征维度。
+4. 冻结 corrected method spec；此后不再改算法。
+5. 重建四数据集 compact A1/DINO-only 证据并审计。
+6. 计算统计、效率与失败案例。
+7. 重写论文和图表。
+8. 再进行实时选刊检索与投稿格式适配。
+
+若任何 gate 失败：保存命令、日志、环境、hash 和失败原因，停止在该 gate；不得用旧缓存结论或验证集调参绕过。
+
+## 9. 完成交付定义（Definition of Done）
+
+只有同时满足以下条件才可向用户报告“投稿前实验完成”：
+
+- A1 从原图到 anomaly map 的 smoke 可复现；
+- 四数据集精简证据存在且 hash 固定；
+- CPU 一键重算论文表；
+- A1 vs matched DINO-only 的统计与效率完整；
+- 所有数据角色、baseline source、泄漏 flag 清楚；
+- 1152/1536 冲突已实测消除；
+- 论文不宣称动态、文本融合或 SOTA；
+- 复现包通过机器审计且许可证清单完成；
+- 最终稿与目标 SCI 四区期刊格式一致。

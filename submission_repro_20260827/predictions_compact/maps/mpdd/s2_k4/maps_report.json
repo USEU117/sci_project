@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-27T03:53:17.309909+00:00",
+  "dataset": "mpdd",
+  "seed": 2,
+  "shot": 4,
+  "kind": "compact_patch_maps_float16",
+  "map_size": [
+    448,
+    448
+  ],
+  "stride": 8,
+  "pca_dim": 0,
+  "whiten": false,
+  "dino_weight": 0.5,
+  "knn_k": 1,
+  "tolerance": 0.005,
+  "all_categories_passed": true,
+  "categories": [
+    {
+      "category": "bracket_black",
+      "test_samples": 79,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 0.000118,
+      "replay_delta_ap_dino": 1.6e-05,
+      "max_abs_metric_diff": 0.000118,
+      "passed": true
+    },
+    {
+      "category": "bracket_brown",
+      "test_samples": 77,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 1e-06,
+      "replay_delta_ap_dino": -3e-06,
+      "max_abs_metric_diff": 0.00027,
+      "passed": true
+    },
+    {
+      "category": "bracket_white",
+      "test_samples": 60,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 0.000218,
+      "replay_delta_ap_dino": -5.5e-05,
+      "max_abs_metric_diff": 0.000218,
+      "passed": true
+    },
+    {
+      "category": "connector",
+      "test_samples": 44,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 1.4e-05,
+      "replay_delta_ap_dino": 1.6e-05,
+      "max_abs_metric_diff": 5.7e-05,
+      "passed": true
+    },
+    {
+      "category": "metal_plate",
+      "test_samples": 97,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -0.0,
+      "replay_delta_ap_dino": -2e-06,
+      "max_abs_metric_diff": 2.8e-05,
+      "passed": true
+    },
+    {
+      "category": "tubes",
+      "test_samples": 101,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -7e-06,
+      "replay_delta_ap_dino": -7e-06,
+      "max_abs_metric_diff": 7e-06,
+      "passed": true
+    }
+  ]
+}

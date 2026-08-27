@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-26T14:50:30.793586+00:00",
+  "pipeline": "v3_direction_a_a1",
+  "config": "concat pca_dim=0 whiten=0 dino_weight=0.5 KNN k=1 stride=8 map=448 (dinov2_vitb14 + AnomalyCLIP)",
+  "dataset": "mpdd",
+  "seed": 1,
+  "shot": 2,
+  "mean_concat_pixel_ap": 0.365612,
+  "mean_feature_dino_only_pixel_ap": 0.340448,
+  "mean_delta_ap_vs_feature_dino": 0.025164,
+  "positive_categories": 5,
+  "baseline_source": "matched feature-level dino-only KNN (same pipeline)",
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "concat": {
+        "pixel_auroc": 0.9535093266901193,
+        "pixel_ap": 0.09204477242872657,
+        "pixel_aupro": 0.8492991253526144
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9413516297406457,
+        "pixel_ap": 0.08670479354254788,
+        "pixel_aupro": 0.8263798485966393
+      },
+      "delta_ap": 0.00534,
+      "delta_auroc": 0.012158,
+      "delta_aupro": 0.022919
+    },
+    {
+      "category": "bracket_brown",
+      "concat": {
+        "pixel_auroc": 0.891653578389159,
+        "pixel_ap": 0.031313507238529936,
+        "pixel_aupro": 0.7503562978135745
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.874812196148849,
+        "pixel_ap": 0.032808209577252966,
+        "pixel_aupro": 0.7216152140074262
+      },
+      "delta_ap": -0.001495,
+      "delta_auroc": 0.016841,
+      "delta_aupro": 0.028741
+    },
+    {
+      "category": "bracket_white",
+      "concat": {
+        "pixel_auroc": 0.9932983320251833,
+        "pixel_ap": 0.0438835154305927,
+        "pixel_aupro": 0.9741582087645779
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9911986985833037,
+        "pixel_ap": 0.03378584496525213,
+        "pixel_aupro": 0.9673200499308089
+      },
+      "delta_ap": 0.010098,
+      "delta_auroc": 0.0021,
+      "delta_aupro": 0.006838
+    },
+    {
+      "category": "connector",
+      "concat": {
+        "pixel_auroc": 0.9787622257528134,
+        "pixel_ap": 0.42481195647313635,
+        "pixel_aupro": 0.9233363886712366
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9761518124294614,
+        "pixel_ap": 0.3950564404889004,
+        "pixel_aupro": 0.9186080987466483
+      },
+      "delta_ap": 0.029756,
+      "delta_auroc": 0.00261,
+      "delta_aupro": 0.004728
+    },
+    {
+      "category": "metal_plate",
+      "concat": {
+        "pixel_auroc": 0.9776560015983063,
+        "pixel_ap": 0.8688472322630467,
+        "pixel_aupro": 0.9408736194291055
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9534588996404724,
+        "pixel_ap": 0.7909844870660587,
+        "pixel_aupro": 0.9012513170531857
+      },
+      "delta_ap": 0.077863,
+      "delta_auroc": 0.024197,
+      "delta_aupro": 0.039622
+    },
+    {
+      "category": "tubes",
+      "concat": {
+        "pixel_auroc": 0.9878714443934911,
+        "pixel_ap": 0.7327734510858935,
+        "pixel_aupro": 0.9505184875489067
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9851297211870055,
+        "pixel_ap": 0.7033493024467784,
+        "pixel_aupro": 0.9404421495696211
+      },
+      "delta_ap": 0.029424,
+      "delta_auroc": 0.002742,
+      "delta_aupro": 0.010076
+    }
+  ]
+}

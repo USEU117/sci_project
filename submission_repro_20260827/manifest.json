@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "package": "submission_repro_20260827",
+  "created_at_utc": "2026-08-27T08:00:00+08:00",
+  "title": "A1 dual-encoder visual patch fusion — compact submission reproducibility package",
+  "acceptance": {
+    "p0_1_environment_audit": "passed (P0A/P0B/P0D)",
+    "p0_2_one_class_one_image_smoke": "passed (concat dim 1536; 1152 documented as wrong)",
+    "p0_3_rebuild": "passed (MPDD/BTAD/VisA/MVTec all within 5e-4 of historical; 9/9 positive each)",
+    "p0_4_package": "submission_repro_package_complete=true (all P0A..P0I gates)",
+    "leakage_flags": "all false across datasets",
+    "paper_safe_label": "dual-encoder visual feature fusion (no dynamic router, no text features at inference)"
+  },
+  "contents": {
+    "environment": ["system.txt", "patchcore_pip_freeze.txt", "anomalyclip_pip_freeze.txt"],
+    "config": ["frozen_a1.json", "split_manifest_hashes.json"],
+    "evidence": ["P0_ACCEPTANCE_AUDIT_20260827.json", "P0_ACCEPTANCE_REVIEW_20260827.md", "P0_LIVE_AUDIT_REBUILD_20260827.json", "P0_LIVE_AUDIT.json", "CPU_REGRESSION_20260826.json", "negative_results_index.md"],
+    "evidence_paper_tables": ["main_results.json", "main_results.csv", "per_category_results.csv", "metric_definition.md"],
+    "evidence_per_config": ["mpdd/btad/visa/mvtec s{S}_k{K}.json (36 configs) + summaries + P0_3_ACCEPTANCE.json"],
+    "predictions_compact": ["{dataset}_summary.json (4)", "P0_3_ACCEPTANCE.json", "maps/{dataset}/s{S}_k{K}/{category}.npz (per-image patch maps, float16)", "maps_report.json per config"],
+    "recompute_tables.py": "package-local standalone CPU recompute (--verify-only / full with data roots)",
+    "METHOD_SPEC_V2.md": "corrected method spec (1536, dual-visual semantics)",
+    "rebuild_manifest_v2.json": "hashes of compact predictions; numerically_equivalent=true, byte_identical=false",
+    "SOURCE_COMMIT.txt": "final source commit pointer",
+    "logs": ["mvtec export queue status + 18 step logs", "visa export queue status", "build_compact_predictions.log"],
+    "manifest.json": "this file",
+    "SHA256SUMS": "package integrity"
+  },
+  "not_included": ["datasets (MPDD/BTAD/VisA/MVTec raw images)", "third-party weights (AnomalyCLIP checkpoint, DINOv2)", "GT masks", "full feature caches (stay in repo outputs/, gitignored)"]
+}

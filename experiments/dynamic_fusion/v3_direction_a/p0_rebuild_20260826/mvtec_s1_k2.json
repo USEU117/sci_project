@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-26T23:48:01.624147+00:00",
+  "pipeline": "v3_direction_a_a1",
+  "config": "concat pca_dim=0 whiten=0 dino_weight=0.5 KNN k=1 stride=8 map=448 (dinov2_vitb14 + AnomalyCLIP)",
+  "dataset": "mvtec",
+  "seed": 1,
+  "shot": 2,
+  "mean_concat_pixel_ap": 0.539377,
+  "mean_feature_dino_only_pixel_ap": 0.513965,
+  "mean_delta_ap_vs_feature_dino": 0.025412,
+  "positive_categories": 11,
+  "baseline_source": "matched feature-level dino-only KNN (same pipeline)",
+  "per_category": [
+    {
+      "category": "bottle",
+      "concat": {
+        "pixel_auroc": 0.9857793908459129,
+        "pixel_ap": 0.8068370403643286,
+        "pixel_aupro": 0.9640777294861406
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9843881417495409,
+        "pixel_ap": 0.7998536241546362,
+        "pixel_aupro": 0.9612385157439116
+      },
+      "delta_ap": 0.006983,
+      "delta_auroc": 0.001391,
+      "delta_aupro": 0.002839
+    },
+    {
+      "category": "cable",
+      "concat": {
+        "pixel_auroc": 0.9602513565766293,
+        "pixel_ap": 0.6231764085408813,
+        "pixel_aupro": 0.8876933503196558
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.930960461975177,
+        "pixel_ap": 0.586502877627926,
+        "pixel_aupro": 0.8464772270491161
+      },
+      "delta_ap": 0.036674,
+      "delta_auroc": 0.029291,
+      "delta_aupro": 0.041216
+    },
+    {
+      "category": "capsule",
+      "concat": {
+        "pixel_auroc": 0.9771992565953416,
+        "pixel_ap": 0.24073316797313118,
+        "pixel_aupro": 0.938914238426179
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9721025617709423,
+        "pixel_ap": 0.3014558513717787,
+        "pixel_aupro": 0.927946892152413
+      },
+      "delta_ap": -0.060723,
+      "delta_auroc": 0.005097,
+      "delta_aupro": 0.010967
+    },
+    {
+      "category": "carpet",
+      "concat": {
+        "pixel_auroc": 0.9917347339730673,
+        "pixel_ap": 0.5719465551134679,
+        "pixel_aupro": 0.9785193628646782
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9888935844016833,
+        "pixel_ap": 0.49288691486965996,
+        "pixel_aupro": 0.9698849723058948
+      },
+      "delta_ap": 0.07906,
+      "delta_auroc": 0.002841,
+      "delta_aupro": 0.008634
+    },
+    {
+      "category": "grid",
+      "concat": {
+        "pixel_auroc": 0.9922153576363962,
+        "pixel_ap": 0.4315649282741356,
+        "pixel_aupro": 0.9678631014793188
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9921944836450678,
+        "pixel_ap": 0.4338416799260524,
+        "pixel_aupro": 0.967366522909099
+      },
+      "delta_ap": -0.002277,
+      "delta_auroc": 2.1e-05,
+      "delta_aupro": 0.000497
+    },
+    {
+      "category": "hazelnut",
+      "concat": {
+        "pixel_auroc": 0.9945431700019969,
+        "pixel_ap": 0.7240960900353133,
+        "pixel_aupro": 0.9410422498408929
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.99453396904001,
+        "pixel_ap": 0.7619740215844958,
+        "pixel_aupro": 0.9354490695558462
+      },
+      "delta_ap": -0.037878,
+      "delta_auroc": 9e-06,
+      "delta_aupro": 0.005593
+    },
+    {
+      "category": "leather",
+      "concat": {
+        "pixel_auroc": 0.988934280978159,
+        "pixel_ap": 0.2756175844371347,
+        "pixel_aupro": 0.9730025772386112
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9878816897276372,
+        "pixel_ap": 0.31301572902835967,
+        "pixel_aupro": 0.9748267157566387
+      },
+      "delta_ap": -0.037398,
+      "delta_auroc": 0.001053,
+      "delta_aupro": -0.001824
+    },
+    {
+      "category": "metal_nut",
+      "concat": {
+        "pixel_auroc": 0.962656826288646,
+        "pixel_ap": 0.7673396754547513,
+        "pixel_aupro": 0.9432412049428022
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9564074389710837,
+        "pixel_ap": 0.7389607943628859,
+        "pixel_aupro": 0.9321019279976925
+      },
+      "delta_ap": 0.028379,
+      "delta_auroc": 0.006249,
+      "delta_aupro": 0.011139
+    },
+    {
+      "category": "pill",
+      "concat": {
+        "pixel_auroc": 0.9410979013486752,
+        "pixel_ap": 0.6202950592490071,
+        "pixel_aupro": 0.9608387857458721
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9123930438852346,
+        "pixel_ap": 0.5463989933739365,
+        "pixel_aupro": 0.9503067656748104
+      },
+      "delta_ap": 0.073896,
+      "delta_auroc": 0.028705,
+      "delta_aupro": 0.010532
+    },
+    {
+      "category": "screw",
+      "concat": {
+        "pixel_auroc": 0.9444475651218525,
+        "pixel_ap": 0.1803016570118192,
+        "pixel_aupro": 0.8101028007658787
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.907150338485952,
+        "pixel_ap": 0.1208221416382497,
+        "pixel_aupro": 0.7226229195894904
+      },
+      "delta_ap": 0.05948,
+      "delta_auroc": 0.037297,
+      "delta_aupro": 0.08748
+    },
+    {
+      "category": "tile",
+      "concat": {
+        "pixel_auroc": 0.965971131669376,
+        "pixel_ap": 0.6425860877052378,
+        "pixel_aupro": 0.9631483217228727
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9595948381507611,
+        "pixel_ap": 0.5928987265141001,
+        "pixel_aupro": 0.9555242823782854
+      },
+      "delta_ap": 0.049687,
+      "delta_auroc": 0.006376,
+      "delta_aupro": 0.007624
+    },
+    {
+      "category": "toothbrush",
+      "concat": {
+        "pixel_auroc": 0.9919004583816695,
+        "pixel_ap": 0.5903259429899175,
+        "pixel_aupro": 0.9583627290519774
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9888020283932624,
+        "pixel_ap": 0.493253010712349,
+        "pixel_aupro": 0.9573165805613054
+      },
+      "delta_ap": 0.097073,
+      "delta_auroc": 0.003098,
+      "delta_aupro": 0.001046
+    },
+    {
+      "category": "transistor",
+      "concat": {
+        "pixel_auroc": 0.9153362450093335,
+        "pixel_ap": 0.4949299831429635,
+        "pixel_aupro": 0.7078837302026131
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9061495964277895,
+        "pixel_ap": 0.4838418203343109,
+        "pixel_aupro": 0.7052779814611742
+      },
+      "delta_ap": 0.011088,
+      "delta_auroc": 0.009187,
+      "delta_aupro": 0.002606
+    },
+    {
+      "category": "wood",
+      "concat": {
+        "pixel_auroc": 0.9425002783012224,
+        "pixel_ap": 0.6792613535436444,
+        "pixel_aupro": 0.9473355942063606
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9110995697677284,
+        "pixel_ap": 0.6492282026757226,
+        "pixel_aupro": 0.9377192156381529
+      },
+      "delta_ap": 0.030033,
+      "delta_auroc": 0.031401,
+      "delta_aupro": 0.009616
+    },
+    {
+      "category": "zipper",
+      "concat": {
+        "pixel_auroc": 0.9393606443161653,
+        "pixel_ap": 0.4416409624299627,
+        "pixel_aupro": 0.8460686863418474
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9338846614611842,
+        "pixel_ap": 0.39453401224348095,
+        "pixel_aupro": 0.8307691237983397
+      },
+      "delta_ap": 0.047107,
+      "delta_auroc": 0.005476,
+      "delta_aupro": 0.0153
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "audit_kind": "submission_reproducibility_p0_live_audit",
+  "generated_at_utc": "2026-08-26T13:52:14.055007+00:00",
+  "git_head": "9cb98694c92782c8b4f6a9a60b064893eee6f36d",
+  "paper_method": "A1 dual-encoder visual patch fusion, fixed w=0.5, normal-memory KNN",
+  "method_semantics": {
+    "dynamic_router": false,
+    "explicit_text_features_used_at_inference": false,
+    "paper_safe_label": "dual-encoder visual feature fusion"
+  },
+  "versioned_evidence": [
+    {
+      "path": "docs/CURRENT_DYNAMIC_FUSION_STATUS.md",
+      "exists": true,
+      "size_bytes": 8624,
+      "sha256": "c52f9bf1ae7df51e7d791c42a089b3e85ba490626af242a8b77f54afebd31ff2"
+    },
+    {
+      "path": "experiments/dynamic_fusion/main_results_20260818/main_results.json",
+      "exists": true,
+      "size_bytes": 5718,
+      "sha256": "ed6f90e8b90acf5dd6be6a8371a1a53ab7531fa9f8ad45696fa1a73a737eec3e"
+    },
+    {
+      "path": "experiments/dynamic_fusion/main_results_20260818/main_results.csv",
+      "exists": true,
+      "size_bytes": 2027,
+      "sha256": "b5eed8df0be1e8f499c8a1706928fa2513868b39f9b774d490ed108f09eb0bd6"
+    },
+    {
+      "path": "experiments/dynamic_fusion/main_results_20260818/per_category_results.csv",
+      "exists": true,
+      "size_bytes": 1528,
+      "sha256": "9af0cf0b0872017429042e06c457aa1f65381b29c7a33b6d1b3036cfe72218e3"
+    },
+    {
+      "path": "experiments/dynamic_fusion/main_results_20260818/metric_definition.md",
+      "exists": true,
+      "size_bytes": 1047,
+      "sha256": "a502b82b6b2e3a1d0ac5533de679ec82ab08d152ccd2b9091154bbc7f6220b03"
+    },
+    {
+      "path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_manifest.json",
+      "exists": true,
+      "size_bytes": 64980,
+      "sha256": "80c5ac9bd85d7f7b0037afda222ee1ca3ad084117695bcb606108a1849c8b369"
+    },
+    {
+      "path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/freeze_verification.json",
+      "exists": true,
+      "size_bytes": 1404,
+      "sha256": "6a6a06e889809d270cee0a1c5a7e693c22e5c6aea36765b5872c7e1dddae24b6"
+    },
+    {
+      "path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/METHOD_CARD.md",
+      "exists": true,
+      "size_bytes": 8486,
+      "sha256": "75cada128ebbd9abf78635ae68741adee7425aa3bd1676d8431643e5c89e7292"
+    },
+    {
+      "path": "experiments/dynamic_fusion/freeze/a1_mpdd_w05/REPRODUCE.md",
+      "exists": true,
+      "size_bytes": 5984,
+      "sha256": "80400f2c71b1f0d1fb4b4f870a4b4ca357861d62af90e7d140ecac6240902646"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_matrix_20260817/matrix_summary.json",
+      "exists": true,
+      "size_bytes": 15072,
+      "sha256": "c11fd597c33812a1bc97a6cea983ca3e25ad46991e3c7dea52c72507588a90eb"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_matrix_20260817/matrix_audit.json",
+      "exists": true,
+      "size_bytes": 68800,
+      "sha256": "a63b3a46e5688b8f77a424dec872557e94fba91d0d42aaed6170a8561d8b93e7"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_vitb14_btad_20260819/btad_summary.json",
+      "exists": true,
+      "size_bytes": 6246,
+      "sha256": "845a750bfa8fe3ad85154b01258bafd991a73c6dc6c4eabb3fbdd85ec5dffbb1"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_vitb14_btad_20260819/btad_audit.json",
+      "exists": true,
+      "size_bytes": 51297,
+      "sha256": "aef00a04208014fbe631c0956e2d016e35b2dcaddab5b3364a7943763df99f71"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_visa_20260818/visa_summary.json",
+      "exists": true,
+      "size_bytes": 64490,
+      "sha256": "9acb4d06496cee990585dd63205f47bb18c3a7ef46248cb2fd71eda6b0f89266"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_visa_20260818/visa_audit.json",
+      "exists": true,
+      "size_bytes": 42942,
+      "sha256": "475ab359c57de326db246b03212a0cffd823e5bf7cc2c6228e3c9dd6f141250f"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_mvtec_20260818/mvtec_summary.json",
+      "exists": true,
+      "size_bytes": 76736,
+      "sha256": "1e05376f499d3137f82f97aa72fc11cf8f0d0a785a484ffaf133c7acf1a186e6"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v3_direction_a/a1_mvtec_20260818/mvtec_audit.json",
+      "exists": true,
+      "size_bytes": 49502,
+      "sha256": "462ddf16f406e6c31c3d1e373d55cd94161f8f3e92106e692518f7d285afe4fe"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v4_vision_text_20260819/00_g0_audit/modality_semantics_audit.json",
+      "exists": true,
+      "size_bytes": 2738,
+      "sha256": "d55b93699cacb15e46fbcf169e422f30cf218ff9afd9e0d4cd0f65d6f653f7e1"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v4_vision_text_20260819/04_gate_decision/gate_decision.md",
+      "exists": true,
+      "size_bytes": 9513,
+      "sha256": "210ce7a934c401df5665351a0c84cd33c17041d3de0dfa1701a982320a614bc9"
+    },
+    {
+      "path": "experiments/dynamic_fusion/v4_vision_text_20260819/06_v2_g2_audit/g2_audit_report.json",
+      "exists": true,
+      "size_bytes": 33840,
+      "sha256": "247c126ebbf48b324d6c5de8fa2cc74951c24336998e939aced969ee820c5978"
+    },
+    {
+      "path": "docs/submission_reproducibility_20260826/CPU_REGRESSION_20260826.json",
+      "exists": true,
+      "size_bytes": 852,
+      "sha256": "14161a3ecf518a347493208d430d6fcc89a0525070fdf1f2008cd7a1ad742b9b"
+    }
+  ],
+  "frozen_method_code": [
+    {
+      "path": "scripts/export_anomalydino_mpdd_features.py",
+      "exists": true,
+      "size_bytes": 6732,
+      "sha256": "0747e54b33e7964c4c10c64ae015bd2722b0ea9812be33f1a4327d1f0f3831c2"
+    },
+    {
+      "path": "scripts/export_anomalyclip_mpdd_features.py",
+      "exists": true,
+      "size_bytes": 8625,
+      "sha256": "be8c56b0a2a6f62811dab0d2edfcae7e527191ae10532d821bd2cff3dd0b4030"
+    },
+    {
+      "path": "scripts/export_a1_mpdd_ref_only.py",
+      "exists": true,
+      "size_bytes": 10647,
+      "sha256": "d7c21382731477f107a33432489a594db6ed8da6b7ea433f62ef432295c879d0"
+    },
+    {
+      "path": "scripts/export_a1_visa_features.py",
+      "exists": true,
+      "size_bytes": 10659,
+      "sha256": "7e9f15e7fa32cf96ba226dcaa4497c6f7fadf7daa031aecf53b6fced0934b816"
+    },
+    {
+      "path": "scripts/export_a1_visa_ref_only.py",
+      "exists": true,
+      "size_bytes": 10018,
+      "sha256": "8de7a0c7d373be65e17585a5c9c566fdfdfe69a317b14d98e2be48cf02049256"
+    },
+    {
+      "path": "scripts/evaluate_a1_feature_fusion.py",
+      "exists": true,
+      "size_bytes": 11676,
+      "sha256": "145f1685999ee6246f74c7f4b7d1bafcb3f37732211eaa11fb834bad409c607f"
+    },
+    {
+      "path": "scripts/evaluate_a1_visa_frozen.py",
+      "exists": true,
+      "size_bytes": 7270,
+      "sha256": "9c29750f3289bacb440b38256284ace2ee931845ff32d34bfc4bcd31f32f7b95"
+    },
+    {
+      "path": "scripts/evaluate_a1_complete_metrics.py",
+      "exists": true,
+      "size_bytes": 13227,
+      "sha256": "19966094bd8ce811ab569ad3affc197ebf29e30cf85a5d4daf96b80cde813cc0"
+    },
+    {
+      "path": "scripts/freeze_a1_mpdd.py",
+      "exists": true,
+      "size_bytes": 11663,
+      "sha256": "8958badf1eeffb1df7787e3e7b7803939867c8876d11a203c468b8c107247872"
+    },
+    {
+      "path": "scripts/build_main_results_table.py",
+      "exists": true,
+      "size_bytes": 14852,
+      "sha256": "ce7ee891d5a7e819b32947c6d4df166d4e8ef6c2b3484665ece06e9fe43573b4"
+    }
+  ],
+  "datasets": {
+    "mpdd": {
+      "path": "data/mpdd_raw/MPDD",
+      "exists": true,
+      "file_count": 1628
+    },
+    "btad": {
+      "path": "data/btad_raw",
+      "exists": true,
+      "file_count": 2831
+    },
+    "visa": {
+      "path": "data/visa_raw",
+      "exists": true,
+      "file_count": 12039
+    },
+    "mvtec": {
+      "path": "data/mvtec",
+      "exists": true,
+      "file_count": 6645
+    }
+  },
+  "split_manifests": {
+    "mpdd": {
+      "path": "data/splits/mpdd/manifest.json",
+      "exists": true,
+      "size_bytes": 15029,
+      "sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8"
+    },
+    "btad": {
+      "path": "data/splits/btad/manifest.json",
+      "exists": true,
+      "size_bytes": 6682,
+      "sha256": "40696d901a78006c342dce98625dc21221b8ee9f642ebb74b7c3f3ffc5a1d215"
+    },
+    "visa": {
+      "path": "data/splits/visa/manifest.json",
+      "exists": true,
+      "size_bytes": 16068,
+      "sha256": "35ecdd88bd3df2c7168a6c234b575ab425180946a80a93ce837d7e350b75e0f2"
+    },
+    "mvtec": {
+      "path": "data/splits/mvtec/manifest.json",
+      "exists": true,
+      "size_bytes": 17246,
+      "sha256": "0a04260becf73635dd1ffdbe6fb8f16047e6086a9d431dc973a70f2b258fe59f"
+    }
+  },
+  "weights": {
+    "anomalyclip": {
+      "path": "methods/AnomalyCLIP-main/checkpoints/9_12_4_multiscale_visa/epoch_15.pth",
+      "exists": true,
+      "size_bytes": 22631975,
+      "sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4"
+    },
+    "dinov2_vitb14": {
+      "path": "C:/Users/lynle/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+      "exists": true,
+      "size_bytes": 346378731,
+      "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    }
+  },
+  "runtime": {
+    "dynamic_fusion_cache_root_exists": false,
+    "dynamic_fusion_npz_count": 0,
+    "patchcore_python_exists": true,
+    "anomalyclip_python_exists": true,
+    "pytest_in_patchcore_env": false,
+    "pytest_in_anomalyclip_env": true
+  },
+  "gates": {
+    "P0A_versioned_evidence_indexed": true,
+    "P0B_live_inputs_available": true,
+    "P0C_live_cache_verification_ready": false,
+    "P0D_test_environment_ready": true,
+    "submission_repro_package_complete": false
+  },
+  "blockers": [
+    "A1 runtime caches were cleaned; live freeze verification and CPU table regeneration cannot pass"
+  ],
+  "interpretation": "Historical metrics remain versioned evidence, but a submission-ready package requires a bounded rebuild of compact runtime artifacts. This audit never authorizes tuning or dynamic-fusion experiments."
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-26T16:33:39.254972+00:00",
+  "pipeline": "v3_direction_a_a1",
+  "config": "concat pca_dim=0 whiten=0 dino_weight=0.5 KNN k=1 stride=8 map=448 (dinov2_vitb14 + AnomalyCLIP)",
+  "dataset": "btad",
+  "seed": 2,
+  "shot": 4,
+  "mean_concat_pixel_ap": 0.659627,
+  "mean_feature_dino_only_pixel_ap": 0.641465,
+  "mean_delta_ap_vs_feature_dino": 0.018161,
+  "positive_categories": 3,
+  "baseline_source": "matched feature-level dino-only KNN (same pipeline)",
+  "per_category": [
+    {
+      "category": "01",
+      "concat": {
+        "pixel_auroc": 0.9641118018923218,
+        "pixel_ap": 0.6097804222080466,
+        "pixel_aupro": 0.6659430861533023
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9609959540892155,
+        "pixel_ap": 0.5910991897403759,
+        "pixel_aupro": 0.6664442360661906
+      },
+      "delta_ap": 0.018681,
+      "delta_auroc": 0.003116,
+      "delta_aupro": -0.000501
+    },
+    {
+      "category": "02",
+      "concat": {
+        "pixel_auroc": 0.9635947985906239,
+        "pixel_ap": 0.6116409058697465,
+        "pixel_aupro": 0.6354045467031304
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9611237428496107,
+        "pixel_ap": 0.5783476848572489,
+        "pixel_aupro": 0.6306334737983648
+      },
+      "delta_ap": 0.033293,
+      "delta_auroc": 0.002471,
+      "delta_aupro": 0.004771
+    },
+    {
+      "category": "03",
+      "concat": {
+        "pixel_auroc": 0.9975206294334896,
+        "pixel_ap": 0.7574593332398868,
+        "pixel_aupro": 0.9873690979403956
+      },
+      "feature_dino_only": {
+        "pixel_auroc": 0.9970400313318031,
+        "pixel_ap": 0.7549495335639659,
+        "pixel_aupro": 0.9857774632460646
+      },
+      "delta_ap": 0.00251,
+      "delta_auroc": 0.000481,
+      "delta_aupro": 0.001592
+    }
+  ]
+}

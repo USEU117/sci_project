@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-26T23:59:29.009543+00:00",
+  "dataset": "mvtec",
+  "n_configs": 9,
+  "overall_mean_concat_pixel_ap": 0.554611,
+  "overall_mean_feature_dino_only_pixel_ap": 0.52265,
+  "overall_mean_delta_ap_vs_feature_dino": 0.031962,
+  "positive_configs": 9,
+  "all_positive": true,
+  "note": "9/9 means 9 reference-sampling configs on one test set, not 9 independent datasets."
+}

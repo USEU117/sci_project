@@ -1,10 +1,12 @@
-# Few-shot Industrial Anomaly Detection — Dynamic Fusion Research
+# Few-shot Industrial Anomaly Detection — Dual-Encoder Patch Fusion
 
-本仓库研究**基于不确定性路由的视觉-语言证据融合**方法，用于少样本工业异常检测。
+> 投稿收尾入口（2026-08-26）：[SCI 四区投稿与复现总交接](docs/PAPER_SUBMISSION_HANDOFF_AND_REPRODUCIBILITY_PLAN_20260826.md)；[投稿复现包审计入口](docs/submission_reproducibility_20260826/README.md)。
 
-## 当前状态 (2026-08-19)
+本仓库当前论文主线是**双编码器视觉 patch 固定融合 + 正常记忆库**，用于少样本工业异常检测。早期视觉—语言动态路由是已关闭的探索路线，仅作为负结果与研究边界保留。
 
-- **A1 主结果（双视觉固定融合）**: DINO `dinov2_vitb14` + AnomalyCLIP `ViT-L/14@336` patch 特征 concat + KNN(k=1) normal memory bank（冻结 w=0.5，非动态路由）。MPDD/BTAD/VisA/MVTec 四数据集 9/9 全正，mean ΔAP vs DINO 分别为 +0.0486 / +0.0766 / +0.0524 / +0.0320。
+## 当前状态 (2026-08-26)
+
+- **A1 主结果（双视觉固定融合）**: DINO `dinov2_vitb14` + AnomalyCLIP `ViT-L/14@336` image-tower patch 特征 concat + KNN(k=1) normal memory bank（冻结 w=0.5，非动态路由、非显式文本融合）。相对 matched feature-DINO-only KNN 的纯融合 mean ΔPixel-AP 在 MPDD/BTAD/VisA/MVTec 分别为 +0.025830 / +0.024895 / +0.052353 / +0.031962，均为 9/9 配置非负。
 - **V4 视觉—文本动态融合扩展**: 已按决策 D 关闭（官方 SubspaceAD G2 审计 FAILED，`paper_eligible=false`，G4–G11 永久阻断）。
 - 唯一权威状态: [docs/CURRENT_DYNAMIC_FUSION_STATUS.md](docs/CURRENT_DYNAMIC_FUSION_STATUS.md)；权威计划: [docs/DYNAMIC_FUSION_NEXT_STEPS.md](docs/DYNAMIC_FUSION_NEXT_STEPS.md)。
 

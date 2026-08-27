@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-08-27T04:12:11.292726+00:00",
+  "dataset": "mvtec",
+  "seed": 2,
+  "shot": 1,
+  "kind": "compact_patch_maps_float16",
+  "map_size": [
+    448,
+    448
+  ],
+  "stride": 8,
+  "pca_dim": 0,
+  "whiten": false,
+  "dino_weight": 0.5,
+  "knn_k": 1,
+  "tolerance": 0.005,
+  "all_categories_passed": true,
+  "categories": [
+    {
+      "category": "bottle",
+      "test_samples": 83,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -2e-06,
+      "replay_delta_ap_dino": 3e-06,
+      "max_abs_metric_diff": 1e-05,
+      "passed": true
+    },
+    {
+      "category": "cable",
+      "test_samples": 150,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 4e-06,
+      "replay_delta_ap_dino": 1.1e-05,
+      "max_abs_metric_diff": 3.1e-05,
+      "passed": true
+    },
+    {
+      "category": "capsule",
+      "test_samples": 132,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 9e-06,
+      "replay_delta_ap_dino": 2.4e-05,
+      "max_abs_metric_diff": 2.4e-05,
+      "passed": true
+    },
+    {
+      "category": "carpet",
+      "test_samples": 117,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 1e-06,
+      "replay_delta_ap_dino": -6e-06,
+      "max_abs_metric_diff": 2.9e-05,
+      "passed": true
+    },
+    {
+      "category": "grid",
+      "test_samples": 78,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -1e-06,
+      "replay_delta_ap_dino": 6e-06,
+      "max_abs_metric_diff": 6e-06,
+      "passed": true
+    },
+    {
+      "category": "hazelnut",
+      "test_samples": 110,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -1.1e-05,
+      "replay_delta_ap_dino": 4e-06,
+      "max_abs_metric_diff": 5.4e-05,
+      "passed": true
+    },
+    {
+      "category": "leather",
+      "test_samples": 124,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -4e-06,
+      "replay_delta_ap_dino": -1e-06,
+      "max_abs_metric_diff": 5e-06,
+      "passed": true
+    },
+    {
+      "category": "metal_nut",
+      "test_samples": 115,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -4e-06,
+      "replay_delta_ap_dino": -3e-06,
+      "max_abs_metric_diff": 2.6e-05,
+      "passed": true
+    },
+    {
+      "category": "pill",
+      "test_samples": 167,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 0.0,
+      "replay_delta_ap_dino": 0.0,
+      "max_abs_metric_diff": 1.6e-05,
+      "passed": true
+    },
+    {
+      "category": "screw",
+      "test_samples": 160,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -1.6e-05,
+      "replay_delta_ap_dino": 2.7e-05,
+      "max_abs_metric_diff": 6.7e-05,
+      "passed": true
+    },
+    {
+      "category": "tile",
+      "test_samples": 117,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 1.1e-05,
+      "replay_delta_ap_dino": 4e-06,
+      "max_abs_metric_diff": 1.1e-05,
+      "passed": true
+    },
+    {
+      "category": "toothbrush",
+      "test_samples": 42,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 1e-05,
+      "replay_delta_ap_dino": -1.2e-05,
+      "max_abs_metric_diff": 1.8e-05,
+      "passed": true
+    },
+    {
+      "category": "transistor",
+      "test_samples": 100,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -7e-06,
+      "replay_delta_ap_dino": -3e-06,
+      "max_abs_metric_diff": 2.3e-05,
+      "passed": true
+    },
+    {
+      "category": "wood",
+      "test_samples": 79,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": -4e-06,
+      "replay_delta_ap_dino": -1.1e-05,
+      "max_abs_metric_diff": 2e-05,
+      "passed": true
+    },
+    {
+      "category": "zipper",
+      "test_samples": 151,
+      "grid": [
+        32,
+        32
+      ],
+      "replay_delta_ap_concat": 3e-06,
+      "replay_delta_ap_dino": -3e-06,
+      "max_abs_metric_diff": 1.2e-05,
+      "passed": true
+    }
+  ]
+}

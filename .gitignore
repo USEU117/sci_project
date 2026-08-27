@@ -28,6 +28,10 @@ experiments/**/predictions/
 
 # Large binary prediction caches
 *.npz
+# ...but the compact package's replayable per-image maps ARE release artifacts (track them)
+!submission_repro_20260827/predictions_compact/maps/**/*.npz
+# ...and the compact package's feature-export logs are part of the evidence chain (track them)
+!submission_repro_20260827/logs/**/*.log
 
 # Python
 __pycache__/

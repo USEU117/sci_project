@@ -102,3 +102,12 @@
 | D | backbone 放大（giant） | giant 权重 4.23GB > free RAM 4.0GB，6GB GPU 无法承载，fp64 PCA 必 OOM | 不可行（资源） |
 
 要点：方向 A/B 从像素级与类别级两个层面再次证明「视觉 KNN 距离」与「视觉 PCA 残差」同 backbone 高度冗余、无互补信号，与 Route-D 的 D1 失败（LOCO 0.592）一致——当前特征下不存在可被无标签 gate 利用的互补修正时机。动态融合探索到此正式收敛为「A1 固定融合（w=0.5）+ 负结果叙事」。
+
+## 9. 投稿复现包状态（2026-08-27）
+
+- P0 四数据集研究数值重建：✅ passed。648 个分支特征 NPZ、36 个配置报告齐全；MPDD/BTAD/VisA/MVTec 相对 matched feature-DINO-only 的 ΔPixel-AP 分别为 +0.025829/+0.024895/+0.052353/+0.031962，均在历史值绝对误差 5e-4 内。
+- P0 smoke：✅ passed。实测 DINO 768 维、AnomalyCLIP image-tower 768 维、concat **1536 维**；旧文档 1152 为错误记录。
+- CPU 回归：✅ 81 passed；compact 包 83 项 SHA256：✅ all pass。
+- 可发布投稿复现包：⚠️ **conditional / 未最终通过**。当前 `predictions_compact` 仅含汇总 JSON，缺逐图可重放 patch maps、包内 CPU 重算脚本、独立 rebuild manifest、最终源码 commit 和正式许可证索引。
+- 历史 freeze byte identity：❌ 当前不成立。旧 manifest 的 legacy baseline caches 缺失，重建缓存与旧压缩文件 size 不同；只能声明数值等价，不能声明与历史 229 项 byte-identical。
+- 权威验收：`docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md`；机器审计：`P0_ACCEPTANCE_AUDIT_20260827.json`。

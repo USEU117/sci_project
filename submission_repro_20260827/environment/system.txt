@@ -1,0 +1,14 @@
+Submission reproducibility environment snapshot (2026-08-27)
+===============================================================
+
+OS            : Windows (PowerShell)
+CPU           : (see live machine)
+GPU           : NVIDIA GeForce RTX 3060 Laptop (6144 MiB VRAM)
+Python        : 3.10.11 (both .venv-patchcore and .venv-anomalyclip)
+DINOv2        : torch.hub facebookresearch/dinov2 main -> dinov2_vitb14 (448 px, grid 32x32, dim 768)
+AnomalyCLIP   : ViT-L/14@336px (518 px, grid 37x37, dim 768), checkpoint 9_12_4_multiscale_visa/epoch_15.pth
+Fusion        : L2(branch) per branch -> concat (w=0.5/0.5) -> L2 -> KNN k=1 memory bank -> distance/2 -> map 448
+Environments  :
+  - .venv-patchcore    : DINO feature export + all FAISS KNN evaluation (has faiss)
+  - .venv-anomalyclip  : AnomalyCLIP feature export (torch 2.0.0+cu118, no faiss)
+Rule          : K2/K4 recompute reference features only; test features reused from s0/k1 full caches.

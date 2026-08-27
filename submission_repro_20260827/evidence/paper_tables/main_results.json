@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "run_id": "main_results_20260818",
+  "generated_at_utc": "2026-08-18T20:00:00+00:00",
+  "frozen_config": "concat w=0.5 pca_dim=0 whiten=0 KNN k=1 stride=8 map=448 (dinov2_vitb14 + AnomalyCLIP)",
+  "rows": [
+    {
+      "dataset": "mpdd",
+      "role": "development",
+      "method": "A1 concat (frozen w=0.5)",
+      "mean_fused_pixel_ap": 0.356238,
+      "mean_delta_ap": 0.048559,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN"
+    },
+    {
+      "dataset": "mpdd",
+      "role": "development",
+      "method": "feature-DINO-only KNN",
+      "mean_fused_pixel_ap": 0.330408,
+      "mean_delta_ap": 0.022729,
+      "positive": "8/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN"
+    },
+    {
+      "dataset": "mpdd",
+      "role": "development",
+      "method": "CLIP-only KNN",
+      "mean_fused_pixel_ap": 0.285444,
+      "mean_delta_ap": -0.022235,
+      "positive": "0/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_mpdd_predictions) + matched feature-level dino-only KNN"
+    },
+    {
+      "dataset": "mpdd",
+      "role": "development",
+      "method": "A1 concat minus feature-DINO-only",
+      "mean_fused_pixel_ap": "",
+      "mean_delta_ap": 0.02583,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated)"
+    },
+    {
+      "dataset": "btad",
+      "role": "external_frozen_validation",
+      "method": "A1 concat (frozen w=0.5)",
+      "mean_fused_pixel_ap": 0.645512,
+      "mean_delta_ap": 0.076575,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))"
+    },
+    {
+      "dataset": "btad",
+      "role": "external_frozen_validation",
+      "method": "feature-DINO-only KNN",
+      "mean_fused_pixel_ap": 0.620617,
+      "mean_delta_ap": 0.05168,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "legacy v2 dino score cache (v2_btad_predictions, matched per (seed, shot))"
+    },
+    {
+      "dataset": "btad",
+      "role": "external_frozen_validation",
+      "method": "A1 concat minus feature-DINO-only",
+      "mean_fused_pixel_ap": "",
+      "mean_delta_ap": 0.024895,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "matched feature-level dino-only KNN (concat contribution isolated; CLIP-only not evaluated standalone on BTAD)"
+    },
+    {
+      "dataset": "visa",
+      "role": "in_domain_frozen_validation",
+      "method": "A1 concat (frozen w=0.5)",
+      "mean_fused_pixel_ap": 0.372479,
+      "mean_delta_ap": 0.052353,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    },
+    {
+      "dataset": "visa",
+      "role": "in_domain_frozen_validation",
+      "method": "feature-DINO-only KNN",
+      "mean_fused_pixel_ap": 0.320125,
+      "mean_delta_ap": 0.0,
+      "positive": "0/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    },
+    {
+      "dataset": "visa",
+      "role": "in_domain_frozen_validation",
+      "method": "CLIP-only KNN",
+      "mean_fused_pixel_ap": 0.230102,
+      "mean_delta_ap": -0.090023,
+      "positive": "0/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    },
+    {
+      "dataset": "mvtec",
+      "role": "external_frozen_validation",
+      "method": "A1 concat (frozen w=0.5)",
+      "mean_fused_pixel_ap": 0.554611,
+      "mean_delta_ap": 0.031962,
+      "positive": "9/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    },
+    {
+      "dataset": "mvtec",
+      "role": "external_frozen_validation",
+      "method": "feature-DINO-only KNN",
+      "mean_fused_pixel_ap": 0.522649,
+      "mean_delta_ap": 0.0,
+      "positive": "0/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    },
+    {
+      "dataset": "mvtec",
+      "role": "external_frozen_validation",
+      "method": "CLIP-only KNN",
+      "mean_fused_pixel_ap": 0.465395,
+      "mean_delta_ap": -0.057254,
+      "positive": "0/9",
+      "n_configs": 9,
+      "baseline_source": "feature-level dino-only KNN (no v2 score cache on this dataset)"
+    }
+  ],
+  "recompute_checks": [
+    {
+      "dataset": "mpdd",
+      "mode": "concat",
+      "recomputed_from_reports": 0.048559,
+      "reported_in_summary": 0.048559,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "dataset": "btad",
+      "mode": "concat",
+      "recomputed_from_reports": 0.076575,
+      "reported_in_summary": 0.076575,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "dataset": "visa",
+      "mode": "concat",
+      "recomputed_from_reports": 0.052353,
+      "reported_in_summary": 0.052353,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "dataset": "mvtec",
+      "mode": "concat",
+      "recomputed_from_reports": 0.031962,
+      "reported_in_summary": 0.031962,
+      "abs_diff": 0.0,
+      "pass": true
+    }
+  ],
+  "recompute_all_pass": true,
+  "note": "9/9 means 9 reference-sampling configs on one test set, not 9 independent datasets."
+}

@@ -1,0 +1,26 @@
+Using cache found in C:\Users\lynle/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\lynle/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\lynle/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\lynle/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Loading model: dinov2_vitb14
+Device: cuda:0
+Smaller edge size: 448
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\bottle.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\cable.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\capsule.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\carpet.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\grid.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\hazelnut.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\leather.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\metal_nut.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\pill.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\screw.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\tile.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\toothbrush.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\transistor.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\wood.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features_vitb14\s0_k4\anomalydino_visual\zipper.npz
+{"status": "passed", "n_categories": 15, "branch": "dino"}

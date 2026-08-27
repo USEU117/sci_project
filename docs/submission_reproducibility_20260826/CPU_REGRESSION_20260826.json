@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "run_id": "submission_p0_cpu_regression_20260826",
+  "executed_at_local": "2026-08-26",
+  "git_head_before_new_p0_files": "9cb98694c92782c8b4f6a9a60b064893eee6f36d",
+  "interpreter": ".venv-anomalyclip/Scripts/python.exe",
+  "command": ".venv-anomalyclip\\Scripts\\python.exe -m pytest tests\\test_freeze_a1_mpdd.py tests\\test_v4_contracts.py tests\\test_dynamic_fusion.py tests\\test_dynamic_fusion_v2.py tests\\test_dynamic_fusion_v3.py -q",
+  "result": {
+    "status": "passed",
+    "passed": 81,
+    "failed": 0,
+    "duration_seconds": 6.46
+  },
+  "scope": "CPU contracts, freeze verifier behavior, V1/V2/V3 fusion tests, and V4 contracts; no GPU inference or experiment rerun",
+  "note": ".venv-patchcore lacks pytest, but the existing AnomalyCLIP environment successfully ran the full selected CPU regression set."
+}

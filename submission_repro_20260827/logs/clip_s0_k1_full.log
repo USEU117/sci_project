@@ -1,0 +1,32 @@
+D:\STUDY\My_github\sci_project\methods\AnomalyCLIP-main\AnomalyCLIP_lib\model_load.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging
+name ViT-L/14@336px
+text_layer False
+text_layer True
+Initializing class-specific contexts
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+single_para torch.Size([4, 768])
+embedding_pos torch.Size([1, 77, 768])
+tokenized_prompts shape torch.Size([1, 1, 77]) torch.Size([1, 1, 77])
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\bottle.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\cable.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\capsule.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\carpet.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\grid.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\hazelnut.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\leather.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\metal_nut.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\pill.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\screw.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\tile.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\toothbrush.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\transistor.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\wood.npz
+wrote D:\STUDY\My_github\sci_project\outputs\dynamic_fusion\v3_direction_a\mvtec_features\s0_k1\anomalyclip_text\zipper.npz
+{"status": "passed", "n_categories": 15, "branch": "clip"}
