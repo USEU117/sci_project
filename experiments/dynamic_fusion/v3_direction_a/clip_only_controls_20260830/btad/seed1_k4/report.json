@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "kind": "clip_image_tower_only_complete_metrics",
+  "dataset": "btad",
+  "dataset_role": "external_frozen_validation",
+  "seed": 1,
+  "shot": 4,
+  "method_definition": "AnomalyCLIP ViT-L/14@336 image tower only; no text; frozen patch features; native CLIP grid; branch L2; FAISS IndexFlatL2 k=1; distance/2; dists2map 448; stride=8; image score=max-pool",
+  "stride": 8,
+  "map_size": 448,
+  "chunk": 16384,
+  "created_at_utc": "2026-08-30T03:44:16.966307+00:00",
+  "clip_only": {
+    "mean": {
+      "image": {
+        "image_auroc": 0.860786,
+        "image_ap": 0.735031,
+        "image_f1_max": 0.766941
+      },
+      "pixel": {
+        "pixel_auroc": 0.955468,
+        "pixel_ap": 0.411666,
+        "pixel_aupro": 0.728575
+      }
+    },
+    "per_category": [
+      {
+        "category": "01",
+        "n_images": 70,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9698736637512148,
+          "image_ap": 0.9897755555480916,
+          "image_f1_max": 0.968421052631579
+        },
+        "pixel": {
+          "pixel_auroc": 0.9544105690179394,
+          "pixel_ap": 0.5291160868693771,
+          "pixel_aupro": 0.6827625168869702
+        }
+      },
+      {
+        "category": "02",
+        "n_images": 230,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.7851666666666668,
+          "image_ap": 0.9629673128713974,
+          "image_f1_max": 0.9324009324009325
+        },
+        "pixel": {
+          "pixel_auroc": 0.9351067518620931,
+          "pixel_ap": 0.49624723566817985,
+          "pixel_aupro": 0.5909577350162837
+        }
+      },
+      {
+        "category": "03",
+        "n_images": 441,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.8273170731707318,
+          "image_ap": 0.2523512341407482,
+          "image_f1_max": 0.4
+        },
+        "pixel": {
+          "pixel_auroc": 0.9768880020074294,
+          "pixel_ap": 0.2096357357949153,
+          "pixel_aupro": 0.9120055956455538
+        }
+      }
+    ]
+  }
+}

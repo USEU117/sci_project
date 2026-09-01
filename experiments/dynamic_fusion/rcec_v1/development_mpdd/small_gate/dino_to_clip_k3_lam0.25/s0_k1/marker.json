@@ -1,0 +1,9 @@
+{
+  "config_sha256": "7b90a05952670c516c90fc08bf22e7b508a4e99887ba155742d3b0dae5457707",
+  "candidate": {
+    "direction": "dino_to_clip",
+    "k": 3,
+    "lambda": 0.25
+  },
+  "created_at_utc": "2026-09-01T16:35:09.611512+00:00"
+}

@@ -1,0 +1,13 @@
+﻿dataset,shot,concat_bank_mb_f32
+mpdd,1,37.75
+mpdd,2,75.5
+mpdd,4,150.99
+btad,1,20.84
+btad,2,41.68
+btad,4,83.36
+visa,1,99.88
+visa,2,199.75
+visa,4,399.51
+mvtec,1,94.37
+mvtec,2,188.74
+mvtec,4,377.49

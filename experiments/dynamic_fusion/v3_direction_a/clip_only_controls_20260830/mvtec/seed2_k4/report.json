@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "kind": "clip_image_tower_only_complete_metrics",
+  "dataset": "mvtec",
+  "dataset_role": "external_frozen_validation",
+  "seed": 2,
+  "shot": 4,
+  "method_definition": "AnomalyCLIP ViT-L/14@336 image tower only; no text; frozen patch features; native CLIP grid; branch L2; FAISS IndexFlatL2 k=1; distance/2; dists2map 448; stride=8; image score=max-pool",
+  "stride": 8,
+  "map_size": 448,
+  "chunk": 16384,
+  "created_at_utc": "2026-08-30T04:02:04.745728+00:00",
+  "clip_only": {
+    "mean": {
+      "image": {
+        "image_auroc": 0.941766,
+        "image_ap": 0.966609,
+        "image_f1_max": 0.938434
+      },
+      "pixel": {
+        "pixel_auroc": 0.956949,
+        "pixel_ap": 0.480885,
+        "pixel_aupro": 0.884049
+      }
+    },
+    "per_category": [
+      {
+        "category": "bottle",
+        "n_images": 83,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9857142857142857,
+          "image_ap": 0.9956813321001783,
+          "image_f1_max": 0.9677419354838709
+        },
+        "pixel": {
+          "pixel_auroc": 0.959560337610061,
+          "pixel_ap": 0.7023783874683345,
+          "pixel_aupro": 0.8853836805905687
+        }
+      },
+      {
+        "category": "cable",
+        "n_images": 150,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.887743628185907,
+          "image_ap": 0.9228590804325651,
+          "image_f1_max": 0.8617021276595744
+        },
+        "pixel": {
+          "pixel_auroc": 0.9130784122761354,
+          "pixel_ap": 0.40868298089314814,
+          "pixel_aupro": 0.737333355639696
+        }
+      },
+      {
+        "category": "capsule",
+        "n_images": 132,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9202233745512565,
+          "image_ap": 0.980877321400029,
+          "image_f1_max": 0.9519650655021834
+        },
+        "pixel": {
+          "pixel_auroc": 0.9804916054347604,
+          "pixel_ap": 0.40497436353568284,
+          "pixel_aupro": 0.9553349743625582
+        }
+      },
+      {
+        "category": "carpet",
+        "n_images": 117,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9991974317817015,
+          "image_ap": 0.9997530559328314,
+          "image_f1_max": 0.9943502824858756
+        },
+        "pixel": {
+          "pixel_auroc": 0.982942761455015,
+          "pixel_ap": 0.5560318966106889,
+          "pixel_aupro": 0.9574363733950717
+        }
+      },
+      {
+        "category": "grid",
+        "n_images": 78,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9724310776942355,
+          "image_ap": 0.9906630299849497,
+          "image_f1_max": 0.954954954954955
+        },
+        "pixel": {
+          "pixel_auroc": 0.9548910991500549,
+          "pixel_ap": 0.2576436578792431,
+          "pixel_aupro": 0.8690724583433904
+        }
+      },
+      {
+        "category": "hazelnut",
+        "n_images": 110,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9835714285714285,
+          "image_ap": 0.991020802458165,
+          "image_f1_max": 0.9558823529411765
+        },
+        "pixel": {
+          "pixel_auroc": 0.9817889099735985,
+          "pixel_ap": 0.4914431948059497,
+          "pixel_aupro": 0.901758429236625
+        }
+      },
+      {
+        "category": "leather",
+        "n_images": 124,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 1.0,
+          "image_ap": 1.0000000000000002,
+          "image_f1_max": 1.0
+        },
+        "pixel": {
+          "pixel_auroc": 0.9868057606807134,
+          "pixel_ap": 0.19775898927955443,
+          "pixel_aupro": 0.9646430985972966
+        }
+      },
+      {
+        "category": "metal_nut",
+        "n_images": 115,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9848484848484849,
+          "image_ap": 0.9965039396587655,
+          "image_f1_max": 0.9782608695652174
+        },
+        "pixel": {
+          "pixel_auroc": 0.9526701960875436,
+          "pixel_ap": 0.7418711936861508,
+          "pixel_aupro": 0.9010381364634769
+        }
+      },
+      {
+        "category": "pill",
+        "n_images": 167,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9356246590289143,
+          "image_ap": 0.9831954958972028,
+          "image_f1_max": 0.9652777777777778
+        },
+        "pixel": {
+          "pixel_auroc": 0.9662467485771231,
+          "pixel_ap": 0.6378875890599522,
+          "pixel_aupro": 0.9327039892422795
+        }
+      },
+      {
+        "category": "screw",
+        "n_images": 160,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.7907358065177291,
+          "image_ap": 0.908480903256384,
+          "image_f1_max": 0.8744939271255061
+        },
+        "pixel": {
+          "pixel_auroc": 0.965529759855758,
+          "pixel_ap": 0.13941169884856455,
+          "pixel_aupro": 0.8656985213556878
+        }
+      },
+      {
+        "category": "tile",
+        "n_images": 117,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9992784992784993,
+          "image_ap": 0.9997182206215818,
+          "image_f1_max": 0.9940828402366864
+        },
+        "pixel": {
+          "pixel_auroc": 0.9521003374979055,
+          "pixel_ap": 0.6407542180222492,
+          "pixel_aupro": 0.9522331668177896
+        }
+      },
+      {
+        "category": "toothbrush",
+        "n_images": 42,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.9083333333333333,
+          "image_ap": 0.966441629931514,
+          "image_f1_max": 0.8923076923076922
+        },
+        "pixel": {
+          "pixel_auroc": 0.9896095372721448,
+          "pixel_ap": 0.6699370033041224,
+          "pixel_aupro": 0.9089549847110309
+        }
+      },
+      {
+        "category": "transistor",
+        "n_images": 100,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.8604166666666666,
+          "image_ap": 0.7920520145660375,
+          "image_f1_max": 0.7599999999999999
+        },
+        "pixel": {
+          "pixel_auroc": 0.8545498582347526,
+          "pixel_ap": 0.3562643248480935,
+          "pixel_aupro": 0.6524412412378974
+        }
+      },
+      {
+        "category": "wood",
+        "n_images": 79,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 1.0,
+          "image_ap": 1.0,
+          "image_f1_max": 1.0
+        },
+        "pixel": {
+          "pixel_auroc": 0.9650545704249324,
+          "pixel_ap": 0.5693772027852106,
+          "pixel_aupro": 0.9345676286008122
+        }
+      },
+      {
+        "category": "zipper",
+        "n_images": 151,
+        "clip_grid": [
+          37,
+          37
+        ],
+        "sample_reorder_count": 0,
+        "image": {
+          "image_auroc": 0.8983718487394958,
+          "image_ap": 0.9718845978599842,
+          "image_f1_max": 0.9254901960784314
+        },
+        "pixel": {
+          "pixel_auroc": 0.9489106884131394,
+          "pixel_ap": 0.4388587656887539,
+          "pixel_aupro": 0.8421381471158125
+        }
+      }
+    ]
+  },
+  "existing_pixel_report_crosscheck": {
+    "source": "experiments/dynamic_fusion/v3_direction_a/a1_mvtec_20260818/seed2_k4/clip_pca0_whiten0_w0.5_report.json",
+    "deltas": {
+      "pixel_auroc": 0.0,
+      "pixel_ap": 0.0,
+      "pixel_aupro": 0.0
+    },
+    "within_5e-6": true
+  }
+}

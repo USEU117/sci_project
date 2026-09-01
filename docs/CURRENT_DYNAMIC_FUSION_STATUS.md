@@ -1,21 +1,22 @@
 # 动态融合权威状态（CURRENT STATUS）
 
-更新日期：2026-08-19 · RunId：`current_dynamic_fusion_status_20260818`
-机器可读版：[current_dynamic_fusion_status.json](file:///d:/STUDY/My_github/sci_project/docs/current_dynamic_fusion_status.json)
+最新人工复核：2026-09-01 · 原机器快照 RunId：`current_dynamic_fusion_status_20260818`
+机器可读历史快照：`docs/current_dynamic_fusion_status.json`
 状态快照：`experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/state.json`
 
-本文件是**唯一权威状态**。旧历史报告（阶段七 2026-08-17、V3/V2 各版本）只读保留，不代表当前结论。
+本文件保留算法路线和机器状态的权威历史记录。面向导师汇报和论文写作的最新、浅显总览为 `docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md`；最终方法细节以 `submission_repro_20260827/METHOD_SPEC_V2.md` 为准。旧历史报告（阶段七 2026-08-17、V3/V2 各版本）只读保留，不代表当前结论。
 
 ---
 
 ## 1. 方法（Method）
 
-**名称**：Reference-Conditioned Multimodal Feature Fusion with a Normal Memory Bank（即 A1）
+**名称**：Frozen Dual-Encoder Visual Feature Fusion with a Normal Memory Bank（即 A1）
 
 - 分支：DINO `dinov2_vitb14` patch 特征 + AnomalyCLIP `ViT-L/14@336` patch 特征
 - 融合：各分支 L2-normalize → CLIP grid 对齐 DINO grid → concat → L2-normalize → KNN(k=1) normal memory bank → distance/2 = 像素异常图
 - 冻结配置：`pca_dim=0, whiten=0, dino_weight=0.5, stride=8, map=448`
 - memory bank 只由当前 seed/shot 的 K 张正常参考图构建；测试标签/掩码只进 evaluator
+- 最终推理只使用两个图像编码器，不计算文本 embedding；concat 维度为 1536，不是历史误记的 1152。
 - 五项泄漏字段全 `false`；**不是动态路由**（固定融合，权重不随测试图变化）
 
 ## 2. 数据集角色（权威口径）
@@ -72,7 +73,7 @@
 2. ✅ 36份 image+pixel 完整指标报告已汇总进 `p1_e_complete_metrics.*`；无需重跑模型。论文须保留 BTAD 图像级 AP/F1 下降的边界。
 3. ✅ A1 成功/失败定性图已生成（7 张固定案例，`scripts/build_a1_qualitative_figures.py`；图文件在 `outputs/p1_b_figures/`，source manifest 在包内 `evidence/p1/p1_b_figures_manifest.*`）；P1-B sample IDs 已用于选例，未据图调参。
 4. ✅ 带数字的跨方法 baseline 对照表已入包（`evidence/p1/p1_r3_baseline_comparison.*`，由 `scripts/build_cross_method_comparison_table.py` 生成，显式标注协议边界，不宣称全面 SOTA）。
-5. 公开发布前人工事项：自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**（仓库根 `LICENSE`，Copyright 2026 LiYuening，随包分发）；仍须确认 MPDD/BTAD 使用与再分发条款。
+5. 公开发布前人工事项：自研代码 LICENSE 已于 2026-08-27 选定为 **MIT**；2026-08-30 后续核验已确认 MPDD 为 CC BY-NC-SA 4.0、BTAD 为 CC BY-SA 4.0。数据原图与第三方权重继续不入包，正式 release 时需刷新许可说明和哈希。
 6. S6/P2 论文交付：关闭上述准备 Gate 后按7节结构写作，全部数字可追溯。
 7. ~~路线 D~~ → **本项目停止该路线**（D0 通过但 D1 失败：像素级虽有互补上限，但当前无标签特征不能可靠预测A1的修正时机；按设计审查第 12 节第 9 条停止扩展）。
 
@@ -121,7 +122,7 @@
   - `rebuild_manifest_v2.json`：324 个 compact npz SHA256，`numerically_equivalent_to_historical=true`、`byte_identical_to_historical=false`；历史 `freeze_manifest.json` 原样保留。
   - `SOURCE_COMMIT.txt`：最终源码提交 `12e1fcf`，dirty=false；提交后已重新生成 `SHA256SUMS`（447 条受校验记录全通过；包内 448 个文件含清单自身）。
   - `METHOD_SPEC_V2.md` 已固定 1536/双视觉语义，`anomalyclip_text` 仅为历史目录名。
-  - `LICENSES_AND_DATA.md` 已修正 MPDD 数据集身份并补入四数据集官方/作者托管 URL；根目录代码 `LICENSE` 已于 2026-08-27 选定 **MIT** 并随包分发（包内 `LICENSE` 哈希已入 `SHA256SUMS`），MPDD/BTAD 的标准许可文本仍未明确核验。因此技术复现 Gate 已通过，**公开发布许可仅剩 MPDD/BTAD 数据条款待确认**。
+  - `LICENSES_AND_DATA.md` 是 2026-08-27 的冻结快照，当时尚未完成 MPDD/BTAD 许可核验。2026-08-30 后续证据已确认 MPDD 为 CC BY-NC-SA 4.0、BTAD 为 CC BY-SA 4.0；为保持冻结哈希，不静默修改旧包，正式 release 时统一刷新该文件和校验清单。
 - 历史 freeze byte identity：❌ 仍不成立（仅声明数值等价，见 `rebuild_manifest_v2.json`）。
 - 权威验收：`docs/submission_reproducibility_20260826/P0_ACCEPTANCE_REVIEW_20260827.md`；机器审计：`P0_ACCEPTANCE_AUDIT_20260827.json`（`submission_repro_package_complete=true`）。
 
@@ -131,11 +132,33 @@
 
 1. **P1-A 统计**：✅ 已完成。`scripts/p1_stats_bootstrap.py` 从 324 个 compact maps + 用户 mask 生成 36 配置的 category bootstrap 与异常图像级 per-image ΔAP bootstrap 95% CI；`p1_a_bootstrap_ci.*` 含 dataset×shot 三 seed mean±std；四数据集均值 0.025839/0.024896/0.052361/0.031957，与主表差 ≤8e-6（≤5e-4）。统计层级已明确（类别=论文口径 pooled AP；图像=异常图 per-image ΔAP）。
 2. **P1-B 失败边界**：✅ 已完成。`p1_b_failure_boundaries.md` 列出每 dataset worst category（mvtec leather −0.043、visa chewinggum −0.039、mvtec hazelnut −0.030 等）与 10 个负增益 dataset@category；`p1_b_failure_samples.csv` 含每配置 top-5 逐图失败样例 ID（仅 ID，不复制原图）。
-3. **P1-C 效率**：✅ 已入包。`p1_c_efficiency.*`：0 训练参数；单图特征提取（smoke 实测，含一次性加载）DINO 10.2s / CLIP 9.0s；峰值 VRAM DINO 374.6 / CLIP 2072.8 MB；按 dataset×shot 记忆库 patch 数与 float32 MB；compact 包 186.5 MB。门禁通过；若论文需稳态吞吐，后续可补预热 benchmark 与峰值 RAM（非门禁项）。
+3. **P1-C 效率**：✅ 已入包。`p1_c_efficiency.*`：0 训练参数；稳态 DINO 0.0626s / CLIP 0.3049s / 对齐+concat+KNN 0.0471s，端到端 0.4146s、2.412 image/s；峰值 VRAM 约 2073MB，峰值 RAM 3980.9MB；按 dataset×shot 记忆库 patch 数与 float32 MB；compact 包约 186.8MB。
 4. **P1-D 公平性**：✅ 已纠错并完成。AnomalyDINO 项目实际为 `dinov2_vits14_448`、training-free；WinCLIP+ 为项目统一1/2/4-shot三 seed 矩阵，zero-shot WinCLIP 单独报告。
 5. **P1-E 完整指标主表**：✅ 已聚合。`p1_e_complete_metrics.*` 汇总四数据集36份报告、72个method-config rows和六项指标，输入哈希齐全；相对P0 Pixel-AP最大差 `3e-6`。重要边界：四数据集稳定提升针对Pixel-AP；BTAD Image-AP约 `−0.0131`、Image-F1-max约 `−0.0237`，不得宣称所有检测/定位指标全面提升。
 6. **定性图**：✅ 已完成（R4）。`scripts/build_a1_qualitative_figures.py` 从 P1-B 固定 sample IDs + compact concat/DINO maps + 合法本地原图/GT 生成 7 张固定成功/失败案例图（含 DINO-only 与 A1 对照、逐图 Pixel-AP）；图文件本地保存于 `outputs/p1_b_figures/`（gitignored，含不可再分发原图），包内 `evidence/p1/p1_b_figures_manifest.*` 记录选择规则、source IDs 与文件哈希；未据图调参。
-7. **发布人工 Gate**：代码 LICENSE 已选 **MIT**（2026-08-27，根 `LICENSE` 已落盘并随包分发）；仍须确认 MPDD/BTAD 的使用与再分发条款。R3 跨方法 baseline 对照表已入包，R1–R4 机器可执行 Gate 全部关闭。
+7. **发布人工 Gate**：代码 LICENSE 已选 **MIT**；MPDD 官方仓库为 CC BY-NC-SA 4.0，BTAD 原作者仓库链接确认 CC BY-SA 4.0。数据原图和第三方权重继续不进入 compact 包；最终公开前仍需刷新 release notice、哈希和归档 URL。
 8. **P2/P3**：上述准备完成后重写论文，再实时核验目标 SCI 四区期刊的最新分区、scope 与格式。
 
 P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、输入 source pointer 与无测试标签调参声明。P1-C 的预热端到端稳态 benchmark 与峰值进程 RAM 已实测并入包（`scripts/p1_c_benchmark.py`，MVTec bottle s0/k1：DINO 0.0631s / CLIP 0.3047s / concat 0.0471s，端到端 0.4146s、2.412 img/s，峰值进程 RAM 3980.9MB）。
+
+## 11. 2026-09-01 论文准备增量
+
+1. BTAD/MVTec CLIP-image-only：✅ 18/18 配置、六指标完成；A1 Pixel-AP 在两数据集全部 18 个配置中高于 CLIP-only。结果在 `experiments/dynamic_fusion/v3_direction_a/clip_only_controls_20260830/`。
+2. 数据许可：✅ BTAD 确认为 CC BY-SA 4.0；✅ MPDD 官方仓库为 CC BY-NC-SA 4.0。不得把 VT-ADL 代码的 MIT 许可证误写为 BTAD 数据许可证。
+3. 论文图件：✅ 11 张图完成，包括方法、协议、配置增益、类别边界、六指标、三分支、效率及成功/失败案例；定量图均有 SVG/PDF/600-dpi PNG，QA 通过。
+4. 中文导师会议总览：✅ `docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md`。
+5. 当前阶段：停止算法扩展，进入目标期刊选择、英文 Method/Experiments/Results 写作、引用核验和投稿声明准备。
+
+## 12. RCEC 创新方向实现与验收（2026-09-01，负结果归档）
+
+按任务书 `docs/paper_writing_preparation_20260830/11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md` 完成工程交付与科研验收，**Phase 2 小门失败 → 按第 8 节停止规则早停并归档**，A1 保持论文主方法不变。
+
+| 项 | 结果 |
+|---|---|
+| Phase 0 输入审计 | ✅ 通过（`experiments/dynamic_fusion/rcec_v1/PHASE0_INPUT_AUDIT.md`；A1 冻结证据未修改） |
+| 单元/技术测试 | ✅ 18/18 通过（`tests/test_rcec.py`，patchcore 环境） |
+| Phase 2 MPDD 小门（12 候选 × seed0 × shot 1/2/4） | ❌ 0/12 通过（`small_gate_summary.csv`、`SMALL_GATE_REPORT.json`） |
+| 早停决定 | ✅ `RCEC_V1_EARLY_STOP_REPORT.json`（winners=[]，按任务书不运行 full/freeze/验证） |
+| 最终决策 | **ARCHIVE**（`FINAL_RCEC_DECISION.md`） |
+
+关键数值：12 个预注册候选（direction × k ∈ {1,3,5} × λ ∈ {0.25,0.50}）在 MPDD seed0 全部低于 A1；最佳候选 `dino_to_clip_k5_lam0.25` 平均 ΔPixel-AP **−0.0071**（仅 1/3 shot 正），λ 越大退化越严重，k=5 略优于 k=1，dino_to_clip 平均优于 symmetric。结论如实写入论文 Discussion/Future Work：正常参考条件下的跨编码器邻域分歧没有稳定超过固定拼接，简单互补收益并不必然转化为可利用的局部一致性信号。RCEC 相关源码/配置/runner/测试全部保留，负结果不隐藏、不改门槛、不换主指标。

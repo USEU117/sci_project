@@ -1,0 +1,5 @@
+﻿figure,dataset,category,seed,shot,sample_id,dino_pixel_ap,a1_pixel_ap,delta_pixel_ap,selection_rule
+Fig08,visa,cashew,0,1,cashew/Data/Images/Anomaly/085.JPG,0.0734,0.6758,0.6025,max per-image ΔAP among anomalous test images
+Fig08,mvtec,toothbrush,0,1,toothbrush/test/defective/004.png,0.4217,0.7444,0.3227,max per-image ΔAP among anomalous test images
+Fig09,visa,chewinggum,0,1,chewinggum/Data/Images/Anomaly/037.JPG,0.2769,0.1124,-0.1645,min per-image ΔAP among anomalous test images
+Fig09,mvtec,leather,0,1,leather/test/poke/016.png,0.9294,0.2345,-0.6948,P1-B top-1 failure sample

@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "kind": "manuscript_figure_package",
+  "source_policy": "frozen project evidence; no test-driven figure selection beyond recorded manifests",
+  "quantitative_formats": [
+    "SVG editable",
+    "PDF vector",
+    "PNG 600 dpi"
+  ],
+  "word_target_width_cm": 17.8,
+  "files": [
+    {
+      "figure_id": "Fig01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig01_method_overview.png",
+      "format": "png",
+      "bytes": 373461,
+      "sha256": "da09bcf22e60f04b12d35b7b9edcb48114ca0e59703b54cd2b89820250d5f291",
+      "distribution": "manuscript-ready",
+      "pixel_width": 3349,
+      "pixel_height": 1595,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig01_method_overview.svg",
+      "format": "svg",
+      "bytes": 12248,
+      "sha256": "eb7b3b1c1302ed9749f69a055eb429ab405cc6d362fa6f2c550df07a6a548704",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig01_method_overview.pdf",
+      "format": "pdf",
+      "bytes": 55802,
+      "sha256": "f9e913b7d2894e342f7aa566a0814f1a54a7135194802ad55191919314441b11",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig02_protocol_and_dataset_roles.png",
+      "format": "png",
+      "bytes": 263923,
+      "sha256": "d551df254cf3e79e6ee0c4243fa06d70b463db1a326afacf599ac9de4fa38369",
+      "distribution": "manuscript-ready",
+      "pixel_width": 3349,
+      "pixel_height": 1272,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig02_protocol_and_dataset_roles.svg",
+      "format": "svg",
+      "bytes": 8600,
+      "sha256": "3439f639f8d97b15640c533b64e5dd42d721a08f216ae60bb923b64c238c4556",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig02_protocol_and_dataset_roles.pdf",
+      "format": "pdf",
+      "bytes": 48068,
+      "sha256": "d3057a1d9f16ab68338e0d1480119aa9944c303736752125c0fb421fb9780ca2",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig03",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig03_configuration_level_pixel_ap_gains.png",
+      "format": "png",
+      "bytes": 333156,
+      "sha256": "7b17f76530a3841fb5f6316b42471fe7b71c50d396eaf8d9c8c1ef5c5be1970d",
+      "distribution": "manuscript-ready",
+      "pixel_width": 4110,
+      "pixel_height": 2720,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig03",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig03_configuration_level_pixel_ap_gains.svg",
+      "format": "svg",
+      "bytes": 32715,
+      "sha256": "5b95b91c504d7df33360facff5e4cf8b944a33f1ba5b046102e72de48c846b5b",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig03",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig03_configuration_level_pixel_ap_gains.pdf",
+      "format": "pdf",
+      "bytes": 44328,
+      "sha256": "f4aa6e45ba9ee55ddaf861a182f4842367b9ef5e8fbb9186ffbddc3e672d8807",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig04",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig04_category_gain_loss_extremes.png",
+      "format": "png",
+      "bytes": 472674,
+      "sha256": "3e664153a3cc8f69a1cc69884ef85e7667281bec921855a7b26370573e0c11d7",
+      "distribution": "manuscript-ready",
+      "pixel_width": 3780,
+      "pixel_height": 3097,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig04",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig04_category_gain_loss_extremes.svg",
+      "format": "svg",
+      "bytes": 23986,
+      "sha256": "3c54e425bc2b28fa86c5b0300a4cfcd5803b70935bda528c5134dea0755f6186",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig04",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig04_category_gain_loss_extremes.pdf",
+      "format": "pdf",
+      "bytes": 33603,
+      "sha256": "af76ed53acde2fa198ca972b846231bbec9518279f87294e3ced5c301fb597e2",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "FigS01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/FigS01_all_category_gain_loss.png",
+      "format": "png",
+      "bytes": 760299,
+      "sha256": "2a00f668f71d982617922533a77a42223dbe14c24db90510d4202fa53de4f3f5",
+      "distribution": "manuscript-ready",
+      "pixel_width": 3780,
+      "pixel_height": 4707,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "FigS01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/FigS01_all_category_gain_loss.svg",
+      "format": "svg",
+      "bytes": 37512,
+      "sha256": "2e110ed146445e8da0290e0e7cd7b213980d39295621ae8cbe85506fca2fd495",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "FigS01",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/FigS01_all_category_gain_loss.pdf",
+      "format": "pdf",
+      "bytes": 35283,
+      "sha256": "c69eaf1ad480b4d421cf431b9fa05da600a9c56dd51366ebc2d754e0c1fd0861",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "FigS02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/FigS02_shot_wise_gain_stability.png",
+      "format": "png",
+      "bytes": 193144,
+      "sha256": "eb910a6df7082a137368cbbf1144c4d6e63134a4a5875e6eb27620bea4d986ec",
+      "distribution": "manuscript-ready",
+      "pixel_width": 4044,
+      "pixel_height": 1860,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "FigS02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/FigS02_shot_wise_gain_stability.svg",
+      "format": "svg",
+      "bytes": 21915,
+      "sha256": "78f475d555c4b85beedeef314d74eaaf7394d3999109480ff51b587cfd2519c0",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "FigS02",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/FigS02_shot_wise_gain_stability.pdf",
+      "format": "pdf",
+      "bytes": 30031,
+      "sha256": "3b492f99e3c0c4d458d600bd302c4cbd164d2b2b71d6f9d2aaf1ca8cbbe3082c",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig05",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig05_complete_metric_delta_heatmap.png",
+      "format": "png",
+      "bytes": 247568,
+      "sha256": "4c52dba8631d477089985f2d4f0844ffd7e20807d626f1c8c8cd976da0a4f931",
+      "distribution": "manuscript-ready",
+      "pixel_width": 4248,
+      "pixel_height": 1650,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig05",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig05_complete_metric_delta_heatmap.svg",
+      "format": "svg",
+      "bytes": 14417,
+      "sha256": "1eec7b58dcfe877e3b92d71e342a6adff87e8fbb34a0745a195136278533945d",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig05",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig05_complete_metric_delta_heatmap.pdf",
+      "format": "pdf",
+      "bytes": 43516,
+      "sha256": "4ee9ee39e3ca492e42871c2fff2101bdddf2179fb1385b9b040cc1b950c2115f",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig06",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig06_three_way_clip_dino_a1_pixel_ap.png",
+      "format": "png",
+      "bytes": 161378,
+      "sha256": "0e251056b0d802f503588d19d75f0ff52deb778e2d08096069ebff554cf7ff20",
+      "distribution": "manuscript-ready",
+      "pixel_width": 4052,
+      "pixel_height": 1660,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig06",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig06_three_way_clip_dino_a1_pixel_ap.svg",
+      "format": "svg",
+      "bytes": 14470,
+      "sha256": "cf353b78e909f588652a0539118018ee7112951cce38dfc9a44e8a014ee35fc4",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig06",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig06_three_way_clip_dino_a1_pixel_ap.pdf",
+      "format": "pdf",
+      "bytes": 27707,
+      "sha256": "16b1ba54c469a71a0a5f9f2bcda43494d0628c97e8e1525cd146059d3a332a49",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig07",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/png_600dpi/Fig07_efficiency_and_memory_cost.png",
+      "format": "png",
+      "bytes": 365771,
+      "sha256": "eb3575def566d6f9c90745601f67dac49a53095d79fb61711651b5f661203551",
+      "distribution": "manuscript-ready",
+      "pixel_width": 4000,
+      "pixel_height": 2146,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig07",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/svg_editable/Fig07_efficiency_and_memory_cost.svg",
+      "format": "svg",
+      "bytes": 20218,
+      "sha256": "0a1990705fe9048e7390338d5db6ad76e5b325f79b44d453fc236f85affd7669",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig07",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/pdf_vector/Fig07_efficiency_and_memory_cost.pdf",
+      "format": "pdf",
+      "bytes": 48968,
+      "sha256": "b4828cd41e8ee76ed711cabe850bfcc2092d8864fddc6130fec3f65d63620ad7",
+      "distribution": "manuscript-ready"
+    },
+    {
+      "figure_id": "Fig08",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/qualitative_local_only/Fig08_qualitative_successes.png",
+      "format": "png",
+      "bytes": 5934791,
+      "sha256": "80bc2e706c2ecc09d3938dfd775888c54fad4df4917ff520e2073cf8eb19d81a",
+      "distribution": "local manuscript use only; contains dataset images",
+      "pixel_width": 4432,
+      "pixel_height": 2861,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "Fig09",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/qualitative_local_only/Fig09_qualitative_failures.png",
+      "format": "png",
+      "bytes": 6032829,
+      "sha256": "3d083ebe7bbf08b24d5e294f23761d2a6c1ac3a2ef0e8e65813dd5457e59f531",
+      "distribution": "local manuscript use only; contains dataset images",
+      "pixel_width": 4432,
+      "pixel_height": 2861,
+      "dpi": [
+        600.0,
+        600.0
+      ]
+    },
+    {
+      "figure_id": "QA",
+      "path": "docs/paper_writing_preparation_20260830/figures_20260830/CONTACT_SHEET.png",
+      "format": "png",
+      "bytes": 1998964,
+      "sha256": "2876a1bb4c690ced5758cca6f8608b31476177dba0d9d2ced195b3c58b9fa969",
+      "distribution": "internal visual QA",
+      "pixel_width": 1880,
+      "pixel_height": 3960,
+      "dpi": [
+        150.0,
+        150.0
+      ]
+    }
+  ]
+}

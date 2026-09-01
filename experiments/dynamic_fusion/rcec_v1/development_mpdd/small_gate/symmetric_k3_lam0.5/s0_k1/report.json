@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "method": "rcec_v1",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shot": 1,
+  "candidate": {
+    "direction": "symmetric",
+    "k": 3,
+    "lambda": 0.5
+  },
+  "created_at_utc": "2026-09-01T17:08:35.973616+00:00",
+  "inputs": {
+    "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+    "dino_cache_sha256": "4fcfdd9de5ee726db2b7bc85835a7bd32adac2bcd8764288b37bb81042e40a52",
+    "clip_cache_sha256": "01a524bfc0b609e0fb8145c9200f0b6df2940feb0801e70c57f18f5964a70c65"
+  },
+  "calibration": {
+    "kind": "median_mad",
+    "exclusion_rule": "self_and_chebyshev_radius_1",
+    "test_statistics_used": false
+  },
+  "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+  },
+  "metrics": {
+    "rcec": {
+      "pixel": {
+        "pixel_auroc": 0.949246,
+        "pixel_ap": 0.290217,
+        "pixel_aupro": 0.857019
+      },
+      "image": {
+        "image_auroc": 0.68936,
+        "image_ap": 0.701189,
+        "image_f1_max": 0.79622
+      }
+    },
+    "a1": {
+      "pixel": {
+        "pixel_auroc": 0.959673,
+        "pixel_ap": 0.309212,
+        "pixel_aupro": 0.881029
+      },
+      "image": {
+        "image_auroc": 0.714252,
+        "image_ap": 0.744503,
+        "image_f1_max": 0.80492
+      }
+    },
+    "dino": {
+      "pixel": {
+        "pixel_auroc": 0.951304,
+        "pixel_ap": 0.279435,
+        "pixel_aupro": 0.858642
+      },
+      "image": {
+        "image_auroc": 0.675066,
+        "image_ap": 0.700591,
+        "image_f1_max": 0.791876
+      }
+    },
+    "delta_rcec_vs_a1": {
+      "pixel": {
+        "pixel_auroc": -0.010427,
+        "pixel_ap": -0.018995,
+        "pixel_aupro": -0.02401
+      },
+      "image": {
+        "image_auroc": -0.024892,
+        "image_ap": -0.043314,
+        "image_f1_max": -0.0087
+      }
+    }
+  },
+  "per_category": [
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "bracket_black",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 79,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.05145522952079773,
+          "mad": 0.01613786816596985
+        },
+        "cond": {
+          "median": 0.12916619330644608,
+          "mad": 0.05517533794045448
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.9363236894961615,
+            "pixel_ap": 0.009117527673895813,
+            "pixel_aupro": 0.8187142353590527
+          },
+          "image": {
+            "image_auroc": 0.4208776595744681,
+            "image_ap": 0.5530807924139985,
+            "image_f1_max": 0.7519999999999999
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.9419426178752512,
+            "pixel_ap": 0.010484230297130095,
+            "pixel_aupro": 0.8343202993504832
+          },
+          "image": {
+            "image_auroc": 0.4275265957446808,
+            "image_ap": 0.5621490941122234,
+            "image_f1_max": 0.7768595041322314
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.9399050558624943,
+            "pixel_ap": 0.02069839107314895,
+            "pixel_aupro": 0.8354733511309114
+          },
+          "image": {
+            "image_auroc": 0.43417553191489366,
+            "image_ap": 0.5875729912503661,
+            "image_f1_max": 0.7580645161290321
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.005618928379089727,
+            "pixel_ap": -0.0013667026232342828,
+            "pixel_aupro": -0.015606063991430497
+          },
+          "image": {
+            "image_auroc": -0.006648936170212727,
+            "image_ap": -0.009068301698224812,
+            "image_f1_max": -0.02485950413223148
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    },
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "bracket_brown",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 77,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.049000442028045654,
+          "mad": 0.01438838243484497
+        },
+        "cond": {
+          "median": 0.12003469094634056,
+          "mad": 0.04877447336912155
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.8848799784390554,
+            "pixel_ap": 0.02950492403027388,
+            "pixel_aupro": 0.7322111758336687
+          },
+          "image": {
+            "image_auroc": 0.5354449472096531,
+            "image_ap": 0.6996812070105294,
+            "image_f1_max": 0.8031496062992126
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.9098311319262187,
+            "pixel_ap": 0.034445725691726756,
+            "pixel_aupro": 0.7656182677882136
+          },
+          "image": {
+            "image_auroc": 0.5603318250377074,
+            "image_ap": 0.7399949469760592,
+            "image_f1_max": 0.796875
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.8964984841071368,
+            "pixel_ap": 0.037136519799972977,
+            "pixel_aupro": 0.736039022475877
+          },
+          "image": {
+            "image_auroc": 0.4856711915535445,
+            "image_ap": 0.6761955522801084,
+            "image_f1_max": 0.796875
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.024951153487163258,
+            "pixel_ap": -0.004940801661452877,
+            "pixel_aupro": -0.03340709195454494
+          },
+          "image": {
+            "image_auroc": -0.02488687782805432,
+            "image_ap": -0.04031373996552978,
+            "image_f1_max": 0.006274606299212615
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    },
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "bracket_white",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 60,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.04809102416038513,
+          "mad": 0.01513013243675232
+        },
+        "cond": {
+          "median": 0.11978936940431595,
+          "mad": 0.053669560700654984
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.9918075477767363,
+            "pixel_ap": 0.02594306091524339,
+            "pixel_aupro": 0.9729101527225934
+          },
+          "image": {
+            "image_auroc": 0.6133333333333334,
+            "image_ap": 0.5334412925352305,
+            "image_f1_max": 0.7397260273972602
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.9942810208045932,
+            "pixel_ap": 0.08474999424338445,
+            "pixel_aupro": 0.9800886686539717
+          },
+          "image": {
+            "image_auroc": 0.7855555555555556,
+            "image_ap": 0.7564372591813036,
+            "image_f1_max": 0.8059701492537312
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.9916050513343317,
+            "pixel_ap": 0.07165047828223282,
+            "pixel_aupro": 0.9706874126073353
+          },
+          "image": {
+            "image_auroc": 0.7044444444444444,
+            "image_ap": 0.6461388369463097,
+            "image_f1_max": 0.7692307692307693
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.002473473027856943,
+            "pixel_ap": -0.05880693332814106,
+            "pixel_aupro": -0.007178515931378304
+          },
+          "image": {
+            "image_auroc": -0.17222222222222217,
+            "image_ap": -0.22299596664607302,
+            "image_f1_max": -0.066244121856471
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    },
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "connector",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 44,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.05348169803619385,
+          "mad": 0.016469299793243408
+        },
+        "cond": {
+          "median": 0.11730368807911873,
+          "mad": 0.04966593161225319
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.9301339004663279,
+            "pixel_ap": 0.10758584473543185,
+            "pixel_aupro": 0.7656663813580818
+          },
+          "image": {
+            "image_auroc": 0.6261904761904762,
+            "image_ap": 0.4440819875589098,
+            "image_f1_max": 0.5581395348837208
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.9488032889058804,
+            "pixel_ap": 0.1261113138350907,
+            "pixel_aupro": 0.8234195534106892
+          },
+          "image": {
+            "image_auroc": 0.5714285714285714,
+            "image_ap": 0.4311063420475626,
+            "image_f1_max": 0.5185185185185185
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.9425367535680464,
+            "pixel_ap": 0.0878855136033341,
+            "pixel_aupro": 0.8025077326242148
+          },
+          "image": {
+            "image_auroc": 0.519047619047619,
+            "image_ap": 0.32758276612205484,
+            "image_f1_max": 0.5531914893617021
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.01866938843955246,
+            "pixel_ap": -0.01852546909965884,
+            "pixel_aupro": -0.05775317205260733
+          },
+          "image": {
+            "image_auroc": 0.05476190476190479,
+            "image_ap": 0.012975645511347222,
+            "image_f1_max": 0.03962101636520232
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    },
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "metal_plate",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 97,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.04410755634307861,
+          "mad": 0.01554650068283081
+        },
+        "cond": {
+          "median": 0.11035654321312904,
+          "mad": 0.053794100880622864
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.9718270793044014,
+            "pixel_ap": 0.8621272900424518,
+            "pixel_aupro": 0.9228152103228455
+          },
+          "image": {
+            "image_auroc": 0.9978331527627302,
+            "image_ap": 0.9992006779740839,
+            "image_f1_max": 0.993006993006993
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.9769343464782272,
+            "pixel_ap": 0.8713213302117278,
+            "pixel_aupro": 0.9350448152758589
+          },
+          "image": {
+            "image_auroc": 1.0,
+            "image_ap": 1.0,
+            "image_f1_max": 1.0
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.9546154574307617,
+            "pixel_ap": 0.7632618043324304,
+            "pixel_aupro": 0.8741240832101284
+          },
+          "image": {
+            "image_auroc": 0.9745395449620802,
+            "image_ap": 0.9912933697120341,
+            "image_f1_max": 0.9436619718309859
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.0051072671738258135,
+            "pixel_ap": -0.009194040169275941,
+            "pixel_aupro": -0.012229604953013395
+          },
+          "image": {
+            "image_auroc": -0.0021668472372697867,
+            "image_ap": -0.0007993220259161493,
+            "image_f1_max": -0.006993006993006978
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    },
+    {
+      "schema_version": 1,
+      "method": "rcec_v1",
+      "category": "tubes",
+      "seed": 0,
+      "shot": 1,
+      "n_test_images": 101,
+      "grid": [
+        32,
+        32
+      ],
+      "candidate": {
+        "direction": "symmetric",
+        "k": 3,
+        "lambda": 0.5
+      },
+      "calibration": {
+        "a1": {
+          "median": 0.05592814087867737,
+          "mad": 0.016582489013671875
+        },
+        "cond": {
+          "median": 0.12520410120487213,
+          "mad": 0.052426617592573166
+        },
+        "exclusion_rule": "self_and_chebyshev_radius_1",
+        "n_ref_patches": 1024,
+        "test_statistics_used": false
+      },
+      "metrics": {
+        "rcec": {
+          "pixel": {
+            "pixel_auroc": 0.9805053769711096,
+            "pixel_ap": 0.7070261168081824,
+            "pixel_aupro": 0.9297986081517067
+          },
+          "image": {
+            "image_auroc": 0.942481884057971,
+            "image_ap": 0.9776452420700743,
+            "image_f1_max": 0.9312977099236642
+          }
+        },
+        "a1": {
+          "pixel": {
+            "pixel_auroc": 0.986248366671753,
+            "pixel_ap": 0.7281610764536796,
+            "pixel_aupro": 0.9476833385694861
+          },
+          "image": {
+            "image_auroc": 0.9406702898550725,
+            "image_ap": 0.9773282124774338,
+            "image_f1_max": 0.9312977099236642
+          }
+        },
+        "dino": {
+          "pixel": {
+            "pixel_auroc": 0.9826653714007247,
+            "pixel_ap": 0.6959782220794166,
+            "pixel_aupro": 0.933021139052116
+          },
+          "image": {
+            "image_auroc": 0.9325181159420289,
+            "image_ap": 0.9747606302963413,
+            "image_f1_max": 0.9302325581395349
+          }
+        },
+        "delta_rcec_vs_a1": {
+          "pixel": {
+            "pixel_auroc": -0.005742989700643353,
+            "pixel_ap": -0.021134959645497164,
+            "pixel_aupro": -0.017884730417779382
+          },
+          "image": {
+            "image_auroc": 0.0018115942028984477,
+            "image_ap": 0.00031702959264046093,
+            "image_f1_max": 0.0
+          }
+        }
+      },
+      "leakage_flags": {
+        "test_labels_used_by_method": false,
+        "test_masks_used_by_method": false,
+        "test_distribution_used_for_calibration": false,
+        "validation_dataset_used_for_tuning": false,
+        "category_specific_test_rules_used": false
+      },
+      "checks": {
+        "no_nan_inf_scores": true,
+        "finite_ref_stats": true
+      }
+    }
+  ],
+  "checks": {
+    "all_finite": true
+  }
+}

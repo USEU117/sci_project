@@ -1,0 +1,9 @@
+{
+  "config_sha256": "7b90a05952670c516c90fc08bf22e7b508a4e99887ba155742d3b0dae5457707",
+  "candidate": {
+    "direction": "symmetric",
+    "k": 3,
+    "lambda": 0.25
+  },
+  "created_at_utc": "2026-09-01T17:05:00.158478+00:00"
+}

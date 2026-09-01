@@ -1,0 +1,7 @@
+﻿dataset,method,pixel_ap_mean,pixel_ap_std
+btad,CLIP image only,0.400588,0.027743
+btad,DINO only,0.620617,0.01832
+btad,A1 fixed concat,0.645512,0.012408
+mvtec,CLIP image only,0.465395,0.017983
+mvtec,DINO only,0.522649,0.01839
+mvtec,A1 fixed concat,0.554611,0.019612

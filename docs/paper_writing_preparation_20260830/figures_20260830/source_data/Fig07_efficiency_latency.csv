@@ -1,0 +1,4 @@
+﻿stage,seconds_per_image
+DINO extraction,0.0626
+CLIP extraction,0.3049
+Align + concat + k-NN,0.0471

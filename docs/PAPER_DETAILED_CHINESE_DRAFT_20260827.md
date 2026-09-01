@@ -1,10 +1,14 @@
 # 论文详细中文初稿：冻结双视觉编码器的少样本工业异常定位
 
-版本：2026-08-27 初稿  
+版本：2026-09-01 更新版（原 2026-08-27 初稿）
 定位：用于解释论文完整故事、支撑后续英文改写；当前不追求目标期刊排版。  
-证据边界：以 `CURRENT_DYNAMIC_FUSION_STATUS.md`、`METHOD_SPEC_V2.md` 和投稿复现包 P0/P1 证据为准。
+证据边界：以 `METHOD_SPEC_V2.md`、投稿复现包 P0/P1 证据、`clip_only_controls_20260830` 和论文写作准备目录为准。
 
 ---
+
+## 2026-09-01 更新说明
+
+本文的方法主线和四数据集 A1 结论仍然有效。本次补入 8 月 27 日之后完成的内容：BTAD/MVTec 共 18 组 CLIP-image-only 六指标对照、BTAD 与 MPDD 许可核验、11 张论文图及图件 QA，以及当前投稿准备状态。用于向导师口头汇报时，优先阅读 `docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md`；本文继续作为论文中文母稿。
 
 ## 一、建议题目
 
@@ -59,6 +63,10 @@
 
 第七，完成了可复现投稿包。包内包含冻结配置、split 和权重哈希、324 个可重放 compact patch maps、独立 CPU 重算程序、逐配置报告、统计表、失败样例、协议公平性表以及 SHA256 完整性校验，但不重新分发数据集原图和第三方权重。
 
+第八，补齐了 BTAD 和 MVTec 的 CLIP-image-only 完整对照。两数据集共 18 个 seed/shot 配置，使用相同参考 ID 和评估器计算六项指标。A1 的 Pixel-AP 在 18/18 配置中高于 CLIP-image-only，排除了“融合只是被更强 CLIP 单分支替代”的简单解释。
+
+第九，完成了论文图件与许可证据。当前图件包包含方法图、协议图、36 配置增益、类别增益/负迁移、六指标热图、三分支对照、效率、成功/失败案例和补充图，共 11 张；定量图均有 SVG、PDF 和 600-dpi PNG。BTAD 已确认 CC BY-SA 4.0，MPDD 官方仓库为 CC BY-NC-SA 4.0；数据原图和第三方权重仍不进入公开复现包。
+
 ---
 
 ## 四、摘要初稿
@@ -66,6 +74,8 @@
 工业异常检测通常只能获得少量正常参考图，而异常样本稀缺且类型开放。近年来，冻结视觉基础模型和视觉—语言预训练模型分别表现出较强的局部表征能力，但在严格 normal-only 协议下，异构 patch 表征能否以简单、可复现的方式形成稳定互补，仍缺少充分的跨数据集验证。本文提出一种零训练的冻结双视觉编码器特征融合方法。该方法分别从 DINOv2 ViT-B/14 和 AnomalyCLIP ViT-L/14@336 图像塔提取 768 维 patch 特征，将后者的空间网格对齐到前者，对两个分支分别进行 L2 归一化后等权拼接为 1536 维表示，并利用 K 张正常参考图构建 KNN 正常记忆库。测试 patch 到最近正常 patch 的距离用于生成像素级异常图。整个推理过程不使用显式文本特征、动态路由、参数训练或测试标签校准。
 
 我们在 MPDD、BTAD、VisA 和 MVTec AD 上按照 1/2/4-shot、3-seed 协议进行评估，并采用相同管线下的 DINO-only KNN 作为 matched control。相较于该控制方法，所提出的固定融合在四个数据集的 9 个 seed/shot 配置中均获得正的平均 Pixel-AP 增益，数据集级增益分别为 0.0258、0.0249、0.0524 和 0.0320。完整六指标结果表明，融合同时改善了四个数据集的 Pixel-AUROC、Pixel-AP 和 Pixel-AUPRO，但 BTAD 的 Image-AP 和 Image-F1-max 分别下降约 0.0131 和 0.0237，说明局部定位互补并不必然转化为图像级决策增益。逐类别分析进一步发现 MVTec leather、VisA chewinggum 等稳定负迁移类别。实验还表明，更复杂的动态路由未能稳定超过等权固定融合。本文的主要贡献是一种简单的冻结双视觉 patch 融合基线，以及一套包含防泄漏协议、matched control、跨数据集验证、统计区间、失败边界和可重放证据的严谨评估框架。
+
+补充的 BTAD/MVTec CLIP-image-only 控制表明，CLIP 图像塔单独的 Pixel-AP 分别为 0.4006 和 0.4654，低于 matched DINO-only；而 A1 分别达到 0.6455 和 0.5546，并在 18/18 个参考配置中高于 CLIP-image-only。该结果与较弱分支仍提供互补局部信息的解释一致，但不构成对具体互补机制的因果证明。
 
 关键词：工业异常检测；少样本异常检测；异常定位；DINOv2；AnomalyCLIP；特征融合；正常记忆库；可复现性
 
@@ -204,6 +214,8 @@ CLIP 通过大规模图文对比预训练建立视觉和语言的共享表征空
 
 从 shot 维度看，MPDD 的平均增益在 1/2/4-shot 下分别为 +0.0210、+0.0277 和 +0.0288；BTAD 为 +0.0258、+0.0239 和 +0.0250；VisA 为 +0.0558、+0.0523 和 +0.0490；MVTec AD 为 +0.0348、+0.0311 和 +0.0300。融合收益没有随着参考图增加而单调扩大。一个合理解释是：更多正常图会同时增强两个方法的正常覆盖，使单分支 DINO 的不足有所缩小；融合的主要价值在极少参考条件下可能更明显。不过这一解释属于结果推断，不能写成已直接验证的机制。
 
+补充的三分支控制进一步说明，A1 的收益不是由一个本来就更强的 CLIP 图像分支单独造成：BTAD 的 CLIP-image-only、DINO-only 和 A1 Pixel-AP 分别为 0.4006、0.6206 和 0.6455；MVTec AD 分别为 0.4654、0.5226 和 0.5546。A1 在两数据集全部 18 个配置中均高于 CLIP-image-only。更谨慎的结论是：结果支持两个分支包含互补信息，而不是证明具体特征机制。
+
 ### 9.2 完整六指标结果
 
 A1 在四个数据集的 Pixel-AUROC、Pixel-AP 和 Pixel-AUPRO 上都高于 matched DINO-only。这支持“融合改善像素定位”的中心结论。图像级结果则更复杂：MPDD、VisA 和 MVTec AD 的三个图像指标均改善；BTAD 的 Image-AUROC 轻微提高 0.0039，但 Image-AP 下降 0.0131，Image-F1-max 下降 0.0237。
@@ -255,6 +267,10 @@ AnomalyCLIP 的来源是视觉—语言模型，但 A1 推理没有文本输入�
 ### 10.4 负结果的意义
 
 负结果不是项目失败，而是定义了适用范围。动态方案未稳定胜出，说明无需为复杂性本身付出代价；某些类别持续下降，说明固定融合仍不能识别所有局部冲突；BTAD 图像级指标下降，说明定位与分类需要不同的 aggregation 设计。这些发现可指导未来工作研究无标签冲突检测、类别不可知的可靠性估计或分别优化 pixel-level 与 image-level scoring，但不要求本文继续扩展算法。
+
+### 10.5 参考条件跨编码器一致性的边界（RCEC）
+
+我们进一步检验了"参考条件跨编码器一致性（Reference-Conditioned Cross-Encoder Consistency, RCEC）"：显式利用正常记忆库中 DINO 结构与 CLIP 语义的成对 patch 对应，先由 DINO 检索正常结构邻居，再检查 CLIP 是否认可同一批邻居，把跨分支分歧本身当作异常证据。该机制在 MPDD development 集的 12 个预注册候选（方向 × k ∈ {1,3,5} × λ ∈ {0.25,0.50}，只读参考校准、方法层不读标签）上全部低于固定等权拼接 A1，最佳候选平均 ΔPixel-AP 约 −0.0071，即正常参考条件下的跨编码器邻域分歧没有稳定超过固定拼接。这说明简单互补收益并不必然转化为可利用的局部一致性信号，可写入 Future Work 作为后续研究无标签局部冲突检测的起点，但不作为本文方法贡献。
 
 ---
 
@@ -316,7 +332,8 @@ AnomalyCLIP 的来源是视觉—语言模型，但 A1 推理没有文本输入�
 3. 将定性图放在 Results 或 Discussion，至少同时展示一个明显成功案例和 MVTec leather 失败案例。
 4. 动态路线放在消融或补充材料，用一句主结论说明复杂路由无稳定增益；V3.3 泄漏结果只用于研究过程审计，不作为有效实验。
 5. 投稿前人工复核 `references.bib` 中题名、作者、年份、卷期、页码、DOI 和正式出版状态，尤其是 2026 年论文条目。
-6. 公开数据或代码时继续排除原始数据、GT mask 和第三方权重；MPDD/BTAD 数据使用条款需作者最终确认。
+6. 公开数据或代码时继续排除原始数据、GT mask 和第三方权重；BTAD 已核实为 CC BY-SA 4.0，MPDD 官方仓库为 CC BY-NC-SA 4.0，最终 release notice 仍需随目标期刊和公开方式统一更新。
+7. 论文图件包已经生成 11 张图，定量图有 SVG/PDF/600-dpi PNG；正式成稿时按目标期刊双栏宽度插入，不重新独立归一化定性热图。
 
 ---
 
@@ -334,4 +351,7 @@ AnomalyCLIP 的来源是视觉—语言模型，但 A1 推理没有文本输入�
 - 跨方法对照：`submission_repro_20260827/evidence/p1/p1_r3_baseline_comparison.*`
 - Introduction 文献入口：`docs/introduction_research_20260825/INTRODUCTION_LITERATURE_MASTER_20260826.md`
 - BibTeX 草稿：`docs/introduction_research_20260825/references.bib`
-
+- 导师会议版中文总览：`docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md`
+- BTAD/MVTec CLIP-only 控制：`docs/paper_writing_preparation_20260830/09_BTAD_MVTEC_CLIP_ONLY_CONTROL_RESULTS.md`
+- BTAD 许可证据：`docs/paper_writing_preparation_20260830/BTAD_LICENSE_EVIDENCE.md`
+- 论文图件与英文图注：`docs/paper_writing_preparation_20260830/figures_20260830/README.md`

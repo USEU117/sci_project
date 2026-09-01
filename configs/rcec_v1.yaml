@@ -1,0 +1,31 @@
+# RCEC v1 — Reference-Conditioned Cross-Encoder Consistency
+# Pre-registered configuration (task book section 6.3). Only MPDD development
+# may tune; BTAD / MVTec AD / VisA are frozen-validation only.
+
+method: rcec_v1
+development_dataset: mpdd
+seeds: [0, 1, 2]
+shots: [1, 2, 4]
+directions: [dino_to_clip, symmetric]
+neighbor_k: [1, 3, 5]
+lambda: [0.25, 0.50]
+normal_calibration:
+  kind: median_mad
+  mad_scale: 1.4826
+  epsilon: 1.0e-6
+  z_clip: [-5.0, 10.0]
+  shot_ge_2_exclusion: leave_one_reference_image_out
+  shot_1_exclusion: self_and_chebyshev_radius_1
+postprocess:
+  gaussian_sigma: 4
+  map_size: [448, 448]
+  interpolation: bilinear
+validation_datasets: [btad, mvtec, visa]
+forbid_validation_tuning: true
+# Fixed (never scanned)
+fixed:
+  dino_weight: 0.5
+  knn_memory_k: 1
+  stride: 8
+  a1_image_score: max
+  shuffle_seeds: [0, 1, 2]
