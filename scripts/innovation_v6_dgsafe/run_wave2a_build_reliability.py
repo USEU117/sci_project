@@ -231,17 +231,17 @@ def score_pool(extractor, pool, layers, pca_params):
 
 def z_from_pool(score_grids: list) -> list:
     """score_grids: list of 48x48 grids of the pool -> per-image z maps."""
-    flat = np.stack(score_grids).reshape(len(score_grids), -1)   # (P,2304)
+    flat = np.stack(score_grids).reshape(len(score_grids), GRID * GRID)  # (P,2304)
     P = flat.shape[0]
-    sorted_pool = np.sort(flat, axis=0)          # ascending per pixel
-    zs = []
-    for i in range(P):
-        idx = np.searchsorted(sorted_pool, flat[i], side="left")
+    z = np.empty_like(flat)
+    tiny = np.finfo(np.float64).tiny
+    for p in range(GRID * GRID):
+        a = np.sort(flat[:, p])                       # pool values at pixel p
+        idx = np.searchsorted(a, flat[:, p], side="left")   # #pool < value
         count_ge = P - idx
-        p = (1.0 + count_ge) / (2.0 + P)
-        z = np.clip(-np.log(np.maximum(p, np.finfo(np.float64).tiny)), 0.0, Z_CAP)
-        zs.append(z.reshape(GRID, GRID))
-    return zs
+        pr = (1.0 + count_ge) / (2.0 + P)
+        z[:, p] = np.clip(-np.log(np.maximum(pr, tiny)), 0.0, Z_CAP)
+    return [z[i].reshape(GRID, GRID) for i in range(P)]
 
 
 def percentile_ranks_risk(vals: list) -> list:
