@@ -1,4 +1,4 @@
-# 夜间自主运行报告（2026-09-02 23:42 – 2026-09-03 04:30 主体完成）
+# 夜间自主运行报告（2026-09-02 23:42 – 2026-09-03 05:35 定稿）
 
 ## 一、做了什么（时间线）
 
@@ -11,6 +11,8 @@
 | 02:05–03:32 | Wave2a 可靠性构建（官方 A 子空间重拟合 + B/C 层组探针 + 9 版本 light-aug 池） | ✅ 18 配置 |
 | 03:35 | Wave2b GT 诊断 | ❌ **ρ=0.3387<0.40；connector 未入后 25%** |
 | 02:10 / 02:30 / 03:55 / 04:15 | P5-B(S2熵) / P5-C(同主干分支) / P5-D(同主干子空间) / P5-A-lite(DINO CLS) | 归档/无增益/弱增益/归档 |
+| 05:33 | Wave2a 确定性重跑（05:12 起，同 seed 全程复现，2 次完整重跑） | ✅ 各指标 max\|Δ\|=0.0 |
+| 05:35 | 定稿 + git 提交 b3aac83 | ✅ 工作区干净 |
 
 ## 二、关键科学结论
 1. **S0-DG-SAFE 归档（Wave2 失败）**：正常-only 稳定性可靠性无法解释真实风险。
@@ -33,7 +35,8 @@
   run_wave2a_build_reliability / run_wave2b_diagnostic / run_p5b_gpmr_precheck /
   run_p5c_intrasystem / run_p5d_samebackbone_subspace / run_p5a_global_diag）
 - 协议：`configs/innovation_v6_dgsafe/`（wave0_protocol.json、reliability_probe.json 冻结附录）
-- git：主体提交 `6a22543`（前序 9899adb/67e0d27/8422f6f/2e2cf9b），每波一提交。
+- git：主体提交 `6a22543`（前序 9899adb/67e0d27/8422f6f/2e2cf9b），每波一提交；
+  收尾提交 `b3aac83`（Wave2a 确定性重跑证据 + 本报告 05:35 定稿）。
 - npz（sub_maps_s0、reliability/pools、audit export_out_s0）被 .gitignore 排除（大文件），
   但 JSON/MD 证据链全部入库。
 
