@@ -37,6 +37,7 @@
 18. [表征层算法突破执行与验收任务书（A3 Breakthrough Program）](13_REPRESENTATION_LEVEL_BREAKTHROUGH_EXECUTION_AND_ACCEPTANCE_CN_20260902.md) —— 待执行。先限定修正 A2 D/E，再独立尝试 CASF“多层特征 + 跨分支非对称伪异常监督”和 DC-SZoom“双线索稀疏高分辨率记忆”；包含候选上限、机制控制、训练随机性、MPDD 两级门、唯一 winner 冻结及一次性外部验证纪律。
 19. [更宽算法创新版图与路线优先级（A4 Research Portfolio）](14_BROAD_ALGORITHM_INNOVATION_PORTFOLIO_CN_20260902.md) —— 研究构思文件，不授权全部实施。把搜索空间扩展到 RG-MCR 参考引导掩码上下文修复、SF-NM 频谱正常记忆、RG-OT 关系图最优传输、组件图、跨数据集元学习、扩散反事实修复和 conformal evidence；推荐先完成三个信息价值诊断，最多选择两条路线形成下一份正式任务书。
 20. [A4 信息价值诊断矩阵与路线决策](../../experiments/dynamic_fusion/innovation_v4_diagnostics/README_STATUS.md) —— 已按 14 号 §10 完成 D1/D2/D3（全部 MPDD development，seed 0）。结果：D1（SF-NM/DC-SZoom）headroom 全 0 未通过；D2（RG-MCR/RG-OT）context 仅 perm/dup 部分正、missing 失败且未达 0.80，node-OT ≈ 随机，未通过；D3（CASF）mean headroom +0.0668 ≥ 0.02 通过但呈类条件（3/6 类）。推荐 1 条路线（CASF 类条件设计）进入下一份正式任务书；其余路线暂归档。详见 D1/D2/D3_SUMMARY.json。
+21. [CASF 类条件算法创新与实验方案（A4 入选路线任务书）](15_CASF_CATEGORY_CONDITIONAL_ALGORITHM_AND_EXPERIMENT_PLAN_CN_20260902.md) —— 待执行。依据 14 号 D3 的类条件证据修订 13 号路线 G：新增"类别级机制门控 Gset（合成探针确定性导出）+ 类别级难度标定 + 无门控机制控制 CTRL-NOGATE"；候选 P0/P1(/P2) 与 CTRL-A1/SYM/NODIS/DINO/SHUFFLE 门槛沿用 13 号 §7.1，MPDD 两级门与一次性外部验证纪律不变。批准后方可进入 Wave 0 放大探针。
 
 ## 权威来源优先级
 
