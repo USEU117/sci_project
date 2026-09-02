@@ -36,7 +36,7 @@ for p in (str(ROOT), str(ROOT / "src"), str(ROOT / "scripts")):
 
 from industrial_ad.innovation_v6_dgsafe import maps  # noqa: E402
 
-WAVE2_OUT = maps.EXPERIMENT_ROOT / "Wave2_complementarity"
+WAVE2_OUT = maps.EXPERIMENT_ROOT / "Wave2_reliability"
 
 
 def _stat(res):
@@ -53,6 +53,26 @@ def kendall(x, y):
     return _stat(kendalltau(x, y))
 
 
+def per_config_delta448(export_dir) -> dict:
+    """SUB - A1 per (cat, shot) at 448, replicating the Wave1 metric protocol
+    (frozen evaluator GT at 448). Used when WAVE1_DIAGNOSTIC lacks per-config rows."""
+    out = {}
+    for npz in sorted(Path(export_dir).glob("*_s0_k*.npz")):
+        name = npz.stem  # bracket_black_s0_k1
+        cat = name.split("_s0_")[0]
+        shot = int(name.split("_s0_")[1][1:])
+        a1 = maps.load_a1_patch_map(cat, 0, shot)
+        sub = maps.load_sub_raw(export_dir, 0, shot, cat)
+        perm = maps.align_perm(sub["sample_ids"], a1["sample_ids"])
+        gtm = maps.gt_masks_for(a1["sample_ids"])
+        a1m = maps.a1_maps448(a1["patch_map"])
+        subm = maps.sub_maps448(sub["amap_raw"][perm])
+        m_a1 = maps.pixel_metrics_448(a1m, gtm)["pixel_ap"]
+        m_sub = maps.pixel_metrics_448(subm, gtm)["pixel_ap"]
+        out[f"{cat}|{shot}"] = float(m_sub - m_a1)
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--reliability-json", type=Path,
@@ -60,6 +80,8 @@ def main() -> int:
     ap.add_argument("--wave1-json", type=Path,
                     default=maps.EXPERIMENT_ROOT / "Wave1_complementarity"
                     / "WAVE1_DIAGNOSTIC.json")
+    ap.add_argument("--export-dir", type=Path,
+                    default=maps.EXPERIMENT_ROOT / "sub_maps_s0")
     ap.add_argument("--rerun-same-seed", type=Path, default=None)
     ap.add_argument("--rerun-aug-seed", type=Path, default=None)
     args = ap.parse_args()
@@ -69,15 +91,18 @@ def main() -> int:
 
     reliab = json.loads(args.reliability_json.read_text(encoding="utf-8"))
     wave1 = json.loads(args.wave1_json.read_text(encoding="utf-8"))
-    rel = {f"{r['category']}_{r['shot']}": r for r in reliab["reliability"]}
-    # delta = SUB - A1 per (cat, shot) at 448 (Wave 1 rows)
-    delta = {}
-    for r in wave1["rows"]:
-        delta[f"{r['category']}_{r['shot']}"] = r["sub_pixel_ap"] - r["a1_pixel_ap"]
+    rel = {f"{r['category']}|{r['shot']}": r for r in reliab["reliability"]}
+    # delta = SUB - A1 per (cat, shot) at 448
+    if "rows" in wave1:
+        delta = {}
+        for r in wave1["rows"]:
+            delta[f"{r['category']}|{r['shot']}"] = r["sub_pixel_ap"] - r["a1_pixel_ap"]
+    else:
+        delta = per_config_delta448(args.export_dir)
 
-    cats = sorted({k.split("_")[0] for k in rel})
-    shots = sorted({int(k.split("_")[1]) for k in rel})
-    keys = [f"{c}_{k}" for c in cats for k in shots]
+    cats = sorted({k.split("|")[0] for k in rel})
+    shots = sorted({int(k.split("|")[1]) for k in rel})
+    keys = [f"{c}|{k}" for c in cats for k in shots]
     r_sub = np.asarray([rel[kk]["r_sub"] for kk in keys], dtype=np.float64)
     d = np.asarray([delta[kk] for kk in keys], dtype=np.float64)
 
@@ -85,7 +110,7 @@ def main() -> int:
     cond1 = rho >= 0.40
     # connector bottom-quartile (r_sub at most the 25th percentile of the 18)
     q25 = float(np.quantile(r_sub, 0.25))
-    con_keys = [kk for kk in keys if kk.startswith("connector_")]
+    con_keys = [kk for kk in keys if kk.startswith("connector|")]
     con_rsub = [rel[kk]["r_sub"] for kk in con_keys]
     cond2 = bool(con_rsub) and all(x <= q25 for x in con_rsub)
 
@@ -93,7 +118,7 @@ def main() -> int:
         "n_configs": len(keys),
         "spearman_r_sub_vs_delta": round(rho, 4),
         "cond1_rho_ge_040": bool(cond1),
-        "connector_r_sub": {kk.split("_")[1]: rel[kk]["r_sub"] for kk in con_keys},
+        "connector_r_sub": {kk.split("|")[1]: rel[kk]["r_sub"] for kk in con_keys},
         "connector_bottom_quartile_threshold_q25": round(q25, 4),
         "cond2_connector_bottom_quartile": bool(cond2),
     }
@@ -101,7 +126,7 @@ def main() -> int:
     # optional determinism / ordering checks
     if args.rerun_same_seed is not None:
         r2 = json.loads(args.rerun_same_seed.read_text(encoding="utf-8"))
-        r2map = {f"{r['category']}_{r['shot']}": r for r in r2["reliability"]}
+        r2map = {f"{r['category']}|{r['shot']}": r for r in r2["reliability"]}
         errs = {kk: abs(rel[kk]["r_sub"] - r2map[kk]["r_sub"]) for kk in keys}
         errs_scalar = {kk: max(abs(rel[kk][s] - r2map[kk][s])
                                for s in ("u_aug", "u_layer", "b_tail"))
@@ -111,12 +136,12 @@ def main() -> int:
         checks["cond3_same_seed_rerun_lt_1e-7"] = bool(max_err < 1e-7)
     if args.rerun_aug_seed is not None:
         r3 = json.loads(args.rerun_aug_seed.read_text(encoding="utf-8"))
-        r3map = {f"{r['category']}_{r['shot']}": r for r in r3["reliability"]}
+        r3map = {f"{r['category']}|{r['shot']}": r for r in r3["reliability"]}
         # category-level ordering: mean r_sub per category from both runs
         def cat_order(m):
             out = {}
             for c in cats:
-                out[c] = float(np.mean([m[f'{c}_{k}']['r_sub'] for k in shots]))
+                out[c] = float(np.mean([m[f'{c}|{k}']['r_sub'] for k in shots]))
             return out
         o1, o3 = cat_order(rel), cat_order(r3map)
         c1 = np.asarray([o1[c] for c in cats]); c3 = np.asarray([o3[c] for c in cats])

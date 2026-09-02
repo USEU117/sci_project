@@ -1,0 +1,263 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "p5c_intrasystem",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "rows": [
+  {
+   "category": "bracket_black",
+   "shot": 1,
+   "n_bad": 47,
+   "concat_ap": 0.0096,
+   "dino_ap": 0.0245,
+   "mean_ap": 0.0124,
+   "max_ap": 0.0148,
+   "oracle_ap": 0.0353,
+   "dino_wins_bad_frac": 0.404
+  },
+  {
+   "category": "bracket_black",
+   "shot": 2,
+   "n_bad": 47,
+   "concat_ap": 0.0132,
+   "dino_ap": 0.0426,
+   "mean_ap": 0.0201,
+   "max_ap": 0.02,
+   "oracle_ap": 0.0651,
+   "dino_wins_bad_frac": 0.553
+  },
+  {
+   "category": "bracket_black",
+   "shot": 4,
+   "n_bad": 47,
+   "concat_ap": 0.1714,
+   "dino_ap": 0.1522,
+   "mean_ap": 0.1644,
+   "max_ap": 0.1665,
+   "oracle_ap": 0.1253,
+   "dino_wins_bad_frac": 0.234
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 1,
+   "n_bad": 51,
+   "concat_ap": 0.0356,
+   "dino_ap": 0.0384,
+   "mean_ap": 0.0377,
+   "max_ap": 0.0348,
+   "oracle_ap": 0.0603,
+   "dino_wins_bad_frac": 0.686
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 2,
+   "n_bad": 51,
+   "concat_ap": 0.0348,
+   "dino_ap": 0.0388,
+   "mean_ap": 0.0377,
+   "max_ap": 0.0346,
+   "oracle_ap": 0.0586,
+   "dino_wins_bad_frac": 0.549
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 4,
+   "n_bad": 51,
+   "concat_ap": 0.0348,
+   "dino_ap": 0.0405,
+   "mean_ap": 0.0381,
+   "max_ap": 0.0339,
+   "oracle_ap": 0.0665,
+   "dino_wins_bad_frac": 0.647
+  },
+  {
+   "category": "bracket_white",
+   "shot": 1,
+   "n_bad": 30,
+   "concat_ap": 0.0867,
+   "dino_ap": 0.066,
+   "mean_ap": 0.0793,
+   "max_ap": 0.069,
+   "oracle_ap": 0.14,
+   "dino_wins_bad_frac": 0.5
+  },
+  {
+   "category": "bracket_white",
+   "shot": 2,
+   "n_bad": 30,
+   "concat_ap": 0.109,
+   "dino_ap": 0.0866,
+   "mean_ap": 0.0989,
+   "max_ap": 0.0897,
+   "oracle_ap": 0.1401,
+   "dino_wins_bad_frac": 0.467
+  },
+  {
+   "category": "bracket_white",
+   "shot": 4,
+   "n_bad": 30,
+   "concat_ap": 0.0942,
+   "dino_ap": 0.0876,
+   "mean_ap": 0.0958,
+   "max_ap": 0.0902,
+   "oracle_ap": 0.1003,
+   "dino_wins_bad_frac": 0.433
+  },
+  {
+   "category": "connector",
+   "shot": 1,
+   "n_bad": 14,
+   "concat_ap": 0.1249,
+   "dino_ap": 0.0877,
+   "mean_ap": 0.1043,
+   "max_ap": 0.1181,
+   "oracle_ap": 0.1716,
+   "dino_wins_bad_frac": 0.429
+  },
+  {
+   "category": "connector",
+   "shot": 2,
+   "n_bad": 14,
+   "concat_ap": 0.2971,
+   "dino_ap": 0.2687,
+   "mean_ap": 0.2977,
+   "max_ap": 0.2775,
+   "oracle_ap": 0.3788,
+   "dino_wins_bad_frac": 0.643
+  },
+  {
+   "category": "connector",
+   "shot": 4,
+   "n_bad": 14,
+   "concat_ap": 0.3729,
+   "dino_ap": 0.3452,
+   "mean_ap": 0.371,
+   "max_ap": 0.3613,
+   "oracle_ap": 0.3896,
+   "dino_wins_bad_frac": 0.571
+  },
+  {
+   "category": "metal_plate",
+   "shot": 1,
+   "n_bad": 71,
+   "concat_ap": 0.8712,
+   "dino_ap": 0.7632,
+   "mean_ap": 0.8262,
+   "max_ap": 0.8215,
+   "oracle_ap": 0.8712,
+   "dino_wins_bad_frac": 0.0
+  },
+  {
+   "category": "metal_plate",
+   "shot": 2,
+   "n_bad": 71,
+   "concat_ap": 0.8784,
+   "dino_ap": 0.7561,
+   "mean_ap": 0.8288,
+   "max_ap": 0.843,
+   "oracle_ap": 0.8784,
+   "dino_wins_bad_frac": 0.0
+  },
+  {
+   "category": "metal_plate",
+   "shot": 4,
+   "n_bad": 71,
+   "concat_ap": 0.8852,
+   "dino_ap": 0.8064,
+   "mean_ap": 0.8535,
+   "max_ap": 0.871,
+   "oracle_ap": 0.8852,
+   "dino_wins_bad_frac": 0.0
+  },
+  {
+   "category": "tubes",
+   "shot": 1,
+   "n_bad": 69,
+   "concat_ap": 0.7237,
+   "dino_ap": 0.6923,
+   "mean_ap": 0.7121,
+   "max_ap": 0.7178,
+   "oracle_ap": 0.6378,
+   "dino_wins_bad_frac": 0.348
+  },
+  {
+   "category": "tubes",
+   "shot": 2,
+   "n_bad": 69,
+   "concat_ap": 0.7264,
+   "dino_ap": 0.697,
+   "mean_ap": 0.7157,
+   "max_ap": 0.7213,
+   "oracle_ap": 0.6387,
+   "dino_wins_bad_frac": 0.391
+  },
+  {
+   "category": "tubes",
+   "shot": 4,
+   "n_bad": 69,
+   "concat_ap": 0.7508,
+   "dino_ap": 0.7202,
+   "mean_ap": 0.7403,
+   "max_ap": 0.7477,
+   "oracle_ap": 0.6878,
+   "dino_wins_bad_frac": 0.333
+  }
+ ],
+ "per_category": {
+  "bracket_black": {
+   "concat_mean": 0.0647,
+   "dino_mean": 0.0731,
+   "mean_combo_mean": 0.0656,
+   "oracle_headroom": 0.0021,
+   "dino_wins_bad_frac": 0.397
+  },
+  "bracket_brown": {
+   "concat_mean": 0.0351,
+   "dino_mean": 0.0392,
+   "mean_combo_mean": 0.0378,
+   "oracle_headroom": 0.0226,
+   "dino_wins_bad_frac": 0.627
+  },
+  "bracket_white": {
+   "concat_mean": 0.0966,
+   "dino_mean": 0.0801,
+   "mean_combo_mean": 0.0913,
+   "oracle_headroom": 0.0302,
+   "dino_wins_bad_frac": 0.467
+  },
+  "connector": {
+   "concat_mean": 0.265,
+   "dino_mean": 0.2339,
+   "mean_combo_mean": 0.2577,
+   "oracle_headroom": 0.0484,
+   "dino_wins_bad_frac": 0.548
+  },
+  "metal_plate": {
+   "concat_mean": 0.8783,
+   "dino_mean": 0.7752,
+   "mean_combo_mean": 0.8362,
+   "oracle_headroom": 0.0,
+   "dino_wins_bad_frac": 0.0
+  },
+  "tubes": {
+   "concat_mean": 0.7336,
+   "dino_mean": 0.7032,
+   "mean_combo_mean": 0.7227,
+   "oracle_headroom": -0.0789,
+   "dino_wins_bad_frac": 0.357
+  }
+ },
+ "verdict": {
+  "pooled_concat": 0.3456,
+  "pooled_dino": 0.3175,
+  "pooled_best_single": 0.3456,
+  "pooled_mean_combo": 0.3352,
+  "pooled_mean_combo_delta_vs_best": -0.0103,
+  "pooled_oracle_headroom_vs_best": 0.0041,
+  "positive_categories_oracle": 4,
+  "note": "dino-only is the A1 subsystem (no CLIP/text); concat is A1 itself"
+ },
+ "created_at_utc": "2026-09-02T19:41:22.980654+00:00",
+ "elapsed_s": 154.5
+}
