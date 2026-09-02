@@ -1,0 +1,414 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "Wave2c_distribution_level_tail_probe",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "purpose": "test whether Wave-2 gate failure is a small-pool z-quantisation artefact: re-derive A-pool U_aug/B_tail under distribution-level tail estimators (V1 pooled CDF, V2 per-pixel Gaussian); GT delta reused frozen from WAVE2_DECISION.json (never recomputed)",
+ "notes": [
+  "U_layer (B/C subspaces) not re-derivable on disk (B/C grids not persisted); r_sub' uses U_aug + B_tail only",
+  "B_tail is a self-quantile of the calibration distribution, so it is expected to stay weak; the decisive feature is U_aug'"
+ ],
+ "sanity_archived_rho": 0.3387,
+ "frozen_feature_rho_vs_delta_risk_pct": {
+  "u_aug": -0.2157,
+  "u_layer": -0.3228,
+  "b_tail": 0.0918
+ },
+ "frozen_b_tail_k_purity_unique_per_k": {
+  "1": [
+   1.7047
+  ],
+  "2": [
+   2.3026
+  ],
+  "4": [
+   2.9444
+  ]
+ },
+ "per_config": [
+  {
+   "config": "bracket_black|1",
+   "delta": 0.05946,
+   "r_sub_frozen": 0.537037,
+   "u_aug_frozen": 0.505718,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.39875,
+   "v1_b_tail": 4.59567,
+   "v2_u_aug": 0.415334,
+   "v2_b_tail": 5.517407
+  },
+  {
+   "config": "bracket_black|2",
+   "delta": 0.16819,
+   "r_sub_frozen": 0.481481,
+   "u_aug_frozen": 0.504843,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.351496,
+   "v1_b_tail": 4.598707,
+   "v2_u_aug": 0.342857,
+   "v2_b_tail": 6.605537
+  },
+  {
+   "config": "bracket_black|4",
+   "delta": 0.19744,
+   "r_sub_frozen": 0.296296,
+   "u_aug_frozen": 0.388914,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.284325,
+   "v1_b_tail": 4.602101,
+   "v2_u_aug": 0.227222,
+   "v2_b_tail": 7.597426
+  },
+  {
+   "config": "bracket_brown|1",
+   "delta": 0.03241,
+   "r_sub_frozen": 0.611111,
+   "u_aug_frozen": 0.503225,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.389851,
+   "v1_b_tail": 4.59567,
+   "v2_u_aug": 0.436072,
+   "v2_b_tail": 5.51768
+  },
+  {
+   "config": "bracket_brown|2",
+   "delta": 0.02268,
+   "r_sub_frozen": 0.185185,
+   "u_aug_frozen": 0.513045,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.36008,
+   "v1_b_tail": 4.598707,
+   "v2_u_aug": 0.355254,
+   "v2_b_tail": 6.797314
+  },
+  {
+   "config": "bracket_brown|4",
+   "delta": 0.02374,
+   "r_sub_frozen": 0.185185,
+   "u_aug_frozen": 0.449036,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.311927,
+   "v1_b_tail": 4.602101,
+   "v2_u_aug": 0.291005,
+   "v2_b_tail": 7.440687
+  },
+  {
+   "config": "bracket_white|1",
+   "delta": -0.01046,
+   "r_sub_frozen": 0.425926,
+   "u_aug_frozen": 0.518888,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.41978,
+   "v1_b_tail": 4.59567,
+   "v2_u_aug": 0.429643,
+   "v2_b_tail": 5.519222
+  },
+  {
+   "config": "bracket_white|2",
+   "delta": -0.05568,
+   "r_sub_frozen": 0.592593,
+   "u_aug_frozen": 0.496067,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.384174,
+   "v1_b_tail": 4.597011,
+   "v2_u_aug": 0.354388,
+   "v2_b_tail": 6.819313
+  },
+  {
+   "config": "bracket_white|4",
+   "delta": -0.01612,
+   "r_sub_frozen": 0.037037,
+   "u_aug_frozen": 0.480691,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.342728,
+   "v1_b_tail": 4.600899,
+   "v2_u_aug": 0.316103,
+   "v2_b_tail": 7.612511
+  },
+  {
+   "config": "connector|1",
+   "delta": -0.05687,
+   "r_sub_frozen": 0.314815,
+   "u_aug_frozen": 0.531062,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.399937,
+   "v1_b_tail": 4.594007,
+   "v2_u_aug": 0.413767,
+   "v2_b_tail": 5.530725
+  },
+  {
+   "config": "connector|2",
+   "delta": -0.18138,
+   "r_sub_frozen": 0.333333,
+   "u_aug_frozen": 0.513853,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.36604,
+   "v1_b_tail": 4.600408,
+   "v2_u_aug": 0.344063,
+   "v2_b_tail": 6.842516
+  },
+  {
+   "config": "connector|4",
+   "delta": -0.21721,
+   "r_sub_frozen": 0.111111,
+   "u_aug_frozen": 0.48391,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.337615,
+   "v1_b_tail": 4.60227,
+   "v2_u_aug": 0.286716,
+   "v2_b_tail": 7.766556
+  },
+  {
+   "config": "metal_plate|1",
+   "delta": 0.0183,
+   "r_sub_frozen": 0.722223,
+   "u_aug_frozen": 0.530037,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.426005,
+   "v1_b_tail": 4.59567,
+   "v2_u_aug": 0.354947,
+   "v2_b_tail": 5.522727
+  },
+  {
+   "config": "metal_plate|2",
+   "delta": 0.06858,
+   "r_sub_frozen": 0.888889,
+   "u_aug_frozen": 0.458321,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.385125,
+   "v1_b_tail": 4.600408,
+   "v2_u_aug": 0.256151,
+   "v2_b_tail": 7.102338
+  },
+  {
+   "config": "metal_plate|4",
+   "delta": 0.06409,
+   "r_sub_frozen": 0.703704,
+   "u_aug_frozen": 0.412503,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.325071,
+   "v1_b_tail": 4.602101,
+   "v2_u_aug": 0.217156,
+   "v2_b_tail": 8.174481
+  },
+  {
+   "config": "tubes|1",
+   "delta": 0.11282,
+   "r_sub_frozen": 0.648149,
+   "u_aug_frozen": 0.540682,
+   "b_tail_frozen": 1.704748,
+   "v1_u_aug": 0.455031,
+   "v1_b_tail": 4.59567,
+   "v2_u_aug": 0.47342,
+   "v2_b_tail": 5.313912
+  },
+  {
+   "config": "tubes|2",
+   "delta": 0.11412,
+   "r_sub_frozen": 0.407407,
+   "u_aug_frozen": 0.524445,
+   "b_tail_frozen": 2.302585,
+   "v1_u_aug": 0.40275,
+   "v1_b_tail": 4.600408,
+   "v2_u_aug": 0.390344,
+   "v2_b_tail": 6.341611
+  },
+  {
+   "config": "tubes|4",
+   "delta": 0.09802,
+   "r_sub_frozen": 0.518519,
+   "u_aug_frozen": 0.46635,
+   "b_tail_frozen": 2.944439,
+   "v1_u_aug": 0.372279,
+   "v1_b_tail": 4.602101,
+   "v2_u_aug": 0.306323,
+   "v2_b_tail": 7.177671
+  }
+ ],
+ "V1_pooled_cdf": {
+  "rho_u_aug_vs_delta": -0.0217,
+  "rho_b_tail_vs_delta": 0.1272,
+  "rho_rsub2_vs_delta": -0.0683,
+  "gate_pass_rho_ge_040": false,
+  "rsub2_per_config": {
+   "bracket_black|1": 0.5556,
+   "bracket_black|2": 0.6944,
+   "bracket_black|4": 0.5833,
+   "bracket_brown|1": 0.6111,
+   "bracket_brown|2": 0.6389,
+   "bracket_brown|4": 0.5278,
+   "bracket_white|1": 0.3889,
+   "bracket_white|2": 0.5556,
+   "bracket_white|4": 0.5,
+   "connector|1": 0.6667,
+   "connector|2": 0.4444,
+   "connector|4": 0.2778,
+   "metal_plate|1": 0.3333,
+   "metal_plate|2": 0.2778,
+   "metal_plate|4": 0.4722,
+   "tubes|1": 0.2778,
+   "tubes|2": 0.0556,
+   "tubes|4": 0.1389
+  },
+  "loco_rho_rsub2_vs_delta": {
+   "bracket_black": -0.4588,
+   "bracket_brown": -0.061,
+   "bracket_white": -0.0824,
+   "connector": -0.1127,
+   "metal_plate": 0.0376,
+   "tubes": 0.2809
+  },
+  "connector_rsub2": {
+   "1": 0.6666666666666665,
+   "2": 0.4444444444444444,
+   "4": 0.2777777777777777
+  },
+  "q25_rsub2": 0.2917,
+  "cond2_connector_bottom_quartile": false
+ },
+ "V2_perpix_gauss": {
+  "rho_u_aug_vs_delta": -0.1063,
+  "rho_b_tail_vs_delta": -0.1063,
+  "rho_rsub2_vs_delta": 0.6245,
+  "gate_pass_rho_ge_040": true,
+  "rsub2_per_config": {
+   "bracket_black|1": 0.5556,
+   "bracket_black|2": 0.6111,
+   "bracket_black|4": 0.5556,
+   "bracket_brown|1": 0.3889,
+   "bracket_brown|2": 0.3333,
+   "bracket_brown|4": 0.4444,
+   "bracket_white|1": 0.3889,
+   "bracket_white|2": 0.3889,
+   "bracket_white|4": 0.2222,
+   "connector|1": 0.3889,
+   "connector|2": 0.3889,
+   "connector|4": 0.3333,
+   "metal_plate|1": 0.6111,
+   "metal_plate|2": 0.6667,
+   "metal_plate|4": 0.4444,
+   "tubes|1": 0.4444,
+   "tubes|2": 0.3889,
+   "tubes|4": 0.4444
+  },
+  "loco_rho_rsub2_vs_delta": {
+   "bracket_black": 0.5443,
+   "bracket_brown": 0.6327,
+   "bracket_white": 0.5179,
+   "connector": 0.5119,
+   "metal_plate": 0.7197,
+   "tubes": 0.71
+  },
+  "connector_rsub2": {
+   "1": 0.38888888888888884,
+   "2": 0.38888888888888884,
+   "4": 0.3333333333333335
+  },
+  "q25_rsub2": 0.3889,
+  "cond2_connector_bottom_quartile": true
+ },
+ "artefact_diagnostics": {
+  "rho_u_aug_vs_b_tail_V2": -0.9257,
+  "V2_b_tail_k_monotonicity_per_category": {
+   "bracket_black": {
+    "values": [
+     5.5174,
+     6.6055,
+     7.5974
+    ],
+    "strictly_increasing_in_k": true
+   },
+   "bracket_brown": {
+    "values": [
+     5.5177,
+     6.7973,
+     7.4407
+    ],
+    "strictly_increasing_in_k": true
+   },
+   "bracket_white": {
+    "values": [
+     5.5192,
+     6.8193,
+     7.6125
+    ],
+    "strictly_increasing_in_k": true
+   },
+   "connector": {
+    "values": [
+     5.5307,
+     6.8425,
+     7.7666
+    ],
+    "strictly_increasing_in_k": true
+   },
+   "metal_plate": {
+    "values": [
+     5.5227,
+     7.1023,
+     8.1745
+    ],
+    "strictly_increasing_in_k": true
+   },
+   "tubes": {
+    "values": [
+     5.3139,
+     6.3416,
+     7.1777
+    ],
+    "strictly_increasing_in_k": true
+   }
+  },
+  "frozen_2feature_control_rho": 0.2521,
+  "V1_flagged_le_q25": [
+   "connector|4",
+   "metal_plate|2",
+   "tubes|1",
+   "tubes|2",
+   "tubes|4"
+  ],
+  "V1_q25_tie_count_at_boundary": 0,
+  "V1_n_flagged_of_18": 5,
+  "V1_missed_negative_delta_configs": [
+   "bracket_white|1",
+   "bracket_white|2",
+   "bracket_white|4",
+   "connector|1",
+   "connector|2"
+  ],
+  "V1_false_positive_flagged_configs": [
+   "metal_plate|2",
+   "tubes|1",
+   "tubes|2",
+   "tubes|4"
+  ],
+  "V1_n_distinct_rsub2_values": 15,
+  "V2_flagged_le_q25": [
+   "bracket_brown|1",
+   "bracket_brown|2",
+   "bracket_white|1",
+   "bracket_white|2",
+   "bracket_white|4",
+   "connector|1",
+   "connector|2",
+   "connector|4",
+   "tubes|2"
+  ],
+  "V2_q25_tie_count_at_boundary": 6,
+  "V2_n_flagged_of_18": 9,
+  "V2_missed_negative_delta_configs": [],
+  "V2_false_positive_flagged_configs": [
+   "bracket_brown|1",
+   "bracket_brown|2",
+   "tubes|2"
+  ],
+  "V2_n_distinct_rsub2_values": 7,
+  "null_random_rank_rho_stats": {
+   "mean": -0.006,
+   "std": 0.239,
+   "max_1000_draws": 0.635,
+   "pct_ge_06245": 0.001
+  }
+ }
+}

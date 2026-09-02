@@ -45,11 +45,14 @@ overall mean ΔPixel-AP **+0.022**（16 号写 +0.0213），正单元 38/54 ✓�
 | Wave 1 互补诊断 | ✅ **passed**（cond A：固定 mean 组合 pooled Δ **+0.0164** ≥ +0.005；cond B oracle headroom +0.0066 仅 2/6 类正，未达） |
 | Wave 2 正常-only 可靠性 | ❌ **归档**（03:40）：ρ(r_sub,Δ)=0.3387<0.40；connector 未入后 25% → 见 WAVE2_ARCHIVE.md |
 | 创新探针 P5-B/C/D/A-lite | 归档/无增益/弱增益/归档（见 INNOVATION_ROADMAP_20260903.md） |
+| Wave 2c 分布级尾估计探针（CPU，05:50–06:35） | ❌ **复核归档**：重校准不能救回 Wave2 门。冻结 B_tail 的 k 纯度被逐位证实（每 k 六类同值 1.7047/2.3026/2.9444）；V1 pooled-CDF ρ=−0.07；V2 逐像素高斯表观 ρ=0.62/connector 入组均为 clip+平局伪影（两特征 ρ=−0.93、r_sub2' 仅 7 个离散值、q25 平局吞 9/18、误标 bracket_brown×2+tubes|2）→ 见 Wave2_reliability/dist_tail_probe/ |
 
-## 结论（03:40 后）
+## 结论（03:40 后，Wave2c 于 06:35 复核）
 - S0-DG-SAFE 在 Wave2 被冻结公式实证拒绝：正常-only 稳定性无法识别何时信任 SUB。
   **A1 仍是主方法**；固定 mean 组合 +0.0164 属静态事实，但无保护、connector 仍退化，且按协议
   禁止在无保护情况下选用（doc Wave3 候选均需 r_sub 保护）。
+- Wave2c：把"小池 z 量化"换成分布级尾估计（pooled-CDF / 逐像素高斯）均**不能**救回可靠性门，
+  负结果是校准公式鲁棒的；唯一有真实风险方向的特征是 U_layer（|ρ|≈0.32），其 B/C 网格未落盘。
 - 夜间创新探索：S2-GPMR 归档（熵无信号）；同主干 concat/DINO-only 无增益；同主干 vitb14 子空间
   弱增益(+0.0026)；DINO CLS 图像级轴归档(−0.068)。→ 融合价值=几何异质×尺度异质。
 

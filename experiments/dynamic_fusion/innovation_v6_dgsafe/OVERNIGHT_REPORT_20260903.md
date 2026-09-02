@@ -1,4 +1,4 @@
-# 夜间自主运行报告（2026-09-02 23:42 – 2026-09-03 05:35 定稿）
+# 夜间自主运行报告（2026-09-02 23:42 – 2026-09-03 06:40 定稿）
 
 ## 一、做了什么（时间线）
 
@@ -12,7 +12,8 @@
 | 03:35 | Wave2b GT 诊断 | ❌ **ρ=0.3387<0.40；connector 未入后 25%** |
 | 02:10 / 02:30 / 03:55 / 04:15 | P5-B(S2熵) / P5-C(同主干分支) / P5-D(同主干子空间) / P5-A-lite(DINO CLS) | 归档/无增益/弱增益/归档 |
 | 05:33 | Wave2a 确定性重跑（05:12 起，同 seed 全程复现，2 次完整重跑） | ✅ 各指标 max\|Δ\|=0.0 |
-| 05:35 | 定稿 + git 提交 b3aac83 | ✅ 工作区干净 |
+| 05:50–06:35 | Wave2c 分布级尾估计 CPU 探针（检验小池量化是否伪因） | ❌ **复核归档**（负结果对校准公式鲁棒） |
+| 06:40 | 定稿 + git 提交（b3aac83 → 286b6d7 → 本次） | ✅ 工作区干净 |
 
 ## 二、关键科学结论
 1. **S0-DG-SAFE 归档（Wave2 失败）**：正常-only 稳定性可靠性无法解释真实风险。
@@ -26,17 +27,27 @@
    → 融合增益不是“两个视觉分支”的平庸效果；但 doc 的可靠性保护门不成立，故 S0 不能作为主创新。
 3. **S2-GPMR 责任熵无信号（|ρ|≈0.02）归档；DINO CLS 图像级轴低于 A1（ΔImage-AP=−0.068）归档。**
    尚未测的剩余候选：AnomalyCLIP 图像级文本 logit（S1 完整版，跨模态，需工程投入与你的确认）。
+4. **Wave2c（06:35）：小池量化不是 Wave2 失败的伪因**——分布级尾估计（pooled-CDF 与逐像素高斯）
+   均无法让正常-only 可靠性排序追上真实风险：V1 直接摧毁排序（ρ=−0.07）；V2 的表观过门
+   （ρ=0.62、connector 入组）是 clip+平局伪影（两特征 ρ=−0.93、r_sub2' 仅 7 个离散值、q25 平局
+   覆盖 9/18、误标 bracket_brown|1/2 与 tubes|2）。冻结 B_tail 的 k 纯度逐位证实
+   （每 k 六类同值）。→ 归档判定对校准公式鲁棒，无需 GPU 重跑；进一步证据链见
+   `Wave2_reliability/dist_tail_probe/`。
 
 ## 三、证据与代码位置
 - 波次证据：`experiments/dynamic_fusion/innovation_v6_dgsafe/`（Wave0_replay、Wave1_complementarity、
-  Wave2_reliability/、reliability/reliability_raw.json、p5b/p5c/p5d/p5a 子目录、README_STATUS.md、
-  INNOVATION_ROADMAP_20260903.md）
+  Wave2_reliability/（含 dist_tail_probe/）、reliability/reliability_raw.json、p5b/p5c/p5d/p5a 子目录、
+  README_STATUS.md、INNOVATION_ROADMAP_20260903.md）
 - 脚本：`scripts/innovation_v6_dgsafe/`（run_wave0_replay / run_wave1_diagnostic /
-  run_wave2a_build_reliability / run_wave2b_diagnostic / run_p5b_gpmr_precheck /
-  run_p5c_intrasystem / run_p5d_samebackbone_subspace / run_p5a_global_diag）
+  run_wave2a_build_reliability / run_wave2b_diagnostic / run_w2c_dist_tail_probe /
+  run_p5b_gpmr_precheck / run_p5c_intrasystem / run_p5d_samebackbone_subspace /
+  run_p5a_global_diag）
 - 协议：`configs/innovation_v6_dgsafe/`（wave0_protocol.json、reliability_probe.json 冻结附录）
 - git：主体提交 `6a22543`（前序 9899adb/67e0d27/8422f6f/2e2cf9b），每波一提交；
-  收尾提交 `b3aac83`（Wave2a 确定性重跑证据 + 本报告 05:35 定稿）。
+  收尾提交 `b3aac83`（Wave2a 确定性重跑）、`286b6d7`（05:35 定稿）、
+  以及本报告 06:40 定稿的 Wave2c 提交。
+- 新增脚本与证据（Wave2c，CPU-only）：`scripts/innovation_v6_dgsafe/run_w2c_dist_tail_probe.py` →
+  `Wave2_reliability/dist_tail_probe/W2C_DIST_TAIL_v1.{json,md}`。
 - npz（sub_maps_s0、reliability/pools、audit export_out_s0）被 .gitignore 排除（大文件），
   但 JSON/MD 证据链全部入库。
 
