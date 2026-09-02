@@ -50,6 +50,7 @@ from src.subspacead.utils.common import min_max_norm  # noqa: E402
 
 
 LAYERS = [-12, -13, -14, -15, -16, -17, -18]
+OFFICIAL_COMMIT = "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
@@ -147,7 +148,8 @@ def aupro_from_arrays(preds, gts, fpr_limit=0.3, num_thresholds=300, connectivit
     return float(np.trapz(pros_s, fprs_s) / fpr_limit)
 
 
-def evaluate_category(extractor, handler, pca_params, image_res, batch_size, stride=8, cat_name=""):
+def evaluate_category(extractor, handler, pca_params, image_res, batch_size, stride=8, cat_name="",
+                      export_dir=None, data_root=None, export_meta=None):
     test_paths = handler.get_test_paths()
     n = len(test_paths)
     H = W = image_res
@@ -155,6 +157,7 @@ def evaluate_category(extractor, handler, pca_params, image_res, batch_size, str
     pro_maps = np.empty((n, H, W), dtype=np.float32)
     pro_gts = np.zeros((n, H, W), dtype=np.uint8)
     img_true, img_pred = [], []
+    export_ids, export_raw = [], []   # --export-maps payloads (raw residual grid)
     t_img = time.time()
     for j, p in enumerate(test_paths):
         pil = Image.open(p).convert("RGB")
@@ -172,6 +175,10 @@ def evaluate_category(extractor, handler, pca_params, image_res, batch_size, str
         img_true.append(1 if is_anomaly else 0)
         img_pred.append(float(np.max(amap_final)))
 
+        if export_dir is not None:
+            export_ids.append(str(Path(p).relative_to(data_root).as_posix()))
+            export_raw.append(np.asarray(amap, dtype=np.float16))
+
         gt = handler.get_ground_truth_mask(p, (W, H))
         gt = (gt > 0).astype(np.uint8)
         px_true.append(gt.flatten()[::stride])
@@ -185,6 +192,26 @@ def evaluate_category(extractor, handler, pca_params, image_res, batch_size, str
         if j % 25 == 0:
             print(f"  [{cat_name}] eval {j}/{n}  {time.time()-t_img:.1f}s", flush=True)
     print(f"  [{cat_name}] eval done {n} imgs in {time.time()-t_img:.1f}s", flush=True)
+
+    if export_dir is not None:
+        exp_dir = Path(export_dir)
+        exp_dir.mkdir(parents=True, exist_ok=True)
+        raw = np.stack(export_raw)                       # (N,h_p,w_p) float16
+        meta = export_meta or {}
+        refs = [str(Path(r).relative_to(data_root).as_posix())
+                for r in meta.get("ref_paths", [])]
+        np.savez_compressed(
+            exp_dir / f"{meta['category']}_s{meta['seed']}_k{meta['shot']}.npz",
+            sample_ids=np.asarray(export_ids),
+            amap_raw=raw,
+            ref_ids=np.asarray(refs),
+            image_res=np.asarray(image_res, dtype=np.int64),
+            pca_ev=np.asarray(meta.get("pca_ev", 0.99), dtype=np.float64),
+            aug_count=np.asarray(meta.get("aug_count", 30), dtype=np.int64),
+            official_commit=np.asarray(meta.get("official_commit", OFFICIAL_COMMIT)),
+        )
+        print(f"  [{cat_name}] exported {raw.shape} residual maps to {exp_dir}", flush=True)
+        del raw
 
     y_true = np.concatenate(px_true)
     y_pred = np.concatenate(px_pred)
@@ -220,6 +247,9 @@ def main():
     parser.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])
     parser.add_argument("--shots", nargs="+", type=int, default=[1, 2, 4])
     parser.add_argument("--outdir", required=True)
+    parser.add_argument("--export-maps", type=Path, default=None,
+                        help="optional dir to export raw reconstruction residual grids "
+                             "(N,h_p,w_p float16 per config) + sample_ids for DG-SAFE")
     args = parser.parse_args()
 
     dataset_path = args.dataset_path
@@ -280,7 +310,15 @@ def main():
                 t_fit = time.time() - t0
                 print(f"  [{cat}] fit done in {t_fit:.1f}s (seed {seed} shot {shot})", flush=True)
                 res = evaluate_category(
-                    extractor, handler, pca_params, args.image_res, args.batch_size, cat_name=cat
+                    extractor, handler, pca_params, args.image_res, args.batch_size,
+                    cat_name=cat, export_dir=args.export_maps,
+                    data_root=Path(dataset_path),
+                    export_meta=None if args.export_maps is None else {
+                        "category": cat, "seed": seed, "shot": shot,
+                        "pca_ev": args.pca_ev, "aug_count": args.aug_count,
+                        "official_commit": OFFICIAL_COMMIT,
+                        "ref_paths": train_paths,
+                    },
                 )
                 del pca_params
                 torch.cuda.empty_cache()
@@ -353,7 +391,7 @@ def main():
     }
     report = {
         "run_id": "v4_v2_official_g2_audit",
-        "official_commit": "ef56d5c8ab2f1feb7dda1c93b25cc3f73f0960d7",
+        "official_commit": OFFICIAL_COMMIT,
         "model": "facebook/dinov2-with-registers-giant (fp16, local memmap)",
         "protocol": f"image_res {args.image_res}, aug {args.aug_count}x rotate, pca_ev {args.pca_ev}, "
                     f"agg mean layers -12..-18, reconstruction score, batch {args.batch_size}, manifest-pinned refs",

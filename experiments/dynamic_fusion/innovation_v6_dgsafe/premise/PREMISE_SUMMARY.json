@@ -1,0 +1,64 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "premise_check",
+ "dataset": "mpdd",
+ "role": "development",
+ "a1_protocol": "compact concat patch map -> 448 dists2map -> pooled Pixel-AP flatten[::8] (frozen A1 convention)",
+ "sub_protocol": "frozen audit per_config pixel_ap (672 map, stride-8) pca_ev 0.99",
+ "expected_doc16": {
+  "overall_mean_delta": 0.02132,
+  "positive_cells_54": 38,
+  "bracket_black": 0.15,
+  "bracket_brown": 0.03,
+  "bracket_white": 0.0,
+  "connector": -0.16,
+  "metal_plate": 0.04,
+  "tubes": 0.06
+ },
+ "computed": {
+  "n_cells": 54,
+  "positive_cells": 38,
+  "overall_mean_delta_ap": 0.022,
+  "a1_overall_mean_pixel_ap": 0.3556,
+  "per_category": {
+   "bracket_black": {
+    "mean_delta_ap": 0.1529,
+    "positive_cells": 9,
+    "n_cells": 9,
+    "worst_delta_ap": 0.0169
+   },
+   "bracket_brown": {
+    "mean_delta_ap": 0.0314,
+    "positive_cells": 9,
+    "n_cells": 9,
+    "worst_delta_ap": 0.0214
+   },
+   "bracket_white": {
+    "mean_delta_ap": -0.0013,
+    "positive_cells": 3,
+    "n_cells": 9,
+    "worst_delta_ap": -0.0556
+   },
+   "connector": {
+    "mean_delta_ap": -0.1536,
+    "positive_cells": 0,
+    "n_cells": 9,
+    "worst_delta_ap": -0.2539
+   },
+   "metal_plate": {
+    "mean_delta_ap": 0.0382,
+    "positive_cells": 8,
+    "n_cells": 9,
+    "worst_delta_ap": -0.0126
+   },
+   "tubes": {
+    "mean_delta_ap": 0.0644,
+    "positive_cells": 9,
+    "n_cells": 9,
+    "worst_delta_ap": 0.0389
+   }
+  }
+ },
+ "created_at_utc": "2026-09-02T13:18:17.089816+00:00",
+ "elapsed_s": 100.7
+}

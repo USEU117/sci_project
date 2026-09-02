@@ -1,0 +1,27 @@
+{
+  "program": "innovation_v6_dgsafe",
+  "phase": "wave0_wave1",
+  "task_book": "docs/paper_writing_preparation_20260830/16_POST_NEGATIVE_RESULTS_NEW_FUSION_ROUTES_AND_ACCEPTANCE_CN_20260902.md",
+  "note": "Pre-registered protocol for S0 DG-SAFE export + complementarity diagnostic. GT is evaluator-only; methods never see masks before scores are written.",
+  "dataset": "mpdd",
+  "role": "development",
+  "a1_maps_root": "submission_repro_20260827/predictions_compact/maps/mpdd",
+  "map_size": [448, 448],
+  "stride": 8,
+  "a1_grid": 32,
+  "sub_grid": 48,
+  "subspacead": {
+    "image_res": 672,
+    "aug_count": 30,
+    "pca_ev": 0.99,
+    "layers": [-12, -13, -14, -15, -16, -17, -18],
+    "agg": "mean",
+    "score": "reconstruction"
+  },
+  "identity_replay_tolerance_pixel_ap": 0.0005,
+  "wave1_pass": {
+    "fixed_combo_min_delta": 0.005,
+    "oracle_headroom_min": 0.02,
+    "oracle_positive_categories_min": 4
+  }
+}
