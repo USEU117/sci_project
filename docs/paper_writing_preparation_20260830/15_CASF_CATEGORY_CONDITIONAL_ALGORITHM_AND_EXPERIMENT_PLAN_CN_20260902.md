@@ -25,10 +25,17 @@ tiny logistic 头，pseudo-Dice @0.5 阈值）逐类结果：
 
 汇总：mean headroom **+0.0668 ≥ 0.02**；`categories_supporting_casf = 3`。
 
-**结论（强制设计约束）**：跨分支非对称伪异常监督的价值**不是全局同质**的——在 bracket_* 与 metal_plate
-这类表面纹理族上，asymmetric 信息能教出头去利用分支分歧；在 bracket_black/connector/tubes 上，
-symmetric 控制反而更强（tubes sym Dice 0.309 > asym 0.129），把非对称监督强加到这些类只会拖累全局均值。
-因此：
+> **Wave 0 实测修正（2026-09-02，正式 Gset 以此为准）**：上表为 12-episode/单 seed 的早期小探针。
+> 按 §2.4 放大探针（24ep/家族 × 3 family seeds）复测后，6 类 mean headroom 变为
+> bracket_black +0.0026 / bracket_brown **−0.0168** / bracket_white **+0.0593** / connector −0.0425 /
+> metal_plate +0.0157 / tubes −0.0414；**冻结 Gset = {bracket_white}**（详见
+> `experiments/dynamic_fusion/innovation_v5_casf/Wave0_gate_probe/PROBE_SUMMARY.json` 与
+> `experiments/dynamic_fusion/innovation_v5_casf/README_STATUS.md`）。bracket_brown 早期 +0.587 系小样本下
+> sym 训练崩溃，非稳健信号；metal_plate 亦不足 0.02。§0 表格保留为历史证据，不再作为立项依据。
+
+**结论（强制设计约束）**：跨分支非对称伪异常监督的价值**不是全局同质**的——早期小探针提示 bracket 族与
+metal_plate 上有正信号而 connector/tubes 为负；放大探针进一步把可学习分歧收敛到 bracket_white 单类。
+无论哪一版探针，把非对称监督无差别强加到全部 6 类都会拖累全局均值。因此：
 
 1. 单一全局融合头 + 全部 6 类的固定伪异常配方 → **禁止**（这正是原 13 号 §5 的隐含假设，被 D3 证伪）；
 2. 正确设计 = **类别级证据门控（谁用 CASF 由合成机制探针决定）+ 类别级难度标定（每类只按自己 normal

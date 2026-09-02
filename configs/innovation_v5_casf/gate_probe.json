@@ -1,0 +1,26 @@
+{
+  "program": "innovation_v5_casf",
+  "phase": "Wave0_gate_probe",
+  "task_book": "docs/paper_writing_preparation_20260830/15_CASF_CATEGORY_CONDITIONAL_ALGORITHM_AND_EXPERIMENT_PLAN_CN_20260902.md",
+  "note": "Pre-registered probe. The gate-probe mechanics must mirror the v4 D3 probe exactly; only episode count and family seeds are amplified (task book 15 section 2.4). No real mask/test statistic may be read.",
+  "dataset": "mpdd",
+  "role": "development",
+  "split_seed": 0,
+  "shot": 2,
+  "two_reference_loo": true,
+  "episodes_train_per_family": 24,
+  "episodes_eval_asym": 24,
+  "family_seeds": [0, 1, 2],
+  "gamma": 0.35,
+  "logreg_C": 1.0,
+  "dice_threshold": 0.5,
+  "gate_rule": {
+    "min_mean_headroom": 0.02,
+    "min_seed_votes": 2,
+    "n_seeds": 3
+  },
+  "outputs": [
+    "experiments/dynamic_fusion/innovation_v5_casf/Wave0_gate_probe/PROBE_SUMMARY.json",
+    "experiments/dynamic_fusion/innovation_v5_casf/Wave0_gate_probe/GSET.json"
+  ]
+}

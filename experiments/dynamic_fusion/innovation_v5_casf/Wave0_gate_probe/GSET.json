@@ -1,0 +1,12 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v5_casf",
+ "phase": "Wave0_gate_probe",
+ "dataset": "mpdd",
+ "role": "development",
+ "rule": "mean headroom >= 0.02 AND >= 2/3 family seeds >= 0.02",
+ "Gset": [
+  "bracket_white"
+ ],
+ "Gset_frozen_at_utc": "2026-09-02T11:44:27.096590+00:00"
+}

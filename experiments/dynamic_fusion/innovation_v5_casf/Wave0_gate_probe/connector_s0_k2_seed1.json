@@ -1,0 +1,27 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "split_seed": 0,
+ "shot": 2,
+ "category": "connector",
+ "seed_ix": 1,
+ "n_train_ep_per_family": 24,
+ "n_eval_asym": 24,
+ "gamma": 0.35,
+ "logreg_C": 1.0,
+ "trained_asym_eval": {
+  "auroc": 0.7352,
+  "ap": 0.3515,
+  "dice": 0.1684,
+  "n_train_px": 24576,
+  "n_pos_train": 758
+ },
+ "trained_sym_eval": {
+  "auroc": 0.5492,
+  "ap": 0.286,
+  "dice": 0.3097,
+  "n_train_px": 24576,
+  "n_pos_train": 1168
+ },
+ "headroom": -0.1413
+}

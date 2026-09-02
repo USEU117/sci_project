@@ -1,0 +1,92 @@
+{
+ "program": "innovation_v5_casf",
+ "phase": "Wave0_gate_probe",
+ "dataset": "mpdd",
+ "role": "development",
+ "split_seed": 0,
+ "shot": 2,
+ "n_train_ep_per_family": 24,
+ "n_eval_asym": 24,
+ "gamma": 0.35,
+ "logreg_C": 1.0,
+ "family_seeds": [
+  0,
+  1,
+  2
+ ],
+ "base_rng": 20260903,
+ "gate_rule": {
+  "min_mean_headroom": 0.02,
+  "min_seed_votes": 2,
+  "n_seeds": 3
+ },
+ "Gset": [
+  "bracket_white"
+ ],
+ "by_category": {
+  "bracket_black": {
+   "per_seed_headroom": {
+    "0": -0.0066,
+    "1": 0.0118,
+    "2": 0.0025
+   },
+   "mean_headroom": 0.0026,
+   "seed_votes": 0,
+   "active": false
+  },
+  "bracket_brown": {
+   "per_seed_headroom": {
+    "0": -0.1064,
+    "1": 0.041,
+    "2": 0.0149
+   },
+   "mean_headroom": -0.0168,
+   "seed_votes": 1,
+   "active": false
+  },
+  "bracket_white": {
+   "per_seed_headroom": {
+    "0": 0.0968,
+    "1": 0.0187,
+    "2": 0.0624
+   },
+   "mean_headroom": 0.0593,
+   "seed_votes": 2,
+   "active": true
+  },
+  "connector": {
+   "per_seed_headroom": {
+    "0": 0.0269,
+    "1": -0.1413,
+    "2": -0.013
+   },
+   "mean_headroom": -0.0425,
+   "seed_votes": 1,
+   "active": false
+  },
+  "metal_plate": {
+   "per_seed_headroom": {
+    "0": 0.0931,
+    "1": -0.0734,
+    "2": 0.0273
+   },
+   "mean_headroom": 0.0157,
+   "seed_votes": 2,
+   "active": false
+  },
+  "tubes": {
+   "per_seed_headroom": {
+    "0": -0.0706,
+    "1": -0.1288,
+    "2": 0.0753
+   },
+   "mean_headroom": -0.0414,
+   "seed_votes": 1,
+   "active": false
+  }
+ },
+ "probe_identity": "mirror of v4 D3 probe (diagnostics.d3_statistics/pseudo_anomaly_map/LogisticRegression C=1.0), amplified to 24 episodes/family x 3 family seeds",
+ "created_at_utc": "2026-09-02T11:44:27.096590+00:00",
+ "elapsed_s": 92.8,
+ "n_categories": 6
+}

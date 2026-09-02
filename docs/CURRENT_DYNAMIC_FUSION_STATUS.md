@@ -182,3 +182,20 @@ P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、�
 进一步复核认为 A3 仍偏重“双编码器怎样融合”，因此新增研究版图 `docs/paper_writing_preparation_20260830/14_BROAD_ALGORITHM_INNOVATION_PORTFOLIO_CN_20260902.md`。新方向分别改变正常性定义、输入信息或检测单位：RG-MCR 通过遮掉中心 token、利用上下文和正常参考预测反事实正常中心；SF-NM 从原图 wavelet 高频建立独立正常记忆；RG-OT 用节点与边的最优传输检测部件关系异常；另记录组件图、跨数据集 episodic 元学习、扩散修复与 conformal evidence 的协议收益和风险。
 
 当前优先级为 RG-MCR > SF-NM > RG-OT；CASF 保留但不再是唯一主路线，DC-SZoom 只在小缺陷/频率诊断支持时投入。A4 不是无限实验授权：下一步应先在 MPDD 做缺陷尺度/频率、合成结构错位、双分支伪监督三个固定诊断，最多选择两条路线另立严格任务书。A1 当前论文身份和冻结证据不变。
+
+## 15. A4 诊断与 CASF 执行结果（2026-09-02，全部已归档）
+
+A4 三个信息价值诊断已在 MPDD development（seed0）完成并归档（`experiments/dynamic_fusion/innovation_v4_diagnostics/`）：
+
+- **D1（SF-NM/DC-SZoom 门槛）**：6 类 × shot{1,2,4} 共 18 格，wavelet oracle headroom 全为 0（谱分数反相关、AUROC≈0.2）→ 不获优先；
+- **D2（RG-MCR/RG-OT 门槛）**：context-repair 对 permutation/duplicate 比 A1 强 +0.21，但三类均未达 0.80、missing（删除型）失败，node-only OT ≈ 随机 → 不获优先；
+- **D3（CASF 门槛）**：早期 12-episode 探针 mean headroom +0.0668（3/6 类）→ CASF 入选并另立任务书 15。
+
+CASF 类条件任务书（15 号）Wave 0 放大探针（24ep/家族 × 3 family seeds）冻结 **Gset = {bracket_white}**（仅 1/6 类达标；
+bracket_brown 早期 +0.59 系小样本 sym 训练崩溃，放大后为 −0.017）。因绝对 Dice ≤0.096 且 pooled-6 小门等价要求
+bracket_white 单类 ≥+0.03 ΔPixel-AP（算术不可达），用户于 2026-09-02 确认**提前归档 CASF**，未运行小门。
+决策与全表见 `experiments/dynamic_fusion/innovation_v5_casf/`（FINAL_CASF_DECISION.md / PROBE_SUMMARY.json / GSET.json）。
+
+**结论**：A2（27 候选）、RCEC、A4（D1/D2 及 CASF 类条件路线）均为负结果/归档；A1 双视觉固定融合保持唯一主方法与
+零训练 normal-only 论文口径。类条件门控作为 Discussion 层可引用观察（合成监督价值类条件化、5/6 类被 symmetric 控制主导），
+不构成论文新主张。诊断/任务书链（13/14/15 号）保留为审计证据。
