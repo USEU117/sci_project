@@ -27,6 +27,11 @@
    任务书 §2.3-2.4 校准设计本身的实证缺陷记录，可作为未来改进方向（改用分布级/平滑尾估计）。
 3. A1 仍是主方法；本文档与 WAVE1/WAVE2 JSON 一起构成“负结果 + 机制解释”证据链。
 
+## 确定性卫生（05:33 补充）
+- Wave2a 同 seed 全量重跑（18 配置，~95 min GPU）：与首跑**逐位一致**，u_aug/u_layer/b_tail/
+  q_sub/r_sub max|Δ|=**0**（满足任务书 Wave2 cond3 <1e-7，且更严格到 bit-exact）。
+- 证据：`reliability/reliability_raw_first.json`（首跑）vs `reliability/reliability_raw.json`（重跑）。
+
 ## 后续（用户已授权夜间自主探索）
 - P5-B（S2-GPMR 责任熵预检）已单独归档（|ρ|<0.3）。
 - 剩余 GPU 时间转向 P5-A（S1-HGLC 图像级全局—局部一致性诊断）与 P5-C（同主干不同分支
