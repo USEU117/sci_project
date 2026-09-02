@@ -43,9 +43,17 @@ overall mean ΔPixel-AP **+0.022**（16 号写 +0.0213），正单元 38/54 ✓�
 | Step 4 导出 s0×k{1,2,4} 六类（18 npz） | ✅ 01:46 完成；export_out_s0/per_config 18 行 |
 | Wave 0 identity replay | ✅ passed；逐类 mean\|Δ\| 1e-6..1.3e-4 ≪ 5e-4（首次因 GT 用 cv2 而非官方 PIL NEAREST 重采样误判失败，修正后通过——map 复现本身逐位一致） |
 | Wave 1 互补诊断 | ✅ **passed**（cond A：固定 mean 组合 pooled Δ **+0.0164** ≥ +0.005；cond B oracle headroom +0.0066 仅 2/6 类正，未达） |
-| Wave 2 正常-only 可靠性 | ⏳ 下一步（Wave2a GPU ~60–90 min 后 Wave2b 判 GT） |
+| Wave 2 正常-only 可靠性 | ❌ **归档**（03:40）：ρ(r_sub,Δ)=0.3387<0.40；connector 未入后 25% → 见 WAVE2_ARCHIVE.md |
+| 创新探针 P5-B/C/D/A-lite | 归档/无增益/弱增益/归档（见 INNOVATION_ROADMAP_20260903.md） |
 
-## 下一步
-1. Wave2a：构造 normal augmentation/layer 探针，冻结 reliability_raw.json（协议附录
-   `configs/innovation_v6_dgsafe/reliability_probe.json`）→ 2. Wave2b：读 GT 检查
-   Spearman(r_sub, ΔSUB−A1) ≥ 0.40 与 connector 后 25% → 3. 通过才做 Wave3 小门 C0/C1/C2+控制。
+## 结论（03:40 后）
+- S0-DG-SAFE 在 Wave2 被冻结公式实证拒绝：正常-only 稳定性无法识别何时信任 SUB。
+  **A1 仍是主方法**；固定 mean 组合 +0.0164 属静态事实，但无保护、connector 仍退化，且按协议
+  禁止在无保护情况下选用（doc Wave3 候选均需 r_sub 保护）。
+- 夜间创新探索：S2-GPMR 归档（熵无信号）；同主干 concat/DINO-only 无增益；同主干 vitb14 子空间
+  弱增益(+0.0026)；DINO CLS 图像级轴归档(−0.068)。→ 融合价值=几何异质×尺度异质。
+
+## 证据链位置
+`Wave0_replay/ WAVE0_REPLAY.json` · `Wave1_complementarity/` · `Wave2_reliability/`
+`reliability/ reliability_raw.json`（+18 pool npz，npz 被 gitignore）·
+`p5b_gpmr_precheck/` · `p5c_intrasystem/` · `p5d_samebackbone_subspace/` · `p5a_global_diag/`

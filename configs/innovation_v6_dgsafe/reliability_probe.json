@@ -1,0 +1,43 @@
+{
+ "frozen_addendum": "reliability probe subspaces B/C fit on refs + 10 RandomRotation (internal stability probes; official maps/identity replay stay on 30 rotations)",
+ "official_subspace_a": {
+  "layers": [
+   -12,
+   -13,
+   -14,
+   -15,
+   -16,
+   -17,
+   -18
+  ],
+  "aug_count": 30
+ },
+ "probe_b": {
+  "layers": [
+   -12,
+   -13,
+   -14
+  ],
+  "aug_count": 10
+ },
+ "probe_c": {
+  "layers": [
+   -16,
+   -17,
+   -18
+  ],
+  "aug_count": 10
+ },
+ "pool_versions": [
+  "identity",
+  "brightness1.15",
+  "contrast1.15",
+  "shiftx_p2",
+  "shiftx_n2",
+  "shifty_p2",
+  "shifty_n2",
+  "rot_p2",
+  "rot_n2"
+ ],
+ "z_cap": 12.0
+}

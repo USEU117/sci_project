@@ -1,0 +1,230 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "p5a_global_diag",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "model": "dinov2_vitb14 CLS @448",
+ "rows": [
+  {
+   "category": "bracket_black",
+   "shot": 1,
+   "n_test": 79,
+   "a1_image_ap": 0.5621,
+   "dino_cls_image_ap": 0.4892,
+   "a1_image_auroc": 0.4275,
+   "dino_cls_image_auroc": 0.3517,
+   "delta_image_ap": -0.0729
+  },
+  {
+   "category": "bracket_black",
+   "shot": 2,
+   "n_test": 79,
+   "a1_image_ap": 0.5621,
+   "dino_cls_image_ap": 0.4805,
+   "a1_image_auroc": 0.4275,
+   "dino_cls_image_auroc": 0.3098,
+   "delta_image_ap": -0.0816
+  },
+  {
+   "category": "bracket_black",
+   "shot": 4,
+   "n_test": 79,
+   "a1_image_ap": 0.5621,
+   "dino_cls_image_ap": 0.5548,
+   "a1_image_auroc": 0.4275,
+   "dino_cls_image_auroc": 0.4076,
+   "delta_image_ap": -0.0074
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 1,
+   "n_test": 77,
+   "a1_image_ap": 0.74,
+   "dino_cls_image_ap": 0.721,
+   "a1_image_auroc": 0.5603,
+   "dino_cls_image_auroc": 0.5965,
+   "delta_image_ap": -0.019
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 2,
+   "n_test": 77,
+   "a1_image_ap": 0.74,
+   "dino_cls_image_ap": 0.691,
+   "a1_image_auroc": 0.5603,
+   "dino_cls_image_auroc": 0.5641,
+   "delta_image_ap": -0.049
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 4,
+   "n_test": 77,
+   "a1_image_ap": 0.74,
+   "dino_cls_image_ap": 0.6906,
+   "a1_image_auroc": 0.5603,
+   "dino_cls_image_auroc": 0.5679,
+   "delta_image_ap": -0.0494
+  },
+  {
+   "category": "bracket_white",
+   "shot": 1,
+   "n_test": 60,
+   "a1_image_ap": 0.7564,
+   "dino_cls_image_ap": 0.4845,
+   "a1_image_auroc": 0.7856,
+   "dino_cls_image_auroc": 0.5222,
+   "delta_image_ap": -0.272
+  },
+  {
+   "category": "bracket_white",
+   "shot": 2,
+   "n_test": 60,
+   "a1_image_ap": 0.7564,
+   "dino_cls_image_ap": 0.4536,
+   "a1_image_auroc": 0.7856,
+   "dino_cls_image_auroc": 0.4622,
+   "delta_image_ap": -0.3029
+  },
+  {
+   "category": "bracket_white",
+   "shot": 4,
+   "n_test": 60,
+   "a1_image_ap": 0.7564,
+   "dino_cls_image_ap": 0.475,
+   "a1_image_auroc": 0.7856,
+   "dino_cls_image_auroc": 0.5067,
+   "delta_image_ap": -0.2814
+  },
+  {
+   "category": "connector",
+   "shot": 1,
+   "n_test": 44,
+   "a1_image_ap": 0.4322,
+   "dino_cls_image_ap": 0.4287,
+   "a1_image_auroc": 0.5738,
+   "dino_cls_image_auroc": 0.531,
+   "delta_image_ap": -0.0036
+  },
+  {
+   "category": "connector",
+   "shot": 2,
+   "n_test": 44,
+   "a1_image_ap": 0.4322,
+   "dino_cls_image_ap": 0.4744,
+   "a1_image_auroc": 0.5738,
+   "dino_cls_image_auroc": 0.6024,
+   "delta_image_ap": 0.0422
+  },
+  {
+   "category": "connector",
+   "shot": 4,
+   "n_test": 44,
+   "a1_image_ap": 0.4322,
+   "dino_cls_image_ap": 0.5224,
+   "a1_image_auroc": 0.5738,
+   "dino_cls_image_auroc": 0.7357,
+   "delta_image_ap": 0.0902
+  },
+  {
+   "category": "metal_plate",
+   "shot": 1,
+   "n_test": 97,
+   "a1_image_ap": 1.0,
+   "dino_cls_image_ap": 0.9834,
+   "a1_image_auroc": 1.0,
+   "dino_cls_image_auroc": 0.954,
+   "delta_image_ap": -0.0166
+  },
+  {
+   "category": "metal_plate",
+   "shot": 2,
+   "n_test": 97,
+   "a1_image_ap": 1.0,
+   "dino_cls_image_ap": 0.9819,
+   "a1_image_auroc": 1.0,
+   "dino_cls_image_auroc": 0.9469,
+   "delta_image_ap": -0.0181
+  },
+  {
+   "category": "metal_plate",
+   "shot": 4,
+   "n_test": 97,
+   "a1_image_ap": 1.0,
+   "dino_cls_image_ap": 0.9846,
+   "a1_image_auroc": 1.0,
+   "dino_cls_image_auroc": 0.9561,
+   "delta_image_ap": -0.0154
+  },
+  {
+   "category": "tubes",
+   "shot": 1,
+   "n_test": 101,
+   "a1_image_ap": 0.9773,
+   "dino_cls_image_ap": 0.9076,
+   "a1_image_auroc": 0.9407,
+   "dino_cls_image_auroc": 0.8116,
+   "delta_image_ap": -0.0698
+  },
+  {
+   "category": "tubes",
+   "shot": 2,
+   "n_test": 101,
+   "a1_image_ap": 0.9773,
+   "dino_cls_image_ap": 0.9314,
+   "a1_image_auroc": 0.9407,
+   "dino_cls_image_auroc": 0.8687,
+   "delta_image_ap": -0.0459
+  },
+  {
+   "category": "tubes",
+   "shot": 4,
+   "n_test": 101,
+   "a1_image_ap": 0.9773,
+   "dino_cls_image_ap": 0.9296,
+   "a1_image_auroc": 0.9407,
+   "dino_cls_image_auroc": 0.8428,
+   "delta_image_ap": -0.0477
+  }
+ ],
+ "per_category": {
+  "bracket_black": {
+   "a1_image_ap": 0.5621,
+   "dino_cls_image_ap": 0.5082,
+   "delta_image_ap": -0.054
+  },
+  "bracket_brown": {
+   "a1_image_ap": 0.74,
+   "dino_cls_image_ap": 0.7009,
+   "delta_image_ap": -0.0391
+  },
+  "bracket_white": {
+   "a1_image_ap": 0.7564,
+   "dino_cls_image_ap": 0.471,
+   "delta_image_ap": -0.2854
+  },
+  "connector": {
+   "a1_image_ap": 0.4322,
+   "dino_cls_image_ap": 0.4752,
+   "delta_image_ap": 0.0429
+  },
+  "metal_plate": {
+   "a1_image_ap": 1.0,
+   "dino_cls_image_ap": 0.9833,
+   "delta_image_ap": -0.0167
+  },
+  "tubes": {
+   "a1_image_ap": 0.9773,
+   "dino_cls_image_ap": 0.9229,
+   "delta_image_ap": -0.0545
+  }
+ },
+ "verdict": {
+  "pooled_a1_image_ap": 0.7447,
+  "pooled_dino_cls_image_ap": 0.6769,
+  "pooled_delta_image_ap": -0.0678,
+  "s1_gate_global_ge_a1_plus_001": false,
+  "note": "gate per task book 16 s3.3 (single global vs A1 image AP)"
+ },
+ "created_at_utc": "2026-09-02T19:55:40.628983+00:00"
+}
