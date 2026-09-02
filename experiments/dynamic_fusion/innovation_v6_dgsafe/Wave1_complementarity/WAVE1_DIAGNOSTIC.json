@@ -1,0 +1,81 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "Wave1_complementarity",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "protocol": "448 maps (A1 compact dists2map; SUB export dists2map), pooled Pixel-AP flatten[::8]; combos on pooled min-max z; oracle per bad image",
+ "pooled": {
+  "a1": 0.3456,
+  "sub": 0.3701,
+  "best_single": 0.3701,
+  "best_fixed_combo": 0.3865,
+  "oracle": 0.3767
+ },
+ "verdict": {
+  "cond_a_fixed_combo_delta_ge_005": true,
+  "cond_b_oracle_headroom_ge_002_and_4of6_positive": false,
+  "wave1_passed": true,
+  "best_fixed_combo_pooled_delta_vs_best_single": 0.0164,
+  "oracle_headroom_pooled_vs_best_single": 0.0066,
+  "positive_categories_oracle": 2
+ },
+ "per_category": {
+  "bracket_black": {
+   "a1_mean": 0.0647,
+   "sub_mean": 0.2064,
+   "mean_combo_mean": 0.1621,
+   "max_combo_mean": 0.0795,
+   "oracle_mean": 0.1904,
+   "oracle_headroom_vs_best": -0.016,
+   "sub_wins_bad_frac": 0.759
+  },
+  "bracket_brown": {
+   "a1_mean": 0.0351,
+   "sub_mean": 0.0614,
+   "mean_combo_mean": 0.0496,
+   "max_combo_mean": 0.0375,
+   "oracle_mean": 0.1164,
+   "oracle_headroom_vs_best": 0.055,
+   "sub_wins_bad_frac": 0.673
+  },
+  "bracket_white": {
+   "a1_mean": 0.0966,
+   "sub_mean": 0.0692,
+   "mean_combo_mean": 0.158,
+   "max_combo_mean": 0.0826,
+   "oracle_mean": 0.1828,
+   "oracle_headroom_vs_best": 0.0862,
+   "sub_wins_bad_frac": 0.522
+  },
+  "connector": {
+   "a1_mean": 0.265,
+   "sub_mean": 0.1132,
+   "mean_combo_mean": 0.201,
+   "max_combo_mean": 0.2044,
+   "oracle_mean": 0.1524,
+   "oracle_headroom_vs_best": -0.1126,
+   "sub_wins_bad_frac": 0.357
+  },
+  "metal_plate": {
+   "a1_mean": 0.8783,
+   "sub_mean": 0.9286,
+   "mean_combo_mean": 0.9229,
+   "max_combo_mean": 0.8798,
+   "oracle_mean": 0.8338,
+   "oracle_headroom_vs_best": -0.0948,
+   "sub_wins_bad_frac": 0.798
+  },
+  "tubes": {
+   "a1_mean": 0.7336,
+   "sub_mean": 0.8419,
+   "mean_combo_mean": 0.8254,
+   "max_combo_mean": 0.7579,
+   "oracle_mean": 0.7845,
+   "oracle_headroom_vs_best": -0.0574,
+   "sub_wins_bad_frac": 0.913
+  }
+ },
+ "created_at_utc": "2026-09-02T17:53:39.082237+00:00",
+ "elapsed_s": 140.7
+}

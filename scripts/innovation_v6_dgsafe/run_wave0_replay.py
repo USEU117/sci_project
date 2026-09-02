@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-for p in (str(ROOT / "src"), str(ROOT / "scripts"), str(ROOT / "methods" / "SubspaceAD")):
+for p in (str(ROOT), str(ROOT / "src"), str(ROOT / "scripts"), str(ROOT / "methods" / "SubspaceAD")):
     if p not in sys.path:
         sys.path.insert(0, p)
 
@@ -33,6 +33,7 @@ OUT_ROOT = maps.EXPERIMENT_ROOT / "Wave0_replay"
 TOL = maps.PROTOCOL["identity_replay_tolerance_pixel_ap"]
 RES672 = 672
 STRIDE = 8
+MPDD_DATA_ROOT = ROOT / "data" / "mpdd_raw" / "MPDD"
 
 
 def audit_pixel_ap() -> dict:
@@ -41,6 +42,28 @@ def audit_pixel_ap() -> dict:
         r = json.loads(line)
         if int(r["seed"]) == 0:
             out[(r["category"], int(r["shot"]))] = r["pixel_ap"]
+    return out
+
+
+def gt_masks_official_pil(sample_ids, res=(RES672, RES672)):
+    """Replicate the frozen audit evaluator GT path (official handler: PIL open,
+    convert L, NEAREST resize to (W,H)=(res)) so the replay reproduces the audit
+    numbers bit-for-bit (cv2 INTER_NEAREST differs on non-integer downscales)."""
+    from PIL import Image as PILImage
+    out = np.zeros((len(sample_ids), res[1], res[0]), dtype=np.uint8)
+    for i, sid in enumerate(sample_ids):
+        parts = Path(sid).parts
+        if len(parts) < 4 or parts[1] != "test":
+            raise ValueError(f"unexpected sample_id: {sid}")
+        cat, defect, stem = parts[0], parts[2], Path(parts[3]).stem
+        if defect == "good":
+            continue
+        p = Path(MPDD_DATA_ROOT) / cat / "ground_truth" / defect / f"{stem}_mask.png"
+        if not p.exists():
+            raise FileNotFoundError(p)
+        mask = PILImage.open(p).convert("L").resize((res[1], res[0]),
+                                                    PILImage.Resampling.NEAREST)
+        out[i] = (np.asarray(mask) > 0).astype(np.uint8)
     return out
 
 
@@ -65,7 +88,7 @@ def main() -> int:
             amap_raw = sub["amap_raw"][perm]               # order == A1 compact
             # 2) rebuild 672 map and recompute pooled Pixel-AP (audit protocol)
             y_parts, s_parts = [], []
-            gt672 = maps.gt_masks_for(sub["sample_ids"][perm], res=(RES672, RES672))
+            gt672 = gt_masks_official_pil(sub["sample_ids"][perm])
             for k in range(len(amap_raw)):
                 amap_final = post_process_map(np.asarray(amap_raw[k], dtype=np.float32), RES672)
                 s_parts.append(amap_final.flatten()[::STRIDE])

@@ -24,7 +24,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-for p in (str(ROOT / "src"), str(ROOT / "scripts")):
+for p in (str(ROOT), str(ROOT / "src"), str(ROOT / "scripts")):
     if p not in sys.path:
         sys.path.insert(0, p)
 
@@ -57,7 +57,7 @@ def main() -> int:
     ap.add_argument("--export-dir", type=Path, default=maps.EXPERIMENT_ROOT / "sub_maps_s0")
     args = ap.parse_args()
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
-    cats = sorted({str(p).split("_s0_")[0]
+    cats = sorted({str(p.name).split("_s0_")[0]
                    for p in Path(args.export_dir).glob("*_s0_k*.npz")})
     t0 = time.time()
     rows = []
