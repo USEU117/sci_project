@@ -1,0 +1,21 @@
+{
+ "route": "D_DEVA",
+ "candidate_id": "geometry_tau0.9",
+ "candidate": {
+  "pack": "geometry",
+  "tau": 0.9
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": 2.4e-05,
+ "n_positive_shots": 3,
+ "worst_shot_delta": 1.7e-05,
+ "deltas": [
+  1.7e-05,
+  3.3e-05,
+  2.3e-05
+ ],
+ "control_mean_delta_pixel_ap": 2.4e-05,
+ "control_name": "unfiltered_augmentation",
+ "candidate_beats_control": false,
+ "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+}

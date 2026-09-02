@@ -1,6 +1,6 @@
 # 动态融合权威状态（CURRENT STATUS）
 
-最新人工复核：2026-09-01 · 原机器快照 RunId：`current_dynamic_fusion_status_20260818`
+最新人工复核：2026-09-02 · 原机器快照 RunId：`current_dynamic_fusion_status_20260818`
 机器可读历史快照：`docs/current_dynamic_fusion_status.json`
 状态快照：`experiments/dynamic_fusion/reconciliation/dynamic_fusion_state_reconcile_20260818_v1/state.json`
 
@@ -147,18 +147,30 @@ P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、�
 2. 数据许可：✅ BTAD 确认为 CC BY-SA 4.0；✅ MPDD 官方仓库为 CC BY-NC-SA 4.0。不得把 VT-ADL 代码的 MIT 许可证误写为 BTAD 数据许可证。
 3. 论文图件：✅ 11 张图完成，包括方法、协议、配置增益、类别边界、六指标、三分支、效率及成功/失败案例；定量图均有 SVG/PDF/600-dpi PNG，QA 通过。
 4. 中文导师会议总览：✅ `docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md`。
-5. 当前阶段：停止算法扩展，进入目标期刊选择、英文 Method/Experiments/Results 写作、引用核验和投稿声明准备。
+5. 当前阶段：A1 与 RCEC 结论均保持不变；用户于 2026-09-02 明确重新授权一个独立的 `innovation_v2` 多路线算法计划。新路线只在 MPDD 开发，在任何路线完成冻结验证前，A1 仍是当前论文方法；英文写作和期刊筛选可并行进行。
 
-## 12. RCEC 创新方向实现与验收（2026-09-01，负结果归档）
+## 12. RCEC 创新方向实现与验收（2026-09-02，负结果归档）
 
 按任务书 `docs/paper_writing_preparation_20260830/11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md` 完成工程交付与科研验收，**Phase 2 小门失败 → 按第 8 节停止规则早停并归档**，A1 保持论文主方法不变。
 
 | 项 | 结果 |
 |---|---|
 | Phase 0 输入审计 | ✅ 通过（`experiments/dynamic_fusion/rcec_v1/PHASE0_INPUT_AUDIT.md`；A1 冻结证据未修改） |
-| 单元/技术测试 | ✅ 18/18 通过（`tests/test_rcec.py`，patchcore 环境） |
-| Phase 2 MPDD 小门（12 候选 × seed0 × shot 1/2/4） | ❌ 0/12 通过（`small_gate_summary.csv`、`SMALL_GATE_REPORT.json`） |
-| 早停决定 | ✅ `RCEC_V1_EARLY_STOP_REPORT.json`（winners=[]，按任务书不运行 full/freeze/验证） |
+| 单元/技术测试 | ✅ 18/18 通过；独立复核时项目自有测试 `pytest tests -q` 为 141/141 通过 |
+| Phase 2 MPDD 小门（12 候选 × seed0 × shot 1/2/4） | ❌ 0/12 通过（`experiments/dynamic_fusion/rcec_v1/development_mpdd/small_gate_summary.csv`、`SMALL_GATE_REPORT.json`） |
+| 早停决定 | ✅ `experiments/dynamic_fusion/rcec_v1/development_mpdd/RCEC_V1_EARLY_STOP_REPORT.json`（winners=[]，按任务书不运行 full/freeze/验证） |
 | 最终决策 | **ARCHIVE**（`FINAL_RCEC_DECISION.md`） |
 
-关键数值：12 个预注册候选（direction × k ∈ {1,3,5} × λ ∈ {0.25,0.50}）在 MPDD seed0 全部低于 A1；最佳候选 `dino_to_clip_k5_lam0.25` 平均 ΔPixel-AP **−0.0071**（仅 1/3 shot 正），λ 越大退化越严重，k=5 略优于 k=1，dino_to_clip 平均优于 symmetric。结论如实写入论文 Discussion/Future Work：正常参考条件下的跨编码器邻域分歧没有稳定超过固定拼接，简单互补收益并不必然转化为可利用的局部一致性信号。RCEC 相关源码/配置/runner/测试全部保留，负结果不隐藏、不改门槛、不换主指标。
+关键数值：12 个预注册候选（direction × k ∈ {1,3,5} × λ ∈ {0.25,0.50}）的三-shot平均值在 MPDD seed0 全部低于 A1；36 个 candidate-shot 组合中 35 个下降，仅最佳候选 `dino_to_clip_k5_lam0.25` 的 s0/k1 微升 `+0.0003`。该候选三-shot平均 ΔPixel-AP 仍为 **−0.0071**（仅 1/3 shot 正），λ 越大退化越严重，k=5 略优于 k=1，dino_to_clip 平均优于 symmetric。结论如实写入论文 Discussion/Future Work：正常参考条件下的跨编码器邻域分歧没有稳定超过固定拼接，简单互补收益并不必然转化为可利用的局部一致性信号。RCEC 相关源码/配置/runner/测试全部保留，负结果不隐藏、不改门槛、不换主指标。
+
+独立复核补充：直接运行仓库根目录无范围的 `pytest` 会误收集 `methods/` 内第三方上游测试，并因各自专用环境缺少 `thop/patchcore` 而在 collection 阶段失败；项目回归的正确命令是 `.\\.venv-patchcore\\Scripts\\python.exe -m pytest tests -q`。这不影响 RCEC 结论。
+
+## 13. A2 Innovation Program 多路线计划（2026-09-02，待执行）
+
+用户明确要求继续寻找算法更新和创新，但不得复活已失败的 RCEC/动态路由/PCA/CCA 路线。新的执行任务书为：
+
+`docs/paper_writing_preparation_20260830/12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md`
+
+计划包含六条不同假设：LNDC 局部正常密度校准、DSAM 可变形空间记忆、CE-CQA 跨编码器共识的有界 query shift、DEVA 双编码器等变性验证的正常增强、NCPRA 正常样本非线性交叉预测 adapter、FAGR 特征亲和图细化。当前均为**未执行候选**，不能写入论文贡献。
+
+统一纪律：所有路线只在 MPDD 竞争；每条路线有候选上限和早停门；只有一个 MPDD winner 可以冻结并一次性进入 BTAD/MVTec/VisA；验证失败后不能测试第二名。路线 E 会改变零训练定位，必须另获用户/导师明确同意。A1 冻结证据不原地修改。

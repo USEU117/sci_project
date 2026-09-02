@@ -1,0 +1,599 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v2",
+ "route": "A_LNDC",
+ "candidate_id": "k9",
+ "candidate": {
+  "k": 9
+ },
+ "dataset": "mpdd",
+ "dataset_role": "development",
+ "seed": 0,
+ "shot": 1,
+ "created_at_utc": "2026-09-02T03:25:40.658630+00:00",
+ "config_sha256": "b7cbf556699095e0ecb4047f2da84b3cc40f6e52adafe0e80283da7fc4452cfa",
+ "code_sha256": "1c49ece824e5e572b5b59a75b019ca056df12c45144afc36d0f5fecd35d418fc",
+ "inputs": {
+  "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+  "dino_cache_sha256": "4fcfdd9de5ee726db2b7bc85835a7bd32adac2bcd8764288b37bb81042e40a52",
+  "clip_cache_sha256": "01a524bfc0b609e0fb8145c9200f0b6df2940feb0801e70c57f18f5964a70c65"
+ },
+ "leakage_flags": {
+  "test_labels_used_by_method": false,
+  "test_masks_used_by_method": false,
+  "test_distribution_used_for_calibration": false,
+  "validation_dataset_used_for_tuning": false,
+  "category_specific_test_rules_used": false
+ },
+ "metrics": {
+  "new": {
+   "pixel": {
+    "pixel_auroc": 0.960527,
+    "pixel_ap": 0.276798,
+    "pixel_aupro": 0.875513
+   },
+   "image": {
+    "image_auroc": 0.747264,
+    "image_ap": 0.756755,
+    "image_f1_max": 0.808279
+   }
+  },
+  "a1": {
+   "pixel": {
+    "pixel_auroc": 0.959673,
+    "pixel_ap": 0.309212,
+    "pixel_aupro": 0.881029
+   },
+   "image": {
+    "image_auroc": 0.714252,
+    "image_ap": 0.744503,
+    "image_f1_max": 0.80492
+   }
+  },
+  "dino": {
+   "pixel": {
+    "pixel_auroc": 0.951304,
+    "pixel_ap": 0.279435,
+    "pixel_aupro": 0.858642
+   },
+   "image": {
+    "image_auroc": 0.675066,
+    "image_ap": 0.700591,
+    "image_f1_max": 0.791876
+   }
+  },
+  "delta_vs_a1": {
+   "pixel": {
+    "pixel_auroc": 0.000853,
+    "pixel_ap": -0.032414,
+    "pixel_aupro": -0.005516
+   },
+   "image": {
+    "image_auroc": 0.033011,
+    "image_ap": 0.012253,
+    "image_f1_max": 0.003359
+   }
+  }
+ },
+ "per_category": [
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "bracket_black",
+   "n_test_images": 79,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.08231085538864136,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.9453835751167937,
+      "pixel_ap": 0.011608222030559228,
+      "pixel_aupro": 0.8443491652982593
+     },
+     "image": {
+      "image_auroc": 0.41954787234042556,
+      "image_ap": 0.5666976558438414,
+      "image_f1_max": 0.7580645161290321
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.9419426178752512,
+      "pixel_ap": 0.010484230297130095,
+      "pixel_aupro": 0.8343202993504832
+     },
+     "image": {
+      "image_auroc": 0.4275265957446808,
+      "image_ap": 0.5621490941122234,
+      "image_f1_max": 0.7768595041322314
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.9399050558624943,
+      "pixel_ap": 0.02069839107314895,
+      "pixel_aupro": 0.8354733511309114
+     },
+     "image": {
+      "image_auroc": 0.43417553191489366,
+      "image_ap": 0.5875729912503661,
+      "image_f1_max": 0.7580645161290321
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": 0.003440957241542475,
+      "pixel_ap": 0.001123991733429133,
+      "pixel_aupro": 0.010028865947776078
+     },
+     "image": {
+      "image_auroc": -0.007978723404255261,
+      "image_ap": 0.004548561731617995,
+      "image_f1_max": -0.01879498800319923
+     }
+    }
+   }
+  },
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "bracket_brown",
+   "n_test_images": 77,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.08085796236991882,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.9348514679020993,
+      "pixel_ap": 0.037319887038369116,
+      "pixel_aupro": 0.8010768071170299
+     },
+     "image": {
+      "image_auroc": 0.7300150829562594,
+      "image_ap": 0.8120614258287325,
+      "image_f1_max": 0.847457627118644
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.9098311319262187,
+      "pixel_ap": 0.034445725691726756,
+      "pixel_aupro": 0.7656182677882136
+     },
+     "image": {
+      "image_auroc": 0.5603318250377074,
+      "image_ap": 0.7399949469760592,
+      "image_f1_max": 0.796875
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.8964984841071368,
+      "pixel_ap": 0.037136519799972977,
+      "pixel_aupro": 0.736039022475877
+     },
+     "image": {
+      "image_auroc": 0.4856711915535445,
+      "image_ap": 0.6761955522801084,
+      "image_f1_max": 0.796875
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": 0.025020335975880603,
+      "pixel_ap": 0.0028741613466423607,
+      "pixel_aupro": 0.03545853932881626
+     },
+     "image": {
+      "image_auroc": 0.169683257918552,
+      "image_ap": 0.07206647885267337,
+      "image_f1_max": 0.05058262711864403
+     }
+    }
+   }
+  },
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "bracket_white",
+   "n_test_images": 60,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.08081930875778198,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.994260993683916,
+      "pixel_ap": 0.08467140702696874,
+      "pixel_aupro": 0.9805908045606208
+     },
+     "image": {
+      "image_auroc": 0.8200000000000001,
+      "image_ap": 0.8258885196104602,
+      "image_f1_max": 0.8
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.9942810208045932,
+      "pixel_ap": 0.08474999424338445,
+      "pixel_aupro": 0.9800886686539717
+     },
+     "image": {
+      "image_auroc": 0.7855555555555556,
+      "image_ap": 0.7564372591813036,
+      "image_f1_max": 0.8059701492537312
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.9916050513343317,
+      "pixel_ap": 0.07165047828223282,
+      "pixel_aupro": 0.9706874126073353
+     },
+     "image": {
+      "image_auroc": 0.7044444444444444,
+      "image_ap": 0.6461388369463097,
+      "image_f1_max": 0.7692307692307693
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": -2.002712067727952e-05,
+      "pixel_ap": -7.858721641570976e-05,
+      "pixel_aupro": 0.0005021359066490483
+     },
+     "image": {
+      "image_auroc": 0.0344444444444445,
+      "image_ap": 0.06945126042915661,
+      "image_f1_max": -0.005970149253731183
+     }
+    }
+   }
+  },
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "connector",
+   "n_test_images": 44,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.08488994836807251,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.9395880072967245,
+      "pixel_ap": 0.06202372135865468,
+      "pixel_aupro": 0.7867206002254004
+     },
+     "image": {
+      "image_auroc": 0.5976190476190476,
+      "image_ap": 0.3708576735851439,
+      "image_f1_max": 0.5581395348837208
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.9488032889058804,
+      "pixel_ap": 0.1261113138350907,
+      "pixel_aupro": 0.8234195534106892
+     },
+     "image": {
+      "image_auroc": 0.5714285714285714,
+      "image_ap": 0.4311063420475626,
+      "image_f1_max": 0.5185185185185185
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.9425367535680464,
+      "pixel_ap": 0.0878855136033341,
+      "pixel_aupro": 0.8025077326242148
+     },
+     "image": {
+      "image_auroc": 0.519047619047619,
+      "image_ap": 0.32758276612205484,
+      "image_f1_max": 0.5531914893617021
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": -0.009215281609155856,
+      "pixel_ap": -0.06408759247643601,
+      "pixel_aupro": -0.03669895318528882
+     },
+     "image": {
+      "image_auroc": 0.02619047619047621,
+      "image_ap": -0.06024866846241872,
+      "image_f1_max": 0.03962101636520232
+     }
+    }
+   }
+  },
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "metal_plate",
+   "n_test_images": 97,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.07965868711471558,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.9709598114841853,
+      "pixel_ap": 0.8364296164074974,
+      "pixel_aupro": 0.9220559025271887
+     },
+     "image": {
+      "image_auroc": 0.970747562296858,
+      "image_ap": 0.9873192518913761,
+      "image_f1_max": 0.9640287769784172
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.9769343464782272,
+      "pixel_ap": 0.8713213302117278,
+      "pixel_aupro": 0.9350448152758589
+     },
+     "image": {
+      "image_auroc": 1.0,
+      "image_ap": 1.0,
+      "image_f1_max": 1.0
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.9546154574307617,
+      "pixel_ap": 0.7632618043324304,
+      "pixel_aupro": 0.8741240832101284
+     },
+     "image": {
+      "image_auroc": 0.9745395449620802,
+      "image_ap": 0.9912933697120341,
+      "image_f1_max": 0.9436619718309859
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": -0.00597453499404188,
+      "pixel_ap": -0.034891713804230395,
+      "pixel_aupro": -0.0129889127486702
+     },
+     "image": {
+      "image_auroc": -0.02925243770314201,
+      "image_ap": -0.012680748108623852,
+      "image_f1_max": -0.03597122302158284
+     }
+    }
+   }
+  },
+  {
+   "schema_version": 1,
+   "program": "innovation_v2",
+   "route": "A_LNDC",
+   "candidate_id": "k9",
+   "dataset": "mpdd",
+   "dataset_role": "development",
+   "seed": 0,
+   "shot": 1,
+   "category": "tubes",
+   "n_test_images": 101,
+   "grid": [
+    32,
+    32
+   ],
+   "candidate": {
+    "k": 9
+   },
+   "diagnostics": {
+    "descriptor": "fused",
+    "k": 9,
+    "epsilon": 1e-06,
+    "global_rho": 0.08748555183410645,
+    "sham": true
+   },
+   "leakage_flags": {
+    "test_labels_used_by_method": false,
+    "test_masks_used_by_method": false,
+    "test_distribution_used_for_calibration": false,
+    "validation_dataset_used_for_tuning": false,
+    "category_specific_test_rules_used": false
+   },
+   "checks": {
+    "no_nan_inf_scores": true
+   },
+   "metrics": {
+    "new": {
+     "pixel": {
+      "pixel_auroc": 0.9781165800548538,
+      "pixel_ap": 0.6287372962039663,
+      "pixel_aupro": 0.9182872908642523
+     },
+     "image": {
+      "image_auroc": 0.9456521739130435,
+      "image_ap": 0.9777079776145577,
+      "image_f1_max": 0.9219858156028369
+     }
+    },
+    "a1": {
+     "pixel": {
+      "pixel_auroc": 0.986248366671753,
+      "pixel_ap": 0.7281610764536796,
+      "pixel_aupro": 0.9476833385694861
+     },
+     "image": {
+      "image_auroc": 0.9406702898550725,
+      "image_ap": 0.9773282124774338,
+      "image_f1_max": 0.9312977099236642
+     }
+    },
+    "dino": {
+     "pixel": {
+      "pixel_auroc": 0.9826653714007247,
+      "pixel_ap": 0.6959782220794166,
+      "pixel_aupro": 0.933021139052116
+     },
+     "image": {
+      "image_auroc": 0.9325181159420289,
+      "image_ap": 0.9747606302963413,
+      "image_f1_max": 0.9302325581395349
+     }
+    },
+    "delta_vs_a1": {
+     "pixel": {
+      "pixel_auroc": -0.008131786616899173,
+      "pixel_ap": -0.09942378024971321,
+      "pixel_aupro": -0.02939604770523374
+     },
+     "image": {
+      "image_auroc": 0.004981884057970953,
+      "image_ap": 0.0003797651371238997,
+      "image_f1_max": -0.009311894320827352
+     }
+    }
+   }
+  }
+ ],
+ "checks": {
+  "all_finite": true
+ }
+}

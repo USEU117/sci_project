@@ -1,0 +1,1039 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v2",
+ "phase": "wave0_input_audit",
+ "created_at_utc": "2026-09-02T02:42:48.592882+00:00",
+ "git_status_saved": [
+  " M docs/CURRENT_DYNAMIC_FUSION_STATUS.md",
+  " M docs/PAPER_DETAILED_CHINESE_DRAFT_20260827.md",
+  " M docs/paper_writing_preparation_20260830/05_CLAIM_EVIDENCE_MATRIX.md",
+  " M docs/paper_writing_preparation_20260830/07_MISSING_MATERIALS_AND_CHECKLIST.md",
+  " M docs/paper_writing_preparation_20260830/08_PROJECT_STRUCTURE_INDEX.md",
+  " M docs/paper_writing_preparation_20260830/10_PROJECT_STATUS_FOR_SUPERVISOR_CN_20260901.md",
+  " M docs/paper_writing_preparation_20260830/11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md",
+  " M docs/paper_writing_preparation_20260830/README.md",
+  " M experiments/dynamic_fusion/rcec_v1/FINAL_RCEC_DECISION.md",
+  "?? configs/innovation_v2/",
+  "?? docs/paper_writing_preparation_20260830/12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md",
+  "?? scripts/innovation_v2/",
+  "?? src/industrial_ad/innovation_v2/"
+ ],
+ "cache_inventory": {
+  "mpdd": {
+   "role": "development",
+   "configs": [
+    {
+     "seed": 0,
+     "shot": 1,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 2,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 4,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 1,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 2,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 4,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 1,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 2,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 4,
+     "dino_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "clip_categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+     ],
+     "complete": true
+    }
+   ],
+   "n_configs": 9,
+   "complete": true
+  },
+  "btad": {
+   "role": "external_frozen_validation",
+   "configs": [
+    {
+     "seed": 0,
+     "shot": 1,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 2,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 4,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 1,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 2,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 4,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 1,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 2,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 4,
+     "dino_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "clip_categories": [
+      "01",
+      "02",
+      "03"
+     ],
+     "complete": true
+    }
+   ],
+   "n_configs": 9,
+   "complete": true
+  },
+  "visa": {
+   "role": "in_domain_frozen_validation",
+   "configs": [
+    {
+     "seed": 0,
+     "shot": 1,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 2,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 4,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 1,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 2,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 4,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 1,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 2,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 4,
+     "dino_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "clip_categories": [
+      "candle",
+      "capsules",
+      "cashew",
+      "chewinggum",
+      "fryum",
+      "macaroni1",
+      "macaroni2",
+      "pcb1",
+      "pcb2",
+      "pcb3",
+      "pcb4",
+      "pipe_fryum"
+     ],
+     "complete": true
+    }
+   ],
+   "n_configs": 9,
+   "complete": true
+  },
+  "mvtec": {
+   "role": "external_frozen_validation",
+   "configs": [
+    {
+     "seed": 0,
+     "shot": 1,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 2,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 0,
+     "shot": 4,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 1,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 2,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 1,
+     "shot": 4,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 1,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 2,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    },
+    {
+     "seed": 2,
+     "shot": 4,
+     "dino_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "clip_categories": [
+      "bottle",
+      "cable",
+      "capsule",
+      "carpet",
+      "grid",
+      "hazelnut",
+      "leather",
+      "metal_nut",
+      "pill",
+      "screw",
+      "tile",
+      "toothbrush",
+      "transistor",
+      "wood",
+      "zipper"
+     ],
+     "complete": true
+    }
+   ],
+   "n_configs": 9,
+   "complete": true
+  }
+ },
+ "reference_order": {
+  "categories_checked": 18,
+  "problems": [],
+  "ok": true
+ },
+ "environment": {
+  "faiss_ok": true,
+  "cv2_ok": true,
+  "cuda_available": true
+ },
+ "conclusions": {
+  "all_caches_complete": true,
+  "reference_order_ok": true,
+  "a1_regression_ok": true,
+  "workspace_protected": true
+ }
+}

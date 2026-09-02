@@ -1,0 +1,20 @@
+{
+ "route": "A_LNDC",
+ "candidate_id": "k3",
+ "candidate": {
+  "k": 3
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": -0.115466,
+ "n_positive_shots": 0,
+ "worst_shot_delta": -0.143412,
+ "deltas": [
+  -0.074993,
+  -0.127994,
+  -0.143412
+ ],
+ "control_mean_delta_pixel_ap": -0.006924,
+ "control_name": "global_density_sham",
+ "candidate_beats_control": false,
+ "config_sha256": "b7cbf556699095e0ecb4047f2da84b3cc40f6e52adafe0e80283da7fc4452cfa"
+}

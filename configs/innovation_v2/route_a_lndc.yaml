@@ -1,0 +1,21 @@
+program: innovation_v2
+route: A_LNDC
+version: 1
+description: >
+  Local Normal-Density Calibrated Dual-Encoder Memory. Median ratio of the A1
+  fused distance to a local reference density estimated with strict LOO.
+candidates:
+  - {k: 3}
+  - {k: 5}
+  - {k: 9}
+lndc:
+  epsilon: 1.0e-6
+  aggregation: median
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005

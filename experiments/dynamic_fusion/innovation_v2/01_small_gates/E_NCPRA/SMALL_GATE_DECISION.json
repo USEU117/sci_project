@@ -1,0 +1,104 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v2",
+ "phase": "small_gate",
+ "route": "E_NCPRA",
+ "dataset": "mpdd",
+ "role": "development",
+ "shots": [
+  1,
+  2,
+  4
+ ],
+ "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58",
+ "control": "linear_ridge",
+ "created_at_utc": "2026-09-02T06:16:20.545274+00:00",
+ "winners": [],
+ "candidates": [
+  {
+   "route": "E_NCPRA",
+   "candidate_id": "r32_lam0.1",
+   "candidate": {
+    "r": 32,
+    "lambda": 0.1
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": -0.005227,
+   "n_positive_shots": 0,
+   "worst_shot_delta": -0.00849,
+   "deltas": [
+    -0.00849,
+    -0.002058,
+    -0.005133
+   ],
+   "control_mean_delta_pixel_ap": null,
+   "control_name": "linear_ridge",
+   "candidate_beats_control": false,
+   "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58"
+  },
+  {
+   "route": "E_NCPRA",
+   "candidate_id": "r32_lam0.25",
+   "candidate": {
+    "r": 32,
+    "lambda": 0.25
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": -0.005215,
+   "n_positive_shots": 0,
+   "worst_shot_delta": -0.008008,
+   "deltas": [
+    -0.008008,
+    -0.005617,
+    -0.00202
+   ],
+   "control_mean_delta_pixel_ap": null,
+   "control_name": "linear_ridge",
+   "candidate_beats_control": false,
+   "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58"
+  },
+  {
+   "route": "E_NCPRA",
+   "candidate_id": "r64_lam0.1",
+   "candidate": {
+    "r": 64,
+    "lambda": 0.1
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": -0.005244,
+   "n_positive_shots": 0,
+   "worst_shot_delta": -0.006891,
+   "deltas": [
+    -0.006493,
+    -0.002348,
+    -0.006891
+   ],
+   "control_mean_delta_pixel_ap": null,
+   "control_name": "linear_ridge",
+   "candidate_beats_control": false,
+   "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58"
+  },
+  {
+   "route": "E_NCPRA",
+   "candidate_id": "r64_lam0.25",
+   "candidate": {
+    "r": 64,
+    "lambda": 0.25
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": -0.008093,
+   "n_positive_shots": 0,
+   "worst_shot_delta": -0.00956,
+   "deltas": [
+    -0.00956,
+    -0.007866,
+    -0.006852
+   ],
+   "control_mean_delta_pixel_ap": null,
+   "control_name": "linear_ridge",
+   "candidate_beats_control": false,
+   "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58"
+  }
+ ],
+ "stop_rule": "all candidates failed -> route early stop, do not run full matrix"
+}

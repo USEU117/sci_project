@@ -1,0 +1,21 @@
+{
+ "route": "D_DEVA",
+ "candidate_id": "photometric_tau0.95",
+ "candidate": {
+  "pack": "photometric",
+  "tau": 0.95
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": 1.1e-05,
+ "n_positive_shots": 3,
+ "worst_shot_delta": 1e-06,
+ "deltas": [
+  9e-06,
+  2.2e-05,
+  1e-06
+ ],
+ "control_mean_delta_pixel_ap": 1.1e-05,
+ "control_name": "unfiltered_augmentation",
+ "candidate_beats_control": false,
+ "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+}

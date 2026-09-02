@@ -1,0 +1,31 @@
+program: innovation_v2
+route: E_NCPRA
+version: 1
+description: >
+  Normal-only Cross-Encoder Predictive Residual Adapter. Lightweight bottleneck
+  adapters g_D2C / g_C2D trained ONLY on normal reference patches; prediction
+  residual is the anomaly evidence, calibrated by reference-only LOO stats.
+  PERMISSION GATE: requires explicit user/supervisor approval before any
+  official label evaluation (task book section 9.1 / Wave 3).
+candidates:
+  - {r: 32, lambda: 0.10}
+  - {r: 32, lambda: 0.25}
+  - {r: 64, lambda: 0.10}
+  - {r: 64, lambda: 0.25}
+ncpra:
+  mu: 0.1
+  optimizer: AdamW
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  max_epochs: 100
+  patience: 10
+  residual_weight_range: [0.10, 0.25]
+  bottleneck_range: [32, 64]
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005

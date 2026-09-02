@@ -1,0 +1,22 @@
+program: innovation_v2
+route: F_FAGR
+version: 1
+description: >
+  Feature-Affinity Graph Refinement. Jacobi smoothing on the 4-neighbour DINO
+  feature-affinity graph, starting from the raw A1 patch scores; bilinear final
+  upsampling only (no second Gaussian).
+candidates:
+  - {mu: 0.10, iters: 1}
+  - {mu: 0.10, iters: 3}
+  - {mu: 0.50, iters: 1}
+  - {mu: 0.50, iters: 3}
+fagr:
+  tau: 0.10
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005

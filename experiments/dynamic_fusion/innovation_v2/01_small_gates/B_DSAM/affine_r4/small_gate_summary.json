@@ -1,0 +1,21 @@
+{
+ "route": "B_DSAM",
+ "candidate_id": "affine_r4",
+ "candidate": {
+  "alignment": "affine",
+  "r": 4
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": -0.082395,
+ "n_positive_shots": 0,
+ "worst_shot_delta": -0.097324,
+ "deltas": [
+  -0.097324,
+  -0.089429,
+  -0.060433
+ ],
+ "control_mean_delta_pixel_ap": -0.068424,
+ "control_name": "no_alignment_local_window",
+ "candidate_beats_control": false,
+ "config_sha256": "7d4b69e05ad6bd755cf1db94c0704231f84be4c0fe206dce5af92a42b140ddee"
+}

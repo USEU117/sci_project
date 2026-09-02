@@ -15,6 +15,7 @@ sci_project/
 ├─ experiments/
 │  ├─ dynamic_fusion/main_results_*         # main A1 result history
 │  ├─ dynamic_fusion/v3_direction_a/        # A1 reconstruction and ablations
+│  ├─ dynamic_fusion/rcec_v1/               # 2026-09-02 RCEC development-only negative result
 │  └─ dynamic_fusion/v3_3, v3_5, v4...      # negative/closed exploratory routes
 ├─ outputs/                                 # large raw and unified method outputs
 ├─ configs/                                 # runnable/frozen configurations
@@ -47,6 +48,7 @@ Use these for method equations, result numbers, roles, limits and captions.
 - `docs/PAPER_SUBMISSION_HANDOFF_AND_REPRODUCIBILITY_PLAN_20260826.md`
 - `experiments/dynamic_fusion/main_results_20260818/`
 - `experiments/dynamic_fusion/v3_direction_a/p0_rebuild_20260826/`
+- `experiments/dynamic_fusion/rcec_v1/`（RCEC 工程与 MPDD 早停证据；只支持负结果论断）
 - `experiments/summaries/`
 
 Use for explanation and cross-checking; where values differ, Class A wins.
@@ -64,6 +66,7 @@ Use for reusable background, bibliography leads and process history. Recheck all
 
 - V3.3 route selected with test masks.
 - failed or closed dynamic routing, D1 predictability, V4 and SubspaceAD-gate experiments.
+- RCEC v1 after the MPDD small-gate failure; retain as an explicitly labeled development-only negative result.
 - old `METHOD_CARD.md` where concat dimension is 1152.
 - old draft claims about text evidence, uncertainty routing or universal improvement.
 
@@ -106,4 +109,3 @@ For day-to-day writing, keep only these files open:
 ## 6. Deferred cleanup
 
 The repository contains large historical outputs, multiple virtual environments and temporary render directories. Cleanup is deliberately deferred because it is destructive and not required for paper writing. A later storage-cleanup task should first produce a checked manifest of reproducible, regenerable and irreplaceable assets, then archive or delete only with explicit approval.
-

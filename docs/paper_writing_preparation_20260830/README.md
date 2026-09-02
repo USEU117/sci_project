@@ -32,7 +32,8 @@
 13. [图件完整性与视觉 QA 报告](figures_20260830/QA_REPORT.md)
 14. [BTAD 许可证证据记录](BTAD_LICENSE_EVIDENCE.md)
 15. [参考文献审计](references/REFERENCE_AUDIT.md) 与 [合并 BibTeX](references/curated_references.bib)
-16. [RCEC 创新方法实现与验收任务书（交给下一位 AI）](11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md) —— 已执行完毕（2026-09-01）：工程交付完成、单元测试 18/18 通过、Phase 2 小门 0/12 通过，按任务书早停归档为负结果，A1 保持主方法。证据见 `experiments/dynamic_fusion/rcec_v1/`（`FINAL_RCEC_DECISION.md`、`PHASE0_INPUT_AUDIT.md`、`SMALL_GATE_REPORT.json`、`RCEC_V1_EARLY_STOP_REPORT.json`、`small_gate_summary.csv`）；结论已在 `docs/CURRENT_DYNAMIC_FUSION_STATUS.md` 第 12 节与中文初稿 Discussion 10.5 如实记录。
+16. [RCEC 创新方法实现与验收任务书（含执行复核与下一步）](11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md) —— 已执行并于 2026-09-02 独立复核：专项测试 18/18、项目自有测试 141/141 通过；Phase 2 小门 0/12 通过，按任务书早停归档，A1 保持主方法。决策见 `experiments/dynamic_fusion/rcec_v1/FINAL_RCEC_DECISION.md`；小门和早停证据位于 `experiments/dynamic_fusion/rcec_v1/development_mpdd/`。结论已写入 `docs/CURRENT_DYNAMIC_FUSION_STATUS.md` 第 12 节与中文初稿 Discussion 10.5。
+17. [多路线算法创新执行与验收任务书（A2 Innovation Program）](12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md) —— 待执行。包含 6 条不同假设路线、统一 MPDD 小门/完整门、机制消融、单一 winner 冻结以及外部验证纪律。任何候选通过前，不改变 A1 主方法口径。
 
 ## 权威来源优先级
 

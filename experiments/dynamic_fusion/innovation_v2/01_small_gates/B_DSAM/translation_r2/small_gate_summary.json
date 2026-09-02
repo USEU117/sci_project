@@ -1,0 +1,21 @@
+{
+ "route": "B_DSAM",
+ "candidate_id": "translation_r2",
+ "candidate": {
+  "alignment": "translation",
+  "r": 2
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": -0.174726,
+ "n_positive_shots": 0,
+ "worst_shot_delta": -0.195537,
+ "deltas": [
+  -0.195537,
+  -0.178172,
+  -0.150469
+ ],
+ "control_mean_delta_pixel_ap": -0.179789,
+ "control_name": "no_alignment_local_window",
+ "candidate_beats_control": true,
+ "config_sha256": "7d4b69e05ad6bd755cf1db94c0704231f84be4c0fe206dce5af92a42b140ddee"
+}

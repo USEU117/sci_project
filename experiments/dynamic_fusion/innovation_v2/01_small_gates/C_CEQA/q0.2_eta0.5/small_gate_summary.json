@@ -1,0 +1,21 @@
+{
+ "route": "C_CEQA",
+ "candidate_id": "q0.2_eta0.5",
+ "candidate": {
+  "q": 0.2,
+  "eta": 0.5
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": 0.002799,
+ "n_positive_shots": 3,
+ "worst_shot_delta": 0.001994,
+ "deltas": [
+  0.001994,
+  0.002727,
+  0.003676
+ ],
+ "control_mean_delta_pixel_ap": 0.002845,
+ "control_name": "a1_rank_only",
+ "candidate_beats_control": false,
+ "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb"
+}

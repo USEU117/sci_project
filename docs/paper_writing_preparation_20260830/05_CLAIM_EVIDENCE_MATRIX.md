@@ -48,6 +48,8 @@
 | BTAD Image-AP loss | -0.0131 | `evidence/p1/p1_e_complete_metrics.md` | prevents all-metric claim |
 | BTAD Image-F1-max loss | -0.0237 | same | prevents all-metric claim |
 | Ten dataset@category units have at least one negative config | 65 negative configuration occurrences across 10 unique units | `p1_b_failure_boundaries.md` | do not confuse occurrence count with category count |
+| RCEC v1 did not exceed A1 at the MPDD small gate | Best candidate three-shot mean ΔPixel-AP vs A1 = -0.007139; 0/12 candidates passed; 35/36 candidate-shot deltas negative | `experiments/dynamic_fusion/rcec_v1/development_mpdd/SMALL_GATE_REPORT.json`; `FINAL_RCEC_DECISION.md` | Development-only negative result. Phase 3–6 and pairing-shuffle were not run; do not claim a validated cross-encoder consistency mechanism or causally assign all loss to the conditional term. |
+| A2 innovation routes did not exceed A1 at the MPDD small gate | 0/27 pre-registered candidates passed across routes A–F; best candidate (CEQA q0.20/eta0.50) three-shot mean ΔPixel-AP vs A1 = +0.002799 < +0.003 threshold; routes A/B/E/F all negative; D ≈ 0 | `experiments/dynamic_fusion/innovation_v2/01_small_gates/*/SMALL_GATE_DECISION.json`; `experiments/dynamic_fusion/innovation_v2/FINAL_DECISION.md` | Development-only negative result. Full MPDD, mechanism ablations and winner selection were not run (stop rule). Do not claim any validated mechanism; CEQA’s gain was matched by its a1_rank_only control, so do not attribute the increment to cross-encoder consensus. |
 
 ## 5. Efficiency and reproducibility claims
 
@@ -70,6 +72,8 @@
 | A1 is not universal SOTA | `evidence/p1/p1_r3_baseline_comparison.csv`; Chinese draft | “AnomalyDINO remains stronger on several MVTec/VisA macro metrics under the local comparison.” |
 | Protocols differ across baselines | `evidence/p1/p1_d_fairness_table.md` | Explicitly label zero-shot, target-normal tuning, source-domain training, test-time adaptation and training-free methods |
 | Historical dynamic routing did not justify the final method | `docs/CURRENT_DYNAMIC_FUSION_STATUS.md`; negative result index | Put in Discussion/Appendix; do not use the test-mask-selected V3.3 route as valid evidence |
+| RCEC is an archived negative candidate, not the final method | `experiments/dynamic_fusion/rcec_v1/FINAL_RCEC_DECISION.md`; task-book section 15 | At most one Discussion/Future Work paragraph or a supplementary negative-ablation table; exclude it from the title, abstract contributions and main method diagram |
+| A2 (routes A–F) is an archived negative program, not the final method | `experiments/dynamic_fusion/innovation_v2/FINAL_DECISION.md`; task-book 12 sections 15/17 | Same handling as RCEC: failure-boundary material for Discussion only; A1 remains the final zero-training method |
 
 ## 7. Claims that still lack final evidence
 

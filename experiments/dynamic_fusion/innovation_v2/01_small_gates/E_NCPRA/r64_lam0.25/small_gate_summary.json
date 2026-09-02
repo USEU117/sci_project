@@ -1,0 +1,21 @@
+{
+ "route": "E_NCPRA",
+ "candidate_id": "r64_lam0.25",
+ "candidate": {
+  "r": 64,
+  "lambda": 0.25
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": -0.008093,
+ "n_positive_shots": 0,
+ "worst_shot_delta": -0.00956,
+ "deltas": [
+  -0.00956,
+  -0.007866,
+  -0.006852
+ ],
+ "control_mean_delta_pixel_ap": null,
+ "control_name": "linear_ridge",
+ "candidate_beats_control": false,
+ "config_sha256": "b34a8a2895cbe7cae440293533c307eac7b53f0fdb5c0c158e8c27e045176f58"
+}

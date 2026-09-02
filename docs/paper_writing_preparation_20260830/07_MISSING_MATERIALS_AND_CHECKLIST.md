@@ -35,7 +35,7 @@ SubspaceAD and FastRef are 2026 strong neighbors. If exact local reproduction is
 
 ### Dimension objection
 
-Reviewers may ask whether concat helps merely because it doubles dimension. A useful analytical note is that concatenating a normalized DINO vector with an identical copy and globally normalizing preserves pairwise cosine geometry; therefore a duplicated-DINO control is mathematically redundant under the stated score. A short derivation can answer this without a new experiment. A random-projection/dimension-matched control is optional, not essential.
+Reviewers may ask whether concat helps merely because it doubles dimension. The RCEC engineering audit now includes both the analytical duplicated-DINO derivation and a numerical control: normalized `[0.5d;0.5d]` preserves DINO pairwise distance up to floating-point tolerance, with map error `<1e-5` and Pixel-AP error `<1e-6` in the checked MPDD configuration. Evidence is in `tests/test_rcec.py` and `experiments/dynamic_fusion/rcec_v1/PHASE0_INPUT_AUDIT.md`. A random-projection control remains optional, not essential.
 
 ## 3. Priority C — writing and presentation
 
@@ -79,6 +79,7 @@ Official sources checked in this preparation round:
 - [x] Leakage/protocol audit complete.
 - [ ] Final broader-baseline narrative updated for 2026 close neighbors.
 - [x] Run the missing BTAD/MVTec CLIP-image-only controls (18 reports; six metrics).
+- [x] Evaluate the pre-registered RCEC innovation candidate: 0/12 passed the MPDD small gate; correctly archived without validation-set tuning.
 
 ### Reproducibility gate
 
@@ -102,10 +103,13 @@ Official sources checked in this preparation round:
 
 ## 6. Recommended immediate sequence
 
-1. User selects the target journal or provides 2–3 candidates.
-2. Lock the journal template and manuscript length.
-3. Decide whether to consolidate MPDD/VisA CLIP-only outputs and MPDD-only weight sensitivity into final paper tables.
-4. Generate figures and dataset table from machine-readable evidence.
-5. Draft Method, Experimental Setup and Results in English.
-6. Revise the Introduction after exact table/figure numbering is fixed.
-7. Complete declarations, bibliography audit and release package.
+1. Keep RCEC v1 closed; do not run its Phase 3–6 or RCEC-D.
+2. Execute the separately authorized `12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md`, beginning with Wave 0 and cache-only routes; A1 remains the manuscript method until a frozen winner passes.
+3. In parallel, user selects the target journal or provides 2–3 candidates.
+4. Lock the journal template and manuscript length.
+5. Decide whether to consolidate MPDD/VisA CLIP-only outputs and MPDD-only weight sensitivity into final paper tables.
+6. Generate the exact dataset table from machine-readable manifests; the existing 11-figure package is already complete.
+7. Draft the stable protocol, baseline and A1 Results sections in English; postpone the final Method title/contribution wording until Innovation v2 decides `PROMOTE/ARCHIVE`.
+8. Mention RCEC only as a short development-only negative result if space permits.
+9. Revise the Introduction after the final method and exact table/figure numbering are fixed.
+10. Complete declarations, bibliography audit and release package.

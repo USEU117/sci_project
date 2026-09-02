@@ -1,0 +1,21 @@
+{
+ "route": "F_FAGR",
+ "candidate_id": "mu0.5_iter1",
+ "candidate": {
+  "mu": 0.5,
+  "iters": 1
+ },
+ "small_gate_passed": false,
+ "mean_delta_pixel_ap": -0.005338,
+ "n_positive_shots": 0,
+ "worst_shot_delta": -0.00689,
+ "deltas": [
+  -0.003677,
+  -0.00689,
+  -0.005446
+ ],
+ "control_mean_delta_pixel_ap": -8.9e-05,
+ "control_name": "uniform_smoothing",
+ "candidate_beats_control": false,
+ "config_sha256": "61acf221b229f5fa29e0ab09cf816cd9a40d799b34fbe0841f73b5eff528c51a"
+}

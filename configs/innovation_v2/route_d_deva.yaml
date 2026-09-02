@@ -1,0 +1,32 @@
+program: innovation_v2
+route: D_DEVA
+version: 1
+description: >
+  Dual-Encoder Equivariance-Validated Normal Memory Augmentation. Augment
+  normal reference images only; keep augmented paired descriptors accepted by
+  BOTH encoders (min cosine equivariance >= tau) into the normal memory.
+candidates:
+  - {pack: geometry, tau: 0.90}
+  - {pack: geometry, tau: 0.95}
+  - {pack: photometric, tau: 0.90}
+  - {pack: photometric, tau: 0.95}
+  - {pack: combined, tau: 0.90}
+  - {pack: combined, tau: 0.95}
+deva:
+  geometry:
+    shift_frac: 0.04
+    max_rotation_deg: 5.0
+  photometric:
+    brightness: [0.90, 1.10]
+    contrast: [0.90, 1.10]
+  seed: 0
+  acceptance_ratio_min: 0.05
+  acceptance_ratio_max: 0.95
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005

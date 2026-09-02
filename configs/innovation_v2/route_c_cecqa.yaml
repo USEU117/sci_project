@@ -1,0 +1,23 @@
+program: innovation_v2
+route: C_CEQA
+version: 1
+description: >
+  Cross-Encoder Consensus-Bounded Query Adaptation. Consensus pseudo-normal
+  selection (DINO rank AND CLIP rank within the query image), bounded global
+  per-branch feature shift of the reference memory, then A1 concat + KNN.
+candidates:
+  - {q: 0.10, eta: 0.25}
+  - {q: 0.10, eta: 0.50}
+  - {q: 0.20, eta: 0.25}
+  - {q: 0.20, eta: 0.50}
+cecqa:
+  min_consensus: 16
+  cap_percentile: 95.0
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005

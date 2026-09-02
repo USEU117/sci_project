@@ -1,0 +1,104 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v2",
+ "phase": "small_gate",
+ "route": "C_CEQA",
+ "dataset": "mpdd",
+ "role": "development",
+ "shots": [
+  1,
+  2,
+  4
+ ],
+ "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb",
+ "control": "a1_rank_only",
+ "created_at_utc": "2026-09-02T06:01:01.441320+00:00",
+ "winners": [],
+ "candidates": [
+  {
+   "route": "C_CEQA",
+   "candidate_id": "q0.1_eta0.25",
+   "candidate": {
+    "q": 0.1,
+    "eta": 0.25
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.000561,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 0.000339,
+   "deltas": [
+    0.000405,
+    0.000339,
+    0.00094
+   ],
+   "control_mean_delta_pixel_ap": 0.001319,
+   "control_name": "a1_rank_only",
+   "candidate_beats_control": false,
+   "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb"
+  },
+  {
+   "route": "C_CEQA",
+   "candidate_id": "q0.1_eta0.5",
+   "candidate": {
+    "q": 0.1,
+    "eta": 0.5
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.001022,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 0.000686,
+   "deltas": [
+    0.000825,
+    0.000686,
+    0.001556
+   ],
+   "control_mean_delta_pixel_ap": 0.002605,
+   "control_name": "a1_rank_only",
+   "candidate_beats_control": false,
+   "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb"
+  },
+  {
+   "route": "C_CEQA",
+   "candidate_id": "q0.2_eta0.25",
+   "candidate": {
+    "q": 0.2,
+    "eta": 0.25
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.001519,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 0.00126,
+   "deltas": [
+    0.00126,
+    0.001323,
+    0.001975
+   ],
+   "control_mean_delta_pixel_ap": 0.001463,
+   "control_name": "a1_rank_only",
+   "candidate_beats_control": true,
+   "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb"
+  },
+  {
+   "route": "C_CEQA",
+   "candidate_id": "q0.2_eta0.5",
+   "candidate": {
+    "q": 0.2,
+    "eta": 0.5
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.002799,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 0.001994,
+   "deltas": [
+    0.001994,
+    0.002727,
+    0.003676
+   ],
+   "control_mean_delta_pixel_ap": 0.002845,
+   "control_name": "a1_rank_only",
+   "candidate_beats_control": false,
+   "config_sha256": "7e7d6c36a6d127f79df5bf87b988deb7f93fc6e5ecd08d626b5187cc5281f8fb"
+  }
+ ],
+ "stop_rule": "all candidates failed -> route early stop, do not run full matrix"
+}

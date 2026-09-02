@@ -1,0 +1,146 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v2",
+ "phase": "small_gate",
+ "route": "D_DEVA",
+ "dataset": "mpdd",
+ "role": "development",
+ "shots": [
+  1,
+  2,
+  4
+ ],
+ "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27",
+ "control": "unfiltered_augmentation",
+ "created_at_utc": "2026-09-02T07:18:36.451470+00:00",
+ "winners": [],
+ "candidates": [
+  {
+   "route": "D_DEVA",
+   "candidate_id": "geometry_tau0.9",
+   "candidate": {
+    "pack": "geometry",
+    "tau": 0.9
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 2.4e-05,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 1.7e-05,
+   "deltas": [
+    1.7e-05,
+    3.3e-05,
+    2.3e-05
+   ],
+   "control_mean_delta_pixel_ap": 2.4e-05,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  },
+  {
+   "route": "D_DEVA",
+   "candidate_id": "geometry_tau0.95",
+   "candidate": {
+    "pack": "geometry",
+    "tau": 0.95
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 2.4e-05,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 1.7e-05,
+   "deltas": [
+    1.7e-05,
+    3.3e-05,
+    2.3e-05
+   ],
+   "control_mean_delta_pixel_ap": 2.4e-05,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  },
+  {
+   "route": "D_DEVA",
+   "candidate_id": "photometric_tau0.9",
+   "candidate": {
+    "pack": "photometric",
+    "tau": 0.9
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 1.1e-05,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 1e-06,
+   "deltas": [
+    9e-06,
+    2.2e-05,
+    1e-06
+   ],
+   "control_mean_delta_pixel_ap": 1.1e-05,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  },
+  {
+   "route": "D_DEVA",
+   "candidate_id": "photometric_tau0.95",
+   "candidate": {
+    "pack": "photometric",
+    "tau": 0.95
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 1.1e-05,
+   "n_positive_shots": 3,
+   "worst_shot_delta": 1e-06,
+   "deltas": [
+    9e-06,
+    2.2e-05,
+    1e-06
+   ],
+   "control_mean_delta_pixel_ap": 1.1e-05,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  },
+  {
+   "route": "D_DEVA",
+   "candidate_id": "combined_tau0.9",
+   "candidate": {
+    "pack": "combined",
+    "tau": 0.9
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.0,
+   "n_positive_shots": 1,
+   "worst_shot_delta": 0.0,
+   "deltas": [
+    0.0,
+    0.0,
+    1e-06
+   ],
+   "control_mean_delta_pixel_ap": 0.0,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  },
+  {
+   "route": "D_DEVA",
+   "candidate_id": "combined_tau0.95",
+   "candidate": {
+    "pack": "combined",
+    "tau": 0.95
+   },
+   "small_gate_passed": false,
+   "mean_delta_pixel_ap": 0.0,
+   "n_positive_shots": 1,
+   "worst_shot_delta": 0.0,
+   "deltas": [
+    0.0,
+    0.0,
+    1e-06
+   ],
+   "control_mean_delta_pixel_ap": 0.0,
+   "control_name": "unfiltered_augmentation",
+   "candidate_beats_control": false,
+   "config_sha256": "037ed0af634be106bb6dd11ab48f4565e4470b44dcf22ebebf93b5123fa71c27"
+  }
+ ],
+ "stop_rule": "all candidates failed -> route early stop, do not run full matrix"
+}

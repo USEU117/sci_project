@@ -1,0 +1,27 @@
+program: innovation_v2
+route: B_DSAM
+version: 1
+description: >
+  Deformable Spatially-Aware Dual-Encoder Memory. Robust DINO alignment
+  (mutual matching + median translation / RANSAC affine) then a spatial
+  L-infinity window of radius R around the transformed query position.
+candidates:
+  - {alignment: translation, r: 2}
+  - {alignment: translation, r: 4}
+  - {alignment: translation, r: 8}
+  - {alignment: affine, r: 2}
+  - {alignment: affine, r: 4}
+  - {alignment: affine, r: 8}
+dsam:
+  min_mutual: 16
+  min_inlier_ratio: 0.20
+  ransac_threshold: 3.0
+  seed: 0
+postprocess:
+  map_size: [448, 448]
+fixed:
+  dino_weight: 0.5
+small_gate:
+  mean_delta_min: 0.003
+  n_positive_shots_min: 2
+  worst_shot_delta_min: -0.005
