@@ -1,0 +1,90 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "p5b_gpmr_precheck",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 4,
+ "design": "per-spatial-bin diagonal GMM (4 comps) on cached vitb14 ref patches; per-test-patch responsibility entropy / -loglik vs GT",
+ "rows": [
+  {
+   "category": "bracket_black",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 79,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": -0.0111,
+   "spearman_negloglik_vs_pixel_error": 0.0367,
+   "elapsed_s": 52.1
+  },
+  {
+   "category": "bracket_brown",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 77,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": -0.0129,
+   "spearman_negloglik_vs_pixel_error": 0.0651,
+   "elapsed_s": 46.0
+  },
+  {
+   "category": "bracket_white",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 60,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": -0.0166,
+   "spearman_negloglik_vs_pixel_error": 0.0248,
+   "elapsed_s": 35.9
+  },
+  {
+   "category": "connector",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 44,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": 0.0066,
+   "spearman_negloglik_vs_pixel_error": 0.0966,
+   "elapsed_s": 41.1
+  },
+  {
+   "category": "metal_plate",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 97,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": 0.0812,
+   "spearman_negloglik_vs_pixel_error": 0.3888,
+   "elapsed_s": 60.0
+  },
+  {
+   "category": "tubes",
+   "seed": 0,
+   "shot": 4,
+   "n_refs": 4,
+   "n_test": 101,
+   "n_bins": 16,
+   "n_components": 4,
+   "spearman_entropy_vs_pixel_error": 0.068,
+   "spearman_negloglik_vs_pixel_error": 0.1168,
+   "elapsed_s": 62.7
+  }
+ ],
+ "decision": {
+  "stop_gate_abs_rho_lt_0_3": true,
+  "avg_abs_rho_entropy": 0.0192,
+  "avg_abs_rho_negloglik": 0.1215,
+  "note": "if gate triggers -> archive S2 GPMR per task book 16 s4.3"
+ },
+ "created_at_utc": "2026-09-02T18:10:00.700541+00:00"
+}

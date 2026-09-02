@@ -19,6 +19,14 @@
 
 ## 2. 若 S0 波次失败或时间富余 → 备选创新方向（按“成本×信息价值”排序）
 
+### P5-B：S2-GPMR 概率原型流形残差的 CPU 预检（16 §4；成本最低，纯 CPU）
+- ✅ 已执行（02:10，`p5b_gpmr_precheck`，MPDD s0/k4，vitb14 分支缓存，分桶对角 GMM 4 分量）。
+- 结果：responsibility 熵 vs 逐像素 GT 误差 avg |ρ|=**0.019**（无信号）；−loglik 平均 0.12
+  （metal_plate 0.39 例外，其余 0.02–0.12）。
+- 按 16 §4.3 停止门（|ρ|<0.3）→ **S2-GPMR 方向归档**；不投入 GPU。
+- 留档：`p5b_gpmr_precheck/P5B_GPMR_PRE.json`。可选项：若未来换用 CLIP concat 特征/位置分桶
+  更细，可重开 0.39 那个例外，但优先级低。
+
 ### P5-A：S1-HGLC 全局—局部一致性校准诊断（16 §3；中等 GPU，~1h）
 - 现状缺口：现有 cache 只有 patch_features，无 DINO CLS / CLIP global / 文本 global。
 - 诊断第一步 = 在 MPDD s0×k{1,2,4} 导出冻结 CLS/global（vitb14@448 CLS、CLIP-L/14@336
