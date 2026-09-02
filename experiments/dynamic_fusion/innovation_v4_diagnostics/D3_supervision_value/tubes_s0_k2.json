@@ -1,0 +1,26 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "tubes",
+ "gamma": 0.35,
+ "n_train_asym": 12,
+ "n_train_sym": 12,
+ "n_eval_asym": 12,
+ "trained_asym_eval": {
+  "auroc": 0.6949,
+  "ap": 0.2691,
+  "dice": 0.1289,
+  "n_train_px": 12288,
+  "n_pos_train": 322
+ },
+ "trained_sym_eval": {
+  "auroc": 0.4498,
+  "ap": 0.3584,
+  "dice": 0.3086,
+  "n_train_px": 12288,
+  "n_pos_train": 641
+ },
+ "asym_minus_sym_dice_headroom": -0.1797
+}

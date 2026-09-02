@@ -33,7 +33,10 @@
 14. [BTAD 许可证证据记录](BTAD_LICENSE_EVIDENCE.md)
 15. [参考文献审计](references/REFERENCE_AUDIT.md) 与 [合并 BibTeX](references/curated_references.bib)
 16. [RCEC 创新方法实现与验收任务书（含执行复核与下一步）](11_RCEC_INNOVATION_IMPLEMENTATION_AND_ACCEPTANCE_HANDOFF_CN_20260901.md) —— 已执行并于 2026-09-02 独立复核：专项测试 18/18、项目自有测试 141/141 通过；Phase 2 小门 0/12 通过，按任务书早停归档，A1 保持主方法。决策见 `experiments/dynamic_fusion/rcec_v1/FINAL_RCEC_DECISION.md`；小门和早停证据位于 `experiments/dynamic_fusion/rcec_v1/development_mpdd/`。结论已写入 `docs/CURRENT_DYNAMIC_FUSION_STATUS.md` 第 12 节与中文初稿 Discussion 10.5。
-17. [多路线算法创新执行与验收任务书（A2 Innovation Program）](12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md) —— 待执行。包含 6 条不同假设路线、统一 MPDD 小门/完整门、机制消融、单一 winner 冻结以及外部验证纪律。任何候选通过前，不改变 A1 主方法口径。
+17. [多路线算法创新执行与验收任务书（A2 Innovation Program）](12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md) —— 已执行。27 个预注册候选均未通过 MPDD 小门，A1 保持主方法；原始决策见 `experiments/dynamic_fusion/innovation_v2/FINAL_DECISION.md`。2026-09-02 独立复核发现 DEVA 几何映射/combined 变换和 NCPRA 最佳权重/随机种子存在实现有效性问题，因此 D/E 只能视为当前实现未通过，须按 A3 Wave 0 做限定纠错，不能写成路线已被彻底证伪。
+18. [表征层算法突破执行与验收任务书（A3 Breakthrough Program）](13_REPRESENTATION_LEVEL_BREAKTHROUGH_EXECUTION_AND_ACCEPTANCE_CN_20260902.md) —— 待执行。先限定修正 A2 D/E，再独立尝试 CASF“多层特征 + 跨分支非对称伪异常监督”和 DC-SZoom“双线索稀疏高分辨率记忆”；包含候选上限、机制控制、训练随机性、MPDD 两级门、唯一 winner 冻结及一次性外部验证纪律。
+19. [更宽算法创新版图与路线优先级（A4 Research Portfolio）](14_BROAD_ALGORITHM_INNOVATION_PORTFOLIO_CN_20260902.md) —— 研究构思文件，不授权全部实施。把搜索空间扩展到 RG-MCR 参考引导掩码上下文修复、SF-NM 频谱正常记忆、RG-OT 关系图最优传输、组件图、跨数据集元学习、扩散反事实修复和 conformal evidence；推荐先完成三个信息价值诊断，最多选择两条路线形成下一份正式任务书。
+20. [A4 信息价值诊断矩阵与路线决策](../../experiments/dynamic_fusion/innovation_v4_diagnostics/README_STATUS.md) —— 已按 14 号 §10 完成 D1/D2/D3（全部 MPDD development，seed 0）。结果：D1（SF-NM/DC-SZoom）headroom 全 0 未通过；D2（RG-MCR/RG-OT）context 仅 perm/dup 部分正、missing 失败且未达 0.80，node-OT ≈ 随机，未通过；D3（CASF）mean headroom +0.0668 ≥ 0.02 通过但呈类条件（3/6 类）。推荐 1 条路线（CASF 类条件设计）进入下一份正式任务书；其余路线暂归档。详见 D1/D2/D3_SUMMARY.json。
 
 ## 权威来源优先级
 

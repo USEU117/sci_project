@@ -1,0 +1,480 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v4_diagnostics",
+ "diagnostic": "D1_defect_scale_frequency",
+ "dataset": "mpdd",
+ "role": "development",
+ "seeds": [
+  0
+ ],
+ "shots": [
+  1,
+  2,
+  4
+ ],
+ "tier_thresholds": {
+  "small_max": 0.005,
+  "mid_max": 0.05
+ },
+ "rule": "prefer SF-NM/DC-SZoom if small-tier oracle headroom >= +0.03 Pixel-AP and rank corr < 0.90",
+ "created_at_utc": "2026-09-02T11:12:28.391881+00:00",
+ "elapsed_s": 1612.0,
+ "by_shot_tier": {
+  "1": {
+   "small": [
+    {
+     "category": "bracket_black",
+     "n_bad": 47,
+     "headroom": 0.0,
+     "corr": -0.528501,
+     "a1_ap": 0.009200777692558112,
+     "freq_ap": 0.0004994488303006904
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 34,
+     "headroom": 0.0,
+     "corr": -0.328584,
+     "a1_ap": 0.014575537612370973,
+     "freq_ap": 0.0005919381606805628
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 30,
+     "headroom": 0.0,
+     "corr": -0.206688,
+     "a1_ap": 0.12344865705362638,
+     "freq_ap": 0.0002055779174837545
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "tubes",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.078369,
+     "a1_ap": 0.009909549503075241,
+     "freq_ap": 0.0003136926382829658
+    }
+   ],
+   "mid": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 17,
+     "headroom": 0.0,
+     "corr": -0.326286,
+     "a1_ap": 0.04814132182440794,
+     "freq_ap": 0.0034554104600788404
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 14,
+     "headroom": 0.0,
+     "corr": -0.496599,
+     "a1_ap": 0.12482887099508336,
+     "freq_ap": 0.0029002498277991094
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.442351,
+     "a1_ap": 0.5534173097270667,
+     "freq_ap": 0.0017872417250371143
+    },
+    {
+     "category": "tubes",
+     "n_bad": 65,
+     "headroom": 0.0,
+     "corr": -0.058532,
+     "a1_ap": 0.738248126768002,
+     "freq_ap": 0.0076261163099462246
+    }
+   ],
+   "large": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 67,
+     "headroom": 0.0,
+     "corr": -0.505931,
+     "a1_ap": 0.8731300441372145,
+     "freq_ap": 0.0687312361057799
+    },
+    {
+     "category": "tubes",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    }
+   ]
+  },
+  "2": {
+   "small": [
+    {
+     "category": "bracket_black",
+     "n_bad": 47,
+     "headroom": 0.0,
+     "corr": -0.499686,
+     "a1_ap": 0.01245323736254034,
+     "freq_ap": 0.0004998423450554985
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 34,
+     "headroom": 0.0,
+     "corr": -0.287935,
+     "a1_ap": 0.02052480497027929,
+     "freq_ap": 0.0006000121185729082
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 30,
+     "headroom": 0.0,
+     "corr": -0.210325,
+     "a1_ap": 0.14600659943242658,
+     "freq_ap": 0.00021263790350927866
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "tubes",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.059021,
+     "a1_ap": 0.01727742043202242,
+     "freq_ap": 0.0003313841895175433
+    }
+   ],
+   "mid": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 17,
+     "headroom": 0.0,
+     "corr": -0.281183,
+     "a1_ap": 0.04350876924009347,
+     "freq_ap": 0.0034644005649457545
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 14,
+     "headroom": 0.0,
+     "corr": -0.463994,
+     "a1_ap": 0.29357682944177577,
+     "freq_ap": 0.00291407611636721
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.29518,
+     "a1_ap": 0.6515350009809678,
+     "freq_ap": 0.001824457367211108
+    },
+    {
+     "category": "tubes",
+     "n_bad": 65,
+     "headroom": 0.0,
+     "corr": -0.037535,
+     "a1_ap": 0.7404390485814714,
+     "freq_ap": 0.00795827877796544
+    }
+   ],
+   "large": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 67,
+     "headroom": 0.0,
+     "corr": -0.454196,
+     "a1_ap": 0.8812223485843385,
+     "freq_ap": 0.06821957838409326
+    },
+    {
+     "category": "tubes",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    }
+   ]
+  },
+  "4": {
+   "small": [
+    {
+     "category": "bracket_black",
+     "n_bad": 47,
+     "headroom": 0.0,
+     "corr": -0.494843,
+     "a1_ap": 0.15745586279327278,
+     "freq_ap": 0.0004876086983163295
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 34,
+     "headroom": 0.0,
+     "corr": -0.288631,
+     "a1_ap": 0.016791232639349438,
+     "freq_ap": 0.0006015371938247669
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 30,
+     "headroom": 0.0,
+     "corr": -0.253588,
+     "a1_ap": 0.12325971502206512,
+     "freq_ap": 0.00024793023722057114
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "tubes",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.111152,
+     "a1_ap": 0.031087633472055332,
+     "freq_ap": 0.00032572648965584113
+    }
+   ],
+   "mid": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 17,
+     "headroom": 0.0,
+     "corr": -0.306168,
+     "a1_ap": 0.04513782555859667,
+     "freq_ap": 0.003461210934307909
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 14,
+     "headroom": 0.0,
+     "corr": -0.455641,
+     "a1_ap": 0.3697968969960159,
+     "freq_ap": 0.0029293140907186072
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 4,
+     "headroom": 0.0,
+     "corr": -0.102634,
+     "a1_ap": 0.6809540966251263,
+     "freq_ap": 0.0022588690622321658
+    },
+    {
+     "category": "tubes",
+     "n_bad": 65,
+     "headroom": 0.0,
+     "corr": -0.072023,
+     "a1_ap": 0.7638953241970761,
+     "freq_ap": 0.007173854795196871
+    }
+   ],
+   "large": [
+    {
+     "category": "bracket_black",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_brown",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "bracket_white",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "connector",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    },
+    {
+     "category": "metal_plate",
+     "n_bad": 67,
+     "headroom": 0.0,
+     "corr": -0.328194,
+     "a1_ap": 0.8906905256204791,
+     "freq_ap": 0.07301772229742078
+    },
+    {
+     "category": "tubes",
+     "n_bad": 0,
+     "headroom": null,
+     "corr": null,
+     "a1_ap": null,
+     "freq_ap": null
+    }
+   ]
+  }
+ }
+}

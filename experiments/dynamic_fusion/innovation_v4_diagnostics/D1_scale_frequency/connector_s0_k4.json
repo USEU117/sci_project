@@ -1,0 +1,51 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 4,
+ "category": "connector",
+ "n_test_images": 44,
+ "n_good": 30,
+ "n_bad": 14,
+ "tiers": {
+  "small": {
+   "tier": "small",
+   "n_bad_images": 0,
+   "n_pos_px": 0,
+   "a1_ap": null,
+   "a1_auroc": null,
+   "freq_ap": null,
+   "freq_auroc": null,
+   "oracle_ap": null,
+   "oracle_auroc": null,
+   "oracle_headroom_ap": null,
+   "a1_freq_rank_corr": null
+  },
+  "mid": {
+   "tier": "mid",
+   "n_bad_images": 14,
+   "n_pos_px": 48156,
+   "a1_ap": 0.3697968969960159,
+   "a1_auroc": 0.9749947915296309,
+   "freq_ap": 0.0029293140907186072,
+   "freq_auroc": 0.10998437719986688,
+   "oracle_ap": 0.3697968969960159,
+   "oracle_auroc": 0.9749947915296309,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.455641
+  },
+  "large": {
+   "tier": "large",
+   "n_bad_images": 0,
+   "n_pos_px": 0,
+   "a1_ap": null,
+   "a1_auroc": null,
+   "freq_ap": null,
+   "freq_auroc": null,
+   "oracle_ap": null,
+   "oracle_auroc": null,
+   "oracle_headroom_ap": null,
+   "a1_freq_rank_corr": null
+  }
+ }
+}

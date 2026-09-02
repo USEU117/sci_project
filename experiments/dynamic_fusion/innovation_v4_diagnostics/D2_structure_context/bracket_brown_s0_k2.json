@@ -1,0 +1,29 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "bracket_brown",
+ "n_good_used": 16,
+ "perturbation_block_size": 4,
+ "by_type": {
+  "permutation": {
+   "a1_patch_auroc": 0.5079561557462299,
+   "context_patch_auroc": 0.7395671151846074,
+   "nodeot_image_auroc": 0.5,
+   "n_perturbed": 16
+  },
+  "missing": {
+   "a1_patch_auroc": 0.591230225686075,
+   "context_patch_auroc": 0.5297696542892456,
+   "nodeot_image_auroc": 0.54296875,
+   "n_perturbed": 16
+  },
+  "duplicate": {
+   "a1_patch_auroc": 0.4894441445763864,
+   "context_patch_auroc": 0.7486234806685059,
+   "nodeot_image_auroc": 0.53125,
+   "n_perturbed": 16
+  }
+ }
+}

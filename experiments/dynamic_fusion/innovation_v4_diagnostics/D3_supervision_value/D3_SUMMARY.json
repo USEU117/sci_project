@@ -1,0 +1,15 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v4_diagnostics",
+ "diagnostic": "D3_supervision_value",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "rule": "CASF downgraded if asymmetric-vs-symmetric pseudo-Dice headroom < 0.02 (task book 14 section 10 D3)",
+ "created_at_utc": "2026-09-02T11:14:55.897229+00:00",
+ "elapsed_s": 27.3,
+ "mean_dice_headroom": 0.0668,
+ "categories_supporting_casf": 3,
+ "n_categories": 6
+}

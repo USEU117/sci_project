@@ -1,0 +1,26 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "metal_plate",
+ "gamma": 0.35,
+ "n_train_asym": 12,
+ "n_train_sym": 12,
+ "n_eval_asym": 12,
+ "trained_asym_eval": {
+  "auroc": 0.7338,
+  "ap": 0.1836,
+  "dice": 0.0409,
+  "n_train_px": 12288,
+  "n_pos_train": 550
+ },
+ "trained_sym_eval": {
+  "auroc": 0.7831,
+  "ap": 0.2082,
+  "dice": 0.0207,
+  "n_train_px": 12288,
+  "n_pos_train": 541
+ },
+ "asym_minus_sym_dice_headroom": 0.0202
+}

@@ -1,0 +1,26 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "bracket_brown",
+ "gamma": 0.35,
+ "n_train_asym": 12,
+ "n_train_sym": 12,
+ "n_eval_asym": 12,
+ "trained_asym_eval": {
+  "auroc": 0.8046,
+  "ap": 0.5058,
+  "dice": 0.6752,
+  "n_train_px": 12288,
+  "n_pos_train": 525
+ },
+ "trained_sym_eval": {
+  "auroc": 0.7758,
+  "ap": 0.3964,
+  "dice": 0.0883,
+  "n_train_px": 12288,
+  "n_pos_train": 616
+ },
+ "asym_minus_sym_dice_headroom": 0.5869
+}

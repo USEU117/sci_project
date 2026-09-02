@@ -165,12 +165,20 @@ P1-A/B/D 已同时包含机器可读 JSON/CSV、Markdown 表、生成脚本、�
 
 独立复核补充：直接运行仓库根目录无范围的 `pytest` 会误收集 `methods/` 内第三方上游测试，并因各自专用环境缺少 `thop/patchcore` 而在 collection 阶段失败；项目回归的正确命令是 `.\\.venv-patchcore\\Scripts\\python.exe -m pytest tests -q`。这不影响 RCEC 结论。
 
-## 13. A2 Innovation Program 多路线计划（2026-09-02，待执行）
+## 13. A2 Innovation Program 多路线执行结果与独立复核（2026-09-02）
 
 用户明确要求继续寻找算法更新和创新，但不得复活已失败的 RCEC/动态路由/PCA/CCA 路线。新的执行任务书为：
 
 `docs/paper_writing_preparation_20260830/12_MULTI_ROUTE_ALGORITHM_INNOVATION_EXECUTION_AND_ACCEPTANCE_CN_20260902.md`
 
-计划包含六条不同假设：LNDC 局部正常密度校准、DSAM 可变形空间记忆、CE-CQA 跨编码器共识的有界 query shift、DEVA 双编码器等变性验证的正常增强、NCPRA 正常样本非线性交叉预测 adapter、FAGR 特征亲和图细化。当前均为**未执行候选**，不能写入论文贡献。
+六条路线共 27 个预注册候选已完成 MPDD seed0 × shot {1,2,4} 小门，0 个通过。最佳结果为 CEQA `q0.20_eta0.50`，mean ΔPixel-AP `+0.002799`，但低于 `+0.003` 门槛且没有胜过 A1-rank 机制控制；LNDC/DSAM/NCPRA/FAGR 为负，DEVA 约等于零。按任务书早停，不运行 Full MPDD 和外部验证，A1 仍是当前论文方法。原始报告位于 `experiments/dynamic_fusion/innovation_v2/`。
 
-统一纪律：所有路线只在 MPDD 竞争；每条路线有候选上限和早停门；只有一个 MPDD winner 可以冻结并一次性进入 BTAD/MVTec/VisA；验证失败后不能测试第二名。路线 E 会改变零训练定位，必须另获用户/导师明确同意。A1 冻结证据不原地修改。
+独立复核同时发现两项会影响科学结论强度的问题：DEVA 的 `combined` 实际只执行光度变换，几何 feature warp 使用的映射方向经 impulse 实验证实错误；NCPRA 的最佳 `state_dict` 未深拷贝且模型初始化未固定 PyTorch seed。现有专项测试 42/42 通过，但未覆盖这两项科研有效性条件。因此 A2 总体“不升级”决定不变，A/B/C/F 结果可继续归档，D/E 应表述为“当前实现未通过、待限定纠错”，不能写成假设已被彻底证伪。
+
+后续独立任务书：`docs/paper_writing_preparation_20260830/13_REPRESENTATION_LEVEL_BREAKTHROUGH_EXECUTION_AND_ACCEPTANCE_CN_20260902.md`。A3 不继续末层距离调参，主攻 CASF 多层特征/跨分支非对称伪异常监督，备选 DC-SZoom 双线索稀疏高分辨率记忆；任何 A3 候选通过冻结验证前不改变 A1 论文口径。
+
+## 14. A4 更宽算法创新版图（2026-09-02，构思阶段）
+
+进一步复核认为 A3 仍偏重“双编码器怎样融合”，因此新增研究版图 `docs/paper_writing_preparation_20260830/14_BROAD_ALGORITHM_INNOVATION_PORTFOLIO_CN_20260902.md`。新方向分别改变正常性定义、输入信息或检测单位：RG-MCR 通过遮掉中心 token、利用上下文和正常参考预测反事实正常中心；SF-NM 从原图 wavelet 高频建立独立正常记忆；RG-OT 用节点与边的最优传输检测部件关系异常；另记录组件图、跨数据集 episodic 元学习、扩散修复与 conformal evidence 的协议收益和风险。
+
+当前优先级为 RG-MCR > SF-NM > RG-OT；CASF 保留但不再是唯一主路线，DC-SZoom 只在小缺陷/频率诊断支持时投入。A4 不是无限实验授权：下一步应先在 MPDD 做缺陷尺度/频率、合成结构错位、双分支伪监督三个固定诊断，最多选择两条路线另立严格任务书。A1 当前论文身份和冻结证据不变。

@@ -1,0 +1,51 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 4,
+ "category": "tubes",
+ "n_test_images": 101,
+ "n_good": 32,
+ "n_bad": 69,
+ "tiers": {
+  "small": {
+   "tier": "small",
+   "n_bad_images": 4,
+   "n_pos_px": 3833,
+   "a1_ap": 0.031087633472055332,
+   "a1_auroc": 0.9764025125584174,
+   "freq_ap": 0.00032572648965584113,
+   "freq_auroc": 0.24149350591477614,
+   "oracle_ap": 0.031087633472055332,
+   "oracle_auroc": 0.9764025125584174,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.111152
+  },
+  "mid": {
+   "tier": "mid",
+   "n_bad_images": 65,
+   "n_pos_px": 161272,
+   "a1_ap": 0.7638953241970761,
+   "a1_auroc": 0.9904861120805297,
+   "freq_ap": 0.007173854795196871,
+   "freq_auroc": 0.477673342092301,
+   "oracle_ap": 0.7638953241970761,
+   "oracle_auroc": 0.9904861120805297,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.072023
+  },
+  "large": {
+   "tier": "large",
+   "n_bad_images": 0,
+   "n_pos_px": 0,
+   "a1_ap": null,
+   "a1_auroc": null,
+   "freq_ap": null,
+   "freq_auroc": null,
+   "oracle_ap": null,
+   "oracle_auroc": null,
+   "oracle_headroom_ap": null,
+   "a1_freq_rank_corr": null
+  }
+ }
+}

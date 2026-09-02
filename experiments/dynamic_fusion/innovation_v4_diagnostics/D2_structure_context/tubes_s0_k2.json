@@ -1,0 +1,29 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "tubes",
+ "n_good_used": 16,
+ "perturbation_block_size": 4,
+ "by_type": {
+  "permutation": {
+   "a1_patch_auroc": 0.52283865860316,
+   "context_patch_auroc": 0.7110389627465149,
+   "nodeot_image_auroc": 0.5,
+   "n_perturbed": 16
+  },
+  "missing": {
+   "a1_patch_auroc": 0.6143748000879612,
+   "context_patch_auroc": 0.5491032070888809,
+   "nodeot_image_auroc": 0.5703125,
+   "n_perturbed": 16
+  },
+  "duplicate": {
+   "a1_patch_auroc": 0.5253324787093678,
+   "context_patch_auroc": 0.7378588421094718,
+   "nodeot_image_auroc": 0.48046875,
+   "n_perturbed": 16
+  }
+ }
+}

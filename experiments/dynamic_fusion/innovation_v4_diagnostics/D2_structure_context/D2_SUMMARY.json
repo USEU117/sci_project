@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "program": "innovation_v4_diagnostics",
+ "diagnostic": "D2_structure_context",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "rule": "prefer RG-MCR if context AUROC >= 0.80 on all three types and beats A1 by >= 0.10; RG-OT only if context fails but node-OT works",
+ "created_at_utc": "2026-09-02T11:14:17.608308+00:00",
+ "elapsed_s": 74.6,
+ "per_type_mean": {
+  "permutation": {
+   "a1_patch_auroc": 0.4923,
+   "context_patch_auroc": 0.7081,
+   "nodeot_image_auroc": 0.5016
+  },
+  "missing": {
+   "a1_patch_auroc": 0.5689,
+   "context_patch_auroc": 0.508,
+   "nodeot_image_auroc": 0.5573
+  },
+  "duplicate": {
+   "a1_patch_auroc": 0.5165,
+   "context_patch_auroc": 0.7225,
+   "nodeot_image_auroc": 0.5085
+  }
+ }
+}

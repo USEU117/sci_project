@@ -1,0 +1,29 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "connector",
+ "n_good_used": 16,
+ "perturbation_block_size": 4,
+ "by_type": {
+  "permutation": {
+   "a1_patch_auroc": 0.5072673829749638,
+   "context_patch_auroc": 0.7120423074768119,
+   "nodeot_image_auroc": 0.501953125,
+   "n_perturbed": 16
+  },
+  "missing": {
+   "a1_patch_auroc": 0.6174593999162803,
+   "context_patch_auroc": 0.531809267889133,
+   "nodeot_image_auroc": 0.56640625,
+   "n_perturbed": 16
+  },
+  "duplicate": {
+   "a1_patch_auroc": 0.5403496836391988,
+   "context_patch_auroc": 0.727219023629603,
+   "nodeot_image_auroc": 0.51171875,
+   "n_perturbed": 16
+  }
+ }
+}

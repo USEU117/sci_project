@@ -1,0 +1,51 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 1,
+ "category": "bracket_brown",
+ "n_test_images": 77,
+ "n_good": 26,
+ "n_bad": 51,
+ "tiers": {
+  "small": {
+   "tier": "small",
+   "n_bad_images": 34,
+   "n_pos_px": 13284,
+   "a1_ap": 0.014575537612370973,
+   "a1_auroc": 0.9291257168373822,
+   "freq_ap": 0.0005919381606805628,
+   "freq_auroc": 0.11513722147629202,
+   "oracle_ap": 0.014575537612370973,
+   "oracle_auroc": 0.9291257168373822,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.328584
+  },
+  "mid": {
+   "tier": "mid",
+   "n_bad_images": 17,
+   "n_pos_px": 57359,
+   "a1_ap": 0.04814132182440794,
+   "a1_auroc": 0.9116475210798158,
+   "freq_ap": 0.0034554104600788404,
+   "freq_auroc": 0.07078522502147837,
+   "oracle_ap": 0.04814132182440794,
+   "oracle_auroc": 0.9116475210798158,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.326286
+  },
+  "large": {
+   "tier": "large",
+   "n_bad_images": 0,
+   "n_pos_px": 0,
+   "a1_ap": null,
+   "a1_auroc": null,
+   "freq_ap": null,
+   "freq_auroc": null,
+   "oracle_ap": null,
+   "oracle_auroc": null,
+   "oracle_headroom_ap": null,
+   "a1_freq_rank_corr": null
+  }
+ }
+}

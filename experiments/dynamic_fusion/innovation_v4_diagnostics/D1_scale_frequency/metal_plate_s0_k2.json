@@ -1,0 +1,51 @@
+{
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shot": 2,
+ "category": "metal_plate",
+ "n_test_images": 97,
+ "n_good": 26,
+ "n_bad": 71,
+ "tiers": {
+  "small": {
+   "tier": "small",
+   "n_bad_images": 0,
+   "n_pos_px": 0,
+   "a1_ap": null,
+   "a1_auroc": null,
+   "freq_ap": null,
+   "freq_auroc": null,
+   "oracle_ap": null,
+   "oracle_auroc": null,
+   "oracle_headroom_ap": null,
+   "a1_freq_rank_corr": null
+  },
+  "mid": {
+   "tier": "mid",
+   "n_bad_images": 4,
+   "n_pos_px": 18413,
+   "a1_ap": 0.6515350009809678,
+   "a1_auroc": 0.9949208225119661,
+   "freq_ap": 0.001824457367211108,
+   "freq_auroc": 0.22934567950193718,
+   "oracle_ap": 0.6515350009809678,
+   "oracle_auroc": 0.9949208225119661,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.29518
+  },
+  "large": {
+   "tier": "large",
+   "n_bad_images": 67,
+   "n_pos_px": 2280327,
+   "a1_ap": 0.8812223485843385,
+   "a1_auroc": 0.9761883800405166,
+   "freq_ap": 0.06821957838409326,
+   "freq_auroc": 0.1303735604578305,
+   "oracle_ap": 0.8812223485843385,
+   "oracle_auroc": 0.9761883800405166,
+   "oracle_headroom_ap": 0.0,
+   "a1_freq_rank_corr": -0.454196
+  }
+ }
+}
