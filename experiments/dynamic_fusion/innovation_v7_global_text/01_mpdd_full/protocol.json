@@ -1,0 +1,27 @@
+{
+ "program": "innovation_v7_global_text",
+ "task_book": "17_GLOBAL_TEXT_EVIDENCE_CONFIRMATION_AND_FUTURE_ALGORITHM_HANDOFF_CN_20260903.md",
+ "dataset_roles": {
+  "mpdd": "development",
+  "btad": "unseen_external_validation_once",
+  "mvtec": "unseen_external_validation_once",
+  "visa": "source_in_domain_audit_only"
+ },
+ "frozen": {
+  "seeds": [0, 1, 2],
+  "shots": [1, 2, 4],
+  "categories": ["bracket_black", "bracket_brown", "bracket_white", "connector", "metal_plate", "tubes"],
+  "signals": ["a1_max", "a1_top1", "text"],
+  "a1_top1_frac": 0.01,
+  "text_checkpoint_sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4",
+  "text_cache_hash": "e6240cf8725ad86853e89b145202e76bf8bffa1887f31a25026689ef647bda3a"
+ },
+ "bootstrap": {"primary_b": 10000, "cluster_b": 2000, "seed": 20260903},
+ "g1_gate": {
+  "macro_mean_dap_ge": 0.015, "n_of_9_positive_ge": 7,
+  "confirmation_mean_dap_ge": 0.010, "confirmation_n_of_6_positive_ge": 4,
+  "bootstrap_ci95_lower_gt": 0.0, "macro_mean_dauroc_ge": -0.020,
+  "n_of_6_cats_positive_ge": 3, "worst_cat_mean_dap_ge": -0.100
+ },
+ "notes": "thresholds frozen by task book 17; no per-category tuning allowed."
+}

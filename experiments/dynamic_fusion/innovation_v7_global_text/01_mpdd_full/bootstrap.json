@@ -1,0 +1,135 @@
+{
+ "program": "innovation_v7_global_text",
+ "phase": "phase1_paired_bootstrap",
+ "task_book": "17 s.3.4",
+ "primary_statistic": "macro mean over 9 configs of per-cat mean DeltaImageAP / DeltaImageAUROC (paired stratified)",
+ "observed_9cfg_macro_dap": 0.0286,
+ "observed_9cfg_macro_dauroc": 0.0017,
+ "per_config_observed_macro_dap": {
+  "s0_k1": 0.0785,
+  "s0_k2": 0.0354,
+  "s0_k4": -0.0398,
+  "s1_k1": 0.0609,
+  "s1_k2": 0.0067,
+  "s1_k4": -0.0052,
+  "s2_k1": 0.1051,
+  "s2_k2": 0.0459,
+  "s2_k4": -0.0298
+ },
+ "primary": {
+  "b": 10000,
+  "seed": 20260903,
+  "mean_dap": 0.0268,
+  "median_dap": 0.0271,
+  "ci95_dap": [
+   -0.0226,
+   0.0737
+  ],
+  "p_dap_gt0": 0.8582,
+  "mean_dauroc": 0.0017,
+  "ci95_dauroc": [
+   -0.0449,
+   0.0498
+  ],
+  "p_dauroc_gt0": 0.5262,
+  "g1d_ci95_lower_gt_0": false
+ },
+ "per_config_bootstrap_p_positive": {
+  "s0_k1": {
+   "p_dap_gt0_bootstrap": 0.9961
+  },
+  "s0_k2": {
+   "p_dap_gt0_bootstrap": 0.8785
+  },
+  "s0_k4": {
+   "p_dap_gt0_bootstrap": 0.0666
+  },
+  "s1_k1": {
+   "p_dap_gt0_bootstrap": 0.9732
+  },
+  "s1_k2": {
+   "p_dap_gt0_bootstrap": 0.5749
+  },
+  "s1_k4": {
+   "p_dap_gt0_bootstrap": 0.4055
+  },
+  "s2_k1": {
+   "p_dap_gt0_bootstrap": 0.9996
+  },
+  "s2_k2": {
+   "p_dap_gt0_bootstrap": 0.9442
+  },
+  "s2_k4": {
+   "p_dap_gt0_bootstrap": 0.1259
+  }
+ },
+ "category_cluster_bootstrap": {
+  "b": 2000,
+  "mean_dap": 0.0261,
+  "ci95_dap": [
+   -0.0394,
+   0.1027
+  ],
+  "p_dap_gt0": 0.7465
+ },
+ "auxiliary_tests": {
+  "wilcoxon_p_one_sided": 0.06445,
+  "sign_test_n_pos_of_9": 6,
+  "sign_test_p": 0.25391,
+  "note": "auxiliary only; configs share test images (not independent)"
+ },
+ "created_at_utc": "2026-09-03T00:43:48.581331+00:00",
+ "elapsed_total_s": 92.0,
+ "hist_dap_bins": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  1.0,
+  0.0,
+  7.0,
+  11.0,
+  21.0,
+  32.0,
+  74.0,
+  117.0,
+  171.0,
+  271.0,
+  386.0,
+  521.0,
+  636.0,
+  741.0,
+  893.0,
+  959.0,
+  921.0,
+  933.0,
+  798.0,
+  761.0,
+  564.0,
+  422.0,
+  314.0,
+  201.0,
+  122.0,
+  59.0,
+  31.0,
+  16.0,
+  10.0,
+  3.0,
+  3.0,
+  1.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ]
+}

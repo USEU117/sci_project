@@ -75,13 +75,14 @@ def main() -> int:
                 }
     configs = [(seed, shot) for seed in SEEDS for shot in SHOTS]
 
-    def macro_delta_for(idx_by_cat: dict) -> tuple:
+    def macro_delta_for(idx_by_cat: dict, cat_list: list | None = None) -> tuple:
         """Given per-category selected image indices, return 9-config macro
         mean DeltaAP and DeltaAUROC (lists of per-config macro deltas)."""
+        cats_use = CATS if cat_list is None else cat_list
         per_cfg_dap, per_cfg_dauroc = [], []
         for seed, shot in configs:
             daps, daurocs = [], []
-            for cat in CATS:
+            for cat in cats_use:
                 c = cells[(cat, seed, shot)]
                 idx = idx_by_cat[cat]
                 dap = ap_binary(c["y"][idx], c["s_text"][idx]) - \
@@ -93,6 +94,25 @@ def main() -> int:
                     r1 = _auc(c["s_text"][idx], y)
                     r0 = _auc(c["s_a1"][idx], y)
                     daurocs.append(r1 - r0)
+            per_cfg_dap.append(float(np.nanmean(daps)))
+            per_cfg_dauroc.append(float(np.nanmean(daurocs)))
+        return float(np.mean(per_cfg_dap)), float(np.mean(per_cfg_dauroc)), \
+            per_cfg_dap, per_cfg_dauroc
+
+    def macro_delta_occ(occ) -> tuple:
+        """occ: list of (cat, image-index-array) occurrences (may repeat cats)."""
+        per_cfg_dap, per_cfg_dauroc = [], []
+        for seed, shot in configs:
+            daps, daurocs = [], []
+            for cat, idx in occ:
+                c = cells[(cat, seed, shot)]
+                dap = ap_binary(c["y"][idx], c["s_text"][idx]) - \
+                      ap_binary(c["y"][idx], c["s_a1"][idx])
+                daps.append(dap)
+                y = c["y"][idx]
+                if (y == 1).sum() and (y == 0).sum():
+                    daurocs.append(_auc(c["s_text"][idx], y)
+                                   - _auc(c["s_a1"][idx], y))
             per_cfg_dap.append(float(np.nanmean(daps)))
             per_cfg_dauroc.append(float(np.nanmean(daurocs)))
         return float(np.mean(per_cfg_dap)), float(np.mean(per_cfg_dauroc)), \
@@ -162,16 +182,16 @@ def main() -> int:
     rng2 = np.random.default_rng(RNG_SEED + 1)
     cl_dap = np.empty(B_CLUSTER)
     for b in range(B_CLUSTER):
-        cats_s = [CATS[i] for i in rng2.integers(0, len(CATS), len(CATS))]
-        idx_by_cat = {}
-        for cat in cats_s:
+        occ = []
+        for _ in range(len(CATS)):
+            cat = CATS[rng2.integers(0, len(CATS))]
             n0, n1 = counts[cat]["n0"], counts[cat]["n1"]
             y = cells[(cat, 0, 1)]["y"]
             i_n = rng2.integers(0, n0, n0)
             i_a = rng2.integers(0, n1, n1)
-            idx_by_cat[cat] = np.r_[np.flatnonzero(y == 0)[i_n],
-                                    np.flatnonzero(y == 1)[i_a]]
-        dap, _, _, _ = macro_delta_for(idx_by_cat)
+            occ.append((cat, np.r_[np.flatnonzero(y == 0)[i_n],
+                                   np.flatnonzero(y == 1)[i_a]]))
+        dap, _, _, _ = macro_delta_occ(occ)
         cl_dap[b] = dap
     cluster = {"b": B_CLUSTER,
                "mean_dap": round(float(cl_dap.mean()), 4),

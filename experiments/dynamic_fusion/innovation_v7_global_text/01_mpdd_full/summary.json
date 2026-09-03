@@ -1,0 +1,43 @@
+{
+ "program": "innovation_v7_global_text",
+ "phase": "phase1_mpdd_full_image_evidence",
+ "dataset": "mpdd",
+ "role": "development",
+ "task_book": "17 s.3",
+ "signal": "TEXT p_abn vs A1-max (paired per image)",
+ "created_at_utc": "2026-09-03T00:38:30.077102+00:00",
+ "elapsed_total_s": 53.8,
+ "pooled_macro": {
+  "9cfg_macro_dap": 0.0288,
+  "9cfg_macro_dauroc": -0.0008,
+  "9cfg_n_positive": 6
+ },
+ "discovery_seed0": {
+  "mean_dap": 0.0249,
+  "mean_dauroc": -0.0015,
+  "n_pos_of_3": 2,
+  "n_configs": 3
+ },
+ "confirmation_seed1_2": {
+  "mean_dap": 0.0308,
+  "mean_dauroc": -0.0004,
+  "n_pos_of_6": 4,
+  "n_configs": 6
+ },
+ "micro_pooled_secondary": {
+  "ap_a1_max": 0.8143382212238471,
+  "ap_a1_top1": 0.8006887291849514,
+  "ap_text": 0.8402271010652169,
+  "dap_text": 0.0259
+ },
+ "g1_prechecks": {
+  "g1a_9cfg_macro_dap_ge_0015": true,
+  "g1b_ge7of9_configs_positive": false,
+  "g1c_conf6_mean_dap_ge_0010": true,
+  "g1c_conf_at_least_4of6_positive": true,
+  "g1e_macro_dauroc_ge_-0.02": true,
+  "g1f_ge3of6_cats_positive": true,
+  "g1f_worst_cat_ge_-0.100": true
+ },
+ "note_micro": "micro pools per-image rows over the 9 configs (images recur across configs/shot; TEXT per image is config-independent)"
+}
