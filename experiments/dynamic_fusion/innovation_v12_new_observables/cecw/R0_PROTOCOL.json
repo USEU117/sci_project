@@ -1,0 +1,67 @@
+{
+  "route": "V12-CECW",
+  "name": "Cross-Encoder Conformity Work (doc 22 s4; P2 minimal closed-form coupling probe)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "authority": "docs/paper_writing_preparation_20260830/22_POST_V11_RESULT_AUDIT_AND_NEW_INNOVATION_ROUTES_CN_20260903.md s4.3 + s13 item 2",
+  "purpose": "First reproduce published ANoCo (arXiv:2605.28428, CVPR 2026) as strong training-free baselines on the FROZEN project features (DINOv2-B14 32x32 grid; AnomalyCLIP ViT-L/14@336 image tower bilinearly aligned to the same grid), then test a minimal closed-form CECW coupling. CECW asks whether scoring 'the joint work + cross-encoder correction conflict required to conform to the normal manifold' beats (i) A1 and (ii) the strongest ANoCo single-branch/concat baseline. If the coupling's independent gain over the strongest ANoCo baseline is < +0.003 or a shuffled DINO<->CLIP correspondence does not drop by >=0.003, the route is archived immediately (doc 22 s13).",
+  "scope": "MPDD development seed0 x shot {1,2,4}, all 6 classes. No BTAD/MVTec tuning; MVTec AD 2 untouched. Evaluator-only Pixel-AP at the frozen STRIDE=8 protocol (56x56 maps) with GT masks used offline only.",
+  "features": {
+    "dino": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k{shot}/anomalydino_visual/{cat}.npz (patch 32x32x768)",
+    "clip": "outputs/dynamic_fusion/v3_direction_a/features_s0_k{shot}/anomalyclip_text/{cat}.npz (patch 37x37x768, bilinear-resized to 32x32)",
+    "fusion": "A1 concat: per-branch L2 row-normalize, concat(dino*0.5, clip*0.5), faiss.normalize_L2 (common.build_fused_blocks parity)"
+  },
+  "anoco_baselines": {
+    "repro_note": "ANoCo: per query patch retrieve anchor-consistent normal patches from the ref bank, build a bipartite query->normal graph (no query-query / normal-normal edges), anchored-Laplacian energy E(d)=a||d||^2+2 b^T d, closed-form update d*=-b/a; score = ||d*|| (feature drift magnitude). Ref nodes held fixed. Paper robustness claims flat wrt its Lambda_q ablation -> fixed defaults below, NOT tuned on test.",
+    "defaults_pre_registered": {
+      "M_candidate_prefix": 64,
+      "Lambda_q": 1.0,
+      "affinity": "cosine on L2-normalized rows; norm-compat factor alpha=1 because all rows are unit-norm",
+      "edge_positivity": "only edges with s_ij > 0 are kept (non-negative Laplacian weights); anchor always included",
+      "neighbor_rule": "N(i) = { j in top-M query-sorted refs : cos(f_anchor, f_j) > cos(f_q, f_anchor) } union {anchor}, filtered to s_ij > 0",
+      "update": "a_i = D_i + Lambda_q, b_i = D_i*f_q - sum_j s_ij*f_j, d*_i = -b_i/a_i, score_i = ||d*_i||",
+      "fallback": "degenerate patch (empty N or a_i<=0) uses the fused A1 1-NN distance for that patch; fallback count recorded"
+    },
+    "members": [
+      "ANoCo-DINO (single branch, dino cache)",
+      "ANoCo-CLIP (single branch, clip cache resized 37x37->32x32)",
+      "ANoCo-A1concat (fused concat features)",
+      "fixed-mean (per-image robust01 of ANoCo-DINO and ANoCo-CLIP maps averaged 0.5/0.5) - map-level fusion control"
+    ]
+  },
+  "cecw_method": {
+    "alignment": "support-only low-rank orthogonal alignment fit on MATCHED DINO<->CLIP patch pairs of the K reference images (K x 1024 pairs at 32x32): center each branch, cross-cov M = Xc^T Xd, top-r SVD M = U S V^T -> Pc = U_r^T (r x d), Pd = V_r^T (r x d). Pd,Pc rows orthonormal.",
+    "r_rank": 16,
+    "lambda_conflict": 1.0,
+    "energy": "min_{dD,dC} aD||dD||^2 + 2 bD^T dD + aC||dC||^2 + 2 bC^T dC + lambda_c ||Pd dD - Pc dC||^2 ; closed-form block solve per patch via Woodbury (r x r), see code; reduces to the two independent ANoCo optima when lambda_c = 0.",
+    "score": "score_i = sqrt(aD||dD*||^2 + aC||dC*||^2 + lambda_c||Pd dD* - Pc dC*||^2) = sqrt(-E_min); always >= 0. NOT a weighted sum of the two maps.",
+    "report_extra": "also report ||dD*||, ||dC*|| and the aligned conflict ||Pd dD* - Pc dC*|| maps as diagnostics (not the primary score)",
+    "fallback": "same A1-distance fallback as baselines; fallback count recorded"
+  },
+  "controls": {
+    "ctrl_shuffled_corr": "fit Pd,Pc on a fixed-seed random permutation of the DINO<->CLIP support row pairing; coupling solve unchanged. Requires correct - shuffled AP >= 0.003, else the coupling carries no information.",
+    "ctrl_no_conflict": "lambda_c = 0 joint (independent per-encoder optima), score = sqrt(aD||dD*||^2 + aC||dC*||^2); isolates the conflict term",
+    "ctrl_query_query": "add intra-image query-query cosine edges and 1 propagation round of the update field over the 32x32 grid before scoring (evidence-dilution control, cf. ANoCo supp S3 message passing)",
+    "ctrl_smoothing": "ordinary map smoothing control: gaussian_filter(sigma=4) already inside dists2map is the ONLY smoothing; this control applies one extra 3x3 gaussian on the 32x32 score field to show added smoothing is not the source of any gain",
+    "ctrl_displacement_only": "the two ANoCo displacement maps themselves (ANoCo-DINO, ANoCo-CLIP) and their fixed-mean"
+  },
+  "gates_per_shot": {
+    "g0_identity": "harness A1 pooled Pixel-AP reproduces the frozen A1 number for the same cache within 1e-4 (monotone-safe sanity, not a method claim)",
+    "g1_headroom": "CECW mean (over 6 categories, pooled per category) Pixel-AP delta vs A1 >= +0.006 AND >= 4/6 categories positive AND worst category >= -0.010",
+    "g2_coupling_gain": "CECW - strongest of {ANoCo-DINO, ANoCo-CLIP, ANoCo-A1concat, fixed-mean} mean delta AP >= +0.003",
+    "g3_shuffled_drop": "(correct-coupling mean delta AP) - (shuffled-coupling mean delta AP) >= 0.003",
+    "g4_spearman_rescale": "if per-patch Spearman(CECW, A1) > 0.98 and |CECW gain| < 0.003 -> judged an equivalent rescale and archived regardless of other gates"
+  },
+  "decision_rule": "Run seed0 shot {1,2,4}. Per shot evaluate g1-g3. ARCHIVE IMMEDIATELY if ANY shot fails g2 or g3 (doc 22 s13 language: coupling gain < 0.003 or shuffled no-drop => archive). g1 must hold on all three shots for a PASS; a shot with g1 mean-delta < 0 also archives. g4 is a global veto. PASS -> deliver audit results only; further scaling (3 seeds) only after doc-22 approval. FAIL -> R0_DECISION.md + FAILURE_ANALYSIS.md and PORTFOLIO_LEDGER update.",
+  "leakage": {
+    "calibration": "no test bad / no GT in any fit; alignment and ANoCo retrieval use only reference (support) images",
+    "evaluator": "GT masks used offline solely for pooled Pixel-AP / per-category gating",
+    "tuning_ban": "no hyper-parameter search on test; all constants fixed above before the run"
+  },
+  "deliverables": [
+    "R0_PROTOCOL.json", "R0_RESULT_k1.json", "R0_RESULT_k2.json", "R0_RESULT_k4.json",
+    "per_category.csv", "per_seed_shot.csv", "controls.json",
+    "environment.json", "input_manifest.json", "R0_DECISION.md",
+    "FAILURE_ANALYSIS.md (FAIL only)"
+  ]
+}

@@ -1,0 +1,10 @@
+seed,shot,method,mean_delta_ap,n_cats_positive,worst_delta
+0,4,anoco_dino,-0.046838,0,-0.07818
+0,4,anoco_clip,-0.110906,1,-0.263096
+0,4,anoco_concat,-0.005502,2,-0.026583
+0,4,fixed_mean,-0.020458,1,-0.140504
+0,4,cecw,-0.043587,2,-0.140891
+0,4,ctrl_shuffled,-0.043545,2,-0.141173
+0,4,ctrl_noconflict,-0.043442,2,-0.140455
+0,4,ctrl_qq,-0.041818,2,-0.161647
+0,4,ctrl_smoothing,-0.044226,2,-0.167638

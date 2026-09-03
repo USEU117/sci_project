@@ -1,0 +1,62 @@
+{
+ "bracket_black": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\bracket_black.npz",
+   "sha256": "ea396073f74127bf70c343e5b891c7160cfe1b45bd99ed0532188c1a8b7c98af"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\bracket_black.npz",
+   "sha256": "ff0b2d3f268920d6b97c97a82b1d08a6f20adc193140b59cafebd72221acb1a4"
+  }
+ },
+ "bracket_brown": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\bracket_brown.npz",
+   "sha256": "e9ffccd4938f60d2fdc85a77edf782819d48316a2934bf51cad7a2d41e6f96e5"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\bracket_brown.npz",
+   "sha256": "e411e598b057239741cbde818af28c73ac0a151ba6199f9c0cc29b9233946d0a"
+  }
+ },
+ "bracket_white": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\bracket_white.npz",
+   "sha256": "50f64ba16351e513f24622873b044f0977edf44b0107f5ac97ace402c7019bb6"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\bracket_white.npz",
+   "sha256": "3c8f9fbc3a547a467d579d8c4ac628eba531acf47d8fff8877bd719afbf0ca02"
+  }
+ },
+ "connector": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\connector.npz",
+   "sha256": "c05ee350b5d657c2a04ed0f14343cf6036200ce2394e036b6a80f0ae713125f7"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\connector.npz",
+   "sha256": "8d8402f0c1313f968147911d279c0279554fe349b445321200060888866c3031"
+  }
+ },
+ "metal_plate": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\metal_plate.npz",
+   "sha256": "6b8c7a81ff0e9031619f8af8fbf29ddfe4ebcadbe6c9a6c84298741bacf6b5d9"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\metal_plate.npz",
+   "sha256": "4a76eabf113bc1ed7e1398fa83f91a10d221ef027e5b207ae6a2f4639af16999"
+  }
+ },
+ "tubes": {
+  "dino": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k4\\anomalydino_visual\\tubes.npz",
+   "sha256": "4467af1f9705a7179c39dd9e02f4e4d967732b35ed651b78536ab02e15c01c45"
+  },
+  "clip": {
+   "path": "outputs\\dynamic_fusion\\v3_direction_a\\features_s0_k4\\anomalyclip_text\\tubes.npz",
+   "sha256": "4b09aa4221d3ab2931a9f62e3139dd0df7e9ac6e7e87ab6937f4a9f7ea258750"
+  }
+ }
+}

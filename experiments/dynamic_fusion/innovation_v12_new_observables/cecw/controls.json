@@ -1,0 +1,12 @@
+{
+ "shuffled_correspondence_drop": -4.2e-05,
+ "no_conflict_delta": -0.043442,
+ "qq_edges_delta": -0.041818,
+ "extra_smoothing_delta": -0.044226,
+ "best_anoco_baseline": "anoco_concat",
+ "fallback_fraction": 0.0,
+ "mean_neighbors": {
+  "mean_neighbors_dino": 7.69,
+  "mean_neighbors_clip": 19.33
+ }
+}
