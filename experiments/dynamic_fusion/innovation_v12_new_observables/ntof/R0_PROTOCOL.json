@@ -1,0 +1,51 @@
+{
+  "route": "V12-NTOF",
+  "name": "Nuisance-Tangent Orthogonal Fusion (doc 22 s3; P1 first new mainline) - R0 normal-only mechanism gate",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "authority": "docs/paper_writing_preparation_20260830/22_POST_V11_RESULT_AUDIT_AND_NEW_INNOVATION_ROUTES_CN_20260903.md s3.4 (R0) + s13 item 3",
+  "purpose": "Test whether illumination-induced feature drift on NORMAL images can be estimated as a local nuisance tangent from paired interventions on the normal support, and whether scoring only the tangent-ORTHOGONAL residual suppresses normal-image false positives under held-out illumination while preserving synthetic structure defects. Purely normal-only mechanism gate: no real defect tuning, no MVTec AD 2.",
+  "context": "CECW archived (coupling carried no information) -> doc 22 s10/s13: CECW no-info => start NTOF. GPU: RTX 3060 Laptop 6 GB (frozen-backbone feature export).",
+  "scope": "MPDD development seed0, categories all 6. R0 uses NORMAL images only (train/good support + test/good holdout). Existing A1 fused reference banks (outputs/dynamic_fusion/v3_direction_a/features_*_s0_k{shot}) define the memory; shot runs {1,2,4} for rank-stability, primary R0 reads use shot 1.",
+  "interventions": {
+    "families": ["exposure", "gamma", "white_balance", "lr_brightness_gradient", "specular_blob"],
+    "note": "5 families x 3 strengths each = 15 paired variants per image; each variant applied to the SAME image to form a finite-difference pair f_e(T_j(x)) - f_e(x). One extra strength per family is RESERVED as held-out (never used to fit the tangent), giving the holdout pool for the FP-reduction gate.",
+    "strengths_fixed": {
+      "exposure": [0.70, 1.15, 1.40],
+      "gamma": [0.80, 1.20, 1.50],
+      "white_balance": [[0.92,1.0,1.08],[1.0,1.0,1.0],[1.08,1.0,0.92]],
+      "lr_brightness_gradient": [-0.25, 0.0, 0.25],
+      "specular_blob": [18, 36, 54]
+    },
+    "heldout_strengths": {
+      "exposure": 0.55, "gamma": 1.8, "white_balance": [1.16,1.0,0.86],
+      "lr_brightness_gradient": 0.35, "specular_blob": 80
+    },
+    "visibility_note": "strength magnitudes are fixed a priori in normal-visibility range on the category's normal images; NO adjustment against real bad images."
+  },
+  "synthetic_defects": ["cutpaste", "local_erasure", "thin_scratch"],
+  "method": {
+    "pipeline": "1) export per-encoder (DINOv2-B14 grid, AnomalyCLIP image tower aligned grid) patch features for each normal image and all 15 paired intervention variants; 2) per encoder e and per category pool finite differences V_e = [f_e(T_j(x))-f_e(x)] over support images r and variants j; 3) U_e = orthonormal top-r basis (r in {2,3,4}) of pooled V_e (right singular vectors), per category per encoder; 4) query patch deviation d_e = q_e - n_e (n_e = nearest normal patch in the frozen fused/1-branch memory under the SAME protocol as A1); 5) anomaly score = ||(I - U_e U_e^T) d_e|| fused across encoders by joint agreement; A1 raw distance kept as fallback comparator.",
+    "fusion_rule": "score_pixel = 0.5*||(I-U_D U_D^T) d_D|| + 0.5*||(I-U_C U_C^T) d_C|| evaluated on the A1 protocol 56x56 grid after dists2map; report DINO-only, CLIP-only, and simple concat-projection versions as mandatory controls.",
+    "note_patch_level": "R0 uses per-category pooled tangent (one U_e per category per encoder). A per-patch local tangent is a documented later refinement and is NOT required by the R0 gate."
+  },
+  "r0_gates": {
+    "g1_fp_reduction": "median over held-out illumination images of FP_NTOF(H)/FP_A1(H) <= 0.75 (>=25% reduction), where FP = #pixels above the category's normal 95th-percentile threshold computed on ORIGINAL good images with each method's own scores (normal-only calibration, no GT).",
+    "g2_defect_preservation": "median over synthetic defects of mean score_NTOF(defect cells)/mean score_A1(defect cells) >= 0.90 for each of cutpaste / local_erasure / thin_scratch.",
+    "g3_controls": "random orthonormal subspace (same rank), wrong-category tangent, and shuffled intervention pairing must each be worse than the true tangent by >= 0.05 in normalized FP-reduction effect (effect=(FP_A1-FP_NTOF)/FP_A1 on the g1 holdout set).",
+    "g4_rank_stability": "conclusions of g1-g3 must be directionally stable across r in {2,3,4}; no rank chosen by looking at real bad images.",
+    "g5_encoder_controls": "DINO-only, CLIP-only, and simple concat projection versions are reported; NTOF must not be worse than its best single-encoder control by more than 0.01 in FP-reduction effect.",
+    "stop_rule": "If g2 synthetic preservation < 0.90 fails, stop immediately WITHOUT tuning intervention ranges on real defects (doc 22 s3.6). Fail of g1/g3 archives NTOF and moves to PRS (doc 22 s10/s13)."
+  },
+  "leakage": {
+    "calibration": "thresholds and tangent fits use only NORMAL images (support train/good + original test/good).",
+    "heldout": "held-out illumination strengths are never used to fit U_e.",
+    "evaluator": "no GT, no bad images in R0.",
+    "tuning_ban": "no search on real defects; no MVTec AD 2 download/label look-up until a frozen winner exists."
+  },
+  "r1_future": "Only if R0 gates pass: MPDD seeds {0,1,2} x shot {1,2,4} full real-defect gates (doc 22 s3.5).",
+  "deliverables": [
+    "R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md", "FAILURE_ANALYSIS.md (FAIL only)",
+    "per_category.csv", "controls.json", "environment.json", "input_manifest.json"
+  ]
+}
