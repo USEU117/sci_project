@@ -1,0 +1,44 @@
+# V12-EARLY-FUSION Stage 0 — 多层可观测性门（PROTOCOL FROZEN）
+
+date: 2026-09-03
+status: PRE-REGISTERED (Stage 0 only; NO module training in this stage)
+authority: docs/paper_writing_preparation_20260830/23_LEARNABLE_AND_EARLY_FUSION_ROUTES_CN_20260903.md §7 Stage0 + §8
+baseline: A1 (DINOv2-vitb14 final-layer 32x32 + AnomalyCLIP image tower layer-24 aligned 32x32, 0.5/0.5 L2 concat, faiss 1-NN, Pixel-AP @56 protocol)
+
+scope:
+  dataset: MPDD development seed0
+  shots: [1, 2, 4]
+  categories: [bracket_black, bracket_brown, bracket_white, connector, metal_plate, tubes]
+  eval: per-category pooled Pixel-AP on the frozen 56x56 STRIDE=8 grid; GT used offline only
+  external_data: none; VisA stays source-only; BTAD/MVTec not retuned; MVTec AD 2 untouched
+
+layers (PRE-REGISTERED, never re-chosen by Pixel-AP):
+  dino: DINOv2Wrapper.get_intermediate_layers block indices [6, 9, 11]  (0-based; approx 1/2, 3/4, 1 depth)
+  clip: AnomalyCLIP encode_image features_list [6, 12, 18, 24]          (identical to existing exporter list)
+
+alignment:
+  reuse the A1 sample/ref alignment and the CLIP->DINO grid bilinear transform (common.build_fused_blocks parity)
+  deepest parity: dino L11 map grid 32x32 & clip L24 resized 32x32 must reproduce the frozen A1 caches
+    (features_vitb14_s0_k{shot}/anomalydino_visual, features_s0_k{shot}/anomalyclip_text)
+    max abs error < 1e-5 AND per-category pooled Pixel-AP diff < 1e-4
+
+stage0_measures:
+  - per-layer DINO-only Pixel-AP (layer bank -> 1-NN -> to56)
+  - per-layer CLIP-only Pixel-AP (native grid -> to56)
+  - static concat: same-depth concat (D_l+C_l) and FULL static multi-layer concat [D6,D9,D11,C6,C12,C18,C24]
+    (each row per-branch L2 + w=0.5 concat + L2, memory from refs at the same layers)
+  - cross-layer/branch patch-score Spearman (pooled over test images per category)
+  - layer/branch oracle headroom: per GT component choose argmax over {14 layer maps} of
+    region-AP-style loss (component hit vs outside) - MTCOA-style evaluator-only audit, no training
+
+entry_gates_to_stage1 (all required):
+  g1: best static multi-layer baseline mean(over 6 cats) Delta Pixel-AP vs A1 >= +0.003
+      OR layer/branch oracle headroom mean Delta >= +0.010
+  g2: at least 2 candidate layer pairs with cross-branch Spearman < 0.95
+  g3: no single category contributes > 50% of the total positive headroom
+  g4: deepest-parity max abs error < 1e-5 (and Pixel-AP diff < 1e-4)
+if any gate fails: STOP all early learnable-module routes (doc 23 §7), write STAGE0_DECISION FAIL + analysis
+
+deliverables:
+  01_multilayer_cache/: CACHE_MANIFEST.json ALIGNMENT_REPORT.json DEEPEST_PARITY_REPORT.json
+  02_stage0_probe/: LAYERWISE_RESULTS.csv SCORE_CORRELATIONS.csv ORACLE_HEADROOM.json STAGE0_DECISION.md
