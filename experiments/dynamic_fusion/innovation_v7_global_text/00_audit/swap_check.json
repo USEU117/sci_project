@@ -1,0 +1,48 @@
+{
+ "program": "innovation_v7_global_text",
+ "phase": "phase0_audit_item8_swap",
+ "text_embedding_sha256_normal": "e6240cf8725ad86853e89b145202e76bf8bffa1887f31a25026689ef647bda3a",
+ "text_embedding_sha256_swapped": "100923027daec47fda533c9ce3f0064c432ec5fa9bfcab03829a73e6790c455a",
+ "matches_s1_cache_text_hash_e6240c": true,
+ "note": "p_orig stored fp16 in the v6 cache; tolerance ~1e-3 expected",
+ "per_category": {
+  "bracket_black": {
+   "n": 79,
+   "max_abs_swap_err": 0.00029337406158447266,
+   "mean_orig": 0.8183902788765823,
+   "mean_swap": 0.18161235749721527
+  },
+  "bracket_brown": {
+   "n": 77,
+   "max_abs_swap_err": 0.0002661794424057007,
+   "mean_orig": 0.8691025771103896,
+   "mean_swap": 0.13086462020874023
+  },
+  "bracket_white": {
+   "n": 60,
+   "max_abs_swap_err": 0.0002496391534805298,
+   "mean_orig": 0.8921630859375,
+   "mean_swap": 0.10783392935991287
+  },
+  "connector": {
+   "n": 44,
+   "max_abs_swap_err": 0.00027601420879364014,
+   "mean_orig": 0.8635919744318182,
+   "mean_swap": 0.13641922175884247
+  },
+  "metal_plate": {
+   "n": 97,
+   "max_abs_swap_err": 0.00024401582777500153,
+   "mean_orig": 0.969640987435567,
+   "mean_swap": 0.030368799343705177
+  },
+  "tubes": {
+   "n": 101,
+   "max_abs_swap_err": 0.0002565532922744751,
+   "mean_orig": 0.9349522354579208,
+   "mean_swap": 0.06503573805093765
+  }
+ },
+ "max_over_categories": 0.00029337406158447266,
+ "created_at_utc": "2026-09-03T00:35:19.401822+00:00"
+}

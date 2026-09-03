@@ -1,0 +1,6 @@
+{
+ "cache_gt_keys": {},
+ "a1_gt_keys": {},
+ "labels_module": "src/industrial_ad/innovation_v7_global_text/evaluator.py (exporters do not import it)",
+ "exporter_scan": "v6 run_s1_hglc_export has no evaluator/label access (unit-tested)"
+}
