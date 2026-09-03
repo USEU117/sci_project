@@ -47,14 +47,29 @@ Wave2 失败机制（详见 `Wave2_reliability/WAVE2_ARCHIVE.md`）：
 - CLIP global / AnomalyCLIP image-level logit 未测（需复刻官方 prompt/eval，工程量大）；
   按 16 §6 留待用户确认后再定（建议先做 image-level logit 低成本探针）。
 
+### S1-HGLC 完整探针（AnomalyCLIP 跨模态，用户 07:05 确认后执行，08:20 收尾）→ **部分过门/融合模块归档**
+- Export：冻结 AnomalyCLIP（ViT-L/14@336 @518 + 9_12_4_multiscale_visa/epoch_15，通用 "object" learned prompt）
+  → CLIP-global 图像嵌入 + 异常文本概率 p_abn（zero-shot、类别无关、无需 refs）。swap 方向 sanity 恰为 1−p ✓。
+- 图像级（doc §3.3 item 2，pooled Image-AP 口径与 P5A 一致）：
+  - **TEXT 0.8234 vs A1-max 0.7985 → Δ=+0.0249（过门 ≥+0.010）**；DINO CLS 0.6769（Δ=−0.1216，与 P5A 完全一致）、
+    CLIP-global 0.7035（Δ=−0.095）。
+  - 文本信号在 connector（+0.151）与 bracket_black/brown（+0.06~0.07）强；metal_plate（A1=1.0 饱和）与 bracket_white 为负。
+- 像素级校准（doc §3.3 item 3-5）：z_A1 + β·ReLU(p_abn−0.5)·h(z_A1)，β∈{0.1,0.25,0.5}，h∈{z/(1+z), top-q}：
+  - z/(1+z) 最优 β=0.5：pooled ΔPixel-AP **+0.0040 < +0.005**（worst cat +0.0002，无类退化）；
+    打乱门控控制 −0.0005 → 门控信息真实但极小。top-q 负（−0.005，metal_plate −0.037）。
+- **结论**：文本信号不能作为像素级融合模块（差门槛 0.001），S1-HGLC 融合路线按冻结门槛归档；
+  但 **zero-shot 跨模态图像级文本证据是真实独立发现**（超越 A1 局部记忆图像分），可作图像级筛查/全局证据叙述。
+  证据：`s1_hglc/S1_HGLC_DECISION.md`、`S1_HGLC_DIAG.json`、`S1_CALIB.json`。
+
 ## 3. 对“创新不足”关切的综合结论（建议口径，供论文讨论）
 1. 本项目已把“双视觉分支像素级融合（KNN 记忆 × 子空间重建）+ 正常-only 可靠性保护”在冻结协议下
    完整实证到 Wave2：**固定均值融合有 +0.016 的小增益，但 doc 的保护门不可构造（可靠性无信号）**。
    这不是“没做”，而是“严格证伪并留下机制解释”——本身就是可写进论文的负结果/边界刻画。
 2. 互补性来自**几何异质 × 尺度异质**，不是“分支数量/更大骨干”的平庸效应（P5-C/P5-D 对照）。
-3. 若继续提创新，最可行的剩余轴是 **AnomalyCLIP 图像级文本证据（S1 完整版）**（全局-局部一致性，
-   跨模态），需用户确认工程投入；以及把 Wave2 的“小池 z 量化退化”作为一个方法学改进点
-   （分布级尾估计），目前无现成数据支持其能过门，仅作研究方向建议。
+3. 若继续提创新，最可行的剩余轴 **AnomalyCLIP 图像级文本证据（S1 完整版）已于 08:20 完成实证**：
+   zero-shot 文本概率图像级 pooled Image-AP 0.8234 > A1 0.7985（Δ=+0.0249），但其像素级门控增益
+   +0.0040 < +0.005，故不作为像素融合模块；可作**图像级筛查/全局-局部一致性的跨模态证据**写入论文
+   （详见上方 S1-HGLC 完整探针小节）。Wave2 的“小池 z 量化退化”方法学改进已由 Wave2c 复核为无效。
 
 ## 4. 明确不做
 - 不宣传“两个 DINO 系分支 = 多模态”；不在 Full MPDD 前碰外部集；不训练监督 router；

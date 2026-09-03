@@ -46,6 +46,7 @@ overall mean ΔPixel-AP **+0.022**（16 号写 +0.0213），正单元 38/54 ✓�
 | Wave 2 正常-only 可靠性 | ❌ **归档**（03:40）：ρ(r_sub,Δ)=0.3387<0.40；connector 未入后 25% → 见 WAVE2_ARCHIVE.md |
 | 创新探针 P5-B/C/D/A-lite | 归档/无增益/弱增益/归档（见 INNOVATION_ROADMAP_20260903.md） |
 | Wave 2c 分布级尾估计探针（CPU，05:50–06:35） | ❌ **复核归档**：重校准不能救回 Wave2 门。冻结 B_tail 的 k 纯度被逐位证实（每 k 六类同值 1.7047/2.3026/2.9444）；V1 pooled-CDF ρ=−0.07；V2 逐像素高斯表观 ρ=0.62/connector 入组均为 clip+平局伪影（两特征 ρ=−0.93、r_sub2' 仅 7 个离散值、q25 平局吞 9/18、误标 bracket_brown×2+tubes|2）→ 见 Wave2_reliability/dist_tail_probe/ |
+| S1-HGLC 完整探针（AnomalyCLIP 跨模态，07:05–08:20） | 图像级 **TEXT 过门**（pooled Image-AP +0.0249 vs A1，zero-shot）；像素级校准 +0.0040 < +0.005 → **融合模块按冻结门槛归档**；CLIP-global −0.095、DINO CLS −0.1216（与 P5A 一致）→ 见 s1_hglc/S1_HGLC_DECISION.md |
 
 ## 结论（03:40 后，Wave2c 于 06:35 复核）
 - S0-DG-SAFE 在 Wave2 被冻结公式实证拒绝：正常-only 稳定性无法识别何时信任 SUB。

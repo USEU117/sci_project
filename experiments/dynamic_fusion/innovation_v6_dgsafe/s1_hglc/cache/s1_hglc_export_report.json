@@ -1,0 +1,83 @@
+{
+ "program": "innovation_v6_dgsafe",
+ "phase": "s1_hglc_export",
+ "dataset": "mpdd",
+ "role": "development",
+ "seed": 0,
+ "shots_manifest_used": [
+  1,
+  2,
+  4
+ ],
+ "task_book_section": "16 s.3.2/3.3 (image-level global signals)",
+ "checkpoint": "D:\\STUDY\\My_github\\sci_project\\methods\\AnomalyCLIP-main\\checkpoints\\9_12_4_multiscale_visa\\epoch_15.pth",
+ "checkpoint_sha256": "415c5dcb52668b8c33fb9c1a351c686d632b919df5b384d63fa9ce7a2338ced4",
+ "text_embedding_sha256": "e6240cf8725ad86853e89b145202e76bf8bffa1887f31a25026689ef647bda3a",
+ "text_swapped": false,
+ "image_size": 518,
+ "dapm_layer": 20,
+ "design": {
+  "Prompt_length": 12,
+  "learnabel_text_embedding_depth": 9,
+  "learnabel_text_embedding_length": 4
+ },
+ "categories": [
+  {
+   "category": "bracket_black",
+   "n_test": 79,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.02473,
+   "text_prob_mean": 0.81838,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\bracket_black.npz"
+  },
+  {
+   "category": "bracket_brown",
+   "n_test": 77,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.02531,
+   "text_prob_mean": 0.86913,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\bracket_brown.npz"
+  },
+  {
+   "category": "bracket_white",
+   "n_test": 60,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.02443,
+   "text_prob_mean": 0.89216,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\bracket_white.npz"
+  },
+  {
+   "category": "connector",
+   "n_test": 44,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.02478,
+   "text_prob_mean": 0.86357,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\connector.npz"
+  },
+  {
+   "category": "metal_plate",
+   "n_test": 97,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.02498,
+   "text_prob_mean": 0.96963,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\metal_plate.npz"
+  },
+  {
+   "category": "tubes",
+   "n_test": 101,
+   "n_refs": 4,
+   "clip_global_mean_abs": 0.0256,
+   "text_prob_mean": 0.93496,
+   "text_prob_good_vs_defect_mean_diff": null,
+   "output": "D:\\STUDY\\My_github\\sci_project\\experiments\\dynamic_fusion\\innovation_v6_dgsafe\\s1_hglc\\cache\\tubes.npz"
+  }
+ ],
+ "created_at_utc": "2026-09-02T23:58:02.173687+00:00",
+ "elapsed_total_s": 186.1,
+ "note": "label-free export; image labels derived evaluator-side in run_s1_hglc_diag.py from '/good/' in sample_id"
+}
