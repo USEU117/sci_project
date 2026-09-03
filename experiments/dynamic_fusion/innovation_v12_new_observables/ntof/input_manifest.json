@@ -1,0 +1,50 @@
+{
+ "dino/bracket_black.npz": {
+  "size_bytes": 795283422,
+  "branch": "dino"
+ },
+ "clip/bracket_black.npz": {
+  "size_bytes": 1061245841,
+  "branch": "clip"
+ },
+ "dino/bracket_brown.npz": {
+  "size_bytes": 654960711,
+  "branch": "dino"
+ },
+ "clip/bracket_brown.npz": {
+  "size_bytes": 874020433,
+  "branch": "clip"
+ },
+ "dino/bracket_white.npz": {
+  "size_bytes": 748506848,
+  "branch": "dino"
+ },
+ "clip/bracket_white.npz": {
+  "size_bytes": 998955711,
+  "branch": "clip"
+ },
+ "dino/connector.npz": {
+  "size_bytes": 748457158,
+  "branch": "dino"
+ },
+ "clip/connector.npz": {
+  "size_bytes": 998645110,
+  "branch": "clip"
+ },
+ "dino/metal_plate.npz": {
+  "size_bytes": 654948231,
+  "branch": "dino"
+ },
+ "clip/metal_plate.npz": {
+  "size_bytes": 874254861,
+  "branch": "clip"
+ },
+ "dino/tubes.npz": {
+  "size_bytes": 795250679,
+  "branch": "dino"
+ },
+ "clip/tubes.npz": {
+  "size_bytes": 1061420854,
+  "branch": "clip"
+ }
+}

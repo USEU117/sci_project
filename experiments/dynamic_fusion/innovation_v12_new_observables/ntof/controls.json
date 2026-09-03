@@ -1,0 +1,21 @@
+{
+ "effect": {
+  "ntof_3": 0.0597,
+  "dino_3": 0.0944,
+  "clip_3": -0.4622,
+  "concat_3": 0.1278,
+  "ctrl_rand": 0.0321,
+  "ctrl_wrong": 0.0449,
+  "ctrl_shuf": 0.0337
+ },
+ "fp_ratio_by_rank": {
+  "2": 0.9413,
+  "3": 0.9341,
+  "4": 0.928
+ },
+ "syn_preserve": {
+  "cutpaste": 2.17,
+  "local_erasure": 1.9339,
+  "thin_scratch": 2.2332
+ }
+}
