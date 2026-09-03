@@ -70,8 +70,9 @@ def build_alignment_report() -> dict:
             gd = tuple(int(v) for v in zd["grid_size"])
             gc = tuple(int(v) for v in zc["grid_size"])
             same_order = bool(np.array_equal(sid_d, sid_c))
-            refs_d = np.asarray(zd["ref_patch_features"]).shape[0]
-            refs_c = np.asarray(zc["ref_patch_features"]).shape[0]
+            # ref_patch_features: [n_layers, K, H, W, D] -> refs are on dim 1
+            refs_d = np.asarray(zd["ref_patch_features"]).shape[1]
+            refs_c = np.asarray(zc["ref_patch_features"]).shape[1]
             masks = np.asarray(zd["imgs_masks"])
             m448 = masks.shape[1] == 448 and masks.shape[2] == 448
             row_ok = same_order and refs_d == shot and refs_c == shot and m448
@@ -150,14 +151,21 @@ def build_deepest_parity_report() -> dict:
 
 
 def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fast", action="store_true",
+                        help="rebuild CACHE_MANIFEST + ALIGNMENT only (skip raw parity recompute)")
+    args = parser.parse_args()
     c1 = EXP / "01_multilayer_cache"
     c1.mkdir(parents=True, exist_ok=True)
     (c1 / "CACHE_MANIFEST.json").write_text(
         json.dumps(build_cache_manifest(), ensure_ascii=False, indent=1), encoding="utf-8")
     (c1 / "ALIGNMENT_REPORT.json").write_text(
         json.dumps(build_alignment_report(), ensure_ascii=False, indent=1), encoding="utf-8")
-    (c1 / "DEEPEST_PARITY_REPORT.json").write_text(
-        json.dumps(build_deepest_parity_report(), ensure_ascii=False, indent=1), encoding="utf-8")
+    if not args.fast:
+        (c1 / "DEEPEST_PARITY_REPORT.json").write_text(
+            json.dumps(build_deepest_parity_report(), ensure_ascii=False, indent=1), encoding="utf-8")
     print("deliverables written", flush=True)
     return 0
 

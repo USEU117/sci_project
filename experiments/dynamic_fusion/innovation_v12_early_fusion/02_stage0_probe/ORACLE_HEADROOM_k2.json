@@ -1,0 +1,114 @@
+{
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "a1_ap": 0.014642,
+   "oracle_ap": 0.387317,
+   "delta_oracle": 0.372675
+  },
+  {
+   "category": "bracket_brown",
+   "a1_ap": 0.03337,
+   "oracle_ap": 0.456731,
+   "delta_oracle": 0.423361
+  },
+  {
+   "category": "bracket_white",
+   "a1_ap": 0.105989,
+   "oracle_ap": 0.689112,
+   "delta_oracle": 0.583124
+  },
+  {
+   "category": "connector",
+   "a1_ap": 0.299112,
+   "oracle_ap": 0.833925,
+   "delta_oracle": 0.534813
+  },
+  {
+   "category": "metal_plate",
+   "a1_ap": 0.87839,
+   "oracle_ap": 0.979019,
+   "delta_oracle": 0.100629
+  },
+  {
+   "category": "tubes",
+   "a1_ap": 0.730736,
+   "oracle_ap": 0.968657,
+   "delta_oracle": 0.237921
+  }
+ ],
+ "summary": {
+  "shot": 2,
+  "mean_layer_ap": {
+   "dino_L6": 0.209544,
+   "dino_L9": 0.306227,
+   "dino_L11": 0.31561,
+   "clip_L6": 0.241267,
+   "clip_L12": 0.24112,
+   "clip_L18": 0.301286,
+   "clip_L24": 0.282507,
+   "concat_D6C6": 0.224657,
+   "concat_D9C12": 0.315751,
+   "concat_D11C18": 0.33145,
+   "concat_D11C24": 0.343706,
+   "concat_FULL": 0.291481
+  },
+  "a1_mean_ap": 0.343706,
+  "best_static": {
+   "name": "concat_D11C24",
+   "mean_ap": 0.343706,
+   "delta_vs_a1": 0.0
+  },
+  "oracle_mean_delta": 0.37542,
+  "n_low_corr_pairs": 72,
+  "low_corr_pairs": [
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L6",
+    0.6825
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L12",
+    0.7543
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L18",
+    0.7153
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L24",
+    0.6321
+   ],
+   [
+    "bracket_black",
+    "dino_L9",
+    "clip_L6",
+    0.6217
+   ],
+   [
+    "bracket_black",
+    "dino_L9",
+    "clip_L12",
+    0.7229
+   ]
+  ],
+  "top_cat_share_positive": 0.259,
+  "parity_maxabs": {
+   "dino_L11": 0.007057,
+   "clip_L24": 0.001343
+  },
+  "gates": {
+   "g1_signal": true,
+   "g2_low_corr": true,
+   "g3_no_dominance": true,
+   "g4_raw_parity": false
+  }
+ }
+}

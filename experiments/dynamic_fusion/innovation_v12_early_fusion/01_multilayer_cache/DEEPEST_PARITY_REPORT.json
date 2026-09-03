@@ -1,0 +1,210 @@
+{
+ "raw_parity_max_abs": {
+  "dino_L11": 0.00705719,
+  "clip_L24": 0.00134277
+ },
+ "raw_gate_lt_1e-5": false,
+ "map_parity_max_abs": 1e-06,
+ "map_gate_lt_1e-4": true,
+ "rows": [
+  {
+   "category": "bracket_black",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0012655258178710938,
+   "dino_L11_ref_maxabs": 0.00019407272338867188,
+   "clip_L24_maxabs": 0.00038242340087890625,
+   "clip_L24_ref_maxabs": 6.67572021484375e-05,
+   "probe_a1_ap_56": 0.010484,
+   "harness_a1_ap_56": 0.010484,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0034036636352539062,
+   "dino_L11_ref_maxabs": 0.00020051002502441406,
+   "clip_L24_maxabs": 0.0005202293395996094,
+   "clip_L24_ref_maxabs": 8.153915405273438e-05,
+   "probe_a1_ap_56": 0.034446,
+   "harness_a1_ap_56": 0.034446,
+   "map_ap_diff": 0.0
+  },
+  {
+   "category": "bracket_white",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0016884207725524902,
+   "dino_L11_ref_maxabs": 0.0003255009651184082,
+   "clip_L24_maxabs": 0.0002646446228027344,
+   "clip_L24_ref_maxabs": 5.054473876953125e-05,
+   "probe_a1_ap_56": 0.08475,
+   "harness_a1_ap_56": 0.08475,
+   "map_ap_diff": 0.0
+  },
+  {
+   "category": "connector",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0011091232299804688,
+   "dino_L11_ref_maxabs": 0.00034433603286743164,
+   "clip_L24_maxabs": 0.00034236907958984375,
+   "clip_L24_ref_maxabs": 0.00013628602027893066,
+   "probe_a1_ap_56": 0.126112,
+   "harness_a1_ap_56": 0.126111,
+   "map_ap_diff": 1e-06
+  },
+  {
+   "category": "metal_plate",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0027337074279785156,
+   "dino_L11_ref_maxabs": 0.0002980232238769531,
+   "clip_L24_maxabs": 0.0010731220245361328,
+   "clip_L24_ref_maxabs": 0.00017309188842773438,
+   "probe_a1_ap_56": 0.871321,
+   "harness_a1_ap_56": 0.871321,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "tubes",
+   "shot": 1,
+   "dino_L11_maxabs": 0.0008611679077148438,
+   "dino_L11_ref_maxabs": 0.00030541419982910156,
+   "clip_L24_maxabs": 0.0003285408020019531,
+   "clip_L24_ref_maxabs": 0.00010538101196289062,
+   "probe_a1_ap_56": 0.728161,
+   "harness_a1_ap_56": 0.728161,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "bracket_black",
+   "shot": 2,
+   "dino_L11_maxabs": 0.00199049711227417,
+   "dino_L11_ref_maxabs": 0.0003509521484375,
+   "clip_L24_maxabs": 0.0008532404899597168,
+   "clip_L24_ref_maxabs": 0.0001010894775390625,
+   "probe_a1_ap_56": 0.014642,
+   "harness_a1_ap_56": 0.014642,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 2,
+   "dino_L11_maxabs": 0.00705718994140625,
+   "dino_L11_ref_maxabs": 0.00037384033203125,
+   "clip_L24_maxabs": 0.0013427734375,
+   "clip_L24_ref_maxabs": 0.00010776519775390625,
+   "probe_a1_ap_56": 0.03337,
+   "harness_a1_ap_56": 0.033369,
+   "map_ap_diff": 1e-06
+  },
+  {
+   "category": "bracket_white",
+   "shot": 2,
+   "dino_L11_maxabs": 0.0030398964881896973,
+   "dino_L11_ref_maxabs": 0.0003204345703125,
+   "clip_L24_maxabs": 0.00022077560424804688,
+   "clip_L24_ref_maxabs": 3.910064697265625e-05,
+   "probe_a1_ap_56": 0.105989,
+   "harness_a1_ap_56": 0.105989,
+   "map_ap_diff": 0.0
+  },
+  {
+   "category": "connector",
+   "shot": 2,
+   "dino_L11_maxabs": 0.0009126663208007812,
+   "dino_L11_ref_maxabs": 0.0003516674041748047,
+   "clip_L24_maxabs": 0.00038242340087890625,
+   "clip_L24_ref_maxabs": 0.00010758638381958008,
+   "probe_a1_ap_56": 0.299112,
+   "harness_a1_ap_56": 0.299111,
+   "map_ap_diff": 1e-06
+  },
+  {
+   "category": "metal_plate",
+   "shot": 2,
+   "dino_L11_maxabs": 0.0008840560913085938,
+   "dino_L11_ref_maxabs": 0.0003504753112792969,
+   "clip_L24_maxabs": 0.0012178421020507812,
+   "clip_L24_ref_maxabs": 0.00023293495178222656,
+   "probe_a1_ap_56": 0.87839,
+   "harness_a1_ap_56": 0.87839,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "tubes",
+   "shot": 2,
+   "dino_L11_maxabs": 0.0009655952453613281,
+   "dino_L11_ref_maxabs": 0.0004353821277618408,
+   "clip_L24_maxabs": 0.0011243820190429688,
+   "clip_L24_ref_maxabs": 0.0002551078796386719,
+   "probe_a1_ap_56": 0.730736,
+   "harness_a1_ap_56": 0.730736,
+   "map_ap_diff": 0.0
+  },
+  {
+   "category": "bracket_black",
+   "shot": 4,
+   "dino_L11_maxabs": 0.0019822120666503906,
+   "dino_L11_ref_maxabs": 0.0004096031188964844,
+   "clip_L24_maxabs": 0.0004614591598510742,
+   "clip_L24_ref_maxabs": 0.00033539533615112305,
+   "probe_a1_ap_56": 0.185592,
+   "harness_a1_ap_56": 0.185591,
+   "map_ap_diff": 1e-06
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 4,
+   "dino_L11_maxabs": 0.003368377685546875,
+   "dino_L11_ref_maxabs": 0.0006799697875976562,
+   "clip_L24_maxabs": 0.0004911422729492188,
+   "clip_L24_ref_maxabs": 0.00011682510375976562,
+   "probe_a1_ap_56": 0.033952,
+   "harness_a1_ap_56": 0.033952,
+   "map_ap_diff": 0.0
+  },
+  {
+   "category": "bracket_white",
+   "shot": 4,
+   "dino_L11_maxabs": 0.0027141571044921875,
+   "dino_L11_ref_maxabs": 0.00047278404235839844,
+   "clip_L24_maxabs": 0.00021281838417053223,
+   "clip_L24_ref_maxabs": 0.00018596649169921875,
+   "probe_a1_ap_56": 0.095362,
+   "harness_a1_ap_56": 0.095362,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "connector",
+   "shot": 4,
+   "dino_L11_maxabs": 0.0013527870178222656,
+   "dino_L11_ref_maxabs": 0.0006341934204101562,
+   "clip_L24_maxabs": 0.000392913818359375,
+   "clip_L24_ref_maxabs": 0.00010764598846435547,
+   "probe_a1_ap_56": 0.375039,
+   "harness_a1_ap_56": 0.37504,
+   "map_ap_diff": -1e-06
+  },
+  {
+   "category": "metal_plate",
+   "shot": 4,
+   "dino_L11_maxabs": 0.0017943382263183594,
+   "dino_L11_ref_maxabs": 0.000797271728515625,
+   "clip_L24_maxabs": 0.0010476112365722656,
+   "clip_L24_ref_maxabs": 0.00023126602172851562,
+   "probe_a1_ap_56": 0.884981,
+   "harness_a1_ap_56": 0.884981,
+   "map_ap_diff": -0.0
+  },
+  {
+   "category": "tubes",
+   "shot": 4,
+   "dino_L11_maxabs": 0.000949859619140625,
+   "dino_L11_ref_maxabs": 0.000667273998260498,
+   "clip_L24_maxabs": 0.00043964385986328125,
+   "clip_L24_ref_maxabs": 0.0003447532653808594,
+   "probe_a1_ap_56": 0.75504,
+   "harness_a1_ap_56": 0.75504,
+   "map_ap_diff": -0.0
+  }
+ ],
+ "note": "GPU forward determinism is ~1e-3 across sessions (observed); raw 1e-5 gate is expected to FAIL for cross-session caches; map-level Pixel-AP parity is the operational gate per doc 23 relaxation."
+}

@@ -1,69 +1,69 @@
 {
- "shot": 4,
+ "shot": 2,
  "mean_layer_ap": {
-  "dino_L6": 0.264386,
-  "dino_L9": 0.349507,
-  "dino_L11": 0.361983,
-  "clip_L6": 0.258377,
-  "clip_L12": 0.268918,
-  "clip_L18": 0.320297,
-  "clip_L24": 0.298159,
-  "concat_D6C6": 0.26395,
-  "concat_D9C12": 0.359359,
-  "concat_D11C18": 0.368935,
-  "concat_D11C24": 0.388328,
-  "concat_FULL": 0.327548
+  "dino_L6": 0.209544,
+  "dino_L9": 0.306227,
+  "dino_L11": 0.31561,
+  "clip_L6": 0.241267,
+  "clip_L12": 0.24112,
+  "clip_L18": 0.301286,
+  "clip_L24": 0.282507,
+  "concat_D6C6": 0.224657,
+  "concat_D9C12": 0.315751,
+  "concat_D11C18": 0.33145,
+  "concat_D11C24": 0.343706,
+  "concat_FULL": 0.291481
  },
- "a1_mean_ap": 0.388328,
+ "a1_mean_ap": 0.343706,
  "best_static": {
   "name": "concat_D11C24",
-  "mean_ap": 0.388328,
+  "mean_ap": 0.343706,
   "delta_vs_a1": 0.0
  },
- "oracle_mean_delta": 0.390378,
+ "oracle_mean_delta": 0.37542,
  "n_low_corr_pairs": 72,
  "low_corr_pairs": [
   [
    "bracket_black",
    "dino_L6",
    "clip_L6",
-   0.6013
+   0.6825
   ],
   [
    "bracket_black",
    "dino_L6",
    "clip_L12",
-   0.7303
+   0.7543
   ],
   [
    "bracket_black",
    "dino_L6",
    "clip_L18",
-   0.6923
+   0.7153
   ],
   [
    "bracket_black",
    "dino_L6",
    "clip_L24",
-   0.6126
+   0.6321
   ],
   [
    "bracket_black",
    "dino_L9",
    "clip_L6",
-   0.5297
+   0.6217
   ],
   [
    "bracket_black",
    "dino_L9",
    "clip_L12",
-   0.6802
+   0.7229
   ]
  ],
- "top_cat_share_positive": 0.295,
+ "top_cat_share_positive": 0.259,
  "parity_maxabs": {
-  "dino_L11": 0.003368,
-  "clip_L24": 0.001048
+  "dino_L11": 0.007057,
+  "clip_L24": 0.001343
  },
  "gates": {
   "g1_signal": true,

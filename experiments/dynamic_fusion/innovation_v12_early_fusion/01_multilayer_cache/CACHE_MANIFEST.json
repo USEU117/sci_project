@@ -1,0 +1,690 @@
+{
+ "protocol": "experiments/dynamic_fusion/innovation_v12_early_fusion/00_protocol/PROTOCOL_FROZEN.yaml",
+ "dataset": "MPDD development seed0",
+ "generated_at_utc": "2026-09-03T17:33:56.799234+00:00",
+ "cache_sets": [
+  {
+   "cache_dir": "ml_dino_s0_k1",
+   "branch": "dino",
+   "shot": 1,
+   "layer_ids": [
+    6,
+    9,
+    11
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 79,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\bracket_black.npz",
+     "sha256": "0d38a18c9e576b5bc132ec4cc571f2f90f1fbc4cf6f2aeb644536519578b385c"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 77,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\bracket_brown.npz",
+     "sha256": "5a8c2419573c6f140af84e0f63aa1b4104c76881a09e5fb0aaacc7fc4d5e5ba9"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 60,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\bracket_white.npz",
+     "sha256": "c62d6d8189658a663c124c42c53e08799579b604938a59088cbe609d9525e06d"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 44,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\connector.npz",
+     "sha256": "ad3f7ee723f874af0ae1ee92a378f65ae302cd7c7ad7b63c84fbe2a96e31f72d"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 97,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\metal_plate.npz",
+     "sha256": "4b14af542b22be525d3efffa06758044c8cb5b6642d79582378098b40d7b4e87"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 101,
+     "refs": 1,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k1\\tubes.npz",
+     "sha256": "c211074243f0ca329e4e1aa56e9dd09f3d6203d2f51ff0e5dfad03a5d079fe54"
+    }
+   ],
+   "created_at_utc": "2026-09-03T16:08:06.418213+00:00"
+  },
+  {
+   "cache_dir": "ml_dino_s0_k2",
+   "branch": "dino",
+   "shot": 2,
+   "layer_ids": [
+    6,
+    9,
+    11
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 79,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\bracket_black.npz",
+     "sha256": "5d3e09202c2dfe55682611fd19b3c491496aa8846c6aa3f9b253a4dc71c2a08a"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 77,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\bracket_brown.npz",
+     "sha256": "cd9afe666c28939314e8ce08727d0c48e03ce7c9222da934c064ba882db438a7"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 60,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\bracket_white.npz",
+     "sha256": "029881a85e443e468060cc64c09d996d35091e72008ea82a361f2a2a941499d4"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 44,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\connector.npz",
+     "sha256": "3474a2a08075db47b93d57c46f7d146c99404d76e1e6958bbdb243ffefcb39df"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 97,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\metal_plate.npz",
+     "sha256": "e3d45c60b869b51ae5a44870ac95892587893b08186fd21a6f7580025c16177b"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 101,
+     "refs": 2,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k2\\tubes.npz",
+     "sha256": "beee5a26ecbbbd1c0374c438b50b85c04d24f7b5c16c4fb5b78e2580dbee175f"
+    }
+   ],
+   "created_at_utc": "2026-09-03T16:13:42.275077+00:00"
+  },
+  {
+   "cache_dir": "ml_dino_s0_k4",
+   "branch": "dino",
+   "shot": 4,
+   "layer_ids": [
+    6,
+    9,
+    11
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 79,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\bracket_black.npz",
+     "sha256": "0f88cfaf8cfcbb9eb0a4c2437e5ab43b1d747232d8d5a54567b58bdd35b390d2"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 77,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\bracket_brown.npz",
+     "sha256": "81febadfced6e1bb02b3e3e39f27498f2069edc569f3777d5badfd632a245cae"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 60,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\bracket_white.npz",
+     "sha256": "a1176b3d2ffbe616df22cabe67e672d3d64446f9293365bd8a4faef892131954"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 44,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\connector.npz",
+     "sha256": "06cd659645337cd7247696f87cb1472217d2f9d7efca719c48606381b67db6b6"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 97,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\metal_plate.npz",
+     "sha256": "665d4a52fe560460986a263b8a2702bc133c18a933a1373c123e40339596dc2a"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      9,
+      11
+     ],
+     "n": 101,
+     "refs": 4,
+     "grid": [
+      32,
+      32
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_dino_s0_k4\\tubes.npz",
+     "sha256": "a516071cd6b630ed08918214183b2677cd391cf7b313484a572fb16fe5e66c13"
+    }
+   ],
+   "created_at_utc": "2026-09-03T16:19:48.227398+00:00"
+  },
+  {
+   "cache_dir": "ml_clip_s0_k1",
+   "branch": "clip",
+   "shot": 1,
+   "layer_ids": [
+    6,
+    12,
+    18,
+    24
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 79,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\bracket_black.npz",
+     "sha256": "7b6ff47433624aeec1616c510bd66820ef2fc8da0aaaf7173006c8b8e0b16411"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 77,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\bracket_brown.npz",
+     "sha256": "02ed7688ab0f7b305fc8a9a8090b2399de040e4650098118774a8ed27f41d7cb"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 60,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\bracket_white.npz",
+     "sha256": "7a792ccda3870834c09ced20e8adb80746e3b0400114315b9e1dfdb81ac6c4de"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 44,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\connector.npz",
+     "sha256": "7c7370a4ea300331dafc82ec2304319c1e26745beb1a95c4c87c85d17e60868e"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 97,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\metal_plate.npz",
+     "sha256": "5a6c8081b9539bcddaee9c4785ed3816a7bf8650324a9f8ea7555e6d3a71521c"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 101,
+     "refs": 1,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k1\\tubes.npz",
+     "sha256": "06f5faf1208c6ef61ea797dfa88c6c634985ebd3d77c431f5b905cb87ae318a7"
+    }
+   ],
+   "created_at_utc": "2026-09-03T15:40:11.031042+00:00"
+  },
+  {
+   "cache_dir": "ml_clip_s0_k2",
+   "branch": "clip",
+   "shot": 2,
+   "layer_ids": [
+    6,
+    12,
+    18,
+    24
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 79,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\bracket_black.npz",
+     "sha256": "8ae76fbcb682453553520a51f717e5f1cf85eefc7370ffc14518cd2224f1259f"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 77,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\bracket_brown.npz",
+     "sha256": "5338e6d21f44a45326757a77ba269f6e9522d7502234d5946141be4a958db453"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 60,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\bracket_white.npz",
+     "sha256": "c603086779f95d310a1529e530e5160bd3bf07409faccf127aef5c99030d5559"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 44,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\connector.npz",
+     "sha256": "81f8eb94a03a55c66e7b4aad30329731c715c3c68d1f1fd83d273c15314c93db"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 97,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\metal_plate.npz",
+     "sha256": "2255fbd5f955c6c97cc73dedd92d34478a23d724002f9ce91ea39ad08b350ff8"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 101,
+     "refs": 2,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k2\\tubes.npz",
+     "sha256": "fd13801b53f9b88b8c97a549fc9182c5123b150d818e8644b760c314c4aca7c0"
+    }
+   ],
+   "created_at_utc": "2026-09-03T15:51:16.653710+00:00"
+  },
+  {
+   "cache_dir": "ml_clip_s0_k4",
+   "branch": "clip",
+   "shot": 4,
+   "layer_ids": [
+    6,
+    12,
+    18,
+    24
+   ],
+   "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+   "categories": [
+    {
+     "category": "bracket_black",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 79,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\bracket_black.npz",
+     "sha256": "4739dfcb56a58386bbad3a70450ceb4711ce2b3e7a5565375ec0b4a41483baf6"
+    },
+    {
+     "category": "bracket_brown",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 77,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\bracket_brown.npz",
+     "sha256": "2741a7326abcd7defbd597c2466d6284d8b96ba901ae13c5529f69b010f2e82c"
+    },
+    {
+     "category": "bracket_white",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 60,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\bracket_white.npz",
+     "sha256": "1b73bfc1a56a0ad578deba0f08dd90dfc1eea82803377ba8ba02d547b3992624"
+    },
+    {
+     "category": "connector",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 44,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\connector.npz",
+     "sha256": "bf2beb22c7eab3c2a87ad9cace97622c93dc632d0a74bec1fd95cbc72e59c8da"
+    },
+    {
+     "category": "metal_plate",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 97,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\metal_plate.npz",
+     "sha256": "1ae31e66fa664af2c813a43854378d0a229de9f1243b736ff5d74e4f1670b9fb"
+    },
+    {
+     "category": "tubes",
+     "layers": [
+      6,
+      12,
+      18,
+      24
+     ],
+     "n": 101,
+     "refs": 4,
+     "grid": [
+      37,
+      37
+     ],
+     "output": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v12_early_fusion\\ml_clip_s0_k4\\tubes.npz",
+     "sha256": "659b1884e7c823e3ffec3573fd857d90f9f24782aa7d73f724b661ecb9165c56"
+    }
+   ],
+   "created_at_utc": "2026-09-03T16:02:41.088796+00:00"
+  }
+ ],
+ "n_categories": 6,
+ "n_shots": 3
+}
