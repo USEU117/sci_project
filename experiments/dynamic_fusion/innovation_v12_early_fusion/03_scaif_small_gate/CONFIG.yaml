@@ -1,0 +1,104 @@
+# V12-EARLY-FUSION Stage 1 — 缓存特征版 SCAIF（PROTOCOL FROZEN / PRE-REGISTERED）
+# authority: docs/.../23_LEARNABLE_AND_EARLY_FUSION_ROUTES_CN_20260903.md §5.2 + §7 Stage1 + §8
+# entry: 02_stage0_probe/STAGE0_DECISION.md = PASS (oracle headroom +0.3885 macro, g1-g4 all green)
+
+date: 2026-09-04
+status: PRE-REGISTERED BEFORE any Stage1 training; layer pairs, gate form, losses, controls,
+        and thresholds frozen below. NO post-hoc layer/width/temperature search (doc 23 §8).
+
+## 0. 数据角色（同 doc 22 §11.1）
+dataset: MPDD development seed0 (exhausted dev). 6 cats, seed0.
+protocol: leave-one-category-out episodic training.
+  - target/test category c: module parameters NEVER updated on c; c only forward at eval.
+  - source/train: the other 5 categories; real anomaly masks of source defective images used
+    as supervision + synthetic anomaly families (see LOSSES). VisA/BTAD/MVTec untouched;
+    external_data: none.
+shots: eval on seed0 x K in {1,2,4} for every target category (support = K normal images).
+
+## 1. 模块（缓存特征版 SCAIF）
+backbones: fully frozen, precomputed caches only
+  dino: ml_dino_s0_k{shot} L{6,9,11} grid32 (768-d)
+  clip: ml_clip_s0_k{shot} L{6,12,18,24} grid37 -> bilinear grid32 (768-d)   [same transform as A1]
+layer pairs (FROZEN, 2 pairs max; semantic/depth-matched, NOT chosen by Pixel-AP):
+  P1 = (dino L9, clip L12)      # mid-depth structural x mid semantic
+  P2 = (dino L11, clip L24)     # deepest pair == A1 pair (private stream preserved)
+per pair (shared nothing between pairs; params counted below):
+  u_D = Linear_D(d_l) -> dim u = 32 ; u_C = Linear_C(c_m) -> 32
+  3x3 local bidirectional interaction (only corresponding-patch 3x3 neighbourhood):
+    r_{C->D}(p) = MLP_CD([u_D(p); mean_{q in N3x3(p)} u_C(q)]) -> 32
+    r_{D->C}(p) = MLP_DC([u_C(p); mean_{q in N3x3(p)} u_D(q)]) -> 32
+  residual decode (ZERO-INIT -> exact identity at init):
+    Delta_D = W_D r_{C->D} -> 768 ; Delta_C = W_C r_{D->C} -> 768
+  support-conditioned bounded gate (per patch, shared head per direction):
+    g_D = 0.2 * sigmoid(h_D([u_D; u_C; dD_sup; dC_sup]))      # d*_sup = per-patch 1-NN distance
+    g_C = 0.2 * sigmoid(h_C([u_D; u_C; dD_sup; dC_sup]))      # to that pair's SUPPORT u-bank
+    h last layer ZERO-INIT -> init g = 0.2*sigmoid(0)=0.1, with W zero-init residual=0 => identity
+  refined feature:  D_tilde = D + g_D * Delta_D ; C_tilde = C + g_C * Delta_C
+final detection feature (per patch): concat over pairs of [D_tilde_l, C_tilde_m]   (3072-d)
+  -> gate=0 reduces EXACTLY to static concat of raw pair features (control #2)
+  -> private stream always present (D_tilde/C_tilde are additive residuals, not replacements)
+params cap: <= 300k (verify by code: PARAMETER_COUNT.json)
+scoring: rows per-branch L2 (as A1), concat, L2, exact 1-NN L2 distance d to SUPPORT bank
+  (support features also refined by the module), map = d/2 -> dists2map(448,sigma=4) -> 56x56
+  -> pooled Pixel-AP @56 (A1 protocol).
+
+## 2. 损失（episodic; per episode: source cat, K in {1,2,4} support normals + query batch）
+L = L_seg + 0.20*L_clean_preserve + 0.20*L_anomaly_preserve + 1.00*L_gate_sparse
+  L_seg: class-balanced BCE over query patches, score s = +d_support/2 (A1 convention:
+         larger = more anomalous), GT from source real masks (block-max at 14x14 -> 32 grid)
+         NOTE (CONFIG v2): synthetic families were considered but are NOT used in the
+         pre-registered run - real source anomalies provide the supervision; this removes a
+         free knob and keeps the dev protocol minimal (documented deviation from s5.4 option A).
+  L_anomaly_preserve: mean over anomaly patches of relu(s_A1 - s_SCAIF)   (A1 = deep D11C24
+          private-stream map on same support) -> interaction must not erase anomalies
+  L_clean_preserve:   mean over normal patches of relu(s_SCAIF - s_A1)
+  L_gate_sparse:      mean |g|, weight 1.0 (CONFIG v4, final). Dev smokes (v1-v3) showed seg
+          alone drives the bounded gates to the 0.2 cap everywhere (~95% at cap) and a too-small
+          anchor bank (32) made normal patches spuriously 'far'; v4 raises anchors to 256 and
+          keeps a dominant sparse term so the corrector is forced to be sparse/conditional.
+          If gates still saturate (>10% at cap) at eval, the instantiation degenerates to a
+          constant correction and Stage 1 archives on P5 regardless of Pixel-AP.
+branch_drop: with prob 0.15 per step zero one branch input to the interaction (prevents
+  gate degenerating to single-expert dependence; only during L_seg computation)
+train subsample (FROZEN, memory/throughput): support u-bank subsample 256 anchors; query
+  patches subsample 512/image for losses; eval uses FULL grids (no subsample).
+optim: Adam lr 1e-3, weight_decay 1e-3 (bounds the residual decoders so gate magnitude keeps
+  its 'amount of correction' meaning), 600 steps/fold (each fold = one held-out category),
+  seed 0 fixed. NO lr/width/kernel search.
+
+## 3. 对照（doc 23 §7，全部同协议同预算）
+ 1 A1 final concat (D11+C24)                       [no module; reference]
+ 2 static multi-layer concat = raw [D9,C12,D11,C24] (== SCAIF with gate=0)   [no module]
+ 3 DINO-only adapter (param-matched, cross CLIP->DINO only, C_m input replaced by zeros... use
+   param-matched single-direction adapter on DINO stream only)
+ 4 CLIP-only adapter (param-matched, single-direction on CLIP stream only)
+ 5 no-support fixed gate (h uses no support distance stats -> global learned gate)
+ 6 shuffled D<->CLIP spatial correspondence (3x3 neighbourhood read from a random offset map,
+   frozen permutation per seed -> destroys spatial alignment)
+ 7 remove private stream (final feature = only [Delta_D, Delta_C] residuals)
+ 8 symmetric gate (force g_D == g_C -> shared head)
+ 9 same-parameter MLP, no cross interaction (independent per-branch MLP residual, no 3x3 cross)
+10 gate=0 identity regression test (module present but gate forced 0: SCAIF map AP == control #2
+    AP bit-exact; deepest features unchanged)
+controls 3-9 keep the same total trainable params as main (within 5%).
+
+## 4. 门（doc 23 §7，seed0 x k{1,2,4}，宏平均 over 6 held-out cats）
+mechanism gates (ALL required):
+  M1: SCAIF mean Delta Pixel-AP vs STRONGEST control (of #2,3,4,5,7,8,9 by mean AP) >= +0.004
+  M2: shuffled (#6) drops >= 0.003 vs SCAIF
+  M3: no-support (#5) drops >= 0.003 vs SCAIF
+  M4: remove private (#7) -> synthetic-family preservation or real dev Pixel-AP drops notably
+      (report both; gate uses real dev Pixel-AP drop >= 0.003 as primary, synthetic secondary)
+performance gates (ALL required):
+  P1: vs A1 mean Delta Pixel-AP >= +0.006 (macro over 6 cats, mean over k1/2/4 per doc 7/9 family)
+  P2: >= 7/9 seed x shot settings positive  (seed0 here: >=2/3 k positive per doc dev-stage scale;
+      final acceptance uses 9 settings across seeds when caches for s1/s2 exported)
+  P3: >= 5/6 categories positive (mean over k)
+  P4: worst-category Delta >= -0.010
+  P5: gate saturation < 10% (fraction of patches with g within 10% of cap 0.2)
+if any gate fails -> STOP SCAIF route, write STAGE1_DECISION FAIL + FAILURE_ANALYSIS (no rescue
+  by layer/width/temperature search). Only all-pass -> update FINAL_DECISION + Stage2 decision.
+
+## 5. 交付物（doc 23 §8.1, 03_scaif_small_gate/）
+CONFIG.yaml (this) / PARAMETER_COUNT.json / CONTROL_RESULTS.csv / MECHANISM_AUDIT.json /
+STAGE1_DECISION.md (+ main/control per-fold JSONs under runs/)
