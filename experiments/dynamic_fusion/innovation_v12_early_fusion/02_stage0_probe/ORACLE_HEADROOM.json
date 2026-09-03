@@ -1,0 +1,114 @@
+{
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "a1_ap": 0.010484,
+   "oracle_ap": 0.454059,
+   "delta_oracle": 0.443575
+  },
+  {
+   "category": "bracket_brown",
+   "a1_ap": 0.034446,
+   "oracle_ap": 0.513817,
+   "delta_oracle": 0.479371
+  },
+  {
+   "category": "bracket_white",
+   "a1_ap": 0.08475,
+   "oracle_ap": 0.735666,
+   "delta_oracle": 0.650916
+  },
+  {
+   "category": "connector",
+   "a1_ap": 0.126112,
+   "oracle_ap": 0.605907,
+   "delta_oracle": 0.479795
+  },
+  {
+   "category": "metal_plate",
+   "a1_ap": 0.871321,
+   "oracle_ap": 0.981158,
+   "delta_oracle": 0.109837
+  },
+  {
+   "category": "tubes",
+   "a1_ap": 0.728161,
+   "oracle_ap": 0.963183,
+   "delta_oracle": 0.235022
+  }
+ ],
+ "summary": {
+  "shot": 1,
+  "mean_layer_ap": {
+   "dino_L6": 0.191519,
+   "dino_L9": 0.278821,
+   "dino_L11": 0.279435,
+   "clip_L6": 0.221173,
+   "clip_L12": 0.223643,
+   "clip_L18": 0.293225,
+   "clip_L24": 0.268898,
+   "concat_D6C6": 0.207052,
+   "concat_D9C12": 0.286185,
+   "concat_D11C18": 0.288145,
+   "concat_D11C24": 0.309212,
+   "concat_FULL": 0.269072
+  },
+  "a1_mean_ap": 0.309212,
+  "best_static": {
+   "name": "concat_D11C24",
+   "mean_ap": 0.309212,
+   "delta_vs_a1": 0.0
+  },
+  "oracle_mean_delta": 0.399753,
+  "n_low_corr_pairs": 72,
+  "low_corr_pairs": [
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L6",
+    0.6912
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L12",
+    0.7507
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L18",
+    0.7128
+   ],
+   [
+    "bracket_black",
+    "dino_L6",
+    "clip_L24",
+    0.6414
+   ],
+   [
+    "bracket_black",
+    "dino_L9",
+    "clip_L6",
+    0.6363
+   ],
+   [
+    "bracket_black",
+    "dino_L9",
+    "clip_L12",
+    0.7175
+   ]
+  ],
+  "top_cat_share_positive": 0.271,
+  "parity_maxabs": {
+   "dino_L11": 1.0,
+   "clip_L24": 1.0
+  },
+  "gates": {
+   "g1_signal": true,
+   "g2_low_corr": true,
+   "g3_no_dominance": true,
+   "g4_parity": false
+  }
+ }
+}

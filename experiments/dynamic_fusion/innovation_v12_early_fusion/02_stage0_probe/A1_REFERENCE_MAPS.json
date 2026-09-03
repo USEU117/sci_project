@@ -1,0 +1,381 @@
+{
+ "rows": [
+  {
+   "category": "bracket_black",
+   "shot": 1,
+   "n": 79,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.010484230297130095,
+   "alignment": {
+    "sample_ids_ok": 79,
+    "masks_448": [
+     79,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 1,
+   "n": 77,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.034445725691726756,
+   "alignment": {
+    "sample_ids_ok": 77,
+    "masks_448": [
+     77,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_white",
+   "shot": 1,
+   "n": 60,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.08474999424338445,
+   "alignment": {
+    "sample_ids_ok": 60,
+    "masks_448": [
+     60,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "connector",
+   "shot": 1,
+   "n": 44,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.1261113138350907,
+   "alignment": {
+    "sample_ids_ok": 44,
+    "masks_448": [
+     44,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "metal_plate",
+   "shot": 1,
+   "n": 97,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.8713213302117278,
+   "alignment": {
+    "sample_ids_ok": 97,
+    "masks_448": [
+     97,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "tubes",
+   "shot": 1,
+   "n": 101,
+   "n_ref": 1,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.7281610764536796,
+   "alignment": {
+    "sample_ids_ok": 101,
+    "masks_448": [
+     101,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_black",
+   "shot": 2,
+   "n": 79,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.014642225731181964,
+   "alignment": {
+    "sample_ids_ok": 79,
+    "masks_448": [
+     79,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 2,
+   "n": 77,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.03336949997141125,
+   "alignment": {
+    "sample_ids_ok": 77,
+    "masks_448": [
+     77,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_white",
+   "shot": 2,
+   "n": 60,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.10598851655794718,
+   "alignment": {
+    "sample_ids_ok": 60,
+    "masks_448": [
+     60,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "connector",
+   "shot": 2,
+   "n": 44,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.29911110658013884,
+   "alignment": {
+    "sample_ids_ok": 44,
+    "masks_448": [
+     44,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "metal_plate",
+   "shot": 2,
+   "n": 97,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.8783904145655992,
+   "alignment": {
+    "sample_ids_ok": 97,
+    "masks_448": [
+     97,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "tubes",
+   "shot": 2,
+   "n": 101,
+   "n_ref": 2,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.7307355610715638,
+   "alignment": {
+    "sample_ids_ok": 101,
+    "masks_448": [
+     101,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_black",
+   "shot": 4,
+   "n": 79,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.18559149436280997,
+   "alignment": {
+    "sample_ids_ok": 79,
+    "masks_448": [
+     79,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 4,
+   "n": 77,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.03395186126250561,
+   "alignment": {
+    "sample_ids_ok": 77,
+    "masks_448": [
+     77,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "bracket_white",
+   "shot": 4,
+   "n": 60,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.09536222826166874,
+   "alignment": {
+    "sample_ids_ok": 60,
+    "masks_448": [
+     60,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "connector",
+   "shot": 4,
+   "n": 44,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.375039687100605,
+   "alignment": {
+    "sample_ids_ok": 44,
+    "masks_448": [
+     44,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "metal_plate",
+   "shot": 4,
+   "n": 97,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.884981458469672,
+   "alignment": {
+    "sample_ids_ok": 97,
+    "masks_448": [
+     97,
+     448,
+     448
+    ]
+   }
+  },
+  {
+   "category": "tubes",
+   "shot": 4,
+   "n": 101,
+   "n_ref": 4,
+   "grid": [
+    32,
+    32
+   ],
+   "pixel_ap_56": 0.7550404516133116,
+   "alignment": {
+    "sample_ids_ok": 101,
+    "masks_448": [
+     101,
+     448,
+     448
+    ]
+   }
+  }
+ ],
+ "per_shot": {
+  "1": {
+   "mean_pixel_ap_56": 0.309212,
+   "categories": {
+    "bracket_black": 0.010484,
+    "bracket_brown": 0.034446,
+    "bracket_white": 0.08475,
+    "connector": 0.126111,
+    "metal_plate": 0.871321,
+    "tubes": 0.728161
+   }
+  },
+  "2": {
+   "mean_pixel_ap_56": 0.343706,
+   "categories": {
+    "bracket_black": 0.014642,
+    "bracket_brown": 0.033369,
+    "bracket_white": 0.105989,
+    "connector": 0.299111,
+    "metal_plate": 0.87839,
+    "tubes": 0.730736
+   }
+  },
+  "4": {
+   "mean_pixel_ap_56": 0.388328,
+   "categories": {
+    "bracket_black": 0.185591,
+    "bracket_brown": 0.033952,
+    "bracket_white": 0.095362,
+    "connector": 0.37504,
+    "metal_plate": 0.884981,
+    "tubes": 0.75504
+   }
+  }
+ }
+}
