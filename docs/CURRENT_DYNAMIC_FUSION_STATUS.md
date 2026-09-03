@@ -199,3 +199,21 @@ bracket_white 单类 ≥+0.03 ΔPixel-AP（算术不可达），用户于 2026-0
 **结论**：A2（27 候选）、RCEC、A4（D1/D2 及 CASF 类条件路线）均为负结果/归档；A1 双视觉固定融合保持唯一主方法与
 零训练 normal-only 论文口径。类条件门控作为 Discussion 层可引用观察（合成监督价值类条件化、5/6 类被 symmetric 控制主导），
 不构成论文新主张。诊断/任务书链（13/14/15 号）保留为审计证据。
+
+## 任务书 17 执行结果（2026-09-03）→ Scenario C 归档
+
+按 17 号任务书（全局文本证据确认）完成 Phase 0 → Phase 1 全流程：
+
+- **Phase 0 PASS**：输入审计（checkpoint sha 415c5dcb、6 cache sha、与 A1 9 配置样本集逐一对齐）、
+  swap 互补性 max err 2.9e-4、S1 18 行重放 ≤1e-4、14 项单元测试通过。
+- **Phase 1 G1 FAIL**（Full MPDD 3×3，TEXT vs A1-max）：
+  - 9 配置 macro mean ΔImage-AP **+0.0288**（G1a ✓），但仅 **6/9 配置为正（G1b ✗）**；
+  - paired bootstrap（B=10,000）mean 0.0268，**95% CI [−0.0226, +0.0737] 下界 <0（G1d ✗）**，P(d>0)=0.858；
+  - confirmation seed1/2 mean +0.0308、4/6 正（G1c ✓）；ΔAUROC +0.0017（G1e ✓）；3/6 类正、worst
+    metal_plate −0.0581（G1f ✓）。
+  - 负配置集中在 k4/metal_plate/bracket_white；bracket_brown +0.0739（9/9）与 connector +0.1586 强，但不足。
+- **Scenario C 执行**：文本 +0.0249 降级为 seed0 exploratory observation；GLSD 未冻结、TCRR 未开发、
+  BTAD/MVTec 未验证；A1 保持唯一主方法。
+
+决策与全表：`experiments/dynamic_fusion/innovation_v7_global_text/01_mpdd_full/PHASE1_DECISION.md`
+（summary.json / bootstrap.json / per_config.csv / 两张 PNG）。

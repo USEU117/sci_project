@@ -584,3 +584,23 @@ MPDD 开发后冻结，再看 BTAD/MVTec/VisA。历史中发现使用测试 mask
 `问题定义 → 严格协议 → 简单固定方法 → matched control → 四数据集 36 配置 → 六指标 → bootstrap → 失败边界 → 单分支控制 → 效率 → 复现包 → 论文图件`。
 
 当前最重要的决策是选择适合的期刊和论文定位，然后把已有证据写成清楚、克制、完整的英文论文。若继续无边界地增加算法实验，反而容易稀释这条已经相当清楚的主线。
+
+---
+
+## 二十、2026-09-03 更新（任务书 16/17 执行终态）
+
+2026-09-02 夜至 09-03 上午按 16/17 号任务书完成了三条主线并把结果归档：
+
+1. **S0-DG-SAFE（16 号）**：SubspaceAD 官方导出、Wave0/1 通过、Wave2 可靠性门失败（ρ=0.3387<0.40）→ 归档。
+   Wave2c 复核：分布级尾估计不能救回该门（负结果对校准公式鲁棒）。
+2. **S1-HGLC / AnomalyCLIP 图像级文本证据（16 号 §3 + 17 号）**：seed0 上文本概率 pooled Image-AP
+   +0.0249 超过 A1 图像分（过图像级小门），但像素级校准 +0.0040<+0.005 未过；**Full MPDD 3×3 稳定性
+   G1 未过**（6/9 配置为正；paired bootstrap 95% CI 下界<0）→ 按任务书 17 Scenario C 归档：
+   文本证据降级为 exploratory observation，不进入论文贡献。
+3. 创新探索全程均未使用 BTAD/MVTec/VisA；外部验证开关保持默认关闭。
+
+**给导师的结论**：A1（双视觉固定融合 + 严格实证）仍是唯一主方法与投稿主线；本轮所有备选路线
+（DG-SAFE/可靠性保护、GLSD 双输出、文本跨模态证据、TCRR 区域算法）均已在冻结协议下完成实证并被
+严格门槛拒绝或降级。下一步建议回到论文写作本身：锁定目标期刊 → 完成 A1 英文 Method/Experiments/Results。
+完整证据链：`experiments/dynamic_fusion/innovation_v6_dgsafe/`（16 号）与
+`experiments/dynamic_fusion/innovation_v7_global_text/`（17 号）。

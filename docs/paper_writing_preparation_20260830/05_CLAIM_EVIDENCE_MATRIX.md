@@ -83,3 +83,9 @@
 - Final author list, affiliations, funding, conflict-of-interest and data/code availability wording.
 - Final method diagram and pre-registered qualitative figure selection rule.
 - A mechanistic proof of why specific feature families help or hurt a category. Current explanations are hypotheses supported by patterns, not causal demonstrations.
+
+## 8. Dated addendum (2026-09-03, task book 17 Scenario C)
+
+| Claim | Status after Full MPDD | Evidence | Handling |
+|---|---|---|---|
+| Target-domain zero-shot AnomalyCLIP text probability beats A1's image score (seed0 pooled Image-AP +0.0249) | **Not stable** — full MPDD 3×3 macro mean ΔImage-AP +0.0288 but only 6/9 configs positive; paired bootstrap 95% CI lower bound −0.0226 < 0; confirmation seed1/2 4/6 positive | `experiments/dynamic_fusion/innovation_v7_global_text/01_mpdd_full/PHASE1_DECISION.md`, `summary.json`, `bootstrap.json` | Downgrade to seed0 exploratory observation; no GLSD/TCRR/external claims; Appendix/Discussion negative-result material only |

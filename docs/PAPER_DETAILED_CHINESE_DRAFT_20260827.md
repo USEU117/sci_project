@@ -355,3 +355,17 @@ AnomalyCLIP 的来源是视觉—语言模型，但 A1 推理没有文本输入�
 - BTAD/MVTec CLIP-only 控制：`docs/paper_writing_preparation_20260830/09_BTAD_MVTEC_CLIP_ONLY_CONTROL_RESULTS.md`
 - BTAD 许可证据：`docs/paper_writing_preparation_20260830/BTAD_LICENSE_EVIDENCE.md`
 - 论文图件与英文图注：`docs/paper_writing_preparation_20260830/figures_20260830/README.md`
+
+---
+
+## 后补（2026-09-03，仅写入已通过事实）
+
+1. **A1 仍是唯一主方法**。2026-09-02 夜至 09-03 上午执行的备选路线全部归档/降级：
+   - S0-DG-SAFE（SubspaceAD 重建残差专家 + 正常-only 可靠性保护）：Wave2 可靠性门失败（ρ=0.3387<0.40），归档；
+   - S1-HGLC/AnomalyCLIP 图像级文本证据：seed0 Image-AP +0.0249（exploratory），Full MPDD 3×3 G1 未过
+     （6/9 配置为正；paired bootstrap 95% CI 下界 <0），按任务书 17 Scenario C 降级为 exploratory observation，
+     仅可写入 Discussion/Appendix 作负结果与边界刻画；
+   - 像素级文本门控增益 +0.0040 < +0.005，文本不改善定位——该边界描述可写入论文（文本不参与定位）。
+2. 以上全部证据基于 MPDD development；BTAD/MVTec/VisA 未用于任何备选路线的选择或调参。
+3. 若论文需要提及跨模态尝试，只能写："source-trained vision-language prompt 的 zero-shot 全局文本异常概率
+   在部分类别/低 shot 上补强 A1 图像分，但在 Full MPDD 上不稳定（6/9 配置为正），不构成稳定贡献"。
