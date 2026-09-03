@@ -1,0 +1,17 @@
+{
+ "total_trainable": 255236,
+ "cap": 300000,
+ "layers_pairs": [
+  [
+   9,
+   12
+  ],
+  [
+   11,
+   24
+  ]
+ ],
+ "u_dim": 32,
+ "gate_cap": 0.2,
+ "passed": true
+}
