@@ -1,0 +1,52 @@
+{
+  "route": "A_CRAM",
+  "name": "Cross-Reference Agreement Memory",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#4",
+  "scientific_question": "In K-shot pooled memory bank anomaly detection (A1), every test patch is scored by its single smallest distance over ALL reference patches (from all K reference images pooled). A single accidentally-similar reference patch can mask a defect. Question: for real defects, is the test patch far from EVERY normal reference image, while normal variation is only far from SOME references? If so, cross-reference agreement (median distance across reference images, gap to the lucky minimum, reference disagreement MAD) carries signal.",
+  "data": {
+    "dataset": "mpdd",
+    "role": "development_only",
+    "seeds": [0],
+    "shots": [2, 4],
+    "categories": "all 6 (bracket_black, bracket_brown, bracket_white, connector, metal_plate, tubes)",
+    "dino_cache": "outputs/dynamic_fusion/v3_direction_a/features_vitb14_s{seed}_k{shot}/anomalydino_visual/{cat}.npz",
+    "clip_cache": "outputs/dynamic_fusion/v3_direction_a/features_s{seed}_k{shot}/anomalyclip_text/{cat}.npz",
+    "ref_per_image": "ref_patch_features axis 0 == K (one block per reference IMAGE); per-image attribution verified"
+  },
+  "features": {
+    "fused_space": "exact A1 concat: per-patch L2-normalize each branch, concat with dino_weight=0.5 clip_weight=0.5 (clip bilinear-resized to dino grid 32x32), then faiss.normalize_L2 over flattened fused patch rows",
+    "per_ref_distance": "d_r(q) = min_j [ L2^2(q, p_{r,j}) / 2 ]  for reference image r, i.e. min over patches of image r only; == 1 - cos to best patch of image r",
+    "pooled_equiv": "d_min = min_r d_r == A1 pooled-NN distance (min over pooled patches)"
+  },
+  "candidates": {
+    "A0_identity": "score = d_min  (MUST replay A1 fused map; max|diff| <= 1e-6)",
+    "A1_median_gap": "score = d_min + 0.5 * max(0, d_med - d_min),  d_med = median_r d_r",
+    "A2_mad_calibrated": "score = d_min * (1 + 0.5 * clip(mad_r / mad95_normal, 0, 1)),  mad_r = MAD_r(d_r) = median_r |d_r - median_r(d_r)|"
+  },
+  "normal_calibration_A2": {
+    "source": "reference images ONLY (train/good), leave-one-reference-out",
+    "procedure": "for each ref image r: build bank from the other K-1 ref images (fused per-image blocks), treat ref r patches as pseudo-queries, compute d_r' over the K-1 remaining ref images -> per-patch MAD_r ; aggregate over all r and all normal ref patches",
+    "statistic": "mad95_normal = 95th percentile of the aggregated per-patch normal MAD distribution (scalar per category); no test images, no test stats, no GT",
+    "k1_note": "k=1 strictly returns A0 (no cross-ref quantity exists)"
+  },
+  "gates": {
+    "g1": "identity replay A0 vs A1 frozen fused map max|diff| <= 1e-6",
+    "g2": "mean Pixel-AP gain over A0 (both shots k2+k4 averaged) >= +0.005",
+    "g3": "at least 4/6 categories positive on average (across k2,k4)",
+    "g4": "worst category (mean across shots) >= -0.015",
+    "g5": "Pixel-AUROC mean loss >= -0.002 (i.e. not worse than -0.002)",
+    "g6": "real references beat shuffled-reference control by >= +0.002 (candidate mean gain under real refs - shuffled control gain)",
+    "note": "if only k4 passes and k2 fails, route survives ONLY as a multi-reference module, cannot claim 1/2/4-shot coverage"
+  },
+  "strong_controls": {
+    "c1_duplicate_refs": "repeat the same reference image(s) to inflate K; A0 AP must be unchanged (duplicates add no new bank vectors) and candidate gains must not spuriously increase",
+    "c2_shuffled_refs": "shuffle patch blocks across reference images (pool preserved, image attribution destroyed); consistency gains must disappear",
+    "c3_med_only": "A1(candidate) must beat a plain median aggregator (score=d_med) to show gain is not just a new pooling op",
+    "c4_identity": "A0 == A1 frozen (see g1)"
+  },
+  "metric_protocol": "STRIDE=8 strided pixel AUROC/AP/AUPRO over gt masks at 448 (dino grid mask), aupro_fast steps=200; maps via dists2map (bilinear) to 448x448",
+  "leakage": "no gt_masks/gt_labels in scoring path; calibration from reference images only; method signature never takes gt fields; 'change GT -> same maps' test included",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md", "FAILURE_ANALYSIS.md"]
+}

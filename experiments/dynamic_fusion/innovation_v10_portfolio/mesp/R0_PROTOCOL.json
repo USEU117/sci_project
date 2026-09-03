@@ -1,0 +1,32 @@
+{
+  "route": "B_MESP",
+  "name": "Multi-view Equivariant Stability Persistence",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#5",
+  "scientific_question": "A real defect, observed under mild lighting/flip/small geometric transforms and transformed back to the original coordinates, should persist; spurious hotspots from interpolation, local texture or a single lucky feature match are typically unstable. Can cross-view equivariant consistency (same frozen A1/AnomalyDINO pipeline per view, no second model) raise the anomaly map?",
+  "view_set": {
+    "fixed": ["original", "horizontal flip", "brightness x0.9", "brightness x1.1", "rot -5deg", "rot +5deg"],
+    "rules": "only pre-registered invertible/alignable transforms; rotated-view effective area excludes border via mask; NO random crops that can remove the defect; NO per-category hand-picked transforms"
+  },
+  "phase_r0_geometry_audit": {
+    "images": "10 MPDD normal reference images (pre-registered deterministic list)",
+    "measures": "inverse-transform geometric error (corner/landmark RMSE) per view; confirm stability is not manufactured by interpolation",
+    "baseline_duplicate_control": "monotone-copy of base map as fake multi-view must NOT pass the persistence contrast",
+    "cost": "per-image added inference time and peak VRAM for the full 6-view set on RTX 3060"
+  },
+  "r0_candidates": {
+    "B1_median": "score map = median over views of inverse-transformed A1 maps",
+    "B2_stability": "base * (0.75 + 0.25 * stability), stability = 1 - normalized MAD over views (suppress unstable hotspots only)",
+    "B3_persistence": "keep original score for A1 connected regions persisting in >= 4/5 views at pre-registered quantile thresholds, else x0.8"
+  },
+  "gates_r0": {
+    "g1": "geometry audit: inverse error small enough that transform chain is faithful on normals",
+    "g2": "mean Pixel-AP gain >= +0.005 over A1 across shots 1/2/4; 3/3 shots positive; >= 4/6 categories positive; worst category >= -0.015",
+    "g3": "Pixel-AUROC mean loss >= -0.002",
+    "g4": "true multi-view beats misaligned-view control by >= +0.002",
+    "cost_note": "if inference > 5x A1, try B-lite (original + flip + one brightness) and report separately"
+  },
+  "leakage": "all transforms pre-registered and identical across categories; no GT in score path",
+  "deliverables": ["R0_PROTOCOL.json", "R0_GEOMETRY_AUDIT.json", "R0_RESULT.json", "R0_DECISION.md"]
+}

@@ -1,0 +1,233 @@
+{
+ "route": "V11-BCMCR",
+ "pipeline": "v11_bcmcr_structural_gate",
+ "seed": 0,
+ "shot": 2,
+ "created_at_utc": "2026-09-03T10:24:40.831728+00:00",
+ "protocol_sha256": "a21d6f153a7b4c78d2e2443482068ded4177ba8535f914b943ad5b8f5f66003c",
+ "code_sha256": {
+  "runner": "95681d8ae40a12687f30052a600895416efa85d42e0ca1d1f6f9ccdf833e85be"
+ },
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.45668215913818266,
+     "CTRL_POS": 0.6352267239469207,
+     "FULL": 0.6361416961766589,
+     "CTRL_COPY": 0.48449263187679864,
+     "CTRL_CTX": 0.6423099454184797,
+     "CTRL_SHUFFLE": 0.4626089779579393
+    },
+    "missing": {
+     "A1": 0.44084599792089474,
+     "CTRL_POS": 0.3878733908261467,
+     "FULL": 0.3509763412509944,
+     "CTRL_COPY": 0.37102784026996627,
+     "CTRL_CTX": 0.36358290035174173,
+     "CTRL_SHUFFLE": 0.2604591340764944
+    },
+    "duplicate": {
+     "A1": 0.4937007091879573,
+     "CTRL_POS": 0.6265548783535244,
+     "FULL": 0.6449314801487346,
+     "CTRL_COPY": 0.5052687442525289,
+     "CTRL_CTX": 0.6424198352724801,
+     "CTRL_SHUFFLE": 0.49730793450881616
+    }
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.5230745554794156,
+     "CTRL_POS": 0.7401137440348963,
+     "FULL": 0.7307468634152275,
+     "CTRL_COPY": 0.5554793829040303,
+     "CTRL_CTX": 0.7221636178085791,
+     "CTRL_SHUFFLE": 0.5100778871632321
+    },
+    "missing": {
+     "A1": 0.5850894981208269,
+     "CTRL_POS": 0.5528383136419975,
+     "FULL": 0.4487870961776818,
+     "CTRL_COPY": 0.4301897789972412,
+     "CTRL_CTX": 0.4075775408820119,
+     "CTRL_SHUFFLE": 0.3375447927911719
+    },
+    "duplicate": {
+     "A1": 0.49910643792921494,
+     "CTRL_POS": 0.7632227866880354,
+     "FULL": 0.7519117786038307,
+     "CTRL_COPY": 0.5800984905612084,
+     "CTRL_CTX": 0.7554292986469885,
+     "CTRL_SHUFFLE": 0.5237029290968372
+    }
+   }
+  },
+  {
+   "category": "bracket_white",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.504750658880878,
+     "CTRL_POS": 0.7643201745556877,
+     "FULL": 0.7498042132761013,
+     "CTRL_COPY": 0.5451117581202616,
+     "CTRL_CTX": 0.7332120223436236,
+     "CTRL_SHUFFLE": 0.5133172394000958
+    },
+    "missing": {
+     "A1": 0.5857504419090471,
+     "CTRL_POS": 0.570583005001359,
+     "FULL": 0.43877910598476777,
+     "CTRL_COPY": 0.4552727040072372,
+     "CTRL_CTX": 0.4204825959255093,
+     "CTRL_SHUFFLE": 0.37621233605719917
+    },
+    "duplicate": {
+     "A1": 0.44861486808196593,
+     "CTRL_POS": 0.6998120770617958,
+     "FULL": 0.6777037294941306,
+     "CTRL_COPY": 0.4715639463717829,
+     "CTRL_CTX": 0.6563541536474607,
+     "CTRL_SHUFFLE": 0.436224117818606
+    }
+   }
+  },
+  {
+   "category": "connector",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.48768726163627163,
+     "CTRL_POS": 0.7010421027142392,
+     "FULL": 0.7147661217923535,
+     "CTRL_COPY": 0.5182962234040498,
+     "CTRL_CTX": 0.7005665022727068,
+     "CTRL_SHUFFLE": 0.4729828680799653
+    },
+    "missing": {
+     "A1": 0.6486815176322418,
+     "CTRL_POS": 0.540320758866099,
+     "FULL": 0.3937133286354004,
+     "CTRL_COPY": 0.41147720003198596,
+     "CTRL_CTX": 0.4101454110191516,
+     "CTRL_SHUFFLE": 0.29590936238055254
+    },
+    "duplicate": {
+     "A1": 0.5044531668386152,
+     "CTRL_POS": 0.7207481630386844,
+     "FULL": 0.7428214780745969,
+     "CTRL_COPY": 0.5310672636955015,
+     "CTRL_CTX": 0.7117738416118007,
+     "CTRL_SHUFFLE": 0.4908161778603831
+    }
+   }
+  },
+  {
+   "category": "metal_plate",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.4555130468935491,
+     "CTRL_POS": 0.7309976812163418,
+     "FULL": 0.7634744449417776,
+     "CTRL_COPY": 0.5143846356692043,
+     "CTRL_CTX": 0.7802572697200877,
+     "CTRL_SHUFFLE": 0.5006856847866314
+    },
+    "missing": {
+     "A1": 0.5931638828915278,
+     "CTRL_POS": 0.4986233557234817,
+     "FULL": 0.46425310363440087,
+     "CTRL_COPY": 0.4334345388029267,
+     "CTRL_CTX": 0.44312090180320657,
+     "CTRL_SHUFFLE": 0.34482071638479067
+    },
+    "duplicate": {
+     "A1": 0.5340593888688977,
+     "CTRL_POS": 0.7266868827715804,
+     "FULL": 0.7216792111470952,
+     "CTRL_COPY": 0.5690296894366479,
+     "CTRL_CTX": 0.7436001909159969,
+     "CTRL_SHUFFLE": 0.561550480288673
+    }
+   }
+  },
+  {
+   "category": "tubes",
+   "seed": 0,
+   "shot": 2,
+   "per_type": {
+    "permutation": {
+     "A1": 0.5820740884553586,
+     "CTRL_POS": 0.744634800355087,
+     "FULL": 0.7217923198711437,
+     "CTRL_COPY": 0.6214485744878628,
+     "CTRL_CTX": 0.7685935299908614,
+     "CTRL_SHUFFLE": 0.5537847291677289
+    },
+    "missing": {
+     "A1": 0.6390804583228405,
+     "CTRL_POS": 0.5706052631578947,
+     "FULL": 0.335717577436414,
+     "CTRL_COPY": 0.4025695668597331,
+     "CTRL_CTX": 0.3929843238478973,
+     "CTRL_SHUFFLE": 0.45765480987156887
+    },
+    "duplicate": {
+     "A1": 0.515040921682196,
+     "CTRL_POS": 0.7534878494082095,
+     "FULL": 0.755188113825233,
+     "CTRL_COPY": 0.5801695416771595,
+     "CTRL_CTX": 0.7738492193402167,
+     "CTRL_SHUFFLE": 0.5412710274490052
+    }
+   }
+  }
+ ],
+ "per_type_mean": {
+  "permutation": {
+   "A1": 0.5016,
+   "CTRL_POS": 0.7194,
+   "FULL": 0.7195,
+   "CTRL_COPY": 0.5399,
+   "CTRL_CTX": 0.7245,
+   "CTRL_SHUFFLE": 0.5022
+  },
+  "missing": {
+   "A1": 0.5821,
+   "CTRL_POS": 0.5201,
+   "FULL": 0.4054,
+   "CTRL_COPY": 0.4173,
+   "CTRL_CTX": 0.4063,
+   "CTRL_SHUFFLE": 0.3454
+  },
+  "duplicate": {
+   "A1": 0.4992,
+   "CTRL_POS": 0.7151,
+   "FULL": 0.7157,
+   "CTRL_COPY": 0.5395,
+   "CTRL_CTX": 0.7139,
+   "CTRL_SHUFFLE": 0.5085
+  }
+ },
+ "gates": {
+  "g1_each_type_ge_075": false,
+  "g2_each_type_ge_A1_plus_010": false,
+  "g3_missing_ge_CTRLPOS_plus_015": false,
+  "g4_FULL_ge_each_ctrl_per_type": false,
+  "g5_FULL_minus_best_ctrl_mean_ge_005": false
+ },
+ "decision": "PENDING"
+}

@@ -1,0 +1,20 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R0b_spatial_robustness",
+  "dataset": "mpdd",
+  "role": "development",
+  "purpose": "Post-R0 mechanism audit. Preserve each image's text-map value distribution while destroying spatial alignment, and test whether the signal survives de-duplication/sensitivity checks.",
+  "primary_text_score": "text_p90",
+  "spatial_controls": ["rotate180_same_image", "half_roll_same_image"],
+  "single_quantile_check": 0.95,
+  "overlap_fraction_sensitivity": [0.01, 0.1, 0.25],
+  "gate": {
+    "genuine_minus_best_spatial_control_ge": 0.03,
+    "q095_macro_gain_vs_a1_ge": 0.05,
+    "q095_positive_categories_ge": 4,
+    "leave_tubes_out_macro_gain_ge": 0.05,
+    "each_overlap_sensitivity_gain_ge": 0.03,
+    "overlap_sensitivity_evaluable_categories_ge": 5
+  },
+  "interpretation": "A pass authorizes only a minimal R1 region reranker. It does not retroactively change the original R0 gate result and is not a paper claim."
+}

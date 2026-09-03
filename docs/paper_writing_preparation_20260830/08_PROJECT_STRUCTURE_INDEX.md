@@ -7,7 +7,7 @@ No physical relocation is performed because experiment scripts, manifests and ha
 ```text
 sci_project/
 ├─ docs/
-│  ├─ paper_writing_preparation_20260830/   # current writing hub
+│  ├─ paper_writing_preparation_20260830/   # current writing hub (incl. task books 11–21, R0 summaries)
 │  ├─ introduction_research_20260825/       # literature archive; partly outdated framing
 │  ├─ PAPER_DETAILED_CHINESE_DRAFT_*.md     # current Chinese manuscript source
 │  └─ historical status/audit documents
@@ -16,7 +16,11 @@ sci_project/
 │  ├─ dynamic_fusion/main_results_*         # main A1 result history
 │  ├─ dynamic_fusion/v3_direction_a/        # A1 reconstruction and ablations
 │  ├─ dynamic_fusion/rcec_v1/               # 2026-09-02 RCEC development-only negative result
-│  └─ dynamic_fusion/v3_3, v3_5, v4...      # negative/closed exploratory routes
+│  ├─ dynamic_fusion/v3_3, v3_5, v4...      # negative/closed exploratory routes
+│  ├─ dynamic_fusion/innovation_v8_tcrr_probe/    # TCRR region text evidence (MPDD pos, external neg)
+│  ├─ dynamic_fusion/innovation_v9_ncsafe_tcrr/   # NC-safe TCRR (archived)
+│  ├─ dynamic_fusion/innovation_v10_portfolio/    # A–F + LLSE + CSS R0s (all archived) + PORTFOLIO_LEDGER.md
+│  └─ dynamic_fusion/innovation_v11_regret_router/  # doc 21: RSR Oracle + BC-MCR (archived) + PORTFOLIO_LEDGER.md
 ├─ outputs/                                 # large raw and unified method outputs
 ├─ configs/                                 # runnable/frozen configurations
 ├─ scripts/                                 # evaluation, audit and table-generation scripts
@@ -67,6 +71,12 @@ Use for reusable background, bibliography leads and process history. Recheck all
 - V3.3 route selected with test masks.
 - failed or closed dynamic routing, D1 predictability, V4 and SubspaceAD-gate experiments.
 - RCEC v1 after the MPDD small-gate failure; retain as an explicitly labeled development-only negative result.
+- `innovation_v8_tcrr_probe` / `innovation_v9_ncsafe_tcrr` / `innovation_v10_portfolio`
+  (routes A–F, LLSE, CSS) / `innovation_v11_regret_router` (RSR region-oracle + BC-MCR
+  structural gate): all development-only negative results archived with per-route
+  pre-registered `R0_PROTOCOL.json → R0_RESULT.json → R0_DECISION.md` and a
+  `PORTFOLIO_LEDGER.md` status table. Each route may be cited only as an explicitly
+  labeled negative result; none is a paper contribution.
 - old `METHOD_CARD.md` where concat dimension is 1152.
 - old draft claims about text evidence, uncertainty routing or universal improvement.
 

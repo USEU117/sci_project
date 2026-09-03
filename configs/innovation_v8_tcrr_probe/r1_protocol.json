@@ -1,0 +1,26 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R1_minimal_map_reranker",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "authorization": "R0b spatial robustness gate passed before this protocol was evaluated.",
+  "seed": 0,
+  "shots": [1, 2, 4],
+  "stride": 8,
+  "proposal_quantile": 0.95,
+  "minimum_component_cells": 4,
+  "text_pooling": "p90",
+  "factor_formula": "exp(log(1.5) * (2 * text_p90 - 1))",
+  "factor_range": [0.6666666667, 1.5],
+  "spatial_controls": ["rotate180_same_image", "half_roll_same_image"],
+  "gate": {
+    "macro_pixel_ap_gain_ge": 0.005,
+    "positive_shot_count_ge": 3,
+    "positive_category_shot_count_ge": 11,
+    "worst_category_macro_pixel_ap_gain_ge": -0.02,
+    "macro_pixel_auroc_loss_ge": -0.002,
+    "genuine_gain_minus_best_control_gain_ge": 0.003
+  },
+  "decision_rule": "All checks must pass. A pass authorizes a seed1/2 confirmation only; it is not a paper claim and does not authorize external validation.",
+  "leakage_rule": "All candidate maps, components, text scores, and control maps must be frozen before evaluator-only ground truth is loaded. No labels or masks are method inputs."
+}

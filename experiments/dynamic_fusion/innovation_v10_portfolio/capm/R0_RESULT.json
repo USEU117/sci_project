@@ -1,0 +1,97 @@
+{
+  "route": "C_CAPM",
+  "pipeline": "v10_portfolio_r0_feasibility",
+  "seed": 0,
+  "shot": 1,
+  "data_role": "development",
+  "ransac_reproj_thresh_patch": 2.0,
+  "created_at_utc": "2026-09-03T04:16:46.481709+00:00",
+  "protocol_sha256": "c508ea104600a40cd34a1d7a0b3230d019d35d9d9c980abf17bc1cf86bb7c48f",
+  "code_sha256": {
+    "runner": "a2a088ea241270e382a648b530c7ce78729c6ce1e00f2d762808753626de18e1"
+  },
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "n_images": 60,
+      "n_mutual_median": 324.0,
+      "inlier_ratio_mean": 0.5051389907740788,
+      "inlier_ratio_median": 0.47798062593144564,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.4189117334278625,
+      "inlier_ratio_p75": 0.5581988361183661,
+      "reproj_err_mean_inliers": 0.9857652465502421,
+      "ransac_ok_frac": 1.0
+    },
+    {
+      "category": "bracket_brown",
+      "n_images": 60,
+      "n_mutual_median": 437.5,
+      "inlier_ratio_mean": 0.6579949090700281,
+      "inlier_ratio_median": 0.6617501666420618,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.5526136707329368,
+      "inlier_ratio_p75": 0.7507766412549961,
+      "reproj_err_mean_inliers": 0.7835734536250433,
+      "ransac_ok_frac": 1.0
+    },
+    {
+      "category": "bracket_white",
+      "n_images": 60,
+      "n_mutual_median": 441.0,
+      "inlier_ratio_mean": 0.6712505824645505,
+      "inlier_ratio_median": 0.7074843260188088,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.5065336766314255,
+      "inlier_ratio_p75": 0.822583139984532,
+      "reproj_err_mean_inliers": 0.7483398639907439,
+      "ransac_ok_frac": 1.0
+    },
+    {
+      "category": "connector",
+      "n_images": 44,
+      "n_mutual_median": 474.0,
+      "inlier_ratio_mean": 0.7352207346376655,
+      "inlier_ratio_median": 0.7374093611859095,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.6858597285067873,
+      "inlier_ratio_p75": 0.7842276862805743,
+      "reproj_err_mean_inliers": 0.6621258336712014,
+      "ransac_ok_frac": 1.0
+    },
+    {
+      "category": "metal_plate",
+      "n_images": 60,
+      "n_mutual_median": 361.5,
+      "inlier_ratio_mean": 0.4879654381826982,
+      "inlier_ratio_median": 0.4842380195321372,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.44869546415529504,
+      "inlier_ratio_p75": 0.5237226412577982,
+      "reproj_err_mean_inliers": 0.8717378209034602,
+      "ransac_ok_frac": 1.0
+    },
+    {
+      "category": "tubes",
+      "n_images": 60,
+      "n_mutual_median": 438.0,
+      "inlier_ratio_mean": 0.6526143676138919,
+      "inlier_ratio_median": 0.6677592816156913,
+      "frac_images_inlier_ge_0.3": 1.0,
+      "inlier_ratio_p25": 0.6234256926952141,
+      "inlier_ratio_p75": 0.7079495773826873,
+      "reproj_err_mean_inliers": 0.6477596352497736,
+      "ransac_ok_frac": 1.0
+    }
+  ],
+  "full6_summary": {
+    "median_of_class_medians": 0.6647547241288765,
+    "mean_of_class_medians": 0.622770296821009,
+    "mean_frac_aligned_per_class": 1.0
+  },
+  "early_fail_check": {
+    "majority_classes_median_lt_0.3": false,
+    "frac_aligned_lt_0.4": false
+  },
+  "decision": "PENDING"
+}

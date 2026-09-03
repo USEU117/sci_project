@@ -216,4 +216,15 @@ bracket_white 单类 ≥+0.03 ΔPixel-AP（算术不可达），用户于 2026-0
   BTAD/MVTec 未验证；A1 保持唯一主方法。
 
 决策与全表：`experiments/dynamic_fusion/innovation_v7_global_text/01_mpdd_full/PHASE1_DECISION.md`
+
+## v8 TCRR 区域重排执行结果（2026-09-03）
+
+- 已完成区域信息价值、同图旋转/平移强对照、MPDD seed0 像素重排、seed1/2 确认，以及一次性 BTAD/MVTec 外部验证。
+- MPDD：seed0 Pixel-AP +0.0321；seed1/2 合计 +0.0363，6/6 seed-shot 为正，bootstrap 95% CI 下界 +0.00256。
+- BTAD：Pixel-AP −0.00695，FAIL；MVTec：−0.00582，FAIL。两个外部集之间没有调参。
+- 当前裁决：文本区域信号真实，但 v8 双向倍率转换不具备跨域安全性，不能作为论文主贡献；A1 继续保持唯一可正式报告的主方法。
+- 下一候选方向：NC-SafeTCRR，以 K-shot 正常参考文本图做 median/MAD 校准，只在显著证据时增益，否则 identity 回退。
+- 详细说明：`docs/paper_writing_preparation_20260830/18_TCRR_EXPERIMENT_RESULT_AND_NEXT_ALGORITHM_CN_20260903.md`。
+- v9 正常参考校准 + 只增益小试验也已完成：整体 Pixel-AP +0.02327，但 metal_plate −0.01823 未过 −0.01 安全线，按预注册规则归档；当前仍没有可替代 A1 的新主方法。
+- 后续创新不再围绕文本倍率微调。多路线 v10 执行规格已写入 `docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md`，优先并行探索 CRAM、MESP、CAPM、NORC、STR，并把 SPRG 作为高风险长线。
 （summary.json / bootstrap.json / per_config.csv / 两张 PNG）。

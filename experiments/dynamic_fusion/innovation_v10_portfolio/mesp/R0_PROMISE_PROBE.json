@@ -1,0 +1,92 @@
+{
+  "route": "B_MESP",
+  "pipeline": "v10_portfolio_promise_probe_dino_only",
+  "seed": 0,
+  "shot": 1,
+  "scope": "PROMISE PROBE ONLY - dino-only maps; NOT the pre-registered fused R0 gate",
+  "created_at_utc": "2026-09-03T04:15:32.011686+00:00",
+  "protocol_sha256": "bdcc658bd91dcfe0557218d14fd419be09b1c418f576425c4793f5d65065da98",
+  "code_sha256": {
+    "runner": "46c512538c42e300d8d88f9fbe31a16ccd4b2b29125676bb948fcf58d96e7545"
+  },
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "n_images": 79,
+      "base_ap": 0.020698,
+      "b1_ap": 0.020205,
+      "b2_ap": 0.020617,
+      "ctrl_ap": 0.019888,
+      "delta_b1": -0.000494,
+      "delta_b2": -8.1e-05,
+      "delta_ctrl": -0.00081,
+      "b1_auroc": 0.940303
+    },
+    {
+      "category": "bracket_brown",
+      "n_images": 77,
+      "base_ap": 0.037137,
+      "b1_ap": 0.038263,
+      "b2_ap": 0.037595,
+      "ctrl_ap": 0.038241,
+      "delta_b1": 0.001126,
+      "delta_b2": 0.000459,
+      "delta_ctrl": 0.001105,
+      "b1_auroc": 0.898926
+    },
+    {
+      "category": "bracket_white",
+      "n_images": 60,
+      "base_ap": 0.07165,
+      "b1_ap": 0.072761,
+      "b2_ap": 0.071466,
+      "ctrl_ap": 0.07359,
+      "delta_b1": 0.001111,
+      "delta_b2": -0.000185,
+      "delta_ctrl": 0.001939,
+      "b1_auroc": 0.991779
+    },
+    {
+      "category": "connector",
+      "n_images": 44,
+      "base_ap": 0.087886,
+      "b1_ap": 0.089873,
+      "b2_ap": 0.088219,
+      "ctrl_ap": 0.089119,
+      "delta_b1": 0.001988,
+      "delta_b2": 0.000334,
+      "delta_ctrl": 0.001234,
+      "b1_auroc": 0.943035
+    },
+    {
+      "category": "metal_plate",
+      "n_images": 97,
+      "base_ap": 0.763262,
+      "b1_ap": 0.772301,
+      "b2_ap": 0.764556,
+      "ctrl_ap": 0.774824,
+      "delta_b1": 0.009039,
+      "delta_b2": 0.001294,
+      "delta_ctrl": 0.011562,
+      "b1_auroc": 0.956615
+    },
+    {
+      "category": "tubes",
+      "n_images": 101,
+      "base_ap": 0.695978,
+      "b1_ap": 0.703656,
+      "b2_ap": 0.696044,
+      "ctrl_ap": 0.702835,
+      "delta_b1": 0.007677,
+      "delta_b2": 6.6e-05,
+      "delta_ctrl": 0.006857,
+      "b1_auroc": 0.984055
+    }
+  ],
+  "mean_delta_b1": 0.003408,
+  "mean_delta_b2": 0.000315,
+  "mean_delta_ctrl": 0.003648,
+  "n_positive_b1": 5,
+  "n_positive_b2": 4,
+  "elapsed_s": 271.3
+}

@@ -1,0 +1,38 @@
+{
+  "route": "V11-BCMCR",
+  "name": "BC-MCR blind-center masked-context repair - structural synthesis gate (doc 21 s6.3)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "authority": "docs/paper_writing_preparation_20260830/21_INNOVATION_BREAKTHROUGH_PORTFOLIO_AND_ACCEPTANCE_CN_20260903.md s6.1-6.3 + Phase 4",
+  "context": "RSR Oracle audit FAIL (g3/g4: pool unbalanced, LLSE 97%) -> doc 21 Phase 4 branches to BC-MCR to create a NEW structural evidence expert. This R0 runs the s6.3 structural-synthesis gate ONLY on normal material; if it fails, BC-MCR is archived and real anomalies are never touched.",
+  "space": "fused A1 grid (dino vitb14 + clip w=0.5 concat, per-patch L2), 32x32, MPDD seed0 shot2 (two reference images, same as D2 diagnostic so AUROC numbers are comparable to the documented A4/RG-MCR results)",
+  "data_normality": {
+    "train": "ONLY the S=2 normal support reference grids of each class (interior cells with full 7x7 window); no test images, no GT",
+    "score": "normal test/good grids (never bad, never GT) synthetically perturbed exactly as D2: permutation(swap 4x4 blocks) / missing(block wiped to its own spatial mean) / duplicate(4x4 block copied), block size 4, mask dilated 1, donor = adjacent good grid, seeded rng (D2 parity)",
+    "label": "synthetic perturbation mask only"
+  },
+  "method": {
+    "model": "per-class tiny net (<0.8M params): context slots -> Linear(1536->128)+LN, learned 7x7 relative-position embedding, 2-layer cross-attention over query-context tokens (blind: 7x7 minus center 3x3 = 40 cells) + support top-M context tokens (faiss by context-mean over the 2 refs), head Linear(128->1536); score = 1 - cos(predicted center, actual center); loss = mean(1-cos)",
+    "training": "masked-center reconstruction on the 2 refs; spatial leave-region-out validation block (no adjacent train/val centres), early stop on val cosine; Adam, CPU",
+    "controls": {
+      "FULL": "blind 40-cell context + support tokens",
+      "CTRL-COPY": "context includes the centre 3x3 (49 slots) - tests blindness",
+      "CTRL-CTX": "query context only, no support tokens - tests support conditioning",
+      "CTRL-POS": "no trained model: old fixed retrieval (D2 context_residual: centre of the memory patch whose ring matches) - the RG-MCR baseline",
+      "CTRL-SHUFFLE": "FULL with (context, centre) pairs shuffled during training"
+    }
+  },
+  "gates": {
+    "g1": "per-type mean patch-AUROC (over 6 MPDD categories) >= 0.75 for ALL of permutation/missing/duplicate",
+    "g2": "each type >= A1 patch-AUROC + 0.10 (mean over categories)",
+    "g3_missing_vs_old": "missing type >= CTRL-POS (old fixed retrieval) + 0.15",
+    "g4_controls": "FULL >= each control on every type (no control matches)",
+    "g5": "FULL - best control averaged over the three types >= +0.05",
+    "stop_rule": "doc 21 s6.3: if gate fails, ARCHIVE BC-MCR; real-anomaly MPDD gate (s6.4) is only reachable after this gate passes"
+  },
+  "leakage": {
+    "no GT, no bad images, no test aggregates in any training/feature",
+    "control_semantics": "CTRL-POS equals the archived D2/RG-MCR non-parametric method, so g3 directly tests whether the trained blind predictor fixes the missing case"
+  },
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md"]
+}

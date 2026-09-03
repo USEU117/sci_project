@@ -1,0 +1,338 @@
+{
+  "route": "B_MESP",
+  "pipeline": "v10_portfolio_r0_geometry_audit",
+  "n_images": 10,
+  "model": "dinov2_vitb14@448",
+  "created_at_utc": "2026-09-03T04:01:46.452060+00:00",
+  "protocol_sha256": "bdcc658bd91dcfe0557218d14fd419be09b1c418f576425c4793f5d65065da98",
+  "code_sha256": {
+    "runner": "0f33c9f2685460bf60fff0314a81b50e8b7fdd0a72d34a75df8d7267f78f4b5d"
+  },
+  "per_image": [
+    {
+      "image": "bracket_black/train/good/271.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9542,
+          "interior_cos": 0.99685,
+          "interior_cos_min": 0.83127
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 0.9559,
+          "interior_cos": 0.99685,
+          "interior_cos_min": 0.83116
+        },
+        "rot-5": {
+          "inverse_rmse_px": 1.7457,
+          "interior_cos": 0.97462,
+          "interior_cos_min": 0.79837
+        },
+        "rot+5": {
+          "inverse_rmse_px": 1.7358,
+          "interior_cos": 0.97881,
+          "interior_cos_min": 0.77298
+        }
+      }
+    },
+    {
+      "image": "bracket_brown/train/good/039.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9537,
+          "interior_cos": 0.99708,
+          "interior_cos_min": 0.90754
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 0.993,
+          "interior_cos": 0.99704,
+          "interior_cos_min": 0.9058
+        },
+        "rot-5": {
+          "inverse_rmse_px": 1.4354,
+          "interior_cos": 0.979,
+          "interior_cos_min": 0.3259
+        },
+        "rot+5": {
+          "inverse_rmse_px": 1.4172,
+          "interior_cos": 0.97891,
+          "interior_cos_min": 0.33319
+        }
+      }
+    },
+    {
+      "image": "bracket_white/train/good/023.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9439,
+          "interior_cos": 0.99675,
+          "interior_cos_min": 0.90197
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 2.1905,
+          "interior_cos": 0.99636,
+          "interior_cos_min": 0.90105
+        },
+        "rot-5": {
+          "inverse_rmse_px": 1.2948,
+          "interior_cos": 0.98347,
+          "interior_cos_min": 0.76017
+        },
+        "rot+5": {
+          "inverse_rmse_px": 1.3029,
+          "interior_cos": 0.98288,
+          "interior_cos_min": 0.68475
+        }
+      }
+    },
+    {
+      "image": "connector/train/good/048.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9518,
+          "interior_cos": 0.99828,
+          "interior_cos_min": 0.90472
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 1.7197,
+          "interior_cos": 0.99777,
+          "interior_cos_min": 0.90709
+        },
+        "rot-5": {
+          "inverse_rmse_px": 2.4985,
+          "interior_cos": 0.98327,
+          "interior_cos_min": 0.69125
+        },
+        "rot+5": {
+          "inverse_rmse_px": 2.5027,
+          "interior_cos": 0.9826,
+          "interior_cos_min": 0.70445
+        }
+      }
+    },
+    {
+      "image": "metal_plate/train/good/029.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9366,
+          "interior_cos": 0.98323,
+          "interior_cos_min": 0.34972
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 0.9366,
+          "interior_cos": 0.98323,
+          "interior_cos_min": 0.34972
+        },
+        "rot-5": {
+          "inverse_rmse_px": 2.1344,
+          "interior_cos": 0.97545,
+          "interior_cos_min": 0.77518
+        },
+        "rot+5": {
+          "inverse_rmse_px": 2.1305,
+          "interior_cos": 0.97594,
+          "interior_cos_min": 0.66248
+        }
+      }
+    },
+    {
+      "image": "tubes/train/good/069.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9488,
+          "interior_cos": 0.99994,
+          "interior_cos_min": 0.99583
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 3.6908,
+          "interior_cos": 0.99924,
+          "interior_cos_min": 0.94067
+        },
+        "rot-5": {
+          "inverse_rmse_px": 4.6358,
+          "interior_cos": 0.98054,
+          "interior_cos_min": 0.71931
+        },
+        "rot+5": {
+          "inverse_rmse_px": 4.6217,
+          "interior_cos": 0.97766,
+          "interior_cos_min": 0.50917
+        }
+      }
+    },
+    {
+      "image": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD\\bracket_black\\train\\good\\000.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9478,
+          "interior_cos": 0.99714,
+          "interior_cos_min": 0.86162
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 0.9501,
+          "interior_cos": 0.99713,
+          "interior_cos_min": 0.86175
+        },
+        "rot-5": {
+          "inverse_rmse_px": 2.2642,
+          "interior_cos": 0.98496,
+          "interior_cos_min": 0.65897
+        },
+        "rot+5": {
+          "inverse_rmse_px": 2.2502,
+          "interior_cos": 0.98189,
+          "interior_cos_min": 0.88383
+        }
+      }
+    },
+    {
+      "image": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD\\bracket_black\\train\\good\\001.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9518,
+          "interior_cos": 0.9972,
+          "interior_cos_min": 0.90472
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 0.9552,
+          "interior_cos": 0.99715,
+          "interior_cos_min": 0.90225
+        },
+        "rot-5": {
+          "inverse_rmse_px": 1.6735,
+          "interior_cos": 0.98208,
+          "interior_cos_min": 0.84541
+        },
+        "rot+5": {
+          "inverse_rmse_px": 1.6817,
+          "interior_cos": 0.97848,
+          "interior_cos_min": 0.79094
+        }
+      }
+    },
+    {
+      "image": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD\\tubes\\train\\good\\000.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9481,
+          "interior_cos": 0.99992,
+          "interior_cos_min": 0.99343
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 3.3739,
+          "interior_cos": 0.9994,
+          "interior_cos_min": 0.9854
+        },
+        "rot-5": {
+          "inverse_rmse_px": 4.4114,
+          "interior_cos": 0.97738,
+          "interior_cos_min": 0.60126
+        },
+        "rot+5": {
+          "inverse_rmse_px": 4.3984,
+          "interior_cos": 0.97413,
+          "interior_cos_min": 0.57069
+        }
+      }
+    },
+    {
+      "image": "D:\\STUDY\\My_github\\sci_project\\data\\mpdd_raw\\MPDD\\tubes\\train\\good\\001.png",
+      "views": {
+        "hflip": {
+          "inverse_rmse_px": 0.0,
+          "interior_cos": 1.0,
+          "interior_cos_min": 1.0
+        },
+        "bright0.9": {
+          "inverse_rmse_px": 0.9483,
+          "interior_cos": 0.99993,
+          "interior_cos_min": 0.9968
+        },
+        "bright1.1": {
+          "inverse_rmse_px": 3.3692,
+          "interior_cos": 0.99947,
+          "interior_cos_min": 0.99072
+        },
+        "rot-5": {
+          "inverse_rmse_px": 4.3445,
+          "interior_cos": 0.97665,
+          "interior_cos_min": 0.66195
+        },
+        "rot+5": {
+          "inverse_rmse_px": 4.3536,
+          "interior_cos": 0.97347,
+          "interior_cos_min": 0.47162
+        }
+      }
+    }
+  ],
+  "summary": {
+    "hflip": {
+      "mean_inverse_rmse_px": 0.0,
+      "mean_interior_cos": 1.0
+    },
+    "bright0.9": {
+      "mean_inverse_rmse_px": 0.9485,
+      "mean_interior_cos": 0.99663
+    },
+    "bright1.1": {
+      "mean_inverse_rmse_px": 1.9135,
+      "mean_interior_cos": 0.99636
+    },
+    "rot-5": {
+      "mean_inverse_rmse_px": 2.6438,
+      "mean_interior_cos": 0.97974
+    },
+    "rot+5": {
+      "mean_inverse_rmse_px": 2.6395,
+      "mean_interior_cos": 0.97848
+    }
+  },
+  "mean_per_extra_view_inference_s": 0.0545,
+  "peak_vram_gb": 0.393,
+  "decision": "PENDING"
+}

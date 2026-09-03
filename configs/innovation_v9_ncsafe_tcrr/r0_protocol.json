@@ -1,0 +1,22 @@
+{
+  "program": "innovation_v9_ncsafe_tcrr",
+  "phase": "R0_mpdd_seed0",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "seed": 0,
+  "shots": [1, 2, 4],
+  "proposal_quantile": 0.95,
+  "minimum_component_cells": 4,
+  "normal_calibration": "median and 1.4826*MAD over exact K-shot normal-reference text-map pixels",
+  "boost": "identity for region text-z P90 <=3; log-linear ramp to 1.5 at z>=6; never suppress",
+  "spatial_controls": ["rotate180_same_image", "half_roll_same_image"],
+  "gate": {
+    "macro_pixel_ap_gain_ge": 0.003,
+    "positive_category_count_ge": 4,
+    "worst_category_macro_pixel_ap_gain_ge": -0.01,
+    "macro_pixel_auroc_loss_ge": -0.001,
+    "genuine_gain_minus_best_control_gain_ge": 0.001,
+    "boosted_region_fraction_between": [0.01, 0.8]
+  },
+  "decision": "All checks pass -> seed1/2 confirmation. Fail -> archive this fixed normal-calibrated rule. External datasets are forbidden."
+}

@@ -1,0 +1,18 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R3_frozen_external_validation",
+  "authorized_by": "R2 seed1/2 confirmation gate PASS",
+  "datasets": {"btad": "external_holdout", "mvtec": "external_holdout"},
+  "seeds": [0, 1, 2],
+  "shots": [1, 2, 4],
+  "frozen_method": "R1 TCRR unchanged: stride=8, q=0.95, min_cells=4, region text P90, factor=exp(log(1.5)*(2*p90-1))",
+  "text_export": "AnomalyCLIP checkpoint 9_12_4_multiscale_visa/epoch_15.pth; seed0/shot1 manifest validation only; zero-shot maps are seed/shot invariant",
+  "gate_per_dataset": {
+    "macro_pixel_ap_gain_gt": 0.0,
+    "positive_seed_shot_count_ge": 4,
+    "worst_category_macro_pixel_ap_gain_ge": -0.03,
+    "macro_pixel_auroc_loss_ge": -0.003,
+    "genuine_gain_minus_best_spatial_control_gain_ge": 0.003
+  },
+  "overall_decision": "Both datasets must pass independently for a cross-dataset robustness claim. One pass permits a dataset-specific result only. No parameter changes are allowed after either external result is observed."
+}

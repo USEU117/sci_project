@@ -1,0 +1,25 @@
+{
+  "route": "D_NORC",
+  "name": "Normal-Only Region Conformalization",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#7",
+  "scientific_question": "Past module failures share a root cause: auxiliary evidence exists but there is no principled answer to 'when is it trustworthy?'. Instead of another black-box gate, can a normal-only region-level non-conformity distribution assign each candidate region an auditable p-value / confidence level, and gate any auxiliary module modification of A1 by p<=0.05 with identity fallback otherwise? NORC's value is risk control (normal-image FPR, cross-domain safety, explainable fallback), NOT raw AP.",
+  "phase_r0_scope": {
+    "calibration_unit_and_effective_sample_size": "calibration unit = normal reference IMAGE (leave-one-reference-out) plus a pre-registered finite set of deterministic mild augmentations (hflip, brightness x0.9/1.1, rot -2/+2 deg for small-angle classes where stable); patches within one image are NOT independent -> effective sample size = number of calibration IMAGES x per-image non-conformity, never raw patch count",
+    "exchangeability_note": "test image distribution is assumed shift-free vs normal reference images in-domain (MPDD dev). Strict coverage guarantees are NOT claimed across datasets; nominal coverage deviation across seeds is measured instead",
+    "non_conformity_per_region": "region-level score of a candidate region (A1 or auxiliary) = region max, mean, P90 + multi-view stability when available; stratified by area bin and coarse position bin",
+    "conformal_rank": "p = (1 + #{calibration scores >= test score}) / (n_calib + 1); modification of A1 allowed only if p <= 0.05, else exact identity",
+    "identity_fallback": "when no auxiliary module is active, output == A1 exactly (max|diff| 0)"
+  },
+  "minimal_implementation": "NORC module + identity pass-through + normal-image FPR accounting hooks; gates evaluated once an auxiliary module (CRAM candidate or STR) is integrated",
+  "gates": {
+    "g0_identity": "identity fallback test passes (output == A1 when no region passes p<=0.05)",
+    "g1_ap_floor": "MPDD seed0 Pixel-AP >= A1 - 0.002",
+    "g2_fpr": "normal-image image-FPR or normal-pixel high-score rate drops >= 20% vs uncalibrated auxiliary module",
+    "g3_coverage": "across-seed nominal coverage deviation <= 5 percentage points",
+    "note": "gate for combination with A/B/C: worst-category regression improves >= 50% while keeping >= 50% of mean gain"
+  },
+  "leakage": "all calibration from normal reference images + pre-registered augmentations; no test GT",
+  "deliverables": ["R0_PROTOCOL.json", "R0_DESIGN.md", "R0_RESULT.json", "R0_DECISION.md"]
+}

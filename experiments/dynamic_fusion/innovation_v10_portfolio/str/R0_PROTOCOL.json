@@ -1,0 +1,28 @@
+{
+  "route": "E_STR",
+  "name": "Support-Conditioned Texture Residual",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#8",
+  "scientific_question": "DINO/CLIP deep patches are strong on semantics/structure but may be blind to fine periodic texture, scratches and high-frequency changes. Does a cheap, training-free spectral residual (Haar/DWT or Laplacian pyramid) over gray + color-opponent channels, calibrated on normal reference images, provide evidence that is (a) different from A1 errors and (b) informative where A1 is wrong? Phase R0 does NOT fuse; it only measures region information value.",
+  "data": {
+    "dataset": "mpdd", "role": "development_only", "seeds": [0], "shots": [1],
+    "categories": "all 6", "images_root": "data/mpdd_raw/MPDD"
+  },
+  "protocol_r0_info_value": {
+    "a1_maps": "A1 fused d_min maps recomputed from cached features (identical to frozen A1, seed0 k1)",
+    "candidate_regions": "A1 error regions: (i) A1 false-negative candidates: GT-positive connected components where A1 max score in component is below A1's per-class 95th-percentile of normal-image scores; (ii) A1 high-score false-positive regions on normal test images",
+    "str_map": "2-level Haar wavelet, gray + R-G + B-Y opponent channels, per-band local median/MAD calibrated on normal reference patches (same positions as A1), robust z-score, trimmed mean across bands -> residual map at A1 resolution (448)",
+    "region_information_value": "per candidate region, P90 of STR residual inside region vs A1's P90; region-level AP comparing 'STR residual as predictor of being an A1-error region' relative to 'A1 score as predictor'",
+    "spatial_misalignment_control": "STR map shifted by half object size must drop by >= +0.02 in the info-value metric",
+    "no_fusion": "R0 explicitly does not combine STR with A1 maps"
+  },
+  "gates": {
+    "g1": "region info-value AP of STR >= A1 region score AP + 0.05, and >= 4/6 categories positive",
+    "g2": "true spatial STR beats misaligned control by >= +0.02",
+    "g3": "STR extra runtime < 20% of A1 per image",
+    "note": "if only one texture class benefits, archive as per-category observation, not a unified algorithm"
+  },
+  "leakage": "STR calibration from normal reference images only; no test GT in map construction",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md", "FAILURE_ANALYSIS.md"]
+}

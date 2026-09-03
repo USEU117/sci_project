@@ -50,7 +50,7 @@ sys.path.insert(0, str(METHOD_ROOT))
 import AnomalyCLIP_lib  # noqa: E402
 from prompt_ensemble import AnomalyCLIP_PromptLearner  # noqa: E402
 from utils import get_transform  # noqa: E402
-from v2_mpdd_prediction_common import index_dataset, sha256, validate_dataset_gate_inputs  # noqa: E402
+from v2_mpdd_prediction_common import TestSample, index_dataset, sha256, validate_dataset_gate_inputs  # noqa: E402
 
 
 def setup_seed(seed: int) -> None:
@@ -70,7 +70,7 @@ def tensor_sha256(tensor: torch.Tensor) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", type=Path, required=True)
-    parser.add_argument("--dataset", choices=("mpdd", "btad"), default="mpdd")
+    parser.add_argument("--dataset", choices=("mpdd", "btad", "mvtec", "visa"), default="mpdd")
     parser.add_argument("--dataset-role", choices=("development", "holdout"), default="development")
     parser.add_argument("--data-root", type=Path, required=True)
     parser.add_argument("--checkpoint", type=Path, required=True)
@@ -90,6 +90,8 @@ def main() -> int:
                         help="swap normal/abnormal text embeddings (direction test)")
     parser.add_argument("--categories", type=str, nargs="*", default=None,
                         help="optional subset of categories to export")
+    parser.add_argument("--sample-set", choices=("test", "references"), default="test",
+                        help="export test images or the exact manifest-selected normal references")
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
 
@@ -136,6 +138,15 @@ def main() -> int:
         if unknown:
             raise SystemExit(f"unknown categories: {unknown}")
         indexed = {c: indexed[c] for c in args.categories}
+    if args.sample_set == "references":
+        selected_index = {}
+        for category in indexed:
+            rels = manifest["categories"][category][str(args.seed)][str(args.shot)]
+            selected_index[category] = [
+                TestSample(category, "normal_reference", args.data_root / rel, None, rel, 0)
+                for rel in rels
+            ]
+        indexed = selected_index
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     rows = []
@@ -218,6 +229,7 @@ def main() -> int:
         "status": "passed",
         "branch": "anomalyclip_text",
         "kind": "explicit_text_conditioned_maps",
+        "sample_set": args.sample_set,
         "dataset": args.dataset,
         "dataset_role": args.dataset_role,
         "seed": args.seed,

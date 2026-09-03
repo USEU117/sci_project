@@ -1,0 +1,597 @@
+{
+  "route": "A_CRAM",
+  "pipeline": "v10_portfolio_r0",
+  "seed": 0,
+  "shots": [
+    2,
+    4
+  ],
+  "created_at_utc": "2026-09-03T03:47:05.154629+00:00",
+  "elapsed_s": 195.0,
+  "protocol_sha256": "f32953bf319f197841570dac08b3976050bbf0922a6d7c58db6953b122ec2ecc",
+  "code_sha256": {
+    "common": "df196ec7229702e97844b4bc96ae873107ba0b13e33336070b475dae7297a547",
+    "cram": "385e0a27a55dd9ebed1be140e8cf8c39135720c61b731693f432a94e05ebf6bf",
+    "runner": "cb391302c2910a4a329eb165c34c79dfe863cd9639b4a2b33e6e28268c8a6139"
+  },
+  "manifest_sha256": "5a6a42dd12de1de9c977c2b10695f35b474d19b37f0c1492f64a7989226a9bd8",
+  "identity_gate": {
+    "g1_max_diff_over_categories": 0.0,
+    "g1_pass": true
+  },
+  "per_shot": {
+    "k2": {
+      "per_category": [
+        {
+          "category": "bracket_black",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 79,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.949824,
+              "pixel_ap": 0.014642,
+              "pixel_aupro": 0.850917
+            },
+            "a1": {
+              "pixel_auroc": 0.950179,
+              "pixel_ap": 0.013954,
+              "pixel_aupro": 0.848135
+            },
+            "a2": {
+              "pixel_auroc": 0.949824,
+              "pixel_ap": 0.014642,
+              "pixel_aupro": 0.850917
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.949403,
+              "pixel_ap": 0.013268,
+              "pixel_aupro": 0.851319
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": -0.000688,
+              "a0_ap_unchanged": 2.26e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.00065,
+              "a0_ap_unchanged": 2.14e-07
+            }
+          }
+        },
+        {
+          "category": "bracket_brown",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 77,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.903926,
+              "pixel_ap": 0.033369,
+              "pixel_aupro": 0.783288
+            },
+            "a1": {
+              "pixel_auroc": 0.908416,
+              "pixel_ap": 0.034043,
+              "pixel_aupro": 0.785511
+            },
+            "a2": {
+              "pixel_auroc": 0.903926,
+              "pixel_ap": 0.033369,
+              "pixel_aupro": 0.783288
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.911068,
+              "pixel_ap": 0.034488,
+              "pixel_aupro": 0.776156
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": 0.000674,
+              "a0_ap_unchanged": 5e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.000417,
+              "a0_ap_unchanged": 4.94e-07
+            }
+          }
+        },
+        {
+          "category": "bracket_white",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 60,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.995944,
+              "pixel_ap": 0.105989,
+              "pixel_aupro": 0.985693
+            },
+            "a1": {
+              "pixel_auroc": 0.996998,
+              "pixel_ap": 0.117487,
+              "pixel_aupro": 0.989296
+            },
+            "a2": {
+              "pixel_auroc": 0.995944,
+              "pixel_ap": 0.105989,
+              "pixel_aupro": 0.985693
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.99761,
+              "pixel_ap": 0.136283,
+              "pixel_aupro": 0.991506
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": 0.011499,
+              "a0_ap_unchanged": -4.83e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.000562,
+              "a0_ap_unchanged": -4.83e-07
+            }
+          }
+        },
+        {
+          "category": "connector",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 44,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.969435,
+              "pixel_ap": 0.299111,
+              "pixel_aupro": 0.893262
+            },
+            "a1": {
+              "pixel_auroc": 0.968927,
+              "pixel_ap": 0.285992,
+              "pixel_aupro": 0.887644
+            },
+            "a2": {
+              "pixel_auroc": 0.969435,
+              "pixel_ap": 0.299111,
+              "pixel_aupro": 0.893262
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.966669,
+              "pixel_ap": 0.260718,
+              "pixel_aupro": 0.883112
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": -0.013119,
+              "a0_ap_unchanged": 1.07e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": -0.026064,
+              "a0_ap_unchanged": 1.25e-07
+            }
+          }
+        },
+        {
+          "category": "metal_plate",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 97,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.976487,
+              "pixel_ap": 0.87839,
+              "pixel_aupro": 0.935122
+            },
+            "a1": {
+              "pixel_auroc": 0.977467,
+              "pixel_ap": 0.87915,
+              "pixel_aupro": 0.9389
+            },
+            "a2": {
+              "pixel_auroc": 0.976487,
+              "pixel_ap": 0.87839,
+              "pixel_aupro": 0.935122
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.977603,
+              "pixel_ap": 0.878404,
+              "pixel_aupro": 0.941881
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": 0.00076,
+              "a0_ap_unchanged": 4.15e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.000624,
+              "a0_ap_unchanged": 4.23e-07
+            }
+          }
+        },
+        {
+          "category": "tubes",
+          "shot": 2,
+          "n_ref_images": 2,
+          "n_test_images": 101,
+          "mad95_normal": null,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.988115,
+              "pixel_ap": 0.730736,
+              "pixel_aupro": 0.953359
+            },
+            "a1": {
+              "pixel_auroc": 0.98753,
+              "pixel_ap": 0.726719,
+              "pixel_aupro": 0.950565
+            },
+            "a2": {
+              "pixel_auroc": 0.988115,
+              "pixel_ap": 0.730736,
+              "pixel_aupro": 0.953359
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.986737,
+              "pixel_ap": 0.721302,
+              "pixel_aupro": 0.948621
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 4,
+              "gain_a1_over_a0": -0.004016,
+              "a0_ap_unchanged": -4.39e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": -0.001903,
+              "a0_ap_unchanged": -3.98e-07
+            }
+          }
+        }
+      ],
+      "mean_a0_ap": 0.343706,
+      "mean_a0_auroc": 0.963955,
+      "mean_a0_aupro": 0.900273,
+      "mean_a1_ap": 0.342891,
+      "mean_a1_auroc": 0.96492,
+      "mean_a1_aupro": 0.900009,
+      "mean_a2_ap": 0.343706,
+      "mean_a2_auroc": 0.963955,
+      "mean_a2_aupro": 0.900273,
+      "mean_med_only_control_ap": 0.340744,
+      "mean_med_only_control_auroc": 0.964848,
+      "mean_med_only_control_aupro": 0.898766,
+      "mean_delta_ap_a1": -0.000815,
+      "n_positive_a1": 3,
+      "mean_delta_ap_a2": 0.0,
+      "n_positive_a2": 0,
+      "worst_category": {
+        "a1": -0.013119,
+        "a2": 0.0
+      }
+    },
+    "k4": {
+      "per_category": [
+        {
+          "category": "bracket_black",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 79,
+          "mad95_normal": 0.05551971,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.974084,
+              "pixel_ap": 0.185591,
+              "pixel_aupro": 0.911333
+            },
+            "a1": {
+              "pixel_auroc": 0.982833,
+              "pixel_ap": 0.200466,
+              "pixel_aupro": 0.943596
+            },
+            "a2": {
+              "pixel_auroc": 0.97687,
+              "pixel_ap": 0.148868,
+              "pixel_aupro": 0.908085
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.974744,
+              "pixel_ap": 0.076732,
+              "pixel_aupro": 0.926349
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": 0.014875,
+              "a0_ap_unchanged": 4.94e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.005267,
+              "a0_ap_unchanged": 4.94e-07
+            }
+          }
+        },
+        {
+          "category": "bracket_brown",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 77,
+          "mad95_normal": 0.02131705,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.906059,
+              "pixel_ap": 0.033952,
+              "pixel_aupro": 0.797123
+            },
+            "a1": {
+              "pixel_auroc": 0.911681,
+              "pixel_ap": 0.034337,
+              "pixel_aupro": 0.801528
+            },
+            "a2": {
+              "pixel_auroc": 0.910825,
+              "pixel_ap": 0.034309,
+              "pixel_aupro": 0.794434
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.913685,
+              "pixel_ap": 0.034176,
+              "pixel_aupro": 0.800658
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": 0.000385,
+              "a0_ap_unchanged": -1.39e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.000136,
+              "a0_ap_unchanged": -1.29e-07
+            }
+          }
+        },
+        {
+          "category": "bracket_white",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 60,
+          "mad95_normal": 0.0294103,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.996549,
+              "pixel_ap": 0.095362,
+              "pixel_aupro": 0.988333
+            },
+            "a1": {
+              "pixel_auroc": 0.997413,
+              "pixel_ap": 0.108308,
+              "pixel_aupro": 0.991095
+            },
+            "a2": {
+              "pixel_auroc": 0.997488,
+              "pixel_ap": 0.12721,
+              "pixel_aupro": 0.990929
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.99773,
+              "pixel_ap": 0.120396,
+              "pixel_aupro": 0.992112
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": 0.012946,
+              "a0_ap_unchanged": 2.28e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": 0.007648,
+              "a0_ap_unchanged": 2.28e-07
+            }
+          }
+        },
+        {
+          "category": "connector",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 44,
+          "mad95_normal": 0.02197456,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.975297,
+              "pixel_ap": 0.37504,
+              "pixel_aupro": 0.916327
+            },
+            "a1": {
+              "pixel_auroc": 0.973739,
+              "pixel_ap": 0.330049,
+              "pixel_aupro": 0.909806
+            },
+            "a2": {
+              "pixel_auroc": 0.974792,
+              "pixel_ap": 0.321787,
+              "pixel_aupro": 0.91108
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.96945,
+              "pixel_ap": 0.254299,
+              "pixel_aupro": 0.896392
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": -0.04499,
+              "a0_ap_unchanged": -3.13e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": -0.025876,
+              "a0_ap_unchanged": -3.61e-07
+            }
+          }
+        },
+        {
+          "category": "metal_plate",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 97,
+          "mad95_normal": 0.02353267,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.979657,
+              "pixel_ap": 0.884981,
+              "pixel_aupro": 0.945104
+            },
+            "a1": {
+              "pixel_auroc": 0.977608,
+              "pixel_ap": 0.880973,
+              "pixel_aupro": 0.941003
+            },
+            "a2": {
+              "pixel_auroc": 0.978491,
+              "pixel_ap": 0.885472,
+              "pixel_aupro": 0.945058
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.974281,
+              "pixel_ap": 0.869521,
+              "pixel_aupro": 0.933768
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": -0.004008,
+              "a0_ap_unchanged": 4.58e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": -0.001387,
+              "a0_ap_unchanged": 4.57e-07
+            }
+          }
+        },
+        {
+          "category": "tubes",
+          "shot": 4,
+          "n_ref_images": 4,
+          "n_test_images": 101,
+          "mad95_normal": 0.02271773,
+          "identity_pooled_vs_a0_maxdiff": 0.0,
+          "candidates": {
+            "a0": {
+              "pixel_auroc": 0.990358,
+              "pixel_ap": 0.75504,
+              "pixel_aupro": 0.961987
+            },
+            "a1": {
+              "pixel_auroc": 0.989159,
+              "pixel_ap": 0.746921,
+              "pixel_aupro": 0.956226
+            },
+            "a2": {
+              "pixel_auroc": 0.987907,
+              "pixel_ap": 0.721432,
+              "pixel_aupro": 0.952729
+            },
+            "med_only_control": {
+              "pixel_auroc": 0.987326,
+              "pixel_ap": 0.735123,
+              "pixel_aupro": 0.950188
+            }
+          },
+          "controls": {
+            "c1_duplicate_refs": {
+              "inflated_k": 8,
+              "gain_a1_over_a0": -0.00812,
+              "a0_ap_unchanged": 4.52e-07
+            },
+            "c2_shuffled_refs": {
+              "gain_a1_over_a0": -0.004657,
+              "a0_ap_unchanged": 4.41e-07
+            }
+          }
+        }
+      ],
+      "mean_a0_ap": 0.388328,
+      "mean_a0_auroc": 0.970334,
+      "mean_a0_aupro": 0.920034,
+      "mean_a1_ap": 0.383509,
+      "mean_a1_auroc": 0.972072,
+      "mean_a1_aupro": 0.923876,
+      "mean_a2_ap": 0.37318,
+      "mean_a2_auroc": 0.971062,
+      "mean_a2_aupro": 0.917052,
+      "mean_med_only_control_ap": 0.348374,
+      "mean_med_only_control_auroc": 0.969536,
+      "mean_med_only_control_aupro": 0.916578,
+      "mean_delta_ap_a1": -0.004819,
+      "n_positive_a1": 3,
+      "mean_delta_ap_a2": -0.015148,
+      "n_positive_a2": 3,
+      "worst_category": {
+        "a1": -0.044991,
+        "a2": -0.053253
+      }
+    }
+  },
+  "cat_mean_delta_over_shots": {
+    "a1": {
+      "bracket_black": 0.007093,
+      "bracket_brown": 0.000529,
+      "bracket_white": 0.012222,
+      "connector": -0.029055,
+      "metal_plate": -0.001624,
+      "tubes": -0.006068
+    },
+    "a2": {
+      "bracket_black": -0.018362,
+      "bracket_brown": 0.000178,
+      "bracket_white": 0.015924,
+      "connector": -0.026626,
+      "metal_plate": 0.000246,
+      "tubes": -0.016804
+    }
+  },
+  "gates": {
+    "a1": {
+      "g2_mean_gain_over_two_shots": -0.002817,
+      "g3_n_positive_categories": 3,
+      "g4_worst_category": -0.029055,
+      "g5_auroc_mean_loss": -0.00135149999999995
+    },
+    "a2": {
+      "g2_mean_gain_over_two_shots": -0.007574,
+      "g3_n_positive_categories": 3,
+      "g4_worst_category": -0.026626,
+      "g5_auroc_mean_loss": -0.00036399999999991994
+    }
+  },
+  "decision": "FAIL_ARCHIVED"
+}

@@ -1,0 +1,30 @@
+{
+  "route": "X2_EXPLORE_CSS",
+  "name": "Intra-image context self-similarity probe (reference-free evidence stream)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "rationale": "Every archived route (A-F, LLSE, subspace, text) scores query patches against a REFERENCE-derived evidence source (pooled memory / PCA basis / text semantics). None uses the query image's own content. This probe tests a mechanistically disjoint, reference-free statistic: local texture-break consistency. score(q) = mean cosine distance from patch q to its 24 spatial neighbours (Chebyshev radius 2) within the SAME test image. Normal textured regions are locally self-similar (low); a defect breaks local self-similarity (high) regardless of whether the few-shot reference happens to contain a similar texture. Motivating hypothesis: A1 (and its monotone transforms) misses subtle defects on classes where the single reference is unrepresentative; CSS needs no reference and could carry an independent sparse signal exactly there. Repo audit: no existing self-similarity / context-consistency implementation (grep scripts+src).",
+  "data": {
+    "dataset": "mpdd", "role": "development_only", "seeds": [0], "shots": [1],
+    "categories": "all 6", "space": "frozen A1 fused feat grid (dino vitb14 + clip w=0.5 concat, per-patch L2) computed by build_fused_blocks; same recomputed-A1 maps serve as identity baseline"
+  },
+  "method": {
+    "css_grid": "for each image i, q = feat[i] [H,W,D]; pad feat[i] with edge replication radius 2; css(i,j) = mean over the 24 offsets of (1 - cos(q_{i,j}, q_{neighbour})) = mean squared-L2/2 (same metric as A1); border replication affects only radius-2 ring (~1.6% of patches)",
+    "css_map": "dists2map(css_grid, 448) (A1 parity)",
+    "fusion_rule": "FIXED, no per-category or per-threshold tuning: per-image z-score of (a1_map448, css_map448) then pixelwise sum -> fused map",
+    "amendment_20260903": "z-sum fusion proved destructive on A1-strong classes (defect-interior pixels are CSS-low: boundary-ring cue, corr(defect)<=0 on metal_plate/tubes). Secondary FIXED rule added as diagnostic (NOT the gate rule): per-image z-score then pixelwise MAX -> reports whether either-cue-sufficient combination recovers both weak-class rescue and strong-class preservation.",
+    "identity_sanity": "recomputed A1 map must reproduce frozen A1 mean Pixel-AP ~0.3092 (s0 k1) within 1e-4"
+  },
+  "gates": {
+    "g0_identity": "A1 recompute mean Pixel-AP within 1e-4 of frozen 0.3092 (sanity)",
+    "g1_promise": "CSS-alone positive Pixel-AP (> random floor ~0) on >=1 of the 2 hardest classes (A1 AP < 0.05 at s0: bracket_black/brown) -> reference-free stream sees defects A1 cannot",
+    "g2_fusion": "mean Pixel-AP gain of fused map vs recomputed A1 >= +0.003 AND >= 4/6 classes positive AND worst >= -0.015 (same vocabulary as LLSE for comparability)",
+    "stop_rule": "archive as exploration if g2 fails; no per-category tuning"
+  },
+  "diagnostics": {
+    "corr_report": "per-class Pearson correlation between A1 map and CSS map on defect pixels vs normal pixels (stride-8 pooled) - measures whether CSS is an independent signal exactly where it matters",
+    "note": "border patch replication makes the image frame artificially self-consistent; small bias, no GT leakage"
+  },
+  "leakage": "no reference outside the 1 frozen reference image; no GT in scoring; no test statistics used for any calibration; fusion rule fixed before results",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md"]
+}

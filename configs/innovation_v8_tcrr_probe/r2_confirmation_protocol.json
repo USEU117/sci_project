@@ -1,0 +1,21 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R2_seed_confirmation",
+  "dataset": "mpdd",
+  "dataset_role": "development_confirmation",
+  "seeds": [1, 2],
+  "shots": [1, 2, 4],
+  "frozen_method": "R1 TCRR unchanged: q=0.95, min_cells=4, region text P90, factor=exp(log(1.5)*(2*p90-1))",
+  "bootstrap": {"unit": "category cluster", "resamples": 10000, "seed": 20260903},
+  "gate": {
+    "macro_pixel_ap_gain_ge": 0.015,
+    "positive_seed_shot_count_ge": 5,
+    "positive_category_seed_shot_count_ge": 24,
+    "worst_category_macro_pixel_ap_gain_ge": -0.02,
+    "macro_pixel_auroc_gain_ge": 0.0,
+    "genuine_gain_minus_best_control_gain_ge": 0.01,
+    "cluster_bootstrap_95ci_lower_gt": 0.0
+  },
+  "decision_rule": "All checks must pass. PASS makes TCRR a development-validated candidate contribution and authorizes a separately frozen external validation protocol. FAIL archives or redesigns it; no threshold tuning on these seeds.",
+  "external_validation": "forbidden until R2 decision is written"
+}

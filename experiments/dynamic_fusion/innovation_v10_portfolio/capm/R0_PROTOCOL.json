@@ -1,0 +1,24 @@
+{
+  "route": "C_CAPM",
+  "name": "Canonicalized Alignment-aware Positional Memory",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#6",
+  "scientific_question": "Global PatchCore lets any-position patches match, so 'locally normal appearance at the wrong position' is missed; hard position limits break under pose offset. Feasibility question FIRST (this R0): can query-reference geometry be canonicalized with frozen DINO patch features alone — mutual nearest-neighbor correspondences + RANSAC affine — with enough inliers and low reprojection error on MPDD? If most images cannot be aligned reliably (inlier ratio < 0.3), the route FAILS before any pixel evaluation.",
+  "data": {
+    "dataset": "mpdd", "role": "development_only", "seeds": [0], "shots": [1],
+    "categories": "all 6",
+    "features": "cached dino vitb14 patch features (test + K refs) from outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k1/anomalydino_visual/{cat}.npz",
+    "sample": "all test images per category for statistics (subsample capped for feasibility reporting)"
+  },
+  "feasibility_statistics": {
+    "correspondences": "mutual nearest neighbors between query image patch features and each reference image patch features (faiss, cosine via L2-normalized)",
+    "fit": "RANSAC affine (cv2.estimateAffinePartial2D or full affine), maxIters=2000, reprojThresh=2.0 (patch units); no GT used",
+    "reported": "per image: n mutual matches, inlier count, inlier ratio, mean reprojection error; per category: median/mean inlier ratio, fraction of images with inlier ratio >= 0.3",
+    "class_groups": "geometry-stable classes (connector, metal_plate, tubes ...) vs others; BOTH the geometric subset and the full-6-class summary are reported"
+  },
+  "early_fail_rule": "if the majority of test images (median across classes) have RANSAC inlier ratio < 0.3, or full-6-class aligned fraction < 40%, route FAILS pre-registered (no pixel evaluation, archive feasibility evidence)",
+  "post_pass_plan": "only if feasibility passes: implement d_global + 0.25*relu(d_pos-d_global) with alignment_reliability fallback; gates: full-6-class mean Pixel-AP >= +0.003, >=4/6 positive, worst >= -0.015, low-reliability outputs max error vs A1 <= 1e-6, real vs random-homography alignment >= +0.003",
+  "leakage": "no GT anywhere in alignment; no per-category hand-picked transforms",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md", "FAILURE_ANALYSIS.md"]
+}

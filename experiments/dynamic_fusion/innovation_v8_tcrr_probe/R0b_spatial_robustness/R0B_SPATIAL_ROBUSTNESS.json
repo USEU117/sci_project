@@ -1,0 +1,113 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R0b_spatial_robustness",
+  "created_at_utc": "2026-09-03T00:58:00.301818+00:00",
+  "protocol": {
+    "program": "innovation_v8_tcrr_probe",
+    "phase": "R0b_spatial_robustness",
+    "dataset": "mpdd",
+    "role": "development",
+    "purpose": "Post-R0 mechanism audit. Preserve each image's text-map value distribution while destroying spatial alignment, and test whether the signal survives de-duplication/sensitivity checks.",
+    "primary_text_score": "text_p90",
+    "spatial_controls": [
+      "rotate180_same_image",
+      "half_roll_same_image"
+    ],
+    "single_quantile_check": 0.95,
+    "overlap_fraction_sensitivity": [
+      0.01,
+      0.1,
+      0.25
+    ],
+    "gate": {
+      "genuine_minus_best_spatial_control_ge": 0.03,
+      "q095_macro_gain_vs_a1_ge": 0.05,
+      "q095_positive_categories_ge": 4,
+      "leave_tubes_out_macro_gain_ge": 0.05,
+      "each_overlap_sensitivity_gain_ge": 0.03,
+      "overlap_sensitivity_evaluable_categories_ge": 5
+    },
+    "interpretation": "A pass authorizes only a minimal R1 region reranker. It does not retroactively change the original R0 gate result and is not a paper claim."
+  },
+  "r0_rows_replayed": 23866,
+  "all_thresholds": {
+    "a1_ap": 0.21350019824870634,
+    "text_ap": 0.38319618857412613,
+    "rot180_ap": 0.21021397216862134,
+    "halfroll_ap": 0.13182644666230212,
+    "genuine_minus_best_spatial_control": 0.1729822164055048
+  },
+  "q095": {
+    "a1_ap": 0.21524672216631194,
+    "text_ap": 0.3745587493874454,
+    "gain": 0.15931202722113344,
+    "per_category_gain": {
+      "bracket_black": 0.08142920186846761,
+      "bracket_brown": 0.05280607888261146,
+      "bracket_white": 0.03344382733751884,
+      "connector": 0.20694234400190162,
+      "metal_plate": -0.09637182013381407,
+      "tubes": 0.6776225313701151
+    }
+  },
+  "leave_tubes_out": {
+    "a1_ap": 0.2324266380249965,
+    "text_ap": 0.30480006961883976,
+    "gain": 0.07237343159384327
+  },
+  "overlap_sensitivity": {
+    "0.01": {
+      "text_ap": 0.4600483171260726,
+      "a1_ap": 0.22958157690369074,
+      "gain": 0.23046674022238184,
+      "evaluable_categories": [
+        "bracket_black",
+        "bracket_brown",
+        "bracket_white",
+        "connector",
+        "metal_plate",
+        "tubes"
+      ],
+      "undefined_categories": []
+    },
+    "0.1": {
+      "text_ap": 0.3473716337079574,
+      "a1_ap": 0.20105326129735987,
+      "gain": 0.1463183724105975,
+      "evaluable_categories": [
+        "bracket_black",
+        "bracket_brown",
+        "bracket_white",
+        "connector",
+        "metal_plate",
+        "tubes"
+      ],
+      "undefined_categories": []
+    },
+    "0.25": {
+      "text_ap": 0.35172763010915414,
+      "a1_ap": 0.21565290955284064,
+      "gain": 0.1360747205563135,
+      "evaluable_categories": [
+        "bracket_black",
+        "bracket_brown",
+        "connector",
+        "metal_plate",
+        "tubes"
+      ],
+      "undefined_categories": [
+        "bracket_white"
+      ]
+    }
+  },
+  "gate_checks": {
+    "spatial_drop_ge_003": true,
+    "q095_gain_ge_005": true,
+    "q095_positive_categories_ge_4": true,
+    "leave_tubes_out_gain_ge_005": true,
+    "all_overlap_sensitivity_gain_ge_003": true,
+    "overlap_sensitivity_coverage_ge_5": true
+  },
+  "gate_passed": true,
+  "interpretation": "A pass authorizes only a minimal R1 region reranker. It does not retroactively change the original R0 gate result and is not a paper claim."
+}

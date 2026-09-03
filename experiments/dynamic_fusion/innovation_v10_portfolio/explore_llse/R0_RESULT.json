@@ -1,0 +1,88 @@
+{
+  "route": "X_EXPLORE_LLSE",
+  "pipeline": "v10_portfolio_explore_llse",
+  "seed": 0,
+  "shot": 1,
+  "k_neigh": 8,
+  "reg": 0.001,
+  "created_at_utc": "2026-09-03T04:41:52.893991+00:00",
+  "protocol_sha256": "2d9bdec4dcbb008215a3776c62d18c4cc7c833aa2954db44dd8efbea2714ea9b",
+  "code_sha256": {
+    "runner": "7240df056e055d5d090bff243c7b24b2aadc3ced54e374b3e967bf97d822ca4a"
+  },
+  "per_category": [
+    {
+      "category": "bracket_black",
+      "n_images": 79,
+      "a1_ap": 0.010484,
+      "llse_ap": 0.007654,
+      "llse_random_ap": 0.005944,
+      "delta_llse": -0.00283,
+      "delta_llse_random": -0.00454,
+      "llse_auroc": 0.932492,
+      "a1_auroc": 0.941943
+    },
+    {
+      "category": "bracket_brown",
+      "n_images": 77,
+      "a1_ap": 0.034446,
+      "llse_ap": 0.03228,
+      "llse_random_ap": 0.031412,
+      "delta_llse": -0.002166,
+      "delta_llse_random": -0.003034,
+      "llse_auroc": 0.910581,
+      "a1_auroc": 0.909831
+    },
+    {
+      "category": "bracket_white",
+      "n_images": 60,
+      "a1_ap": 0.08475,
+      "llse_ap": 0.087861,
+      "llse_random_ap": 0.005479,
+      "delta_llse": 0.003111,
+      "delta_llse_random": -0.07927,
+      "llse_auroc": 0.993309,
+      "a1_auroc": 0.994281
+    },
+    {
+      "category": "connector",
+      "n_images": 44,
+      "a1_ap": 0.126111,
+      "llse_ap": 0.132389,
+      "llse_random_ap": 0.039239,
+      "delta_llse": 0.006277,
+      "delta_llse_random": -0.086872,
+      "llse_auroc": 0.955938,
+      "a1_auroc": 0.948803
+    },
+    {
+      "category": "metal_plate",
+      "n_images": 97,
+      "a1_ap": 0.871321,
+      "llse_ap": 0.884116,
+      "llse_random_ap": 0.599841,
+      "delta_llse": 0.012795,
+      "delta_llse_random": -0.27148,
+      "llse_auroc": 0.980813,
+      "a1_auroc": 0.976934
+    },
+    {
+      "category": "tubes",
+      "n_images": 101,
+      "a1_ap": 0.728161,
+      "llse_ap": 0.764353,
+      "llse_random_ap": 0.096857,
+      "delta_llse": 0.036192,
+      "delta_llse_random": -0.631304,
+      "llse_auroc": 0.989117,
+      "a1_auroc": 0.986248
+    }
+  ],
+  "mean_a1_ap": 0.309212,
+  "mean_delta_llse": 0.008896,
+  "n_positive": 4,
+  "worst_category": -0.00283,
+  "mean_delta_llse_random": -0.179417,
+  "control_true_vs_random": 0.188313,
+  "decision": "PENDING"
+}

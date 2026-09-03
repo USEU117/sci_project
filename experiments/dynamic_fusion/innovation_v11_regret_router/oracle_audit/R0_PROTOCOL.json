@@ -1,0 +1,36 @@
+{
+  "route": "V11-ORACLE",
+  "name": "Expert-pool region-level Oracle / contribution audit (doc 21 Phase 1, R0 info-value gate)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "authority": "docs/paper_writing_preparation_20260830/21_INNOVATION_BREAKTHROUGH_PORTFOLIO_AND_ACCEPTANCE_CN_20260903.md section 4.6 + Phase 1",
+  "question": "Before building any router, does a region-level oracle over the frozen expert pool {E0 A1, E1 text-evidence, E2 LLSE, E3 CSS} have enough, spread, and leave-one-out-stable headroom over A1 on MPDD seed0/k1? If the gates below fail, doc 21 says stop the router and branch (BC-MCR / archive).",
+  "experts": {
+    "E0_A1": "frozen A1 map: fused concat (dino vitb14 + clip w=0.5, per-patch L2) 1-NN distance/2 -> dists2map(448) -> stride-8 (56x56); identity must reproduce frozen mean Pixel-AP ~0.3092 (s0 k1)",
+    "E1_TEXT": "TCRR raw text evidence = AnomalyCLIP text-conditioned anomaly_maps (448) from outputs/dynamic_fusion/innovation_v8_tcrr_probe/text_maps, robust01(m[::8,::8]) as in v8; RAW evidence, NOT the v8 final multiplier output (doc 21 4.2)",
+    "E2_LLSE": "top-8 local-linear-manifold reconstruction residual map (k=8, reg=1e-3) -> dists2map(448) -> stride-8",
+    "E3_CSS": "intra-image context self-similarity (24 neighbours, Chebyshev r=2) -> dists2map(448) -> stride-8"
+  },
+  "method": {
+    "grid": "all experts unified on the SAME 56x56 stride-8 grid of the same sample ids (alignment by sample_id order permutation)",
+    "regions": "evaluator-side offline partition per image (GT masks used ONLY for the audit partition, never for inference/training): defect regions = 8-connected components of gt masks56; background = complement",
+    "oracle_choice": "per-region pick expert e* maximizing mean robust01-normalized score inside a DEFECT region (best-hit); the single BACKGROUND region is always the DEFAULT/fallback expert E0_A1 (doc 21 selective-fallback semantics) - avoids cross-expert raw-scale FP contamination on normal pixels. Final oracle pixel map = E0_A1 raw map everywhere, with each defect region overwritten by its chosen expert's RAW map. Leave-one-out for E0 replaces background by the least-background-active remaining expert.",
+    "amendment_20260903b": "initial spec picked a background expert by argmin background activation; a dry run on bracket_white collapsed (oracle AP 0.0012 << A1) from raw-scale contamination of the chosen background expert across normal pixels. Background now fixed to A1 default (fallback semantics). No results reported from the discarded run.",
+    "audit_metrics": "Pixel-AP / AUROC computed exactly as the frozen protocol (stride-8 pooled per category) on raw maps"
+  },
+  "gates": {
+    "g0_identity": "recomputed E0 mean Pixel-AP within 1e-4 of frozen 0.3092",
+    "g1_headroom": "region-oracle vs A1 mean delta Pixel-AP >= +0.020",
+    "g2_spread": ">= 4/6 MPDD classes with headroom >= +0.010",
+    "g3_contrib": ">= 2 non-A1 experts each >= 10% of oracle-selected defect pixels (defect pixels in components whose chosen expert is non-A1)",
+    "g4_loo": "removing ANY core expert drops oracle headroom by >= 0.003",
+    "g5_dominance": "headroom NOT > 50% from a single category",
+    "stop_rule": "doc 21 Phase 1: if gates fail -> stop RSR; branch to BC-MCR or archive. No per-category tuning; if seed0/k1 passes -> extend to seed0 x k{2,4} before any router work."
+  },
+  "leakage": {
+    "predictions": "expert maps computed without GT",
+    "oracle": "GT used only offline in the evaluator to construct the audit partition (auxiliary oracle audit); no trained module reads GT; route features (if any later) exclude category identity and test aggregates",
+    "note": "doc 21 s9.4 permits evaluator-side offline GT for oracle/regret audits"
+  },
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md"]
+}

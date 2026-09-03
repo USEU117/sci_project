@@ -1,0 +1,29 @@
+{
+  "route": "F_SPRG",
+  "name": "Self-supervised Part-Relation Graph — R0 feasibility probe",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "task_book": "docs/paper_writing_preparation_20260830/19_MULTI_ROUTE_INNOVATION_EXPLORATION_HANDOFF_CN_20260903.md#9",
+  "scope": "VERY SMALL feasibility probe only (task book 9.4). If part discovery is unstable across normal references -> stop immediately, do NOT enter real-anomaly evaluation.",
+  "data": {
+    "dataset": "mpdd", "role": "development_normal_refs_only",
+    "seeds": [0], "shot": 4,
+    "normal_refs_per_class": "the 4 train/good references of each of the 6 classes (from manifest categories[cat]['0']['4']); no test images, no GT used",
+    "features": "cached dino vitb14 patch features (outputs/dynamic_fusion/v3_direction_a/features_vitb14_s0_k4/anomalydino_visual) + raw image read for the same refs"
+  },
+  "part_discovery": {
+    "pre_registered": "KMeans (fixed k=6, seed 0) on per-patch concatenation [L2-normalized DINO feature, spatial coord/16 * 0.5]; node = cluster: appearance centroid (mean member patch), position (mean coord), area (count), shape (2nd moment) ; k=6 within pre-registered 4-16 window",
+    "per_image": "each of the 4 reference images independently -> 6 part nodes"
+  },
+  "cross_reference_matching": {
+    "method": "chain matching across the 4 refs: Hungarian on node cost = (1 - cos(appearance_centroids)) + 0.5 * normalized position distance",
+    "success_definition": "node from image t is 'successfully matched' if its matched node in image t+1 has centroid cosine >= 0.85 AND normalized position displacement <= 0.15; success rate = mean fraction over the 3 links"
+  },
+  "gates": {
+    "g1_node_matching": "mean success rate across classes >= 0.90 -> only then continue to relation-score stability & counterfactual gates; else immediate stop/archive",
+    "g2_relation_stability": "deferred (needs g1 pass): relation-score 95th percentile stable under mild normal augmentation",
+    "g3_counterfactual": "deferred (needs g1+g2): synthetic delete/swap of one stable node has Cohen's d >= 1 vs normal augmentation"
+  },
+  "leakage": "probe uses normal reference images only; no gt; no test statistics",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md"]
+}

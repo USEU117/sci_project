@@ -1,0 +1,31 @@
+{
+  "program": "innovation_v8_tcrr_probe",
+  "phase": "R0_region_information_value",
+  "dataset": "mpdd",
+  "dataset_role": "development",
+  "authorization_note": "Started after task-17 Scenario C by explicit user request on 2026-09-03 to seek and test a stronger innovation; external datasets remain frozen.",
+  "a1": "frozen compact concat maps",
+  "text": "frozen AnomalyCLIP explicit text-conditioned anomaly maps",
+  "seeds": [0],
+  "shots": [1, 2, 4],
+  "map_size": [448, 448],
+  "stride": 8,
+  "proposal_quantiles": [0.9, 0.95, 0.975],
+  "connectivity": 8,
+  "minimum_component_cells": 4,
+  "positive_overlap_fraction": 0.05,
+  "text_poolings": ["text_trimmed_mean", "text_p90", "text_consistency"],
+  "trim_fraction": 0.1,
+  "text_consistency_threshold": 0.5,
+  "shuffle_seed": 20260903,
+  "gate": {
+    "macro_region_ap_gain_ge": 0.05,
+    "positive_categories_ge": 4,
+    "shuffle_drop_ge": 0.03,
+    "top_category_positive_gain_share_le": 0.5,
+    "positive_regions_ge": 100,
+    "negative_regions_ge": 100
+  },
+  "leakage_rule": "Candidate masks and all scores are produced before evaluator-only GT loading. GT is used only to label frozen proposals for this information-value diagnostic.",
+  "external_validation": "forbidden"
+}

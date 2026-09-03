@@ -1,0 +1,25 @@
+{
+  "route": "X_EXPLORE_LLSE",
+  "name": "Memory linear-reconstruction residual probe (post-task-book exploration)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "rationale": "All six task-book routes (A-F) archived. Failure root cause: monotone smooth transforms of the A1 score field cannot separate few true-defect pixels from the large normal population. A1 scores each query patch by its distance to the SINGLE nearest pooled memory patch. This probe tests a mechanistically different statistic: distance of the query patch to the LOCAL LINEAR MANIFOLD spanned by its top-8 memory neighbours (least-squares reconstruction residual). Defect patches should lie off the normal manifold (large residual) even when a single accidental neighbour is close; normal patches (including rare-but-normal edge/texture patches) should reconstruct well from their own local neighbourhood.",
+  "data": {
+    "dataset": "mpdd", "role": "development_only", "seeds": [0], "shots": [1],
+    "categories": "all 6", "fused_space": "frozen A1 concat (dino vitb14 + clip w=0.5, per-patch L2, pooled single k1 reference image per class)"
+  },
+  "method": {
+    "neighbours": "top-8 pooled memory patches by faiss L2 on the L2-normalised fused rows (squared-L2/2 = 1-cos, same metric as A1)",
+    "residual": "r^2 = ||q||^2 - w^T rhs, w = solve(G + 1e-3 I, rhs), G = N^T N over the 8 neighbours, rhs = N^T q; score map = r (>=0); identity sanity: A1 map (d1) recomputed in the same fused space must reproduce frozen A1 (mean AP ~0.3092 s0 k1)",
+    "control": "AMENDMENT 2026-09-03 (pre-registration correction): row-permuting the bank is VACUOUS for this test because it does not change the distance multiset - faiss still returns the same 8 nearest vectors (LS residual is order-invariant). Replaced by a locality-destroying control: reconstruct each query from 8 RANDOM distinct bank rows (seeded). If the residual gain comes from the local manifold, random-8 residual must be clearly worse than true top-8 residual."
+  },
+  "gates": {
+    "g0_identity": "A1 recompute mean Pixel-AP within 1e-4 of frozen 0.3092 (sanity)",
+    "g1": "mean Pixel-AP gain of residual map vs A1 >= +0.003 AND >= 4/6 classes positive",
+    "g2": "worst category >= -0.015",
+    "g3_control": "true-bank residual gain > random-8-bank (locality-destroying) residual gain by >= +0.002",
+    "stop_rule": "if mean gain < 0 or g3 fails, archive as exploration; no per-category tuning"
+  },
+  "leakage": "bank = normal reference only; no gt in scoring; no test statistics",
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md"]
+}
