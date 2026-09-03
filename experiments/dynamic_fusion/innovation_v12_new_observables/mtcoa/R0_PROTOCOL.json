@@ -1,0 +1,39 @@
+{
+  "route": "V12-MTCOA",
+  "name": "Macro-Tail Calibrated Oracle Audit (doc 22 s2.3; P0 corrected re-audit of v11 RSR Oracle)",
+  "created_utc": "2026-09-03",
+  "status": "PRE-REGISTERED",
+  "authority": "docs/paper_writing_preparation_20260830/22_POST_V11_RESULT_AUDIT_AND_NEW_INNOVATION_ROUTES_CN_20260903.md s2.3 + s13 item 1",
+  "purpose": "v11 oracle audit had three gaps: (A) choice on robust01 but output on raw scale; (B) best-hit rather than best-loss; (C) pixel-micro weighting hides tail value. MTCOA is a ONE-SHOT corrected evaluator-only audit to decide whether 'region-level dynamic expert complementarity' was falsely killed. It is NOT a deployable algorithm and NOT a paper contribution.",
+  "experts": {
+    "E0_A1": "frozen A1 1-NN distance map (fused dino vitb14 + clip w=0.5, per-patch L2) -> dists2map 448 -> stride-8",
+    "E1_TEXT": "TCRR raw text evidence = AnomalyCLIP text anomaly_maps (448) robust01 at stride-8 (normal per-image quantile calibration)",
+    "E2_LLSE": "top-8 local-linear reconstruction residual (k=8, reg=1e-3)",
+    "E3_CSS": "intra-image context self-similarity (24 neighbours, Chebyshev r=2)"
+  },
+  "method": {
+    "scale": "per-expert strictly-monotone empirical-CDF calibration (no top saturation) fit on a NORMAL pool only (no test bad/mask/labels): support leave-self-out scores for E0/E2 (k2/k9 faiss over the reference bank), reference intra-image css for E3, plus the class's NORMAL test/good image scores for all four experts so that test-normal FP behaviour is on-scale (support-only CDF saturates on low-AP classes; documented amendment). Choice AND output both use the SAME calibrated map; raw kept as additional report only.",
+    "identity": "calibrated E0 pixel AP must equal official E0 pixel AP within 1e-4 (monotone transform preserves ranking)",
+    "selection_loss": "per GT component c and expert e on the calibrated map: L_e(c) = BCE hit over region pixels (all-ones labels, -mean(log S_e inside)) + 1.0*(1 - component-vs-outside AP) + 1.0*mean(calibrated outside score); choose argmin. Background (non-component cells) always E0_A1 (selective fallback semantics).",
+    "amendment_loss_formula": "doc 22 s2.3 references doc 21's L_e = BCE + a[1-AP] + b FP. Dry-run 1 used a whole-image 0/1 BCE whose ~3000 background negatives dominate, letting quiet-background experts (text) win even on A1-perfect classes (metal_plate oracle -0.255, all from >64-cell comps). M_r is the REGION indicator: the BCE hit term is over region pixels only (all-ones), background penalised by the FP term. v12 ran with the corrected interpretation.",
+    "oracle_map": "E0 calibrated everywhere; each GT component overwritten by its chosen expert's calibrated map.",
+    "reporting": "pixel-micro AP (pooled per class), category-macro (mean over classes), component-macro (GT-component equal-weight shares of non-A1 selection), size-stratified component bins by cell area at stride-8 grid: [1-4], [5-64], [>64].",
+    "scope": "MPDD development seed0 x shot {1,2,4}, all 6 classes; evaluator-only (GT used ONLY to define components/labels offline)."
+  },
+  "gates": {
+    "g0_identity": "|calibrated E0 AP - official E0 AP| <= 1e-4 (per shot)",
+    "g1_headroom": "category-macro mean Oracle delta Pixel-AP >= +0.020 AND >= 4/6 classes >= +0.010",
+    "g2_contribution": ">= 2 non-A1 experts each >= 15% of component-macro non-A1 selections, OR the second expert alone gives >= +0.020 AP on the small-defect stratum (area 1-4 cells)",
+    "g3_loo": "removing ANY core expert (non-A1 with component-macro share >= 15%) degrades component-macro benefit by >= 0.003",
+    "amendment_g3_operationalization": "component-macro benefit is measured as the category-macro mean pixel-delta-AP of the oracle map vs calibrated A1 (same headline metric as g1), i.e. drop_e = (full oracle mean delta AP) - (oracle-without-e mean delta AP) >= 0.003 for every core expert. Component-share tables are reported alongside.",
+    "g4_dominance": "largest single category <= 50% of total positive headroom",
+    "g5_direction": "g1-g3 directions consistent across shot {1,2,4} (decision made per-shot; any shot failing the gates => RSR permanently closed)",
+    "stop_rule": "doc 22 s2.3: if MTCOA fails -> RSR permanently closed (no router training ever). If it passes -> deliver the audit result only; do NOT train a router in this task."
+  },
+  "leakage": {
+    "calibration": "normal support LOO only; never test bad/mask/test aggregates",
+    "evaluator": "GT masks used offline solely to define components and labels for this capacity audit",
+    "note": "E1 calibration approximation documented above; E1 does not affect identity."
+  },
+  "deliverables": ["R0_PROTOCOL.json", "R0_RESULT.json", "R0_DECISION.md", "FAILURE_ANALYSIS.md"]
+}

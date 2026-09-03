@@ -1,0 +1,310 @@
+{
+ "route": "V12-MTCOA",
+ "seed": 0,
+ "shot": 4,
+ "created_at_utc": "2026-09-03T11:41:13.723838+00:00",
+ "protocol_sha256": "7059a1f7db278ba50ff6b8dd9d9247008751d323b655a974ae734a73a2729743",
+ "code_sha256": {
+  "runner": "4434741e6bf5a6e36843de2564aaa942927fca01c8c95ac47c94a3504b7edec5"
+ },
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "n_images": 79,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.185591,
+   "a1_cal_ap": 0.18563,
+   "identity_diff": 3.855e-05,
+   "single_cal_ap": {
+    "E0_A1": 0.18563,
+    "E1_TEXT": 0.021741,
+    "E2_LLSE": 0.143672,
+    "E3_CSS": 0.014359
+   },
+   "oracle_cal_ap": 0.168626,
+   "delta_oracle": -0.017004,
+   "component_share": {
+    "E0_A1": 0.460317,
+    "E1_TEXT": 0.015873,
+    "E2_LLSE": 0.492063,
+    "E3_CSS": 0.031746
+   },
+   "n_components": 63,
+   "core_experts_loo_drop": {
+    "without_E2_LLSE": -0.028065
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": 0.046811,
+     "oracle_ap": 0.046658,
+     "delta": -0.000153
+    },
+    "5-64": {
+     "a1_ap": 0.154659,
+     "oracle_ap": 0.134403,
+     "delta": -0.020255
+    },
+    "65-1000000": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    }
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "n_images": 77,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.033952,
+   "a1_cal_ap": 0.033952,
+   "identity_diff": 1.8e-07,
+   "single_cal_ap": {
+    "E0_A1": 0.033952,
+    "E1_TEXT": 0.013391,
+    "E2_LLSE": 0.030491,
+    "E3_CSS": 0.012802
+   },
+   "oracle_cal_ap": 0.053999,
+   "delta_oracle": 0.020047,
+   "component_share": {
+    "E0_A1": 0.211864,
+    "E1_TEXT": 0.415254,
+    "E2_LLSE": 0.127119,
+    "E3_CSS": 0.245763
+   },
+   "n_components": 118,
+   "core_experts_loo_drop": {
+    "without_E1_TEXT": 0.033459,
+    "without_E3_CSS": -0.007707
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": 0.015977,
+     "oracle_ap": 0.026613,
+     "delta": 0.010636
+    },
+    "5-64": {
+     "a1_ap": 0.022895,
+     "oracle_ap": 0.033776,
+     "delta": 0.010881
+    },
+    "65-1000000": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    }
+   }
+  },
+  {
+   "category": "bracket_white",
+   "n_images": 60,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.095362,
+   "a1_cal_ap": 0.095362,
+   "identity_diff": 0.0,
+   "single_cal_ap": {
+    "E0_A1": 0.095362,
+    "E1_TEXT": 0.021656,
+    "E2_LLSE": 0.068436,
+    "E3_CSS": 0.010403
+   },
+   "oracle_cal_ap": 0.233555,
+   "delta_oracle": 0.138192,
+   "component_share": {
+    "E0_A1": 0.21875,
+    "E1_TEXT": 0.375,
+    "E2_LLSE": 0.3125,
+    "E3_CSS": 0.09375
+   },
+   "n_components": 32,
+   "core_experts_loo_drop": {
+    "without_E1_TEXT": 0.187559,
+    "without_E2_LLSE": -0.072826
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": 0.095362,
+     "oracle_ap": 0.233555,
+     "delta": 0.138192
+    },
+    "5-64": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    },
+    "65-1000000": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    }
+   }
+  },
+  {
+   "category": "connector",
+   "n_images": 44,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.37504,
+   "a1_cal_ap": 0.375043,
+   "identity_diff": 3.1e-06,
+   "single_cal_ap": {
+    "E0_A1": 0.375043,
+    "E1_TEXT": 0.030479,
+    "E2_LLSE": 0.392549,
+    "E3_CSS": 0.010448
+   },
+   "oracle_cal_ap": 0.397247,
+   "delta_oracle": 0.022204,
+   "component_share": {
+    "E0_A1": 0.428571,
+    "E1_TEXT": 0.071429,
+    "E2_LLSE": 0.5,
+    "E3_CSS": 0.0
+   },
+   "n_components": 14,
+   "core_experts_loo_drop": {
+    "without_E2_LLSE": 0.015119
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    },
+    "5-64": {
+     "a1_ap": 0.340937,
+     "oracle_ap": 0.364282,
+     "delta": 0.023345
+    },
+    "65-1000000": {
+     "a1_ap": 0.040415,
+     "oracle_ap": 0.039323,
+     "delta": -0.001092
+    }
+   }
+  },
+  {
+   "category": "metal_plate",
+   "n_images": 97,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.884981,
+   "a1_cal_ap": 0.88498,
+   "identity_diff": 1.53e-06,
+   "single_cal_ap": {
+    "E0_A1": 0.88498,
+    "E1_TEXT": 0.484388,
+    "E2_LLSE": 0.897682,
+    "E3_CSS": 0.169965
+   },
+   "oracle_cal_ap": 0.754999,
+   "delta_oracle": -0.129981,
+   "component_share": {
+    "E0_A1": 0.479592,
+    "E1_TEXT": 0.459184,
+    "E2_LLSE": 0.061224,
+    "E3_CSS": 0.0
+   },
+   "n_components": 98,
+   "core_experts_loo_drop": {
+    "without_E1_TEXT": -0.129991
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": 0.000135,
+     "oracle_ap": 0.000118,
+     "delta": -1.7e-05
+    },
+    "5-64": {
+     "a1_ap": 0.008625,
+     "oracle_ap": 0.008269,
+     "delta": -0.000356
+    },
+    "65-1000000": {
+     "a1_ap": 0.877412,
+     "oracle_ap": 0.747038,
+     "delta": -0.130373
+    }
+   }
+  },
+  {
+   "category": "tubes",
+   "n_images": 101,
+   "shot": 4,
+   "n_refs": 4,
+   "a1_raw_ap": 0.75504,
+   "a1_cal_ap": 0.755019,
+   "identity_diff": 2.163e-05,
+   "single_cal_ap": {
+    "E0_A1": 0.755019,
+    "E1_TEXT": 0.26376,
+    "E2_LLSE": 0.784726,
+    "E3_CSS": 0.024209
+   },
+   "oracle_cal_ap": 0.644151,
+   "delta_oracle": -0.110868,
+   "component_share": {
+    "E0_A1": 0.390244,
+    "E1_TEXT": 0.268293,
+    "E2_LLSE": 0.341463,
+    "E3_CSS": 0.0
+   },
+   "n_components": 82,
+   "core_experts_loo_drop": {
+    "without_E1_TEXT": -0.098976,
+    "without_E2_LLSE": -0.011144
+   },
+   "strata_ap": {
+    "1-4": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    },
+    "5-64": {
+     "a1_ap": 0.755019,
+     "oracle_ap": 0.644151,
+     "delta": -0.110868
+    },
+    "65-1000000": {
+     "a1_ap": null,
+     "oracle_ap": null,
+     "delta": null
+    }
+   }
+  }
+ ],
+ "mean_a1_cal_ap": 0.388331,
+ "mean_delta_oracle": -0.012902,
+ "identity_max_diff": 3.855e-05,
+ "n_classes_delta_ge_010": 3,
+ "agg_component_share": {
+  "E0_A1": 0.358722,
+  "E1_TEXT": 0.31941,
+  "E2_LLSE": 0.238329,
+  "E3_CSS": 0.083538
+ },
+ "n_nonA1_component_share_ge_15pct": 2,
+ "small_stratum_delta_by_expert": {
+  "E1": 0.037165,
+  "E2": 0.037165,
+  "E3": 0.037165
+ },
+ "second_expert_small_stratum_ge_020": true,
+ "loo_drop_core_experts": {
+  "without_E1_TEXT": -0.001987,
+  "without_E2_LLSE": -0.024229,
+  "without_E3_CSS": -0.007707
+ },
+ "top_class_share_of_positive_headroom": 0.765848,
+ "gates": {
+  "g0_identity_le_1e-4": true,
+  "g1_headroom_ge_020_and_4of6_ge_010": false,
+  "g2_contribution": true,
+  "g3_loo": false,
+  "g4_dominance_le_50pct": false
+ },
+ "decision": "PENDING"
+}
