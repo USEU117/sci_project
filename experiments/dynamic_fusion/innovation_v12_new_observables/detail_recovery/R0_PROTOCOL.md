@@ -34,3 +34,33 @@ query 与 support 同处理（doc 26 §4.3 要求）。
 ## 结果位置
 `experiments/dynamic_fusion/innovation_v12_new_observables/detail_recovery/RECOVERY_RESULTS.json`
 脚本：`scripts/innovation_v12_new_observables/run_r3_ef_recovery_probe.py`
+
+---
+
+## 2026-09-04 v2 扩展：前提门扩 6 类（用户指令）
+
+在两小类 P1/P2/P3 全过后，把 **au56 vs a1 / bl56**（P1/P2）扩到全部 6 类，
+验证"匹配前恢复"前提是否普适（bracket_brown、bracket_white、connector、tubes 为新增；
+bracket_black、metal_plate 已跑）。判定：macro-6 下 P1/P2 均过，且非仅由单一近天花板/近地板类驱动
+（逐类报告）。P3（au56_w 错配 guide）在 macro-6 P1 通过后补跑。
+若 6 类普适 → 进入耦合设计（下节）；若 P1 在 macro-6 不过 → 前提线按现有两小类正结果作
+"局部非普适"归档，耦合设计仍可在两小类上作诊断，但不扩大投入。
+
+## 2026-09-04 v3：6 类前提结果 + 耦合诊断（用户指令，预注册于 du 前向之前）
+
+**6 类前提（P1/P2 macro-6）FAIL**：au56 macro 0.2775 < a1 0.3099 < bl56 0.3186；
+bracket_white(0.003 vs bl56 0.089)/tubes(0.519 vs a1 0.657) 严重坍缩，仅 metal_plate 显著为正。
+→ 独立 AnyUp 恢复不普适。
+
+**耦合诊断（在 2 个坍缩类 bracket_white + tubes 上；不是扩投入，是判定性检验）**：
+doc26 §4.3 核心声称是"跨分支互约束能抑制虚假/坍缩恢复"。若 du56 能救回 au56 坍缩的类，
+说明坍缩可被跨分支条件化稳定 → 机制存在，值得 6 类正式门；若仍坍缩 → 坍缩固有，路线整体归档。
+
+- du56：DINO 层 l 恢复输入 = concat[dino_l；clip_L24@32]（同图），取输出前半为 dino_l^56；
+  CLIP 层 l 输入 = concat[clip_l；dino_L11@37]，取前半为 clip_l^56（后半丢弃）。
+- cu56（对照 #6）：与 du56 完全相同的前向图，但 KNN 用整段 1536-d concat（不拆、逐对 z → 7 对均值）。
+- du56_m：du56 但条件分支特征取**另一张 query 图**（跨分支内容错配）→ 应掉点。
+- 门限（macro over bracket_white+tubes）：
+  M1c du56−au56 ≥ +0.003（耦合救回坍缩）；M2 du56−cu56 ≥ +0.003（条件化结构≠单纯 concat 可用）；
+  M3 du56−du56_m ≥ +0.003；FP95(du56) ≤ 1.05×FP95(cu56)（normal 图 95 分位均值代理）。
+- 停止规则：M1c 不过 → 坍缩固有，路线归档负，不做 6 类耦合正式门。

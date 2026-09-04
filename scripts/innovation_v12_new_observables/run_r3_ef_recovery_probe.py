@@ -307,6 +307,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", choices=("cpu", "gpu", "wrong"), required=True)
     ap.add_argument("--device", default="cuda:0")
+    ap.add_argument("--cats", default=None,
+                    help="comma list; gpu/wrong default = all 6 MPDD cats")
     args = ap.parse_args()
 
     out_root = ROOT / "experiments/dynamic_fusion/innovation_v12_new_observables/detail_recovery"
@@ -321,11 +323,19 @@ def main() -> int:
         if not torch.cuda.is_available():
             raise SystemExit("CUDA unavailable")
         arm = "au56" if args.stage == "gpu" else "au56_w"
-        rows = _stage_results([arm], CATS_2, args.device)
+        cats = [c.strip() for c in args.cats.split(",")] if args.cats else CATEGORIES
+        done = {r["category"] for r in res.get(f"{arm}_rows", [])}
+        todo = [c for c in cats if c not in done]
+        rows = res.get(f"{arm}_rows", [])
+        for cat in todo:
+            ap_, info = _recover_grid_arm(cat, 1, *ARMS[arm], args.device)
+            rows.append({"category": cat, arm: ap_})
+            print(f"  {cat} {arm}: {ap_:.4f} ({info})", flush=True)
+        rows = sorted(rows, key=lambda r: r["category"])
         res[f"{arm}_rows"] = rows
 
     res_path.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(json.dumps(res, default=float)[:3000], flush=True)
+    print(json.dumps(res, default=float)[:4000], flush=True)
     return 0
 
 

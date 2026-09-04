@@ -37,8 +37,24 @@
    "au56": 0.006493362953706253
   },
   {
+   "category": "bracket_brown",
+   "au56": 0.02965653444285344
+  },
+  {
+   "category": "bracket_white",
+   "au56": 0.0028678098814791304
+  },
+  {
+   "category": "connector",
+   "au56": 0.13169997475198159
+  },
+  {
    "category": "metal_plate",
    "au56": 0.9758347933839004
+  },
+  {
+   "category": "tubes",
+   "au56": 0.5186997270095566
   }
  ],
  "au56_w_rows": [
