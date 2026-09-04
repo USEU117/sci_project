@@ -102,3 +102,15 @@ if any gate fails -> STOP SCAIF route, write STAGE1_DECISION FAIL + FAILURE_ANAL
 ## 5. 交付物（doc 23 §8.1, 03_scaif_small_gate/）
 CONFIG.yaml (this) / PARAMETER_COUNT.json / CONTROL_RESULTS.csv / MECHANISM_AUDIT.json /
 STAGE1_DECISION.md (+ main/control per-fold JSONs under runs/)
+
+## 6. AMENDMENT v5_correction (2026-09-04, doc 25 §6A) — bugfix-only, NOT a re-search
+authority: docs/.../25_OVERNIGHT_VALIDATION_CODE_AUDIT_AND_NEXT_STEPS_CN_20260904.md
+status: 阶段 A 验收代码修订；不改 §0-§5 的协议/预算/门定义，只修已确认实现缺陷。
+1. refine() gate 不再 detach -> sparse 项梯度恢复（P0-1）。
+2. train_step query patch 全图均匀固定 seed 采样，同一索引作用于 s/GT/A1（P0-2）。
+3. no_support 门输入维 2u；shuffled 改整图 roll；冻结按 active_dirs（P1-3 forward）。
+4. dino_only/clip_only 宽度由 single_dir_matched_u 自动匹配（可训参数 ≈ main，≤5%）。
+5. support 与 query 投影统一先 L2 再 cdist（identical-token 距离≈0）。
+6. 训练逐步 log（runs/log_*.csv）+ checkpoint（runs/ckpt_*.pt, config=CONFIG_v5_correction）。
+7. branch_drop 仍为声明未实现；BCE 中心项/源类混合/private-path 属 §6C，不在本次。
+验收与受限结论见 CORRECTION_NOTES.md；v4 归档仍代表 85654ac 原实现的观测结果。

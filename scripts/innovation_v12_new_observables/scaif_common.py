@@ -101,22 +101,28 @@ class PairBlock(nn.Module):
         nn.init.zeros_(self.wc.weight)
         self.mlp_cd = nn.Sequential(nn.Linear(2 * u, 4 * u), nn.ReLU(), nn.Linear(4 * u, u))
         self.mlp_dc = nn.Sequential(nn.Linear(2 * u, 4 * u), nn.ReLU(), nn.Linear(4 * u, u))
-        self.gate_d = nn.Sequential(nn.Linear(2 * u + 2, u), nn.ReLU(), nn.Linear(u, 1))
-        self.gate_c = nn.Sequential(nn.Linear(2 * u + 2, u), nn.ReLU(), nn.Linear(u, 1))
+        gate_in = 2 * u if variant == "no_support" else 2 * u + 2
+        self.gate_d = nn.Sequential(nn.Linear(gate_in, u), nn.ReLU(), nn.Linear(u, 1))
+        self.gate_c = nn.Sequential(nn.Linear(gate_in, u), nn.ReLU(), nn.Linear(u, 1))
         for h in (self.gate_d, self.gate_c):
             nn.init.zeros_(h[-1].weight)
             nn.init.zeros_(h[-1].bias)
-        # variant-specific parameter freezing (unused directions become dead-zero)
+        # dead-direction freezing keyed on active_dirs (so param-counting with variant='main'
+        # and a one-sided active_dirs is consistent with the trained control variants)
         self.dir_cd = active_dirs[0]  # C->D used
         self.dir_dc = active_dirs[1]  # D->C used
-        if variant == "dino_only":
+        if active_dirs == (True, False):  # dino_only
             nn.init.zeros_(self.pc.weight)
             nn.init.zeros_(self.pc.bias)
             self._freeze((self.pc, self.wc, self.mlp_dc, self.gate_c))
-        elif variant == "clip_only":
+        elif active_dirs == (False, True):  # clip_only
             nn.init.zeros_(self.pd.weight)
             nn.init.zeros_(self.pd.bias)
             self._freeze((self.pd, self.wd, self.mlp_cd, self.gate_d))
+        if variant == "shuffled":
+            g = torch.Generator().manual_seed(shuffle_seed)
+            self.register_buffer("sh_off",
+                                 torch.randint(-3, 4, (2,), dtype=torch.long, generator=g))
 
     @staticmethod
     def _freeze(mods):
@@ -128,29 +134,26 @@ class PairBlock(nn.Module):
         x = u.permute(0, 3, 1, 2)
         return F.avg_pool2d(F.pad(x, (1, 1, 1, 1), mode="reflect"), 3, 1).permute(0, 2, 3, 1)
 
-    def _neigh3_shuffled(self, u: torch.Tensor, off) -> torch.Tensor:
-        B, H, W, _ = u.shape
-        o = off.expand(B, H, W, 2)
-        yy = torch.clamp(torch.arange(H, device=u.device)[None, :, None] + o[..., 0], 0, H - 1)
-        xx = torch.clamp(torch.arange(W, device=u.device)[None, None, :] + o[..., 1], 0, W - 1)
-        return u[torch.arange(B, device=u.device)[:, None, None], yy, xx]
+    def _neigh3_shuffled(self, u: torch.Tensor) -> torch.Tensor:
+        """Control #6: read the 3x3 neighbourhood from a spatially-shifted copy of the other
+        branch (fixed per-seed integer shift) -> destroys D<->CLIP spatial correspondence."""
+        dy, dx = int(self.sh_off[0].item()), int(self.sh_off[1].item())
+        return self._neigh3(torch.roll(u, shifts=(dy, dx), dims=(1, 2)))
 
-    def forward(self, d_blk, c_blk, sup_d_u, sup_c_u, gate_zero=False, force_g=0.0):
-        """sup_*_u: raw support features [M,768] (same layer cols); returns (d_t,c_t,g_d,g_c)."""
-        ud = self.pd(d_blk)
-        uc = self.pc(c_blk)
+    def forward(self, d_blk, c_blk, sup_d_u, sup_c_u, gate_zero=False):
+        """sup_*_u: raw support features [M,768] (same layer cols); returns (d_t,c_t,g_d,g_c).
+        Query and support projections are BOTH L2-normalized before cdist so the distance is a
+        proper cosine distance (identical token -> distance 0)."""
+        ud = F.normalize(self.pd(d_blk), dim=-1)
+        uc = F.normalize(self.pc(c_blk), dim=-1)
         su = F.normalize(self.pd(sup_d_u), dim=-1)
         cv = F.normalize(self.pc(sup_c_u), dim=-1)
         shp = ud.shape[:-1]
         d_sup = torch.cdist(ud.reshape(-1, self.u), su.reshape(-1, self.u)).min(dim=-1)[0].reshape(shp)
         c_sup = torch.cdist(uc.reshape(-1, self.u), cv.reshape(-1, self.u)).min(dim=-1)[0].reshape(shp)
         if self.variant == "shuffled":
-            if not hasattr(self, "sh_off"):
-                g = torch.Generator(device=ud.device).manual_seed(0)
-                self.register_buffer("sh_off", torch.randint(-3, 4, (1, 1, 32, 32, 2),
-                                                             generator=g, device=ud.device))
-            nc = self._neigh3_shuffled(uc, self.sh_off)
-            nd = self._neigh3_shuffled(ud, self.sh_off)
+            nc = self._neigh3_shuffled(uc)
+            nd = self._neigh3_shuffled(ud)
         else:
             nc = self._neigh3(uc)
             nd = self._neigh3(ud)
@@ -164,9 +167,9 @@ class PairBlock(nn.Module):
             gd = torch.zeros_like(ud[..., :1])
             gc = torch.zeros_like(uc[..., :1])
         else:
-            gin = torch.cat([ud, uc, d_sup[..., None], c_sup[..., None]], dim=-1)
-            if self.variant == "no_support":
-                gin = torch.cat([ud, uc], dim=-1)
+            gin = torch.cat([ud, uc], dim=-1)
+            if self.variant != "no_support":
+                gin = torch.cat([gin, d_sup[..., None], c_sup[..., None]], dim=-1)
             if self.variant == "symmetric":
                 gd = gc = GATE_CAP * torch.sigmoid(self.gate_d(gin))
             else:
@@ -177,20 +180,50 @@ class PairBlock(nn.Module):
         return d_t, c_t, gd, gc
 
 
+def _pair_trainable(u: int, active_dirs: tuple[bool, bool]) -> int:
+    blk = PairBlock(u=u, variant="main", active_dirs=active_dirs)
+    return sum(p.numel() for p in blk.parameters() if p.requires_grad)
+
+
+def single_dir_matched_u(active_dirs: tuple[bool, bool]) -> int:
+    """Width u for one-sided controls whose trainable count matches main (u=D_U) within 5%."""
+    target = _pair_trainable(D_U, (True, True))
+    lo, hi = 0.95 * target, 1.05 * target
+    best = None
+    for u in range(D_U + 2, 240, 2):
+        n = _pair_trainable(u, active_dirs)
+        if n < lo:
+            continue
+        best = u
+        if n <= hi:
+            break
+        # count is monotone in u: once above hi, no later u will satisfy; keep the closest
+        break
+    if best is None:
+        raise RuntimeError("could not match single-direction width within searched range")
+    return best
+
+
 class SCAIF(nn.Module):
-    def __init__(self, variant="main", shuffle_seed=0):
+    def __init__(self, variant="main", shuffle_seed=0, u: int | None = None):
         super().__init__()
         self.variant = variant
         dirs = {"dino_only": (True, False), "clip_only": (False, True)}.get(variant, (True, True))
+        if u is None:
+            u = single_dir_matched_u(dirs) if variant in ("dino_only", "clip_only") else D_U
+        self.u = u
         self.blocks = nn.ModuleList(
-            [PairBlock(variant=variant, shuffle_seed=shuffle_seed, active_dirs=dirs) for _ in PAIRS])
+            [PairBlock(variant=variant, u=u, shuffle_seed=shuffle_seed + p * 101, active_dirs=dirs)
+             for p in range(len(PAIRS))])
 
     def trainable_params(self):
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
 
     def refine(self, d, c, sup_d, sup_c, gate_zero=False, remove_private=False):
         """d/c: [B,3,32,32,768]; sup_d/sup_c: lists (per PAIR position) of raw support rows [M,768].
-        Returns concat refined rows [B,32,32,3072], raw-pair rows [B,32,32,3072], gate stats."""
+        Returns concat refined rows [B,32,32,3072], raw-pair rows [B,32,32,3072], gate stats.
+        Gate tensors carry the autograd graph (training sparse loss needs it); callers doing
+        eval-only stats detach them explicitly."""
         blocks_r, blocks_0 = [], []
         gs = []
         for p, ((di, ci), blk) in enumerate(zip(PAIRS, self.blocks)):
@@ -201,7 +234,7 @@ class SCAIF(nn.Module):
             blocks_r += [0.5 * l2row(dt.reshape(-1, 768)), 0.5 * l2row(ct.reshape(-1, 768))]
             blocks_0 += [0.5 * l2row(d[:, di].reshape(-1, 768)),
                          0.5 * l2row(c[:, ccol(ci)].reshape(-1, 768))]
-            gs.append((gd.detach(), gc.detach()))
+            gs.append((gd, gc))
         fr = l2row(torch.cat(blocks_r, dim=-1))
         f0 = l2row(torch.cat(blocks_0, dim=-1))
         return fr, f0, gs

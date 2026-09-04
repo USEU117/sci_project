@@ -116,20 +116,27 @@ def train_step(model: SCAIF, opt, cc: dict, rng: np.random.Generator, device) ->
     dq = cc["d"][qidx]
     cq = cc["c"][qidx]
     fr, _, gs = model.refine(dq, cq, sup_d, sup_c)
-    frs, _, _ = model.refine(cc["d"][sup], cc["c"][sup], sup_d, sup_c)
+    with torch.no_grad():                       # support bank is a static memory (no grad needed)
+        frs, _, _ = model.refine(cc["d"][sup], cc["c"][sup], sup_d, sup_c)
     bank = frs.reshape(-1, frs.shape[-1])
 
     B = dq.shape[0]
+    # P0-2 fix: uniform whole-image patch sampling per image (fixed-seed rng), the SAME indices
+    # applied to the SCAIF score, the GT and the A1 reference (no label misalignment).
+    pix = np.stack([rng.choice(1024, size=QSUBS, replace=False) for _ in range(B)])
+    pt = torch.from_numpy(pix).to(device)
+    rows = torch.arange(B, device=device)[:, None]
     qflat = fr.reshape(B, 1024, fr.shape[-1])
-    qs = qflat[:, :QSUBS].reshape(-1, fr.shape[-1])
+    qs = qflat[rows, pt].reshape(-1, fr.shape[-1])
     d2 = torch.cdist(qs, bank).pow(2).min(dim=-1)[0]
     s = d2 / 2.0                     # larger = more anomalous (A1 convention)
-    g = gt32(cc["masks"], qidx, device).reshape(B, 1024)[:, :QSUBS].reshape(-1)
+    g = gt32(cc["masks"], qidx, device).reshape(B, 1024)[rows, pt].reshape(-1)
 
-    # A1 private-stream reference on the same queries/support
-    a1q = deep_rows(dq, cq).reshape(B, 1024, 1536)[:, :QSUBS].reshape(-1, 1536)
-    a1r = deep_rows(cc["d"][sup], cc["c"][sup]).reshape(-1, 1536)
-    sa1 = (torch.cdist(a1q, a1r).pow(2).min(dim=-1)[0]) / 2.0
+    with torch.no_grad():            # A1 private-stream reference is a static score path
+        a1qflat = deep_rows(dq, cq).reshape(B, 1024, 1536)
+        a1r = deep_rows(cc["d"][sup], cc["c"][sup]).reshape(-1, 1536)
+        a1q = a1qflat[rows, pt].reshape(-1, 1536)
+        sa1 = (torch.cdist(a1q, a1r).pow(2).min(dim=-1)[0]) / 2.0
 
     pos = g > 0.5
     neg = g <= 0.5
@@ -138,27 +145,19 @@ def train_step(model: SCAIF, opt, cc: dict, rng: np.random.Generator, device) ->
         s * 10.0, g, pos_weight=torch.tensor(wpos, device=device))
     loss_ap = torch.nn.functional.relu(sa1[pos] - s[pos]).mean() if pos.sum() > 0 else torch.zeros((), device=device)
     loss_cp = torch.nn.functional.relu(s[neg] - sa1[neg]).mean() if neg.sum() > 0 else torch.zeros((), device=device)
-    gmean = torch.cat([g for gd, gc in gs for g in (gd, gc)]).abs().mean()
-    # CONFIG v4 (frozen): sparse weight 1.0 + weight_decay keep the bounded gates bounded;
-    # anchors enlarged to 256 so normal-patch support distances are meaningful (a too-small
-    # anchor bank makes every patch look 'far' and pushes all gates open). Protocol answer:
-    # if gates still saturate (>10% at cap) the instantiation degenerates to constant
-    # correction and Stage 1 is archived on P5 regardless of Pixel-AP.
+    # P0-1 fix: gs carries the autograd graph now -> the sparse penalty actually trains the gates.
+    gd_cat = torch.cat([g for gd, gc in gs for g in (gd, gc)])
+    gmean = gd_cat.abs().mean()
     loss = loss_seg + 0.20 * loss_cp + 0.20 * loss_ap + 1.0 * gmean
     opt.zero_grad(set_to_none=True)
     loss.backward()
     opt.step()
     return {"loss": loss.item(), "seg": loss_seg.item(), "ap": loss_ap.item(),
-            "cp": loss_cp.item(), "gate": float(gmean.item())}
+            "cp": loss_cp.item(), "gate": float(gmean.detach().item()),
+            "pix": pix}
 
 
-def model_gs(model, d, c, sup_d, sup_c, device):
-    with torch.no_grad():
-        _, _, gs = model.refine(d, c, sup_d, sup_c)
-    return gs
-
-
-def train_fold(heldout: str, variant: str, device, steps=TRAIN_STEPS) -> SCAIF:
+def train_fold(heldout: str, variant: str, device, steps=TRAIN_STEPS, tag=None) -> SCAIF:
     rng = np.random.default_rng(SEED)
     torch.manual_seed(SEED)
     model = SCAIF(variant=variant).to(device)
@@ -168,17 +167,42 @@ def train_fold(heldout: str, variant: str, device, steps=TRAIN_STEPS) -> SCAIF:
     per_cat = steps // len(src_cats)
     t0 = time.time()
     step = 0
-    for scat in src_cats:
-        cc = load_cat_features(ML_ROOT, 1, scat, device)
-        for _ in range(per_cat):
-            logs = train_step(model, opt, cc, rng, device)
-            if logs is not None and (step % 300 == 0 or step == steps - 1):
-                print(f"  [fold-{heldout} {variant}] s{step} loss={logs['loss']:.4f} "
-                      f"seg={logs['seg']:.4f} ap={logs['ap']:.4f} gate={logs['gate']:.4f} "
-                      f"({time.time()-t0:.0f}s)", flush=True)
-            step += 1
-        del cc
-        torch.cuda.empty_cache()
+    coverage = np.zeros(1024, dtype=np.int64)
+    import csv
+    suf = f"_{tag}" if tag else ""
+    log_path = RUNS / f"log_{variant}{suf}_{heldout}.csv"
+    ckpt_path = RUNS / f"ckpt_{variant}{suf}_{heldout}.pt"
+    if ckpt_path.exists():  # resumable runs: a saved fold is not retrained
+        sd = torch.load(ckpt_path, map_location=device)
+        model.load_state_dict(sd["model_state"])
+        print(f"  [fold-{heldout} {variant}{suf}] RESUME from {ckpt_path.name} "
+              f"(coverage rows {sd.get('patch_coverage_rows')})", flush=True)
+        return model
+    with open(log_path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["step", "loss", "seg", "ap", "cp", "gate"])
+        for scat in src_cats:
+            cc = load_cat_features(ML_ROOT, 1, scat, device)
+            for _ in range(per_cat):
+                logs = train_step(model, opt, cc, rng, device)
+                if logs is not None:
+                    coverage += np.bincount(logs["pix"].ravel(), minlength=1024)
+                    w.writerow([step, f"{logs['loss']:.6f}", f"{logs['seg']:.6f}",
+                                f"{logs['ap']:.6f}", f"{logs['cp']:.6f}", f"{logs['gate']:.6f}"])
+                    if step % 100 == 0 or step == steps - 1:
+                        print(f"  [fold-{heldout} {variant}] s{step} loss={logs['loss']:.4f} "
+                              f"seg={logs['seg']:.4f} ap={logs['ap']:.4f} gate={logs['gate']:.4f} "
+                              f"({time.time()-t0:.0f}s)", flush=True)
+                step += 1
+            del cc
+            torch.cuda.empty_cache()
+    covered = int((coverage > 0).sum())
+    torch.save({"model_state": model.state_dict(), "variant": variant, "heldout": heldout,
+                "steps": steps, "patch_coverage_rows": covered, "tag": tag,
+                "config": "CONFIG_v5_correction"},
+               RUNS / f"ckpt_{variant}{suf}_{heldout}.pt")
+    print(f"  [fold-{heldout} {variant}{suf}] patch coverage {covered}/1024 rows "
+          f"min={int(coverage.min())} (log {log_path.name})", flush=True)
     return model
 
 
@@ -198,6 +222,8 @@ def main() -> int:
     ap.add_argument("--heldout", default=None)
     ap.add_argument("--shots", type=int, nargs="+", default=SHOTS)
     ap.add_argument("--steps", type=int, default=TRAIN_STEPS)
+    ap.add_argument("--tag", default=None,
+                    help="suffix for output files (e.g. 'correction'); archived results are left untouched")
     args = ap.parse_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("device", device, flush=True)
@@ -240,17 +266,19 @@ def main() -> int:
         cats = [args.heldout] if args.heldout else CATEGORIES
         allrows = []
         for held in cats:
-            model = train_fold(held, args.variant, device, steps=args.steps)
+            model = train_fold(held, args.variant, device, steps=args.steps, tag=args.tag)
             for shot in args.shots:
                 cc = load_cat_features(ML_ROOT, shot, held, device)
                 r = eval_scaif(cc, model, device)
-                r.update({"category": held, "shot": shot, "variant": args.variant})
+                r.update({"category": held, "shot": shot, "variant": args.variant,
+                          "tag": args.tag})
                 allrows.append(r)
-                print(f"  RES {args.variant} {held} k{shot} AP={r['pixel_ap_56']:.6f} "
-                      f"gcap={r['gate_frac_cap']:.3f}", flush=True)
+                print(f"  RES {args.variant}{('_'+args.tag) if args.tag else ''} {held} k{shot} "
+                      f"AP={r['pixel_ap_56']:.6f} gcap={r['gate_frac_cap']:.3f}", flush=True)
                 del cc
                 torch.cuda.empty_cache()
-        fname = RUNS / f"{args.variant}_all.json"
+        suf = f"_{args.tag}" if args.tag else ""
+        fname = RUNS / f"{args.variant}{suf}_all.json"
         fname.write_text(json.dumps(allrows, indent=1), encoding="utf-8")
         print("WROTE", fname, flush=True)
         return 0

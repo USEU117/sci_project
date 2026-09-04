@@ -1,0 +1,101 @@
+{
+ "shot": 2,
+ "macro_a1_ap": 0.343706,
+ "macro_real_delta": 0.37542,
+ "macro_a1copy_delta": 0.0,
+ "macro_scale_delta": 0.656249,
+ "macro_shuffle_mean_delta": -0.023092,
+ "scales_tested": [
+  0.25,
+  0.5,
+  1.0,
+  2.0,
+  4.0,
+  8.0
+ ],
+ "shuffle_seeds": [
+  0,
+  1,
+  2
+ ],
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "a1_ap": 0.014642,
+   "real_delta": 0.372675,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.985305,
+   "shuffle_mean_delta": 0.045269,
+   "shuffle_deltas": [
+    0.055753,
+    0.031114,
+    0.048939
+   ]
+  },
+  {
+   "category": "bracket_brown",
+   "a1_ap": 0.03337,
+   "real_delta": 0.423361,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.966624,
+   "shuffle_mean_delta": 0.067964,
+   "shuffle_deltas": [
+    0.056335,
+    0.073714,
+    0.073844
+   ]
+  },
+  {
+   "category": "bracket_white",
+   "a1_ap": 0.105989,
+   "real_delta": 0.583124,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.894011,
+   "shuffle_mean_delta": 0.037309,
+   "shuffle_deltas": [
+    -0.018153,
+    0.02255,
+    0.10753
+   ]
+  },
+  {
+   "category": "connector",
+   "a1_ap": 0.299112,
+   "real_delta": 0.534813,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.700888,
+   "shuffle_mean_delta": 0.057557,
+   "shuffle_deltas": [
+    0.045916,
+    0.073503,
+    0.053252
+   ]
+  },
+  {
+   "category": "metal_plate",
+   "a1_ap": 0.87839,
+   "real_delta": 0.100629,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.1214,
+   "shuffle_mean_delta": -0.130329,
+   "shuffle_deltas": [
+    -0.13725,
+    -0.125701,
+    -0.128035
+   ]
+  },
+  {
+   "category": "tubes",
+   "a1_ap": 0.730736,
+   "real_delta": 0.237921,
+   "a1copy_delta": 0.0,
+   "scale_delta": 0.269263,
+   "shuffle_mean_delta": -0.21632,
+   "shuffle_deltas": [
+    -0.236528,
+    -0.164582,
+    -0.24785
+   ]
+  }
+ ]
+}

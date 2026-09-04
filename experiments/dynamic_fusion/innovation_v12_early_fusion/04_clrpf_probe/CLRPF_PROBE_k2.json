@@ -1,0 +1,154 @@
+{
+ "shot": 2,
+ "macro_aps": {
+  "mean_std": 0.349498,
+  "max_std": 0.315311,
+  "dino_slope": 0.13044,
+  "clip_slope": 0.106757,
+  "mean_slope": 0.154908,
+  "dino_aslope": 0.143791,
+  "clip_aslope": 0.128148,
+  "mean_aslope": 0.174076,
+  "late_persist": 0.284107,
+  "second_diff": 0.113822,
+  "d_minus_c": 0.040604,
+  "reversed_slope": 0.029356,
+  "final_repeat_slope": 0.103944,
+  "shuffled_slope": 0.024524,
+  "a1": 0.343699,
+  "static2": 0.348602,
+  "best_single_layer_map": 0.31561
+ },
+ "best_trajectory": {
+  "name": "late_persist",
+  "ap": 0.284107
+ },
+ "strongest_static_control": 0.349498,
+ "best_order_control": 0.103944,
+ "g1_delta_vs_static": -0.065391,
+ "g2_delta_vs_order": 0.180163,
+ "g1_traj_vs_static_ge_0p003": false,
+ "g2_traj_vs_shuffled_order_ge_0p003": true,
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "aps": {
+    "mean_std": 0.008507,
+    "max_std": 0.008136,
+    "dino_slope": 0.001945,
+    "clip_slope": 0.002491,
+    "mean_slope": 0.002778,
+    "dino_aslope": 0.000883,
+    "clip_aslope": 0.001324,
+    "mean_aslope": 0.000831,
+    "late_persist": 0.006416,
+    "second_diff": 0.001387,
+    "d_minus_c": 0.002195,
+    "reversed_slope": 0.00059,
+    "final_repeat_slope": 0.00304,
+    "shuffled_slope": 0.000622
+   },
+   "n": 79
+  },
+  {
+   "category": "bracket_brown",
+   "aps": {
+    "mean_std": 0.034897,
+    "max_std": 0.028677,
+    "dino_slope": 0.002871,
+    "clip_slope": 0.016856,
+    "mean_slope": 0.00717,
+    "dino_aslope": 0.004428,
+    "clip_aslope": 0.016266,
+    "mean_aslope": 0.007097,
+    "late_persist": 0.035323,
+    "second_diff": 0.006591,
+    "d_minus_c": 0.005217,
+    "reversed_slope": 0.003492,
+    "final_repeat_slope": 0.019936,
+    "shuffled_slope": 0.002622
+   },
+   "n": 77
+  },
+  {
+   "category": "bracket_white",
+   "aps": {
+    "mean_std": 0.0609,
+    "max_std": 0.091869,
+    "dino_slope": 0.001267,
+    "clip_slope": 0.004296,
+    "mean_slope": 0.004364,
+    "dino_aslope": 0.000813,
+    "clip_aslope": 0.003821,
+    "mean_aslope": 0.003822,
+    "late_persist": 0.007128,
+    "second_diff": 0.001058,
+    "d_minus_c": 0.007648,
+    "reversed_slope": 0.00012,
+    "final_repeat_slope": 0.007201,
+    "shuffled_slope": 0.000118
+   },
+   "n": 60
+  },
+  {
+   "category": "connector",
+   "aps": {
+    "mean_std": 0.287453,
+    "max_std": 0.155252,
+    "dino_slope": 0.008639,
+    "clip_slope": 0.014082,
+    "mean_slope": 0.013307,
+    "dino_aslope": 0.010364,
+    "clip_aslope": 0.006264,
+    "mean_aslope": 0.007225,
+    "late_persist": 0.242331,
+    "second_diff": 0.006991,
+    "d_minus_c": 0.00468,
+    "reversed_slope": 0.003731,
+    "final_repeat_slope": 0.027912,
+    "shuffled_slope": 0.003315
+   },
+   "n": 44
+  },
+  {
+   "category": "metal_plate",
+   "aps": {
+    "mean_std": 0.954195,
+    "max_std": 0.933181,
+    "dino_slope": 0.222848,
+    "clip_slope": 0.254768,
+    "mean_slope": 0.291388,
+    "dino_aslope": 0.311568,
+    "clip_aslope": 0.45374,
+    "mean_aslope": 0.446155,
+    "late_persist": 0.843982,
+    "second_diff": 0.506191,
+    "d_minus_c": 0.081047,
+    "reversed_slope": 0.164081,
+    "final_repeat_slope": 0.463651,
+    "shuffled_slope": 0.136302
+   },
+   "n": 97
+  },
+  {
+   "category": "tubes",
+   "aps": {
+    "mean_std": 0.751038,
+    "max_std": 0.674751,
+    "dino_slope": 0.545068,
+    "clip_slope": 0.348047,
+    "mean_slope": 0.610438,
+    "dino_aslope": 0.53469,
+    "clip_aslope": 0.287471,
+    "mean_aslope": 0.579328,
+    "late_persist": 0.569459,
+    "second_diff": 0.160717,
+    "d_minus_c": 0.142835,
+    "reversed_slope": 0.004123,
+    "final_repeat_slope": 0.101926,
+    "shuffled_slope": 0.004164
+   },
+   "n": 101
+  }
+ ]
+}

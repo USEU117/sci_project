@@ -1,5 +1,13 @@
 # STAGE0 DECISION — V12-EARLY-FUSION 多层可观测性门（doc 23 §7 Stage 0）
 
+> ⚠️ REVISION (2026-09-04, doc 25 §5 / doc 26 §2.3 & §6.1)：本文件 g1 所依赖的 oracle headroom
+> （+0.3885）经空信息审计后**不再作为可学习互补性/入场证据**——`ORACLE_NULL_AUDIT.md` 显示
+> A1 单调缩放的空信息对照 Δ=+0.65~0.69（> real oracle），A1 复制 Δ=0，shuffled≈0/负；
+> 即 headroom 主成分为 GT 边界特权 + 专家尺度差。g4 raw parity <1e-5 不满足（最大 0.007），
+> 操作门为 map 级 Pixel-AP <1e-4（`00_protocol/AMENDMENT_20260904_PARITY_GATE.md`）。
+> 下文历史文字保留原状作为归档快照；"授权进入 Stage 1"的实际结果已由 03_scaif 的 v4/v5
+> 负结果覆盖（见 `FINAL_DECISION.md`）。
+
 date: 2026-09-04 (overnight autonomous run)
 authority: `docs/paper_writing_preparation_20260830/23_LEARNABLE_AND_EARLY_FUSION_ROUTES_CN_20260903.md` §7 Stage 0 + §8.1
 protocol: `00_protocol/PROTOCOL_FROZEN.yaml`（PRE-REGISTERED，层号与门限在导出前冻结，未按 Pixel-AP 改层）
