@@ -1,0 +1,62 @@
+{
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "n": 79,
+   "ap56": {
+    "a1": 0.005139,
+    "psmf": 0.005307,
+    "ov": 0.005318,
+    "shuf": 0.005263
+   },
+   "smallest25_area_max": 43.0,
+   "smallest25_px": 760,
+   "bin_ap448": {
+    "a1": 0.000351,
+    "psmf": 0.00036
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "n": 77,
+   "ap56": {
+    "a1": 0.034618,
+    "psmf": 0.035642,
+    "ov": 0.035555,
+    "shuf": 0.035092
+   },
+   "smallest25_area_max": 85.0,
+   "smallest25_px": 2173,
+   "bin_ap448": {
+    "a1": 0.003845,
+    "psmf": 0.004331
+   }
+  },
+  {
+   "category": "bracket_white",
+   "n": 60,
+   "ap56": {
+    "a1": 0.038005,
+    "psmf": 0.035094,
+    "ov": 0.038675,
+    "shuf": 0.034213
+   },
+   "smallest25_area_max": 2.0,
+   "smallest25_px": 48,
+   "bin_ap448": {
+    "a1": 4.5e-05,
+    "psmf": 4.4e-05
+   }
+  },
+  {
+   "category": "metal_plate",
+   "n": 97,
+   "ap56": {
+    "a1": 0.96164,
+    "psmf": 0.966922,
+    "ov": 0.967197,
+    "shuf": 0.966922
+   }
+  }
+ ]
+}

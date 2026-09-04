@@ -1,0 +1,110 @@
+[
+ {
+  "category": "bracket_black",
+  "n_images": 79,
+  "n_defect_images": 47,
+  "n_components": 97,
+  "area_pcts": {
+   "p25": 43.0,
+   "p50": 77.0,
+   "p75": 253.0,
+   "p90": 329.6
+  },
+  "micro_share_le1patch": 0.6598,
+  "smallest25_area_max": 43.0,
+  "area_min_max": [
+   1.0,
+   403.0
+  ]
+ },
+ {
+  "category": "bracket_brown",
+  "n_images": 77,
+  "n_defect_images": 51,
+  "n_components": 127,
+  "area_pcts": {
+   "p25": 85.0,
+   "p50": 167.0,
+   "p75": 340.5,
+   "p90": 2626.4
+  },
+  "micro_share_le1patch": 0.5433,
+  "smallest25_area_max": 85.0,
+  "area_min_max": [
+   23.0,
+   3769.0
+  ]
+ },
+ {
+  "category": "bracket_white",
+  "n_images": 60,
+  "n_defect_images": 30,
+  "n_components": 101,
+  "area_pcts": {
+   "p25": 2.0,
+   "p50": 8.0,
+   "p75": 34.0,
+   "p90": 163.0
+  },
+  "micro_share_le1patch": 0.9604,
+  "smallest25_area_max": 2.0,
+  "area_min_max": [
+   1.0,
+   213.0
+  ]
+ },
+ {
+  "category": "connector",
+  "n_images": 44,
+  "n_defect_images": 14,
+  "n_components": 14,
+  "area_pcts": {
+   "p25": 3238.0,
+   "p50": 3599.0,
+   "p75": 3762.0,
+   "p90": 3864.9
+  },
+  "micro_share_le1patch": 0.0,
+  "smallest25_area_max": 3238.0,
+  "area_min_max": [
+   2497.0,
+   4203.0
+  ]
+ },
+ {
+  "category": "metal_plate",
+  "n_images": 97,
+  "n_defect_images": 71,
+  "n_components": 104,
+  "area_pcts": {
+   "p25": 4240.0,
+   "p50": 17496.0,
+   "p75": 39213.2,
+   "p90": 50133.5
+  },
+  "micro_share_le1patch": 0.0096,
+  "smallest25_area_max": 4240.0,
+  "area_min_max": [
+   1.0,
+   53022.0
+  ]
+ },
+ {
+  "category": "tubes",
+  "n_images": 101,
+  "n_defect_images": 69,
+  "n_components": 82,
+  "area_pcts": {
+   "p25": 1907.5,
+   "p50": 2148.0,
+   "p75": 2291.0,
+   "p90": 2458.0
+  },
+  "micro_share_le1patch": 0.0,
+  "smallest25_area_max": 1907.5,
+  "area_min_max": [
+   895.0,
+   2760.0
+  ]
+ }
+]
