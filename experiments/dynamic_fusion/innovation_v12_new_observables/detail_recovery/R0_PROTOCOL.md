@@ -1,0 +1,36 @@
+# Doc 26 §4.3 Detail-Recovery R0 协议（预注册，2026-09-04）
+
+问题：A1 在匹配前把 CLIP 37×37 缩到 DINO 32×32、并在粗网格上 KNN（"先匹配后上采样"）。
+doc 26 §4.3 假说：影响微缺陷定位的信息在**进入匹配之前**就丢失；若先用真实预训练
+feature upsampler 把双分支恢复到共同更细网格（56×56）再做同样 KNN，应更好。
+
+## 范围（用户裁定：两小类先行）
+- 类别：`bracket_black`, `metal_plate`（MPDD development seed0, shot k1）
+- 特征：与静态/A1 参考同一 7 层——dino L{6,9,11} @32、clip L{6,12,18,24} @37（ml_ 缓存）
+- 恢复算子：**AnyUp multi-backbone**（ICLR'26 Oral，encoder-agnostic、保留输入 768-d 通道，
+  冻结）；ckpt `outputs/external_weights/anyup_multi_backbone.pth`
+  sha256 `B6CC407DA8986C7E5C9098E61F7531767A9ACA8FFF20A1BC6C99D488E61AAC59`
+  （github release 断点续传下载；venv torch2.0 需 RMSNorm 兼容 shim——已内嵌等价实现）
+
+## 臂（统一配方：逐层 normal-only z-map → 7 层等权均值 → dists2map(448,σ4)[::8,::8] → pooled Pixel-AP@56）
+| 臂 | 网格 | 恢复 | 含义 |
+|---|---|---|---|
+| a1 | 32 | bilinear(clip 37→32) | 现 A1 配方（=CL-RPF 静态 mean_std，k1 macro 已验 0.309856==归档 A1 0.3092 同配方值） |
+| bl56 | 56 | bilinear 32/37→56 | 廉价插值的恢复先于匹配 |
+| au56 | 56 | AnyUp 32/37→56 | 真实预训练恢复先于匹配 |
+| au56_w | 56 | AnyUp + 错误 guide | 对照 #7（内容错配 RGB），仅 P1 过时跑 |
+
+support 统计：K=1 单 ref，逐层 LOO Chebyshev 排除半径按网格比例（32→1、56→2）。
+query 与 support 同处理（doc 26 §4.3 要求）。
+
+## 门（2 类 macro；每类 = 该类 pooled Pixel-AP@56）
+- P1 前提：`au56 − a1 >= +0.003`（匹配前恢复保住信息）
+- P2 归因：`au56 − bl56 >= +0.003`（真恢复 ≠ 廉价插值；报告性）
+- P3 guide：`au56 − au56_w >= +0.003`（错配 guide 应掉点）
+- 停止规则：P1 不过 → 前提被拒，路线归档负，不做耦合模块、不跑 P3（未过即停止）。
+- 附注：本配方下 bracket_black/metal_plate 基线高度不对称（a1 ≈ 0.005 / 0.962），
+  逐类报告而非只看 macro。
+
+## 结果位置
+`experiments/dynamic_fusion/innovation_v12_new_observables/detail_recovery/RECOVERY_RESULTS.json`
+脚本：`scripts/innovation_v12_new_observables/run_r3_ef_recovery_probe.py`
