@@ -1,0 +1,7 @@
+{
+ "tail_mean_abs_R_minus_Rshuf": {
+  "dep": 0.11690122714563032,
+  "ind": 0.02381773985902621
+ },
+ "monotone_scale_invariance_mean_abs_Rdiff": 0.0
+}

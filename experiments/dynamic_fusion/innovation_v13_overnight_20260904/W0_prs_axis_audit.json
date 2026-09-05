@@ -1,0 +1,59 @@
+{
+ "note": "axis audit; PRS G1 FAIL not re-opened",
+ "rows": [
+  {
+   "family": "exposure",
+   "a": 0.7,
+   "log_abs_ratio": -0.3567,
+   "pixel_rms": 38.42,
+   "dino_mean_resp": 4.677,
+   "clip_mean_resp": 2.326,
+   "clip_frac_01_254": 0.02
+  },
+  {
+   "family": "exposure",
+   "a": 1.15,
+   "log_abs_ratio": 0.1398,
+   "pixel_rms": 18.61,
+   "dino_mean_resp": 3.313,
+   "clip_mean_resp": 1.338,
+   "clip_frac_01_254": 0.0174
+  },
+  {
+   "family": "exposure",
+   "a": 1.4,
+   "log_abs_ratio": 0.3365,
+   "pixel_rms": 46.42,
+   "dino_mean_resp": 9.697,
+   "clip_mean_resp": 3.068,
+   "clip_frac_01_254": 0.1747
+  },
+  {
+   "family": "gamma",
+   "a": 0.8,
+   "log_abs_ratio": -0.2231,
+   "pixel_rms": 16.38,
+   "dino_mean_resp": 5.152,
+   "clip_mean_resp": 1.74,
+   "clip_frac_01_254": 0.0286
+  },
+  {
+   "family": "gamma",
+   "a": 1.2,
+   "log_abs_ratio": 0.1823,
+   "pixel_rms": 12.52,
+   "dino_mean_resp": 4.509,
+   "clip_mean_resp": 1.545,
+   "clip_frac_01_254": 0.014
+  },
+  {
+   "family": "gamma",
+   "a": 1.5,
+   "log_abs_ratio": 0.4055,
+   "pixel_rms": 28.22,
+   "dino_mean_resp": 7.636,
+   "clip_mean_resp": 2.443,
+   "clip_frac_01_254": 0.014
+  }
+ ]
+}

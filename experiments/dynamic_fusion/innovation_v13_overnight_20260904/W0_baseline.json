@@ -1,0 +1,60 @@
+{
+ "rows": [
+  {
+   "category": "bracket_black",
+   "shot": 1,
+   "A1_frozen_32": 0.010484,
+   "A1_bilinear56": 0.009475,
+   "delta_bl56_minus_32": -0.001009
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 1,
+   "A1_frozen_32": 0.034446,
+   "A1_bilinear56": 0.034253,
+   "delta_bl56_minus_32": -0.000192
+  },
+  {
+   "category": "bracket_white",
+   "shot": 1,
+   "A1_frozen_32": 0.08475,
+   "A1_bilinear56": 0.106058,
+   "delta_bl56_minus_32": 0.021308
+  },
+  {
+   "category": "connector",
+   "shot": 1,
+   "A1_frozen_32": 0.126111,
+   "A1_bilinear56": 0.110462,
+   "delta_bl56_minus_32": -0.015649
+  },
+  {
+   "category": "metal_plate",
+   "shot": 1,
+   "A1_frozen_32": 0.871321,
+   "A1_bilinear56": 0.878689,
+   "delta_bl56_minus_32": 0.007368
+  },
+  {
+   "category": "tubes",
+   "shot": 1,
+   "A1_frozen_32": 0.728161,
+   "A1_bilinear56": 0.733404,
+   "delta_bl56_minus_32": 0.005243
+  }
+ ],
+ "macro_k1": {
+  "A1_frozen_32": 0.309212,
+  "A1_bilinear56": 0.312057,
+  "delta": 0.002845
+ },
+ "parity_ml_vs_v3": {
+  "category": "bracket_brown",
+  "n_maps": 77,
+  "max_abs_diff": 9.28342342376709e-06,
+  "mean_abs_diff": 2.0602786709378496e-07,
+  "identical_atol1e-6": false,
+  "identical_rtol1e-6": false
+ },
+ "note": "A1_frozen_32 = v3-cache canonical concat (REFERENCES a1); naming audit table in W0_AUDITS.md"
+}
