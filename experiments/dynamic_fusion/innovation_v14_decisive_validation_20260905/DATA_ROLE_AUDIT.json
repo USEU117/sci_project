@@ -1,0 +1,174 @@
+{
+ "date": "2026-09-05",
+ "all_ok": true,
+ "checks": [
+  {
+   "cat": "bracket_black",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_black",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_black",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_brown",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_brown",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_brown",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_white",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_white",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "bracket_white",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "connector",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "connector",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "connector",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "metal_plate",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "metal_plate",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "metal_plate",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "tubes",
+   "seed": "0",
+   "shot": 1,
+   "n_support": 1,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "tubes",
+   "seed": "0",
+   "shot": 2,
+   "n_support": 2,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  },
+  {
+   "cat": "tubes",
+   "seed": "0",
+   "shot": 4,
+   "n_support": 4,
+   "all_train_good": true,
+   "no_test": true,
+   "ok": true
+  }
+ ],
+ "rule": "fit/select IDs must be K-shot support (train/good); /test/ -> fail",
+ "v13_notes": {
+  "N3_used_test_good_syn_cache": true,
+  "downgraded_to_offline_mechanism_exploration": true,
+  "N2_was_balanced_OT_not_semi_relaxed": true
+ }
+}

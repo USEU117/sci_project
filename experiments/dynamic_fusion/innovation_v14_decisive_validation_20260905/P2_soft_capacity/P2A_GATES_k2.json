@@ -1,0 +1,59 @@
+{
+ "per_method": {
+  "dino": {
+   "clean_prem_p95": 0.03979863679490168,
+   "clean_prem_max": 0.09111166682238735,
+   "syn_inside": 0.011776912758012128,
+   "syn_ring": 0.008344245858406159,
+   "syn_far": 0.011551371221665186,
+   "nui_prem_p95": 0.03985522478482603,
+   "nui_prem_max": 0.08905579011326742,
+   "mismatch_inside": 0.011776912758011978,
+   "inside_vs_clean_p95": -0.028021724036889552,
+   "far_vs_clean_p95": -0.028247265573236494,
+   "ring_vs_clean_p95": -0.03145439093649552,
+   "nui_p95_vs_clean_p95": 5.65879899243546e-05,
+   "nui_max_vs_clean_max": -0.0020558767091199276,
+   "area_corr": 0.26510077020927464
+  },
+  "clip": {
+   "clean_prem_p95": 0.006603222435635852,
+   "clean_prem_max": 0.00828751310253151,
+   "syn_inside": 0.0029345840486074827,
+   "syn_ring": 0.0006448185910119632,
+   "syn_far": 0.00192673292432391,
+   "nui_prem_p95": 0.0065775346964080965,
+   "nui_prem_max": 0.008163057338471863,
+   "mismatch_inside": 0.0007435017327942791,
+   "inside_vs_clean_p95": -0.003668638387028369,
+   "far_vs_clean_p95": -0.004676489511311941,
+   "ring_vs_clean_p95": -0.005958403844623888,
+   "nui_p95_vs_clean_p95": -2.568773922775533e-05,
+   "nui_max_vs_clean_max": -0.00012445576405964616,
+   "area_corr": 0.4914579405265125
+  },
+  "concat": {
+   "clean_prem_p95": 0.02041311149997763,
+   "clean_prem_max": 0.03708267555732453,
+   "syn_inside": 0.003091865797716455,
+   "syn_ring": 0.0030540649963289074,
+   "syn_far": 0.004997110293469555,
+   "nui_prem_p95": 0.02030474841276431,
+   "nui_prem_max": 0.03673321611554186,
+   "mismatch_inside": 0.0043335573593867435,
+   "inside_vs_clean_p95": -0.017321245702261175,
+   "far_vs_clean_p95": -0.015416001206508075,
+   "ring_vs_clean_p95": -0.017359046503648723,
+   "nui_p95_vs_clean_p95": -0.00010836308721332011,
+   "nui_max_vs_clean_max": -0.00034945944178266936,
+   "area_corr": 0.18972914982703556
+  }
+ },
+ "A1_capacity_transfer": false,
+ "A2_spillover": true,
+ "A3_nuisance": true,
+ "A4_monotonic": true,
+ "A5_matched_gt_mismatch": false,
+ "single_branch_cap_d_ok": false,
+ "decision": "P2A_FAIL_IMAGE_DOMAIN"
+}

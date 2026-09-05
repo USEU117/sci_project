@@ -1,0 +1,51 @@
+{
+ "g1": {
+  "pass": false,
+  "pass_families": 1,
+  "per_family": {
+   "cutpaste": {
+    "dnc_i": 0.6688151282341976,
+    "random_mean": 0.6382010095828259,
+    "low_nui": 0.6414607571674504,
+    "delta": 0.027354371066747207
+   },
+   "local_erasure": {
+    "dnc_i": 0.8860576538760628,
+    "random_mean": 0.9349591458951139,
+    "low_nui": 0.9340387371428148,
+    "delta": -0.04890149201905103
+   },
+   "thin_scratch": {
+    "dnc_i": NaN,
+    "random_mean": NaN,
+    "low_nui": NaN,
+    "delta": NaN
+   }
+  }
+ },
+ "g2": {
+  "pass": true,
+  "fp_full_macro": 1.0,
+  "fp_dnci_macro": 1.0,
+  "rel_increase": 0.0,
+  "n_fits": 36
+ },
+ "g3": {
+  "pass": false,
+  "jac_mean": 0.9980912665020806,
+  "mean_corr_i": 0.13145105360163367,
+  "mean_corr_c": 0.131137355932313,
+  "drop": 0.0023864218713024465,
+  "n_fits": 108
+ },
+ "g4": {
+  "pass": false,
+  "ap_dnci_macro": 0.7774363910551302,
+  "ap_dncc_macro": 0.7774363910551302,
+  "ap_dncc_shuf_macro": 0.7774363910551302,
+  "gain": 0.0,
+  "shuf_gain": 0.0
+ },
+ "decision": "P1_FAIL_ARCHIVE",
+ "claim": "none"
+}

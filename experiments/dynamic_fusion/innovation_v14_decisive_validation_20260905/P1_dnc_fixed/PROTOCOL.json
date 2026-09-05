@@ -1,0 +1,31 @@
+{
+  "plan_ref": "doc28 s5 (P1 legal DNC)",
+  "data_role": "fit/select = K-shot support only (train/good); no /test/ touched in fitting; synthetic masks only for support-derived proxy objective (support synthetic adaptation)",
+  "variants_frozen": {
+    "syn_kinds": ["cutpaste", "local_erasure", "thin_scratch"],
+    "syn_seeds_per_kind": 3,
+    "nui_families": ["exposure", "gamma", "white_balance", "lr_brightness_gradient", "specular_blob"],
+    "nui_strengths_per_family": 3,
+    "seed_rule": "hash('v14::{cat}::{rel}::{kind}::s{idx}')"
+  },
+  "channel_fit_frozen": {
+    "normal_scale": "MAD*1.4826 over clean support cells per channel",
+    "def_resp": "median(value[inside syn mask]) - median(value[all cells]) per episode, self-centred",
+    "nui_resp": "median |value(variant) - value(clean)| cellwise per channel",
+    "q": "median_episodes(|def_resp|/s) / (median_episodes(nui_resp/s) + 0.05)",
+    "keep_per_branch": 256,
+    "dnc_c_lambda": 0.3,
+    "random_masks": 10,
+    "eps_q": 0.05
+  },
+  "structure": "per (cat, shot in {2,4}): for held-out support h in K, for held-out family f in 3 kinds: fit on (K-1 images x 2 non-held families x S seeds + nui), eval reduced-fused KNN AP on h's family-f episodes (synthetic masks). Rotate h and f.",
+  "methods": ["full", "dnc_i", "dnc_c", "random_10", "highvar", "low_nui", "dino_only_512", "clip_only_512"],
+  "gates_mechanism": {
+    "G1": "DNC-I vs random-mean AND vs low_nui >= +0.02 on >=2/3 held-out families (macro over cats)",
+    "G2": "normal nuisance p99 (photometric, no mask) relative to full <= +10%",
+    "G3": "DNC-C vs DNC-I set Jaccard < 0.95 and chosen cross-branch redundancy drops >=10%",
+    "G4": "DNC-C vs DNC-I synthetic macro AP >= +0.003; shuffled/mismatch weakens by >=0.003"
+  },
+  "escalation": "if G1/G2 pass and G3/G4 fail -> only DNC-I may run ONE frozen real diagnostic (call it channel adaptation, not fusion innovation); if G1/G2 fail -> archive, no real-mask run",
+  "real_gate_public": "6 cats, same shot macro vs A1 >= +0.006; per-shot non-negative; >=5/6 cats positive; worst >= -0.01; vs strongest equal-dim control >= +0.003; DNC-C vs DNC-I >= +0.003 for fusion claim"
+}
