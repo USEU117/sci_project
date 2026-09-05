@@ -22,6 +22,13 @@ venv/
 outputs/
 *.log
 
+# Model weights (repo policy: checkpoints stay local / under git-ignored outputs)
+*.pt
+
+# Local scratch / QA renders (not release artifacts)
+/.tmp_*/
+.qa_render_*/
+
 # Staged dataset copies in experiments (do not redistribute)
 experiments/**/staged_*/
 experiments/**/predictions/
