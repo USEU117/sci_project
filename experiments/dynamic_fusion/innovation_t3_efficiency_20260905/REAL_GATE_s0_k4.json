@@ -1,0 +1,125 @@
+{
+ "seed": 0,
+ "shot": 4,
+ "created_utc": "2026-09-05T08:28:21.834660+00:00",
+ "mean_delta_ap": -0.00743,
+ "mean_full_ap": 0.388328,
+ "mean_cs_ap": 0.380898,
+ "mean_delta_auroc": -0.000681,
+ "mean_delta_aupro": -0.004155,
+ "worst_delta_ap": -0.05271,
+ "memory_ratio": 0.5,
+ "G_R1": true,
+ "G_R2": false,
+ "decision": "REAL_GATE_FAIL",
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.9740838470124177,
+    "pixel_ap": 0.18559149436280997,
+    "pixel_aupro": 0.91133315757165
+   },
+   "coreset50": {
+    "pixel_auroc": 0.976313213220126,
+    "pixel_ap": 0.19435109603960615,
+    "pixel_aupro": 0.9102591492024511
+   },
+   "delta_ap": 0.00875960167679618,
+   "delta_auroc": 0.0022293662077083054,
+   "delta_aupro": -0.0010740083691989089
+  },
+  {
+   "category": "bracket_brown",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.906058879847826,
+    "pixel_ap": 0.03395186126250561,
+    "pixel_aupro": 0.7971228043851154
+   },
+   "coreset50": {
+    "pixel_auroc": 0.9026392760063517,
+    "pixel_ap": 0.029869544356791747,
+    "pixel_aupro": 0.7832440309273208
+   },
+   "delta_ap": -0.004082316905713861,
+   "delta_auroc": -0.003419603841474217,
+   "delta_aupro": -0.013878773457794646
+  },
+  {
+   "category": "bracket_white",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.9965490304092047,
+    "pixel_ap": 0.09536222826166874,
+    "pixel_aupro": 0.9883331687186767
+   },
+   "coreset50": {
+    "pixel_auroc": 0.9971085535461541,
+    "pixel_ap": 0.10926041091531861,
+    "pixel_aupro": 0.990395426298445
+   },
+   "delta_ap": 0.01389818265364988,
+   "delta_auroc": 0.0005595231369494025,
+   "delta_aupro": 0.0020622575797683007
+  },
+  {
+   "category": "connector",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.975297345150639,
+    "pixel_ap": 0.375039687100605,
+    "pixel_aupro": 0.9163269978304538
+   },
+   "coreset50": {
+    "pixel_auroc": 0.9734846152202563,
+    "pixel_ap": 0.32233017845273043,
+    "pixel_aupro": 0.9089696610338482
+   },
+   "delta_ap": -0.05270950864787455,
+   "delta_auroc": -0.0018127299303827282,
+   "delta_aupro": -0.007357336796605551
+  },
+  {
+   "category": "metal_plate",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.9796567641715108,
+    "pixel_ap": 0.884981458469672,
+    "pixel_aupro": 0.9451038920851759
+   },
+   "coreset50": {
+    "pixel_auroc": 0.9792240507873489,
+    "pixel_ap": 0.8838753495394508,
+    "pixel_aupro": 0.9447203767841941
+   },
+   "delta_ap": -0.001106108930221228,
+   "delta_auroc": -0.0004327133841619535,
+   "delta_aupro": -0.000383515300981796
+  },
+  {
+   "category": "tubes",
+   "ref_patches_full": 4096,
+   "ref_patches_coreset": 2048,
+   "full": {
+    "pixel_auroc": 0.9903581657349207,
+    "pixel_ap": 0.7550404516133116,
+    "pixel_aupro": 0.9619873708998423
+   },
+   "coreset50": {
+    "pixel_auroc": 0.989147510880189,
+    "pixel_ap": 0.7456998697498809,
+    "pixel_aupro": 0.957687076807674
+   },
+   "delta_ap": -0.009340581863430675,
+   "delta_auroc": -0.0012106548547317075,
+   "delta_aupro": -0.004300294092168366
+  }
+ ]
+}

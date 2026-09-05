@@ -1,0 +1,66 @@
+{
+ "per_shot_family_ap": {
+  "2_cutpaste": {
+   "C0": 0.7654552113557489,
+   "C1": 0.7791661874089411,
+   "C2": 0.6448823845611922
+  },
+  "2_local_erasure": {
+   "C0": 0.9633578431372548,
+   "C1": 0.9789215686274509,
+   "C2": 0.9063725490196078
+  },
+  "4_cutpaste": {
+   "C0": 0.8287858730690041,
+   "C1": 0.8428167215715665,
+   "C2": 0.6863811685736673
+  },
+  "4_local_erasure": {
+   "C0": 0.9631547619047619,
+   "C1": 0.9688095238095238,
+   "C2": 0.935079365079365
+  }
+ },
+ "normal": {
+  "C0": {
+   "auc_clean_nui_macro": 0.5423531426323785
+  },
+  "C1": {
+   "auc_clean_nui_macro": 0.5500459882948134
+  },
+  "C2": {
+   "auc_clean_nui_macro": 0.5398227832935476
+  }
+ },
+ "gates": {
+  "G_C1_relational_info": false,
+  "G_C2_no_structural_loss": true,
+  "G_C3_normal_path_stable": true,
+  "per_shot": {
+   "2": {
+    "best_variant": "C1",
+    "cutpaste_C0": 0.7654552113557489,
+    "cutpaste_best": 0.7791661874089411,
+    "delta_cutpaste": 0.013710976053192159,
+    "erasure_delta": 0.015563725490196134
+   },
+   "4": {
+    "best_variant": "C1",
+    "cutpaste_C0": 0.8287858730690041,
+    "cutpaste_best": 0.8428167215715665,
+    "delta_cutpaste": 0.01403084850256242,
+    "erasure_delta": 0.005654761904761885
+   }
+  },
+  "auc_clean_nui": {
+   "C0": 0.5423531426323785,
+   "C1": 0.5500459882948134,
+   "C2": 0.5398227832935476
+  },
+  "auc_ok": {
+   "C1": true,
+   "C2": true
+  },
+  "decision": "TRACK1_PROBE_FAIL_ARCHIVE"
+ }
+}

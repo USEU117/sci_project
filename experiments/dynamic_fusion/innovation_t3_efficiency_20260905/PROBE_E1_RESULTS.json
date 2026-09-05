@@ -1,0 +1,48 @@
+{
+ "agg": {
+  "cutpaste_T0": 0.7767746913580247,
+  "local_erasure_T0": 0.9658088235294118,
+  "auc_T0": 0.537370385064019,
+  "cutpaste_T1": 0.7744434834712612,
+  "local_erasure_T1": 0.9707107843137254,
+  "auc_T1": 0.527467515733507,
+  "cutpaste_T2": 0.6924392736892736,
+  "local_erasure_T2": 0.9682598039215686,
+  "auc_T2": 0.5201908535427519,
+  "cutpaste_T3": 0.7431997662028373,
+  "local_erasure_T3": 0.8546529306909929,
+  "auc_T3": 0.5246945275200738,
+  "cutpaste_T4": 0.7261420833485824,
+  "local_erasure_T4": 0.8297519403018123,
+  "auc_T4": 0.5196017371283637
+ },
+ "cost": {
+  "T0": 1.0,
+  "T1": 0.5,
+  "T2": 0.25,
+  "T3": 0.25,
+  "T4": 0.125
+ },
+ "pass_candidates": [
+  "T1"
+ ],
+ "G_T1_hold": {
+  "T1": true,
+  "T2": false,
+  "T3": false,
+  "T4": false
+ },
+ "G_T2_cost": {
+  "T1": true,
+  "T2": false,
+  "T3": false,
+  "T4": false
+ },
+ "G_T3_auc": {
+  "T1": true,
+  "T2": false,
+  "T3": false,
+  "T4": false
+ },
+ "decision": "TRACK3_PROBE_PASS"
+}
