@@ -1,0 +1,313 @@
+{
+ "seed": 0,
+ "shot": 2,
+ "created_utc": "2026-09-05T10:10:28.307173+00:00",
+ "parity": {
+  "mean_ap": 0.343697,
+  "target_mean_ap": 0.343706,
+  "pm_macro_ap": 0.246402,
+  "target_pm_macro_ap": 0.246406,
+  "max_abs_cat_ap_diff": 4.2738e-05
+ },
+ "defect_type_summary": {
+  "anomalous": {
+   "cats": [
+    "tubes"
+   ],
+   "n_total": 69,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.736027,
+   "pixel_auroc_macro": 0.98553,
+   "pixel_aupro_macro": 0.942677,
+   "image_auroc_macro": 0.966033,
+   "image_ap_macro": 0.985786
+  },
+  "bend_and_parts_mismatch": {
+   "cats": [
+    "bracket_brown"
+   ],
+   "n_total": 17,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.092084,
+   "pixel_auroc_macro": 0.882114,
+   "pixel_aupro_macro": 0.758241,
+   "image_auroc_macro": 0.613122,
+   "image_ap_macro": 0.536771
+  },
+  "defective_painting": {
+   "cats": [
+    "bracket_white"
+   ],
+   "n_total": 13,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.081261,
+   "pixel_auroc_macro": 0.996409,
+   "pixel_aupro_macro": 0.986606,
+   "image_auroc_macro": 0.792308,
+   "image_ap_macro": 0.550877
+  },
+  "hole": {
+   "cats": [
+    "bracket_black"
+   ],
+   "n_total": 12,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.078766,
+   "pixel_auroc_macro": 0.975345,
+   "pixel_aupro_macro": 0.920584,
+   "image_auroc_macro": 0.421875,
+   "image_ap_macro": 0.239177
+  },
+  "major_rust": {
+   "cats": [
+    "metal_plate"
+   ],
+   "n_total": 14,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.747081,
+   "pixel_auroc_macro": 0.958057,
+   "pixel_aupro_macro": 0.872598,
+   "image_auroc_macro": 1.0,
+   "image_ap_macro": 1.0
+  },
+  "parts_mismatch": {
+   "cats": [
+    "bracket_brown",
+    "connector"
+   ],
+   "n_total": 48,
+   "n_cats": 2,
+   "pixel_ap_macro": 0.246402,
+   "pixel_auroc_macro": 0.949798,
+   "pixel_aupro_macro": 0.828442,
+   "image_auroc_macro": 0.671315,
+   "image_ap_macro": 0.650365
+  },
+  "scratches": {
+   "cats": [
+    "bracket_black",
+    "bracket_white",
+    "metal_plate"
+   ],
+   "n_total": 86,
+   "n_cats": 3,
+   "pixel_ap_macro": 0.382996,
+   "pixel_auroc_macro": 0.979291,
+   "pixel_aupro_macro": 0.936425,
+   "image_auroc_macro": 0.775683,
+   "image_ap_macro": 0.766968
+  },
+  "total_rust": {
+   "cats": [
+    "metal_plate"
+   ],
+   "n_total": 23,
+   "n_cats": 1,
+   "pixel_ap_macro": 0.945133,
+   "pixel_auroc_macro": 0.977899,
+   "pixel_aupro_macro": 0.927626,
+   "image_auroc_macro": 1.0,
+   "image_ap_macro": 1.0
+  }
+ },
+ "context_family_summary": {
+  "cats": [
+   "bracket_brown",
+   "connector"
+  ],
+  "n_total": 65,
+  "n_cats": 2,
+  "pixel_ap_macro": 0.256798,
+  "pixel_auroc_macro": 0.928671,
+  "pixel_aupro_macro": 0.824018,
+  "per_cat": [
+   {
+    "cat": "bracket_brown",
+    "n": 51,
+    "pixel_ap": 0.04634,
+    "pixel_auroc": 0.893806,
+    "pixel_aupro": 0.774132
+   },
+   {
+    "cat": "connector",
+    "n": 14,
+    "pixel_ap": 0.467256,
+    "pixel_auroc": 0.963537,
+    "pixel_aupro": 0.873903
+   }
+  ]
+ },
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "n_test": 79,
+   "n_good": 32,
+   "full_pixel": {
+    "pixel_auroc": 0.9498224030830726,
+    "pixel_ap": 0.014642822554906447,
+    "pixel_aupro": 0.8508881843932257
+   },
+   "types": [
+    {
+     "type": "hole",
+     "n": 12,
+     "pixel_auroc": 0.975345,
+     "pixel_ap": 0.078766,
+     "pixel_aupro": 0.920584,
+     "image_auroc": 0.421875,
+     "image_ap": 0.239177
+    },
+    {
+     "type": "scratches",
+     "n": 35,
+     "pixel_auroc": 0.958923,
+     "pixel_ap": 0.038914,
+     "pixel_aupro": 0.876187,
+     "image_auroc": 0.474107,
+     "image_ap": 0.513421
+    }
+   ]
+  },
+  {
+   "category": "bracket_brown",
+   "n_test": 77,
+   "n_good": 26,
+   "full_pixel": {
+    "pixel_auroc": 0.9039258506634924,
+    "pixel_ap": 0.03337026620614348,
+    "pixel_aupro": 0.7833866620022941
+   },
+   "types": [
+    {
+     "type": "bend_and_parts_mismatch",
+     "n": 17,
+     "pixel_auroc": 0.882114,
+     "pixel_ap": 0.092084,
+     "pixel_aupro": 0.758241,
+     "image_auroc": 0.613122,
+     "image_ap": 0.536771
+    },
+    {
+     "type": "parts_mismatch",
+     "n": 34,
+     "pixel_auroc": 0.936059,
+     "pixel_ap": 0.025548,
+     "pixel_aupro": 0.782982,
+     "image_auroc": 0.549774,
+     "image_ap": 0.688253
+    }
+   ]
+  },
+  {
+   "category": "bracket_white",
+   "n_test": 60,
+   "n_good": 30,
+   "full_pixel": {
+    "pixel_auroc": 0.9959445080628322,
+    "pixel_ap": 0.10594577859992034,
+    "pixel_aupro": 0.9856811052309523
+   },
+   "types": [
+    {
+     "type": "defective_painting",
+     "n": 13,
+     "pixel_auroc": 0.996409,
+     "pixel_ap": 0.081261,
+     "pixel_aupro": 0.986606,
+     "image_auroc": 0.792308,
+     "image_ap": 0.550877
+    },
+    {
+     "type": "scratches",
+     "n": 17,
+     "pixel_auroc": 0.997256,
+     "pixel_ap": 0.194108,
+     "pixel_aupro": 0.990906,
+     "image_auroc": 0.852941,
+     "image_ap": 0.787482
+    }
+   ]
+  },
+  {
+   "category": "connector",
+   "n_test": 44,
+   "n_good": 30,
+   "full_pixel": {
+    "pixel_auroc": 0.9694355941198869,
+    "pixel_ap": 0.2990920808989607,
+    "pixel_aupro": 0.8932874003763634
+   },
+   "types": [
+    {
+     "type": "parts_mismatch",
+     "n": 14,
+     "pixel_auroc": 0.963537,
+     "pixel_ap": 0.467256,
+     "pixel_aupro": 0.873903,
+     "image_auroc": 0.792857,
+     "image_ap": 0.612476
+    }
+   ]
+  },
+  {
+   "category": "metal_plate",
+   "n_test": 97,
+   "n_good": 26,
+   "full_pixel": {
+    "pixel_auroc": 0.9764868362053333,
+    "pixel_ap": 0.8783906961086605,
+    "pixel_aupro": 0.935137261632739
+   },
+   "types": [
+    {
+     "type": "major_rust",
+     "n": 14,
+     "pixel_auroc": 0.958057,
+     "pixel_ap": 0.747081,
+     "pixel_aupro": 0.872598,
+     "image_auroc": 1.0,
+     "image_ap": 1.0
+    },
+    {
+     "type": "scratches",
+     "n": 34,
+     "pixel_auroc": 0.981695,
+     "pixel_ap": 0.915966,
+     "pixel_aupro": 0.942181,
+     "image_auroc": 1.0,
+     "image_ap": 1.0
+    },
+    {
+     "type": "total_rust",
+     "n": 23,
+     "pixel_auroc": 0.977899,
+     "pixel_ap": 0.945133,
+     "pixel_aupro": 0.927626,
+     "image_auroc": 1.0,
+     "image_ap": 1.0
+    }
+   ]
+  },
+  {
+   "category": "tubes",
+   "n_test": 101,
+   "n_good": 32,
+   "full_pixel": {
+    "pixel_auroc": 0.9881153094293313,
+    "pixel_ap": 0.7307396163979907,
+    "pixel_aupro": 0.9533621575776842
+   },
+   "types": [
+    {
+     "type": "anomalous",
+     "n": 69,
+     "pixel_auroc": 0.98553,
+     "pixel_ap": 0.736027,
+     "pixel_aupro": 0.942677,
+     "image_auroc": 0.966033,
+     "image_ap": 0.985786
+    }
+   ]
+  }
+ ]
+}
