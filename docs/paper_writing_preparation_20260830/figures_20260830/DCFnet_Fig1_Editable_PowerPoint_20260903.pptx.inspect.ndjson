@@ -1,0 +1,56 @@
+{"kind":"deck","id":"pr/7bykii","name":"Deck"}
+{"kind":"layout","layoutId":"d7bbd92f-3297-4382-b49a-9bca7928e5db","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"a9023d2b-289d-4a47-85b1-848ab4f9c1ba","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/dfgjun","slide":1,"title":"DCFnet: Dual-Encoder Calibrated Fusion","textShapes":27}
+{"kind":"textbox","id":"sh/ad4rmxsf","slide":1,"name":"title","text":"DCFnet: Dual-Encoder Calibrated Fusion","textPreview":"DCFnet: Dual-Encoder Calibrated Fusion","textChars":38,"textLines":1,"bbox":[46,20,850,44]}
+{"kind":"textbox","id":"sh/xgvqhcb6","slide":1,"name":"subtitle","text":"Normal-only few-shot industrial anomaly localization","textPreview":"Normal-only few-shot industrial anomaly localization","textChars":52,"textLines":1,"bbox":[910,30,575,30]}
+{"kind":"shape","id":"sh/wfm9o7al","slide":1,"name":"support-lane","bbox":[42,82,1452,280]}
+{"kind":"shape","id":"sh/nat8b2t4","slide":1,"name":"query-lane","bbox":[42,382,1452,404]}
+{"kind":"textbox","id":"sh/mpk7ixsj","slide":1,"name":"support-label","text":"NORMAL SUPPORT PATH   K ∈ {1, 2, 4}","textPreview":"NORMAL SUPPORT PATH   K ∈ {1, 2, 4}","textChars":35,"textLines":1,"bbox":[58,91,365,34]}
+{"kind":"textbox","id":"sh/9cbqdcba","slide":1,"name":"query-label","text":"QUERY / INFERENCE PATH","textPreview":"QUERY / INFERENCE PATH","textChars":22,"textLines":1,"bbox":[58,391,275,34]}
+{"kind":"textbox","id":"sh/8b29k7ap","slide":1,"name":"support-input","text":"Verified normal\nimages","textPreview":"Verified normal | images","textChars":22,"textLines":2,"bbox":[68,176,120,94]}
+{"kind":"textbox","id":"sh/zmt87its","slide":1,"name":"support-dino","text":"DINOv2 ViT-B/14\nshort side 448\n768-D patches","textPreview":"DINOv2 ViT-B/14 | short side 448 | 768-D patches","textChars":44,"textLines":3,"bbox":[230,140,218,88]}
+{"kind":"textbox","id":"sh/ylk7edcn","slide":1,"name":"support-clip","text":"CLIP ViT-L/14@336 + DPAM\ninput 518 · layer 24\n37 × 37 · 768-D","textPreview":"CLIP ViT-L/14@336 + DPAM | input 518 · layer 24 | 37 × 37 · 768-D","textChars":61,"textLines":3,"bbox":[230,244,218,88]}
+{"kind":"textbox","id":"sh/s36pcrmd","slide":1,"name":"support-align","text":"Spatial calibration\nCLIP grid → DINO grid","textPreview":"Spatial calibration | CLIP grid → DINO grid","textChars":41,"textLines":2,"bbox":[492,189,150,78]}
+{"kind":"textbox","id":"sh/t4fqlw3y","slide":1,"name":"support-norm","text":"Branch-wise\nL2 normalization","textPreview":"Branch-wise | L2 normalization","textChars":28,"textLines":2,"bbox":[677,189,144,78]}
+{"kind":"textbox","id":"sh/61o7a147","slide":1,"name":"support-fuse","text":"Fixed 0.5 / 0.5\nfeature concatenation","textPreview":"Fixed 0.5 / 0.5 | feature concatenation","textChars":37,"textLines":2,"bbox":[856,189,158,78]}
+{"kind":"textbox","id":"sh/72x8j6ls","slide":1,"name":"support-global","text":"1536-D descriptor\nGlobal L2 normalization","textPreview":"1536-D descriptor | Global L2 normalization","textChars":41,"textLines":2,"bbox":[1049,189,170,78]}
+{"kind":"textbox","id":"sh/kf6p8rmh","slide":1,"name":"normal-memory","text":"FIXED CATEGORY\nNORMAL MEMORY","textPreview":"FIXED CATEGORY | NORMAL MEMORY","textChars":28,"textLines":2,"bbox":[1262,172,190,112]}
+{"kind":"textbox","id":"sh/50fqhw32","slide":1,"name":"query-input","text":"Query image","textPreview":"Query image","textChars":11,"textLines":1,"bbox":[68,490,120,94]}
+{"kind":"textbox","id":"sh/id476h4b","slide":1,"name":"query-dino","text":"DINOv2 ViT-B/14\n448 · 768-D patches","textPreview":"DINOv2 ViT-B/14 | 448 · 768-D patches","textChars":35,"textLines":2,"bbox":[230,450,218,82]}
+{"kind":"textbox","id":"sh/jex8fmlw","slide":1,"name":"query-clip","text":"CLIP ViT-L/14@336 + DPAM\n518 · layer 24 · 768-D","textPreview":"CLIP ViT-L/14@336 + DPAM | 518 · layer 24 · 768-D","textChars":47,"textLines":2,"bbox":[230,548,218,82]}
+{"kind":"textbox","id":"sh/obq9kb2l","slide":1,"name":"query-align","text":"Spatial\ncalibration","textPreview":"Spatial | calibration","textChars":19,"textLines":2,"bbox":[492,503,150,76]}
+{"kind":"textbox","id":"sh/pwzqtg36","slide":1,"name":"query-norm","text":"Branch-wise\nL2 normalization","textPreview":"Branch-wise | L2 normalization","textChars":28,"textLines":2,"bbox":[677,503,144,76]}
+{"kind":"textbox","id":"sh/xsfqdgva","slide":1,"name":"query-fuse","text":"Fixed 0.5 / 0.5\nconcatenation","textPreview":"Fixed 0.5 / 0.5 | concatenation","textChars":29,"textLines":2,"bbox":[856,503,158,76]}
+{"kind":"textbox","id":"sh/crmp4bup","slide":1,"name":"query-global","text":"1536-D +\nGlobal L2","textPreview":"1536-D + | Global L2","textChars":18,"textLines":2,"bbox":[1049,503,170,76]}
+{"kind":"textbox","id":"sh/bqd8b6d4","slide":1,"name":"query-descriptors","text":"Fused query\nPatch descriptors","textPreview":"Fused query | Patch descriptors","textChars":29,"textLines":2,"bbox":[1262,503,190,76]}
+{"kind":"textbox","id":"sh/ap472lcj","slide":1,"name":"faiss","text":"Exact FAISS 1-NN","textPreview":"Exact FAISS 1-NN","textChars":16,"textLines":1,"bbox":[1262,608,190,42]}
+{"kind":"textbox","id":"sh/povq9gve","slide":1,"name":"distance","text":"Squared L2 distance / 2","textPreview":"Squared L2 distance / 2","textChars":23,"textLines":1,"bbox":[1262,658,190,42]}
+{"kind":"textbox","id":"sh/onmp0but","slide":1,"name":"resize","text":"Bilinear upsampling → 448 × 448","textPreview":"Bilinear upsampling → 448 × 448","textChars":31,"textLines":1,"bbox":[1262,708,190,42]}
+{"kind":"textbox","id":"sh/nmd876d8","slide":1,"name":"output","text":"Gaussian σ = 4  →  Pixel anomaly map  |  Image score = max","textPreview":"Gaussian σ = 4  →  Pixel anomaly map  |  Image score = max","textChars":58,"textLines":1,"bbox":[720,728,510,42]}
+{"kind":"textbox","id":"sh/2l47y1wn","slide":1,"name":"dino-control","text":"MATCHED DINO-ONLY CONTROL   ·   Same references, 1-NN scoring, upsampling, smoothing, and evaluator","textPreview":"MATCHED DINO-ONLY CONTROL   ·   Same references, 1-NN scoring, upsampling, smoothing, and evaluator","textChars":99,"textLines":1,"bbox":[230,674,820,42]}
+{"kind":"shape","id":"sh/10bq5wv2","slide":1,"bbox":[188,184,42,39]}
+{"kind":"shape","id":"sh/gz2pwreh","slide":1,"bbox":[188,223,42,65]}
+{"kind":"shape","id":"sh/650n6xsf","slide":1,"bbox":[448,184,44,44]}
+{"kind":"shape","id":"sh/r694f2t0","slide":1,"bbox":[448,228,44,60]}
+{"kind":"shape","id":"sh/sri587al","slide":1,"bbox":[642,228,35,0]}
+{"kind":"shape","id":"sh/tsr61cb6","slide":1,"bbox":[821,228,35,0]}
+{"kind":"shape","id":"sh/i1gn2xcj","slide":1,"bbox":[1014,228,35,0]}
+{"kind":"shape","id":"sh/j294bito","slide":1,"bbox":[1219,228,43,0]}
+{"kind":"shape","id":"sh/43i54nu9","slide":1,"bbox":[188,491,42,46]}
+{"kind":"shape","id":"sh/54rmdsbu","slide":1,"bbox":[188,537,42,52]}
+{"kind":"shape","id":"sh/uxgnydc7","slide":1,"bbox":[448,491,44,50]}
+{"kind":"shape","id":"sh/vyp47its","slide":1,"bbox":[448,541,44,48]}
+{"kind":"shape","id":"sh/nq9k3exo","slide":1,"bbox":[642,541,35,0]}
+{"kind":"shape","id":"sh/mp0jatw3","slide":1,"bbox":[821,541,35,0]}
+{"kind":"shape","id":"sh/9sr25ofe","slide":1,"bbox":[1014,541,35,0]}
+{"kind":"shape","id":"sh/8ri1cje9","slide":1,"bbox":[1219,541,43,0]}
+{"kind":"shape","id":"sh/zmp0zexc","slide":1,"bbox":[1357,579,0,29]}
+{"kind":"shape","id":"sh/ylgj69wr","slide":1,"bbox":[1452,228,0,401]}
+{"kind":"shape","id":"sh/lor21ofi","slide":1,"bbox":[1357,650,0,8]}
+{"kind":"shape","id":"sh/0ni18jex","slide":1,"bbox":[1357,700,0,8]}
+{"kind":"shape","id":"sh/bip0vuxg","slide":1,"bbox":[1230,729,32,20]}
+{"kind":"shape","id":"sh/qxgj2pwv","slide":1,"bbox":[1050,629,212,66]}
+{"kind":"textbox","id":"sh/grupgbqh","slide":1,"name":"image-only-note","text":"Image tower only · no text encoder, prompts, or language scores at inference","textPreview":"Image tower only · no text encoder, prompts, or language scores at inference","textChars":76,"textLines":1,"bbox":[230,336,610,22]}
+{"kind":"textbox","id":"sh/hs3qpgr2","slide":1,"name":"footer-strip","text":"FROZEN ENCODERS     |     NORMAL REFERENCES ONLY     |     0 TARGET-DOMAIN TRAINABLE PARAMETERS","textPreview":"FROZEN ENCODERS     |     NORMAL REFERENCES ONLY     |     0 TARGET-DOMAIN TRAINABLE PARAMETERS","textChars":95,"textLines":1,"bbox":[350,811,836,34]}
+{"kind":"notes","id":"nt/dfgjun","slide":1,"text":"[Sources]\n- Project manuscript: DCFnet_English_Draft_Through_Method_Revised_20260903.docx\n- Local visual reference: DCFnet_Fig1_AI_reference_20260903.png\n\nAll visible objects on this slide are editable PowerPoint shapes and connectors."}
