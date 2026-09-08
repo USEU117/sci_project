@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "started_utc": "2026-09-07T17:24:04.820310+00:00",
+  "finished_utc": "2026-09-07T17:26:28.967752+00:00",
+  "elapsed_seconds": 143.96551360000012,
+  "categories_requested": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "categories_completed": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "shot": 2,
+  "seed": 0,
+  "rows": 1500,
+  "error": null,
+  "script_sha256": "4797a109ae7d503cec6b639d099a9523997475af0913d0e2090e06799dcfbbde",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+  "torch_threads": 2,
+  "cuda_available": false,
+  "decision": "SHIFT_MEMORY_SIGNAL_SUPPORT_ONLY"
+}

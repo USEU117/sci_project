@@ -1,0 +1,63 @@
+{
+  "script_version": "support_selection_v1",
+  "status": "pre_registered_support_only_probe",
+  "seed": 0,
+  "shot": 4,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "grid": [
+    16,
+    16
+  ],
+  "fused_feature_dim": 1536,
+  "cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v14_p1_support",
+  "support_rule": "v14 manifest seed 0 k4 ref_rel; each fold holds one ref out",
+  "candidate_rule": "the three remaining clean support images only",
+  "facility_objective": "candidate-pool all 3*256 cells -> selected image subset mean min(1-cosine)",
+  "selection_budgets": [
+    1,
+    2
+  ],
+  "controls": [
+    "uniform_combo_mean",
+    "fixed_first",
+    "all3"
+  ],
+  "synthetic_families": [
+    "cutpaste",
+    "local_erasure",
+    "thin_scratch"
+  ],
+  "synthetic_seeds": [
+    0,
+    1,
+    2
+  ],
+  "synthetic_mask": "native 1024 x 1024; no grid threshold or mask downsample",
+  "normal_nuisance_keys": "all 15 cache keys; fixed 4-stride 16-cell lattice per image",
+  "selector_inputs": [
+    "candidate clean fused features",
+    "candidate ref_rel order"
+  ],
+  "selector_forbidden_inputs": [
+    "held-out feature",
+    "held-out mask",
+    "synthetic query",
+    "any test path or label"
+  ],
+  "memory_rule": "all 256 cells of each selected image; no patch deletion",
+  "cpu": {
+    "cuda_visible_devices": "",
+    "torch_threads": 2,
+    "opencv_threads": 1
+  },
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+  "claim_boundary": "exploratory support proxy only; no paper confirmation",
+  "started_utc": "2026-09-07T17:23:06.801703+00:00"
+}

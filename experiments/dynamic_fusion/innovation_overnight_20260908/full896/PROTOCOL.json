@@ -1,0 +1,149 @@
+{
+ "script_version": "full896_probe_v1",
+ "role": "support-only full-image native 64-grid input-resolution probe",
+ "categories": [
+  "bracket_black",
+  "metal_plate"
+ ],
+ "shot": 2,
+ "seed": 0,
+ "synthetic_order": [
+  "thin_scratch",
+  "cutpaste"
+ ],
+ "synthetic_seeds": [
+  0,
+  1,
+  2
+ ],
+ "nuisance_keys": [
+  "exposure_0",
+  "exposure_1",
+  "exposure_2",
+  "gamma_0",
+  "gamma_1",
+  "gamma_2",
+  "white_balance_0",
+  "white_balance_1",
+  "white_balance_2",
+  "lr_brightness_gradient_0",
+  "lr_brightness_gradient_1",
+  "lr_brightness_gradient_2",
+  "specular_blob_0",
+  "specular_blob_1",
+  "specular_blob_2"
+ ],
+ "input": {
+  "raw_shape": [
+   1024,
+   1024
+  ],
+  "full_smaller_edge_size": 896,
+  "native_grid": [
+   64,
+   64
+  ],
+  "feature_dim": 768,
+  "backbone": "existing DINOv2 ViT-B/14 checkpoint, frozen, no download"
+ },
+ "controls": "read-only full_dino32 and tile_reencode64 rows from overnight_20260908_tiling/RESULTS.json",
+ "memory": "one other k2 support image only; query image excluded",
+ "mask": "same v14 renderer masks and original 1024 x 1024 mask for all episodes",
+ "metrics": {
+  "synthetic": "Pixel-AP on original mask",
+  "random_area_ap": "mask positive-pixel prevalence; large-sample/random-ranking reference, not exact finite-sample AP expectation",
+  "normal": "score distribution only; no old p99 threshold or calibrated FP"
+ },
+ "cache": "clean and synthetic full896 feature arrays; nuisance features online only",
+ "resources": {
+  "device": "cuda:0",
+  "batch": 1,
+  "torch_threads": 2,
+  "gpu": "RTX 3060 6 GB",
+  "max_runtime_s": 2700
+ },
+ "compute": {
+  "full896_tokens": 4096,
+  "tile_total_tokens": 4096,
+  "full896_attention_proxy": 16777216,
+  "tile_attention_proxy": 4194304,
+  "full896_to_tile_attention_proxy_ratio": 4.0,
+  "note": "same stitched token count does not mean equal compute: full-image attention is quadratic over 4096 tokens; four 1024-token crop attentions sum to about one quarter proxy"
+ },
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+ "oom_fallback": "same 896 edge on CPU in explicit rerun; never lower resolution",
+ "started_utc": "2026-09-07T18:14:20.484952+00:00",
+ "model_load_ms": 7327.913900000567,
+ "model_load_gpu": {
+  "allocated_mb": 346.612736,
+  "reserved_mb": 400.556032,
+  "peak_allocated_mb": 346.612736,
+  "peak_reserved_mb": 400.556032,
+  "free_mb": 4966.055936,
+  "total_mb": 6441.926656
+ },
+ "feature_cache": {
+  "bracket_black": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896\\features\\bracket_black.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 176160768
+  },
+  "metal_plate": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896\\features\\metal_plate.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 176160768
+  }
+ },
+ "finished_utc": "2026-09-07T18:17:17.838937+00:00",
+ "elapsed_s": 177.34238600000026,
+ "final_gpu": {
+  "allocated_mb": 355.132416,
+  "reserved_mb": 616.562688,
+  "peak_allocated_mb": 503.212032,
+  "peak_reserved_mb": 616.562688,
+  "free_mb": 4714.397696,
+  "total_mb": 6441.926656
+ }
+}

@@ -1,0 +1,1 @@
+.venv-anomalyclip\Scripts\python.exe scripts\innovation_overnight_20260908\probe_full896.py --device cuda:0 --torch-threads 2

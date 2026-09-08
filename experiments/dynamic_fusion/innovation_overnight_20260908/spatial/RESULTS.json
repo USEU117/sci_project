@@ -1,0 +1,242 @@
+{
+ "protocol_version": "spatial_global_translation_bwnn_v1",
+ "created_utc": "2026-09-07T16:30:06.235432+00:00",
+ "scope": {
+  "shot": 2,
+  "categories": [
+   "bracket_black",
+   "bracket_brown",
+   "bracket_white",
+   "connector",
+   "metal_plate",
+   "tubes"
+  ],
+  "threads": 2,
+  "device": "cpu"
+ },
+ "protocol_path": "experiments\\dynamic_fusion\\innovation_overnight_20260908\\spatial\\PROTOCOL.json",
+ "results": {
+  "shot": 2,
+  "methods": {
+   "global_nn": {
+    "cutpaste_pixel_ap_macro": 0.6320353176794729,
+    "local_erasure_pixel_ap_macro": 0.9512244278591265,
+    "all_requested_families_pixel_ap_macro": 0.7916298727692997,
+    "n_episode_rows": 72
+   },
+   "spatial_bw_nn": {
+    "cutpaste_pixel_ap_macro": 0.376201713110343,
+    "local_erasure_pixel_ap_macro": 0.8302210053685966,
+    "all_requested_families_pixel_ap_macro": 0.6032113592394698,
+    "n_episode_rows": 72
+   },
+   "spatial_bw_nn_coord_shuffle": {
+    "cutpaste_pixel_ap_macro": 0.195552910016101,
+    "local_erasure_pixel_ap_macro": 0.7023787397809163,
+    "all_requested_families_pixel_ap_macro": 0.4489658248985086,
+    "n_episode_rows": 72
+   }
+  },
+  "families": {
+   "cutpaste": {
+    "global_nn": 0.6320353176794729,
+    "spatial_bw_nn": 0.376201713110343,
+    "spatial_bw_nn_coord_shuffle": 0.195552910016101
+   },
+   "local_erasure": {
+    "global_nn": 0.9512244278591265,
+    "spatial_bw_nn": 0.8302210053685966,
+    "spatial_bw_nn_coord_shuffle": 0.7023787397809163
+   }
+  },
+  "normal": {
+   "global_nn": {
+    "auc_clean_vs_nuisance_macro": 0.5334328836864896,
+    "nuisance_minus_clean_macro": 0.004563966475931617,
+    "mean_clean_score_macro": 0.06628243229837001,
+    "mean_nuisance_score_macro": 0.07084639877430163,
+    "n_held_out_rows": 12
+   },
+   "spatial_bw_nn": {
+    "auc_clean_vs_nuisance_macro": 0.5296799182891846,
+    "nuisance_minus_clean_macro": 0.004564777728713427,
+    "mean_clean_score_macro": 0.07862922851927578,
+    "mean_nuisance_score_macro": 0.08319400624798923,
+    "n_held_out_rows": 12
+   },
+   "spatial_bw_nn_coord_shuffle": {
+    "auc_clean_vs_nuisance_macro": 0.512060891257392,
+    "nuisance_minus_clean_macro": 0.0033185380252285165,
+    "mean_clean_score_macro": 0.17526632720061266,
+    "mean_nuisance_score_macro": 0.1785848652258412,
+    "n_held_out_rows": 12
+   }
+  },
+  "alignment": {
+   "n_query_ref_fits": 264,
+   "query_kind_counts": {
+    "clean_normal": 12,
+    "nuisance": 180,
+    "synthetic": 72
+   },
+   "mean_cos": 0.9410689037406084,
+   "mean_raw_cos": 0.8978158619367715,
+   "mean_abs_shift_32": 0.0,
+   "shift_histogram": {
+    "(0,0)": 264
+   }
+  },
+  "deltas_vs_global": {
+   "cutpaste": {
+    "spatial_bw_nn": -0.25583360456912985,
+    "spatial_bw_nn_coord_shuffle": -0.4364824076633719
+   },
+   "local_erasure": {
+    "spatial_bw_nn": -0.12100342249052998,
+    "spatial_bw_nn_coord_shuffle": -0.24884568807821028
+   }
+  },
+  "decision_note": "Bounded mechanism probe only; no real-test confirmation, no parameter search, and no main-table result. Interpret any synthetic AP delta as support-derived evidence."
+ },
+ "category_summaries": [
+  {
+   "category": "bracket_black",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "bracket_black/train/good/271.png",
+    "bracket_black/train/good/281.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.6728283819677058,
+     "spatial_bw_nn": 0.558321976161385,
+     "spatial_bw_nn_coord_shuffle": 0.17484666291306938
+    },
+    "local_erasure": {
+     "global_nn": 0.9877883792405852,
+     "spatial_bw_nn": 0.991311123214718,
+     "spatial_bw_nn_coord_shuffle": 0.6475802973241748
+    }
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "bracket_brown/train/good/039.png",
+    "bracket_brown/train/good/160.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.6527297685267147,
+     "spatial_bw_nn": 0.62201442112455,
+     "spatial_bw_nn_coord_shuffle": 0.1825584223433735
+    },
+    "local_erasure": {
+     "global_nn": 0.9223456220032372,
+     "spatial_bw_nn": 0.8999735760273202,
+     "spatial_bw_nn_coord_shuffle": 0.6247784569767099
+    }
+   }
+  },
+  {
+   "category": "bracket_white",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "bracket_white/train/good/023.png",
+    "bracket_white/train/good/103.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.6398070764629594,
+     "spatial_bw_nn": 0.12197303806492811,
+     "spatial_bw_nn_coord_shuffle": 0.21975172653434968
+    },
+    "local_erasure": {
+     "global_nn": 0.8749367341966026,
+     "spatial_bw_nn": 0.6177608306857969,
+     "spatial_bw_nn_coord_shuffle": 0.6449282163621595
+    }
+   }
+  },
+  {
+   "category": "connector",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "connector/train/good/048.png",
+    "connector/train/good/043.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.531394050034607,
+     "spatial_bw_nn": 0.19286954044771512,
+     "spatial_bw_nn_coord_shuffle": 0.08962678216747716
+    },
+    "local_erasure": {
+     "global_nn": 0.9903950896597955,
+     "spatial_bw_nn": 0.6953023995634505,
+     "spatial_bw_nn_coord_shuffle": 0.6446300056482825
+    }
+   }
+  },
+  {
+   "category": "metal_plate",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "metal_plate/train/good/029.png",
+    "metal_plate/train/good/012.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.6977597352565003,
+     "spatial_bw_nn": 0.3296173360599442,
+     "spatial_bw_nn_coord_shuffle": 0.2755498334854305
+    },
+    "local_erasure": {
+     "global_nn": 0.9736411491558551,
+     "spatial_bw_nn": 0.8504920572001571,
+     "spatial_bw_nn_coord_shuffle": 0.839033119272873
+    }
+   }
+  },
+  {
+   "category": "tubes",
+   "shot": 2,
+   "n_support": 2,
+   "support_rels": [
+    "tubes/train/good/069.png",
+    "tubes/train/good/105.png"
+   ],
+   "ap": {
+    "cutpaste": {
+     "global_nn": 0.59769289382835,
+     "spatial_bw_nn": 0.4324139668035358,
+     "spatial_bw_nn_coord_shuffle": 0.23098403265290582
+    },
+    "local_erasure": {
+     "global_nn": 0.9582395928986839,
+     "spatial_bw_nn": 0.9264860455201364,
+     "spatial_bw_nn_coord_shuffle": 0.813322343101297
+    }
+   }
+  }
+ ],
+ "data_role": {
+  "support_only": true,
+  "real_test_read": false,
+  "fit_select_ids_checked": true,
+  "query_alignment_independent": true,
+  "clean_query_used_for_synthetic_alignment": false,
+  "query_alignment_uses_labels": false,
+  "synthetic_masks_role": "support-derived evaluation only"
+ },
+ "reproduction": {
+  "command": ".venv-anomalyclip/Scripts/python.exe scripts/innovation_overnight_20260908/probe_spatial.py --shot 2",
+  "script": "scripts/innovation_overnight_20260908/probe_spatial.py"
+ }
+}

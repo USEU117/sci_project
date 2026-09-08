@@ -1,0 +1,246 @@
+{
+ "script_version": "full896_extension_v1",
+ "role": "support-only four-category full44832 versus full896 native-grid extension",
+ "categories": [
+  "bracket_brown",
+  "bracket_white",
+  "connector",
+  "tubes"
+ ],
+ "legacy_categories": [
+  "bracket_black",
+  "metal_plate"
+ ],
+ "shot": 2,
+ "seed": 0,
+ "synthetic_order": [
+  "thin_scratch",
+  "cutpaste"
+ ],
+ "synthetic_seeds": [
+  0,
+  1,
+  2
+ ],
+ "new_unique_synthetic_masks": 48,
+ "legacy_unique_synthetic_masks": 24,
+ "combined_unique_synthetic_masks": 72,
+ "nuisance_keys": [
+  "exposure_1",
+  "gamma_1",
+  "white_balance_1",
+  "lr_brightness_gradient_1",
+  "specular_blob_1"
+ ],
+ "input": {
+  "raw_shape": [
+   1024,
+   1024
+  ],
+  "full44832": {
+   "smaller_edge_size": 448,
+   "native_grid": [
+    32,
+    32
+   ]
+  },
+  "full896": {
+   "smaller_edge_size": 896,
+   "native_grid": [
+    64,
+    64
+   ]
+  },
+  "feature_dim": 768,
+  "backbone": "existing DINOv2 ViT-B/14 checkpoint, one frozen model, no download"
+ },
+ "comparison": "same rendered image and original pixel mask are processed by full44832 and full896 in each new episode; no tile arm",
+ "legacy_aggregate": "read-only old two-category full896 rows and their recorded full_dino32 control for six-category context",
+ "memory": "one other k2 support image only; query image excluded",
+ "mask": "same renderer mask and original 1024 x 1024 pixel map for both arms",
+ "metrics": {
+  "synthetic": "Pixel-AP on original mask",
+  "delta": "full896 AP minus same-episode full44832 AP",
+  "random_area_ap": "mask positive-pixel prevalence; large-sample/random-ranking reference, not exact finite-sample AP expectation",
+  "normal": "score distribution only; no old p99 threshold or calibrated FP"
+ },
+ "cache": "clean and synthetic features at both 44832 and full896; nuisance online only",
+ "resources": {
+  "device": "cuda:0",
+  "batch": 1,
+  "torch_threads": 2,
+  "gpu": "RTX 3060 6 GB",
+  "max_runtime_s": 2700
+ },
+ "timing": "warmup is separate and excluded from formal episode timing; per-extraction torch allocator and whole-device memory are recorded",
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+ "oom_fallback": "same 448 / 896 resolutions on CPU in explicit rerun; never lower resolution",
+ "attention_proxy": {
+  "full44832_tokens": 1024,
+  "full896_tokens": 4096,
+  "full44832_attention_proxy": 1048576,
+  "full896_attention_proxy": 16777216,
+  "full896_to_full44832_attention_proxy_ratio": 16.0,
+  "note": "full896 and full44832 are both full-image attention; quadratic token proxy is 16 x at 4096 versus 1024 tokens"
+ },
+ "started_utc": "2026-09-07T19:13:06.502688+00:00",
+ "model_load_ms": 3313.7459000008676,
+ "model_load_gpu": {
+  "torch_allocated_mb": 346.612736,
+  "torch_reserved_mb": 400.556032,
+  "torch_peak_allocated_mb": 346.612736,
+  "torch_peak_reserved_mb": 400.556032,
+  "device_free_mb": 4966.055936,
+  "device_total_mb": 6441.926656
+ },
+ "warmup": {
+  "448": {
+   "encode_ms": 432.7856999989308,
+   "gpu": {
+    "torch_allocated_mb": 355.132416,
+    "torch_reserved_mb": 457.179136,
+    "torch_peak_allocated_mb": 392.177664,
+    "torch_peak_reserved_mb": 457.179136,
+    "device_free_mb": 4873.781248,
+    "device_total_mb": 6441.926656
+   },
+   "rel": "bracket_brown/train/good/039.png"
+  },
+  "896": {
+   "encode_ms": 394.50339999893913,
+   "gpu": {
+    "torch_allocated_mb": 355.132416,
+    "torch_reserved_mb": 631.242752,
+    "torch_peak_allocated_mb": 503.212032,
+    "torch_peak_reserved_mb": 631.242752,
+    "device_free_mb": 4699.717632,
+    "device_total_mb": 6441.926656
+   },
+   "rel": "bracket_brown/train/good/039.png"
+  }
+ },
+ "formal_gpu_baseline": {
+  "torch_allocated_mb": 355.132416,
+  "torch_reserved_mb": 631.242752,
+  "torch_peak_allocated_mb": 355.132416,
+  "torch_peak_reserved_mb": 631.242752,
+  "device_free_mb": 4699.717632,
+  "device_total_mb": 6441.926656
+ },
+ "feature_cache": {
+  "bracket_brown": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896_extension\\features\\bracket_brown.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 220200960
+  },
+  "bracket_white": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896_extension\\features\\bracket_white.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 220200960
+  },
+  "connector": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896_extension\\features\\connector.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 220200960
+  },
+  "tubes": {
+   "path": "outputs\\dynamic_fusion\\overnight_20260908_full896_extension\\features\\tubes.npz",
+   "clean_valid": [
+    1,
+    1
+   ],
+   "syn_valid": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "bytes_uncompressed_float32": 220200960
+  }
+ },
+ "finished_utc": "2026-09-07T19:18:40.943460+00:00",
+ "elapsed_s": 334.4366349000011,
+ "final_gpu": {
+  "torch_allocated_mb": 355.132416,
+  "torch_reserved_mb": 631.242752,
+  "torch_peak_allocated_mb": 503.212032,
+  "torch_peak_reserved_mb": 631.242752,
+  "device_free_mb": 4699.717632,
+  "device_total_mb": 6441.926656
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "script_version": "highfreq_probe_v1",
+ "protocol_version": "highfreq_native64_support_probe_v1",
+ "created_utc": "2026-09-07T18:13:16.067318+00:00",
+ "role": "support-only low-level descriptor probe; no test image or test label",
+ "scope": {
+  "dataset": "MPDD",
+  "categories": [
+   "bracket_black",
+   "metal_plate"
+  ],
+  "seed": 0,
+  "shot": 2,
+  "support_selection": "manifest seed0 k2; each query support image held out from memory",
+  "synthetic_families": [
+   "thin_scratch",
+   "cutpaste"
+  ],
+  "synthetic_seeds": [
+   0,
+   1,
+   2
+  ],
+  "unique_synthetic_masks": 24,
+  "nuisance_variants_per_query": 15
+ },
+ "old_route_audit": {
+  "old_script": "scripts/innovation_v10_portfolio/run_r0_str.py",
+  "old_module": "src/industrial_ad/innovation_v10_portfolio/spectral.py",
+  "old_result": "experiments/dynamic_fusion/innovation_v10_portfolio/str/R0_RESULT.json",
+  "old_mechanism": "2-level Haar robust residual on 448 map; gray + R-G + B-Y; real A1-missed-region diagnostic",
+  "old_decision": "FAIL_ARCHIVED; mean delta STR-A1 -0.027368; positive 1/6 categories",
+  "overlap": "both are raw image high-frequency/gradient evidence",
+  "difference": "this probe uses 1024-native 64-grid gray statistics, k2 support-derived 24 masks, global NN, memory-only scaling, raw/DINO controls",
+  "novelty_boundary": "engineering validation only; high-frequency/gradient representation itself is not claimed novel"
+ },
+ "input": {
+  "raw_shape": [
+   1024,
+   1024,
+   3
+  ],
+  "raw_source": "MPDD train/good support original images only",
+  "cache": "outputs/dynamic_fusion/v14_p1_support (DINO clean/synthetic/nuisance features and mask parity)",
+  "mask_rule": "R.render_synthetic with existing v14 _variant_seed; exact mask parity asserted when cache exists"
+ },
+ "descriptor": {
+  "raw_grid": [
+   64,
+   64
+  ],
+  "cell_pixels": [
+   16,
+   16
+  ],
+  "gray": "RGB luminance 0.299 R + 0.587 G + 0.114 B, divided by 255",
+  "photometric_mean_removal": "subtract one image-wide grayscale mean before local statistics",
+  "high_frequency": "gray_centered - GaussianBlur(gray_centered, sigma=1.0)",
+  "gradient": "Sobel ksize=3 on gray_centered",
+  "raw_hf_grad64_components": [
+   "cell RMS highpass",
+   "cell mean absolute highpass",
+   "cell mean absolute gx",
+   "cell mean absolute gy",
+   "cell mean gradient magnitude",
+   "cell gradient-magnitude standard deviation"
+  ],
+  "raw_hf_grad64_dim": 6,
+  "raw_only64_components": [
+   "cell mean centered gray",
+   "cell gray standard deviation"
+  ],
+  "raw_only64_dim": 2,
+  "dino_full32": "cached frozen DINO 32 x 32 x 768 descriptor; no raw re-encoding"
+ },
+ "normalization_and_score": {
+  "memory_scale": "per-dimension median/MAD estimated from the other clean support image cells only",
+  "mad_multiplier": 1.4826,
+  "mad_floor": 1e-06,
+  "row_normalization": "L2 after memory-only scale normalization",
+  "score": "global NN anomaly score = 1 - maximum cosine over the other clean support image",
+  "map": "bilinear 64-grid or native 32-grid score map to 1024 x 1024"
+ },
+ "methods": {
+  "raw_hf_grad64": "candidate six-statistic native raw descriptor",
+  "raw_only64": "single raw-grayscale two-statistic control",
+  "dino_full32": "single frozen DINO full-image descriptor control"
+ },
+ "evaluation": {
+  "synthetic": "original 1024 x 1024 renderer mask; Pixel-AP; thin_scratch and cutpaste only",
+  "normal": "cell-level ROC-AUC of clean query versus 15 photometric nuisance queries; 0.5 is stable",
+  "normal_auxiliary": "mean nuisance score minus mean clean score",
+  "parameter_selection": "none; all descriptor and normalization constants frozen before AP",
+  "main_table": false
+ },
+ "resources": {
+  "device": "cpu",
+  "threads": 2,
+  "gpu_used": false
+ },
+ "hard_deadline_beijing": "2026-09-08T07:00:00+08:00",
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00"
+}

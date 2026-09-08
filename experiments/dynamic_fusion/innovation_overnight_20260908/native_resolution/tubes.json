@@ -1,0 +1,134 @@
+[
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 12544,
+    "prevalence": 0.011962890625,
+    "pixel_ap": 0.9573239896914635,
+    "ap_over_prevalence": 80.02447064849459
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 9102,
+    "prevalence": 0.008680343627929688,
+    "pixel_ap": 0.9194707056904199,
+    "ap_over_prevalence": 105.92561137003271
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 759,
+    "prevalence": 0.0007238388061523438,
+    "pixel_ap": 0.05184282272713544,
+    "ap_over_prevalence": 71.62205491953725
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 6400,
+    "prevalence": 0.006103515625,
+    "pixel_ap": 0.5467329270814925,
+    "ap_over_prevalence": 89.57672277303172
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 5175,
+    "prevalence": 0.004935264587402344,
+    "pixel_ap": 0.9058738010595571,
+    "ap_over_prevalence": 183.5512129120437
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 1639,
+    "prevalence": 0.0015630722045898438,
+    "pixel_ap": 0.10320641434702847,
+    "ap_over_prevalence": 66.02792503377043
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 12544,
+    "prevalence": 0.011962890625,
+    "pixel_ap": 0.7718509108129273,
+    "ap_over_prevalence": 64.52043532019898
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 9102,
+    "prevalence": 0.008680343627929688,
+    "pixel_ap": 0.9533645011924998,
+    "ap_over_prevalence": 109.83027194049953
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/069.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 759,
+    "prevalence": 0.0007238388061523438,
+    "pixel_ap": 0.1495193576966996,
+    "ap_over_prevalence": 206.56444007401117
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 6400,
+    "prevalence": 0.006103515625,
+    "pixel_ap": 0.3510774576856439,
+    "ap_over_prevalence": 57.5205306672159
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 5175,
+    "prevalence": 0.004935264587402344,
+    "pixel_ap": 0.9439826186298936,
+    "ap_over_prevalence": 191.27295039854286
+  },
+  {
+    "category": "tubes",
+    "held_ref": "tubes/train/good/105.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 1639,
+    "prevalence": 0.0015630722045898438,
+    "pixel_ap": 0.2162130033385887,
+    "ap_over_prevalence": 138.32566576495668
+  }
+]

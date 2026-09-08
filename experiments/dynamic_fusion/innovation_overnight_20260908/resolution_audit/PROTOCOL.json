@@ -1,0 +1,17 @@
+{
+  "role": "support synthetic mask measurement only",
+  "shots": [
+    2,
+    4
+  ],
+  "grids": [
+    16,
+    32,
+    64
+  ],
+  "thresholds": {
+    "majority": 0.5,
+    "any_overlap": 0
+  },
+  "note": "any-overlap only diagnoses visibility; it does not replace pixel-level ground truth or prove model improvement"
+}

@@ -1,0 +1,87 @@
+{
+ "script_version": "scale_fusion_extension_probe_v1",
+ "protocol_version": "scale_fusion_extension_cached64_support_probe_v1",
+ "created_utc": "2026-09-07T20:01:47.917727+00:00",
+ "role": "support-only cached multi-scale matching extension; no test image or test label",
+ "scope": {
+  "dataset": "MPDD",
+  "new_categories": [
+   "bracket_brown",
+   "bracket_white",
+   "connector",
+   "tubes"
+  ],
+  "legacy_categories_read_only": [
+   "bracket_black",
+   "metal_plate"
+  ],
+  "seed": 0,
+  "shot": 2,
+  "synthetic_families": [
+   "thin_scratch",
+   "cutpaste"
+  ],
+  "synthetic_seeds": [
+   0,
+   1,
+   2
+  ],
+  "new_unique_synthetic_masks": 48,
+  "six_category_summary": true
+ },
+ "cache_index_audit": {
+  "full896_extension_protocol": "experiments/dynamic_fusion/innovation_overnight_20260908/full896_extension/PROTOCOL.json",
+  "dual_resolution_feature_dir": "outputs/dynamic_fusion/overnight_20260908_full896_extension/features",
+  "cache_fields": "clean_feat_448 / clean_feat_896 / syn_feat_448 / syn_feat_896 / syn_masks",
+  "cache_role": "existing DINO 448-edge 32 x 32 and 896-edge native 64 x 64 support features",
+  "v14_mask_audit_dir": "outputs/dynamic_fusion/v14_p1_support/v14_p1_support_dino_s0_k2",
+  "index_rule": "match manifest ref_rel; extension cache kind-major thin_scratch/cutpaste and seed-major episode index",
+  "mask_rule": "extension mask must equal the corresponding existing v14 mask byte-for-byte",
+  "legacy_result_read_only": "experiments/dynamic_fusion/innovation_overnight_20260908/scale_fusion/RESULTS.json"
+ },
+ "feature_arms": {
+  "full896_native64": "cached 896-edge native 64 x 64 feature; row-L2 then global L2 NN",
+  "dino448_bilinear64": "cached 448-edge 32 x 32 feature; fixed bilinear feature interpolation to 64 x 64, row-L2 then global L2 NN",
+  "multiscale_concat64": "row-L2 each 64-grid scale, equal weights 1/sqrt(2), concatenate, final row-L2, global L2 NN",
+  "late_mean64": "arithmetic mean of the two single-scale 64-grid L2-NN score grids before common map post-processing"
+ },
+ "fixed_parameters": {
+  "high_grid": [
+   64,
+   64
+  ],
+  "low_grid_source": [
+   32,
+   32
+  ],
+  "feature_dim": 768,
+  "bilinear_mode": "torch.nn.functional.interpolate(mode=bilinear, align_corners=False, size=64 x 64) on CPU",
+  "concat_equal_weight": "each row-L2 scale multiplied by 1/sqrt(2); no weight scan",
+  "row_normalization": "L2 with floor 1e-8",
+  "nearest_neighbor": "global over all 4096 memory cells; Euclidean distance of row-L2 descriptors via sqrt(2 - 2 max cosine)",
+  "score_map_postprocess": "src.utils.dists2map: cv2 INTER_LINEAR resize to 1024 x 1024 followed by Gaussian sigma=4"
+ },
+ "memory_and_query_roles": {
+  "memory": "only the other support image in the same category; query image cells excluded",
+  "synthetic_query": "own cached 448 and 896 feature variant; no clean counterpart or alignment oracle",
+  "normal_control": "own cached clean query feature; clean score distribution only",
+  "test_read": false,
+  "new_feature_extraction": false,
+  "parameter_fit_from_ap": false,
+  "type_routing": false
+ },
+ "evaluation": {
+  "synthetic": "Pixel-AP on the original 1024 x 1024 renderer mask",
+  "normal": "clean support score map distribution after common post-processing; no nuisance extraction",
+  "comparison": "all four arms shown together for new four categories; six-category summary reuses legacy two-category arm summaries read-only",
+  "main_table": false
+ },
+ "resources": {
+  "device": "cpu",
+  "threads": 2,
+  "gpu_used": false,
+  "new_feature_extraction": false
+ },
+ "hard_deadline_beijing": "2026-09-08T07:00:00+08:00",
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00"
+}

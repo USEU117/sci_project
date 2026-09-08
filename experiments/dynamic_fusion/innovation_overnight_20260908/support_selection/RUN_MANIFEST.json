@@ -1,0 +1,19 @@
+{
+  "script": "D:\\STUDY\\My_github\\sci_project\\scripts\\innovation_overnight_20260908\\probe_support_selection.py",
+  "script_version": "support_selection_v1",
+  "input_cache": "D:\\STUDY\\My_github\\sci_project\\outputs\\dynamic_fusion\\v14_p1_support",
+  "status": "complete",
+  "completed_folds": 24,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "shot": 4,
+  "seed": 0,
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+  "claim_boundary": "exploratory support proxy only; no paper confirmation"
+}

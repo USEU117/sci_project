@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "script": "scripts\\innovation_overnight_20260908\\probe_shift_memory.py",
+  "script_sha256": "4797a109ae7d503cec6b639d099a9523997475af0913d0e2090e06799dcfbbde",
+  "created_utc": "2026-09-07T17:24:04.730669+00:00",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "torch": "2.12.1+cpu",
+  "torch_threads_requested": 2,
+  "cuda_visible_devices": "",
+  "seed": 0,
+  "shot": 2,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "methods": [
+    "clean_only",
+    "augmented_all5",
+    "duplicate_clean_equal_all5",
+    "augmented_loo_family",
+    "duplicate_clean_equal_loo"
+  ],
+  "cache": "outputs/dynamic_fusion/v14_p1_support",
+  "loader": "scripts/innovation_t3_efficiency_20260905/probe_e1_compress.py components: _pool16_unit, resize_patches, a1",
+  "support_only": true,
+  "test_images_read": false,
+  "test_labels_read": false,
+  "nuisance_families": [
+    "exposure",
+    "gamma",
+    "white_balance",
+    "lr_brightness_gradient",
+    "specular_blob"
+  ],
+  "nuisance_indices": [
+    0,
+    3,
+    6,
+    9,
+    12
+  ],
+  "nuisance_selection": "one fixed strength-0 variant per family; no result-dependent choice",
+  "synthetic_order": [
+    "cutpaste",
+    "local_erasure",
+    "thin_scratch"
+  ],
+  "synthetic_mask_resolution": [
+    1024,
+    1024
+  ],
+  "score_grid": [
+    16,
+    16
+  ],
+  "score_to_mask": "64 x 64 nearest repeat",
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+  "memory_rule": "heldout support image excluded; only other support images' clean/nuisance cells",
+  "old_route_audit": "D-DEVA photometric augmentation was a separate image re-encode + equivariance filter; see AUDIT_CN.md",
+  "started_utc": "2026-09-07T17:24:04.820310+00:00",
+  "finished_utc": "2026-09-07T17:26:28.967752+00:00",
+  "status": "complete",
+  "elapsed_seconds": 143.96551360000012,
+  "rows": 1500
+}

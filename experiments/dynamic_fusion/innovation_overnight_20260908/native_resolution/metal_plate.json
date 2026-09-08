@@ -1,0 +1,134 @@
+[
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 7396,
+    "prevalence": 0.007053375244140625,
+    "pixel_ap": 0.9086929033231963,
+    "ap_over_prevalence": 128.8309315569259
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 9975,
+    "prevalence": 0.009512901306152344,
+    "pixel_ap": 0.8731104797225391,
+    "ap_over_prevalence": 91.78172374792392
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 1463,
+    "prevalence": 0.0013952255249023438,
+    "pixel_ap": 0.14391032863446593,
+    "ap_over_prevalence": 103.14485082584672
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 7396,
+    "prevalence": 0.007053375244140625,
+    "pixel_ap": 0.8085167085184366,
+    "ap_over_prevalence": 114.62834182685616
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 13664,
+    "prevalence": 0.013031005859375,
+    "pixel_ap": 0.925679729620537,
+    "ap_over_prevalence": 71.0367058084444
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 945,
+    "prevalence": 0.0009012222290039062,
+    "pixel_ap": 0.05496128361994448,
+    "ap_over_prevalence": 60.985272945044336
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 7396,
+    "prevalence": 0.007053375244140625,
+    "pixel_ap": 0.8449005572386632,
+    "ap_over_prevalence": 119.78670182626941
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 9975,
+    "prevalence": 0.009512901306152344,
+    "pixel_ap": 0.9663338871954243,
+    "ap_over_prevalence": 101.58140572429366
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/029.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 1463,
+    "prevalence": 0.0013952255249023438,
+    "pixel_ap": 0.3393560582385948,
+    "ap_over_prevalence": 243.22666994093836
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 7396,
+    "prevalence": 0.007053375244140625,
+    "pixel_ap": 0.5663129763432071,
+    "ap_over_prevalence": 80.28964243943412
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 13664,
+    "prevalence": 0.013031005859375,
+    "pixel_ap": 0.977105046421344,
+    "ap_over_prevalence": 74.98308702841827
+  },
+  {
+    "category": "metal_plate",
+    "held_ref": "metal_plate/train/good/012.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 945,
+    "prevalence": 0.0009012222290039062,
+    "pixel_ap": 0.0917373303444512,
+    "ap_over_prevalence": 101.79213005636323
+  }
+]

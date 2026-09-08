@@ -1,0 +1,65 @@
+{
+ "protocol_version": "spatial_global_translation_bwnn_v1",
+ "created_utc": "2026-09-07T16:28:11.250474+00:00",
+ "scope": {
+  "dataset": "MPDD",
+  "seed": 0,
+  "shot": 2,
+  "categories": [
+   "bracket_black",
+   "bracket_brown",
+   "bracket_white",
+   "connector",
+   "metal_plate",
+   "tubes"
+  ],
+  "device": "cpu",
+  "threads": 2,
+  "real_test_read": false
+ },
+ "input": {
+  "cache": "outputs/dynamic_fusion/v14_p1_support",
+  "branches": [
+   "dino",
+   "clip"
+  ],
+  "feature_role": "v14 P1 support-only clean/synthetic/nuisance cache",
+  "fit_select_role": "clean support bank only; held-out h is excluded from bank; query-time alignment has no labels",
+  "evaluation_role": "support-derived cutpaste/erasure masks and photometric variants only"
+ },
+ "mechanism": {
+  "name": "cross-image global translation + bandwidth-limited nearest neighbour",
+  "description": "For each query feature map independently estimate one translation to each clean memory image using 16-grid mean-pooled fused features. Drop the lowest 20% overlap cosines and average the normal-majority remainder. At 32-grid query coordinate u, restrict memory coordinates to a Chebyshev radius around u + translation.",
+  "a1_fusion_weight": 0.5,
+  "feature_grid": 32,
+  "alignment_grid": 16,
+  "alignment_pool": 2,
+  "alignment_max_shift_cells": 2,
+  "alignment_trim_fraction": 0.2,
+  "bandwidth_chebyshev_cells": 2,
+  "alignment_score": "mean of top 80% per-cell cosine on valid 16-grid overlap",
+  "shift_tie_break": "higher mean cosine, then smaller L1 shift, then lexicographic dy/dx",
+  "coordinate_shuffle": {
+   "seed": 20260908,
+   "scope": "one fixed permutation per category/shot/reference-image; features only; each query keeps its own clean-bank shift"
+  }
+ },
+ "methods": {
+  "global_nn": "unrestricted 32-grid NN over all clean bank cells",
+  "spatial_bw_nn": "query-time translated-coordinate Chebyshev-band NN over clean bank cells",
+  "spatial_bw_nn_coord_shuffle": "same query-time band rule after fixed per-reference coordinate permutation"
+ },
+ "metrics": {
+  "anomaly": "Pixel-AP on held-out support-derived cutpaste and local_erasure masks after 32-grid scoring",
+  "normal": "cell-level ROC-AUC of clean h versus 15 photometric nuisance variants; 0.5 is stable",
+  "normal_auxiliary": "mean nuisance score minus mean clean score",
+  "thin_scratch": "excluded from AP because this probe reports only cutpaste and local_erasure as requested"
+ },
+ "history_audit": {
+  "t1": "same-image 16-grid C1/C2 neighbourhood descriptors; real route archived after negative C1 gate",
+  "t5": "same-image 32-grid relation descriptors; synthetic gain did not generalize to real MPDD",
+  "v12_prs": "normal photometric response axis non-monotonic; archived",
+  "v12_psmf": "image-coordinate multi-shift median approximately smoothing; archived",
+  "novelty_boundary": "cross-image translation and coordinate-constrained matching, not neighbourhood concatenation or image-coordinate aggregation"
+ }
+}

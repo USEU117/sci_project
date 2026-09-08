@@ -1,0 +1,243 @@
+{
+ "protocol": {
+  "script_version": "highfreq_probe_v1",
+  "protocol_version": "highfreq_native64_support_probe_v1",
+  "created_utc": "2026-09-07T18:13:16.067318+00:00",
+  "role": "support-only low-level descriptor probe; no test image or test label",
+  "scope": {
+   "dataset": "MPDD",
+   "categories": [
+    "bracket_black",
+    "metal_plate"
+   ],
+   "seed": 0,
+   "shot": 2,
+   "support_selection": "manifest seed0 k2; each query support image held out from memory",
+   "synthetic_families": [
+    "thin_scratch",
+    "cutpaste"
+   ],
+   "synthetic_seeds": [
+    0,
+    1,
+    2
+   ],
+   "unique_synthetic_masks": 24,
+   "nuisance_variants_per_query": 15
+  },
+  "old_route_audit": {
+   "old_script": "scripts/innovation_v10_portfolio/run_r0_str.py",
+   "old_module": "src/industrial_ad/innovation_v10_portfolio/spectral.py",
+   "old_result": "experiments/dynamic_fusion/innovation_v10_portfolio/str/R0_RESULT.json",
+   "old_mechanism": "2-level Haar robust residual on 448 map; gray + R-G + B-Y; real A1-missed-region diagnostic",
+   "old_decision": "FAIL_ARCHIVED; mean delta STR-A1 -0.027368; positive 1/6 categories",
+   "overlap": "both are raw image high-frequency/gradient evidence",
+   "difference": "this probe uses 1024-native 64-grid gray statistics, k2 support-derived 24 masks, global NN, memory-only scaling, raw/DINO controls",
+   "novelty_boundary": "engineering validation only; high-frequency/gradient representation itself is not claimed novel"
+  },
+  "input": {
+   "raw_shape": [
+    1024,
+    1024,
+    3
+   ],
+   "raw_source": "MPDD train/good support original images only",
+   "cache": "outputs/dynamic_fusion/v14_p1_support (DINO clean/synthetic/nuisance features and mask parity)",
+   "mask_rule": "R.render_synthetic with existing v14 _variant_seed; exact mask parity asserted when cache exists"
+  },
+  "descriptor": {
+   "raw_grid": [
+    64,
+    64
+   ],
+   "cell_pixels": [
+    16,
+    16
+   ],
+   "gray": "RGB luminance 0.299 R + 0.587 G + 0.114 B, divided by 255",
+   "photometric_mean_removal": "subtract one image-wide grayscale mean before local statistics",
+   "high_frequency": "gray_centered - GaussianBlur(gray_centered, sigma=1.0)",
+   "gradient": "Sobel ksize=3 on gray_centered",
+   "raw_hf_grad64_components": [
+    "cell RMS highpass",
+    "cell mean absolute highpass",
+    "cell mean absolute gx",
+    "cell mean absolute gy",
+    "cell mean gradient magnitude",
+    "cell gradient-magnitude standard deviation"
+   ],
+   "raw_hf_grad64_dim": 6,
+   "raw_only64_components": [
+    "cell mean centered gray",
+    "cell gray standard deviation"
+   ],
+   "raw_only64_dim": 2,
+   "dino_full32": "cached frozen DINO 32 x 32 x 768 descriptor; no raw re-encoding"
+  },
+  "normalization_and_score": {
+   "memory_scale": "per-dimension median/MAD estimated from the other clean support image cells only",
+   "mad_multiplier": 1.4826,
+   "mad_floor": 1e-06,
+   "row_normalization": "L2 after memory-only scale normalization",
+   "score": "global NN anomaly score = 1 - maximum cosine over the other clean support image",
+   "map": "bilinear 64-grid or native 32-grid score map to 1024 x 1024"
+  },
+  "methods": {
+   "raw_hf_grad64": "candidate six-statistic native raw descriptor",
+   "raw_only64": "single raw-grayscale two-statistic control",
+   "dino_full32": "single frozen DINO full-image descriptor control"
+  },
+  "evaluation": {
+   "synthetic": "original 1024 x 1024 renderer mask; Pixel-AP; thin_scratch and cutpaste only",
+   "normal": "cell-level ROC-AUC of clean query versus 15 photometric nuisance queries; 0.5 is stable",
+   "normal_auxiliary": "mean nuisance score minus mean clean score",
+   "parameter_selection": "none; all descriptor and normalization constants frozen before AP",
+   "main_table": false
+  },
+  "resources": {
+   "device": "cpu",
+   "threads": 2,
+   "gpu_used": false
+  },
+  "hard_deadline_beijing": "2026-09-08T07:00:00+08:00",
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00"
+ },
+ "result": {
+  "status": "complete",
+  "elapsed_s": 217.68501749999996,
+  "n_ap_rows": 72,
+  "n_normal_rows": 12,
+  "methods": {
+   "raw_hf_grad64": {
+    "thin_scratch_pixel_ap_macro": 0.0006239871649029223,
+    "cutpaste_pixel_ap_macro": 0.008210450616671786,
+    "synthetic_pixel_ap_macro": 0.004417218890787354,
+    "normal_auc_clean_vs_nuisance_macro": 0.43414427570317005,
+    "normal_nuisance_minus_clean_macro": -0.0011821593647441887,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "raw_only64": {
+    "thin_scratch_pixel_ap_macro": 0.0005805967580992826,
+    "cutpaste_pixel_ap_macro": 0.006215159013954547,
+    "synthetic_pixel_ap_macro": 0.0033978778860269143,
+    "normal_auc_clean_vs_nuisance_macro": 0.5150089951569877,
+    "normal_nuisance_minus_clean_macro": 2.0567676983773782e-08,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "dino_full32": {
+    "thin_scratch_pixel_ap_macro": 0.13130896645864074,
+    "cutpaste_pixel_ap_macro": 0.7119569793326413,
+    "synthetic_pixel_ap_macro": 0.421632972895641,
+    "normal_auc_clean_vs_nuisance_macro": 0.5550818923032543,
+    "normal_nuisance_minus_clean_macro": 0.01897920856708974,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   }
+  },
+  "per_category": {
+   "bracket_black": {
+    "raw_hf_grad64": {
+     "thin_scratch_pixel_ap": 0.0006356055492243469,
+     "cutpaste_pixel_ap": 0.011069083169059987,
+     "normal_auc_clean_vs_nuisance": 0.44787477494160177,
+     "normal_nuisance_minus_clean": -0.0007838635490477197
+    },
+    "raw_only64": {
+     "thin_scratch_pixel_ap": 0.0005590548470998292,
+     "cutpaste_pixel_ap": 0.0076867541444388164,
+     "normal_auc_clean_vs_nuisance": 0.5191534435284969,
+     "normal_nuisance_minus_clean": 7.52867587531606e-08
+    },
+    "dino_full32": {
+     "thin_scratch_pixel_ap": 0.09034761593976291,
+     "cutpaste_pixel_ap": 0.7029248300102333,
+     "normal_auc_clean_vs_nuisance": 0.5374028629870888,
+     "normal_nuisance_minus_clean": 0.012765089778069616
+    }
+   },
+   "metal_plate": {
+    "raw_hf_grad64": {
+     "thin_scratch_pixel_ap": 0.0006123687805814981,
+     "cutpaste_pixel_ap": 0.005351818064283586,
+     "normal_auc_clean_vs_nuisance": 0.4204137764647383,
+     "normal_nuisance_minus_clean": -0.0015804551804406578
+    },
+    "raw_only64": {
+     "thin_scratch_pixel_ap": 0.0006021386690987359,
+     "cutpaste_pixel_ap": 0.004743563883470278,
+     "normal_auc_clean_vs_nuisance": 0.5108645467854784,
+     "normal_nuisance_minus_clean": -3.4151404785613035e-08
+    },
+    "dino_full32": {
+     "thin_scratch_pixel_ap": 0.17227031697751857,
+     "cutpaste_pixel_ap": 0.7209891286550492,
+     "normal_auc_clean_vs_nuisance": 0.5727609216194199,
+     "normal_nuisance_minus_clean": 0.025193327356109865
+    }
+   }
+  },
+  "data_role": {
+   "support_only": true,
+   "real_test_read": false,
+   "strict_leave_image_memory": true,
+   "query_clean_counterpart_used_for_synthetic": false,
+   "mask_role": "support-derived evaluation labels only"
+  },
+  "deltas_vs_dino_full32": {
+   "raw_hf_grad64": {
+    "thin_scratch": -0.13068497929373782,
+    "cutpaste": -0.7037465287159695,
+    "synthetic": -0.41721575400485367,
+    "normal_auc": -0.12093761660008429
+   },
+   "raw_only64": {
+    "thin_scratch": -0.13072836970054144,
+    "cutpaste": -0.7057418203186868,
+    "synthetic": -0.4182350950096141,
+    "normal_auc": -0.040072897146266606
+   }
+  },
+  "mask_audit": {
+   "category_summaries": [
+    {
+     "category": "bracket_black",
+     "shot": 2,
+     "support_rels": [
+      "bracket_black/train/good/271.png",
+      "bracket_black/train/good/281.png"
+     ],
+     "unique_synthetic_masks": 12,
+     "synthetic_mask_rows": 12,
+     "mask_cache_all_verified": true
+    },
+    {
+     "category": "metal_plate",
+     "shot": 2,
+     "support_rels": [
+      "metal_plate/train/good/029.png",
+      "metal_plate/train/good/012.png"
+     ],
+     "unique_synthetic_masks": 12,
+     "synthetic_mask_rows": 12,
+     "mask_cache_all_verified": true
+    }
+   ],
+   "total_unique_masks": 24,
+   "total_unique_masks_from_one_method": 24,
+   "all_cache_verified": true
+  },
+  "decision": "LOW_LEVEL_SIGNAL_NEGATIVE_OR_NON_INDEPENDENT",
+  "decision_note": "Probe-only result. Any raw high-frequency delta is support-derived evidence; the already archived STR route establishes that this representation family is not a new method by itself.",
+  "error": null,
+  "started_utc": "2026-09-07T18:19:19.182959+00:00",
+  "finished_utc": "2026-09-07T18:22:56.868588+00:00",
+  "protocol_sha256": "bc62ac5a13e71504f51a703f0466f1b66410916b3da3b4aabe649d18d6630181",
+  "code_sha256": "3d440c798d72b86b3ee77211525fcfa9038c7f72d1aaa6cff71e2bd91222aefa",
+  "reproduction": {
+   "command": ".venv-anomalyclip/Scripts/python.exe scripts/innovation_overnight_20260908/probe_highfreq.py",
+   "script": "scripts/innovation_overnight_20260908/probe_highfreq.py"
+  }
+ }
+}

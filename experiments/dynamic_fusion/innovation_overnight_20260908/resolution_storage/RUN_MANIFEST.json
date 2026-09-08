@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "decision": "RESOLUTION_STORAGE_SUPPORT_ONLY_COMPLETE",
+  "started_utc": "2026-09-07T20:14:52.034111+00:00",
+  "finished_utc": "2026-09-07T20:16:05.557437+00:00",
+  "elapsed_seconds": 73.4060060999982,
+  "categories_requested": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "categories_completed_or_partial": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "rows": 72,
+  "synthetic_unique_episode_count_observed": 24,
+  "encoding_latency_measured": false,
+  "runtime_quantized_methods_run": false,
+  "cuda_visible_devices": "",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b"
+}

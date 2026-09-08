@@ -1,0 +1,239 @@
+{
+ "protocol": {
+  "script_version": "scale_fusion_probe_v1",
+  "protocol_version": "scale_fusion_cached64_support_probe_v1",
+  "created_utc": "2026-09-07T19:10:37.344078+00:00",
+  "role": "support-only cached multi-scale matching control; no test image or test label",
+  "scope": {
+   "dataset": "MPDD",
+   "categories": [
+    "bracket_black",
+    "metal_plate"
+   ],
+   "seed": 0,
+   "shot": 2,
+   "support_selection": "manifest seed0 k2; each query support image held out from memory",
+   "synthetic_families": [
+    "thin_scratch",
+    "cutpaste"
+   ],
+   "synthetic_seeds": [
+    0,
+    1,
+    2
+   ],
+   "unique_synthetic_masks": 24
+  },
+  "cache_index_audit": {
+   "full896_protocol": "experiments/dynamic_fusion/innovation_overnight_20260908/full896/PROTOCOL.json",
+   "full896_feature_dir": "outputs/dynamic_fusion/overnight_20260908_full896/features",
+   "full896_role": "existing DINO 896-edge full image; clean/synthetic native 64 x 64 x 768",
+   "v14_cache_dir": "outputs/dynamic_fusion/v14_p1_support/v14_p1_support_dino_s0_k2",
+   "v14_role": "existing DINO 448-edge support cache; clean/synthetic 32 x 32 x 768",
+   "index_rule": "match ref_rel; full896 kind-major episode index; v14 kind-major episode index; no positional assumption across exports",
+   "mask_rule": "full896 1024 mask is canonical and must equal the corresponding v14 mask byte-for-byte"
+  },
+  "feature_arms": {
+   "full896_native64": "full896 cached native 64 x 64 feature; row-L2 then global L2 NN",
+   "dino448_bilinear64": "v14 cached 32 x 32 feature; fixed bilinear feature interpolation to 64 x 64, row-L2 then global L2 NN",
+   "multiscale_concat64": "row-L2 each 64-grid scale, equal weights 1/sqrt(2), concatenate, final row-L2, global L2 NN",
+   "late_mean64": "arithmetic mean of the two single-scale 64-grid L2-NN score grids before shared map post-processing"
+  },
+  "fixed_parameters": {
+   "high_grid": [
+    64,
+    64
+   ],
+   "low_grid_source": [
+    32,
+    32
+   ],
+   "feature_dim": 768,
+   "bilinear_mode": "torch.nn.functional.interpolate(mode=bilinear, align_corners=False, size=64 x 64) on CPU",
+   "concat_equal_weight": "each row-L2 scale multiplied by 1/sqrt(2); no weight scan",
+   "row_normalization": "L2 with floor 1e-8",
+   "nearest_neighbor": "global over all 4096 memory cells; Euclidean distance of row-L2 descriptors via sqrt(2 - 2 max cosine)",
+   "score_map_postprocess": "src.utils.dists2map: cv2 INTER_LINEAR resize to 1024 x 1024 followed by Gaussian sigma=4"
+  },
+  "memory_and_query_roles": {
+   "memory": "only the other support image in the same category; query image cells excluded",
+   "synthetic_query": "own cached full896 and v14 feature variant; no clean counterpart or alignment oracle",
+   "normal_control": "own cached clean query feature; clean score distribution only",
+   "test_read": false,
+   "parameter_fit_from_ap": false,
+   "type_routing": false
+  },
+  "evaluation": {
+   "synthetic": "Pixel-AP on the original 1024 x 1024 renderer mask",
+   "normal": "clean support score map distribution after common post-processing; no nuisance extraction",
+   "comparison": "all four arms shown in one probe output; concat and late are fixed controls, not a paper method",
+   "main_table": false
+  },
+  "resources": {
+   "device": "cpu",
+   "threads": 2,
+   "gpu_used": false,
+   "new_feature_extraction": false
+  },
+  "hard_deadline_beijing": "2026-09-08T07:00:00+08:00",
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00"
+ },
+ "result": {
+  "status": "complete",
+  "elapsed_s": 104.24323579999873,
+  "n_ap_rows": 96,
+  "n_normal_rows": 16,
+  "methods": {
+   "full896_native64": {
+    "thin_scratch_pixel_ap_macro": 0.3386926486398362,
+    "cutpaste_pixel_ap_macro": 0.783799530072753,
+    "synthetic_pixel_ap_macro": 0.5612460893562946,
+    "normal_clean_score_mean_macro": 0.4195061919766925,
+    "normal_clean_score_p95_macro": 0.6111170649528503,
+    "normal_clean_score_p99_macro": 0.7371288314461708,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "dino448_bilinear64": {
+    "thin_scratch_pixel_ap_macro": 0.23503102214726249,
+    "cutpaste_pixel_ap_macro": 0.8171742027580987,
+    "synthetic_pixel_ap_macro": 0.5261026124526805,
+    "normal_clean_score_mean_macro": 0.43995078047144887,
+    "normal_clean_score_p95_macro": 0.632634274661541,
+    "normal_clean_score_p99_macro": 0.7248108424246311,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "multiscale_concat64": {
+    "thin_scratch_pixel_ap_macro": 0.34031015951472177,
+    "cutpaste_pixel_ap_macro": 0.8304127819577141,
+    "synthetic_pixel_ap_macro": 0.5853614707362179,
+    "normal_clean_score_mean_macro": 0.4586124589376972,
+    "normal_clean_score_p95_macro": 0.6501740701496601,
+    "normal_clean_score_p99_macro": 0.7492285333573818,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "late_mean64": {
+    "thin_scratch_pixel_ap_macro": 0.3406819958954472,
+    "cutpaste_pixel_ap_macro": 0.8227032901473362,
+    "synthetic_pixel_ap_macro": 0.5816926430213917,
+    "normal_clean_score_mean_macro": 0.42972848619096027,
+    "normal_clean_score_p95_macro": 0.6138136498630047,
+    "normal_clean_score_p99_macro": 0.717514306306839,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   }
+  },
+  "per_category": {
+   "bracket_black": {
+    "full896_native64": {
+     "thin_scratch_pixel_ap": 0.3137833812558584,
+     "cutpaste_pixel_ap": 0.759135156844739,
+     "synthetic_pixel_ap": 0.5364592690502987,
+     "normal_clean_score_mean": 0.39332914697154564,
+     "normal_clean_score_p95": 0.6180723756551743,
+     "normal_clean_score_p99": 0.785249225795269
+    },
+    "dino448_bilinear64": {
+     "thin_scratch_pixel_ap": 0.23633855664557382,
+     "cutpaste_pixel_ap": 0.8220054331215016,
+     "synthetic_pixel_ap": 0.5291719948835377,
+     "normal_clean_score_mean": 0.42551844436199815,
+     "normal_clean_score_p95": 0.6577575877308846,
+     "normal_clean_score_p99": 0.7609917968511581
+    },
+    "multiscale_concat64": {
+     "thin_scratch_pixel_ap": 0.3299140310293195,
+     "cutpaste_pixel_ap": 0.8181410871486795,
+     "synthetic_pixel_ap": 0.5740275590889995,
+     "normal_clean_score_mean": 0.4358351854775151,
+     "normal_clean_score_p95": 0.6647143363952637,
+     "normal_clean_score_p99": 0.7919801846146584
+    },
+    "late_mean64": {
+     "thin_scratch_pixel_ap": 0.3310887419213111,
+     "cutpaste_pixel_ap": 0.8117359615782931,
+     "synthetic_pixel_ap": 0.5714123517498021,
+     "normal_clean_score_mean": 0.4094237956140532,
+     "normal_clean_score_p95": 0.6334330588579178,
+     "normal_clean_score_p99": 0.7645713537931442
+    }
+   },
+   "metal_plate": {
+    "full896_native64": {
+     "thin_scratch_pixel_ap": 0.36360191602381403,
+     "cutpaste_pixel_ap": 0.8084639033007671,
+     "synthetic_pixel_ap": 0.5860329096622906,
+     "normal_clean_score_mean": 0.4456832369818393,
+     "normal_clean_score_p95": 0.6041617542505264,
+     "normal_clean_score_p99": 0.6890084370970726
+    },
+    "dino448_bilinear64": {
+     "thin_scratch_pixel_ap": 0.2337234876489512,
+     "cutpaste_pixel_ap": 0.8123429723946959,
+     "synthetic_pixel_ap": 0.5230332300218233,
+     "normal_clean_score_mean": 0.4543831165808996,
+     "normal_clean_score_p95": 0.6075109615921974,
+     "normal_clean_score_p99": 0.6886298879981041
+    },
+    "multiscale_concat64": {
+     "thin_scratch_pixel_ap": 0.35070628800012416,
+     "cutpaste_pixel_ap": 0.8426844767667484,
+     "synthetic_pixel_ap": 0.5966953823834363,
+     "normal_clean_score_mean": 0.4813897323978793,
+     "normal_clean_score_p95": 0.6356338039040565,
+     "normal_clean_score_p99": 0.7064768821001053
+    },
+    "late_mean64": {
+     "thin_scratch_pixel_ap": 0.35027524986958314,
+     "cutpaste_pixel_ap": 0.8336706187163793,
+     "synthetic_pixel_ap": 0.5919729342929814,
+     "normal_clean_score_mean": 0.45003317676786736,
+     "normal_clean_score_p95": 0.5941942408680916,
+     "normal_clean_score_p99": 0.6704572588205338
+    }
+   }
+  },
+  "data_role": {
+   "support_only": true,
+   "real_test_read": false,
+   "strict_leave_image_memory": true,
+   "query_clean_counterpart_used_for_synthetic": false,
+   "new_feature_extraction": false,
+   "mask_role": "cached support-derived evaluation labels only"
+  },
+  "deltas_vs_single": {
+   "multiscale_concat64": {
+    "vs_full896_native64": 0.024115381379923306,
+    "vs_dino448_bilinear64": 0.059258858283537386,
+    "vs_best_single": 0.024115381379923306
+   },
+   "late_mean64": {
+    "vs_full896_native64": 0.020446553665097067,
+    "vs_dino448_bilinear64": 0.055590030568711146,
+    "vs_best_single": 0.020446553665097067
+   }
+  },
+  "mask_audit": {
+   "total_rows": 24,
+   "total_unique_masks": 24,
+   "all_full896_v14_equal": true,
+   "categories": {
+    "bracket_black": 12,
+    "metal_plate": 12
+   }
+  },
+  "decision": "FIXED_MULTISCALE_CANDIDATE_ONLY",
+  "decision_note": "One fixed two-scale control exceeds the best single arm in this support-synthetic probe; this is not a routing or paper novelty claim.",
+  "error": null,
+  "started_utc": "2026-09-07T19:10:37.349021+00:00",
+  "finished_utc": "2026-09-07T19:12:21.596055+00:00",
+  "protocol_sha256": "e15caa8dadb6ec1cc148ab06b975b565c06fb4acc4c7be81db82792963bfd34b",
+  "code_sha256": "cecf5572baf78791b3bab16a551ee8fc79b2bb2fd16e95b40fb53b1ae3a98b3e",
+  "reproduction": {
+   "command": ".venv-anomalyclip/Scripts/python.exe scripts/innovation_overnight_20260908/probe_scale_fusion.py",
+   "script": "scripts/innovation_overnight_20260908/probe_scale_fusion.py"
+  }
+ }
+}

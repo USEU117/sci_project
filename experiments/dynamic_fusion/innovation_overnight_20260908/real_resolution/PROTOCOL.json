@@ -1,0 +1,168 @@
+{
+ "script_version": "real_resolution_v1",
+ "role": "support-only real MPDD resolution diagnostic; no independent confirmation",
+ "dataset": "MPDD",
+ "categories": [
+  "bracket_black",
+  "bracket_brown",
+  "bracket_white",
+  "connector",
+  "metal_plate",
+  "tubes"
+ ],
+ "seed": 0,
+ "shot": 2,
+ "memory": "all two manifest train/good support images per category; K=2; no LOO; query test image excluded",
+ "test_cache": "outputs\\dynamic_fusion\\v3_direction_a\\features_vitb14_s0_k2\\anomalydino_visual",
+ "expected_test_counts": {
+  "bracket_black": 79,
+  "bracket_brown": 77,
+  "bracket_white": 60,
+  "connector": 44,
+  "metal_plate": 97,
+  "tubes": 101,
+  "total": 458,
+  "normal": 176,
+  "anomaly": 282
+ },
+ "input": {
+  "raw_shape": [
+   1024,
+   1024
+  ],
+  "full44832": {
+   "smaller_edge_size": 448,
+   "native_grid": [
+    32,
+    32
+   ]
+  },
+  "full89664": {
+   "smaller_edge_size": 896,
+   "native_grid": [
+    64,
+    64
+   ]
+  },
+  "map_size": [
+   448,
+   448
+  ],
+  "feature_dim": 768,
+  "backbone": "existing DINOv2 ViT-B/14 checkpoint, one frozen model, no download"
+ },
+ "distance": "normalized nearest-neighbor 1 - cosine; equivalent to normalized L2 squared distance / 2",
+ "map_postprocess": "same dists2map to 448 x 448 for both arms",
+ "metrics": {
+  "full_pixel": [
+   "pixel_ap",
+   "pixel_auroc"
+  ],
+  "a1_stride": 8,
+  "a1_stride_metrics": [
+   "pixel_ap",
+   "pixel_auroc"
+  ],
+  "image": [
+   "image_auroc",
+   "image_ap"
+  ],
+  "image_score": "max over 448 x 448 map",
+  "per_defect_type": "each defect type against all category good normals",
+  "fine_anomaly": "full and stride8 positive mask pixels plus stride8 disappearance count/rate",
+  "aupro": "not computed"
+ },
+ "no_test_selection": "all cached sample_ids and masks are read; test labels are evaluation-only and never used to fit/select",
+ "resources": {
+  "device": "cuda:0",
+  "batch": 1,
+  "torch_threads": 2,
+  "nn_block": 512,
+  "gpu": "RTX 3060 6 GB",
+  "max_runtime_s": 3600
+ },
+ "timing": "warmup separate; formal per-image encode and score latency; torch allocator and whole-device memory separate",
+ "early_stop_utc": "2026-09-07T22:30:00+00:00",
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+ "oom_fallback": "same 448 / 896 configuration on CPU in explicit rerun; never lower resolution",
+ "comparison_boundary": "DINO full44832 low-resolution control only; no A1 fusion comparison",
+ "started_utc": "2026-09-07T20:06:06.407652+00:00",
+ "loaded_cache_counts": {
+  "bracket_black": 79,
+  "bracket_brown": 77,
+  "bracket_white": 60,
+  "connector": 44,
+  "metal_plate": 97,
+  "tubes": 101
+ },
+ "loaded_cache_sha256": {
+  "bracket_black": "76bdec1b0615ce7838070ae43a11d11a426a76a3876211c40360d9793794ff92",
+  "bracket_brown": "915956a6cf75b0ebac3940a69dfd0c06af6381c55fd189520ebbdcde8287a451",
+  "bracket_white": "bf3519f3b8b1f8ed9f65d5c506d3f023e4be0359699ed8049e7eeccf8230067c",
+  "connector": "7086a146a31cf26b2559de514499a6cba60b5744ed6f46745a8898f27fed357b",
+  "metal_plate": "ef146ebe7f0c43106e41a60573f050e76c67276dab3e194ee23f217cb1fd1c0e",
+  "tubes": "46982b92011d544193f1fd3aba265a57b587b28cee712d8619b814d754bbbb37"
+ },
+ "loaded_total": 458,
+ "model_load_ms": 2943.643599999632,
+ "model_load_gpu": {
+  "torch_allocated_mb": 346.612736,
+  "torch_reserved_mb": 400.556032,
+  "torch_peak_allocated_mb": 346.612736,
+  "torch_peak_reserved_mb": 400.556032,
+  "device_free_mb": 4966.055936,
+  "device_total_mb": 6441.926656
+ },
+ "warmup": {
+  "448": {
+   "encode_ms": 375.4763999968418,
+   "gpu": {
+    "torch_allocated_mb": 355.132416,
+    "torch_reserved_mb": 457.179136,
+    "torch_peak_allocated_mb": 392.177664,
+    "torch_peak_reserved_mb": 457.179136,
+    "device_free_mb": 4873.781248,
+    "device_total_mb": 6441.926656
+   },
+   "rel": "bracket_black/train/good/271.png"
+  },
+  "896": {
+   "encode_ms": 382.5515999997151,
+   "gpu": {
+    "torch_allocated_mb": 355.132416,
+    "torch_reserved_mb": 631.242752,
+    "torch_peak_allocated_mb": 503.212032,
+    "torch_peak_reserved_mb": 631.242752,
+    "device_free_mb": 4699.717632,
+    "device_total_mb": 6441.926656
+   },
+   "rel": "bracket_black/train/good/271.png"
+  }
+ },
+ "formal_gpu_baseline": {
+  "torch_allocated_mb": 355.132416,
+  "torch_reserved_mb": 631.242752,
+  "torch_peak_allocated_mb": 355.132416,
+  "torch_peak_reserved_mb": 631.242752,
+  "device_free_mb": 4699.717632,
+  "device_total_mb": 6441.926656
+ },
+ "completed_categories": [
+  "bracket_black",
+  "bracket_brown",
+  "bracket_white",
+  "connector",
+  "metal_plate",
+  "tubes"
+ ],
+ "finished_utc": "2026-09-07T20:17:40.521374+00:00",
+ "elapsed_s": 694.1112188999978,
+ "final_gpu": {
+  "torch_allocated_mb": 355.132416,
+  "torch_reserved_mb": 631.242752,
+  "torch_peak_allocated_mb": 503.212032,
+  "torch_peak_reserved_mb": 631.242752,
+  "device_free_mb": 4699.717632,
+  "device_total_mb": 6441.926656
+ }
+}

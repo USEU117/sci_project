@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "script_version": "resolution_storage_v1",
+  "script": "scripts\\innovation_overnight_20260908\\probe_resolution_storage.py",
+  "script_sha256": "47adb6f48df3ff8f5164ac43cc42dfc9623c65b42ea6aea9a62acb5312a4b83f",
+  "created_utc": "2026-09-07T20:14:52.034111+00:00",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+  "python": "3.10.11",
+  "numpy": "2.2.6",
+  "torch": "2.12.1+cpu",
+  "torch_threads_requested": 2,
+  "cuda_visible_devices": "",
+  "shot": 2,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "methods": [
+    "full448_f32",
+    "full896_f32",
+    "full896_int8_roundtrip"
+  ],
+  "synthetic_families": [
+    "thin_scratch",
+    "cutpaste"
+  ],
+  "synthetic_seed": 0,
+  "synthetic_unique_episode_count": 24,
+  "cache_sources": {
+    "legacy_full896": "outputs\\dynamic_fusion\\overnight_20260908_full896\\features",
+    "full896_extension_dual": "outputs\\dynamic_fusion\\overnight_20260908_full896_extension\\features",
+    "legacy_full448_fallback": "outputs\\dynamic_fusion\\v14_p1_support\\v14_p1_support_dino_s0_k2"
+  },
+  "cache_loader": "numpy npz cached features; no image re-encoding",
+  "grids": {
+    "full448_f32": [
+      32,
+      32
+    ],
+    "full896_f32": [
+      64,
+      64
+    ],
+    "full896_int8_roundtrip": [
+      64,
+      64
+    ]
+  },
+  "feature_dim": 768,
+  "memory_rule": "heldout one clean image excluded; bank is the other one clean image",
+  "query_rule": "same heldout image, synthetic thin_scratch/cutpaste seed 0 only",
+  "mask_source": "original renderer syn_masks at 1024 x 1024",
+  "map_postprocess": "src.utils.dists2map(native nearest sqrt cosine distance, sigma 4)",
+  "int8_rule": "memory-only symmetric per-channel scale=max(abs(memory[:,c]))/127, round-to-nearest, clip [-127,127], decode float32 and normalize",
+  "query_dtype": "float32 for all arms",
+  "runtime_quantized_methods_run": false,
+  "encoding_latency_measured": false,
+  "persistent_bytes_include_int8_scale": true,
+  "decoded_memory_is_not_saved_as_persistent_bytes": true,
+  "test_images_read": false,
+  "test_labels_read": false,
+  "cpu_only": true,
+  "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+  "no_new_category_after_utc": "2026-09-07T22:30:00+00:00",
+  "max_runtime_minutes": 30
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 8836,
+    "prevalence": 0.008426666259765625,
+    "pixel_ap": 0.9328575951288652,
+    "ap_over_prevalence": 110.7030427421735
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 5538,
+    "prevalence": 0.0052814483642578125,
+    "pixel_ap": 0.9097289236766031,
+    "ap_over_prevalence": 172.24989452385657
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 725,
+    "prevalence": 0.0006914138793945312,
+    "pixel_ap": 0.06743953029040123,
+    "ap_over_prevalence": 97.53858332936242
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 16,
+    "n_positive": 8836,
+    "prevalence": 0.008426666259765625,
+    "pixel_ap": 0.8584377133004253,
+    "ap_over_prevalence": 101.871568997477
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 16,
+    "n_positive": 16440,
+    "prevalence": 0.01567840576171875,
+    "pixel_ap": 0.9694833651568034,
+    "ap_over_prevalence": 61.835583278750626
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 16,
+    "n_positive": 787,
+    "prevalence": 0.0007505416870117188,
+    "pixel_ap": 0.10425024546826392,
+    "ap_over_prevalence": 138.90000685149977
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 8836,
+    "prevalence": 0.008426666259765625,
+    "pixel_ap": 0.6940483514081742,
+    "ap_over_prevalence": 82.36333681826366
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 5538,
+    "prevalence": 0.0052814483642578125,
+    "pixel_ap": 0.9042477092490939,
+    "ap_over_prevalence": 171.21207041776415
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/039.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 725,
+    "prevalence": 0.0006914138793945312,
+    "pixel_ap": 0.16953469223432982,
+    "ap_over_prevalence": 245.20001302662706
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "cutpaste",
+    "episode": 0,
+    "grid": 32,
+    "n_positive": 8836,
+    "prevalence": 0.008426666259765625,
+    "pixel_ap": 0.7906321351081138,
+    "ap_over_prevalence": 93.82502056395717
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "local_erasure",
+    "episode": 3,
+    "grid": 32,
+    "n_positive": 16440,
+    "prevalence": 0.01567840576171875,
+    "pixel_ap": 0.9658518266160159,
+    "ap_over_prevalence": 61.60395650521384
+  },
+  {
+    "category": "bracket_brown",
+    "held_ref": "bracket_brown/train/good/160.png",
+    "family": "thin_scratch",
+    "episode": 6,
+    "grid": 32,
+    "n_positive": 787,
+    "prevalence": 0.0007505416870117188,
+    "pixel_ap": 0.20919665387390257,
+    "ap_over_prevalence": 278.7275610323777
+  }
+]

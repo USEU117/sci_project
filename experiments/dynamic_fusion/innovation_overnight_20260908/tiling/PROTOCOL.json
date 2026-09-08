@@ -1,0 +1,74 @@
+{
+ "script_version": "tiling_probe_v1",
+ "role": "support-only input-resolution probe; no test image or test label",
+ "categories": [
+  "bracket_black",
+  "metal_plate"
+ ],
+ "shot": 2,
+ "seed": 0,
+ "support_selection": "manifest seed 0, k2; each query image held out from memory",
+ "synthetic_order": [
+  "thin_scratch",
+  "cutpaste"
+ ],
+ "synthetic_seeds": [
+  0,
+  1,
+  2
+ ],
+ "synthetic_seed_rule": "existing v14 _variant_seed(cat, support_rel, family, seed)",
+ "nuisance_keys": [
+  "exposure_0",
+  "exposure_1",
+  "exposure_2",
+  "gamma_0",
+  "gamma_1",
+  "gamma_2",
+  "white_balance_0",
+  "white_balance_1",
+  "white_balance_2",
+  "lr_brightness_gradient_0",
+  "lr_brightness_gradient_1",
+  "lr_brightness_gradient_2",
+  "specular_blob_0",
+  "specular_blob_1",
+  "specular_blob_2"
+ ],
+ "input": {
+  "raw_shape": [
+   1024,
+   1024
+  ],
+  "tiles": "2 x 2 non-overlapping 512 x 512 crops",
+  "tile_stitch": "each tile independently DINO-encoded at 448 edge to 32 x 32; concatenate to 64 x 64",
+  "backbone": "existing v14 export make_extractor('dino'), frozen, no new download"
+ },
+ "arms": [
+  "full_dino32",
+  "full_map_interp",
+  "full_feat_interp64",
+  "tile_reencode64"
+ ],
+ "map_target": [
+  1024,
+  1024
+ ],
+ "evaluation": {
+  "mask": "same 1024 x 1024 renderer mask for all arms",
+  "ap": "pixel average precision on the original mask",
+  "random_area_ap": "mask positive-pixel prevalence; large-sample/random-ranking reference, not exact finite-sample AP expectation",
+  "normal_fp": "p99 of memory-image LOO score map; clean/nuisance all pixels, synthetic outside mask",
+  "memory": "only the other support image in the same category; no query image cells"
+ },
+ "resources": {
+  "device": "cuda:0",
+  "batch": 1,
+  "torch_threads": 2,
+  "gpu": "RTX 3060 6 GB"
+ },
+ "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+ "hard_deadline_epoch": 1788822000.0,
+ "started_utc": "2026-09-07T16:27:55.824621+00:00",
+ "model_load_ms": 8605.817399999978
+}

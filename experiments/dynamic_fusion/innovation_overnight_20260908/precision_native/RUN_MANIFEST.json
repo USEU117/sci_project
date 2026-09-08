@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "protocol": {
+    "schema_version": 1,
+    "script": "scripts\\innovation_overnight_20260908\\probe_precision_native.py",
+    "script_sha256": "db27acb5513311d7b79e0469a9ea7b3c172c305675d93de813bb28dd9c49a915",
+    "created_utc": "2026-09-07T18:26:07.178711+00:00",
+    "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "torch": "2.12.1+cpu",
+    "torch_threads_requested": 2,
+    "cuda_visible_devices": "",
+    "seed": 0,
+    "shot": 4,
+    "expected_k": 4,
+    "categories": [
+      "bracket_black",
+      "bracket_brown",
+      "bracket_white",
+      "connector",
+      "metal_plate",
+      "tubes"
+    ],
+    "methods": [
+      "control_f32",
+      "fp16_roundtrip",
+      "int8_pc_roundtrip"
+    ],
+    "cache": "outputs/dynamic_fusion/v14_p1_support",
+    "cache_variant": "s0_k4",
+    "loader": "scripts/innovation_t3_efficiency_20260905/probe_e1_compress.py::resize_patches,a1",
+    "grid": [
+      32,
+      32
+    ],
+    "dino_pooling": "none",
+    "clip_resize": "37_to_32",
+    "dimension": 1536,
+    "memory_rule": "heldout one support image excluded; remaining three clean support images only",
+    "query_rule": "heldout clean, nine synthetic episodes, and five fixed nuisance strength-0 queries",
+    "nuisance_indices": [
+      0,
+      3,
+      6,
+      9,
+      12
+    ],
+    "nuisance_selection": "one fixed strength-0 variant per family; no result-dependent choice",
+    "synthetic_families": [
+      "cutpaste",
+      "local_erasure",
+      "thin_scratch"
+    ],
+    "synthetic_mask_resolution": [
+      1024,
+      1024
+    ],
+    "score_to_mask": "32 x 32 nearest repeat",
+    "support_only": true,
+    "test_images_read": false,
+    "test_labels_read": false,
+    "runtime_quantized_methods_run": false,
+    "quantization": "memory-only; symmetric per-channel INT8 scale max(abs(memory[:,c]))/127; round-to-nearest; query remains float32",
+    "hard_deadline_utc": "2026-09-07T23:00:00+00:00",
+    "finished_utc": "2026-09-07T18:31:29.457596+00:00",
+    "status": "complete",
+    "elapsed_seconds": 322.1040959000002,
+    "rows": 1080
+  },
+  "started_utc": "2026-09-07T18:26:07.236491+00:00",
+  "finished_utc": "2026-09-07T18:31:29.457596+00:00",
+  "elapsed_seconds": 322.1040959000002,
+  "categories_requested": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "categories_completed": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "rows": 1080,
+  "failures": [],
+  "decision": "PRECISION_NATIVE_PROBE_PASS",
+  "script_sha256": "db27acb5513311d7b79e0469a9ea7b3c172c305675d93de813bb28dd9c49a915",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+  "torch_threads": 2,
+  "cuda_available": false
+}

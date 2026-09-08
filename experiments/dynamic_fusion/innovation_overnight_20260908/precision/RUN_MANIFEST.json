@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-07T16:30:41.457186+00:00",
+  "script": "scripts\\innovation_overnight_20260908\\probe_precision.py",
+  "git_commit": "93c7292ec6075beda71cbe311b3cdc5e4d15cf0b",
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.6",
+  "torch": "2.12.1+cpu",
+  "torch_cuda_available": false,
+  "cuda_visible_devices": "",
+  "torch_threads": 2,
+  "requested_cpu_threads": 2,
+  "seed": 0,
+  "shot": 2,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "methods": [
+    "control_f32",
+    "fp16_roundtrip",
+    "fp16_runtime",
+    "int8_pc_roundtrip",
+    "int8_pc_runtime"
+  ],
+  "support_cache": "outputs/dynamic_fusion/v14_p1_support",
+  "loader": "scripts/innovation_t3_efficiency_20260905/probe_e1_compress.py::load_cells",
+  "status": "completed",
+  "elapsed_seconds": 152.94105299999956
+}

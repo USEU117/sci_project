@@ -1,0 +1,1957 @@
+{
+ "status": "complete",
+ "decision": "REAL_DIAGNOSTIC_COMPLETE; DINO_RESOLUTION_ONLY; no A1 fusion comparison",
+ "error": null,
+ "elapsed_s": 694.1112188999978,
+ "summary": {
+  "n_rows": 916,
+  "expected_rows": 916,
+  "n_categories": 6,
+  "categories": {
+   "bracket_black": 79,
+   "bracket_brown": 77,
+   "bracket_white": 60,
+   "connector": 44,
+   "metal_plate": 97,
+   "tubes": 101
+  },
+  "n_test_images": 458,
+  "n_normal": 176,
+  "n_anomaly": 282,
+  "per_category": {
+   "bracket_black": {
+    "category": "bracket_black",
+    "n_samples": 79,
+    "n_normal": 32,
+    "n_anomaly": 47,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.04359638935510232,
+       "pixel_auroc": 0.9442623254415576,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.041848793336043244,
+       "pixel_auroc": 0.948178193727856,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 238,
+       "total_pixels": 247744
+      },
+      "image": {
+       "image_auroc": 0.46276595744680854,
+       "image_ap": 0.6130649371564897
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.09189672435931484,
+       "pixel_auroc": 0.9608525822429835,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.09737985767522245,
+       "pixel_auroc": 0.9636775039219829,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 238,
+       "total_pixels": 247744
+      },
+      "image": {
+       "image_auroc": 0.5478723404255319,
+       "image_ap": 0.6985237916596179
+      }
+     }
+    },
+    "defect_types": {
+     "hole": {
+      "n_normal": 32,
+      "n_anomaly": 12,
+      "fine_anomaly": {
+       "anomaly_images": 12,
+       "full_positive_pixels_mean": 276.9166666666667,
+       "stride8_positive_pixels_mean": 4.333333333333333,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.015638763086200082
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.006777002618244173,
+        "pixel_auroc": 0.964652487344482,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.007492697763253875,
+        "pixel_auroc": 0.9652908679639243,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 52,
+        "total_pixels": 137984
+       },
+       "image": {
+        "image_auroc": 0.4140625,
+        "image_ap": 0.23773090813410988
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.028897983276638044,
+        "pixel_auroc": 0.984550928425324,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.030116240105099466,
+        "pixel_auroc": 0.9848530435286953,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 52,
+        "total_pixels": 137984
+       },
+       "image": {
+        "image_auroc": 0.7239583333333333,
+        "image_ap": 0.5258459681157049
+       }
+      }
+     },
+     "scratches": {
+      "n_normal": 32,
+      "n_anomaly": 35,
+      "fine_anomaly": {
+       "anomaly_images": 35,
+       "full_positive_pixels_mean": 301.6857142857143,
+       "stride8_positive_pixels_mean": 5.314285714285714,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.017918448709961832
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.04784348997200257,
+        "pixel_auroc": 0.934859972706214,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.04313344531722445,
+        "pixel_auroc": 0.9406652538800411,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 186,
+        "total_pixels": 210112
+       },
+       "image": {
+        "image_auroc": 0.47946428571428573,
+        "image_ap": 0.5832937929226909
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.09681455299352325,
+        "pixel_auroc": 0.9521354099203991,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.10264595192582096,
+        "pixel_auroc": 0.956665541334125,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 186,
+        "total_pixels": 210112
+       },
+       "image": {
+        "image_auroc": 0.4875,
+        "image_ap": 0.6112072248698688
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 47,
+     "full_positive_pixels_mean": 295.36170212765956,
+     "stride8_positive_pixels_mean": 5.0638297872340425,
+     "stride8_zero_mask_count": 0,
+     "stride8_zero_mask_rate": 0.0,
+     "stride8_positive_fraction_of_full_mean": 0.01733640131666096
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "bracket_black/train/good/271.png",
+      "bracket_black/train/good/281.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 152.81640000102925,
+      "full89664": 747.6029999997991
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   },
+   "bracket_brown": {
+    "category": "bracket_brown",
+    "n_samples": 77,
+    "n_normal": 26,
+    "n_anomaly": 51,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.03820959032407831,
+       "pixel_auroc": 0.8806528214417175,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.037683990534147664,
+       "pixel_auroc": 0.881722185904609,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 1091,
+       "total_pixels": 241472
+      },
+      "image": {
+       "image_auroc": 0.45248868778280543,
+       "image_ap": 0.6526055952335706
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.03300666610847763,
+       "pixel_auroc": 0.863961352549195,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.03253465236379732,
+       "pixel_auroc": 0.8654509495811818,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 1091,
+       "total_pixels": 241472
+      },
+      "image": {
+       "image_auroc": 0.4683257918552036,
+       "image_ap": 0.6252951719089352
+      }
+     }
+    },
+    "defect_types": {
+     "bend_and_parts_mismatch": {
+      "n_normal": 26,
+      "n_anomaly": 17,
+      "fine_anomaly": {
+       "anomaly_images": 17,
+       "full_positive_pixels_mean": 3374.0588235294117,
+       "stride8_positive_pixels_mean": 52.588235294117645,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.015600636599769634
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.048569966388930616,
+        "pixel_auroc": 0.8813920718657257,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.04987950845897837,
+        "pixel_auroc": 0.8820937069819186,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 894,
+        "total_pixels": 134848
+       },
+       "image": {
+        "image_auroc": 0.49321266968325794,
+        "image_ap": 0.4034527167281457
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.043461145788515725,
+        "pixel_auroc": 0.8721975905960135,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.04392888590161677,
+        "pixel_auroc": 0.8736797740076988,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 894,
+        "total_pixels": 134848
+       },
+       "image": {
+        "image_auroc": 0.5090497737556561,
+        "image_ap": 0.37965748211523026
+       }
+      }
+     },
+     "parts_mismatch": {
+      "n_normal": 26,
+      "n_anomaly": 34,
+      "fine_anomaly": {
+       "anomaly_images": 34,
+       "full_positive_pixels_mean": 390.70588235294116,
+       "stride8_positive_pixels_mean": 5.794117647058823,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.014394951348309393
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.019805376865637596,
+        "pixel_auroc": 0.9348451076535307,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.01796462446793224,
+        "pixel_auroc": 0.9380994115620174,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 197,
+        "total_pixels": 188160
+       },
+       "image": {
+        "image_auroc": 0.4321266968325792,
+        "image_ap": 0.562275603113757
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.013486048582010262,
+        "pixel_auroc": 0.9132121420542746,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.012608475594079956,
+        "pixel_auroc": 0.9155576331025944,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 197,
+        "total_pixels": 188160
+       },
+       "image": {
+        "image_auroc": 0.44796380090497745,
+        "image_ap": 0.5377528451712738
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 51,
+     "full_positive_pixels_mean": 1385.1568627450981,
+     "stride8_positive_pixels_mean": 21.392156862745097,
+     "stride8_zero_mask_count": 0,
+     "stride8_zero_mask_rate": 0.0,
+     "stride8_positive_fraction_of_full_mean": 0.014796846432129475
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "bracket_brown/train/good/039.png",
+      "bracket_brown/train/good/160.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 165.05499999402673,
+      "full89664": 779.4605999988562
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   },
+   "bracket_white": {
+    "category": "bracket_white",
+    "n_samples": 60,
+    "n_normal": 30,
+    "n_anomaly": 30,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.11098261554977773,
+       "pixel_auroc": 0.9928977155425354,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.08935313647194147,
+       "pixel_auroc": 0.9941295811574958,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 43,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.77,
+       "image_ap": 0.7121305306218283
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.03830822724313974,
+       "pixel_auroc": 0.9938537152612149,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.0301263023622284,
+       "pixel_auroc": 0.9921373771469043,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 43,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.7511111111111111,
+       "image_ap": 0.6667053257289038
+      }
+     }
+    },
+    "defect_types": {
+     "defective_painting": {
+      "n_normal": 30,
+      "n_anomaly": 13,
+      "fine_anomaly": {
+       "anomaly_images": 13,
+       "full_positive_pixels_mean": 70.23076923076923,
+       "stride8_positive_pixels_mean": 0.8461538461538461,
+       "stride8_zero_mask_count": 4,
+       "stride8_zero_mask_rate": 0.3076923076923077,
+       "stride8_positive_fraction_of_full_mean": 0.011072177282459572
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.009058170066136352,
+        "pixel_auroc": 0.9910447438872015,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.012759643750074968,
+        "pixel_auroc": 0.9943723296883038,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 11,
+        "total_pixels": 134848
+       },
+       "image": {
+        "image_auroc": 0.7512820512820514,
+        "image_ap": 0.45503792991497094
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.008947487772823799,
+        "pixel_auroc": 0.9917947540317326,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.0169182403067074,
+        "pixel_auroc": 0.9949851908735599,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 11,
+        "total_pixels": 134848
+       },
+       "image": {
+        "image_auroc": 0.7948717948717949,
+        "image_ap": 0.5568170548585141
+       }
+      }
+     },
+     "scratches": {
+      "n_normal": 30,
+      "n_anomaly": 17,
+      "fine_anomaly": {
+       "anomaly_images": 17,
+       "full_positive_pixels_mean": 150.35294117647058,
+       "stride8_positive_pixels_mean": 1.8823529411764706,
+       "stride8_zero_mask_count": 2,
+       "stride8_zero_mask_rate": 0.11764705882352941,
+       "stride8_positive_fraction_of_full_mean": 0.011802887829416653
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.1319180917378692,
+        "pixel_auroc": 0.9934367065210739,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.10177447227376273,
+        "pixel_auroc": 0.9938411882464713,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 32,
+        "total_pixels": 147392
+       },
+       "image": {
+        "image_auroc": 0.7843137254901961,
+        "image_ap": 0.656809893196708
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.04035158681268293,
+        "pixel_auroc": 0.9943060769433212,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.023678121788770233,
+        "pixel_auroc": 0.9919981253393051,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 32,
+        "total_pixels": 147392
+       },
+       "image": {
+        "image_auroc": 0.7176470588235294,
+        "image_ap": 0.48991487365785813
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 30,
+     "full_positive_pixels_mean": 115.63333333333334,
+     "stride8_positive_pixels_mean": 1.4333333333333333,
+     "stride8_zero_mask_count": 6,
+     "stride8_zero_mask_rate": 0.2,
+     "stride8_positive_fraction_of_full_mean": 0.011486246592401918
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "bracket_white/train/good/023.png",
+      "bracket_white/train/good/103.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 162.9480000010517,
+      "full89664": 777.7464999999211
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   },
+   "connector": {
+    "category": "connector",
+    "n_samples": 44,
+    "n_normal": 30,
+    "n_anomaly": 14,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.2639736209877032,
+       "pixel_auroc": 0.964227161340365,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.2682597529772939,
+       "pixel_auroc": 0.9646357437248703,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 764,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.7523809523809524,
+       "image_ap": 0.49926502652342986
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.22537193601646893,
+       "pixel_auroc": 0.9632840115469792,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.2283543590441873,
+       "pixel_auroc": 0.963018146996721,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 764,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.8285714285714286,
+       "image_ap": 0.5519166923302262
+      }
+     }
+    },
+    "defect_types": {
+     "parts_mismatch": {
+      "n_normal": 30,
+      "n_anomaly": 14,
+      "fine_anomaly": {
+       "anomaly_images": 14,
+       "full_positive_pixels_mean": 3439.714285714286,
+       "stride8_positive_pixels_mean": 54.57142857142857,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.01583343926770951
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.2639736209877032,
+        "pixel_auroc": 0.964227161340365,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.2682597529772939,
+        "pixel_auroc": 0.9646357437248703,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 764,
+        "total_pixels": 137984
+       },
+       "image": {
+        "image_auroc": 0.7523809523809524,
+        "image_ap": 0.49926502652342986
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.22537193601646893,
+        "pixel_auroc": 0.9632840115469792,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.2283543590441873,
+        "pixel_auroc": 0.963018146996721,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 764,
+        "total_pixels": 137984
+       },
+       "image": {
+        "image_auroc": 0.8285714285714286,
+        "image_ap": 0.5519166923302262
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 14,
+     "full_positive_pixels_mean": 3439.714285714286,
+     "stride8_positive_pixels_mean": 54.57142857142857,
+     "stride8_zero_mask_count": 0,
+     "stride8_zero_mask_rate": 0.0,
+     "stride8_positive_fraction_of_full_mean": 0.01583343926770951
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "connector/train/good/048.png",
+      "connector/train/good/043.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 165.50940000161063,
+      "full89664": 762.5320999977703
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   },
+   "metal_plate": {
+    "category": "metal_plate",
+    "n_samples": 97,
+    "n_normal": 26,
+    "n_anomaly": 71,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.7497555844556958,
+       "pixel_auroc": 0.9403999677983661,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7560392492718513,
+       "pixel_auroc": 0.942020943222202,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 35899,
+       "total_pixels": 304192
+      },
+      "image": {
+       "image_auroc": 0.9989165763813652,
+       "image_ap": 0.9996141230947329
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.7869523382086369,
+       "pixel_auroc": 0.9583882737327664,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7917386110807962,
+       "pixel_auroc": 0.959465754792626,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 35899,
+       "total_pixels": 304192
+      },
+      "image": {
+       "image_auroc": 0.952329360780065,
+       "image_ap": 0.9797263893670017
+      }
+     }
+    },
+    "defect_types": {
+     "major_rust": {
+      "n_normal": 26,
+      "n_anomaly": 14,
+      "fine_anomaly": {
+       "anomaly_images": 14,
+       "full_positive_pixels_mean": 28722.714285714286,
+       "stride8_positive_pixels_mean": 448.14285714285717,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.015610736723388103
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.5496947995820177,
+        "pixel_auroc": 0.9388108011847552,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.5599666787217839,
+        "pixel_auroc": 0.9405288595875219,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 6274,
+        "total_pixels": 125440
+       },
+       "image": {
+        "image_auroc": 1.0,
+        "image_ap": 1.0
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.5708659155500804,
+        "pixel_auroc": 0.9551871951399159,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.5812791303331859,
+        "pixel_auroc": 0.9562953722184933,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 6274,
+        "total_pixels": 125440
+       },
+       "image": {
+        "image_auroc": 1.0,
+        "image_ap": 1.0
+       }
+      }
+     },
+     "scratches": {
+      "n_normal": 26,
+      "n_anomaly": 34,
+      "fine_anomaly": {
+       "anomaly_images": 34,
+       "full_positive_pixels_mean": 21946.764705882353,
+       "stride8_positive_pixels_mean": 342.97058823529414,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.015617078057804027
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.837189284357015,
+        "pixel_auroc": 0.9699974712373775,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.84311476690643,
+        "pixel_auroc": 0.9708230533183901,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 11661,
+        "total_pixels": 188160
+       },
+       "image": {
+        "image_auroc": 0.997737556561086,
+        "image_ap": 0.9983660130718954
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.870915276870627,
+        "pixel_auroc": 0.9802353941839538,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.8767451452698245,
+        "pixel_auroc": 0.9808887787475158,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 11661,
+        "total_pixels": 188160
+       },
+       "image": {
+        "image_auroc": 0.9762443438914027,
+        "image_ap": 0.9813352297786543
+       }
+      }
+     },
+     "total_rust": {
+      "n_normal": 26,
+      "n_anomaly": 23,
+      "fine_anomaly": {
+       "anomaly_images": 23,
+       "full_positive_pixels_mean": 50018.782608695656,
+       "stride8_positive_pixels_mean": 781.0434782608696,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.01561482173804353
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.7206130258591185,
+        "pixel_auroc": 0.9325530125571849,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.7316705897650154,
+        "pixel_auroc": 0.9347200351329039,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 17964,
+        "total_pixels": 153664
+       },
+       "image": {
+        "image_auroc": 1.0,
+        "image_ap": 1.0
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.7300695500132129,
+        "pixel_auroc": 0.951099368249475,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.7423068065799323,
+        "pixel_auroc": 0.9528188968209078,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 17964,
+        "total_pixels": 153664
+       },
+       "image": {
+        "image_auroc": 0.8879598662207357,
+        "image_ap": 0.7932207535347844
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 71,
+     "full_positive_pixels_mean": 32376.61971830986,
+     "stride8_positive_pixels_mean": 505.61971830985914,
+     "stride8_zero_mask_count": 0,
+     "stride8_zero_mask_rate": 0.0,
+     "stride8_positive_fraction_of_full_mean": 0.015615096733348892
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "metal_plate/train/good/029.png",
+      "metal_plate/train/good/012.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 165.7517999992706,
+      "full89664": 773.3881000021938
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   },
+   "tubes": {
+    "category": "tubes",
+    "n_samples": 101,
+    "n_normal": 32,
+    "n_anomaly": 69,
+    "arms": {
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.6992968208715427,
+       "pixel_auroc": 0.9835355056026351,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7004828694356271,
+       "pixel_auroc": 0.9838009480921613,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 2585,
+       "total_pixels": 316736
+      },
+      "image": {
+       "image_auroc": 0.957427536231884,
+       "image_ap": 0.9831327875544104
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.6877166787011884,
+       "pixel_auroc": 0.9816936831251272,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.6895463522800253,
+       "pixel_auroc": 0.9818228851705909,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 2585,
+       "total_pixels": 316736
+      },
+      "image": {
+       "image_auroc": 0.9782608695652174,
+       "image_ap": 0.9913030605832501
+      }
+     }
+    },
+    "defect_types": {
+     "anomalous": {
+      "n_normal": 32,
+      "n_anomaly": 69,
+      "fine_anomaly": {
+       "anomaly_images": 69,
+       "full_positive_pixels_mean": 2392.8260869565215,
+       "stride8_positive_pixels_mean": 37.46376811594203,
+       "stride8_zero_mask_count": 0,
+       "stride8_zero_mask_rate": 0.0,
+       "stride8_positive_fraction_of_full_mean": 0.015666814231816407
+      },
+      "full44832": {
+       "full_pixel": {
+        "pixel_ap": 0.6992968208715427,
+        "pixel_auroc": 0.9835355056026351,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.7004828694356271,
+        "pixel_auroc": 0.9838009480921613,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 2585,
+        "total_pixels": 316736
+       },
+       "image": {
+        "image_auroc": 0.957427536231884,
+        "image_ap": 0.9831327875544104
+       }
+      },
+      "full89664": {
+       "full_pixel": {
+        "pixel_ap": 0.6877166787011884,
+        "pixel_auroc": 0.9816936831251272,
+        "valid": true
+       },
+       "stride8": {
+        "pixel_ap": 0.6895463522800253,
+        "pixel_auroc": 0.9818228851705909,
+        "valid": true,
+        "stride": 8,
+        "map_shape": [
+         56,
+         56
+        ],
+        "positive_pixels": 2585,
+        "total_pixels": 316736
+       },
+       "image": {
+        "image_auroc": 0.9782608695652174,
+        "image_ap": 0.9913030605832501
+       }
+      }
+     }
+    },
+    "fine_anomaly": {
+     "anomaly_images": 69,
+     "full_positive_pixels_mean": 2392.8260869565215,
+     "stride8_positive_pixels_mean": 37.46376811594203,
+     "stride8_zero_mask_count": 0,
+     "stride8_zero_mask_rate": 0.0,
+     "stride8_positive_fraction_of_full_mean": 0.015666814231816407
+    },
+    "bank": {
+     "k": 2,
+     "memory_images": [
+      "tubes/train/good/069.png",
+      "tubes/train/good/105.png"
+     ],
+     "memory_cells": {
+      "full44832": 2048,
+      "full89664": 8192
+     },
+     "encode_ms": {
+      "full44832": 174.87270000128774,
+      "full89664": 1066.3727999999537
+     },
+     "gpu_last": {
+      "full44832": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      },
+      "full89664": {
+       "torch_allocated_mb": 355.132416,
+       "torch_reserved_mb": 631.242752,
+       "torch_peak_allocated_mb": 503.212032,
+       "torch_peak_reserved_mb": 631.242752,
+       "device_free_mb": 4699.717632,
+       "device_total_mb": 6441.926656
+      }
+     }
+    }
+   }
+  },
+  "category_macro": {
+   "n_categories": 6,
+   "arms": {
+    "full44832": {
+     "full_pixel": {
+      "pixel_ap": 0.31763577025731665,
+      "pixel_auroc": 0.9509959161945295
+     },
+     "stride8": {
+      "pixel_ap": 0.3156112986711508,
+      "pixel_auroc": 0.9524145993048658
+     },
+     "image": {
+      "image_ap": 0.7433021666974103,
+      "image_auroc": 0.7323299517039693
+     }
+    },
+    "full89664": {
+     "full_pixel": {
+      "pixel_ap": 0.3105420951062044,
+      "pixel_auroc": 0.9536722697430443
+     },
+     "stride8": {
+      "pixel_ap": 0.3116133558010428,
+      "pixel_auroc": 0.9542621029350012
+     },
+     "image": {
+      "image_ap": 0.7522450719296558,
+      "image_auroc": 0.7544118170514262
+     }
+    }
+   },
+   "fine_anomaly": {
+    "mean_stride8_zero_mask_rate": 0.03333333333333333,
+    "mean_stride8_positive_fraction_of_full": 0.01512247409567786,
+    "total_anomaly_images": 282,
+    "total_stride8_zero_mask_count": 6
+   }
+  },
+  "defect_type_macro": {
+   "n_defect_type_groups": 11,
+   "arms": {
+    "full44832": {
+     "full_pixel": {
+      "pixel_ap": 0.30315814993692886,
+      "pixel_auroc": 0.9535777310818677
+     },
+     "stride8": {
+      "pixel_ap": 0.3033180954397615,
+      "pixel_auroc": 0.9553519452889567
+     },
+     "image": {
+      "image_ap": 0.6708513337418289,
+      "image_auroc": 0.7329098158342084
+     }
+    },
+    "full89664": {
+     "full_pixel": {
+      "pixel_ap": 0.3015361965797974,
+      "pixel_auroc": 0.9581542322015014
+     },
+     "stride8": {
+      "pixel_ap": 0.30437524628447726,
+      "pixel_auroc": 0.9593257625582006
+     },
+     "image": {
+      "image_ap": 0.6744519259104877,
+      "image_auroc": 0.7592752063580068
+     }
+    }
+   },
+   "groups": {
+    "bracket_black/hole": {
+     "n_normal": 32,
+     "n_anomaly": 12,
+     "fine_anomaly": {
+      "anomaly_images": 12,
+      "full_positive_pixels_mean": 276.9166666666667,
+      "stride8_positive_pixels_mean": 4.333333333333333,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.015638763086200082
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.006777002618244173,
+       "pixel_auroc": 0.964652487344482,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.007492697763253875,
+       "pixel_auroc": 0.9652908679639243,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 52,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.4140625,
+       "image_ap": 0.23773090813410988
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.028897983276638044,
+       "pixel_auroc": 0.984550928425324,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.030116240105099466,
+       "pixel_auroc": 0.9848530435286953,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 52,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.7239583333333333,
+       "image_ap": 0.5258459681157049
+      }
+     }
+    },
+    "bracket_black/scratches": {
+     "n_normal": 32,
+     "n_anomaly": 35,
+     "fine_anomaly": {
+      "anomaly_images": 35,
+      "full_positive_pixels_mean": 301.6857142857143,
+      "stride8_positive_pixels_mean": 5.314285714285714,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.017918448709961832
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.04784348997200257,
+       "pixel_auroc": 0.934859972706214,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.04313344531722445,
+       "pixel_auroc": 0.9406652538800411,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 186,
+       "total_pixels": 210112
+      },
+      "image": {
+       "image_auroc": 0.47946428571428573,
+       "image_ap": 0.5832937929226909
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.09681455299352325,
+       "pixel_auroc": 0.9521354099203991,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.10264595192582096,
+       "pixel_auroc": 0.956665541334125,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 186,
+       "total_pixels": 210112
+      },
+      "image": {
+       "image_auroc": 0.4875,
+       "image_ap": 0.6112072248698688
+      }
+     }
+    },
+    "bracket_brown/bend_and_parts_mismatch": {
+     "n_normal": 26,
+     "n_anomaly": 17,
+     "fine_anomaly": {
+      "anomaly_images": 17,
+      "full_positive_pixels_mean": 3374.0588235294117,
+      "stride8_positive_pixels_mean": 52.588235294117645,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.015600636599769634
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.048569966388930616,
+       "pixel_auroc": 0.8813920718657257,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.04987950845897837,
+       "pixel_auroc": 0.8820937069819186,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 894,
+       "total_pixels": 134848
+      },
+      "image": {
+       "image_auroc": 0.49321266968325794,
+       "image_ap": 0.4034527167281457
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.043461145788515725,
+       "pixel_auroc": 0.8721975905960135,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.04392888590161677,
+       "pixel_auroc": 0.8736797740076988,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 894,
+       "total_pixels": 134848
+      },
+      "image": {
+       "image_auroc": 0.5090497737556561,
+       "image_ap": 0.37965748211523026
+      }
+     }
+    },
+    "bracket_brown/parts_mismatch": {
+     "n_normal": 26,
+     "n_anomaly": 34,
+     "fine_anomaly": {
+      "anomaly_images": 34,
+      "full_positive_pixels_mean": 390.70588235294116,
+      "stride8_positive_pixels_mean": 5.794117647058823,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.014394951348309393
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.019805376865637596,
+       "pixel_auroc": 0.9348451076535307,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.01796462446793224,
+       "pixel_auroc": 0.9380994115620174,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 197,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.4321266968325792,
+       "image_ap": 0.562275603113757
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.013486048582010262,
+       "pixel_auroc": 0.9132121420542746,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.012608475594079956,
+       "pixel_auroc": 0.9155576331025944,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 197,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.44796380090497745,
+       "image_ap": 0.5377528451712738
+      }
+     }
+    },
+    "bracket_white/defective_painting": {
+     "n_normal": 30,
+     "n_anomaly": 13,
+     "fine_anomaly": {
+      "anomaly_images": 13,
+      "full_positive_pixels_mean": 70.23076923076923,
+      "stride8_positive_pixels_mean": 0.8461538461538461,
+      "stride8_zero_mask_count": 4,
+      "stride8_zero_mask_rate": 0.3076923076923077,
+      "stride8_positive_fraction_of_full_mean": 0.011072177282459572
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.009058170066136352,
+       "pixel_auroc": 0.9910447438872015,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.012759643750074968,
+       "pixel_auroc": 0.9943723296883038,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 11,
+       "total_pixels": 134848
+      },
+      "image": {
+       "image_auroc": 0.7512820512820514,
+       "image_ap": 0.45503792991497094
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.008947487772823799,
+       "pixel_auroc": 0.9917947540317326,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.0169182403067074,
+       "pixel_auroc": 0.9949851908735599,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 11,
+       "total_pixels": 134848
+      },
+      "image": {
+       "image_auroc": 0.7948717948717949,
+       "image_ap": 0.5568170548585141
+      }
+     }
+    },
+    "bracket_white/scratches": {
+     "n_normal": 30,
+     "n_anomaly": 17,
+     "fine_anomaly": {
+      "anomaly_images": 17,
+      "full_positive_pixels_mean": 150.35294117647058,
+      "stride8_positive_pixels_mean": 1.8823529411764706,
+      "stride8_zero_mask_count": 2,
+      "stride8_zero_mask_rate": 0.11764705882352941,
+      "stride8_positive_fraction_of_full_mean": 0.011802887829416653
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.1319180917378692,
+       "pixel_auroc": 0.9934367065210739,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.10177447227376273,
+       "pixel_auroc": 0.9938411882464713,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 32,
+       "total_pixels": 147392
+      },
+      "image": {
+       "image_auroc": 0.7843137254901961,
+       "image_ap": 0.656809893196708
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.04035158681268293,
+       "pixel_auroc": 0.9943060769433212,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.023678121788770233,
+       "pixel_auroc": 0.9919981253393051,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 32,
+       "total_pixels": 147392
+      },
+      "image": {
+       "image_auroc": 0.7176470588235294,
+       "image_ap": 0.48991487365785813
+      }
+     }
+    },
+    "connector/parts_mismatch": {
+     "n_normal": 30,
+     "n_anomaly": 14,
+     "fine_anomaly": {
+      "anomaly_images": 14,
+      "full_positive_pixels_mean": 3439.714285714286,
+      "stride8_positive_pixels_mean": 54.57142857142857,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.01583343926770951
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.2639736209877032,
+       "pixel_auroc": 0.964227161340365,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.2682597529772939,
+       "pixel_auroc": 0.9646357437248703,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 764,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.7523809523809524,
+       "image_ap": 0.49926502652342986
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.22537193601646893,
+       "pixel_auroc": 0.9632840115469792,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.2283543590441873,
+       "pixel_auroc": 0.963018146996721,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 764,
+       "total_pixels": 137984
+      },
+      "image": {
+       "image_auroc": 0.8285714285714286,
+       "image_ap": 0.5519166923302262
+      }
+     }
+    },
+    "metal_plate/major_rust": {
+     "n_normal": 26,
+     "n_anomaly": 14,
+     "fine_anomaly": {
+      "anomaly_images": 14,
+      "full_positive_pixels_mean": 28722.714285714286,
+      "stride8_positive_pixels_mean": 448.14285714285717,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.015610736723388103
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.5496947995820177,
+       "pixel_auroc": 0.9388108011847552,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.5599666787217839,
+       "pixel_auroc": 0.9405288595875219,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 6274,
+       "total_pixels": 125440
+      },
+      "image": {
+       "image_auroc": 1.0,
+       "image_ap": 1.0
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.5708659155500804,
+       "pixel_auroc": 0.9551871951399159,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.5812791303331859,
+       "pixel_auroc": 0.9562953722184933,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 6274,
+       "total_pixels": 125440
+      },
+      "image": {
+       "image_auroc": 1.0,
+       "image_ap": 1.0
+      }
+     }
+    },
+    "metal_plate/scratches": {
+     "n_normal": 26,
+     "n_anomaly": 34,
+     "fine_anomaly": {
+      "anomaly_images": 34,
+      "full_positive_pixels_mean": 21946.764705882353,
+      "stride8_positive_pixels_mean": 342.97058823529414,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.015617078057804027
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.837189284357015,
+       "pixel_auroc": 0.9699974712373775,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.84311476690643,
+       "pixel_auroc": 0.9708230533183901,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 11661,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.997737556561086,
+       "image_ap": 0.9983660130718954
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.870915276870627,
+       "pixel_auroc": 0.9802353941839538,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.8767451452698245,
+       "pixel_auroc": 0.9808887787475158,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 11661,
+       "total_pixels": 188160
+      },
+      "image": {
+       "image_auroc": 0.9762443438914027,
+       "image_ap": 0.9813352297786543
+      }
+     }
+    },
+    "metal_plate/total_rust": {
+     "n_normal": 26,
+     "n_anomaly": 23,
+     "fine_anomaly": {
+      "anomaly_images": 23,
+      "full_positive_pixels_mean": 50018.782608695656,
+      "stride8_positive_pixels_mean": 781.0434782608696,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.01561482173804353
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.7206130258591185,
+       "pixel_auroc": 0.9325530125571849,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7316705897650154,
+       "pixel_auroc": 0.9347200351329039,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 17964,
+       "total_pixels": 153664
+      },
+      "image": {
+       "image_auroc": 1.0,
+       "image_ap": 1.0
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.7300695500132129,
+       "pixel_auroc": 0.951099368249475,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7423068065799323,
+       "pixel_auroc": 0.9528188968209078,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 17964,
+       "total_pixels": 153664
+      },
+      "image": {
+       "image_auroc": 0.8879598662207357,
+       "image_ap": 0.7932207535347844
+      }
+     }
+    },
+    "tubes/anomalous": {
+     "n_normal": 32,
+     "n_anomaly": 69,
+     "fine_anomaly": {
+      "anomaly_images": 69,
+      "full_positive_pixels_mean": 2392.8260869565215,
+      "stride8_positive_pixels_mean": 37.46376811594203,
+      "stride8_zero_mask_count": 0,
+      "stride8_zero_mask_rate": 0.0,
+      "stride8_positive_fraction_of_full_mean": 0.015666814231816407
+     },
+     "full44832": {
+      "full_pixel": {
+       "pixel_ap": 0.6992968208715427,
+       "pixel_auroc": 0.9835355056026351,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.7004828694356271,
+       "pixel_auroc": 0.9838009480921613,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 2585,
+       "total_pixels": 316736
+      },
+      "image": {
+       "image_auroc": 0.957427536231884,
+       "image_ap": 0.9831327875544104
+      }
+     },
+     "full89664": {
+      "full_pixel": {
+       "pixel_ap": 0.6877166787011884,
+       "pixel_auroc": 0.9816936831251272,
+       "valid": true
+      },
+      "stride8": {
+       "pixel_ap": 0.6895463522800253,
+       "pixel_auroc": 0.9818228851705909,
+       "valid": true,
+       "stride": 8,
+       "map_shape": [
+        56,
+        56
+       ],
+       "positive_pixels": 2585,
+       "total_pixels": 316736
+      },
+      "image": {
+       "image_auroc": 0.9782608695652174,
+       "image_ap": 0.9913030605832501
+      }
+     }
+    }
+   }
+  },
+  "aupro": "not computed"
+ }
+}

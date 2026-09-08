@@ -1,0 +1,27 @@
+{
+  "shot": 2,
+  "seed": 0,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "episodes": [
+    0,
+    3,
+    6
+  ],
+  "grids": [
+    16,
+    32
+  ],
+  "fitting": "none",
+  "memory": "other support image only",
+  "mask": "native 1024 binary; no mask downsampling",
+  "interpolation": "bilinear score maps, identical for both grids",
+  "status": "measurement/probe, not frozen A1 parity or confirmation",
+  "decision": "report all per-category and family differences; no tuning or winner selection"
+}
