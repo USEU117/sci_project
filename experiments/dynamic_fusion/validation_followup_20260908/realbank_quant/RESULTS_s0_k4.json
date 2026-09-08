@@ -1,0 +1,568 @@
+{
+ "seed": 0,
+ "shot": 4,
+ "created_utc": "2026-09-08T00:24:37.673070+00:00",
+ "parity": {
+  "control_macro_pixel_ap": 0.38832819735292734,
+  "frozen_ref": 0.388328,
+  "parity_ok": true
+ },
+ "aggregate": {
+  "control_f32": {
+   "macro_pixel_ap": 0.38832819735292734,
+   "macro_ap_delta": 0.0,
+   "worst_cat_ap_delta": 0.0,
+   "nn_identity": 1.0,
+   "dist_p99_worst_cat": 0.0,
+   "storage_ratio": 1.0,
+   "prepare_seconds": 0.0045421499986938825,
+   "score_seconds": 0.0015309666669054423,
+   "gates": {}
+  },
+  "fp16_roundtrip": {
+   "macro_pixel_ap": 0.3883283048844581,
+   "macro_ap_delta": 1.0753153070174511e-07,
+   "worst_cat_ap_delta": -1.3101942641091657e-06,
+   "nn_identity": 0.9998115674154963,
+   "dist_p99_worst_cat": 1.1086463928222656e-05,
+   "storage_ratio": 0.5,
+   "prepare_seconds": 0.03817648333279067,
+   "score_seconds": 6.7912723000008555,
+   "gates": {
+    "macro_ap": true,
+    "worst_cat_ap": true,
+    "nn_identity": true,
+    "storage": true,
+    "all": true
+   }
+  },
+  "int8_pc_roundtrip": {
+   "macro_pixel_ap": 0.3883060212738639,
+   "macro_ap_delta": -2.2176079063409664e-05,
+   "worst_cat_ap_delta": -0.0001635405834074649,
+   "nn_identity": 0.9952620885210349,
+   "dist_p99_worst_cat": 0.00026535987854003906,
+   "storage_ratio": 0.250244140625,
+   "prepare_seconds": 0.06082484999933513,
+   "score_seconds": 6.970277399998547,
+   "gates": {
+    "macro_ap": true,
+    "worst_cat_ap": true,
+    "nn_identity": true,
+    "storage": true,
+    "all": true
+   }
+  }
+ },
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "n_test": 79,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.9740839149167219,
+    "pixel_ap": 0.18559338413287718,
+    "pixel_aupro": 0.9113330861362565
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.18559338413287718,
+     "pixel_auroc": 0.9740839149167219,
+     "pixel_aupro": 0.9113330861362565,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.005832299997564405,
+     "score_seconds": 6.00004568696022e-07
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.18559207393861307,
+     "pixel_auroc": 0.9740845515195726,
+     "pixel_aupro": 0.9113332797771982,
+     "ap_delta_vs_control": -1.3101942641091657e-06,
+     "nn_identity": 0.9998392998417721,
+     "distance_error": {
+      "mean": 2.6257623199232017e-06,
+      "p99": 1.0728836059570312e-05,
+      "max": 3.695487976074219e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.038449599996965844,
+     "score_seconds": 6.528629700005695
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.18563746396218858,
+     "pixel_auroc": 0.9741127402938097,
+     "pixel_aupro": 0.911573324815663,
+     "ap_delta_vs_control": 4.4079829311399754e-05,
+     "nn_identity": 0.9946845332278481,
+     "distance_error": {
+      "mean": 6.643460644998505e-05,
+      "p99": 0.0002614289522171022,
+      "max": 0.0007327795028686523
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.0648014000034891,
+     "score_seconds": 6.733120599994436
+    }
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "n_test": 77,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.9060587902406123,
+    "pixel_ap": 0.03395189142738491,
+    "pixel_aupro": 0.7971226063549272
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.03395189142738491,
+     "pixel_auroc": 0.9060587902406123,
+     "pixel_aupro": 0.7971226063549272,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.004825199997867458,
+     "score_seconds": 0.0021319000006769784
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.033951645734337246,
+     "pixel_auroc": 0.9060586968203254,
+     "pixel_aupro": 0.7971217407076414,
+     "ap_delta_vs_control": -2.456930476638086e-07,
+     "nn_identity": 0.9997590300324676,
+     "distance_error": {
+      "mean": 2.3586991509156566e-06,
+      "p99": 9.894371032714844e-06,
+      "max": 2.6464462280273438e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.043217899998126086,
+     "score_seconds": 7.123911799993948
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.03395940202670552,
+     "pixel_auroc": 0.9060654840901419,
+     "pixel_aupro": 0.7969948586575015,
+     "ap_delta_vs_control": 7.510599320609268e-06,
+     "nn_identity": 0.9950791396103896,
+     "distance_error": {
+      "mean": 5.6364385308334966e-05,
+      "p99": 0.00021776735782623284,
+      "max": 0.0005278587341308594
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.060925800004042685,
+     "score_seconds": 6.567015499997069
+    }
+   }
+  },
+  {
+   "category": "bracket_white",
+   "n_test": 60,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.9965490304092046,
+    "pixel_ap": 0.09536222826166874,
+    "pixel_aupro": 0.9883331687186767
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.09536222826166874,
+     "pixel_auroc": 0.9965490304092046,
+     "pixel_aupro": 0.9883331687186767,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.004124300001421943,
+     "score_seconds": 0.001713899997412227
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.09536439499344526,
+     "pixel_auroc": 0.9965494012818099,
+     "pixel_aupro": 0.988333985316702,
+     "ap_delta_vs_control": 2.166731776526154e-06,
+     "nn_identity": 0.9998046875,
+     "distance_error": {
+      "mean": 2.34858695572863e-06,
+      "p99": 1.0192394256591797e-05,
+      "max": 2.8192996978759766e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.03186160000041127,
+     "score_seconds": 5.6454575000025216
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.09519868767826127,
+     "pixel_auroc": 0.9965486595365997,
+     "pixel_aupro": 0.9883241778674235,
+     "ap_delta_vs_control": -0.0001635405834074649,
+     "nn_identity": 0.9958170572916667,
+     "distance_error": {
+      "mean": 6.128677438634137e-05,
+      "p99": 0.00023964703083038334,
+      "max": 0.0005592703819274902
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.06120260000170674,
+     "score_seconds": 5.42701429999579
+    }
+   }
+  },
+  {
+   "category": "connector",
+   "n_test": 44,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.9752973356119381,
+    "pixel_ap": 0.375039648378757,
+    "pixel_aupro": 0.916327030191775
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.375039648378757,
+     "pixel_auroc": 0.9752973356119381,
+     "pixel_aupro": 0.916327030191775,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.003966899996157736,
+     "score_seconds": 0.0019379000004846603
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.37504108096746647,
+     "pixel_auroc": 0.9752973308425879,
+     "pixel_aupro": 0.9163326704410736,
+     "ap_delta_vs_control": 1.4325887094934764e-06,
+     "nn_identity": 0.9998224431818182,
+     "distance_error": {
+      "mean": 1.8782911039042203e-06,
+      "p99": 8.165836334228516e-06,
+      "max": 2.0384788513183594e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.0353772000016761,
+     "score_seconds": 3.8484838000003947
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.3749464985718959,
+     "pixel_auroc": 0.9752975454633557,
+     "pixel_aupro": 0.9161467291910126,
+     "ap_delta_vs_control": -9.314980686109253e-05,
+     "nn_identity": 0.9962269176136364,
+     "distance_error": {
+      "mean": 4.978254252240401e-05,
+      "p99": 0.00020319223403930664,
+      "max": 0.0005198121070861816
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.05451879999600351,
+     "score_seconds": 3.973539600003278
+    }
+   }
+  },
+  {
+   "category": "metal_plate",
+   "n_test": 97,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.979656765417429,
+    "pixel_ap": 0.8849814685444146,
+    "pixel_aupro": 0.9451036892342907
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.8849814685444146,
+     "pixel_auroc": 0.979656765417429,
+     "pixel_aupro": 0.9451036892342907,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.004373799994937144,
+     "score_seconds": 0.0011433000036049634
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.8849808861186486,
+     "pixel_auroc": 0.9796567743465099,
+     "pixel_aupro": 0.9451022497838228,
+     "ap_delta_vs_control": -5.824257660602683e-07,
+     "nn_identity": 0.9997986469072165,
+     "distance_error": {
+      "mean": 2.4680732317345657e-06,
+      "p99": 1.1086463928222656e-05,
+      "max": 2.5451183319091797e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.046868600002198946,
+     "score_seconds": 9.435048699997424
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.8849838172282938,
+     "pixel_auroc": 0.9796565348187232,
+     "pixel_aupro": 0.9451472001856437,
+     "ap_delta_vs_control": 2.3486838791608733e-06,
+     "nn_identity": 0.9944929929123711,
+     "distance_error": {
+      "mean": 6.410340027230763e-05,
+      "p99": 0.00026535987854003906,
+      "max": 0.0005930662155151367
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.06184209999628365,
+     "score_seconds": 10.260618300002534
+    }
+   }
+  },
+  {
+   "category": "tubes",
+   "n_test": 101,
+   "memory_rows": 4096,
+   "grid": [
+    32,
+    32
+   ],
+   "control_full_metrics": {
+    "pixel_auroc": 0.9903581675820288,
+    "pixel_ap": 0.7550405633724615,
+    "pixel_aupro": 0.9619877356795257
+   },
+   "methods": {
+    "control_f32": {
+     "pixel_ap": 0.7550405633724615,
+     "pixel_auroc": 0.9903581675820288,
+     "pixel_aupro": 0.9619877356795257,
+     "ap_delta_vs_control": 0.0,
+     "nn_identity": 1.0,
+     "distance_error": {
+      "mean": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+     },
+     "storage": {
+      "storage_bytes": 25165824,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 1.0,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.004130400004214607,
+     "score_seconds": 0.0022581999946851283
+    },
+    "fp16_roundtrip": {
+     "pixel_ap": 0.7550397475542375,
+     "pixel_auroc": 0.9903581521894629,
+     "pixel_aupro": 0.9619861684626132,
+     "ap_delta_vs_control": -8.158182239759171e-07,
+     "nn_identity": 0.9998452970297029,
+     "distance_error": {
+      "mean": 2.2053660935547094e-06,
+      "p99": 9.357929229736328e-06,
+      "max": 2.5033950805664062e-05
+     },
+     "storage": {
+      "storage_bytes": 12582912,
+      "scale_bytes": 0,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.5,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.033283999997365754,
+     "score_seconds": 8.16610230000515
+    },
+    "int8_pc_roundtrip": {
+     "pixel_ap": 0.7551102581758384,
+     "pixel_auroc": 0.9903567212965452,
+     "pixel_aupro": 0.9619407758497441,
+     "ap_delta_vs_control": 6.969480337692957e-05,
+     "nn_identity": 0.9952718904702971,
+     "distance_error": {
+      "mean": 5.897392961427127e-05,
+      "p99": 0.00023290753364563037,
+      "max": 0.0005993843078613281
+     },
+     "storage": {
+      "storage_bytes": 6297600,
+      "scale_bytes": 6144,
+      "control_storage_bytes": 25165824,
+      "storage_ratio_vs_control": 0.250244140625,
+      "rows": 4096,
+      "dim": 1536
+     },
+     "prepare_seconds": 0.06165839999448508,
+     "score_seconds": 8.860356099998171
+    }
+   }
+  }
+ ],
+ "protocol": {
+  "script": "scripts\\validation_followup_20260908\\probe_realbank_quant.py",
+  "git_commit": "0cc9b46e9f6809c2ef08d3d95342934262f74309",
+  "seed": 0,
+  "shot": 4,
+  "cats": [
+   "bracket_black",
+   "bracket_brown",
+   "bracket_white",
+   "connector",
+   "metal_plate",
+   "tubes"
+  ],
+  "frozen_config": "A1 concat pca0 whiten0 w0.5; faiss k=1 (1-max-cos); 448 maps; Pixel-AP stride8",
+  "quantization": "memory-only roundtrip; fp16 astype; int8 symmetric per-channel scale max(|.|)/127 rint clip; query f32",
+  "test_labels_fit_or_select": false
+ }
+}

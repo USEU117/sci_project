@@ -1,0 +1,167 @@
+{
+ "generated_utc": "2026-09-08T00:18:45.402058+00:00",
+ "source": "outputs/dynamic_fusion/overnight_20260908_real_resolution (complete, 916 rows)",
+ "macro": {
+  "category_macro_image_auroc": {
+   "full44832": 0.7323299517039693,
+   "full89664": 0.7544118170514262
+  },
+  "category_macro_full_pixel_ap": {
+   "full44832": 0.31763577025731665,
+   "full89664": 0.3105420951062044
+  },
+  "defect_type_macro_image_auroc": {
+   "full44832": 0.7329098158342084,
+   "full89664": 0.7592752063580068
+  }
+ },
+ "within_anomaly_pixel_ap_per_category": {
+  "bracket_black": {
+   "within_ap_448": 0.24207214201390861,
+   "within_ap_896": 0.3552864345129441
+  },
+  "bracket_brown": {
+   "within_ap_448": 0.17909386311038558,
+   "within_ap_896": 0.13269522296598457
+  },
+  "bracket_white": {
+   "within_ap_448": 0.26097326343938093,
+   "within_ap_896": 0.2609381147072726
+  },
+  "connector": {
+   "within_ap_448": 0.5077639701975685,
+   "within_ap_896": 0.47026034288491275
+  },
+  "metal_plate": {
+   "within_ap_448": 0.7912279019819577,
+   "within_ap_896": 0.8378729781858885
+  },
+  "tubes": {
+   "within_ap_448": 0.6983066796442388,
+   "within_ap_896": 0.706541643079719
+  }
+ },
+ "per_group": [
+  {
+   "group": "bracket_black/hole",
+   "n_anomaly": 12,
+   "pixel_ap_448": 0.006777002618244173,
+   "pixel_ap_896": 0.028897983276638044,
+   "image_auroc_448": 0.4140625,
+   "image_auroc_896": 0.7239583333333333,
+   "image_ap_448": 0.23773090813410988,
+   "image_ap_896": 0.5258459681157049,
+   "d6_gap": "D6: A1 fused imgAUROC ~0.42/0.66 (small-area, detection-limited)"
+  },
+  {
+   "group": "bracket_black/scratches",
+   "n_anomaly": 35,
+   "pixel_ap_448": 0.04784348997200257,
+   "pixel_ap_896": 0.09681455299352325,
+   "image_auroc_448": 0.47946428571428573,
+   "image_auroc_896": 0.4875,
+   "image_ap_448": 0.5832937929226909,
+   "image_ap_896": 0.6112072248698688,
+   "d6_gap": null
+  },
+  {
+   "group": "bracket_brown/bend_and_parts_mismatch",
+   "n_anomaly": 17,
+   "pixel_ap_448": 0.048569966388930616,
+   "pixel_ap_896": 0.043461145788515725,
+   "image_auroc_448": 0.49321266968325794,
+   "image_auroc_896": 0.5090497737556561,
+   "image_ap_448": 0.4034527167281457,
+   "image_ap_896": 0.37965748211523026,
+   "d6_gap": "D6: A1 fused imgAUROC ~0.61/0.63"
+  },
+  {
+   "group": "bracket_brown/parts_mismatch",
+   "n_anomaly": 34,
+   "pixel_ap_448": 0.019805376865637596,
+   "pixel_ap_896": 0.013486048582010262,
+   "image_auroc_448": 0.4321266968325792,
+   "image_auroc_896": 0.44796380090497745,
+   "image_ap_448": 0.562275603113757,
+   "image_ap_896": 0.5377528451712738,
+   "d6_gap": "D6: A1 fused imgAUROC ~0.55/0.54 (detection near-random)"
+  },
+  {
+   "group": "bracket_white/defective_painting",
+   "n_anomaly": 13,
+   "pixel_ap_448": 0.009058170066136352,
+   "pixel_ap_896": 0.008947487772823799,
+   "image_auroc_448": 0.7512820512820514,
+   "image_auroc_896": 0.7948717948717949,
+   "image_ap_448": 0.45503792991497094,
+   "image_ap_896": 0.5568170548585141,
+   "d6_gap": "D6: A1 fused imgAUROC ~0.79/0.79"
+  },
+  {
+   "group": "bracket_white/scratches",
+   "n_anomaly": 17,
+   "pixel_ap_448": 0.1319180917378692,
+   "pixel_ap_896": 0.04035158681268293,
+   "image_auroc_448": 0.7843137254901961,
+   "image_auroc_896": 0.7176470588235294,
+   "image_ap_448": 0.656809893196708,
+   "image_ap_896": 0.48991487365785813,
+   "d6_gap": null
+  },
+  {
+   "group": "connector/parts_mismatch",
+   "n_anomaly": 14,
+   "pixel_ap_448": 0.2639736209877032,
+   "pixel_ap_896": 0.22537193601646893,
+   "image_auroc_448": 0.7523809523809524,
+   "image_auroc_896": 0.8285714285714286,
+   "image_ap_448": 0.49926502652342986,
+   "image_ap_896": 0.5519166923302262,
+   "d6_gap": null
+  },
+  {
+   "group": "metal_plate/major_rust",
+   "n_anomaly": 14,
+   "pixel_ap_448": 0.5496947995820177,
+   "pixel_ap_896": 0.5708659155500804,
+   "image_auroc_448": 1.0,
+   "image_auroc_896": 1.0,
+   "image_ap_448": 1.0,
+   "image_ap_896": 1.0,
+   "d6_gap": null
+  },
+  {
+   "group": "metal_plate/scratches",
+   "n_anomaly": 34,
+   "pixel_ap_448": 0.837189284357015,
+   "pixel_ap_896": 0.870915276870627,
+   "image_auroc_448": 0.997737556561086,
+   "image_auroc_896": 0.9762443438914027,
+   "image_ap_448": 0.9983660130718954,
+   "image_ap_896": 0.9813352297786543,
+   "d6_gap": null
+  },
+  {
+   "group": "metal_plate/total_rust",
+   "n_anomaly": 23,
+   "pixel_ap_448": 0.7206130258591185,
+   "pixel_ap_896": 0.7300695500132129,
+   "image_auroc_448": 1.0,
+   "image_auroc_896": 0.8879598662207357,
+   "image_ap_448": 1.0,
+   "image_ap_896": 0.7932207535347844,
+   "d6_gap": null
+  },
+  {
+   "group": "tubes/anomalous",
+   "n_anomaly": 69,
+   "pixel_ap_448": 0.6992968208715427,
+   "pixel_ap_896": 0.6877166787011884,
+   "image_auroc_448": 0.957427536231884,
+   "image_auroc_896": 0.9782608695652174,
+   "image_ap_448": 0.9831327875544104,
+   "image_ap_896": 0.9913030605832501,
+   "d6_gap": null
+  }
+ ]
+}
