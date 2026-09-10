@@ -1,0 +1,243 @@
+{
+ "round": 11,
+ "seed": 0,
+ "shot": 4,
+ "created_utc": "2026-09-10T01:39:52.984166+00:00",
+ "parity": {
+  "control_macro_pixel_ap": 0.38832784684970845,
+  "frozen_ref": 0.388328,
+  "ok": true
+ },
+ "aggregate": {
+  "C0": {
+   "macro_ap_delta": 0.0,
+   "worst_cat_ap_delta": 0.0,
+   "macro_auroc_delta": 0.0
+  },
+  "MDN_2k": {
+   "macro_ap_delta": -0.00016270209593803134,
+   "worst_cat_ap_delta": -0.006087946738715738,
+   "macro_auroc_delta": 0.00026987137005102246
+  },
+  "MDN_8k": {
+   "macro_ap_delta": 0.00010547229304025292,
+   "worst_cat_ap_delta": -0.020650481664470616,
+   "macro_auroc_delta": 0.0005926512673827636
+  },
+  "MG_min": {
+   "macro_ap_delta": -0.0510861402111202,
+   "worst_cat_ap_delta": -0.11486537844054961,
+   "macro_auroc_delta": -0.007628958647292017
+  }
+ },
+ "family_gates": {
+  "MDN": {
+   "lead": "MDN_8k",
+   "macro_ap": 0.00010547229304025292,
+   "worst_cat_ap": -0.020650481664470616,
+   "macro_auroc": 0.0005926512673827636,
+   "pass": false
+  },
+  "MG": {
+   "lead": "MG_min",
+   "macro_ap": -0.0510861402111202,
+   "worst_cat_ap": -0.11486537844054961,
+   "macro_auroc": -0.007628958647292017,
+   "pass": false
+  }
+ },
+ "per_category": [
+  {
+   "category": "bracket_black",
+   "n_test": 79,
+   "compute_s": 35.763252400000056,
+   "control": {
+    "pixel_auroc": 0.9740839234047598,
+    "pixel_ap": 0.1855914931896549,
+    "pixel_aupro": 0.9113330861362565
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.9740839234047598,
+     "pixel_ap": 0.1855914931896549,
+     "pixel_aupro": 0.9113330861362565
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9745225597450926,
+     "pixel_ap": 0.17950354645093916,
+     "pixel_aupro": 0.9116212930195645
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9760041977082705,
+     "pixel_ap": 0.1809896647358798,
+     "pixel_aupro": 0.9163330517608315
+    },
+    "MG_min": {
+     "pixel_auroc": 0.9462698111655998,
+     "pixel_ap": 0.07072611474910528,
+     "pixel_aupro": 0.8036230615008887
+    }
+   }
+  },
+  {
+   "category": "bracket_brown",
+   "n_test": 77,
+   "compute_s": 35.24883240000054,
+   "control": {
+    "pixel_auroc": 0.906058858875925,
+    "pixel_ap": 0.03395190257695649,
+    "pixel_aupro": 0.7971228301217042
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.906058858875925,
+     "pixel_ap": 0.03395190257695649,
+     "pixel_aupro": 0.7971228301217042
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9061336789929701,
+     "pixel_ap": 0.03283444666036217,
+     "pixel_aupro": 0.796418979654207
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9047942856495942,
+     "pixel_ap": 0.030527315120618008,
+     "pixel_aupro": 0.7927539471039182
+    },
+    "MG_min": {
+     "pixel_auroc": 0.9054648755336162,
+     "pixel_ap": 0.03186701086811344,
+     "pixel_aupro": 0.7546907323519269
+    }
+   }
+  },
+  {
+   "category": "bracket_white",
+   "n_test": 60,
+   "compute_s": 26.92329329999484,
+   "control": {
+    "pixel_auroc": 0.9965490304092047,
+    "pixel_ap": 0.09536222826166875,
+    "pixel_aupro": 0.9883331687186767
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.9965490304092047,
+     "pixel_ap": 0.09536222826166875,
+     "pixel_aupro": 0.9883331687186767
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9967359502021936,
+     "pixel_ap": 0.10068602097948921,
+     "pixel_aupro": 0.9885925696273876
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9964941412636446,
+     "pixel_ap": 0.07471174659719813,
+     "pixel_aupro": 0.9876526355937695
+    },
+    "MG_min": {
+     "pixel_auroc": 0.9865102507333696,
+     "pixel_ap": 0.026731668865637943,
+     "pixel_aupro": 0.9520664429329145
+    }
+   }
+  },
+  {
+   "category": "connector",
+   "n_test": 44,
+   "compute_s": 19.67741820000083,
+   "control": {
+    "pixel_auroc": 0.975297345150639,
+    "pixel_ap": 0.3750396755600374,
+    "pixel_aupro": 0.9163269978304538
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.975297345150639,
+     "pixel_ap": 0.3750396755600374,
+     "pixel_aupro": 0.9163269978304538
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9758063349945935,
+     "pixel_ap": 0.3798245227754713,
+     "pixel_aupro": 0.9165140240624644
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9771549928230816,
+     "pixel_ap": 0.40173663508863466,
+     "pixel_aupro": 0.9209602660819936
+    },
+    "MG_min": {
+     "pixel_auroc": 0.971347307148455,
+     "pixel_ap": 0.2891067715821691,
+     "pixel_aupro": 0.9025369674777904
+    }
+   }
+  },
+  {
+   "category": "metal_plate",
+   "n_test": 97,
+   "compute_s": 43.00656919999892,
+   "control": {
+    "pixel_auroc": 0.9796567650540361,
+    "pixel_ap": 0.88498146087102,
+    "pixel_aupro": 0.9451038920851759
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.9796567650540361,
+     "pixel_ap": 0.88498146087102,
+     "pixel_aupro": 0.9451038920851759
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9800223218342943,
+     "pixel_ap": 0.8865647571308404,
+     "pixel_aupro": 0.9447960618227712
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9807580494973731,
+     "pixel_ap": 0.8892616506384744,
+     "pixel_aupro": 0.9460987701492889
+    },
+    "MG_min": {
+     "pixel_auroc": 0.9786529084082113,
+     "pixel_ap": 0.8876595992438625,
+     "pixel_aupro": 0.9370187548323952
+    }
+   }
+  },
+  {
+   "category": "tubes",
+   "n_test": 101,
+   "compute_s": 45.793022400001064,
+   "control": {
+    "pixel_auroc": 0.9903581737390551,
+    "pixel_ap": 0.7550403206389129,
+    "pixel_aupro": 0.9619875722612807
+   },
+   "methods": {
+    "C0": {
+     "pixel_auroc": 0.9903581737390551,
+     "pixel_ap": 0.7550403206389129,
+     "pixel_aupro": 0.9619875722612807
+    },
+    "MDN_2k": {
+     "pixel_auroc": 0.9904024790847817,
+     "pixel_ap": 0.7495775745255201,
+     "pixel_aupro": 0.9610405553401864
+    },
+    "MDN_8k": {
+     "pixel_auroc": 0.9903543372959523,
+     "pixel_ap": 0.753372902675687,
+     "pixel_aupro": 0.9617009007441266
+    },
+    "MG_min": {
+     "pixel_auroc": 0.9879851917606157,
+     "pixel_ap": 0.717359074522641,
+     "pixel_aupro": 0.9555013671416355
+    }
+   }
+  }
+ ]
+}
