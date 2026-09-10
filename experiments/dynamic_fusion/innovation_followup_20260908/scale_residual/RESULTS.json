@@ -1,0 +1,333 @@
+{
+ "protocol": {
+  "script_version": "scale_residual_followup_v1",
+  "protocol_version": "scale_residual_cached64_support_probe_v1",
+  "created_utc": "2026-09-08T01:13:38.040233+00:00",
+  "role": "support-only cross-input-resolution residual control; no test image or test label",
+  "historical_audit": {
+   "resolution_storage_script": "scripts/innovation_overnight_20260908/probe_resolution_storage.py",
+   "resolution_storage_finding": "full448/full896 were evaluated as independent NN arms and INT8 roundtrip; no high-low feature residual",
+   "scale_fusion_script": "scripts/innovation_overnight_20260908/probe_scale_fusion.py",
+   "scale_fusion_finding": "fixed full896/low bilinear/concat/late arms; no direct cross-resolution residual or low-to-high predictor",
+   "full896_extension_script": "scripts/innovation_overnight_20260908/probe_full896_extension.py",
+   "full896_extension_finding": "dual-resolution clean/synthetic cache export only; no residual arm",
+   "related_prior_art": "https://arxiv.org/abs/2602.09524",
+   "related_prior_art_finding": "HLGFA (2026, v3) already describes frozen-backbone high-low resolution consistency, structure/detail decomposition, and gated residual",
+   "novelty_boundary": "the residual concept is not original; this probe only measures a few-shot normal-only closed-form residual and support-only cost/quality control",
+   "audit_conclusion": "direct cross-input-resolution residual route is not a completed historical experiment; this run is a bounded control, not a novelty claim"
+  },
+  "scope": {
+   "dataset": "MPDD",
+   "categories": [
+    "bracket_black",
+    "metal_plate"
+   ],
+   "seed": 0,
+   "shot": 2,
+   "synthetic_families": [
+    "thin_scratch",
+    "cutpaste"
+   ],
+   "synthetic_seeds": [
+    0,
+    1,
+    2
+   ],
+   "unique_synthetic_masks": 24
+  },
+  "cache_index": {
+   "high": "outputs/dynamic_fusion/overnight_20260908_full896/features/<category>.npz: clean_feat/syn_feat 64 x 64 x 768",
+   "low": "outputs/dynamic_fusion/v14_p1_support/v14_p1_support_dino_s0_k2/<category>.npz: clean_feat/syn_feat 32 x 32 x 768",
+   "index_rule": "match manifest ref_rel; high full896 kind-major thin_scratch/cutpaste; low v14 kind-major cutpaste/local_erasure/thin_scratch",
+   "mask_rule": "high full896 synthetic mask must equal the corresponding low v14 mask byte-for-byte"
+  },
+  "fixed_arms": {
+   "high_only64": "high feature row-L2 then global L2 NN",
+   "low_only64": "low feature bilinear-to-64, row-L2 then global L2 NN",
+   "late_mean64": "arithmetic mean of high-only and low-only 64-grid distance maps, then common map post-processing",
+   "direct_residual64": "row-L2 high minus row-L2 low; score is residual row L2 norm",
+   "high_residual_concat64": "row-L2 high and row-L2 direct residual, each multiplied by 1/sqrt(2), concat, row-L2, global L2 NN",
+   "ridge_residual64": "fit low-to-high ridge on the other clean support image only; query score is row L2 of own high minus predicted high",
+   "wrong_pair_residual64": "synthetic-only control: current query high minus same-query next-seed low, row-L2 residual norm"
+  },
+  "fixed_parameters": {
+   "high_grid": [
+    64,
+    64
+   ],
+   "low_grid_source": [
+    32,
+    32
+   ],
+   "feature_dim": 768,
+   "bilinear_mode": "torch.nn.functional.interpolate(mode=bilinear, align_corners=False, size=64 x 64) on CPU",
+   "row_l2_floor": 1e-08,
+   "concat_equal_weight": "1/sqrt(2) per normalized high/residual branch; no weight scan",
+   "ridge_alpha": 1.0,
+   "ridge_fit": "fit_intercept=False; X=other-support row-L2 low; Y=other-support row-L2 high; normal memory only",
+   "wrong_pair_rule": "same query support image, same family, seed (s + 1) mod 3; fixed before AP",
+   "nearest_neighbor": "global over all 4096 memory cells; Euclidean distance of row-L2 descriptors via sqrt(2 - 2 max cosine)",
+   "score_map_postprocess": "src.utils.dists2map: cv2 INTER_LINEAR resize to 1024 x 1024 followed by Gaussian sigma=4"
+  },
+  "data_roles": {
+   "memory": "only the other clean support image in the same category for NN and ridge fitting; query image cells excluded",
+   "synthetic_query": "main arms use the query's own high and low cached variant; no clean counterpart oracle",
+   "normal_control": "own clean query score distribution; not FPR",
+   "wrong_pair_exception": "explicit synthetic control only; low branch comes from the same query support image's fixed next-seed variant",
+   "test_read": false,
+   "new_feature_extraction": false,
+   "parameter_fit_from_ap": false,
+   "type_routing": false
+  },
+  "evaluation": {
+   "synthetic": "Pixel-AP on original 1024 x 1024 mask",
+   "normal": "mean / p95 / p99 score distribution for clean query after common map post-processing; no clean-vs-nuisance FPR",
+   "main_table": false,
+   "novelty_boundary": "cross-resolution residual and ridge are bounded controls; no algorithm novelty claim"
+  },
+  "resources": {
+   "device": "cpu",
+   "threads": 2,
+   "gpu_used": false,
+   "new_feature_extraction": false
+  },
+  "hard_deadline_beijing": "2026-09-09T07:00:00+08:00",
+  "hard_deadline_utc": "2026-09-08T23:00:00+00:00"
+ },
+ "result": {
+  "status": "complete",
+  "elapsed_s": 74.27200420000008,
+  "n_ap_rows": 168,
+  "n_normal_rows": 24,
+  "methods": {
+   "high_only64": {
+    "thin_scratch_pixel_ap_macro": 0.3386926486398362,
+    "cutpaste_pixel_ap_macro": 0.783799530072753,
+    "synthetic_pixel_ap_macro": 0.5612460893562946,
+    "normal_clean_score_mean_macro": 0.4195061919766925,
+    "normal_clean_score_p95_macro": 0.6111170649528503,
+    "normal_clean_score_p99_macro": 0.7371288314461708,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "low_only64": {
+    "thin_scratch_pixel_ap_macro": 0.23503102214726249,
+    "cutpaste_pixel_ap_macro": 0.8171742027580987,
+    "synthetic_pixel_ap_macro": 0.5261026124526805,
+    "normal_clean_score_mean_macro": 0.43995078047144887,
+    "normal_clean_score_p95_macro": 0.632634274661541,
+    "normal_clean_score_p99_macro": 0.7248108424246311,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "late_mean64": {
+    "thin_scratch_pixel_ap_macro": 0.3406819958954472,
+    "cutpaste_pixel_ap_macro": 0.8227032901473362,
+    "synthetic_pixel_ap_macro": 0.5816926430213917,
+    "normal_clean_score_mean_macro": 0.42972848619096027,
+    "normal_clean_score_p95_macro": 0.6138136498630047,
+    "normal_clean_score_p99_macro": 0.717514306306839,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "direct_residual64": {
+    "thin_scratch_pixel_ap_macro": 0.0031959420620757003,
+    "cutpaste_pixel_ap_macro": 0.011856523551223887,
+    "synthetic_pixel_ap_macro": 0.007526232806649794,
+    "normal_clean_score_mean_macro": 0.5403548944371295,
+    "normal_clean_score_p95_macro": 0.7530247382819653,
+    "normal_clean_score_p99_macro": 0.8696696944534779,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "high_residual_concat64": {
+    "thin_scratch_pixel_ap_macro": 0.3347362912954943,
+    "cutpaste_pixel_ap_macro": 0.7675643056443894,
+    "synthetic_pixel_ap_macro": 0.5511502984699418,
+    "normal_clean_score_mean_macro": 0.6419296609409955,
+    "normal_clean_score_p95_macro": 0.8443166650831699,
+    "normal_clean_score_p99_macro": 0.9464266486465931,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "ridge_residual64": {
+    "thin_scratch_pixel_ap_macro": 0.2161478099003649,
+    "cutpaste_pixel_ap_macro": 0.5727521132509549,
+    "synthetic_pixel_ap_macro": 0.3944499615756598,
+    "normal_clean_score_mean_macro": 0.5063653542426678,
+    "normal_clean_score_p95_macro": 0.6818466000258923,
+    "normal_clean_score_p99_macro": 0.7542386278510094,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 4
+   },
+   "wrong_pair_residual64": {
+    "thin_scratch_pixel_ap_macro": 0.1120998400304742,
+    "cutpaste_pixel_ap_macro": 0.4299348766309375,
+    "synthetic_pixel_ap_macro": 0.27101735833070584,
+    "normal_clean_score_mean_macro": NaN,
+    "normal_clean_score_p95_macro": NaN,
+    "normal_clean_score_p99_macro": NaN,
+    "n_synthetic_rows": 24,
+    "n_normal_rows": 0
+   }
+  },
+  "per_category": {
+   "bracket_black": {
+    "high_only64": {
+     "thin_scratch_pixel_ap": 0.3137833812558584,
+     "cutpaste_pixel_ap": 0.759135156844739,
+     "synthetic_pixel_ap": 0.5364592690502987,
+     "normal_clean_score_mean": 0.39332914697154564,
+     "normal_clean_score_p95": 0.6180723756551743,
+     "normal_clean_score_p99": 0.785249225795269
+    },
+    "low_only64": {
+     "thin_scratch_pixel_ap": 0.23633855664557382,
+     "cutpaste_pixel_ap": 0.8220054331215016,
+     "synthetic_pixel_ap": 0.5291719948835377,
+     "normal_clean_score_mean": 0.42551844436199815,
+     "normal_clean_score_p95": 0.6577575877308846,
+     "normal_clean_score_p99": 0.7609917968511581
+    },
+    "late_mean64": {
+     "thin_scratch_pixel_ap": 0.3310887419213111,
+     "cutpaste_pixel_ap": 0.8117359615782931,
+     "synthetic_pixel_ap": 0.5714123517498021,
+     "normal_clean_score_mean": 0.4094237956140532,
+     "normal_clean_score_p95": 0.6334330588579178,
+     "normal_clean_score_p99": 0.7645713537931442
+    },
+    "direct_residual64": {
+     "thin_scratch_pixel_ap": 0.0031236118461063687,
+     "cutpaste_pixel_ap": 0.01148459065245637,
+     "synthetic_pixel_ap": 0.007304101249281369,
+     "normal_clean_score_mean": 0.5486906464031023,
+     "normal_clean_score_p95": 0.7632105126976967,
+     "normal_clean_score_p99": 0.888064481317997
+    },
+    "high_residual_concat64": {
+     "thin_scratch_pixel_ap": 0.3100956926398867,
+     "cutpaste_pixel_ap": 0.7198673759575241,
+     "synthetic_pixel_ap": 0.5149815342987054,
+     "normal_clean_score_mean": 0.6123729808754348,
+     "normal_clean_score_p95": 0.8637905567884445,
+     "normal_clean_score_p99": 0.9916742891073227
+    },
+    "ridge_residual64": {
+     "thin_scratch_pixel_ap": 0.1276352152204495,
+     "cutpaste_pixel_ap": 0.47159466968365465,
+     "synthetic_pixel_ap": 0.29961494245205217,
+     "normal_clean_score_mean": 0.5092375935541895,
+     "normal_clean_score_p95": 0.7011948451399803,
+     "normal_clean_score_p99": 0.7733101174235344
+    },
+    "wrong_pair_residual64": {
+     "thin_scratch_pixel_ap": 0.1201809777353297,
+     "cutpaste_pixel_ap": 0.5276506715899069,
+     "synthetic_pixel_ap": 0.3239158246626182,
+     "normal_clean_score_mean": NaN,
+     "normal_clean_score_p95": NaN,
+     "normal_clean_score_p99": NaN
+    }
+   },
+   "metal_plate": {
+    "high_only64": {
+     "thin_scratch_pixel_ap": 0.36360191602381403,
+     "cutpaste_pixel_ap": 0.8084639033007671,
+     "synthetic_pixel_ap": 0.5860329096622906,
+     "normal_clean_score_mean": 0.4456832369818393,
+     "normal_clean_score_p95": 0.6041617542505264,
+     "normal_clean_score_p99": 0.6890084370970726
+    },
+    "low_only64": {
+     "thin_scratch_pixel_ap": 0.2337234876489512,
+     "cutpaste_pixel_ap": 0.8123429723946959,
+     "synthetic_pixel_ap": 0.5230332300218233,
+     "normal_clean_score_mean": 0.4543831165808996,
+     "normal_clean_score_p95": 0.6075109615921974,
+     "normal_clean_score_p99": 0.6886298879981041
+    },
+    "late_mean64": {
+     "thin_scratch_pixel_ap": 0.35027524986958314,
+     "cutpaste_pixel_ap": 0.8336706187163793,
+     "synthetic_pixel_ap": 0.5919729342929814,
+     "normal_clean_score_mean": 0.45003317676786736,
+     "normal_clean_score_p95": 0.5941942408680916,
+     "normal_clean_score_p99": 0.6704572588205338
+    },
+    "direct_residual64": {
+     "thin_scratch_pixel_ap": 0.0032682722780450306,
+     "cutpaste_pixel_ap": 0.012228456449991404,
+     "synthetic_pixel_ap": 0.007748364364018219,
+     "normal_clean_score_mean": 0.5320191424711567,
+     "normal_clean_score_p95": 0.7428389638662338,
+     "normal_clean_score_p99": 0.8512749075889587
+    },
+    "high_residual_concat64": {
+     "thin_scratch_pixel_ap": 0.35937688995110184,
+     "cutpaste_pixel_ap": 0.8152612353312545,
+     "synthetic_pixel_ap": 0.5873190626411781,
+     "normal_clean_score_mean": 0.6714863410065561,
+     "normal_clean_score_p95": 0.8248427733778954,
+     "normal_clean_score_p99": 0.9011790081858635
+    },
+    "ridge_residual64": {
+     "thin_scratch_pixel_ap": 0.3046604045802803,
+     "cutpaste_pixel_ap": 0.6739095568182548,
+     "synthetic_pixel_ap": 0.4892849806992676,
+     "normal_clean_score_mean": 0.5034931149311461,
+     "normal_clean_score_p95": 0.6624983549118042,
+     "normal_clean_score_p99": 0.7351671382784843
+    },
+    "wrong_pair_residual64": {
+     "thin_scratch_pixel_ap": 0.1040187023256187,
+     "cutpaste_pixel_ap": 0.3322190816719682,
+     "synthetic_pixel_ap": 0.21811889199879345,
+     "normal_clean_score_mean": NaN,
+     "normal_clean_score_p95": NaN,
+     "normal_clean_score_p99": NaN
+    }
+   }
+  },
+  "deltas": {
+   "direct_residual64_vs_high_only64": -0.5537198565496448,
+   "direct_residual64_vs_late_mean64": -0.5741664102147419,
+   "ridge_residual64_vs_high_only64": -0.1667961277806348,
+   "ridge_residual64_vs_late_mean64": -0.18724268144573186,
+   "high_residual_concat64_vs_high_only64": -0.010095790886352818,
+   "high_residual_concat64_vs_late_mean64": -0.030542344551449885,
+   "high_residual_concat64_vs_direct_residual64": 0.543624065663292,
+   "wrong_pair_residual64_vs_direct_residual64": 0.26349112552405607
+  },
+  "baseline_best_synthetic_ap": 0.5816926430213917,
+  "residual_best_synthetic_ap": 0.5511502984699418,
+  "data_role": {
+   "support_only": true,
+   "real_test_read": false,
+   "strict_leave_image_memory": true,
+   "query_clean_counterpart_used_for_synthetic": false,
+   "new_feature_extraction": false,
+   "mask_role": "cached support-derived evaluation labels only"
+  },
+  "mask_audit": {
+   "total_rows": 24,
+   "total_unique_masks": 24,
+   "all_high_low_equal": true,
+   "categories": {
+    "bracket_black": 12,
+    "metal_plate": 12
+   }
+  },
+  "decision": "NO_RESIDUAL_GAIN_OVER_FIXED_BASELINES",
+  "decision_note": "Direct and ridge residuals are bounded controls. Any positive result is support-derived and cannot be called a new algorithm; the wrong-pair arm is a fixed correspondence sanity control.",
+  "error": null,
+  "started_utc": "2026-09-08T01:13:38.043075+00:00",
+  "finished_utc": "2026-09-08T01:14:52.316523+00:00",
+  "protocol_sha256": "4442ced853cff6b461380b7b553ad8a814588762f4cc8c1423f1053b2b1385a5",
+  "code_sha256": "ee364cb9ac6bec58fecfc7a90ffaf8548e44635c5ac1e1944060a60532370153",
+  "reproduction": {
+   "command": ".venv-anomalyclip/Scripts/python.exe scripts/innovation_followup_20260908/probe_scale_residual.py",
+   "script": "scripts/innovation_followup_20260908/probe_scale_residual.py"
+  }
+ }
+}

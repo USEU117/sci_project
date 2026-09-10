@@ -1,0 +1,430 @@
+{
+  "status": "running",
+  "protocol": {
+    "categories": [
+      "bracket_black",
+      "metal_plate"
+    ],
+    "shot": 2,
+    "seed": 0,
+    "scratch_seed": 0,
+    "edges": [
+      448,
+      896
+    ],
+    "variants": [
+      "legacy_dark",
+      "bright110",
+      "dark20",
+      "bright20"
+    ],
+    "role": "support-only stress test; frozen model; memory=other clean support",
+    "map": "Euclidean unit-feature NN -> identical dists2map to1024",
+    "hypothesis": "does resolution benefit persist across contrast sign and strength?",
+    "limits": "4 underlying masks; not generalization proof; no parameter selection"
+  },
+  "rows": [
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 448,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.18450879937457576,
+      "mask_pixels": 657,
+      "contrast": 18.966514459665145,
+      "encode_s": 0.7444131999945967
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 448,
+      "variant": "bright110",
+      "pixel_ap": 0.1839518632205016,
+      "mask_pixels": 657,
+      "contrast": 110.0,
+      "encode_s": 0.10570230000303127
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 448,
+      "variant": "dark20",
+      "pixel_ap": 0.1753749078718472,
+      "mask_pixels": 657,
+      "contrast": 15.905631659056317,
+      "encode_s": 0.10633310000412166
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 448,
+      "variant": "bright20",
+      "pixel_ap": 0.14340259538616676,
+      "mask_pixels": 657,
+      "contrast": 20.0,
+      "encode_s": 0.10155680000025313
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 448,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.24229758526799436,
+      "mask_pixels": 791,
+      "contrast": 139.30594184576486,
+      "encode_s": 0.10407409999606898
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 448,
+      "variant": "bright110",
+      "pixel_ap": 0.20695843161006625,
+      "mask_pixels": 791,
+      "contrast": 110.0,
+      "encode_s": 0.10393059999478282
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 448,
+      "variant": "dark20",
+      "pixel_ap": 0.1055997415352973,
+      "mask_pixels": 791,
+      "contrast": 20.0,
+      "encode_s": 0.1038403999991715
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 448,
+      "variant": "bright20",
+      "pixel_ap": 0.007280806498897663,
+      "mask_pixels": 791,
+      "contrast": 20.0,
+      "encode_s": 0.10373320000508102
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 448,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.4441122709702531,
+      "mask_pixels": 1463,
+      "contrast": 119.76896787423104,
+      "encode_s": 0.10143029999744613
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 448,
+      "variant": "bright110",
+      "pixel_ap": 0.4582575904194629,
+      "mask_pixels": 1463,
+      "contrast": 110.0,
+      "encode_s": 0.10279319999972358
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 448,
+      "variant": "dark20",
+      "pixel_ap": 0.20792998494663448,
+      "mask_pixels": 1463,
+      "contrast": 20.0,
+      "encode_s": 0.10266080000292277
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 448,
+      "variant": "bright20",
+      "pixel_ap": 0.1540432595096727,
+      "mask_pixels": 1463,
+      "contrast": 20.0,
+      "encode_s": 0.10394580000138376
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 448,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.10088725098468626,
+      "mask_pixels": 945,
+      "contrast": 117.11322751322751,
+      "encode_s": 0.10366530000464991
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 448,
+      "variant": "bright110",
+      "pixel_ap": 0.11291698415968267,
+      "mask_pixels": 945,
+      "contrast": 100.44550264550264,
+      "encode_s": 0.10476709999784362
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 448,
+      "variant": "dark20",
+      "pixel_ap": 0.09892537326775946,
+      "mask_pixels": 945,
+      "contrast": 20.0,
+      "encode_s": 0.10326580000401009
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 448,
+      "variant": "bright20",
+      "pixel_ap": 0.08586815599706527,
+      "mask_pixels": 945,
+      "contrast": 20.0,
+      "encode_s": 0.10408830000233138
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 896,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.1678899290456365,
+      "mask_pixels": 657,
+      "contrast": 18.966514459665145,
+      "encode_s": 0.7029235999943921
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 896,
+      "variant": "bright110",
+      "pixel_ap": 0.15258684511750148,
+      "mask_pixels": 657,
+      "contrast": 110.0,
+      "encode_s": 0.6304330999992089
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 896,
+      "variant": "dark20",
+      "pixel_ap": 0.1652352616201958,
+      "mask_pixels": 657,
+      "contrast": 15.905631659056317,
+      "encode_s": 0.6393110999997589
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "memory_ref": "bracket_black/train/good/281.png",
+      "edge": 896,
+      "variant": "bright20",
+      "pixel_ap": 0.11091112291405242,
+      "mask_pixels": 657,
+      "contrast": 20.0,
+      "encode_s": 0.6323407999952906
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 896,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.3661666418815687,
+      "mask_pixels": 791,
+      "contrast": 139.30594184576486,
+      "encode_s": 0.6351217000046745
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 896,
+      "variant": "bright110",
+      "pixel_ap": 0.37620823980299994,
+      "mask_pixels": 791,
+      "contrast": 110.0,
+      "encode_s": 0.6343431999994209
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 896,
+      "variant": "dark20",
+      "pixel_ap": 0.02135895373134775,
+      "mask_pixels": 791,
+      "contrast": 20.0,
+      "encode_s": 0.6320133999979589
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "memory_ref": "bracket_black/train/good/271.png",
+      "edge": 896,
+      "variant": "bright20",
+      "pixel_ap": 0.025105856644599602,
+      "mask_pixels": 791,
+      "contrast": 20.0,
+      "encode_s": 0.6232469000024139
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 896,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.7153721287300758,
+      "mask_pixels": 1463,
+      "contrast": 119.76896787423104,
+      "encode_s": 0.38784779999696184
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 896,
+      "variant": "bright110",
+      "pixel_ap": 0.7875664685161143,
+      "mask_pixels": 1463,
+      "contrast": 110.0,
+      "encode_s": 0.38851949999661883
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 896,
+      "variant": "dark20",
+      "pixel_ap": 0.3552008076060638,
+      "mask_pixels": 1463,
+      "contrast": 20.0,
+      "encode_s": 0.3807874999984051
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "memory_ref": "metal_plate/train/good/012.png",
+      "edge": 896,
+      "variant": "bright20",
+      "pixel_ap": 0.633978524244973,
+      "mask_pixels": 1463,
+      "contrast": 20.0,
+      "encode_s": 0.4639772000009543
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 896,
+      "variant": "legacy_dark",
+      "pixel_ap": 0.27731480229258026,
+      "mask_pixels": 945,
+      "contrast": 117.11322751322751,
+      "encode_s": 0.4461897000001045
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 896,
+      "variant": "bright110",
+      "pixel_ap": 0.2843066382898515,
+      "mask_pixels": 945,
+      "contrast": 100.44550264550264,
+      "encode_s": 0.3975512999968487
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 896,
+      "variant": "dark20",
+      "pixel_ap": 0.2573061067353268,
+      "mask_pixels": 945,
+      "contrast": 20.0,
+      "encode_s": 0.38818110000283923
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "memory_ref": "metal_plate/train/good/029.png",
+      "edge": 896,
+      "variant": "bright20",
+      "pixel_ap": 0.25012160845303233,
+      "mask_pixels": 945,
+      "contrast": 20.0,
+      "encode_s": 0.6323283000019728
+    }
+  ],
+  "parity": [
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "edge": 448,
+      "max_feature_error": 0.00036525726318359375
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "edge": 448,
+      "max_feature_error": 0.0006082057952880859
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "edge": 448,
+      "max_feature_error": 0.0005536079406738281
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "edge": 448,
+      "max_feature_error": 0.0013227462768554688
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/271.png",
+      "edge": 896,
+      "max_feature_error": 0.005886077880859375
+    },
+    {
+      "category": "bracket_black",
+      "ref": "bracket_black/train/good/281.png",
+      "edge": 896,
+      "max_feature_error": 0.0004916489124298096
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/029.png",
+      "edge": 896,
+      "max_feature_error": 0.0012683868408203125
+    },
+    {
+      "category": "metal_plate",
+      "ref": "metal_plate/train/good/012.png",
+      "edge": 896,
+      "max_feature_error": 0.0007734298706054688
+    }
+  ]
+}

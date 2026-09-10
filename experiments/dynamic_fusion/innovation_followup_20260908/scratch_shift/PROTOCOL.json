@@ -1,0 +1,23 @@
+{
+  "categories": [
+    "bracket_black",
+    "metal_plate"
+  ],
+  "shot": 2,
+  "seed": 0,
+  "scratch_seed": 0,
+  "edges": [
+    448,
+    896
+  ],
+  "variants": [
+    "legacy_dark",
+    "bright110",
+    "dark20",
+    "bright20"
+  ],
+  "role": "support-only stress test; frozen model; memory=other clean support",
+  "map": "Euclidean unit-feature NN -> identical dists2map to1024",
+  "hypothesis": "does resolution benefit persist across contrast sign and strength?",
+  "limits": "4 underlying masks; not generalization proof; no parameter selection"
+}

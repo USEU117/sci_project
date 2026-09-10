@@ -1,0 +1,27 @@
+{
+  "shot": 2,
+  "categories": [
+    "bracket_black",
+    "bracket_brown",
+    "bracket_white",
+    "connector",
+    "metal_plate",
+    "tubes"
+  ],
+  "families": [
+    "cutpaste",
+    "local_erasure",
+    "thin_scratch"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "pixel_thresholds": [
+    0,
+    2,
+    8
+  ],
+  "role": "support-only label-to-actual-change audit; no detector evaluation"
+}

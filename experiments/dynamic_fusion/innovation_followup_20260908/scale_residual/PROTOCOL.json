@@ -1,0 +1,95 @@
+{
+ "script_version": "scale_residual_followup_v1",
+ "protocol_version": "scale_residual_cached64_support_probe_v1",
+ "created_utc": "2026-09-08T01:13:38.040233+00:00",
+ "role": "support-only cross-input-resolution residual control; no test image or test label",
+ "historical_audit": {
+  "resolution_storage_script": "scripts/innovation_overnight_20260908/probe_resolution_storage.py",
+  "resolution_storage_finding": "full448/full896 were evaluated as independent NN arms and INT8 roundtrip; no high-low feature residual",
+  "scale_fusion_script": "scripts/innovation_overnight_20260908/probe_scale_fusion.py",
+  "scale_fusion_finding": "fixed full896/low bilinear/concat/late arms; no direct cross-resolution residual or low-to-high predictor",
+  "full896_extension_script": "scripts/innovation_overnight_20260908/probe_full896_extension.py",
+  "full896_extension_finding": "dual-resolution clean/synthetic cache export only; no residual arm",
+  "related_prior_art": "https://arxiv.org/abs/2602.09524",
+  "related_prior_art_finding": "HLGFA (2026, v3) already describes frozen-backbone high-low resolution consistency, structure/detail decomposition, and gated residual",
+  "novelty_boundary": "the residual concept is not original; this probe only measures a few-shot normal-only closed-form residual and support-only cost/quality control",
+  "audit_conclusion": "direct cross-input-resolution residual route is not a completed historical experiment; this run is a bounded control, not a novelty claim"
+ },
+ "scope": {
+  "dataset": "MPDD",
+  "categories": [
+   "bracket_black",
+   "metal_plate"
+  ],
+  "seed": 0,
+  "shot": 2,
+  "synthetic_families": [
+   "thin_scratch",
+   "cutpaste"
+  ],
+  "synthetic_seeds": [
+   0,
+   1,
+   2
+  ],
+  "unique_synthetic_masks": 24
+ },
+ "cache_index": {
+  "high": "outputs/dynamic_fusion/overnight_20260908_full896/features/<category>.npz: clean_feat/syn_feat 64 x 64 x 768",
+  "low": "outputs/dynamic_fusion/v14_p1_support/v14_p1_support_dino_s0_k2/<category>.npz: clean_feat/syn_feat 32 x 32 x 768",
+  "index_rule": "match manifest ref_rel; high full896 kind-major thin_scratch/cutpaste; low v14 kind-major cutpaste/local_erasure/thin_scratch",
+  "mask_rule": "high full896 synthetic mask must equal the corresponding low v14 mask byte-for-byte"
+ },
+ "fixed_arms": {
+  "high_only64": "high feature row-L2 then global L2 NN",
+  "low_only64": "low feature bilinear-to-64, row-L2 then global L2 NN",
+  "late_mean64": "arithmetic mean of high-only and low-only 64-grid distance maps, then common map post-processing",
+  "direct_residual64": "row-L2 high minus row-L2 low; score is residual row L2 norm",
+  "high_residual_concat64": "row-L2 high and row-L2 direct residual, each multiplied by 1/sqrt(2), concat, row-L2, global L2 NN",
+  "ridge_residual64": "fit low-to-high ridge on the other clean support image only; query score is row L2 of own high minus predicted high",
+  "wrong_pair_residual64": "synthetic-only control: current query high minus same-query next-seed low, row-L2 residual norm"
+ },
+ "fixed_parameters": {
+  "high_grid": [
+   64,
+   64
+  ],
+  "low_grid_source": [
+   32,
+   32
+  ],
+  "feature_dim": 768,
+  "bilinear_mode": "torch.nn.functional.interpolate(mode=bilinear, align_corners=False, size=64 x 64) on CPU",
+  "row_l2_floor": 1e-08,
+  "concat_equal_weight": "1/sqrt(2) per normalized high/residual branch; no weight scan",
+  "ridge_alpha": 1.0,
+  "ridge_fit": "fit_intercept=False; X=other-support row-L2 low; Y=other-support row-L2 high; normal memory only",
+  "wrong_pair_rule": "same query support image, same family, seed (s + 1) mod 3; fixed before AP",
+  "nearest_neighbor": "global over all 4096 memory cells; Euclidean distance of row-L2 descriptors via sqrt(2 - 2 max cosine)",
+  "score_map_postprocess": "src.utils.dists2map: cv2 INTER_LINEAR resize to 1024 x 1024 followed by Gaussian sigma=4"
+ },
+ "data_roles": {
+  "memory": "only the other clean support image in the same category for NN and ridge fitting; query image cells excluded",
+  "synthetic_query": "main arms use the query's own high and low cached variant; no clean counterpart oracle",
+  "normal_control": "own clean query score distribution; not FPR",
+  "wrong_pair_exception": "explicit synthetic control only; low branch comes from the same query support image's fixed next-seed variant",
+  "test_read": false,
+  "new_feature_extraction": false,
+  "parameter_fit_from_ap": false,
+  "type_routing": false
+ },
+ "evaluation": {
+  "synthetic": "Pixel-AP on original 1024 x 1024 mask",
+  "normal": "mean / p95 / p99 score distribution for clean query after common map post-processing; no clean-vs-nuisance FPR",
+  "main_table": false,
+  "novelty_boundary": "cross-resolution residual and ridge are bounded controls; no algorithm novelty claim"
+ },
+ "resources": {
+  "device": "cpu",
+  "threads": 2,
+  "gpu_used": false,
+  "new_feature_extraction": false
+ },
+ "hard_deadline_beijing": "2026-09-09T07:00:00+08:00",
+ "hard_deadline_utc": "2026-09-08T23:00:00+00:00"
+}
